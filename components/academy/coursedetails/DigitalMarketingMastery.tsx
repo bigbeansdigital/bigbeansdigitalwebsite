@@ -32,16 +32,16 @@ const tabs = [
     label: "Modules",
   },
   {
-    id: "recommendations",
-    label: "Recommendations",
+    id: "Course is for",
+    label: "Course is for",
   },
   {
     id: "testimonials",
     label: "Testimonials",
   },
   {
-    id: "reviews",
-    label: "Reviews",
+    id: "FAQs",
+    label: "FAQs",
   },
 ];
 
@@ -844,8 +844,8 @@ useEffect(() => {
 </section>
 
 <section
-  id="recommendations"
-  className="scroll-mt-36 bg-[#FAFAFA]"
+  id="Course is for"
+  className="scroll-mt-36 bg-[#FFFFFF]"
 >
   <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
 
@@ -861,7 +861,7 @@ useEffect(() => {
 
     </div>
 
-    <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+    <div className="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
 
       {[
         {
@@ -922,7 +922,7 @@ useEffect(() => {
   id="testimonials"
   className="scroll-mt-36 bg-white"
 >
-  <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
+  <div className="mx-auto max-w-7xl px-6 py-1 lg:px-8">
 
     <div className="max-w-3xl">
 
@@ -1024,8 +1024,8 @@ useEffect(() => {
 </section>
 
 <section
-  id="reviews"
-  className="scroll-mt-36 bg-[#FAFAFA]"
+  id="FAQs"
+  className="scroll-mt-5 bg-[#FFFFFF]"
 >
   <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
 

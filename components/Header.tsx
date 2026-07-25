@@ -84,14 +84,6 @@ export default function Header() {
 >
   About
 </Link>
-
-         <Link
-  href="/internship"
-  className="transition-all duration-300 hover:scale-110 hover:font-bold hover:text-black"
->
-  Internship
-</Link>
-
           <Link
   href="/academy"
   className="transition-all duration-300 hover:scale-110 hover:font-bold hover:text-black"
@@ -104,6 +96,13 @@ export default function Header() {
   className="transition-all duration-300 hover:scale-110 hover:font-bold hover:text-black"
 >
   Connect
+</Link>
+
+<Link
+  href="/internship"
+  className="transition-all duration-300 hover:scale-110 hover:font-bold hover:text-black"
+>
+  Join Our Team
 </Link>
 
         </nav>
