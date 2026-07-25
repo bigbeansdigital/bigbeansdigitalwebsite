@@ -44,10 +44,10 @@ export const courses: Course[] = [
     lessons: "120 Lessons",
     instructor: "BIGBEANS DIGITAL",
 
-    oldPrice: "₹39,999",
-    price: "₹24,999",
+    oldPrice: "₹10,999",
+    price: "₹1,999",
 
-    image: "/assets/courses/course1.jpg",
+    image: "/academy/Digital-Marketing-Mastery-Program-course-preview.jpg",
 
     description:
       "Master SEO, Google Ads, Meta Ads, AI marketing, content strategy, analytics and real client projects.",

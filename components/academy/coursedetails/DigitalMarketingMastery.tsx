@@ -229,7 +229,7 @@ useEffect(() => {
                 <div className="relative aspect-[16/8.5] overflow-hidden bg-gray-200">
 
                   <Image
-                    src="/academy/course-preview.jpg"
+                    src="/academy/Digital-Marketing-Mastery-Program-course-preview.jpg"
                     alt="Digital Marketing Course"
                     fill
                     className="object-cover"
@@ -256,7 +256,7 @@ useEffect(() => {
 
                     <span className="pb-2 text-lg text-gray-400 line-through">
 
-                      ₹5,999
+                      ₹10,999
 
                     </span>
 
