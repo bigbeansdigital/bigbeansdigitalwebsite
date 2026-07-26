@@ -109,6 +109,9 @@ const [activeTab, setActiveTab] = useState("about");
 const [openFAQ, setOpenFAQ] = useState<number | null>(0);
 const [openModule, setOpenModule] = useState(0);
 
+const leftFaqs = faqs.filter((_, index) => index % 2 === 0);
+const rightFaqs = faqs.filter((_, index) => index % 2 !== 0);
+
 useEffect(() => {
   const sections = tabs.map((tab) =>
     document.getElementById(tab.id)
@@ -481,7 +484,7 @@ useEffect(() => {
     <div className="overflow-hidden">
 
       <Image
-        src="/academy/outcomes.jpg"
+        src="/academy/Digital-Marketing-Mastery-Program-course-preview.jpg"
         alt="Digital Marketing Learning"
         width={700}
         height={500}
@@ -520,10 +523,6 @@ useEffect(() => {
 <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
 
     <div className="mb-16">
-
-        <span className="text-sm font-bold uppercase tracking-[3px] text-[#F8BC04]">
-            Course Curriculum
-        </span>
 
         <h2 className="mt-4 text-4xl font-black text-[#171717]">
             Course Modules
@@ -755,7 +754,7 @@ useEffect(() => {
     <div className="relative aspect-video overflow-hidden bg-gray-200">
 
       <Image
-        src="/academy/course-preview.jpg"
+        src="/academy/Digital-Marketing-Mastery-Program-course-preview.jpg"
         alt="Digital Marketing Course"
         fill
         className="object-cover"
@@ -831,7 +830,83 @@ useEffect(() => {
 
 </div>
 
+<section className="bg-white">
+  <div className="mx-auto max-w-7xl px-6 py-1 lg:px-8">
 
+    <div className="mx-auto max-w-3xl text-center">
+
+      <h2 className="mt-4 text-4xl font-black text-[#171717]">
+        See How You'll Learn
+      </h2>
+
+    </div>
+
+    <div className="mt-16 grid gap-10 lg:grid-cols-2">
+
+      {/* LIVE CLASS */}
+
+      <div className="group overflow-hidden rounded-[32px] border border-black/5 bg-[#FAFAFA] shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
+
+        <div className="relative aspect-[15/10] overflow-hidden">
+
+          <Image
+            src="/academy/live-class.jpg"
+            alt="Live Digital Marketing Class"
+            fill
+            className="object-cover transition duration-700 group-hover:scale-110"
+          />
+
+        </div>
+
+        <div className="p-8">
+
+          <h3 className="text-2xl font-black text-[#171717]">
+            Interactive Live Classes
+          </h3>
+
+          <p className="mt-4 leading-8 text-gray-600">
+            Learn through live sessions, practical demonstrations, doubt clearing, assignments and real-world case studies.
+          </p>
+
+        </div>
+
+      </div>
+
+      {/* CERTIFICATE */}
+
+      <div className="group overflow-hidden rounded-[32px] border border-black/5 bg-[#FAFAFA] shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
+
+        <div className="relative aspect-[15/10] overflow-hidden">
+
+          <Image
+            src="/academy/certificate.jpg"
+            alt="BIGBEANS Academy Certificate"
+            fill
+            className="object-cover transition duration-700 group-hover:scale-110"
+          />
+
+          
+
+        </div>
+
+        <div className="p-8">
+
+          <h3 className="text-2xl font-black text-[#171717]">
+            Course Certificate
+          </h3>
+
+          <p className="mt-4 leading-8 text-gray-600">
+            Showcase your newly acquired skills with a professional certificate from BIGBEANS DIGITAL.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
 
 
 
@@ -851,10 +926,6 @@ useEffect(() => {
 
     <div className="max-w-3xl">
 
-      <span className="text-sm font-bold uppercase tracking-[3px] text-[#F8BC04]">
-        Who Should Join
-      </span>
-
       <h2 className="mt-4 text-4xl font-black text-[#171717]">
         Perfect For Every Career Stage
       </h2>
@@ -865,7 +936,7 @@ useEffect(() => {
 
       {[
         {
-          title: "College Students",
+          title: "College Student",
           desc: "Build in-demand digital skills before graduation and become job ready.",
           emoji: "🎓",
         },
@@ -875,12 +946,12 @@ useEffect(() => {
           emoji: "💼",
         },
         {
-          title: "Freelancers",
+          title: "School Student",
           desc: "Learn how to attract clients, price services and scale your freelance business.",
           emoji: "🚀",
         },
         {
-          title: "Business Owners",
+          title: "Business Owner",
           desc: "Grow your own brand with proven digital marketing strategies and AI tools.",
           emoji: "📈",
         },
@@ -926,9 +997,7 @@ useEffect(() => {
 
     <div className="max-w-3xl">
 
-      <span className="text-sm font-bold uppercase tracking-[3px] text-[#F8BC04]">
-        Student Testimonials
-      </span>
+      
 
       <h2 className="mt-4 text-4xl font-black text-[#171717]">
         Hear From Our Learners
@@ -941,7 +1010,7 @@ useEffect(() => {
 
     </div>
 
-    <div className="mt-16 grid gap-8 lg:grid-cols-3">
+    <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
 
       {[
         {
@@ -951,6 +1020,18 @@ useEffect(() => {
             "The live practical sessions helped me understand Digital Marketing much faster than any online videos. I even built my own portfolio before completing the course.",
         },
         {
+  name: "Neha Gupta",
+  role: "College Student",
+  review:
+    "The practical assignments and live sessions made learning enjoyable and gave me confidence to start freelancing.",
+},
+{
+  name: "Aman Roy",
+  role: "College Student",
+  review:
+    "I learned SEO, Google Ads and AI tools in one program. It helped me build a strong portfolio for interviews.",
+},
+        {
           name: "Rahul Das",
           role: "Freelancer",
           review:
@@ -958,7 +1039,7 @@ useEffect(() => {
         },
         {
           name: "Priya Kapoor",
-          role: "Business Owner",
+          role: "College Student",
           review:
             "Instead of hiring an agency immediately, I learned how to market my own business. The strategies started generating leads within weeks.",
         },
@@ -966,7 +1047,7 @@ useEffect(() => {
 
         <div
           key={item.name}
-          className="rounded-3xl border border-black/5 bg-[#FAFAFA] p-8 transition duration-300 hover:-translate-y-2 hover:border-[#F8BC04] hover:shadow-xl"
+          className="rounded-2xl border border-black/5 bg-[#FAFAFA] p-5 transition duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-lg"
         >
 
           <div className="flex">
@@ -975,22 +1056,22 @@ useEffect(() => {
 
               <Star
                 key={i}
-                className="h-5 w-5 fill-[#F8BC04] text-[#F8BC04]"
+                className="h-4 w-4 fill-[#F8BC04] text-[#F8BC04]"
               />
 
             ))}
 
           </div>
 
-          <p className="mt-8 text-lg leading-9 text-gray-600">
+          <p className="mt-5 text-sm leading-7 text-gray-600">
 
             "{item.review}"
 
           </p>
 
-          <div className="mt-10 flex items-center gap-4">
+          <div className="mt-6 flex items-center gap-3">
 
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[#F8BC04] text-lg font-black text-black">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F8BC04] text-sm font-black text-black">
 
               {item.name.charAt(0)}
 
@@ -998,13 +1079,13 @@ useEffect(() => {
 
             <div>
 
-              <h3 className="font-bold text-[#171717]">
+              <h3 className="text-sm font-bold text-[#171717]">
 
                 {item.name}
 
               </h3>
 
-              <p className="text-gray-500">
+              <p className="text-xs text-gray-500">
 
                 {item.role}
 
@@ -1029,13 +1110,9 @@ useEffect(() => {
 >
   <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
 
-    <div className="max-w-3xl">
+   <div className="mx-auto max-w-3xl text-center">
 
-      <span className="text-sm font-bold uppercase tracking-[3px] text-[#F8BC04]">
-        FAQs
-      </span>
-
-      <h2 className="mt-4 text-4xl font-black text-[#171717]">
+          <h2 className="mt-4 text-4xl font-black text-[#171717]">
         Frequently Asked Questions
       </h2>
 
@@ -1045,160 +1122,172 @@ useEffect(() => {
 
     </div>
 
-    <div className="mt-16 overflow-hidden rounded-[30px] border border-black/10 bg-white">
+    
 
-      {faqs.map((faq, index) => (
+  <div className="mt-16 grid gap-8 lg:grid-cols-2">
 
-        <div
-          key={index}
-          className={`${index !== faqs.length - 1 ? "border-b border-black/10" : ""}`}
+  {/* Left Column */}
+
+  <div>
+
+    <div className="space-y-5">
+
+  {leftFaqs.map((faq, index) => {
+
+    const actualIndex = index * 2;
+
+    return (
+
+      <div
+        key={actualIndex}
+        className="overflow-hidden rounded-2xl border border-black/10 bg-white"
+      >
+
+        <button
+          onClick={() =>
+            setOpenFAQ(openFAQ === actualIndex ? null : actualIndex)
+          }
+          className="flex w-full items-center justify-between px-6 py-6 text-left transition hover:bg-[#FAFAFA]"
         >
 
-          <button
-            onClick={() =>
-              setOpenFAQ(openFAQ === index ? null : index)
-            }
-            className="flex w-full items-center justify-between px-8 py-7 text-left transition hover:bg-[#FAFAFA]"
-          >
+          <h3 className="pr-6 text-base font-semibold text-[#171717]">
 
-            <h3 className="pr-8 text-lg font-bold text-[#171717]">
+            {faq.question}
 
-              {faq.question}
+          </h3>
 
-            </h3>
+          <ChevronDown
+            className={`h-5 w-5 transition duration-300 ${
+              openFAQ === actualIndex
+                ? "rotate-180 text-[#F8BC04]"
+                : ""
+            }`}
+          />
 
-            <ChevronDown
-              className={`h-6 w-6 transition duration-300 ${
-                openFAQ === index ? "rotate-180 text-[#F8BC04]" : ""
-              }`}
-            />
+        </button>
 
-          </button>
+        <AnimatePresence>
 
-          <AnimatePresence>
+          {openFAQ === actualIndex && (
 
-            {openFAQ === index && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
 
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: .3 }}
-                className="overflow-hidden"
-              >
+              <div className="px-6 pb-6 text-gray-600 leading-8">
 
-                <div className="px-8 pb-8 pr-20 text-[17px] leading-8 text-gray-600">
+                {faq.answer}
 
-                  {faq.answer}
+              </div>
 
-                </div>
+            </motion.div>
 
-              </motion.div>
+          )}
 
-            )}
+        </AnimatePresence>
 
-          </AnimatePresence>
+      </div>
 
-        </div>
+    );
 
-      ))}
+  })}
 
-    </div>
+</div>
+
+  </div>
+
+  {/* Right Column */}
+
+  <div>
+
+    <div className="space-y-5">
+
+  {rightFaqs.map((faq, index) => {
+
+    const actualIndex = index * 2 + 1;
+
+    return (
+
+      <div
+        key={actualIndex}
+        className="overflow-hidden rounded-2xl border border-black/10 bg-white"
+      >
+
+        <button
+          onClick={() =>
+            setOpenFAQ(openFAQ === actualIndex ? null : actualIndex)
+          }
+          className="flex w-full items-center justify-between px-6 py-6 text-left transition hover:bg-[#FAFAFA]"
+        >
+
+          <h3 className="pr-6 text-base font-semibold text-[#171717]">
+
+            {faq.question}
+
+          </h3>
+
+          <ChevronDown
+            className={`h-5 w-5 transition duration-300 ${
+              openFAQ === actualIndex
+                ? "rotate-180 text-[#F8BC04]"
+                : ""
+            }`}
+          />
+
+        </button>
+
+        <AnimatePresence>
+
+          {openFAQ === actualIndex && (
+
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+
+              <div className="px-6 pb-6 text-gray-600 leading-8">
+
+                {faq.answer}
+
+              </div>
+
+            </motion.div>
+
+          )}
+
+        </AnimatePresence>
+
+      </div>
+
+    );
+
+  })}
+
+</div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
 
   </div>
 </section>
 
-<section className="bg-white">
-  <div className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
 
-    <div className="mx-auto max-w-3xl text-center">
-
-      <span className="text-sm font-bold uppercase tracking-[3px] text-[#F8BC04]">
-        Experience BIGBEANS Academy
-      </span>
-
-      <h2 className="mt-4 text-4xl font-black text-[#171717]">
-        See How You'll Learn
-      </h2>
-
-      <p className="mt-6 text-lg leading-9 text-gray-600">
-        Get a glimpse of our live interactive classes and the industry-recognized certificate you will receive after successfully completing the course.
-      </p>
-
-    </div>
-
-    <div className="mt-16 grid gap-10 lg:grid-cols-2">
-
-      {/* LIVE CLASS */}
-
-      <div className="group overflow-hidden rounded-[32px] border border-black/5 bg-[#FAFAFA] shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
-
-        <div className="relative aspect-[16/10] overflow-hidden">
-
-          <Image
-            src="/academy/live-class.jpg"
-            alt="Live Digital Marketing Class"
-            fill
-            className="object-cover transition duration-700 group-hover:scale-110"
-          />
-
-          <div className="absolute left-6 top-6 rounded-full bg-[#F8BC04] px-4 py-2 text-sm font-bold text-black">
-            LIVE CLASS
-          </div>
-
-        </div>
-
-        <div className="p-8">
-
-          <h3 className="text-2xl font-black text-[#171717]">
-            Interactive Live Classes
-          </h3>
-
-          <p className="mt-4 leading-8 text-gray-600">
-            Learn through live sessions, practical demonstrations, doubt clearing, assignments and real-world case studies.
-          </p>
-
-        </div>
-
-      </div>
-
-      {/* CERTIFICATE */}
-
-      <div className="group overflow-hidden rounded-[32px] border border-black/5 bg-[#FAFAFA] shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
-
-        <div className="relative aspect-[16/10] overflow-hidden">
-
-          <Image
-            src="/academy/certificate.jpg"
-            alt="BIGBEANS Academy Certificate"
-            fill
-            className="object-cover transition duration-700 group-hover:scale-110"
-          />
-
-          <div className="absolute left-6 top-6 rounded-full bg-[#F8BC04] px-4 py-2 text-sm font-bold text-black">
-            CERTIFICATE
-          </div>
-
-        </div>
-
-        <div className="p-8">
-
-          <h3 className="text-2xl font-black text-[#171717]">
-            Industry Recognized Certificate
-          </h3>
-
-          <p className="mt-4 leading-8 text-gray-600">
-            Showcase your newly acquired digital marketing skills with a professional certificate from BIGBEANS Academy.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-</section>
 
 {/* ===================================================== */}
 {/* MORE COURSES */}
