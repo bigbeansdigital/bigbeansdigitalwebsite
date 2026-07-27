@@ -768,9 +768,7 @@ export default function Academy() {
       
           <div className="mx-auto max-w-3xl text-center">
       
-            <h2 className="mt-4 text-4xl font-black text-[#171717]">
-              See How You'll Learn
-            </h2>
+           
       
           </div>
       
