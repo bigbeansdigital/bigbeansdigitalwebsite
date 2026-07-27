@@ -763,6 +763,84 @@ export default function Academy() {
 
       </section>
 
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-6 py-1 lg:px-8">
+      
+          <div className="mx-auto max-w-3xl text-center">
+      
+            <h2 className="mt-4 text-4xl font-black text-[#171717]">
+              See How You'll Learn
+            </h2>
+      
+          </div>
+      
+          <div className="mt-16 grid gap-10 lg:grid-cols-2">
+      
+            {/* LIVE CLASS */}
+      
+            <div className="group overflow-hidden rounded-[32px] border border-black/5 bg-[#FAFAFA] shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
+      
+              <div className="relative aspect-[15/10] overflow-hidden">
+      
+                <Image
+                  src="/academy/live-class.jpg"
+                  alt="Live Digital Marketing Class"
+                  fill
+                  className="object-cover transition duration-700 group-hover:scale-110"
+                />
+      
+              </div>
+      
+              <div className="p-8">
+      
+                <h3 className="text-2xl font-black text-[#171717]">
+                  Interactive Live Classes
+                </h3>
+      
+                <p className="mt-4 leading-8 text-gray-600">
+                  Learn through live sessions, practical demonstrations, doubt clearing, assignments and real-world case studies.
+                </p>
+      
+              </div>
+      
+            </div>
+      
+            {/* CERTIFICATE */}
+      
+            <div className="group overflow-hidden rounded-[32px] border border-black/5 bg-[#FAFAFA] shadow-sm transition duration-500 hover:-translate-y-2 hover:shadow-2xl">
+      
+              <div className="relative aspect-[15/10] overflow-hidden">
+      
+                <Image
+                  src="/academy/certificate.jpg"
+                  alt="BIGBEANS Academy Certificate"
+                  fill
+                  className="object-cover transition duration-700 group-hover:scale-110"
+                />
+      
+                
+      
+              </div>
+      
+              <div className="p-8">
+      
+                <h3 className="text-2xl font-black text-[#171717]">
+                  Course Certificate
+                </h3>
+      
+                <p className="mt-4 leading-8 text-gray-600">
+                  Showcase your newly acquired skills with a professional certificate from BIGBEANS DIGITAL.
+                </p>
+      
+              </div>
+      
+            </div>
+      
+          </div>
+      
+        </div>
+      </section>
+
       {/* =========================
             WHY CHOOSE OUR ACADEMY
       ========================= */}

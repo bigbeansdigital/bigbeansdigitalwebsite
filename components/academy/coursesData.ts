@@ -59,6 +59,8 @@ export const courses: Course[] = [
     detailsButtonLink: "/courses/digital-marketing-mastery",
   },
 
+  
+
 
 
 
