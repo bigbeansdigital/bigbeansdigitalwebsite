@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
+
+
+export const metadata: Metadata = {
+  title:
+    "About BIGBEANS DIGITAL | Best Digital Marketing Agency for Startups",
+  description:
+    "Learn about BIGBEANS DIGITAL, a results-driven Best Digital Marketing Agency helping startups and growing businesses with Social Media Marketing, Website Development, Branding, Google Ads, Meta Ads, and Performance Marketing across London, India, USA & Dubai.",
+};
+
 
 export default function AboutPage() {
   return (
