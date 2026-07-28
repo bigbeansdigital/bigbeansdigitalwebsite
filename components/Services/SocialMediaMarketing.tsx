@@ -57,40 +57,30 @@ useEffect(() => {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="pt-12 pb-24 bg-[#ffffff]">
+      <section className="pt-12 pb-10 bg-[#ffffff]">
         <div className="max-w-7xl mx-auto px-6">
 
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative overflow-hidden rounded-[40px] bg-[#F8BC04] py-10 md:py-8"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="relative"
           >
 
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[250px] bg-white/30 blur-[120px]" />
 
             <div className="relative z-10 text-center">
-
-              <motion.h1
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-[#171717] text-4xl md:text-6xl lg:text-7xl font-black leading-tight max-w-5xl mx-auto"
-              >
-                Social Media Marketing
-              </motion.h1>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="mt-10 inline-flex items-center gap-2 bg-white rounded-full px-6 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+                className="mt-10 inline-flex items-center gap-2 bg-[#ffc600] rounded-full px-6 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
               >
                 <span className="text-gray-600 font-medium">
                   Home
                 </span>
 
-                <span className="text-[#F8BC04] text-xl">
+                <span className="text-[#171717] text-xl">
                   →
                 </span>
 
@@ -109,236 +99,221 @@ useEffect(() => {
 
 {/* SOCIAL MEDIA SHOWCASE SECTION */}
 
-<section className="py-10 bg-white overflow-hidden">
+<section className="py-12 bg-white overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
 
-    <div className="relative flex items-center justify-center min-h-[520px]">
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-      
-
-      {/* MAIN IMAGE */}
+      {/* LEFT CONTENT */}
 
       <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        whileInView={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, x: -60 }}
+        whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
-        animate={{
-          y: [0, -20, 0],
-          rotate: [-2, 2, -2],
-        }}
-        transition={{
-          y: {
+        transition={{ duration: 0.8 }}
+        className="order-2 lg:order-1"
+      >
+
+        <h1 className="mt-1 text-5xl lg:text-5xl font-black leading-tight text-[#171717]">
+
+          Social Media Marketing Services That Turn
+
+          <span className="text-[#F8BC04]">
+            {" "}Startups Into Growing Brands
+          </span>
+
+          <br />
+
+        </h1>
+
+        <p className="mt-8 max-w-xl text-[15px] leading-7 text-gray-600">
+
+          Your customers are already on social media your brand should be too.
+           
+
+<span className="text-[#F8BC04] font-extrabold">            
+  {" "}BIGBEANS DIGITAL {" "} 
+          </span>
+
+          helps startups and growing businesses build a strong
+          online presence through creative content, strategic campaigns and
+          performance-driven social media marketing.We create platform-specific strategies, engaging creatives,
+          community-building campaigns and data-driven optimizations that
+          increase visibility, generate qualified leads and deliver measurable
+          business growth.
+
+        </p>
+
+      </motion.div>
+
+      {/* RIGHT SHOWCASE */}
+
+      <div
+        className="
+          relative
+          order-1
+          lg:order-2
+          flex
+          items-center
+          justify-center
+          min-h-[650px]
+        "
+      >
+        {/* MAIN IMAGE */}
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.85 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          animate={{
+            y: [0, -18, 0],
+            rotate: [-2, 2, -2],
+          }}
+          transition={{
+            y: {
+              duration: 5,
+              repeat: Infinity,
+            },
+            rotate: {
+              duration: 8,
+              repeat: Infinity,
+            },
+          }}
+          className="relative z-20"
+        >
+          <Image
+            src="/assets/socialmediahuman.png"
+            alt="Social Media Marketing"
+            width={400}
+            height={480}
+            className="relative z-20"
+          />
+        </motion.div>
+
+        {/* FLOATING CARD 1 */}
+
+        <motion.div
+          animate={{
+            y: [0, -15, 0],
+            rotate: [-4, 4, -4],
+          }}
+          transition={{
             duration: 5,
             repeat: Infinity,
-          },
-          rotate: {
-            duration: 8,
-            repeat: Infinity,
-          },
-        }}
-        className="relative z-20"
-      >
-        <Image
-  src="/assets/socialmediahuman.png"
-  alt="Social Media Marketing"
-  width={380}
-  height={450}
-/>
-      </motion.div>
-
-      {/* FLOATING CARD 1 */}
-
-      <motion.div
-        animate={{
-          y: [0, -20, 0],
-          rotate: [-4, 4, -4],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-        }}
-        className="
-          absolute
-          top-10
-          left-0
-          bg-white
-          rounded-3xl
-          px-8
-          py-5
-          shadow-2xl
-          z-30
-        "
-      >
-        <p className="font-bold text-[#171717]">
-          Performance-Driven Growth
-        </p>
-      </motion.div>
-
-      {/* FLOATING CARD 2 */}
-
-      <motion.div
-        animate={{
-          y: [0, 20, 0],
-          rotate: [4, -4, 4],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-        }}
-        className="
-          absolute
-          top-20
-          right-0
-          bg-white
-          rounded-3xl
-          px-8
-          py-5
-          shadow-2xl
-          z-30
-        "
-      >
-        <p className="font-bold text-[#171717]">
-          100+ Brands Managed
-        </p>
-      </motion.div>
-
-      {/* FLOATING CARD 3 */}
-
-      <motion.div
-        animate={{
-          y: [0, -15, 0],
-          rotate: [-3, 3, -3],
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-        }}
-        className="
-          absolute
-          bottom-56
-          left-20
-          bg-white
-          rounded-3xl
-          px-8
-          py-5
-          shadow-2xl
-          z-30
-        "
-      >
-        <p className="font-bold text-[#171717]">
-          Creative Content That Converts
-        </p>
-      </motion.div>
-
-      {/* FLOATING CARD 4 */}
-
-      <motion.div
-        animate={{
-          y: [0, 15, 0],
-          rotate: [3, -3, 3],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-        }}
-        className="
-          absolute
-          bottom-64
-          right-10
-          bg-white
-          rounded-3xl
-          px-8
-          py-5
-          shadow-2xl
-          z-30
-        "
-      >
-        <p className="font-bold text-[#171717]">
-          Startup-Focused Strategies
-        </p>
-      </motion.div>
-
-      {/* CURVED TEXT */}
-
-      <motion.div
-        animate={{
-          rotate: 360,
-        }}
-        transition={{
-          duration: 30,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-        className="
-          absolute
-          bottom-10
-          left-1/2
-          -translate-x-1/2
-          w-[550px]
-          h-[550px]
-          z-10
-        "
-      >
-        <svg
-          viewBox="0 0 500 500"
-          className="w-full h-full"
+          }}
+          className="absolute top-8 left-0 bg-white rounded-3xl px-7 py-4 shadow-2xl z-30"
         >
-          <defs>
-            <path
-              id="circlePath"
-              d="
-                M 250,250
-                m -170,0
-                a 170,170 0 1,1 340,0
-                a 170,170 0 1,1 -340,0
-              "
-            />
-          </defs>
+          <p className="font-bold text-[#171717]">
+            🚀 Performance-Driven Growth
+          </p>
+        </motion.div>
 
-          <text
-            fill="#171717"
-            fontSize="18"
-            fontWeight="700"
-            letterSpacing="3"
+        {/* FLOATING CARD 2 */}
+
+        <motion.div
+          animate={{
+            y: [0, 18, 0],
+            rotate: [4, -4, 4],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+          }}
+          className="absolute top-14 right-0 bg-white rounded-3xl px-7 py-4 shadow-2xl z-30"
+        >
+          <p className="font-bold text-[#171717]">
+            ⭐ 100+ Brands Managed
+          </p>
+        </motion.div>
+
+        {/* FLOATING CARD 4 */}
+
+        <motion.div
+          animate={{
+            y: [0, 15, 0],
+            rotate: [3, -3, 3],
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+          }}
+          className="absolute bottom-52 right-1 bg-white rounded-3xl px-7 py-4 shadow-2xl z-30"
+        >
+          <p className="font-bold text-[#171717]">
+            💡 Startup-Focused Strategies
+          </p>
+        </motion.div>
+
+        {/* CURVED TEXT */}
+
+        <motion.div
+          animate={{
+            rotate: 360,
+          }}
+          transition={{
+            duration: 60,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="
+            absolute
+            inset-0
+            flex
+            items-center
+            justify-center
+            pointer-events-none
+            z-10
+          "
+        >
+          <svg
+            viewBox="0 0 500 500"
+            className="w-[700px] h-[700px]"
           >
-            <textPath href="#circlePath">
-              SOCIAL MEDIA MARKETING • CONTENT CREATION • BRAND AWARENESS • AUDIENCE GROWTH • PERFORMANCE CAMPAIGNS • COMMUNITY BUILDING •
-            </textPath>
-          </text>
-        </svg>
-      </motion.div>
+            <defs>
+              <path
+  id="circlePath"
+  d="
+    M 250,250
+    m -225,0
+    a 225,225 0 1,1 450,0
+    a 225,225 0 1,1 -450,0
+  "
+/>
+            </defs>
+
+            <text
+              fill="#171717"
+              fontSize="18"
+              fontWeight="700"
+              letterSpacing="3"
+            >
+              <textPath href="#circlePath">
+                SOCIAL MEDIA MARKETING • CONTENT CREATION • BRAND AWARENESS •
+                AUDIENCE GROWTH • PERFORMANCE CAMPAIGNS • COMMUNITY BUILDING •
+              </textPath>
+            </text>
+          </svg>
+        </motion.div>
+
+      </div>
 
     </div>
 
-    {/* CONTENT */}
-
-    <motion.div
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="max-w-4xl mx-auto text-center -mt-10"
-    >
-
-      <h2 className="text-5xl md:text-4xl font-black text-[#171717] leading-tight mb-8">
-        Social Media Marketing Services That Turn Startups into Growing Brands
-      </h2>
-
-      <p className="text-x2 text-black-600 leading-relaxed">
-        Your customers are already on social media—your brand should be too. At BIGBEANS DIGITAL, 
-        we provide Social Media Marketing Services that help startups, small businesses, and growing 
-        brands build a strong online presence, attract the right audience, and generate consistent 
-        business growth. As a trusted Social Media Marketing Agency serving London, India, USA, and 
-        Dubai, we create platform-specific strategies, engaging content, performance-driven campaigns, 
-        and data-backed optimizations that increase brand awareness, drive qualified leads, and deliver 
-        measurable ROI. Whether you're launching a new startup or scaling an established business, our 
-        social media experts help you turn followers into loyal customers.
-        </p>
-
-    </motion.div>
-
   </div>
 </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -356,29 +331,59 @@ useEffect(() => {
 
     </div>
 
-    <div className="grid lg:grid-cols-[350px_1fr] gap-8">
+    <div className="grid lg:grid-cols-[480px_1fr] gap-8 items-center">
 
       {/* LEFT IMAGE CARD */}
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="bg-[#F8BC04] rounded-[28px] h-[410px] flex items-center justify-center overflow-hidden"
-      >
-        <motion.div
-          animate={{
-            rotate: [0, 5, -5, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-          }}
-          className="text-[220px]"
-        >
-          🚀
-        </motion.div>
-      </motion.div>
+      
+<motion.div
+  initial={{ opacity: 0, x: -50, scale: 0.92 }}
+  whileInView={{ opacity: 1, x: 0, scale: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8 }}
+  whileHover={{
+    scale: 1.03,
+    y: -8,
+  }}
+  animate={{
+    y: [0, -8, 0],
+  }}
+>
+  <motion.div
+  animate={{
+    y: [0, -12, 0],
+    rotate: [-1, 1, -1],
+    scale: [1, 1.02, 1],
+  }}
+  transition={{
+    y: {
+      duration: 5,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+    rotate: {
+      duration: 8,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+    scale: {
+      duration: 6,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  }}
+  className="flex items-center justify-center"
+>
+    <Image
+  src="/team/big_beans_digital_team.png"
+  alt="Team Together"
+  width={650}
+  height={750}
+  className="w-full max-w-[600px] h-auto object-cover rounded-[28px] shadow-2xl"
+  priority
+/>
+  </motion.div>
+</motion.div>
+
 
       {/* RIGHT CONTENT */}
       <div>
@@ -392,9 +397,9 @@ useEffect(() => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
             whileHover={{ y: -8 }}
-            className="bg-[#171717] rounded-[24px] p-8"
+            className="bg-[#171717] rounded-[24px] px-8 py-6 min-h-[120px] flex flex-col justify-center"
           >
-            <h3 className="text-white text-5xl font-black">
+            <h3 className="text-white text-4xl font-black">
               8+
             </h3>
 
@@ -409,7 +414,7 @@ useEffect(() => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
             whileHover={{ y: -8 }}
-            className="bg-[#F8BC04] rounded-[24px] p-8"
+            className="bg-[#F8BC04] rounded-[24px] px-8 py-6 min-h-[120px] flex flex-col justify-center"
           >
             <h3 className="text-black text-5xl font-black">
               100+
@@ -448,7 +453,11 @@ useEffect(() => {
           className="bg-[#171717] rounded-[28px] p-10"
         >
           <p className="text-white/80 text-lg leading-relaxed max-w-4xl">
-Looking for a Social Media Marketing Agency in India, Dubai, the UAE, or London? BigBeans Digital helps startups and growing businesses build a stronger online presence through strategic Social Media Management, creative content, and performance-driven campaigns. As a trusted Social Media Marketing Agency for Startups, we help increase brand visibility, generate quality leads, and turn engagement into measurable business growth.          </p>
+Looking for a Social Media Marketing Agency in India, Dubai, the UAE, or London? 
+BigBeans Digital helps startups and growing businesses build a stronger online 
+presence through strategic Social Media Management, creative content, and 
+performance-driven campaigns..          
+</p>
         </motion.div>
       </div>
     </div>
@@ -456,17 +465,20 @@ Looking for a Social Media Marketing Agency in India, Dubai, the UAE, or London?
 </section>
 
 {/* WHY CHOOSE BIGBEANS DIGITAL */}
-<section className="py-10 bg-[#ffffff] overflow-hidden">
+<section className="py-20 bg-[#ffffff] overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
 
-    <div className="text-center mb-20">
-      <span className="inline-flex items-center px-6 py-3 rounded-full bg-[#F8BC04]/10 text-[#F8BC04] font-semibold mb-6">
-        Why BIGBEANS DIGITAL
+    <div className="text-center mb-15">
+      <span className="inline-flex items-center px-6 py-3 rounded-full bg-[#ffc600]/100 text-[#000000] font-extrabold mb-6">
+        Why Choose Us 
       </span>
 
       <h2 className="text-4xl md:text-6xl font-black text-[#171717]">
-       Why Choose Our Social Media Marketing Agency
-      </h2>
+  For Your Social Media Marketing of {" "}
+  <span className="text-[#ffc600] font-extrabold">
+    Your Brand
+  </span>
+</h2>
     </div>
 
     <div className="grid lg:grid-cols-5 gap-6">
