@@ -57,7 +57,7 @@ useEffect(() => {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="pt-12 pb-10 bg-[#ffffff]">
+      <section className="pt-2 pb-10 bg-[#ffffff]">
         <div className="max-w-7xl mx-auto px-6">
 
           <motion.div
@@ -74,7 +74,7 @@ useEffect(() => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="mt-10 inline-flex items-center gap-2 bg-[#ffc600] rounded-full px-6 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
+                className="mt-10 inline-flex items-center gap-4 bg-[#fffff] rounded-full px-6 py-3 shadow-[0_20px_50px_rgba(0,0,0,0.15)]"
               >
                 <span className="text-gray-600 font-medium">
                   Home
@@ -88,9 +88,6 @@ useEffect(() => {
                   Social Media Marketing
                 </span>
               </motion.div>
-
-              
-
             </div>
 
           </motion.div>
@@ -99,10 +96,10 @@ useEffect(() => {
 
 {/* SOCIAL MEDIA SHOWCASE SECTION */}
 
-<section className="py-12 bg-white overflow-hidden">
+<section className="pt-11 pb-0 bg-white overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
 
-    <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <div className="grid lg:grid-cols-2 gap-16 items-start">
 
       {/* LEFT CONTENT */}
 
@@ -144,177 +141,246 @@ useEffect(() => {
 
         </p>
 
+        <motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ delay: 0.2, duration: 0.6 }}
+  className="mt-10"
+>
+  <Link href="/our-work">
+    <motion.button
+      whileHover={{
+        scale: 1.05,
+        y: -3,
+      }}
+      whileTap={{ scale: 0.98 }}
+      className="
+        inline-flex
+        items-center
+        gap-3
+        px-8
+        py-4
+        rounded-full
+        bg-[#171717]
+        text-white
+        font-bold
+        text-lg
+        shadow-xl
+        transition-all
+      "
+    >
+      View Our Work
+
+      <span className="text-xl">→</span>
+    </motion.button>
+  </Link>
+</motion.div>
+
       </motion.div>
 
-      {/* RIGHT SHOWCASE */}
+                                  <div
+                          className="
+                            relative
+                            order-1
+                            lg:order-2
+                            flex
+                            items-center
+                            justify-center
+                            min-h-[700px]
+                          "
+                        >
+                          <div className="relative w-[580px] h-[580px]">
+                        <Image
+                          src="/assets/socialmediamarketing/hero/meta.png"
+                          alt="Meta"
+                          width={240}
+                          height={240}
+                          className="
+                            absolute
+                            left-1/2
+                            top-[36%]
+                            -translate-x-1/2
+                            -translate-y-1/2
+                            z-20
+                            select-none
+                          "
+                        />
 
-      <div
-        className="
-          relative
-          order-1
-          lg:order-2
-          flex
-          items-center
-          justify-center
-          min-h-[650px]
-        "
-      >
-        {/* MAIN IMAGE */}
+                        <>
+                          <div className="absolute left-1/2 top-[36%] w-[520px] h-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#F8BC04]/60 shadow-[0_0_25px_rgba(248,188,4,0.18)]" />
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.85 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          animate={{
-            y: [0, -18, 0],
-            rotate: [-2, 2, -2],
-          }}
-          transition={{
-            y: {
-              duration: 5,
-              repeat: Infinity,
-            },
-            rotate: {
-              duration: 8,
-              repeat: Infinity,
-            },
-          }}
-          className="relative z-20"
-        >
-          <Image
-            src="/assets/socialmediahuman.png"
-            alt="Social Media Marketing"
-            width={400}
-            height={480}
-            className="relative z-20"
-          />
-        </motion.div>
+                        <div className="absolute left-1/2 top-[36%] w-[430px] h-[430px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#F8BC04]/60 shadow-[0_0_22px_rgba(248,188,4,0.16)]" />
 
-        {/* FLOATING CARD 1 */}
+                        <div className="absolute left-1/2 top-[36%] w-[340px] h-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#F8BC04]/60 shadow-[0_0_18px_rgba(248,188,4,0.14)]" />
 
-        <motion.div
-          animate={{
-            y: [0, -15, 0],
-            rotate: [-4, 4, -4],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-          }}
-          className="absolute top-8 left-0 bg-white rounded-3xl px-7 py-4 shadow-2xl z-30"
-        >
-          <p className="font-bold text-[#171717]">
-            🚀 Performance-Driven Growth
-          </p>
-        </motion.div>
+                        <div className="absolute left-1/2 top-[36%] w-[250px] h-[250px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#F8BC04]/60 shadow-[0_0_15px_rgba(248,188,4,0.12)]" />
+                        </>
 
-        {/* FLOATING CARD 2 */}
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{
+                            duration: 18,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                          className="
+                            absolute
+                            left-1/2
+                            top-[36%]
+                            w-[520px]
+                            h-[520px]
+                            -translate-x-1/2
+                            -translate-y-1/2
+                            z-10
+                          "
+                        >
+                          <Image
+                            src="/assets/socialmediamarketing/hero/instagram.png"
+                            alt="Instagram"
+                            width={69}
+                            height={68}
+                            className="
+                              absolute
+                              left-1/2
+                              -translate-x-1/2
+                              -top-8
+                            "
+                          />
+                        </motion.div>
 
-        <motion.div
-          animate={{
-            y: [0, 18, 0],
-            rotate: [4, -4, 4],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-          }}
-          className="absolute top-14 right-0 bg-white rounded-3xl px-7 py-4 shadow-2xl z-30"
-        >
-          <p className="font-bold text-[#171717]">
-            ⭐ 100+ Brands Managed
-          </p>
-        </motion.div>
 
-        {/* FLOATING CARD 4 */}
 
-        <motion.div
-          animate={{
-            y: [0, 15, 0],
-            rotate: [3, -3, 3],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-          }}
-          className="absolute bottom-52 right-1 bg-white rounded-3xl px-7 py-4 shadow-2xl z-30"
-        >
-          <p className="font-bold text-[#171717]">
-            💡 Startup-Focused Strategies
-          </p>
-        </motion.div>
+                        <motion.div
+                          animate={{ rotate: -360 }}
+                          transition={{
+                            duration: 15,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                          className="
+                            absolute
+                            left-1/2
+                            top-[36%]
+                            w-[430px]
+                            h-[430px]
+                            -translate-x-1/2
+                            -translate-y-1/2
+                            z-10
+                          "
+                        >
+                          <Image
+                            src="/assets/socialmediamarketing/hero/facebook.png"
+                            alt="Facebook"
+                            width={62}
+                            height={62}
+                            className="
+                              absolute
+                              right-[-30px]
+                              top-1/2
+                              -translate-y-1/2
+                            "
+                          />
+                        </motion.div>
 
-        {/* CURVED TEXT */}
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{
+                            duration: 12,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                          className="
+                            absolute
+                            left-1/2
+                            top-[36%]
+                            w-[340px]
+                            h-[340px]
+                            -translate-x-1/2
+                            -translate-y-1/2
+                            z-10
+                          "
+                        >
+                          <Image
+                            src="/assets/socialmediamarketing/hero/linkedin.png"
+                            alt="LinkedIn"
+                            width={58}
+                            height={58}
+                            className="
+                              absolute
+                              bottom-[-20px]
+                              left-1/2
+                              -translate-x-1/2
+                            "
+                          />
+                        </motion.div>
 
-        <motion.div
-          animate={{
-            rotate: 360,
-          }}
-          transition={{
-            duration: 60,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="
-            absolute
-            inset-0
-            flex
-            items-center
-            justify-center
-            pointer-events-none
-            z-10
-          "
-        >
-          <svg
-            viewBox="0 0 500 500"
-            className="w-[700px] h-[700px]"
-          >
-            <defs>
-              <path
-  id="circlePath"
-  d="
-    M 250,250
-    m -225,0
-    a 225,225 0 1,1 450,0
-    a 225,225 0 1,1 -450,0
-  "
-/>
-            </defs>
+                        <motion.div
+                          animate={{ rotate: -360 }}
+                          transition={{
+                            duration: 10,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                          className="
+                            absolute
+                            left-1/2
+                            top-[36%]
+                            w-[250px]
+                            h-[250px]
+                            -translate-x-1/2
+                            -translate-y-1/2
+                            z-10
+                          "
+                        >
+                          <Image
+                            src="/assets/socialmediamarketing/hero/twitter.png"
+                            alt="X"
+                            width={52}
+                            height={52}
+                            className="
+                              absolute
+                              left-[-26px]
+                              top-1/2
+                              -translate-y-1/2
+                            "
+                          />
+                        </motion.div>
 
-            <text
-              fill="#171717"
-              fontSize="18"
-              fontWeight="700"
-              letterSpacing="3"
-            >
-              <textPath href="#circlePath">
-                SOCIAL MEDIA MARKETING • CONTENT CREATION • BRAND AWARENESS •
-                AUDIENCE GROWTH • PERFORMANCE CAMPAIGNS • COMMUNITY BUILDING •
-              </textPath>
-            </text>
-          </svg>
-        </motion.div>
-
-      </div>
-
-    </div>
+                        <motion.div
+                          animate={{
+                            y: [0, -12, 0],
+                          }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                          }}
+                          className="
+                            absolute
+                            left-1/2
+                            top-[62%]
+                            -translate-x-1/2
+                            -translate-y-1/2
+                            z-30
+                          "
+                        >
+                          <Image
+                            src="/assets/socialmediamarketing/hero/dashboard.png"
+                            alt="Dashboard"
+                            width={420}
+                            height={270}
+                            className="select-none"
+                            priority
+                          />
+                        </motion.div>
 
   </div>
+</div>     
+
+    </div>
+  </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 {/* COMPANY OVERVIEW SECTION */}
