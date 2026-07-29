@@ -206,7 +206,7 @@ const row3 = [
           transition={{ duration: 1.2 }}
           className="
           text-center
-          text-[130px]
+          text-[52px] md:text-[80px] lg:text-[130px]
           font-extrabold
           text-gray-200
           leading-none
@@ -358,7 +358,7 @@ const row3 = [
 
             <div
               className="
-              px-20
+              px-5 md:px-10 lg:px-20
               py-16
               grid
               md:grid-cols-2
@@ -384,7 +384,7 @@ const row3 = [
                 text-[380px]
                 text-white/5
                 font-black
-                left-[300px]
+                left-1/2 -translate-x-1/2 lg:left-[300px] lg:translate-x-0
                 bottom-[-120px]
                 rotate-[-35deg]
               "
@@ -795,7 +795,7 @@ const row3 = [
 
       {/* RIGHT GRID */}
 
-      <div className="lg:col-span-3 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="lg:col-span-3 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
         <ProcessCard
           number="01"
@@ -985,7 +985,7 @@ const row3 = [
 
     {/* CARDS */}
 
-    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
       {/* CARD 1 */}
 
@@ -1207,7 +1207,7 @@ const row3 = [
 
     {/* STATS */}
 
-    <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 mt-16">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mt-16">
 
       {/* CARD 1 */}
 
@@ -1465,7 +1465,7 @@ const row3 = [
 
     {/* BLOG CARDS */}
 
-    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
       {/* BLOG 1 */}
 
