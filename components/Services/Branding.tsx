@@ -2,130 +2,171 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
+
+
+const carouselImages = [
+  "/assets/branding/carousel/1.jpg",
+  "/assets/branding/carousel/2.jpg",
+  "/assets/branding/carousel/3.jpg",
+  "/assets/branding/carousel/4.jpg",
+  "/assets/branding/carousel/5.jpg",
+  "/assets/branding/carousel/6.jpg",
+  "/assets/branding/carousel/7.jpg",
+  "/assets/branding/carousel/8.jpg",
+  "/assets/branding/carousel/9.jpg",
+];
+
 
 
 
 export default function Branding() {
   return (
     <>
-      {/* HERO SECTION */}
+     
 
-      <section className="py-16 bg-[#F8F8F8]">
+      <section className="py-8 bg-[#F8F8F8]">
         <div className="max-w-7xl mx-auto px-6">
+<div className="mb-8 flex justify-center">
+  <div className="inline-flex items-center bg-white rounded-full px-6 py-3 shadow-md">
+    <span className="text-[#4B5563] font-medium">Home</span>
+    <span className="mx-4 text-[#F8BC04] font-semibold">→</span>
+    <span className="font-bold text-[#171717]">Branding</span>
+  </div>
+</div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="
-              bg-[#F8BC04]
-              rounded-[40px]
-              h-[260px]
-              flex
-              flex-col
-              items-center
-              justify-center
-              relative
-              overflow-hidden
-              shadow-[0_30px_80px_rgba(248,188,4,0.35)]
-            "
-          >
-            <motion.div
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.2, 0.4, 0.2],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-              }}
-              className="
-                absolute
-                w-[500px]
-                h-[500px]
-                rounded-full
-                bg-white
-                blur-[120px]
-              "
-            />
-
-            <h1 className="relative text-[#171717] text-5xl md:text-7xl font-black text-center">
-              Branding
-            </h1>
-
-            <div className="relative mt-8 bg-white rounded-full px-8 py-4 shadow-xl">
-              <span className="text-gray-600">Home</span>
-
-              <span className="mx-4 text-[#F8BC04] font-bold">
-                →
-              </span>
-
-              <span className="font-semibold text-[#171717]">
-                Branding
-              </span>
-            </div>
-
-          </motion.div>
-
-                
-
-{/* BRANDING PROCESS SECTION */}
-
-<section className="py-32 overflow-hidden">
+<section className="py-3 overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
 
-    {/* TOP IMAGE */}
+   
+<div className="max-w-5xl mx-auto text-center mb-20">
 
-    <motion.div
-      initial={{ opacity: 0, scale: 0.85 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.9 }}
-      className="relative flex justify-center mb-24"
-    >
-      {/* Glow */}
+  <motion.h1
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+    className="
+      text-5xl
+      md:text-7xl
+      font-light
+      leading-[1.05]
+      tracking-tight
+      text-[#171717]
+    "
+  >
+    Build your{" "}
+    <span
+  className="
+    italic
+    font-black
+    font-serif
+    text-[#F8BC04]
+  "
+>
+  Brand
+</span>{" "}
+    with us
+  </motion.h1>
 
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.15, 0.3, 0.15],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-        }}
-        className="
-          absolute
-          w-[500px]
-          h-[500px]
-          bg-[#F8BC04]
-          rounded-full
-          blur-[120px]
-          z-0
-        "
-      />
+  <motion.p
+    initial={{ opacity: 0, y: 25 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: 0.15, duration: 0.8 }}
+    className="
+      mt-6
+      text-lg
+      text-gray-600
+      max-w-3xl
+      mx-auto
+      leading-relaxed
+    "
+  >
+    Build a memorable brand identity with strategic design, creative storytelling and visuals that help your business stand out and grow.
+  </motion.p>
 
-      {/* Main Image */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: 0.3, duration: 0.8 }}
+    className="mt-10 flex justify-center gap-4"
+  >
+  <Link href="/our-work">
+  <button
+    className="
+      bg-[#171717]
+      text-white
+      px-8
+      py-3
+      rounded-full
+      font-semibold
+      transition-all
+      duration-300
+      hover:bg-[#F8BC04]
+      hover:text-[#171717]
+    "
+  >
+    View Our Work
+  </button>
+</Link>
 
-      <motion.div
-        animate={{
-          y: [0, -15, 0],
-        }}
-        transition={{
-          duration: 5,
-          repeat: Infinity,
-        }}
-        className="relative z-10"
-      >
-        <Image
-          src="/assets/brandinghero.png"
-          alt="Branding Process"
-          width={850}
-          height={650}
-          className="object-contain"
-        />
-      </motion.div>
-    </motion.div>
+    <Link
+  href="https://wa.link/gqxvz0"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="border border-[#171717] px-8 py-3 rounded-full font-semibold hover:bg-[#171717] hover:text-white transition">
+    Get Consultation
+  </button>
+</Link>
+
+
+  </motion.div>
+
+</div>
+
+    {/* Crousal */}
+<section className="pt-1 pb-20 overflow-hidden">
+<div className="relative max-w-7xl mx-auto">
+
+  <div
+  className="
+    relative
+    overflow-hidden
+    [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
+    [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
+  "
+>
+<motion.div
+  animate={{ x: ["0%", "-50%"] }}
+  transition={{
+    duration: 35,
+    ease: "linear",
+    repeat: Infinity,
+  }}
+  className="flex gap-8 w-max"
+>
+{[...carouselImages, ...carouselImages].map((image, index) => (
+  <div
+    key={index}
+    className="relative w-[240px] aspect-square flex-shrink-0 overflow-hidden rounded-[28px]"
+  >
+    <Image
+      src={image}
+      alt={`Carousel ${index + 1}`}
+      fill
+      className="object-cover"
+    />
+  </div>
+))}
+</motion.div>
+</div>
+  </div>
+</section>
+
+
 
     {/* CONTENT */}
 
@@ -139,21 +180,6 @@ export default function Branding() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <span
-          className="
-            inline-flex
-            px-5
-            py-2
-            rounded-full
-            bg-[#F8BC04]
-            text-[#171717]
-            font-bold
-            mb-8
-          "
-        >
-          BRAND DEVELOPMENT
-        </span>
-
         <h2
           className="
             text-5xl
@@ -389,12 +415,8 @@ export default function Branding() {
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       >
-        <h2 className="text-4xl md:text-5xl font-black text-[#171717] leading-tight">
-          Logo Designs
-          <br />
-          That Build
-          <br />
-          Strong Brands
+        <h2 className="text-4xl md:text-4xl font-black text-[#171717] leading-tight">
+          Logo Designs That BuildBrands
         </h2>
       </motion.div>
 
@@ -489,25 +511,6 @@ export default function Branding() {
             to-transparent
           "
         />
-
-        <motion.div
-          initial={{ y: 40 }}
-          whileHover={{ y: 0 }}
-          className="
-            absolute
-            bottom-8
-            left-8
-            text-white
-          "
-        >
-          <h3 className="text-3xl font-black">
-            Modern Identity
-          </h3>
-
-          <p className="text-white/80 mt-2">
-            Clean, memorable and timeless.
-          </p>
-        </motion.div>
       </motion.div>
 
       {/* CARD 2 */}
@@ -558,25 +561,6 @@ export default function Branding() {
             to-transparent
           "
         />
-
-        <motion.div
-          initial={{ y: 40 }}
-          whileHover={{ y: 0 }}
-          className="
-            absolute
-            bottom-8
-            left-8
-            text-white
-          "
-        >
-          <h3 className="text-3xl font-black">
-            Premium Branding
-          </h3>
-
-          <p className="text-white/80 mt-2">
-            Built for trust and recognition.
-          </p>
-        </motion.div>
       </motion.div>
 
       {/* CARD 3 */}
@@ -627,25 +611,6 @@ export default function Branding() {
             to-transparent
           "
         />
-
-        <motion.div
-          initial={{ y: 40 }}
-          whileHover={{ y: 0 }}
-          className="
-            absolute
-            bottom-8
-            left-8
-            text-white
-          "
-        >
-          <h3 className="text-3xl font-black">
-            Signature Logo
-          </h3>
-
-          <p className="text-white/80 mt-2">
-            Designed to leave a lasting impact.
-          </p>
-        </motion.div>
       </motion.div>
 
     </div>
@@ -655,7 +620,7 @@ export default function Branding() {
 
 {/* PRODUCT PACKAGING SECTION */}
 
-<section className="py-32 overflow-hidden">
+<section className="py-1 overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
 
     {/* TOP CONTENT */}
@@ -806,20 +771,6 @@ export default function Branding() {
           "
         />
 
-        <motion.div
-          initial={{ y: 40 }}
-          whileHover={{ y: 0 }}
-          className="absolute bottom-8 left-8 z-20"
-        >
-          <h3 className="text-white text-3xl font-black">
-            Premium Product
-          </h3>
-
-          <p className="text-white/80 mt-2">
-            Packaging designed to attract attention.
-          </p>
-        </motion.div>
-
       </motion.div>
 
       {/* CARD 2 */}
@@ -909,19 +860,6 @@ export default function Branding() {
           "
         />
 
-        <motion.div
-          initial={{ y: 40 }}
-          whileHover={{ y: 0 }}
-          className="absolute bottom-8 left-8 z-20"
-        >
-          <h3 className="text-white text-3xl font-black">
-            Luxury Packaging
-          </h3>
-
-          <p className="text-white/80 mt-2">
-            Crafted for memorable brand experiences.
-          </p>
-        </motion.div>
 
       </motion.div>
 
@@ -1012,20 +950,6 @@ export default function Branding() {
             bg-[#F8BC04]/20
           "
         />
-
-        <motion.div
-          initial={{ y: 40 }}
-          whileHover={{ y: 0 }}
-          className="absolute bottom-8 left-8 z-20"
-        >
-          <h3 className="text-white text-3xl font-black">
-            Retail Ready
-          </h3>
-
-          <p className="text-white/80 mt-2">
-            Designed to stand out on every shelf.
-          </p>
-        </motion.div>
 
       </motion.div>
 
@@ -1178,20 +1102,6 @@ export default function Branding() {
           "
         />
 
-        <motion.div
-          initial={{ y: 50 }}
-          whileHover={{ y: 0 }}
-          className="absolute bottom-8 left-8 z-20"
-        >
-          <h3 className="text-white text-3xl font-black">
-            Logo Identity
-          </h3>
-
-          <p className="text-white/80 mt-2">
-            Professional branding systems that build recognition.
-          </p>
-        </motion.div>
-
       </motion.div>
 
       {/* CARD 2 */}
@@ -1273,19 +1183,7 @@ export default function Branding() {
           "
         />
 
-        <motion.div
-          initial={{ y: 50 }}
-          whileHover={{ y: 0 }}
-          className="absolute bottom-8 left-8 z-20"
-        >
-          <h3 className="text-white text-3xl font-black">
-            Brand Assets
-          </h3>
-
-          <p className="text-white/80 mt-2">
-            Consistent visuals that strengthen brand perception.
-          </p>
-        </motion.div>
+       
 
       </motion.div>
 
@@ -1372,19 +1270,7 @@ export default function Branding() {
           "
         />
 
-        <motion.div
-          initial={{ y: 50 }}
-          whileHover={{ y: 0 }}
-          className="absolute bottom-8 left-8 z-20"
-        >
-          <h3 className="text-white text-3xl font-black">
-            Premium Branding
-          </h3>
-
-          <p className="text-white/80 mt-2">
-            Designs crafted to leave a lasting impression.
-          </p>
-        </motion.div>
+        
 
       </motion.div>
 
