@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -34,11 +34,45 @@ const row3 = [
   "/clients/20.png",
 ];
 
+const card1Images = [
+  "/assets/socialmediamarketing/ourworks/card1/1.png",
+  "/assets/socialmediamarketing/ourworks/card1/2.png",
+  "/assets/socialmediamarketing/ourworks/card1/3.png",
+];
+
+const card2Images = [
+  "/assets/socialmediamarketing/ourworks/card2/1.png",
+  "/assets/socialmediamarketing/ourworks/card2/2.png",
+  "/assets/socialmediamarketing/ourworks/card2/3.png",
+];
+
+const card3Images = [
+  "/assets/socialmediamarketing/ourworks/card3/1.png",
+  "/assets/socialmediamarketing/ourworks/card3/2.png",
+  "/assets/socialmediamarketing/ourworks/card3/3.png",
+];
+
 export default function SocialMediaMarketing() {
     const text =
   "Grow Faster with a Social Media Marketing Agency That Delivers Results";
 
 const [displayText, setDisplayText] = useState("");
+
+const [card1Index, setCard1Index] = useState(0);
+const [card2Index, setCard2Index] = useState(0);
+const [card3Index, setCard3Index] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCard1Index((prev) => (prev + 1) % card1Images.length);
+    setCard2Index((prev) => (prev + 1) % card2Images.length);
+    setCard3Index((prev) => (prev + 1) % card3Images.length);
+  }, 5000);
+
+  return () => clearInterval(interval);
+}, []);
+
+
 
 useEffect(() => {
   let index = 0;
@@ -715,90 +749,62 @@ performance-driven campaigns..
         transition={{ duration: 0.8 }}
       >
 
-        <span className="inline-flex px-6 py-3 rounded-full bg-[#F8BC04]/10 text-[#F8BC04] font-semibold mb-6">
-          Social Media Growth
-        </span>
+        
 
-        <h2 className="text-4xl md:text-6xl font-black text-[#171717] leading-tight">
-          Grow Your Audience.
-          <br />
-          Grow Your Business.
-        </h2>
+        
 
         <p className="text-gray-600 text-lg leading-relaxed mt-8">
           As a trusted Social Media Marketing Agency for Startups, we help businesses across India, the UAE, and London build an engaged audience that turns into loyal customers. Through strategic Social Media Management, creative content, and data-driven campaigns, we help increase brand visibility, boost engagement, and generate consistent business growth.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-5 mt-10 items-stretch">
+        <div className="flex flex-col gap-8 mt-10 w-full max-w-[520px]">
 
           {/* CARD 1 */}
           <motion.div
-            whileHover={{
-              y: -15,
-              scale: 1.05,
-              rotate: -3,
-            }}
-          className="bg-[#F8BC04] rounded-[28px] p-8 shadow-xl cursor-pointer flex flex-col items-center h-full"
-          >
-         
+  whileHover={{ x: 8 }}
+  transition={{ duration: 0.25 }}
+  className="flex items-center gap-4"
+>
+  <div className="text-2xl">
+    🎯
+  </div>
 
-            <h3 className="text-[#171717] text-2xl font-bold text-center">
-              Audience
-              <br />
-              First Strategy
-            </h3>
-
-            <p className="text-[#171717]/80 text-sm text-center mt-4">
-Content planned around your ideal customers and business goals.            </p>
-          </motion.div>
+  <h3 className="text-[18px] font-semibold text-[#171717]">
+    Audience First Strategy
+  </h3>
+</motion.div>
 
           {/* CARD 2 */}
           <motion.div
-            whileHover={{
-              y: -15,
-              scale: 1.05,
-              rotate: 3,
-            }}
-          className="bg-[#F8BC04] rounded-[28px] p-8 shadow-xl cursor-pointer flex flex-col items-center h-full"
-          >
-          
+  whileHover={{ x: 8 }}
+  transition={{ duration: 0.25 }}
+  className="flex items-center gap-4"
+>
+  <div className="text-2xl">
+    📈
+  </div>
 
-            <h3 className="text-[#171717] text-2xl font-bold text-center">
-              Performance 
-              <br />
-              Optimization
-            </h3>
-
-            <p className="text-[#171717]/80 text-sm text-center mt-4">
-Continuous monitoring and optimization to maximize reach, engagement, and results.            </p>
-          </motion.div>
+  <h3 className="text-[18px] font-semibold text-[#171717]">
+    Performance Optimization
+  </h3>
+</motion.div>
 
           {/* CARD 3 */}
           <motion.div
-            whileHover={{
-              y: -15,
-              scale: 1.05,
-              rotate: -3,
-            }}
-          className="bg-[#F8BC04] rounded-[28px] p-8 shadow-xl cursor-pointer flex flex-col items-center h-full"
-          >
-           
+  whileHover={{ x: 8 }}
+  transition={{ duration: 0.25 }}
+  className="flex items-center gap-4"
+>
+  <div className="text-2xl">
+    🎨
+  </div>
 
-            <h3 className="text-[#171717] text-2xl font-bold text-center">
-              Creative
-              <br />
-              Content
-            </h3>
-
-            <p className="text-[#171717]/80 text-sm text-center mt-4">
-Scroll-stopping creatives designed to attract, engage, and convert your audience.            </p>
-          </motion.div>
+  <h3 className="text-[18px] font-semibold text-[#171717]">
+    Creative Content
+  </h3>
+</motion.div>
 
         </div>
-
-        <p className="text-gray-600 leading-relaxed mt-10">
-         From content planning and community management to performance reporting, our customized Social Media Marketing Services help startups build a strong digital presence that drives long-term growth.
-        </p>
 
       </motion.div>
 
@@ -807,7 +813,7 @@ Scroll-stopping creatives designed to attract, engage, and convert your audience
   </div>
 </section>
 {/* OUR SOCIAL MEDIA SERVICES */}
-<section className="py-10 bg-[#ffffff] overflow-hidden">
+<section className="py-1 bg-[#ffffff] overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
 
     {/* Heading */}
@@ -819,12 +825,12 @@ Scroll-stopping creatives designed to attract, engage, and convert your audience
       className="text-center mb-20"
     >
 
-      <h2 className="text-4xl md:text-6xl font-black text-[#171717] leading-tight">
+      <h2 className="text-4xl md:text-1xl font-black text-[#171717] leading-tight">
        Complete Social Media Marketing Services for Startups
        
       </h2>
 
-      <p className="max-w-3xl mx-auto text-gray-600 text-lg mt-8 leading-relaxed">
+      <p className="max-w-1xl mx-auto text-gray-600 text-lg mt-8 leading-relaxed">
         We help businesses grow their online presence through creative
         content, audience engagement, strategic planning and
         performance-focused social media marketing solutions designed
@@ -833,168 +839,268 @@ Scroll-stopping creatives designed to attract, engage, and convert your audience
     </motion.div>
 
     {/* Services Grid */}
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-6 gap-4">
 
       {/* CARD 1 */}
+<motion.div
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  whileHover={{
+    y: -8,
+    scale: 1.03,
+  }}
+  transition={{ duration: 0.5 }}
+  className="group bg-white rounded-xl p-4 shadow-md hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
+>
+  <div className="text-4xl mb-4 transition-all duration-500 group-hover:scale-110">
+    🎨
+  </div>
+
+  <h3 className="text-lg font-bold text-[#171717] mb-2">
+    Content Creation
+  </h3>
+
+  <p className="text-sm text-gray-600 group-hover:text-[#171717] leading-6">
+    Eye-catching graphics, engaging captions and creative content
+    tailored to strengthen your brand presence across social
+    media platforms.
+  </p>
+</motion.div>
+
+{/* CARD 2 */}
+<motion.div
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  whileHover={{
+    y: -8,
+    scale: 1.03,
+  }}
+  transition={{ duration: 0.6 }}
+  className="group bg-white rounded-xl p-4 shadow-md hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
+>
+  <div className="text-4xl mb-4 transition-all duration-500 group-hover:rotate-12">
+    💬
+  </div>
+
+  <h3 className="text-lg font-bold text-[#171717] mb-2">
+    Community Management
+  </h3>
+
+  <p className="text-sm text-gray-600 group-hover:text-[#171717] leading-6">
+    Build stronger relationships with your audience through
+    proactive engagement, customer interaction and community
+    building.
+  </p>
+</motion.div>
+
+  {/* CARD 3 */}
+<motion.div
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  whileHover={{
+    y: -8,
+    scale: 1.03,
+  }}
+  transition={{ duration: 0.7 }}
+  className="group bg-white rounded-xl p-4 shadow-md hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
+>
+  <div className="text-4xl mb-4 transition-all duration-500 group-hover:scale-110">
+    📈
+  </div>
+
+  <h3 className="text-lg font-bold text-[#171717] mb-2">
+    Social Media Strategy
+  </h3>
+
+  <p className="text-sm text-gray-600 group-hover:text-[#171717] leading-6">
+    Data-driven strategies designed to increase reach, improve
+    engagement and support long-term business growth.
+  </p>
+</motion.div>
+
+{/* CARD 4 */}
+<motion.div
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  whileHover={{
+    y: -8,
+    scale: 1.03,
+  }}
+  transition={{ duration: 0.8 }}
+  className="group bg-white rounded-xl p-4 shadow-md hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
+>
+  <div className="text-4xl mb-4 transition-all duration-500 group-hover:rotate-12">
+    🤝
+  </div>
+
+  <h3 className="text-lg font-bold text-[#171717] mb-2">
+    Influencer Marketing
+  </h3>
+
+  <p className="text-sm text-gray-600 group-hover:text-[#171717] leading-6">
+    Connect your brand with trusted creators and influencers to
+    expand reach and increase brand credibility.
+  </p>
+</motion.div>    
+{/* CARD 5 */}
+<motion.div
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  whileHover={{
+    y: -8,
+    scale: 1.03,
+  }}
+  transition={{ duration: 0.9 }}
+  className="group bg-white rounded-xl p-4 shadow-md hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
+>
+  <div className="text-4xl mb-4 transition-all duration-500 group-hover:scale-110">
+    📊
+  </div>
+
+  <h3 className="text-lg font-bold text-[#171717] mb-2">
+    Analytics & Reporting
+  </h3>
+
+  <p className="text-sm text-gray-600 group-hover:text-[#171717] leading-6">
+    Transparent reporting and detailed insights that help track
+    campaign performance and optimize future results.
+  </p>
+</motion.div>
+
+{/* CARD 6 */}
+<motion.div
+  initial={{ opacity: 0, y: 60 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  whileHover={{
+    y: -8,
+    scale: 1.03,
+  }}
+  transition={{ duration: 1 }}
+  className="group bg-white rounded-xl p-4 shadow-md hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
+>
+  <div className="text-4xl mb-4 transition-all duration-500 group-hover:scale-110">
+    🎥
+  </div>
+
+  <h3 className="text-lg font-bold text-[#171717] mb-2">
+    Reels & Video Marketing
+  </h3>
+
+  <p className="text-sm text-gray-600 group-hover:text-[#171717] leading-6">
+    Short-form videos, reels and visual storytelling designed to
+    boost engagement and maximize social media reach.
+  </p>
+</motion.div>
+      
+
+
+
+
+
+
+
+
+
+    </div>
+
+  </div>
+</section>
+
+{/* OUR WORK SLIDER */}
+
+<section className="py-10 bg-white">
+  <div className="max-w-7xl mx-auto px-6">
+
+    <div className="text-center mb-14">
+
+      
+      <h2 className="mt-6 text-4xl md:text-6xl font-black text-[#171717]">
+        Some of Our Recent Work
+      </h2>
+
+    </div>
+
+    <div className="grid lg:grid-cols-3 gap-8">
+
+      {/* CARD 1 */}
+
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        whileHover={{
-          y: -15,
-          rotate: -2,
-          scale: 1.03,
-        }}
-        transition={{ duration: 0.5 }}
-        className="group bg-white rounded-[30px] p-10 shadow-lg hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
+        whileHover={{ y: -10 }}
+        className="overflow-hidden rounded-[30px] shadow-2xl"
       >
-        <div className="text-6xl mb-8 transition-all duration-500 group-hover:scale-125">
-          🎨
-        </div>
-
-        <h3 className="text-3xl font-bold text-[#171717] mb-5">
-          Content Creation
-        </h3>
-
-        <p className="text-gray-600 group-hover:text-[#171717] leading-relaxed">
-          Eye-catching graphics, engaging captions and creative content
-          tailored to strengthen your brand presence across social
-          media platforms.
-        </p>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={card1Index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image
+              src={card1Images[card1Index]}
+              alt="Our Work 1"
+              width={1080}
+              height={1350}
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
       </motion.div>
 
       {/* CARD 2 */}
+
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        whileHover={{
-          y: -15,
-          rotate: 2,
-          scale: 1.03,
-        }}
-        transition={{ duration: 0.6 }}
-        className="group bg-white rounded-[30px] p-10 shadow-lg hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
+        whileHover={{ y: -10 }}
+        className="overflow-hidden rounded-[30px] shadow-2xl"
       >
-        <div className="text-6xl mb-8 transition-all duration-500 group-hover:rotate-12">
-          💬
-        </div>
-
-        <h3 className="text-3xl font-bold text-[#171717] mb-5">
-          Community Management
-        </h3>
-
-        <p className="text-gray-600 group-hover:text-[#171717] leading-relaxed">
-          Build stronger relationships with your audience through
-          proactive engagement, customer interaction and community
-          building.
-        </p>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={card2Index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Image
+              src={card2Images[card2Index]}
+              alt="Our Work 2"
+              width={1080}
+              height={1350}
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
       </motion.div>
 
       {/* CARD 3 */}
+
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        whileHover={{
-          y: -15,
-          scale: 1.05,
-        }}
-        transition={{ duration: 0.7 }}
-        className="group bg-white rounded-[30px] p-10 shadow-lg hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
+        whileHover={{ y: -10 }}
+        className="overflow-hidden rounded-[30px] shadow-2xl"
       >
-        <div className="text-6xl mb-8 transition-all duration-500 group-hover:scale-125">
-          📈
-        </div>
-
-        <h3 className="text-3xl font-bold text-[#171717] mb-5">
-          Social Media Strategy
-        </h3>
-
-        <p className="text-gray-600 group-hover:text-[#171717] leading-relaxed">
-          Data-driven strategies designed to increase reach, improve
-          engagement and support long-term business growth.
-        </p>
-      </motion.div>
-
-      {/* CARD 4 */}
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        whileHover={{
-          y: -15,
-          rotate: -2,
-          scale: 1.03,
-        }}
-        transition={{ duration: 0.8 }}
-        className="group bg-white rounded-[30px] p-10 shadow-lg hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
-      >
-        <div className="text-6xl mb-8 transition-all duration-500 group-hover:rotate-12">
-          🤝
-        </div>
-
-        <h3 className="text-3xl font-bold text-[#171717] mb-5">
-          Influencer Marketing
-        </h3>
-
-        <p className="text-gray-600 group-hover:text-[#171717] leading-relaxed">
-          Connect your brand with trusted creators and influencers to
-          expand reach and increase brand credibility.
-        </p>
-      </motion.div>
-
-      {/* CARD 5 */}
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        whileHover={{
-          y: -15,
-          scale: 1.05,
-        }}
-        transition={{ duration: 0.9 }}
-        className="group bg-white rounded-[30px] p-10 shadow-lg hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
-      >
-        <div className="text-6xl mb-8 transition-all duration-500 group-hover:scale-125">
-          📊
-        </div>
-
-        <h3 className="text-3xl font-bold text-[#171717] mb-5">
-          Analytics & Reporting
-        </h3>
-
-        <p className="text-gray-600 group-hover:text-[#171717] leading-relaxed">
-          Transparent reporting and detailed insights that help track
-          campaign performance and optimize future results.
-        </p>
-      </motion.div>
-
-      {/* CARD 6 */}
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        whileHover={{
-          y: -15,
-          rotate: 2,
-          scale: 1.03,
-        }}
-        transition={{ duration: 1 }}
-        className="group bg-white rounded-[30px] p-10 shadow-lg hover:bg-[#F8BC04] cursor-pointer transition-all duration-500"
-      >
-        <div className="text-6xl mb-8 transition-all duration-500 group-hover:scale-125">
-          🎥
-        </div>
-
-        <h3 className="text-3xl font-bold text-[#171717] mb-5">
-          Reels & Video Marketing
-        </h3>
-
-        <p className="text-gray-600 group-hover:text-[#171717] leading-relaxed">
-          Short-form videos, reels and visual storytelling designed to
-          boost engagement and maximize social media reach.
-        </p>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={card3Index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.9 }}
+          >
+            <Image
+              src={card3Images[card3Index]}
+              alt="Our Work 3"
+              width={1080}
+              height={1350}
+              className="w-full h-auto object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
       </motion.div>
 
     </div>
@@ -1002,8 +1108,25 @@ Scroll-stopping creatives designed to attract, engage, and convert your audience
   </div>
 </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {/* TESTIMONIALS SECTION */}
-<section className="py-20 bg-[#171717] overflow-hidden">
+<section className="py-20 bg-[#ffffff] overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
 
     {/* Header */}
@@ -1015,11 +1138,11 @@ Scroll-stopping creatives designed to attract, engage, and convert your audience
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       >
-        <span className="inline-flex px-6 py-3 rounded-full bg-[#F8BC04]/20 text-[#F8BC04] font-semibold tracking-wider mb-6">
+        <span className="inline-flex px-6 py-3 rounded-full bg-[#F8BC04]/100 text-[#1a1a1a] font-bold tracking-wider mb-6">
           CLIENT TESTIMONIALS
         </span>
 
-        <h2 className="text-4xl md:text-6xl font-black text-white leading-tight">
+        <h2 className="text-4xl md:text-6xl font-black text-#262626 leading-tight">
           What Our Clients
           <br />
           Say About Us
@@ -1032,22 +1155,13 @@ Scroll-stopping creatives designed to attract, engage, and convert your audience
         viewport={{ once: true }}
         transition={{ duration: 0.7 }}
       >
-        <p className="text-gray-300 text-lg leading-relaxed mb-8">
+        <p className="text-black-300 text-lg leading-relaxed mb-8">
           Businesses trust BIGBEANS DIGITAL for creative campaigns,
           strategic marketing and measurable growth. Here's what some
           of our valued clients have to say about working with us.
         </p>
 
-        <motion.button
-          whileHover={{
-            scale: 1.08,
-            rotate: -2,
-          }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-[#F8BC04] text-[#171717] px-8 py-4 rounded-full font-bold shadow-xl"
-        >
-          View All Reviews
-        </motion.button>
+        
       </motion.div>
 
     </div>
