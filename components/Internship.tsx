@@ -2,16 +2,18 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Internship() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   return (
-    <main className="bg-[#F8F8F8] overflow-hidden">
+    <main className="bg-[#FFFFFF] overflow-hidden">
 
       {/* =========================
             HERO SECTION
       ========================= */}
 
-      <section className="relative overflow-hidden bg-[#F8F8F8] pt-12 pb-16">
+      <section className="relative overflow-hidden bg-[#FFFFFF] pt-12 pb-16">
 
         {/* Animated Background Glow */}
 
@@ -728,7 +730,7 @@ export default function Internship() {
             INTERNSHIP HIGHLIGHTS
       ========================= */}
 
-      <section className="relative overflow-hidden bg-[#F8F8F8] py-8 lg:py-12">
+      <section className="relative overflow-hidden bg-[#FFFFFF] py-8 lg:py-12">
 
         <motion.div
           initial={{
@@ -1671,62 +1673,636 @@ export default function Internship() {
 
           </div>
 
-          {/* Bottom CTA */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 40,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: .2,
-            }}
-            className="mx-auto mt-20 max-w-4xl text-center"
-          >
-
-            <h3 className="text-[34px] font-black text-[#171717] md:text-[46px]">
-              Ready To Share
-              <span className="text-[#F8BC04]">
-                {" "}Your Success Story?
-              </span>
-            </h3>
-
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-9 text-gray-600">
-              Join our internship program, gain practical industry experience,
-              collaborate on live projects, and become the next success story
-              featured at BIGBEANS DIGITAL.
-            </p>
-
-            <motion.a
-              whileHover={{
-                scale: 1.05,
-                y: -4,
-              }}
-              whileTap={{
-                scale: .96,
-              }}
-              href="/connect"
-              className="mt-10 inline-flex rounded-full bg-[#171717] px-10 py-5 text-lg font-bold text-white shadow-[0_25px_60px_rgba(0,0,0,.18)] transition-all duration-500 hover:bg-[#F8BC04] hover:text-[#171717]"
-            >
-              Apply For Internship →
-            </motion.a>
-
-          </motion.div>
-
-        </div>
+      </div>
 
       </section>
 
+{/* FAQ SECTION */}
 
+<section className="bg-white py-10">
 
+  <div className="max-w-[1400px] mx-auto px-6">
 
+    {/* HEADER */}
+
+    <div className="text-center mb-16 relative">
+
+      <div
+        className="
+          absolute
+          left-1/2
+          top-0
+          -translate-x-1/2
+          w-24
+          h-24
+          rounded-full
+          bg-[#F8BC04]/35
+        "
+      />
+
+      <p
+        className="
+          uppercase
+          tracking-[6px]
+          text-sm
+          font-semibold
+          text-gray-500
+          relative
+        "
+      >
+        INTERNSHIP FAQS
+      </p>
+
+      <h2
+        className="
+          relative
+          mt-4
+          text-5xl
+          md:text-6xl
+          font-black
+          text-[#171717]
+        "
+      >
+        Frequently Asked{" "}
+        <span className="text-[#F8BC04]">
+          Questions
+        </span>
+      </h2>
+
+    </div>
+
+    {/* FAQ GRID */}
+
+    <div className="grid lg:grid-cols-2 gap-5">
+
+      {[
+        {
+          q: "Who can apply for the BIGBEANS DIGITAL Internship Program?",
+          a: "The BIGBEANS DIGITAL Internship Program is open to college students, recent graduates, freshers, and aspiring professionals who want to gain practical experience in Digital Marketing, Artificial Intelligence (AI), Social Media Marketing, Graphic Design, Branding, Google Ads, Meta Ads, Performance Marketing, and Content Creation."
+        },
+        {
+          q: "What will I learn during the internship?",
+          a: "Our Digital Marketing Internship provides hands-on training in Social Media Marketing, AI Tools, Graphic Design, Branding, Content Creation, Google Ads, Meta Ads, and Performance Marketing. You'll work on real-world projects, build practical skills, and gain valuable industry experience."
+        },
+        {
+          q: "Is this internship suitable for beginners?",
+          a: "Yes. Our internship is designed for beginners and college students with little or no prior experience. We provide structured guidance, practical assignments, mentorship, and live project exposure to help you develop job-ready skills."
+        },
+        {
+          q: "Will I receive a certificate after completing the internship?",
+          a: "Yes. All eligible interns who successfully complete the program receive an Internship Completion Certificate, recognizing their practical experience and skills in Digital Marketing, AI, Graphic Design, and related digital domains."
+        },
+        {
+          q: "Will I get to work on live projects?",
+          a: "Absolutely. Unlike traditional training programs, our Digital Marketing Internship for College Students includes live client projects, practical assignments, and real business case studies that help you build a strong portfolio."
+        },
+        {
+          q: "Is the internship available online?",
+          a: "Yes. BIGBEANS DIGITAL offers flexible internship opportunities that can be attended online, making it convenient for college students and learners from different cities to participate and gain industry experience."
+        },
+        {
+          q: "How will this internship help my career?",
+          a: "Our internship helps you develop practical digital skills, improve your resume, build a professional portfolio, gain real project experience, and prepare for placements, freelancing, or full-time careers in the digital marketing industry."
+        },
+        {
+          q: "Why choose the BIGBEANS DIGITAL Internship Program?",
+          a: "BIGBEANS DIGITAL offers one of the most practical Internships for College Students, focusing on hands-on learning instead of theory. You'll receive mentorship from industry professionals, work on real projects, and gain skills that employers value."
+        },
+        {
+          q: "Is there any selection process for the internship?",
+          a: "Yes. Every application is reviewed to understand the candidate's interest, learning attitude, and career goals. Selected applicants may be invited for a short interaction before joining the internship program."
+        },
+        {
+          q: "How can I apply for the BIGBEANS DIGITAL Internship?",
+          a: "Applying is simple. Complete the online application form, share your basic details, and submit your application. Our team will review your profile and contact shortlisted candidates with the next steps for joining the BIGBEANS DIGITAL Internship Program."
+        }
+      ].map((faq, index) => (
+
+        <motion.div
+          key={index}
+          layout
+          className="
+            bg-white
+            border
+            border-gray-300
+            rounded-[20px]
+            overflow-hidden
+          "
+        >
+
+          <button
+            onClick={() =>
+              setOpenFaq(openFaq === index ? null : index)
+            }
+            className="
+              w-full
+              flex
+              justify-between
+              items-center
+              p-6
+              text-left
+            "
+          >
+
+            <span
+              className="
+                font-semibold
+                text-[#171717]
+                pr-4
+              "
+            >
+              {faq.q}
+            </span>
+
+            <span
+              className="
+                w-10
+                h-10
+                rounded-full
+                bg-[#171717]
+                text-white
+                flex
+                items-center
+                justify-center
+                text-xl
+              "
+            >
+              {openFaq === index ? "−" : "+"}
+            </span>
+
+          </button>
+
+          {openFaq === index && (
+
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="px-6 pb-6"
+            >
+
+              <p className="text-gray-600 leading-relaxed">
+                {faq.a}
+              </p>
+
+            </motion.div>
+
+          )}
+
+        </motion.div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* PRESENCE SECTION */}
+
+<section className="bg-[#ffffff] py-10">
+
+  <div
+    className="
+      max-w-[1400px]
+      mx-auto
+      px-6
+    "
+  >
+
+    <div
+      className="
+        bg-white
+        rounded-[40px]
+        border
+        border-gray-200
+        p-10
+        lg:p-16
+        grid
+        lg:grid-cols-2
+        gap-12
+        items-center
+      "
+    >
+
+      {/* LEFT */}
+
+      <div>
+
+        <p
+          className="
+            uppercase
+            tracking-[6px]
+            text-sm
+            font-semibold
+            text-gray-500
+            mb-6
+          "
+        >
+          Global Presence
+        </p>
+
+        <h2
+          className="
+            text-5xl
+            lg:text-6xl
+            font-black
+            text-[#171717]
+            leading-tight
+          "
+        >
+          Digital Excellence in{" "}
+          <span className="text-[#F8BC04]">
+            12+
+          </span>
+          <br />
+          Locations
+        </h2>
+
+        <p
+          className="
+            mt-8
+            text-lg
+            text-gray-600
+            leading-relaxed
+            max-w-[650px]
+          "
+        >
+          BIGBEANS DIGITAL serves businesses across India and international markets.
+          Our strategies are built for local relevance and global scalability.
+        </p>
+
+        {/* LOCATIONS */}
+
+        <div className="grid grid-cols-2 gap-10 mt-12">
+
+          <div className="border-r border-[##000000]/30 pr-10">
+
+            <h3 className="font-bold text-xl">
+               In India
+                </h3>
+
+<div className="w-20 h-[2px] bg-[#F8BC04] mt-2 mb-5"></div>
+
+            <ul className="space-y-3 text-gray-700">
+
+              <li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Kolkata
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Delhi
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Bangalore
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Noida
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Tripura
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Mumbai
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Pune
+</li>
+            </ul>
+
+          </div>
+
+          <div>
+
+            <h3 className="font-bold text-xl">
+  International Presence
+</h3>
+
+<div className="w-20 h-[2px] bg-[#F8BC04] mt-2 mb-5"></div>
+
+            <ul className="space-y-3 text-gray-700">
+
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              London
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Singapore
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Canada
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Australia
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Nigeria
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* RIGHT */}
+
+      <div className="relative">
+
+        <Image
+          src="/maps/world-map.png"
+          alt="World Map"
+          width={1200}
+          height={700}
+          className="w-full h-auto"
+        />
+
+        {/* INDIA CLUSTER */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[42%]
+            left-[67%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* LONDON */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.2,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[27%]
+            left-[44%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* CANADA */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.4,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[28%]
+            left-[18%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* NIGERIA */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.1,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[50%]
+            left-[47%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* SINGAPORE */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.3,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[54%]
+            left-[74%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* AUSTRALIA */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[65%]
+            left-[84%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* =========================
+        CTA SECTION
+========================= */}
+
+<section className="relative overflow-hidden bg-[#ffffff] py-24">
+
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7 }}
+  >
+
+    <div
+      className="
+        relative
+        overflow-hidden
+        max-w-7xl
+        mx-auto
+        rounded-[40px]
+        bg-[#171717]
+        px-8
+        py-16
+        md:px-16
+      "
+    >
+
+      {/* Glow */}
+
+      <div
+        className="
+          absolute
+          right-0
+          top-0
+          h-72
+          w-72
+          rounded-full
+          bg-[#F8BC04]/20
+          blur-[120px]
+        "
+      />
+
+      <div
+        className="
+          relative
+          z-10
+          flex
+          flex-col
+          items-center
+          justify-between
+          gap-10
+          lg:flex-row
+        "
+      >
+
+        {/* Left */}
+
+        <div>
+
+          <h2
+            className="
+              max-w-3xl
+              text-4xl
+              md:text-5xl
+              font-black
+              leading-tight
+              text-white
+            "
+          >
+            Ready To Turn Clicks Into
+            <span className="text-[#F8BC04]">
+              {" "}Real Business Growth?
+            </span>
+          </h2>
+
+          <p
+            className="
+              mt-6
+              max-w-2xl
+              text-lg
+              leading-8
+              text-white/80
+            "
+          >
+            Partner with BIGBEANS DIGITAL to launch
+            data-driven digital marketing campaigns that
+            generate quality leads, increase conversions
+            and accelerate your business growth.
+          </p>
+
+        </div>
+
+        {/* Button */}
+
+        <motion.button
+          whileHover={{
+            scale: 1.05,
+            y: -5,
+            backgroundColor: "#FFD54A",
+          }}
+          whileTap={{
+            scale: 0.95,
+          }}
+          className="
+            whitespace-nowrap
+            rounded-full
+            bg-[#F8BC04]
+            px-10
+            py-5
+            text-lg
+            font-bold
+            text-[#171717]
+            shadow-[0_20px_50px_rgba(248,188,4,0.35)]
+            transition-all
+            duration-300
+          "
+        >
+          Talk to Our Team and Apply
+        </motion.button>
+
+      </div>
+
+    </div>
+
+  </motion.div>
+
+</section>
+
+{/* =========================
+      END CTA SECTION
+========================= */}
 
 
 

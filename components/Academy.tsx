@@ -7,9 +7,11 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useState } from "react";
 import Courses from "@/components/academy/Courses";
 
 export default function Academy() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
     const courses = [
         {
@@ -74,7 +76,7 @@ export default function Academy() {
         },
       ];
   return (
-    <main className="bg-[#F8F8F8] overflow-hidden">
+    <main className="bg-[#FFFFFF] overflow-hidden">
 
       {/* =========================
             ACADEMY HERO
@@ -1010,172 +1012,648 @@ export default function Academy() {
 
       </section>
 
-            {/* =========================
-            WHY BIGBEANS ACADEMY
-      ========================= */}
 
-      <section className="relative overflow-hidden bg-white py-24 lg:py-32">
+{/* FAQ SECTION */}
 
-        {/* Background */}
+<section className="bg-white py-10">
 
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "radial-gradient(#171717 1px, transparent 1px)",
-            backgroundSize: "26px 26px",
-          }}
-        />
+  <div className="max-w-[1400px] mx-auto px-6">
+
+    {/* HEADER */}
+
+    <div className="text-center mb-16 relative">
+
+      <div
+        className="
+          absolute
+          left-1/2
+          top-0
+          -translate-x-1/2
+          w-24
+          h-24
+          rounded-full
+          bg-[#F8BC04]/35
+        "
+      />
+
+      <p
+        className="
+          uppercase
+          tracking-[6px]
+          text-sm
+          font-semibold
+          text-gray-500
+          relative
+        "
+      >
+        BIGBEANS ACADEMY FAQS
+      </p>
+
+      <h2
+        className="
+          relative
+          mt-4
+          text-5xl
+          md:text-6xl
+          font-black
+          text-[#171717]
+        "
+      >
+        Frequently Asked{" "}
+        <span className="text-[#F8BC04]">
+          Questions
+        </span>
+      </h2>
+
+    </div>
+
+    {/* FAQ GRID */}
+
+    <div className="grid lg:grid-cols-2 gap-5">
+
+      {[
+        {
+          q: "Why should I join BIGBEANS Academy?",
+          a: "BIGBEANS Academy offers practical, industry-focused training designed for students, professionals, entrepreneurs, and freelancers. Whether you're looking for the Best Digital Marketing Course, Best AI Course, or Best Graphic Design Course, our hands-on workshops and certification programs help you build job-ready skills with real-world projects."
+        },
+        {
+          q: "Which courses are available at BIGBEANS Academy?",
+          a: "BIGBEANS Academy offers practical training in Artificial Intelligence (AI), Digital Marketing, Social Media Marketing, Google Ads, Meta Ads, Performance Marketing, Graphic Design, Branding, and Content Creation. Every course is designed to help learners gain industry-relevant skills and practical experience."
+        },
+        {
+          q: "Are your courses suitable for beginners?",
+          a: "Yes. Our courses are beginner-friendly and require no prior experience. Whether you're a college student, working professional, entrepreneur, or freelancer, our expert trainers guide you from the fundamentals to advanced practical applications."
+        },
+        {
+          q: "Will I work on real projects during the course?",
+          a: "Absolutely. Every learner gains hands-on experience through live projects, practical assignments, real-world case studies, and interactive workshops. This helps you build a professional portfolio while learning the latest digital skills."
+        },
+        {
+          q: "Do I receive a certificate after completing the course?",
+          a: "Yes. Upon successfully completing your course, you'll receive a Professional Certification from BIGBEANS Academy that validates your practical skills in Digital Marketing, AI, Graphic Design, Social Media Marketing, Google Ads, Meta Ads, Performance Marketing, Branding, or Content Creation."
+        },
+        {
+          q: "Can these courses help me get a job or internship?",
+          a: "Yes. Our programs are designed to help learners become industry-ready by developing practical skills, building portfolios, and understanding real business challenges. These skills improve your chances of securing internships, freelance projects, and full-time opportunities."
+        },
+        {
+          q: "Do you offer online and offline classes?",
+          a: "Yes. BIGBEANS Academy provides both online and offline learning options, allowing students and professionals to choose the format that best suits their schedule while receiving the same practical training and mentorship."
+        },
+        {
+          q: "Why choose BIGBEANS Academy over other training institutes?",
+          a: "BIGBEANS Academy focuses on practical learning instead of theory. As a destination for the Best Digital Marketing Course, Best AI Course, and Best Graphic Design Course, our workshops are led by industry professionals and emphasize real-world skills that employers and businesses value."
+        },
+        {
+          q: "Who can join BIGBEANS Academy?",
+          a: "Our courses are ideal for college students, fresh graduates, working professionals, entrepreneurs, business owners, freelancers, and anyone who wants to learn modern digital skills and stay competitive in today's technology-driven world."
+        },
+        {
+          q: "How do I enroll in a course at BIGBEANS Academy?",
+          a: "Getting started is easy. Simply contact the BIGBEANS Academy team, choose the course that matches your career goals, and enroll in our practical training programs to begin your journey toward becoming a skilled digital professional."
+        }
+      ].map((faq, index) => (
 
         <motion.div
-          animate={{
-            scale: [1, 1.12, 1],
-            opacity: [.12, .22, .12],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-          }}
-          className="absolute left-1/2 top-24 h-[650px] w-[650px] -translate-x-1/2 rounded-full bg-[#F8BC04]/20 blur-[180px]"
-        />
+          key={index}
+          layout
+          className="
+            bg-white
+            border
+            border-gray-300
+            rounded-[20px]
+            overflow-hidden
+          "
+        >
 
-        <div className="relative z-10 mx-auto max-w-6xl px-6 text-center">
-
-          <motion.span
-            initial={{
-              opacity:0,
-              y:30,
-            }}
-            whileInView={{
-              opacity:1,
-              y:0,
-            }}
-            viewport={{
-              once:true,
-            }}
-            transition={{
-              duration:.6,
-            }}
-            className="inline-flex rounded-full bg-[#F8BC04]/10 px-6 py-3 text-sm font-bold text-[#F8BC04]"
+          <button
+            onClick={() =>
+              setOpenFaq(openFaq === index ? null : index)
+            }
+            className="
+              w-full
+              flex
+              justify-between
+              items-center
+              p-6
+              text-left
+            "
           >
-            Why BIGBEANS DIGITAL Academy
-          </motion.span>
 
-          <motion.h2
-            initial={{
-              opacity:0,
-              y:50,
-            }}
-            whileInView={{
-              opacity:1,
-              y:0,
-            }}
-            viewport={{
-              once:true,
-            }}
-            transition={{
-              delay:.15,
-              duration:.8,
-            }}
-            className="mx-auto mt-8 max-w-5xl text-[42px] font-black leading-tight text-[#171717] md:text-[64px]"
-          >
-            Preparing You For A
-            <span className="text-[#F8BC04]">
-              {" "}Successful Digital Career
+            <span
+              className="
+                font-semibold
+                text-[#171717]
+                pr-4
+              "
+            >
+              {faq.q}
             </span>
-          </motion.h2>
 
-          <motion.p
-            initial={{
-              opacity:0,
-              y:40,
-            }}
-            whileInView={{
-              opacity:1,
-              y:0,
-            }}
-            viewport={{
-              once:true,
-            }}
-            transition={{
-              delay:.25,
-            }}
-            className="mx-auto mt-10 max-w-5xl text-[18px] leading-9 text-gray-600"
-          >
-            BIGBEANS DIGITAL Academy bridges the gap between education and
-            industry by combining practical learning, AI-powered tools,
-            live projects, and expert mentorship. Instead of focusing only
-            on theory, our programs are designed to help you develop
-            real-world skills that employers, startups, and clients
-            genuinely value. Every course is structured to build your
-            confidence, strengthen your portfolio, and prepare you for
-            long-term career success.
-          </motion.p>
-
-          <motion.p
-            initial={{
-              opacity:0,
-              y:40,
-            }}
-            whileInView={{
-              opacity:1,
-              y:0,
-            }}
-            viewport={{
-              once:true,
-            }}
-            transition={{
-              delay:.35,
-            }}
-            className="mx-auto mt-8 max-w-5xl text-[18px] leading-9 text-gray-600"
-          >
-            Whether you want to become a digital marketer, designer,
-            developer, entrepreneur, or freelancer, you'll learn through
-            practical execution rather than memorization. From AI-driven
-            workflows and branding to website development and performance
-            marketing, our Academy equips you with future-ready skills that
-            help you stand out in today's competitive digital economy.
-          </motion.p>
-
-          {/* CTA Starts Below */}
-
-          <div className="mt-16 flex flex-wrap justify-center gap-5">
-
-                        <motion.a
-              whileHover={{
-                scale: 1.05,
-                y: -5,
-              }}
-              whileTap={{
-                scale: .96,
-              }}
-              href="/courses"
-              className="rounded-full bg-[#171717] px-10 py-5 text-lg font-bold text-white shadow-[0_25px_60px_rgba(0,0,0,.18)] transition-all duration-500 hover:bg-[#F8BC04] hover:text-[#171717]"
+            <span
+              className="
+                w-10
+                h-10
+                rounded-full
+                bg-[#171717]
+                text-white
+                flex
+                items-center
+                justify-center
+                text-xl
+              "
             >
-              Explore Courses →
-            </motion.a>
+              {openFaq === index ? "−" : "+"}
+            </span>
 
-            
+          </button>
 
-            <motion.a
-              whileHover={{
-                scale: 1.05,
-                y: -5,
-              }}
-              whileTap={{
-                scale: .96,
-              }}
-              href="/connect"
-              className="rounded-full bg-[#F8BC04] px-10 py-5 text-lg font-bold text-[#171717] shadow-[0_25px_60px_rgba(248,188,4,.28)] transition-all duration-500 hover:bg-[#171717] hover:text-white"
+          {openFaq === index && (
+
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="px-6 pb-6"
             >
-              Talk To Our Team
-            </motion.a>
+
+              <p className="text-gray-600 leading-relaxed">
+                {faq.a}
+              </p>
+
+            </motion.div>
+
+          )}
+
+        </motion.div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* PRESENCE SECTION */}
+
+<section className="bg-[#ffffff] py-10">
+
+  <div
+    className="
+      max-w-[1400px]
+      mx-auto
+      px-6
+    "
+  >
+
+    <div
+      className="
+        bg-white
+        rounded-[40px]
+        border
+        border-gray-200
+        p-10
+        lg:p-16
+        grid
+        lg:grid-cols-2
+        gap-12
+        items-center
+      "
+    >
+
+      {/* LEFT */}
+
+      <div>
+
+        <p
+          className="
+            uppercase
+            tracking-[6px]
+            text-sm
+            font-semibold
+            text-gray-500
+            mb-6
+          "
+        >
+          Global Presence
+        </p>
+
+        <h2
+          className="
+            text-5xl
+            lg:text-6xl
+            font-black
+            text-[#171717]
+            leading-tight
+          "
+        >
+          Digital Excellence in{" "}
+          <span className="text-[#F8BC04]">
+            12+
+          </span>
+          <br />
+          Locations
+        </h2>
+
+        <p
+          className="
+            mt-8
+            text-lg
+            text-gray-600
+            leading-relaxed
+            max-w-[650px]
+          "
+        >
+          BIGBEANS DIGITAL serves businesses across India and international markets.
+          Our strategies are built for local relevance and global scalability.
+        </p>
+
+        {/* LOCATIONS */}
+
+        <div className="grid grid-cols-2 gap-10 mt-12">
+
+          <div className="border-r border-[##000000]/30 pr-10">
+
+            <h3 className="font-bold text-xl">
+               In India
+                </h3>
+
+<div className="w-20 h-[2px] bg-[#F8BC04] mt-2 mb-5"></div>
+
+            <ul className="space-y-3 text-gray-700">
+
+              <li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Kolkata
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Delhi
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Bangalore
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Noida
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Tripura
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Mumbai
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Pune
+</li>
+            </ul>
 
           </div>
 
+          <div>
+
+            <h3 className="font-bold text-xl">
+  International Presence
+</h3>
+
+<div className="w-20 h-[2px] bg-[#F8BC04] mt-2 mb-5"></div>
+
+            <ul className="space-y-3 text-gray-700">
+
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              London
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Singapore
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Canada
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Australia
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Nigeria
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* RIGHT */}
+
+      <div className="relative">
+
+        <Image
+          src="/maps/world-map.png"
+          alt="World Map"
+          width={1200}
+          height={700}
+          className="w-full h-auto"
+        />
+
+        {/* INDIA CLUSTER */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[42%]
+            left-[67%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* LONDON */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.2,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[27%]
+            left-[44%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* CANADA */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.4,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[28%]
+            left-[18%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* NIGERIA */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.1,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[50%]
+            left-[47%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* SINGAPORE */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.3,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[54%]
+            left-[74%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* AUSTRALIA */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[65%]
+            left-[84%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* =========================
+        CTA SECTION
+========================= */}
+
+<section className="relative overflow-hidden bg-[#ffffff] py-24">
+
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7 }}
+  >
+
+    <div
+      className="
+        relative
+        overflow-hidden
+        max-w-7xl
+        mx-auto
+        rounded-[40px]
+        bg-[#171717]
+        px-8
+        py-16
+        md:px-16
+      "
+    >
+
+      {/* Glow */}
+
+      <div
+        className="
+          absolute
+          right-0
+          top-0
+          h-72
+          w-72
+          rounded-full
+          bg-[#F8BC04]/20
+          blur-[120px]
+        "
+      />
+
+      <div
+        className="
+          relative
+          z-10
+          flex
+          flex-col
+          items-center
+          justify-between
+          gap-10
+          lg:flex-row
+        "
+      >
+
+        {/* Left */}
+
+        <div>
+
+          <h2
+            className="
+              max-w-3xl
+              text-4xl
+              md:text-5xl
+              font-black
+              leading-tight
+              text-white
+            "
+          >
+            Ready To Turn Clicks Into
+            <span className="text-[#F8BC04]">
+              {" "}Real Business Growth?
+            </span>
+          </h2>
+
+          <p
+            className="
+              mt-6
+              max-w-2xl
+              text-lg
+              leading-8
+              text-white/80
+            "
+          >
+            Partner with BIGBEANS DIGITAL to launch
+            data-driven digital marketing campaigns that
+            generate quality leads, increase conversions
+            and accelerate your business growth.
+          </p>
+
         </div>
 
-      </section>
+        {/* Button */}
+
+        <motion.button
+          whileHover={{
+            scale: 1.05,
+            y: -5,
+            backgroundColor: "#FFD54A",
+          }}
+          whileTap={{
+            scale: 0.95,
+          }}
+          className="
+            whitespace-nowrap
+            rounded-full
+            bg-[#F8BC04]
+            px-10
+            py-5
+            text-lg
+            font-bold
+            text-[#171717]
+            shadow-[0_20px_50px_rgba(248,188,4,0.35)]
+            transition-all
+            duration-300
+          "
+        >
+          Book Free Strategy Call
+        </motion.button>
+
+      </div>
+
+    </div>
+
+  </motion.div>
+
+</section>
+
+{/* =========================
+      END CTA SECTION
+========================= */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </main>
   );

@@ -10,7 +10,7 @@ export default function Blog() {
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 );
   return (
-    <main className="overflow-hidden bg-[#F8F8F8]">
+    <main className="overflow-hidden bg-[#FFFFFF]">
 
       {/* =========================
             BLOG HERO
@@ -275,7 +275,7 @@ export default function Blog() {
             LATEST ARTICLES
       ========================= */}
 
-      <section className="relative bg-[#F8F8F8] py-24">
+      <section className="relative bg-[#FFFFFF] py-24">
 
         <div className="mx-auto max-w-7xl px-6">
 

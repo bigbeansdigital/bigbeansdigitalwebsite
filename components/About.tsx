@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 import {
   BarChart3,
   Handshake,
@@ -12,8 +13,9 @@ import {
 } from "lucide-react";
 
 export default function About() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   return (
-    <main className="bg-[#F8F8F8] overflow-hidden">
+    <main className="bg-[#FFFFFF] overflow-hidden">
 
       {/* ABOUT BANNER */}
 <section className="px-6 lg:px-12 pt-10 pb-20 overflow-hidden">
@@ -755,6 +757,8 @@ and achieve sustainable long-term growth.
 
         </div>
 
+
+
         {/* PART 3 STARTS HERE */}
                 {/* CTA */}
 
@@ -1274,45 +1278,634 @@ Creative visuals and Startup Brand Identity Design that make your business look 
   </div>
 </section>
 
-{/* FINAL CTA SECTION */}
-<section className="py-40 bg-white overflow-hidden">
-  <div className="max-w-7xl mx-auto px-6 text-center relative">
+{/* FAQ SECTION */}
 
-    <motion.h2
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="absolute inset-0 flex items-center justify-center text-[80px] md:text-[180px] font-black text-[#171717]/5 leading-none pointer-events-none select-none"
-    >
-      where strategy
-    </motion.h2>
+<section className="bg-white py-10">
 
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: 0.2, duration: 0.8 }}
-      className="relative z-10"
-    >
-      <h2 className="text-[#171717] text-5xl md:text-8xl font-black leading-none">
-        meets creativity
+  <div className="max-w-[1400px] mx-auto px-6">
+
+    {/* HEADER */}
+
+    <div className="text-center mb-16 relative">
+
+      <div
+        className="
+          absolute
+          left-1/2
+          top-0
+          -translate-x-1/2
+          w-24
+          h-24
+          rounded-full
+          bg-[#F8BC04]/35
+        "
+      />
+
+      <p
+        className="
+          uppercase
+          tracking-[6px]
+          text-sm
+          font-semibold
+          text-gray-500
+          relative
+        "
+      >
+        ABOUT BIGBEANS DIGITAL FAQS
+      </p>
+
+      <h2
+        className="
+          relative
+          mt-4
+          text-5xl
+          md:text-6xl
+          font-black
+          text-[#171717]
+        "
+      >
+        Frequently Asked{" "}
+        <span className="text-[#F8BC04]">
+          Questions
+        </span>
       </h2>
 
-      <motion.button
-        whileHover={{
-          scale: 1.08,
-          y: -4,
-        }}
-        whileTap={{ scale: 0.96 }}
-        className="mt-12 bg-[#F8BC04] text-[#171717] px-10 py-5 rounded-full font-bold text-lg shadow-[0_15px_40px_rgba(248,188,4,0.35)]"
-      >
-        Let's Start a Project
-      </motion.button>
-    </motion.div>
+    </div>
+
+    {/* FAQ GRID */}
+
+    <div className="grid lg:grid-cols-2 gap-5">
+
+      {[
+        {
+          q: "What is BIGBEANS DIGITAL?",
+          a: "BIGBEANS DIGITAL is a Best Digital Marketing Agency for Startups that helps businesses grow through Digital Marketing, Social Media Marketing, Website Development, Branding, Google Ads, Meta Ads, Performance Marketing, and creative digital solutions. We work with startups, small businesses, and growing brands across London, India, USA, and Dubai."
+        },
+        {
+          q: "Why choose BIGBEANS DIGITAL over other digital marketing agencies?",
+          a: "BIGBEANS DIGITAL combines creativity, strategy, and performance to deliver measurable business growth. As a Digital Marketing Agency for Startups, we focus on building strong brands, generating qualified leads, increasing online visibility, and helping businesses achieve long-term success."
+        },
+        {
+          q: "Which industries does BIGBEANS DIGITAL work with?",
+          a: "We work with startups, ecommerce brands, healthcare businesses, real estate companies, FMCG brands, gyms, restaurants, educational institutes, local businesses, and service-based companies. Our customized Digital Marketing Services are tailored to each industry's goals and target audience."
+        },
+        {
+          q: "What services does BIGBEANS DIGITAL provide?",
+          a: "We provide complete Digital Marketing Services, including Social Media Marketing, Website Development, Branding, Logo Design, Google Ads, Meta Ads, Performance Marketing, Graphic Design, and business growth strategies designed to help brands grow faster."
+        },
+        {
+          q: "Do you work only with startups?",
+          a: "No. While we are known as a Best Digital Marketing Agency for Startups, we also work with small businesses, established companies, entrepreneurs, and growing brands looking to strengthen their online presence and accelerate business growth."
+        },
+        {
+          q: "Which countries do you serve?",
+          a: "BIGBEANS DIGITAL proudly serves clients across London, India, USA, and Dubai, helping businesses build their brand, generate leads, and grow through customized digital marketing strategies."
+        },
+        {
+          q: "How does BIGBEANS DIGITAL help businesses grow?",
+          a: "We combine Social Media Marketing, Performance Marketing, Website Development, Branding, Google Ads, Meta Ads, and creative content to increase brand awareness, attract qualified customers, generate leads, and improve business revenue through data-driven marketing strategies."
+        },
+        {
+          q: "What makes BIGBEANS DIGITAL different?",
+          a: "We don't believe in one-size-fits-all marketing. Every business receives a customized growth strategy based on its goals, audience, industry, and competition. Our focus on creativity, transparency, measurable results, and long-term partnerships makes us a trusted Business Growth Agency."
+        },
+        {
+          q: "Can BIGBEANS DIGITAL handle both branding and marketing?",
+          a: "Yes. Unlike many agencies, we provide both Branding and Digital Marketing Services under one roof. From building your brand identity to running high-performing marketing campaigns, we help businesses create a consistent and impactful digital presence."
+        },
+        {
+          q: "How can I get started with BIGBEANS DIGITAL?",
+          a: "Getting started is simple. Contact our team for a free consultation, and we'll understand your business goals, analyze your current digital presence, and recommend the best Digital Marketing Services to help your startup or business achieve sustainable growth."
+        }
+      ].map((faq, index) => (
+
+        <motion.div
+          key={index}
+          layout
+          className="
+            bg-white
+            border
+            border-gray-300
+            rounded-[20px]
+            overflow-hidden
+          "
+        >
+
+          <button
+            onClick={() =>
+              setOpenFaq(openFaq === index ? null : index)
+            }
+            className="
+              w-full
+              flex
+              justify-between
+              items-center
+              p-6
+              text-left
+            "
+          >
+
+            <span
+              className="
+                font-semibold
+                text-[#171717]
+                pr-4
+              "
+            >
+              {faq.q}
+            </span>
+
+            <span
+              className="
+                w-10
+                h-10
+                rounded-full
+                bg-[#171717]
+                text-white
+                flex
+                items-center
+                justify-center
+                text-xl
+              "
+            >
+              {openFaq === index ? "−" : "+"}
+            </span>
+
+          </button>
+
+          {openFaq === index && (
+
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="px-6 pb-6"
+            >
+
+              <p className="text-gray-600 leading-relaxed">
+                {faq.a}
+              </p>
+
+            </motion.div>
+
+          )}
+
+        </motion.div>
+
+      ))}
+
+    </div>
 
   </div>
+
 </section>
+
+
+
+{/* PRESENCE SECTION */}
+
+<section className="bg-[#ffffff] py-10">
+
+  <div
+    className="
+      max-w-[1400px]
+      mx-auto
+      px-6
+    "
+  >
+
+    <div
+      className="
+        bg-white
+        rounded-[40px]
+        border
+        border-gray-200
+        p-10
+        lg:p-16
+        grid
+        lg:grid-cols-2
+        gap-12
+        items-center
+      "
+    >
+
+      {/* LEFT */}
+
+      <div>
+
+        <p
+          className="
+            uppercase
+            tracking-[6px]
+            text-sm
+            font-semibold
+            text-gray-500
+            mb-6
+          "
+        >
+          Global Presence
+        </p>
+
+        <h2
+          className="
+            text-5xl
+            lg:text-6xl
+            font-black
+            text-[#171717]
+            leading-tight
+          "
+        >
+          Digital Excellence in{" "}
+          <span className="text-[#F8BC04]">
+            12+
+          </span>
+          <br />
+          Locations
+        </h2>
+
+        <p
+          className="
+            mt-8
+            text-lg
+            text-gray-600
+            leading-relaxed
+            max-w-[650px]
+          "
+        >
+          BIGBEANS DIGITAL serves businesses across India and international markets.
+          Our strategies are built for local relevance and global scalability.
+        </p>
+
+        {/* LOCATIONS */}
+
+        <div className="grid grid-cols-2 gap-10 mt-12">
+
+          <div className="border-r border-[##000000]/30 pr-10">
+
+            <h3 className="font-bold text-xl">
+               In India
+                </h3>
+
+<div className="w-20 h-[2px] bg-[#F8BC04] mt-2 mb-5"></div>
+
+            <ul className="space-y-3 text-gray-700">
+
+              <li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Kolkata
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Delhi
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Bangalore
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Noida
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Tripura
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Mumbai
+</li>
+<li className="flex items-center gap-2">
+  <span className="text-[#F8BC04]">●</span>
+  Pune
+</li>
+            </ul>
+
+          </div>
+
+          <div>
+
+            <h3 className="font-bold text-xl">
+  International Presence
+</h3>
+
+<div className="w-20 h-[2px] bg-[#F8BC04] mt-2 mb-5"></div>
+
+            <ul className="space-y-3 text-gray-700">
+
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              London
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Singapore
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Canada
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Australia
+              </li>
+              <li className="flex items-center gap-2">
+              <span className="text-[#F8BC04]">●</span>
+              Nigeria
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* RIGHT */}
+
+      <div className="relative">
+
+        <Image
+          src="/maps/world-map.png"
+          alt="World Map"
+          width={1200}
+          height={700}
+          className="w-full h-auto"
+        />
+
+        {/* INDIA CLUSTER */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[42%]
+            left-[67%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* LONDON */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.2,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[27%]
+            left-[44%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* CANADA */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.4,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[28%]
+            left-[18%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* NIGERIA */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.1,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[50%]
+            left-[47%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* SINGAPORE */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.3,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[54%]
+            left-[74%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+        {/* AUSTRALIA */}
+
+        <motion.div
+          animate={{
+            scale: [1, 1.4, 1],
+            opacity: [0.5, 1, 0.5],
+          }}
+          transition={{
+            duration: 2.5,
+            repeat: Infinity,
+          }}
+          className="
+            absolute
+            w-4
+            h-4
+            bg-[#F8BC04]
+            rounded-full
+            top-[65%]
+            left-[84%]
+            shadow-[0_0_25px_#F8BC04]
+          "
+        />
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* =========================
+        CTA SECTION
+========================= */}
+
+<section className="relative overflow-hidden bg-[#ffffff] py-24">
+
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7 }}
+  >
+
+    <div
+      className="
+        relative
+        overflow-hidden
+        max-w-7xl
+        mx-auto
+        rounded-[40px]
+        bg-[#171717]
+        px-8
+        py-16
+        md:px-16
+      "
+    >
+
+      {/* Glow */}
+
+      <div
+        className="
+          absolute
+          right-0
+          top-0
+          h-72
+          w-72
+          rounded-full
+          bg-[#F8BC04]/20
+          blur-[120px]
+        "
+      />
+
+      <div
+        className="
+          relative
+          z-10
+          flex
+          flex-col
+          items-center
+          justify-between
+          gap-10
+          lg:flex-row
+        "
+      >
+
+        {/* Left */}
+
+        <div>
+
+          <h2
+            className="
+              max-w-3xl
+              text-4xl
+              md:text-5xl
+              font-black
+              leading-tight
+              text-white
+            "
+          >
+            Ready To Turn Clicks Into
+            <span className="text-[#F8BC04]">
+              {" "}Real Business Growth?
+            </span>
+          </h2>
+
+          <p
+            className="
+              mt-6
+              max-w-2xl
+              text-lg
+              leading-8
+              text-white/80
+            "
+          >
+            Partner with BIGBEANS DIGITAL to launch
+            data-driven digital marketing campaigns that
+            generate quality leads, increase conversions
+            and accelerate your business growth.
+          </p>
+
+        </div>
+
+        {/* Button */}
+
+        <motion.button
+          whileHover={{
+            scale: 1.05,
+            y: -5,
+            backgroundColor: "#FFD54A",
+          }}
+          whileTap={{
+            scale: 0.95,
+          }}
+          className="
+            whitespace-nowrap
+            rounded-full
+            bg-[#F8BC04]
+            px-10
+            py-5
+            text-lg
+            font-bold
+            text-[#171717]
+            shadow-[0_20px_50px_rgba(248,188,4,0.35)]
+            transition-all
+            duration-300
+          "
+        >
+          Book Free Strategy Call
+        </motion.button>
+
+      </div>
+
+    </div>
+
+  </motion.div>
+
+</section>
+
+{/* =========================
+      END CTA SECTION
+========================= */}
 
 
 

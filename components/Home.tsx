@@ -194,7 +194,7 @@ const row3 = [
   "/clients/19.png",
 ];
   return (
-    <section className="bg-[#F8F8F8] overflow-hidden pb-20">
+    <section className="bg-[#FFFFFF] overflow-hidden pb-20">
 
       <div className="max-w-[1400px] mx-auto px-0 pt-4">
 
@@ -302,7 +302,7 @@ const row3 = [
 
               <div
   className="
-  bg-[#F8F8F8]
+  bg-[#FFFFFF]
   w-[700px]
   rounded-b-[40px]
   py-8
@@ -546,7 +546,7 @@ const row3 = [
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true, amount: 0.3 }}
   transition={{ duration: 0.8 }}
-  className="bg-[#F8F8F8] py-10"
+  className="bg-[#FFFFFF] py-10"
 >
   <div className="max-w-[1400px] mx-auto px-1 text-center">
 
@@ -612,7 +612,7 @@ const row3 = [
 
 {/* CLIENT LOGOS SECTION */}
 
-<section className="bg-[#F8F8F8] py-1 overflow-hidden">
+<section className="bg-[#FFFFFF] py-1 overflow-hidden">
 
   <div className="space-y-6">
 
@@ -733,7 +733,7 @@ const row3 = [
 
 {/* OUR PROCESS SECTION */}
 
-<section className="bg-[#F8F8F8] py-28">
+<section className="bg-[#FFFFFF] py-28">
 
   <div className="max-w-[1400px] mx-auto px-6">
 
@@ -930,7 +930,7 @@ const row3 = [
 
 {/* OUR RECENT WORK */}
 
-<section className="bg-[#F8F8F8] py-28">
+<section className="bg-[#FFFFFF] py-28">
 
   <div className="max-w-[1400px] mx-auto px-6">
 
@@ -1180,7 +1180,7 @@ const row3 = [
 </section>
 {/* RESULTS SECTION */}
 
-<section className="bg-[#F8F8F8] py-1">
+<section className="bg-[#FFFFFF] py-1">
 
   <div className="max-w-[1400px] mx-auto px-1">
 
@@ -1407,7 +1407,7 @@ const row3 = [
 </section>
 {/* BLOG SECTION */}
 
-<section className="bg-[#F8F8F8] py-15">
+<section className="bg-[#FFFFFF] py-15">
 
   <div className="max-w-[1400px] mx-auto px-6">
 
@@ -1697,7 +1697,7 @@ const row3 = [
 
 {/* PRESENCE SECTION */}
 
-<section className="bg-[#F8F8F8] py-5">
+<section className="bg-[#FFFFFF] py-5">
 
   <div
     className="
@@ -2014,7 +2014,7 @@ const row3 = [
 </section>
 {/* FAQ SECTION */}
 
-<section className="bg-[#F8F8F8] py-10">
+<section className="bg-[#FFFFFF] py-10">
 
   <div className="max-w-[1400px] mx-auto px-6">
 

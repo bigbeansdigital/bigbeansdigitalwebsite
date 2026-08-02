@@ -2,10 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function WebsiteDevelopment() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   return (
-    <main className="bg-[#F8F8F8] overflow-hidden">
+    <main className="bg-[#FFFFFF] overflow-hidden">
 
       {/* =========================
             WEBSITE SHOWCASE
@@ -864,7 +866,7 @@ export default function WebsiteDevelopment() {
             WHY YOUR BUSINESS NEEDS A PROFESSIONAL WEBSITE
       ========================= */}
 
-      <section className="relative overflow-hidden bg-[#F8F8F8] py-24 lg:py-32">
+      <section className="relative overflow-hidden bg-[#FFFFFF] py-24 lg:py-32">
 
         {/* Background Glow */}
 
@@ -1338,176 +1340,643 @@ export default function WebsiteDevelopment() {
 
       </section>
 
-      {/* =========================
-            FINAL CTA
-      ========================= */}
 
-      <section className="relative overflow-hidden bg-white py-24 lg:py-32">
+{/* FAQ SECTION */}
 
-        {/* Animated Background */}
+<section className="bg-white py-10">
+
+  <div className="max-w-[1400px] mx-auto px-6">
+
+    {/* HEADER */}
+
+    <div className="text-center mb-16 relative">
+
+      <div
+        className="
+          absolute
+          left-1/2
+          top-0
+          -translate-x-1/2
+          w-24
+          h-24
+          rounded-full
+          bg-[#F8BC04]/35
+        "
+      />
+
+      <p
+        className="
+          uppercase
+          tracking-[6px]
+          text-sm
+          font-semibold
+          text-gray-500
+          relative
+        "
+      >
+        WEBSITE DEVELOPMENT FAQS
+      </p>
+
+      <h2
+        className="
+          relative
+          mt-4
+          text-5xl
+          md:text-6xl
+          font-black
+          text-[#171717]
+        "
+      >
+        Frequently Asked{" "}
+        <span className="text-[#F8BC04]">
+          Questions
+        </span>
+      </h2>
+
+    </div>
+
+    {/* FAQ GRID */}
+
+    <div className="grid lg:grid-cols-2 gap-5">
+
+      {[
+        {
+          q: "Why does my business need a professional website?",
+          a: "A professional website is your business's digital storefront. It helps build trust, improve credibility, generate qualified leads, and convert visitors into customers. As the Best Website Development Company for Startups, BIGBEANS DIGITAL creates modern, fast, and SEO-friendly websites that support long-term business growth."
+        },
+        {
+          q: "What website development services does BIGBEANS DIGITAL offer?",
+          a: "Our Website Development Services include business website development, startup websites, corporate websites, ecommerce website development, landing pages, custom web applications, portfolio websites, responsive website design, website redesign, and SEO-friendly website development tailored to your business goals."
+        },
+        {
+          q: "Why should I choose BIGBEANS DIGITAL for website development?",
+          a: "BIGBEANS DIGITAL is a Best Website Development Company for Startups that builds websites focused on performance, user experience, SEO, and conversions. Every website is custom-designed to help businesses attract more visitors, generate leads, and grow online."
+        },
+        {
+          q: "Will my website be mobile-friendly and responsive?",
+          a: "Yes. Every website we build is fully responsive and optimized for desktops, tablets, and smartphones. Our responsive website development ensures your business delivers a seamless user experience across all devices."
+        },
+        {
+          q: "Will my website be SEO-friendly?",
+          a: "Absolutely. Every project includes SEO-friendly website development with clean code, fast loading speed, mobile responsiveness, optimized page structure, technical SEO best practices, and performance optimization to improve your search engine visibility."
+        },
+        {
+          q: "Can you redesign my existing website?",
+          a: "Yes. We provide professional website redesign services for businesses looking to modernize their website, improve user experience, increase loading speed, enhance SEO performance, and generate more leads."
+        },
+        {
+          q: "How long does it take to develop a website?",
+          a: "The timeline depends on your project requirements. Most business and startup websites are completed within 2–6 weeks, while larger custom website development projects may require additional time based on functionality and content."
+        },
+        {
+          q: "Can you build websites for startups and small businesses?",
+          a: "Yes. We specialize in website development for startups, entrepreneurs, SMEs, ecommerce brands, healthcare businesses, real estate companies, gyms, educational institutes, restaurants, and service-based businesses looking to establish a strong online presence."
+        },
+        {
+          q: "Do you provide website maintenance and support after launch?",
+          a: "Yes. We offer ongoing website maintenance, security updates, performance optimization, bug fixes, content updates, and technical support to keep your website secure, fast, and running smoothly after launch."
+        },
+        {
+          q: "Can my website grow as my business grows?",
+          a: "Absolutely. We build scalable websites that can easily accommodate new pages, products, services, integrations, and features as your business expands. Our custom website development solutions are designed to support your long-term digital growth and evolving business needs."
+        }
+      ].map((faq, index) => (
 
         <motion.div
-          animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.12, 0.22, 0.12],
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 18,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute left-1/2 top-1/2 h-[650px] w-[650px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#F8BC04]/15 blur-[160px]"
-        />
+          key={index}
+          layout
+          className="
+            bg-white
+            border
+            border-gray-300
+            rounded-[20px]
+            overflow-hidden
+          "
+        >
 
-        <motion.div
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 35,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#F8BC04]/10"
-        />
-
-        <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
-
-          <motion.span
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: .7,
-            }}
-            className="rounded-full border border-[#F8BC04]/30 bg-[#F8BC04]/10 px-6 py-2 text-xs font-bold uppercase tracking-[0.28em] text-[#F8BC04]"
-          >
-            Let's Create Something Exceptional
-          </motion.span>
-
-          <motion.h2
-            initial={{
-              opacity: 0,
-              y: 60,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: .15,
-              duration: .8,
-            }}
-            className="mt-8 max-w-4xl text-[34px] font-black leading-tight text-[#171717] md:text-[60px]"
-          >
-            Ready To Build A Website That
-            <span className="text-[#F8BC04]">
-              {" "}Grows Your Business?
-            </span>
-          </motion.h2>
-
-          <motion.p
-            initial={{
-              opacity: 0,
-              y: 40,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: .3,
-              duration: .8,
-            }}
-            className="mt-8 max-w-3xl text-lg leading-9 text-gray-600"
-          >
-            Whether you're launching a new business, upgrading your existing
-            website, or planning your next digital transformation, BIGBEANS
-            DIGITAL is ready to create a premium online experience that
-            strengthens your brand and delivers measurable results.
-          </motion.p>
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              scale: .8,
-            }}
-            whileInView={{
-              opacity: 1,
-              scale: 1,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: .45,
-              duration: .7,
-            }}
-            className="mt-14 flex flex-wrap items-center justify-center gap-6"
+          <button
+            onClick={() =>
+              setOpenFaq(openFaq === index ? null : index)
+            }
+            className="
+              w-full
+              flex
+              justify-between
+              items-center
+              p-6
+              text-left
+            "
           >
 
-            <motion.a
-              whileHover={{
-                scale: 1.06,
-                y: -5,
-              }}
-              whileTap={{
-                scale: .95,
-              }}
-              href="/connect"
-              className="rounded-full bg-[#F8BC04] px-10 py-5 text-lg font-bold text-[#171717] shadow-[0_20px_45px_rgba(248,188,4,.35)] transition-all duration-500 hover:shadow-[0_35px_70px_rgba(248,188,4,.45)]"
+            <span
+              className="
+                font-semibold
+                text-[#171717]
+                pr-4
+              "
             >
-              Start Your Project →
-            </motion.a>
+              {faq.q}
+            </span>
 
-           
+            <span
+              className="
+                w-10
+                h-10
+                rounded-full
+                bg-[#171717]
+                text-white
+                flex
+                items-center
+                justify-center
+                text-xl
+              "
+            >
+              {openFaq === index ? "−" : "+"}
+            </span>
 
-          </motion.div>
+          </button>
 
-          {/* Floating Elements */}
+          {openFaq === index && (
 
-          <motion.div
-            animate={{
-              y: [0, -12, 0],
-              rotate: [-6, 6, -6],
-            }}
-            transition={{
-              duration: 5,
-              repeat: Infinity,
-            }}
-            className="absolute left-16 top-10 hidden h-7 w-7 rounded-full bg-[#F8BC04] lg:block"
-          />
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="px-6 pb-6"
+            >
 
-          <motion.div
-            animate={{
-              y: [0, 14, 0],
-              x: [0, 8, 0],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-            }}
-            className="absolute right-24 bottom-12 hidden h-10 w-10 rounded-2xl border border-[#F8BC04]/40 bg-white shadow-xl lg:block"
-          />
+              <p className="text-gray-600 leading-relaxed">
+                {faq.a}
+              </p>
 
+            </motion.div>
+
+          )}
+
+        </motion.div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+      {/* PRESENCE SECTION */}
+      
+      <section className="bg-[#ffffff] py-10">
+      
+        <div
+          className="
+            max-w-[1400px]
+            mx-auto
+            px-6
+          "
+        >
+      
+          <div
+            className="
+              bg-white
+              rounded-[40px]
+              border
+              border-gray-200
+              p-10
+              lg:p-16
+              grid
+              lg:grid-cols-2
+              gap-12
+              items-center
+            "
+          >
+      
+            {/* LEFT */}
+      
+            <div>
+      
+              <p
+                className="
+                  uppercase
+                  tracking-[6px]
+                  text-sm
+                  font-semibold
+                  text-gray-500
+                  mb-6
+                "
+              >
+                Global Presence
+              </p>
+      
+              <h2
+                className="
+                  text-5xl
+                  lg:text-6xl
+                  font-black
+                  text-[#171717]
+                  leading-tight
+                "
+              >
+                Digital Excellence in{" "}
+                <span className="text-[#F8BC04]">
+                  12+
+                </span>
+                <br />
+                Locations
+              </h2>
+      
+              <p
+                className="
+                  mt-8
+                  text-lg
+                  text-gray-600
+                  leading-relaxed
+                  max-w-[650px]
+                "
+              >
+                BIGBEANS DIGITAL serves businesses across India and international markets.
+                Our strategies are built for local relevance and global scalability.
+              </p>
+      
+              {/* LOCATIONS */}
+      
+              <div className="grid grid-cols-2 gap-10 mt-12">
+      
+                <div className="border-r border-[##000000]/30 pr-10">
+      
+                  <h3 className="font-bold text-xl">
+                     In India
+                      </h3>
+      
+      <div className="w-20 h-[2px] bg-[#F8BC04] mt-2 mb-5"></div>
+      
+                  <ul className="space-y-3 text-gray-700">
+      
+                    <li className="flex items-center gap-2">
+        <span className="text-[#F8BC04]">●</span>
+        Kolkata
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-[#F8BC04]">●</span>
+        Delhi
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-[#F8BC04]">●</span>
+        Bangalore
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-[#F8BC04]">●</span>
+        Noida
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-[#F8BC04]">●</span>
+        Tripura
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-[#F8BC04]">●</span>
+        Mumbai
+      </li>
+      <li className="flex items-center gap-2">
+        <span className="text-[#F8BC04]">●</span>
+        Pune
+      </li>
+                  </ul>
+      
+                </div>
+      
+                <div>
+      
+                  <h3 className="font-bold text-xl">
+        International Presence
+      </h3>
+      
+      <div className="w-20 h-[2px] bg-[#F8BC04] mt-2 mb-5"></div>
+      
+                  <ul className="space-y-3 text-gray-700">
+      
+                    <li className="flex items-center gap-2">
+                    <span className="text-[#F8BC04]">●</span>
+                    London
+                    </li>
+                    <li className="flex items-center gap-2">
+                    <span className="text-[#F8BC04]">●</span>
+                    Singapore
+                    </li>
+                    <li className="flex items-center gap-2">
+                    <span className="text-[#F8BC04]">●</span>
+                    Canada
+                    </li>
+                    <li className="flex items-center gap-2">
+                    <span className="text-[#F8BC04]">●</span>
+                    Australia
+                    </li>
+                    <li className="flex items-center gap-2">
+                    <span className="text-[#F8BC04]">●</span>
+                    Nigeria
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+      
+            {/* RIGHT */}
+      
+            <div className="relative">
+      
+              <Image
+                src="/maps/world-map.png"
+                alt="World Map"
+                width={1200}
+                height={700}
+                className="w-full h-auto"
+              />
+      
+              {/* INDIA CLUSTER */}
+      
+              <motion.div
+                animate={{
+                  scale: [1, 1.4, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                }}
+                className="
+                  absolute
+                  w-4
+                  h-4
+                  bg-[#F8BC04]
+                  rounded-full
+                  top-[42%]
+                  left-[67%]
+                  shadow-[0_0_25px_#F8BC04]
+                "
+              />
+      
+              {/* LONDON */}
+      
+              <motion.div
+                animate={{
+                  scale: [1, 1.4, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2.2,
+                  repeat: Infinity,
+                }}
+                className="
+                  absolute
+                  w-4
+                  h-4
+                  bg-[#F8BC04]
+                  rounded-full
+                  top-[27%]
+                  left-[44%]
+                  shadow-[0_0_25px_#F8BC04]
+                "
+              />
+      
+              {/* CANADA */}
+      
+              <motion.div
+                animate={{
+                  scale: [1, 1.4, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2.4,
+                  repeat: Infinity,
+                }}
+                className="
+                  absolute
+                  w-4
+                  h-4
+                  bg-[#F8BC04]
+                  rounded-full
+                  top-[28%]
+                  left-[18%]
+                  shadow-[0_0_25px_#F8BC04]
+                "
+              />
+      
+              {/* NIGERIA */}
+      
+              <motion.div
+                animate={{
+                  scale: [1, 1.4, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2.1,
+                  repeat: Infinity,
+                }}
+                className="
+                  absolute
+                  w-4
+                  h-4
+                  bg-[#F8BC04]
+                  rounded-full
+                  top-[50%]
+                  left-[47%]
+                  shadow-[0_0_25px_#F8BC04]
+                "
+              />
+      
+              {/* SINGAPORE */}
+      
+              <motion.div
+                animate={{
+                  scale: [1, 1.4, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2.3,
+                  repeat: Infinity,
+                }}
+                className="
+                  absolute
+                  w-4
+                  h-4
+                  bg-[#F8BC04]
+                  rounded-full
+                  top-[54%]
+                  left-[74%]
+                  shadow-[0_0_25px_#F8BC04]
+                "
+              />
+      
+              {/* AUSTRALIA */}
+      
+              <motion.div
+                animate={{
+                  scale: [1, 1.4, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                }}
+                className="
+                  absolute
+                  w-4
+                  h-4
+                  bg-[#F8BC04]
+                  rounded-full
+                  top-[65%]
+                  left-[84%]
+                  shadow-[0_0_25px_#F8BC04]
+                "
+              />
+      
+            </div>
+      
+          </div>
+      
         </div>
-
+      
       </section>
+      
+      {/* =========================
+              CTA SECTION
+      ========================= */}
+      
+      <section className="relative overflow-hidden bg-[#ffffff] py-24">
+      
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+        >
+      
+          <div
+            className="
+              relative
+              overflow-hidden
+              max-w-7xl
+              mx-auto
+              rounded-[40px]
+              bg-[#171717]
+              px-8
+              py-16
+              md:px-16
+            "
+          >
+      
+            {/* Glow */}
+      
+            <div
+              className="
+                absolute
+                right-0
+                top-0
+                h-72
+                w-72
+                rounded-full
+                bg-[#F8BC04]/20
+                blur-[120px]
+              "
+            />
+      
+            <div
+              className="
+                relative
+                z-10
+                flex
+                flex-col
+                items-center
+                justify-between
+                gap-10
+                lg:flex-row
+              "
+            >
+      
+              {/* Left */}
+      
+              <div>
+      
+                <h2
+                  className="
+                    max-w-3xl
+                    text-4xl
+                    md:text-5xl
+                    font-black
+                    leading-tight
+                    text-white
+                  "
+                >
+                  Ready To Turn Clicks Into
+                  <span className="text-[#F8BC04]">
+                    {" "}Real Business Growth?
+                  </span>
+                </h2>
+      
+                <p
+                  className="
+                    mt-6
+                    max-w-2xl
+                    text-lg
+                    leading-8
+                    text-white/80
+                  "
+                >
+                  Partner with BIGBEANS DIGITAL to launch
+                  data-driven digital marketing campaigns that
+                  generate quality leads, increase conversions
+                  and accelerate your business growth.
+                </p>
+      
+              </div>
+      
+              {/* Button */}
+      
+              <motion.button
+                whileHover={{
+                  scale: 1.05,
+                  y: -5,
+                  backgroundColor: "#FFD54A",
+                }}
+                whileTap={{
+                  scale: 0.95,
+                }}
+                className="
+                  whitespace-nowrap
+                  rounded-full
+                  bg-[#F8BC04]
+                  px-10
+                  py-5
+                  text-lg
+                  font-bold
+                  text-[#171717]
+                  shadow-[0_20px_50px_rgba(248,188,4,0.35)]
+                  transition-all
+                  duration-300
+                "
+              >
+                Book Free Strategy Call
+              </motion.button>
+      
+            </div>
+      
+          </div>
+      
+        </motion.div>
+      
+      </section>
+      
+      {/* =========================
+            END CTA SECTION
+      ========================= */}
 
 
 

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 
 
 const carouselImages = [
@@ -21,11 +22,13 @@ const carouselImages = [
 
 
 export default function Branding() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
   return (
     <>
      
 
-      <section className="py-8 bg-[#F8F8F8]">
+      <section className="py-8 bg-[#FFFFFF]">
         <div className="max-w-7xl mx-auto px-6">
 <div className="mb-8 flex justify-center">
   <div className="inline-flex items-center bg-white rounded-full px-6 py-3 shadow-md">
@@ -1279,72 +1282,192 @@ export default function Branding() {
   </div>
 </section>
 
-{/* BACKGROUND TITLE */}
 
-        <motion.h2
-          initial={{ opacity: 0, y: -80 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2 }}
-          className="
-          text-center
-          text-[130px]
-          font-extrabold
-          text-gray-200
-          leading-none
-          tracking-tight
+{/* FAQ SECTION */}
+
+<section className="bg-[#FFFFFF] py-10">
+
+  <div className="max-w-[1400px] mx-auto px-6">
+
+    {/* HEADER */}
+
+    <div className="text-center mb-16 relative">
+
+      <div
+        className="
+          absolute
+          left-1/2
+          top-0
+          -translate-x-1/2
+          w-24
+          h-24
+          rounded-full
+          bg-[#F8BC04]/35
         "
-        >
-          where strategy
-        </motion.h2>
+      />
 
-        {/* MAIN TITLE */}
+      <p
+        className="
+          uppercase
+          tracking-[6px]
+          text-sm
+          font-semibold
+          text-gray-500
+          relative
+        "
+      >
+        BRANDING FAQS
+      </p>
 
-        <motion.h1
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          className="
-          text-center
-          text-[90px]
+      <h2
+        className="
+          relative
+          mt-4
+          text-5xl
+          md:text-6xl
           font-black
-          text-black
-          leading-none
-          -mt-6
+          text-[#171717]
         "
-        >
-          meets creativity
-        </motion.h1>
+      >
+        Frequently Asked{" "}
+        <span className="text-[#F8BC04]">
+          Questions
+        </span>
+      </h2>
 
-        {/* BUTTON */}
+    </div>
+
+    {/* FAQ GRID */}
+
+    <div className="grid lg:grid-cols-2 gap-5">
+
+      {[
+        {
+          q: "What branding services does BIGBEANS DIGITAL offer?",
+          a: "BIGBEANS DIGITAL provides complete branding services for startups and businesses, including logo design, brand identity design, brand strategy, color palette selection, typography, social media branding, marketing creatives, brand guidelines, packaging design, and visual identity systems. Our goal is to build a memorable brand that helps your business stand out and grow."
+        },
+        {
+          q: "Why is branding important for startups?",
+          a: "Strong branding helps startups build trust, attract customers, and differentiate themselves from competitors. A professional brand identity improves recognition, strengthens credibility, and creates a consistent customer experience across websites, social media, advertisements, and marketing materials."
+        },
+        {
+          q: "How does your branding process work?",
+          a: "Our branding process starts with understanding your business, target audience, industry, and goals. We then create a unique brand strategy, logo concepts, visual identity, brand assets, and marketing guidelines before delivering the final brand package ready for online and offline use."
+        },
+        {
+          q: "Do you provide logo design as part of branding?",
+          a: "Yes. Every branding project includes a professionally designed logo along with typography, color palette, brand identity elements, and brand usage guidelines to ensure consistency across all marketing platforms."
+        },
+        {
+          q: "Can you redesign or rebrand an existing business?",
+          a: "Absolutely. We help businesses refresh outdated brand identities through complete rebranding services, including logo redesign, brand positioning, visual identity, messaging, and marketing assets while maintaining customer trust and brand recognition."
+        },
+        {
+          q: "Which industries do you provide branding services for?",
+          a: "We provide branding solutions for startups, small businesses, ecommerce brands, FMCG companies, healthcare businesses, gyms, real estate firms, restaurants, educational institutes, service businesses, and many other industries."
+        },
+        {
+          q: "Will my brand identity be unique?",
+          a: "Yes. Every brand identity is designed from scratch after researching your business, competitors, and target audience. We never use templates or copied concepts, ensuring your brand remains original and memorable."
+        },
+        {
+          q: "Do I own the branding and logo after the project is completed?",
+          a: "Yes. Once your branding project is completed and approved, you receive full ownership of the final logo and branding assets. All source files and deliverables are provided for future use."
+        },
+        {
+          q: "Why choose BIGBEANS DIGITAL as your branding agency?",
+          a: "BIGBEANS DIGITAL is a Branding Agency for Startups focused on creating brands that not only look professional but also drive business growth. Our strategic approach combines branding, graphic design, digital marketing, and customer psychology to build brands that attract, engage, and convert customers."
+        },
+        {
+          q: "How long does a branding project take?",
+          a: "The timeline depends on the project scope. Most startup branding projects are completed within 1–3 weeks, while larger branding and rebranding projects may require additional time to ensure every detail aligns with your business goals and long-term vision."
+        }
+      ].map((faq, index) => (
 
         <motion.div
-          className="flex justify-center mt-10"
-          animate={{
-            y: [0, -8, 0],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <button
-            className="
-            bg-[#F8BC04]
-            text-black
-            px-8
-            py-3
-            rounded-full
-            font-semibold
-            shadow-lg
+          key={index}
+          layout
+          className="
+            bg-white
+            border
+            border-gray-300
+            rounded-[20px]
+            overflow-hidden
           "
+        >
+
+          <button
+            onClick={() =>
+              setOpenFaq(openFaq === index ? null : index)
+            }
+            className="
+              w-full
+              flex
+              justify-between
+              items-center
+              p-6
+              text-left
+            "
           >
-            Let's Start a Project
+
+            <span
+              className="
+                font-semibold
+                text-[#171717]
+                pr-4
+              "
+            >
+              {faq.q}
+            </span>
+
+            <span
+              className="
+                w-10
+                h-10
+                rounded-full
+                bg-[#171717]
+                text-white
+                flex
+                items-center
+                justify-center
+                text-xl
+              "
+            >
+              {openFaq === index ? "−" : "+"}
+            </span>
+
           </button>
+
+          {openFaq === index && (
+
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="px-6 pb-6"
+            >
+
+              <p className="text-gray-600 leading-relaxed">
+                {faq.a}
+              </p>
+
+            </motion.div>
+
+          )}
+
         </motion.div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
+
 {/* PRESENCE SECTION */}
 
-<section className="bg-[#F8F8F8] py-28">
+<section className="bg-[#ffffff] py-10">
 
   <div
     className="
@@ -1655,8 +1778,156 @@ export default function Branding() {
 
 </section>
 
+{/* =========================
+        CTA SECTION
+========================= */}
+
+<section className="relative overflow-hidden bg-[#ffffff] py-24">
+
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7 }}
+  >
+
+    <div
+      className="
+        relative
+        overflow-hidden
+        max-w-7xl
+        mx-auto
+        rounded-[40px]
+        bg-[#171717]
+        px-8
+        py-16
+        md:px-16
+      "
+    >
+
+      {/* Glow */}
+
+      <div
+        className="
+          absolute
+          right-0
+          top-0
+          h-72
+          w-72
+          rounded-full
+          bg-[#F8BC04]/20
+          blur-[120px]
+        "
+      />
+
+      <div
+        className="
+          relative
+          z-10
+          flex
+          flex-col
+          items-center
+          justify-between
+          gap-10
+          lg:flex-row
+        "
+      >
+
+        {/* Left */}
+
+        <div>
+
+          <h2
+            className="
+              max-w-3xl
+              text-4xl
+              md:text-5xl
+              font-black
+              leading-tight
+              text-white
+            "
+          >
+            Ready To Turn Clicks Into
+            <span className="text-[#F8BC04]">
+              {" "}Real Business Growth?
+            </span>
+          </h2>
+
+          <p
+            className="
+              mt-6
+              max-w-2xl
+              text-lg
+              leading-8
+              text-white/80
+            "
+          >
+            Partner with BIGBEANS DIGITAL to launch
+            data-driven digital marketing campaigns that
+            generate quality leads, increase conversions
+            and accelerate your business growth.
+          </p>
+
+        </div>
+
+        {/* Button */}
+
+        <motion.button
+          whileHover={{
+            scale: 1.05,
+            y: -5,
+            backgroundColor: "#FFD54A",
+          }}
+          whileTap={{
+            scale: 0.95,
+          }}
+          className="
+            whitespace-nowrap
+            rounded-full
+            bg-[#F8BC04]
+            px-10
+            py-5
+            text-lg
+            font-bold
+            text-[#171717]
+            shadow-[0_20px_50px_rgba(248,188,4,0.35)]
+            transition-all
+            duration-300
+          "
+        >
+          Book Free Strategy Call
+        </motion.button>
+
+      </div>
+
+    </div>
+
+  </motion.div>
+
+</section>
+
+{/* =========================
+      END CTA SECTION
+========================= */}
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
 
 
 
