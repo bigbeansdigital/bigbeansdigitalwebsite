@@ -2,6 +2,21 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
+
+const carouselImages = [
+  "/assets/logodesigning/carousel/1.jpg",
+  "/assets/logodesigning/carousel/2.jpg",
+  "/assets/logodesigning/carousel/3.jpg",
+  "/assets/logodesigning/carousel/4.jpg",
+  "/assets/logodesigning/carousel/5.jpg",
+  "/assets/logodesigning/carousel/6.jpg",
+  "/assets/logodesigning/carousel/7.jpg",
+  "/assets/logodesigning/carousel/8.jpg",
+  "/assets/logodesigning/carousel/9.jpg",
+];
+
+
 
 export default function LogoDesigning() {
   return (
@@ -9,18 +24,8 @@ export default function LogoDesigning() {
 
       {/* CREATIVE CTA SECTION */}
 
-<section className="py-32 overflow-hidden relative">
+<section className="py-20 overflow-hidden relative">
 
-  {/* GRID BACKGROUND */}
-
-  <div
-    className="
-      absolute
-      inset-0
-      bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)]
-      bg-[size:60px_60px]
-    "
-  />
 
   {/* FLOATING SHAPES */}
 
@@ -65,7 +70,7 @@ export default function LogoDesigning() {
     ✦
   </motion.div>
 
-  <div className="max-w-6xl mx-auto px-6 relative z-10">
+  <div className="max-w-6xl mx-auto px-1 relative z-10">
 
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
@@ -74,32 +79,6 @@ export default function LogoDesigning() {
       transition={{ duration: 0.8 }}
       className="text-center"
     >
-
-      {/* SMALL LABEL */}
-
-      <motion.div
-        animate={{
-          y: [0, -8, 0],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-        }}
-        className="
-          inline-block
-          px-6
-          py-3
-          rounded-full
-          bg-[#F8BC04]/15
-          text-[#F8BC04]
-          font-bold
-          tracking-wider
-          mb-8
-        "
-      >
-        LOGO DESIGN EXPERTS
-      </motion.div>
-
       {/* MAIN HEADING */}
 
       <motion.h2
@@ -165,6 +144,44 @@ export default function LogoDesigning() {
         that capture attention, build credibility and create a
         powerful first impression across digital and offline platforms.
       </motion.p>
+      <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: 0.3, duration: 0.8 }}
+    className="mt-10 flex justify-center gap-4"
+  >
+  <Link href="/our-work">
+  <button
+    className="
+      bg-[#171717]
+      text-white
+      px-8
+      py-3
+      rounded-full
+      font-semibold
+      transition-all
+      duration-300
+      hover:bg-[#F8BC04]
+      hover:text-[#171717]
+    "
+  >
+    View Our Work
+  </button>
+</Link>
+
+    <Link
+  href="https://wa.link/gqxvz0"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="border border-[#171717] px-8 py-3 rounded-full font-semibold hover:bg-[#171717] hover:text-white transition">
+    Get Consultation
+  </button>
+</Link>
+
+
+  </motion.div>
 
       {/* BUTTONS */}
 
@@ -185,16 +202,14 @@ export default function LogoDesigning() {
       >
 
       </motion.div>
-
     </motion.div>
-
   </div>
-
 </section>
+
 
 {/* BRAND STORY GRID SECTION */}
 
-<section className="py-28 overflow-hidden">
+<section className="py-1 overflow-hidden">
 
   <div className="max-w-7xl mx-auto px-6">
 
@@ -205,22 +220,6 @@ export default function LogoDesigning() {
       transition={{ duration: 0.8 }}
       className="text-center mb-20"
     >
-      <span
-        className="
-          inline-block
-          px-6
-          py-3
-          rounded-full
-          bg-[#F8BC04]/10
-          text-[#F8BC04]
-          font-bold
-          tracking-widest
-          text-sm
-          mb-6
-        "
-      >
-        CREATIVE BRANDING
-      </span>
 
       <h2
         className="
@@ -231,9 +230,9 @@ export default function LogoDesigning() {
           text-[#171717]
         "
       >
-        Branding That
+        Logo is the First Impression 
         <br />
-        Builds Recognition
+        That Builds Brand Recognition
       </h2>
     </motion.div>
 
@@ -272,21 +271,7 @@ export default function LogoDesigning() {
           "
         />
 
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/80
-            to-transparent
-          "
-        />
-
-        <div className="absolute bottom-6 left-6 z-10">
-          <h3 className="text-white text-3xl font-black">
-            Strong Brand Identity
-          </h3>
-        </div>
+       
       </motion.div>
 
       {/* BOX 2 */}
@@ -321,21 +306,6 @@ export default function LogoDesigning() {
           "
         />
 
-        <div
-          className="
-            absolute
-            inset-0
-            bg-[#F8BC04]/80
-          "
-        />
-
-        <div className="absolute inset-0 flex items-center justify-center text-center p-8">
-          <h3 className="text-[#171717] text-3xl font-black">
-            Premium Visual
-            <br />
-            Positioning
-          </h3>
-        </div>
       </motion.div>
 
       {/* BOX 3 */}
@@ -390,9 +360,7 @@ export default function LogoDesigning() {
             p-5
           "
         >
-          <h3 className="text-2xl font-black">
-            Memorable Branding
-          </h3>
+        
         </motion.div>
       </motion.div>
 
@@ -428,24 +396,6 @@ export default function LogoDesigning() {
             group-hover:scale-115
           "
         />
-
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/90
-            to-transparent
-          "
-        />
-
-        <div className="absolute bottom-8 left-8">
-          <h3 className="text-white text-4xl font-black">
-            Creative
-            <br />
-            Direction
-          </h3>
-        </div>
       </motion.div>
 
       {/* BOX 5 */}
@@ -480,21 +430,7 @@ export default function LogoDesigning() {
           "
         />
 
-        <div
-          className="
-            absolute
-            inset-0
-            bg-[#171717]/70
-          "
-        />
-
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h3 className="text-white text-3xl font-black text-center">
-            Brand
-            <br />
-            Consistency
-          </h3>
-        </div>
+        
       </motion.div>
 
       {/* BOX 6 */}
@@ -528,22 +464,6 @@ export default function LogoDesigning() {
             group-hover:scale-120
           "
         />
-
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-r
-            from-[#F8BC04]/80
-            to-transparent
-          "
-        />
-
-        <div className="absolute bottom-6 left-6">
-          <h3 className="text-[#171717] text-3xl font-black">
-            Market Impact
-          </h3>
-        </div>
       </motion.div>
 
     </div>
@@ -551,273 +471,18 @@ export default function LogoDesigning() {
   </div>
 
 </section>
-{/* BRAND SHOWCASE CAROUSEL */}
 
-<section className="py-28 overflow-hidden">
 
+
+
+{/* ========================= BRAND DEVELOPMENT SECTION ========================= */}
+
+<section className="py-1">
   <div className="max-w-7xl mx-auto px-6">
 
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="text-center mb-16"
-    >
-      <span
-        className="
-          inline-block
-          px-6
-          py-3
-          rounded-full
-          bg-[#F8BC04]/10
-          text-[#F8BC04]
-          font-bold
-          tracking-widest
-          text-sm
-          mb-6
-        "
-      >
-        OUR WORK
-      </span>
+    {/* TOP CONTENT */}
 
-      <h2
-        className="
-          text-5xl
-          md:text-7xl
-          font-black
-          text-[#171717]
-          leading-tight
-        "
-      >
-        Branding That
-        <span className="text-[#F8BC04]"> Performs</span>
-      </h2>
-    </motion.div>
-
-    <motion.div
-      animate={{
-        x: ["0%", "-50%"],
-      }}
-      transition={{
-        duration: 30,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-      className="flex gap-6 w-max"
-    >
-
-      {[...Array(12)].map((_, index) => (
-
-        <motion.div
-          key={index}
-          whileHover={{
-            y: -20,
-            rotate: index % 2 === 0 ? -3 : 3,
-            scale: 1.05,
-          }}
-          className="
-            relative
-            w-[340px]
-            h-[240px]
-            rounded-[28px]
-            overflow-hidden
-            shrink-0
-            group
-            shadow-2xl
-          "
-        >
-
-          <Image
-            src="/assets/brandingpost3.jpg"
-            alt="Branding Work"
-            fill
-            className="
-              object-cover
-              transition-all
-              duration-700
-              group-hover:scale-110
-            "
-          />
-
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-t
-              from-black/90
-              via-black/20
-              to-transparent
-            "
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileHover={{ opacity: 1, y: 0 }}
-            className="
-              absolute
-              bottom-6
-              left-6
-              right-6
-            "
-          >
-            <span
-              className="
-                inline-block
-                bg-[#F8BC04]
-                text-[#171717]
-                px-4
-                py-2
-                rounded-full
-                text-xs
-                font-bold
-                mb-3
-              "
-            >
-              BRANDING PROJECT
-            </span>
-
-            <h3
-              className="
-                text-white
-                text-2xl
-                font-black
-              "
-            >
-              Premium Brand Identity
-            </h3>
-          </motion.div>
-
-          {/* GLOW EFFECT */}
-
-          <motion.div
-            animate={{
-              opacity: [0.2, 0.7, 0.2],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-            }}
-            className="
-              absolute
-              -bottom-20
-              left-1/2
-              -translate-x-1/2
-              w-[180px]
-              h-[180px]
-              bg-[#F8BC04]
-              blur-[80px]
-            "
-          />
-
-        </motion.div>
-
-      ))}
-
-    </motion.div>
-
-    {/* SECOND ROW */}
-
-    <motion.div
-      animate={{
-        x: ["-50%", "0%"],
-      }}
-      transition={{
-        duration: 35,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-      className="flex gap-6 w-max mt-8"
-    >
-
-      {[...Array(12)].map((_, index) => (
-
-        <motion.div
-          key={index}
-          whileHover={{
-            y: -15,
-            scale: 1.05,
-          }}
-          className="
-            relative
-            w-[280px]
-            h-[200px]
-            rounded-[24px]
-            overflow-hidden
-            shrink-0
-            group
-            shadow-xl
-          "
-        >
-
-          <Image
-            src="/assets/brandingpost3.jpg"
-            alt="Branding Work"
-            fill
-            className="
-              object-cover
-              transition-all
-              duration-700
-              group-hover:scale-115
-            "
-          />
-
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-t
-              from-[#171717]/90
-              to-transparent
-            "
-          />
-
-          <div
-            className="
-              absolute
-              bottom-5
-              left-5
-            "
-          >
-            <h4
-              className="
-                text-white
-                text-xl
-                font-bold
-              "
-            >
-              Creative Branding
-            </h4>
-          </div>
-
-        </motion.div>
-
-      ))}
-
-    </motion.div>
-
-  </div>
-
-</section>
-
-{/* CONTACT CTA SECTION */}
-
-<section className="py-28 overflow-hidden">
-
-  <div className="max-w-7xl mx-auto px-6">
-
-    <motion.div
-      initial={{ opacity: 0, y: 80 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="
-        grid
-        lg:grid-cols-2
-        gap-16
-        items-center
-      "
-    >
+    <div className="grid lg:grid-cols-2 gap-20 items-center mb-24">
 
       {/* LEFT */}
 
@@ -827,110 +492,24 @@ export default function LogoDesigning() {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-
-        <motion.span
-          animate={{
-            y: [0, -8, 0],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-          }}
-          className="
-            inline-block
-            px-5
-            py-2
-            rounded-full
-            bg-[#F8BC04]/10
-            text-[#F8BC04]
-            font-bold
-            tracking-widest
-            text-sm
-            mb-6
-          "
-        >
-          LET'S BUILD YOUR BRAND
-        </motion.span>
+       
 
         <h2
           className="
             text-5xl
-            md:text-7xl
+            md:text-6xl
             font-black
-            text-[#171717]
             leading-tight
+            text-[#171717]
+            mb-8
           "
         >
-          Let's Create
+          Building Brands
           <br />
-          Something
-          <span className="text-[#F8BC04]">
-            {" "}Remarkable
-          </span>
+          That People
+          <br />
+          Remember
         </h2>
-
-        <p
-          className="
-            mt-8
-            text-lg
-            text-gray-600
-            leading-relaxed
-            max-w-xl
-          "
-        >
-          Whether you need logo design, branding,
-          packaging or a complete visual identity,
-          BIGBEANS DIGITAL helps businesses stand
-          out, attract attention and leave a lasting
-          impression.
-        </p>
-
-        <div className="flex flex-wrap gap-5 mt-10">
-
-          <motion.button
-            whileHover={{
-              scale: 1.08,
-              y: -5,
-            }}
-            whileTap={{
-              scale: 0.95,
-            }}
-            className="
-              bg-[#F8BC04]
-              text-[#171717]
-              font-bold
-              px-8
-              py-4
-              rounded-full
-              shadow-xl
-            "
-          >
-            Start Your Project →
-          </motion.button>
-
-          <motion.button
-            whileHover={{
-              scale: 1.08,
-              y: -5,
-            }}
-            whileTap={{
-              scale: 0.95,
-            }}
-            className="
-              border-2
-              border-[#171717]
-              text-[#171717]
-              font-bold
-              px-8
-              py-4
-              rounded-full
-            "
-          >
-            View Portfolio
-          </motion.button>
-
-        </div>
-
       </motion.div>
 
       {/* RIGHT */}
@@ -940,198 +519,534 @@ export default function LogoDesigning() {
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="relative h-[650px]"
       >
+        <p
+          className="
+            text-xl
+            text-gray-600
+            leading-relaxed
+          "
+        >
+          At BIGBEANS DIGITAL, branding goes beyond visuals. We help
+          businesses create a unique identity, define their voice and
+          establish a memorable presence that builds trust and attracts
+          the right audience. From strategy to execution, every element
+          is designed to strengthen recognition and drive long-term
+          growth.
+        </p>
+      </motion.div>
 
-        {/* YELLOW BACKGROUND */}
+    </div>
 
+    {/* PROCESS CARDS */}
+
+    <div className="grid md:grid-cols-3 gap-8">
+
+      {/* CARD 1 */}
+
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        whileHover={{
+          y: -15,
+          rotate: -2,
+          scale: 1.03,
+        }}
+        className="
+          bg-[#171717]
+          rounded-[30px]
+          p-10
+          text-white
+          relative
+          overflow-hidden
+        "
+      >
         <motion.div
-          animate={{
-            rotate: [-3, 3, -3],
-            scale: [1, 1.05, 1],
-          }}
+          animate={{ rotate: 360 }}
           transition={{
-            duration: 8,
+            duration: 20,
             repeat: Infinity,
+            ease: "linear",
           }}
           className="
             absolute
-            top-0
-            left-1/2
-            -translate-x-1/2
-            w-[320px]
-            h-[620px]
-            bg-[#F8BC04]
-            rounded-[40px]
+            -right-12
+            -top-12
+            w-32
+            h-32
+            rounded-full
+            border
+            border-[#F8BC04]/30
           "
         />
 
-        {/* DOODLE CARD */}
+        <h3 className="text-7xl font-black text-[#F8BC04] mb-6">
+          01
+        </h3>
 
+        <h4 className="text-3xl font-bold mb-5">
+          Discover
+        </h4>
+
+        <p className="text-gray-300 leading-relaxed">
+          We begin by understanding your business, market,
+          audience and goals to uncover what makes your
+          brand truly unique.
+        </p>
+      </motion.div>
+
+      {/* CARD 2 */}
+
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.2 }}
+        whileHover={{
+          y: -15,
+          rotate: 2,
+          scale: 1.03,
+        }}
+        className="
+          bg-[#F8BC04]
+          rounded-[30px]
+          p-10
+          text-[#171717]
+          relative
+          overflow-hidden
+        "
+      >
         <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [-6, 6, -6],
-          }}
+          animate={{ scale: [1, 1.3, 1] }}
           transition={{
-            duration: 6,
-            repeat: Infinity,
-          }}
-          className="
-            absolute
-            left-0
-            top-[120px]
-            w-[260px]
-            h-[180px]
-            bg-white
-            rounded-[25px]
-            shadow-2xl
-            z-10
-          "
-        >
-          <div
-            className="
-              w-full
-              h-full
-              flex
-              items-center
-              justify-center
-              text-[#171717]
-              text-6xl
-            "
-          >
-            ✦
-          </div>
-        </motion.div>
-
-        {/* PORTFOLIO CARD */}
-
-        <motion.div
-          animate={{
-            y: [0, 20, 0],
-            rotate: [4, -4, 4],
-          }}
-          transition={{
-            duration: 7,
+            duration: 4,
             repeat: Infinity,
           }}
           className="
             absolute
             right-0
-            top-[80px]
-            w-[320px]
-            h-[280px]
-            rounded-[25px]
-            overflow-hidden
-            shadow-2xl
-            z-20
-          "
-        >
-          <Image
-            src="/assets/brandingpost3.jpg"
-            alt="Portfolio"
-            fill
-            className="object-cover"
-          />
-        </motion.div>
-
-        {/* HUMAN IMAGE */}
-
-        <motion.div
-          animate={{
-            y: [0, -15, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-          }}
-          className="
-            absolute
-            left-1/2
-            bottom-0
-            -translate-x-1/2
-            z-30
-          "
-        >
-          <Image
-            src="/assets/socialmediahuman.png"
-            alt="Branding Expert"
-            width={420}
-            height={620}
-            className="object-contain"
-          />
-        </motion.div>
-
-        {/* FLOATING BADGES */}
-
-        <motion.div
-          animate={{
-            x: [0, 15, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-          }}
-          className="
-            absolute
-            top-10
-            right-10
-            bg-white
-            px-6
-            py-3
+            top-0
+            w-40
+            h-40
+            bg-white/20
             rounded-full
-            shadow-xl
-            font-bold
-            z-40
           "
-        >
-          100+ Brands
-        </motion.div>
+        />
 
+        <h3 className="text-7xl font-black mb-6">
+          02
+        </h3>
+
+        <h4 className="text-3xl font-bold mb-5">
+          Design
+        </h4>
+
+        <p className="leading-relaxed">
+          Our creative team transforms ideas into powerful
+          visual identities, ensuring consistency across every
+          customer touchpoint.
+        </p>
+      </motion.div>
+
+      {/* CARD 3 */}
+
+      <motion.div
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4 }}
+        whileHover={{
+          y: -15,
+          rotate: -2,
+          scale: 1.03,
+        }}
+        className="
+          bg-[#171717]
+          rounded-[30px]
+          p-10
+          text-white
+          relative
+          overflow-hidden
+        "
+      >
         <motion.div
-          animate={{
-            x: [0, -15, 0],
-          }}
+          animate={{ x: [0, 20, 0] }}
           transition={{
             duration: 5,
             repeat: Infinity,
           }}
           className="
             absolute
-            bottom-40
-            left-0
-            bg-white
-            px-6
-            py-3
+            right-0
+            bottom-0
+            w-36
+            h-36
+            bg-[#F8BC04]/10
             rounded-full
-            shadow-xl
-            font-bold
-            z-40
           "
-        >
-          Creative Branding
-        </motion.div>
+        />
 
+        <h3 className="text-7xl font-black text-[#F8BC04] mb-6">
+          03
+        </h3>
+
+        <h4 className="text-3xl font-bold mb-5">
+          Launch
+        </h4>
+
+        <p className="text-gray-300 leading-relaxed">
+          We bring your brand to life through strategic
+          implementation, ensuring maximum impact,
+          visibility and audience engagement.
+        </p>
       </motion.div>
 
-    </motion.div>
+    </div>
 
   </div>
-
 </section>
 
 
 
 
+{/* Crousal */}
+<section className="pt-15 pb-20 overflow-hidden">
+<div className="relative max-w-7xl mx-auto">
 
-
-
-
-
-
+  <div
+  className="
+    relative
+    overflow-hidden
+    [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
+    [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
+  "
+>
+<motion.div
+  animate={{ x: ["0%", "-50%"] }}
+  transition={{
+    duration: 35,
+    ease: "linear",
+    repeat: Infinity,
+  }}
+  className="flex gap-8 w-max"
+>
+{[...carouselImages, ...carouselImages].map((image, index) => (
+  <div
+    key={index}
+    className="relative w-[240px] aspect-square flex-shrink-0 overflow-hidden rounded-[28px]"
+  >
+    <Image
+      src={image}
+      alt={`Carousel ${index + 1}`}
+      fill
+      className="object-cover"
+    />
+  </div>
+))}
+</motion.div>
+</div>
+  </div>
+</section>
       <section>
-        ...
       </section>
+
+
+{/* ========================= WHY CHOOSE US SECTION ========================= */}
+
+<section className="py-5 bg-[#FFFFF] overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6">
+
+    {/* Heading */}
+
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="text-center mb-16"
+    >
+    
+      <h2
+        className="
+          text-4xl
+          md:text-5xl
+          font-black
+          leading-tight
+          text-[#171717]
+        "
+      >
+        Why Brands Choose{" "}
+        <span className="text-[#F8BC04]">
+          BIGBEANS DIGITAL
+        </span>
+      </h2>
+    </motion.div>
+
+    {/* Cards */}
+
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
+
+      {[
+        {
+          number: "01",
+          title: "ROI Focused",
+          desc: "Performance-driven strategies designed to maximize your return on every marketing investment.",
+        },
+        {
+          number: "02",
+          title: "Creative Ads",
+          desc: "Eye-catching creatives that stop scrolling and convert attention into customers.",
+        },
+        {
+          number: "03",
+          title: "Smart Targeting",
+          desc: "Reach the right audience using advanced targeting and data-driven campaigns.",
+        },
+        {
+          number: "04",
+          title: "More Leads",
+          desc: "Generate qualified leads consistently with proven digital marketing systems.",
+        },
+        {
+          number: "05",
+          title: "Live Reports",
+          desc: "Stay updated with transparent reporting and real-time campaign insights.",
+        },
+        {
+          number: "06",
+          title: "Fast Scaling",
+          desc: "Scale your business faster using optimized campaigns and growth strategies.",
+        },
+      ].map((item, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            delay: index * 0.08,
+            duration: 0.6,
+          }}
+          whileHover={{
+            y: -12,
+            scale: 1.03,
+          }}
+          className="
+            relative
+            bg-white
+            rounded-[24px]
+            p-6
+            border
+            border-gray-200
+            shadow-[0_10px_35px_rgba(0,0,0,0.06)]
+            overflow-hidden
+          "
+        >
+
+          {/* Decorative Circle */}
+
+          <div
+            className="
+              absolute
+              -top-10
+              -right-10
+              w-20
+              h-20
+              rounded-full
+              bg-[#F8BC04]/15
+            "
+          />
+
+          <h3
+            className="
+              text-6xl
+              font-black
+              text-[#F8BC04]
+              leading-none
+              mb-2
+            "
+          >
+            {item.number}
+          </h3>
+
+          <h4
+            className="
+              text-2xl
+              font-black
+              text-[#171717]
+              leading-tight
+              mb-4
+            "
+          >
+            {item.title}
+          </h4>
+
+          <p
+            className="
+              text-[15px]
+              leading-7
+              text-gray-600
+            "
+          >
+            {item.desc}
+          </p>
+
+        </motion.div>
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+{/* =========================
+        CTA SECTION
+========================= */}
+
+<section className="relative overflow-hidden bg-[#fffff] py-24">
+
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.7 }}
+  >
+
+    <div
+      className="
+        relative
+        overflow-hidden
+        max-w-7xl
+        mx-auto
+        rounded-[40px]
+        bg-[#171717]
+        px-8
+        py-16
+        md:px-16
+      "
+    >
+
+      {/* Glow */}
+
+      <div
+        className="
+          absolute
+          right-0
+          top-0
+          h-72
+          w-72
+          rounded-full
+          bg-[#F8BC04]/20
+          blur-[120px]
+        "
+      />
+
+      <div
+        className="
+          relative
+          z-10
+          flex
+          flex-col
+          items-center
+          justify-between
+          gap-10
+          lg:flex-row
+        "
+      >
+
+        {/* Left */}
+
+        <div>
+
+          <h2
+            className="
+              max-w-3xl
+              text-4xl
+              md:text-5xl
+              font-black
+              leading-tight
+              text-white
+            "
+          >
+            Ready To Turn Clicks Into
+            <span className="text-[#F8BC04]">
+              {" "}Real Business Growth?
+            </span>
+          </h2>
+
+          <p
+            className="
+              mt-6
+              max-w-2xl
+              text-lg
+              leading-8
+              text-white/80
+            "
+          >
+            Partner with BIGBEANS DIGITAL to launch
+            data-driven digital marketing campaigns that
+            generate quality leads, increase conversions
+            and accelerate your business growth.
+          </p>
+
+        </div>
+
+        {/* Button */}
+
+        <motion.button
+          whileHover={{
+            scale: 1.05,
+            y: -5,
+            backgroundColor: "#FFD54A",
+          }}
+          whileTap={{
+            scale: 0.95,
+          }}
+          className="
+            whitespace-nowrap
+            rounded-full
+            bg-[#F8BC04]
+            px-10
+            py-5
+            text-lg
+            font-bold
+            text-[#171717]
+            shadow-[0_20px_50px_rgba(248,188,4,0.35)]
+            transition-all
+            duration-300
+          "
+        >
+          Book Free Strategy Call
+        </motion.button>
+
+      </div>
+
+    </div>
+
+  </motion.div>
+
+</section>
+
+{/* =========================
+      END CTA SECTION
+========================= */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </main>
   );
