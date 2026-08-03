@@ -693,20 +693,6 @@ const faqs = [
 
   
 
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
 {/* =========================
     STRATEGY CALL CTA SECTION
 ========================= */}
@@ -926,7 +912,7 @@ const faqs = [
         FAQ SECTION
 ========================= */}
 
-<section className="relative overflow-hidden bg-[#fafafa] py-24">
+<section className="relative overflow-hidden bg-[#ffffff] py-24">
 
   <motion.div
     animate={{
@@ -951,10 +937,7 @@ const faqs = [
       className="mb-20 text-center"
     >
 
-      <span className="inline-flex rounded-full bg-[#F8BC04]/10 px-5 py-2 text-sm font-semibold uppercase tracking-[4px] text-[#F8BC04]">
-        Frequently Asked Questions
-      </span>
-
+      
       <h2 className="mx-auto mt-4 max-w-12xl text-4xl font-black leading-tight text-[#171717] md:text-6xl">
         Everything You Need To Know About
         <span className="text-[#F8BC04]">

@@ -220,23 +220,37 @@ export default function WebsiteDevelopment() {
             transition={{
               duration:.9
             }}
-            className="max-w-3xl mx-auto text-center mt-12"
+            className="max-w-7xl mx-auto mt-6"
           >
 
-            <span className="inline-flex px-5 py-2 rounded-full bg-[#F8BC04]/10 text-[#F8BC04] font-semibold tracking-wide">
-              Premium Website Development
-            </span>
+           <div className="grid lg:grid-cols-[0.95fr_1.25fr] items-center gap-20">
 
-           <h2 className="mt-5 text-[28px] md:text-[34px] font-bold text-[#171717] leading-tight">
-  Creating Websites That Shine
-</h2>
+  <div>
 
-            <p className="mt-7 text-[20px] leading-8 text-[#555] max-w-6xl mx-auto">
-  We build modern, responsive, and high-performing websites that combine
-  exceptional design with seamless functionality. Every website is crafted
-  to strengthen your brand, deliver an outstanding user experience, and help
-  turn visitors into long-term customers.
-</p>
+    <h2 className="text-[64px] lg:text-[76px] font-black leading-[0.95] tracking-[-2px] text-[#171717]">
+      Creating
+      <br />
+      Websites
+      <br />
+      <span className="text-[#F8BC04]">
+        That Shine
+      </span>
+    </h2>
+
+  </div>
+
+  <div>
+
+    <p className="text-[22px] leading-[1.45] tracking-[0.08em] text-[#171717]">
+      We build modern, responsive, and high-performing websites that combine
+      exceptional design with seamless functionality. Every website is crafted
+      to strengthen your brand, deliver an outstanding user experience, and
+      help turn visitors into long-term customers.
+    </p>
+
+  </div>
+
+</div>
 
           </motion.div>
 
@@ -247,7 +261,7 @@ export default function WebsiteDevelopment() {
           WHY OUR WEBSITES PERFORM BETTER
       ========================= */}
 
-      <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
+      <section className="relative py-10 lg:py-10 bg-white overflow-hidden">
 
         {/* Background Glow */}
 
@@ -296,12 +310,8 @@ export default function WebsiteDevelopment() {
             transition={{
               duration: .9,
             }}
-            className="text-center max-w-3xl mx-auto"
+            className="text-center max-w-5xl mx-auto"
           >
-
-            <span className="inline-flex px-5 py-2 rounded-full bg-[#F8BC04]/10 text-[#F8BC04] font-semibold tracking-wider">
-              What Makes Us Different
-            </span>
 
             <h2 className="mt-6 text-[32px] md:text-[46px] font-black text-[#171717] leading-tight">
               Every Website Is Designed To Deliver
@@ -318,7 +328,7 @@ export default function WebsiteDevelopment() {
 
           {/* Cards */}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 mt-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 mt-20">
 
             {[
               {
@@ -368,38 +378,22 @@ export default function WebsiteDevelopment() {
                   rotateY: index % 2 === 0 ? -8 : 8,
                   scale: 1.03,
                 }}
-                className="group relative overflow-hidden rounded-[32px] bg-white border border-gray-100 p-8 shadow-[0_25px_60px_rgba(0,0,0,.08)] hover:shadow-[0_35px_90px_rgba(248,188,4,.25)] transition-all duration-500"
+                className="group flex flex-col items-center text-center"
               >
 
-                {/* Hover Gradient */}
-
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                    scale: .6,
-                  }}
-                  whileHover={{
-                    opacity: 1,
-                    scale: 1.2,
-                  }}
-                  transition={{
-                    duration: .5,
-                  }}
-                  className="absolute -right-14 -top-14 w-44 h-44 rounded-full bg-[#F8BC04]/20 blur-3xl"
-                />
+                
 
                 {/* Icon */}
 
-                <motion.div
-                  whileHover={{
-                    rotate: [0, -12, 12, 0],
-                    scale: 1.15,
-                  }}
-                  transition={{
-                    duration: .7,
-                  }}
-                  className="relative z-10 flex items-center justify-center w-20 h-20 rounded-3xl bg-[#F8BC04]/10"
-                >
+                                      <motion.div
+                        whileHover={{
+                          scale: 1.08,
+                        }}
+                        transition={{
+                          duration: .3,
+                        }}
+                        className="flex items-center justify-center w-16 h-16 mx-auto"
+>
 
                   <Image
                     src={item.icon}
@@ -410,28 +404,15 @@ export default function WebsiteDevelopment() {
 
                 </motion.div>
 
-                <h3 className="relative z-10 mt-8 text-2xl font-bold text-[#171717]">
-                  {item.title}
-                </h3>
+                <h3 className="mt-6 text-[22px] font-bold text-[#171717] leading-tight">
+  {item.title}
+</h3>
 
-                <p className="relative z-10 mt-5 text-gray-600 leading-8">
-                  {item.desc}
-                </p>
+                <p className="mt-4 text-[16px] leading-7 text-gray-600 max-w-[280px] mx-auto">
+  {item.desc}
+</p>
 
-                {/* Bottom Line */}
-
-                <motion.div
-                  initial={{
-                    width: 0,
-                  }}
-                  whileHover={{
-                    width: "100%",
-                  }}
-                  transition={{
-                    duration: .45,
-                  }}
-                  className="absolute left-0 bottom-0 h-[5px] bg-[#F8BC04] rounded-full"
-                />
+                
 
               </motion.div>
 
@@ -449,22 +430,7 @@ export default function WebsiteDevelopment() {
             ABOUT OUR WEB DEVELOPMENT
       ========================= */}
 
-      <section className="relative overflow-hidden bg-white py-24 lg:py-32">
-
-        {/* Background Glow */}
-
-        <motion.div
-          animate={{
-            x: [-30, 40, -30],
-            y: [20, -30, 20],
-            scale: [1, 1.15, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-          }}
-          className="absolute left-10 top-20 h-[420px] w-[420px] rounded-full bg-[#F8BC04]/15 blur-[120px]"
-        />
+      <section className="relative overflow-hidden bg-white pt-0 pb-1">
 
         <motion.div
           animate={{
@@ -502,19 +468,6 @@ export default function WebsiteDevelopment() {
             className="relative max-w-[620px] mx-auto"
           >
 
-            {/* Yellow Block */}
-
-            <motion.div
-              animate={{
-                y: [0, -15, 0],
-              }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-              }}
-              className="absolute -bottom-8 -left-8 h-[280px] w-[280px] rounded-[40px] bg-[#F8BC04]"
-            />
-
             {/* Image */}
 
             <motion.div
@@ -537,8 +490,46 @@ export default function WebsiteDevelopment() {
                 height={560}
                 className="transition duration-700 hover:scale-110"
               />
-
             </motion.div>
+
+            <div className="mt-12 flex justify-end">
+  <motion.button
+    whileHover={{
+      scale: 1.05,
+      y: -4,
+    }}
+    whileTap={{
+      scale: 0.95,
+    }}
+    animate={{
+  backgroundColor: [
+    "#171717",
+    "#F9C936",
+    "#171717",
+  ],
+  color: [
+    "#FFFFFF",
+    "#171717",
+    "#FFFFFF",
+  ],
+}}
+transition={{
+  duration: 10,
+  repeat: Infinity,
+  ease: "easeInOut",
+}}
+    transition={{
+      duration: 10,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="rounded-full px-9 py-4 font-semibold border border-[#171717] transition-colors"
+  >
+    Let's Build Together
+  </motion.button>
+</div>
+
+            
 
             {/* Floating Badge */}
 
@@ -551,20 +542,22 @@ export default function WebsiteDevelopment() {
                 duration: 5,
                 repeat: Infinity,
               }}
-              className="absolute -right-6 top-10 z-30 rounded-3xl bg-white px-6 py-5 shadow-2xl"
+              className="absolute -right-6 top-1 z-30 rounded-3xl bg-white px-6 py-5 shadow-2xl"
             >
 
               <p className="text-sm text-gray-500">
                 Successful Launches
               </p>
 
-              <h3 className="text-4xl font-black text-[#171717]">
-                250+
+              <h3 className="text-4xl font-black text-[#f9c936]">
+                50+
               </h3>
 
             </motion.div>
 
           </motion.div>
+
+          
 
           {/* CONTENT */}
 
@@ -585,11 +578,9 @@ export default function WebsiteDevelopment() {
             }}
           >
 
-            <span className="inline-flex rounded-full bg-[#F8BC04]/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.22em] text-[#F8BC04]">
-              About BIGBEANS DIGITAL
-            </span>
+            
 
-            <h2 className="mt-7 text-[36px] font-black leading-tight text-[#171717] md:text-[54px]">
+            <h2 className="mt-1 text-[36px] font-black leading-tight text-[#171717] md:text-[40px]">
               Building High-Impact
               <br />
               Websites That Inspire
@@ -606,7 +597,7 @@ export default function WebsiteDevelopment() {
               digital presence while delivering measurable results.
             </p>
 
-            <div className="mt-12 grid gap-6">
+            <div className="mt-5 grid gap-6">
 
               {[
                 {
@@ -670,18 +661,7 @@ export default function WebsiteDevelopment() {
 
             </div>
 
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                y: -4,
-              }}
-              whileTap={{
-                scale: .95,
-              }}
-              className="mt-12 rounded-full bg-[#171717] px-9 py-4 font-semibold text-white transition hover:bg-[#F8BC04] hover:text-[#171717]"
-            >
-              Let's Build Together
-            </motion.button>
+            
 
           </motion.div>
 
@@ -731,11 +711,8 @@ export default function WebsiteDevelopment() {
             className="mx-auto max-w-4xl text-center"
           >
 
-            <span className="inline-flex rounded-full bg-[#F8BC04]/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.25em] text-[#F8BC04]">
-              Modern Technology Stack
-            </span>
 
-            <h2 className="mt-6 text-[36px] font-black leading-tight text-[#171717] md:text-[54px]">
+            <h2 className="mt-0 text-[36px] font-black leading-tight text-[#171717] md:text-[54px]">
               Technologies We
               <span className="text-[#F8BC04]">
                 {" "}Work With
@@ -790,7 +767,7 @@ export default function WebsiteDevelopment() {
               transition={{
                 delay: rowIndex * .15,
               }}
-              className="mt-14 overflow-hidden"
+              className="mt-5 overflow-hidden"
             >
 
               <motion.div
@@ -820,7 +797,7 @@ export default function WebsiteDevelopment() {
                       type: "spring",
                       stiffness: 180,
                     }}
-                    className="group flex min-w-[220px] items-center gap-5 rounded-[28px] border border-gray-100 bg-white px-7 py-6 shadow-[0_20px_45px_rgba(0,0,0,.08)] transition-all duration-500 hover:border-[#F8BC04]/40 hover:shadow-[0_30px_70px_rgba(248,188,4,.18)]"
+                    className="group flex min-w-[220px] items-center gap-10 rounded-[28px] border border-gray-100 bg-white px-7 py-6 transition-all duration-500 hover:border-[#F8BC04]/40 hover:shadow-[0_30px_70px_rgba(248,188,4,.18)]"
                   >
 
                     <motion.div
