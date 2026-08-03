@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
@@ -14,7 +15,7 @@ export default function GoogleAdsMetaAds() {
       const [activeTab, setActiveTab] = useState("search");
 const tabs = {
     search: {
-      title: "Search Ads",
+      title: "Meta Ads",
       heading: "Get More Customers Through Search Ads",
       description:
         "Appear exactly when potential customers are searching for your products or services. Our Google Search Ads campaigns are designed to generate qualified leads, increase conversions and maximize return on ad spend.",
@@ -22,7 +23,7 @@ const tabs = {
     },
 
     display: {
-      title: "Display Ads",
+      title: "Google Ads",
       heading: "Build Brand Awareness At Scale",
       description:
         "Reach your ideal audience across millions of websites, apps and digital platforms. Display advertising helps businesses stay visible, build trust and drive consistent traffic through visually engaging campaigns.",
@@ -30,7 +31,7 @@ const tabs = {
     },
 
     video: {
-      title: "Video Ads",
+      title: "Youtube Ads",
       heading: "Capture Attention With Video Marketing",
       description:
         "Video advertising helps brands tell compelling stories, increase engagement and generate more conversions. Reach customers across YouTube and premium video networks with highly targeted campaigns.",
@@ -87,56 +88,31 @@ const faqs = [
   return (
     <main>
 
-      {/* PAGE HERO */}
+    {/* Breadcrumb */}
+<section className="w-full bg-white py-10">
+  <div className="max-w-7xl mx-auto px-6 flex justify-center">
+    <div className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+      <Link
+        href="/"
+        className="text-gray-700 hover:text-[#F8BC04] transition-colors duration-300"
+      >
+        Home
+      </Link>
 
-      <section className="py-20 px-6">
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            bg-[#F8BC04]
-            rounded-[40px]
-            min-h-[220px]
-            flex
-            flex-col
-            items-center
-            justify-center
-            text-center
-            shadow-[0_20px_80px_rgba(248,188,4,0.35)]
-          "
-        >
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="
-              text-5xl
-              md:text-7xl
-              font-black
-              text-[#171717]
-            "
-          >
-            Google Ads & Meta Ads
-          </motion.h1>
+      <span className="text-[#F8BC04] text-lg">→</span>
 
-          <div
-            className="
-              mt-8
-              bg-white
-              px-8
-              py-4
-              rounded-full
-              font-semibold
-            "
-          >
-            Home → Google Ads & Meta Ads
-          </div>
-        </div>
-      </section>
+      <span className="font-semibold text-black">
+        Performance Marketing
+      </span>
+    </div>
+  </div>
+</section>
+
+      
 
 {/* GOOGLE ADS HERO SECTION */}
 
-<section className="py-28 overflow-hidden">
+<section className="py-1 overflow-hidden">
 
   <div className="max-w-7xl mx-auto px-6">
 
@@ -147,34 +123,6 @@ const faqs = [
       transition={{ duration: 0.8 }}
       className="text-center"
     >
-
-      {/* Floating Badge */}
-
-      <motion.div
-        animate={{
-          y: [0, -10, 0],
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-        }}
-        className="
-          inline-flex
-          items-center
-          gap-2
-          bg-[#F8BC04]/10
-          text-[#F8BC04]
-          px-6
-          py-3
-          rounded-full
-          font-bold
-          tracking-wider
-          mb-8
-        "
-      >
-        🚀 PERFORMANCE MARKETING
-      </motion.div>
-
       {/* Heading */}
 
       <motion.h2
@@ -224,7 +172,7 @@ const faqs = [
 
         </span>
 
-        Through Smart Paid Advertising
+        Through Smart Performance Marketing
       </motion.h2>
 
       {/* Description */}
@@ -242,7 +190,7 @@ const faqs = [
           text-lg
           md:text-xl
           text-gray-600
-          max-w-5xl
+          max-w-6xl
           mx-auto
           leading-relaxed
         "
@@ -271,46 +219,53 @@ const faqs = [
           flex-wrap
           justify-center
           gap-6
-          mt-14
+          mt-0
         "
       >
 
-        <motion.button
-          whileHover={{
-            scale: 1.08,
-            y: -5,
-            boxShadow:
-              "0px 20px 40px rgba(248,188,4,0.35)",
-          }}
-          whileTap={{
-            scale: 0.95,
-          }}
-          className="
-            bg-[#F8BC04]
-            text-[#171717]
-            font-bold
-            px-10
-            py-5
-            rounded-full
-            text-lg
-          "
-        >
-          Get Started With Us
-        </motion.button>
+        <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ delay: 0.3, duration: 0.8 }}
+    className="mt-10 flex justify-center gap-4"
+  >
+  <Link href="/our-work">
+  <button
+    className="
+      bg-[#171717]
+      text-white
+      px-8
+      py-3
+      rounded-full
+      font-semibold
+      transition-all
+      duration-300
+      hover:bg-[#F8BC04]
+      hover:text-[#171717]
+    "
+  >
+    View Our Work
+  </button>
+</Link>
+
+    <Link
+  href="https://wa.link/gqxvz0"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="border border-[#171717] px-8 py-3 rounded-full font-semibold hover:bg-[#171717] hover:text-white transition">
+    Get Consultation
+  </button>
+</Link>
+
+
+  </motion.div>
 
    
 
       </motion.div>
-
-      {/* Floating Stats */}
-
-      <div className="hidden lg:block">
-
-       
-
-      </div>
-
-    </motion.div>
+        </motion.div>
 
   </div>
 
@@ -318,11 +273,11 @@ const faqs = [
 
 {/* WHY CHOOSE US SECTION */}
 
-<section className="py-28 overflow-hidden">
+<section className="py-10 overflow-hidden">
 
   <div className="max-w-7xl mx-auto px-6">
 
-    <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 items-center">
 
       {/* LEFT SIDE */}
 
@@ -333,34 +288,16 @@ const faqs = [
         transition={{ duration: 0.8 }}
       >
 
-        <motion.span
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="
-            inline-block
-            text-[#171717]
-            tracking-[6px]
-            text-sm
-            font-bold
-            uppercase
-            mb-8
-          "
-        >
-          Why Choose BIGBEANS DIGITAL
-        </motion.span>
-
         <h2
           className="
             text-5xl
-            md:text-7xl
+            md:text-4xl
             font-black
             leading-tight
             text-[#171717]
           "
         >
-          PPC Campaigns
+          Performance Marketing
           <br />
           That Turn
           <span className="text-[#F8BC04]">
@@ -372,7 +309,7 @@ const faqs = [
 
         <p
           className="
-            mt-10
+            mt-4
             text-lg
             leading-relaxed
             text-gray-600
@@ -414,12 +351,12 @@ const faqs = [
 
       {/* RIGHT SIDE */}
 
-      <div className="space-y-8">
+      <div className="space-y-1">
 
         {[
           {
             number: "01",
-            title: "ROI Focused Advertising",
+            title: "ROI Focused Campaign",
             text: "Every campaign is optimized around leads, sales and business growth instead of vanity metrics."
           },
           {
@@ -588,13 +525,13 @@ const faqs = [
 
 </section>
 
-<section className="py-28">
+<section className="py-10">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center max-w-5xl mx-auto mb-20">
 
-          <h2 className="text-5xl md:text-6xl font-black text-[#171717] leading-tight">
-            Google Ads Solutions That
+          <h2 className="text-5xl md:text-5xl font-black text-[#171717] leading-tight">
+            Ads Solutions That
             <span className="text-[#F8BC04]">
               {" "}Drive Results
             </span>
@@ -662,19 +599,7 @@ const faqs = [
 
           <div>
 
-            <motion.h3
-              key={`title-${activeTab}`}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="
-                text-5xl
-                font-black
-                text-[#171717]
-                mb-10
-              "
-            >
-              Google Ads
-            </motion.h3>
+            
 
             {/* TABS */}
 
@@ -766,246 +691,21 @@ const faqs = [
 
 <section className="py-20 overflow-hidden">
 
-  <div className="max-w-7xl mx-auto px-6">
+  
 
-    {/* HEADING */}
 
-    <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="text-center mb-16"
-    >
 
-      <span
-        className="
-          inline-block
-          px-5
-          py-2
-          rounded-full
-          bg-[#F8BC04]/10
-          text-[#F8BC04]
-          font-bold
-          tracking-[4px]
-          uppercase
-          text-xs
-          mb-4
-        "
-      >
-        Why Choose Us
-      </span>
 
-      <h2
-        className="
-          text-3xl
-          md:text-5xl
-          font-black
-          text-[#171717]
-        "
-      >
-        Why Brands Choose
-        <span className="text-[#F8BC04]">
-          {" "}BIGBEANS DIGITAL
-        </span>
-      </h2>
 
-    </motion.div>
 
-    {/* SINGLE LINE CARDS */}
 
-    <div className="grid lg:grid-cols-6 md:grid-cols-3 grid-cols-2 gap-4">
 
-      {[
-        {
-          no: "01",
-          title: "ROI Focused",
-        },
-        {
-          no: "02",
-          title: "Creative Ads",
-        },
-        {
-          no: "03",
-          title: "Smart Targeting",
-        },
-        {
-          no: "04",
-          title: "More Leads",
-        },
-        {
-          no: "05",
-          title: "Live Reports",
-        },
-        {
-          no: "06",
-          title: "Fast Scaling",
-        },
-      ].map((item, index) => (
 
-        <motion.div
-          key={index}
-          initial={{
-            opacity: 0,
-            y: 80,
-            scale: 0.8,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            scale: 1,
-          }}
-          viewport={{ once: true }}
-          transition={{
-            duration: 0.5,
-            delay: index * 0.08,
-          }}
-          whileHover={{
-            y: -15,
-            rotateY: 12,
-            scale: 1.08,
-          }}
-          className="
-            group
-            relative
-            h-[220px]
-            rounded-[24px]
-            bg-white
-            border
-            border-gray-100
-            overflow-hidden
-            cursor-pointer
-            shadow-lg
-          "
-        >
 
-          {/* Animated Background */}
 
-          <motion.div
-            className="
-              absolute
-              inset-0
-              bg-[#F8BC04]
-            "
-            initial={{
-              y: "100%",
-            }}
-            whileHover={{
-              y: 0,
-            }}
-            transition={{
-              duration: 0.4,
-            }}
-          />
 
-          {/* Floating Circle */}
 
-          <motion.div
-            animate={{
-              y: [0, -15, 0],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "linear",
-              delay: index * 0.3,
-            }}
-            className="
-              absolute
-              -top-6
-              -right-6
-              w-16
-              h-16
-              rounded-full
-              bg-[#F8BC04]/15
-            "
-          />
-
-          {/* CONTENT */}
-
-          <div className="relative z-10 p-5 h-full flex flex-col justify-between">
-
-            <motion.div
-              whileHover={{
-                rotate: -10,
-                scale: 1.15,
-              }}
-              className="
-                text-5xl
-                font-black
-                text-[#F8BC04]
-                group-hover:text-white
-                transition-all
-                duration-300
-              "
-            >
-              {item.no}
-            </motion.div>
-
-            <div>
-
-              <h3
-                className="
-                  text-xl
-                  font-black
-                  leading-tight
-                  text-[#171717]
-                  group-hover:text-white
-                  transition-all
-                  duration-300
-                "
-              >
-                {item.title}
-              </h3>
-
-              <p
-                className="
-                  mt-3
-                  text-sm
-                  leading-relaxed
-                  text-gray-600
-                  group-hover:text-white/90
-                  transition-all
-                  duration-300
-                "
-              >
-                Performance-focused
-                digital advertising
-                strategies that help
-                businesses grow faster.
-              </p>
-
-            </div>
-
-          </div>
-
-          {/* Shine Effect */}
-
-          <motion.div
-            className="
-              absolute
-              top-0
-              left-[-120%]
-              w-[50%]
-              h-full
-              bg-white/40
-              skew-x-12
-            "
-            whileHover={{
-              left: "150%",
-            }}
-            transition={{
-              duration: 0.8,
-            }}
-          />
-
-        </motion.div>
-
-      ))}
-
-    </div>
-  </div>
+  
 
 {/* =========================
     STRATEGY CALL CTA SECTION
@@ -1014,18 +714,7 @@ const faqs = [
 <section className="relative overflow-hidden bg-white py-16 lg:py-20">
   
 
-  <motion.div
-    animate={{
-      y: [-20, 20, -20],
-      rotate: [-8, 8, -8],
-    }}
-    transition={{
-      duration: 12,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-    className="absolute right-10 bottom-10 h-72 w-72 rounded-full bg-[#F8BC04]/10 blur-[120px]"
-  />
+  
 
   <div className="container mx-auto px-6 lg:px-10">
 

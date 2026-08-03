@@ -59,7 +59,7 @@ export default function Header() {
   href="/services/google-ads-meta-ads"
   className="block px-5 py-3 hover:bg-yellow-50 hover:text-[#F8BC04] transition"
 >
-  Google Ads & Meta Ads
+  Performance Marketing
 </Link>
               
                 <Link
