@@ -518,11 +518,7 @@ transition={{
   repeat: Infinity,
   ease: "easeInOut",
 }}
-    transition={{
-      duration: 10,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
+  
     className="rounded-full px-9 py-4 font-semibold border border-[#171717] transition-colors"
   >
     Let's Build Together
