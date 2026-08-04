@@ -16,6 +16,7 @@ import {
   ThumbsUp,
   LineChart,
 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 function Counter({
   end,
@@ -296,6 +297,8 @@ const row3 = [
 "
 >
 
+  
+
             {/* STATS NOTCH */}
 
             <div className="flex justify-center">
@@ -539,6 +542,192 @@ const row3 = [
         </motion.div>
 
       </div>
+
+{/* SERVICES SECTION */}
+<section className="pt-10 pb-10 bg-white overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6">
+
+    <div className="text-center mb-10">
+
+      <h2 className="text-[#171717] text-5xl md:text-6xl font-bold leading-tight">
+        Our Core Services
+      </h2>
+
+      <motion.div
+  initial={{ width: 0, opacity: 0 }}
+  whileInView={{ width: "720px", opacity: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 1, ease: "easeOut" }}
+  className="mx-auto mt-1 h-[3px] rounded-full bg-gradient-to-r from-transparent via-[#F8BC04] to-transparent"
+/>
+    </div>
+
+
+<div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+
+  {/* CARD 1 */}
+  <motion.div
+    whileHover="hover"
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="group rounded-[28px] overflow-hidden bg-[#F8BC04] transition-all duration-500 shadow-[0_20px_50px_rgba(248,188,4,.20)] hover:bg-white hover:-translate-y-3"
+  >
+    <div className="relative h-[220px] bg-[#F8BC04] overflow-hidden">
+      <Image
+        src="/services/branding.jpg"
+        alt="Branding"
+        fill
+        className="object-cover transition duration-700 group-hover:scale-110"
+      />
+    </div>
+
+    <div className="p-7">
+      
+
+      <h3 className="text-[20px] font-bold text-[#171717] mb-4">
+        Branding
+      </h3>
+
+      <p className="text-black/75 leading-5 mb-3">
+        Strategic branding solutions for startups and businesses.
+      </p>
+
+      <Link
+        href="/services/branding"
+        className="inline-flex items-center gap-3 rounded-full bg-[#171717] text-white px-16 py-2 font-semibold transition-all duration-300 hover:bg-[#F8BC04] hover:text-black"
+      >
+        Explore
+        <ArrowRight size={18}/>
+      </Link>
+    </div>
+  </motion.div>
+
+  {/* CARD 2 */}
+
+  <motion.div
+    whileHover="hover"
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="group rounded-[28px] overflow-hidden bg-[#171717] transition-all duration-500  hover:bg-white hover:-translate-y-3"
+  >
+    <div className="relative h-[220px] bg-[#171717] overflow-hidden">
+      <Image
+        src="/services/social-media.jpg"
+        alt="Social Media"
+        fill
+        className="object-cover transition duration-700 group-hover:scale-110"
+      />
+    </div>
+
+    <div className="p-7">
+     
+
+      <h3 className="text-[20px] font-bold text-white group-hover:text-[#171717] mb-4 transition-colors">
+        Digital Marketing
+      </h3>
+
+      <p className="text-white/70 group-hover:text-black/75 leading-6 mb-4 transition-colors">
+        Build visibility, engagement and quality leads.
+      </p>
+
+      <Link
+        href="/services/social-media-marketing"
+        className="inline-flex items-center gap-3 rounded-full bg-[#F8BC04] text-black px-16 py-2 font-semibold transition-all duration-300"
+      >
+        Explore
+        <ArrowRight size={18}/>
+      </Link>
+    </div>
+  </motion.div>
+
+  {/* CARD 3 */}
+
+  <motion.div
+    whileHover="hover"
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="group rounded-[28px] overflow-hidden bg-[#F8BC04] transition-all duration-500 shadow-[0_20px_50px_rgba(248,188,4,.20)] hover:bg-white hover:-translate-y-3"
+  >
+    <div className="relative h-[220px] bg-[#F8BC04] overflow-hidden">
+      <Image
+        src="/services/website.jpg"
+        alt="Website"
+        fill
+        className="object-cover transition duration-700 group-hover:scale-110"
+      />
+    </div>
+
+    <div className="p-7">
+      
+
+      <h3 className="text-[20px] font-bold text-[#171717] mb-4">
+        Website Development
+      </h3>
+
+      <p className="text-black/75 leading-5 mb-3">
+        Premium websites designed for business growth.
+      </p>
+
+      <Link
+        href="/services/website-development"
+        className="inline-flex items-center gap-3 rounded-full bg-[#171717] text-white px-16 py-2 font-semibold transition-all duration-300 hover:bg-[#F8BC04] hover:text-black"
+      >
+        Explore
+        <ArrowRight size={18}/>
+      </Link>
+    </div>
+  </motion.div>
+
+  {/* CARD 4 */}
+
+  <motion.div
+    whileHover="hover"
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    className="group rounded-[28px] overflow-hidden bg-[#171717] transition-all duration-500  hover:bg-white hover:-translate-y-3"
+  >
+    <div className="relative h-[220px] bg-[#171717] overflow-hidden">
+      <Image
+        src="/services/graphic-design.jpg"
+        alt="Graphic Design"
+        fill
+        className="object-cover transition duration-700 group-hover:scale-110"
+      />
+    </div>
+
+    <div className="p-7">
+      
+
+      <h3 className="text-[20px] font-bold text-white group-hover:text-[#171717] mb-4 transition-colors">
+        Performance Marketing 
+      </h3>
+
+      <p className="text-white/70 group-hover:text-black/75 leading-5 mb-3 transition-colors">
+        Professional creatives for every marketing platform.
+      </p>
+
+      <Link
+        href="/services/google-ads-meta-ads"
+        className="inline-flex items-center gap-3 rounded-full bg-[#F8BC04] text-black px-16 py-2 font-semibold transition-all duration-300"
+      >
+        Explore
+        <ArrowRight size={18}/>
+      </Link>
+    </div>
+  </motion.div>
+
+</div>
+  </div>
+</section>
+
+
+
+
+      
 {/* TRUSTED COMPANIES SECTION */}
 
 <motion.section

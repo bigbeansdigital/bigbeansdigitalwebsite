@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function Connect() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
@@ -635,10 +637,16 @@ export default function Connect() {
             </motion.div>
 
           </div>
-
         </div>
-
       </section>
+
+
+
+
+
+
+
+      
 
 {/* FAQ SECTION */}
 
@@ -1126,14 +1134,13 @@ export default function Connect() {
             shadow-[0_0_25px_#F8BC04]
           "
         />
-
       </div>
-
     </div>
-
   </div>
 
 </section>
+
+
 
 {/* =========================
         CTA SECTION

@@ -328,7 +328,7 @@ export default function WebsiteDevelopment() {
 
           {/* Cards */}
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-14 mt-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-15 mt-20">
 
             {[
               {
@@ -404,11 +404,11 @@ export default function WebsiteDevelopment() {
 
                 </motion.div>
 
-                <h3 className="mt-6 text-[22px] font-bold text-[#171717] leading-tight">
+                <h3 className="mt-6 text-[19px] font-bold text-[#171717] leading-tight">
   {item.title}
 </h3>
 
-                <p className="mt-4 text-[16px] leading-7 text-gray-600 max-w-[280px] mx-auto">
+                <p className="mt-2 text-[16px] leading-6 text-gray-900 max-w-[480px] mx-auto text-justify">
   {item.desc}
 </p>
 
@@ -669,7 +669,7 @@ transition={{
             TECHNOLOGIES WE MASTER
       ========================= */}
 
-      <section className="relative overflow-hidden bg-white py-24 lg:py-32">
+      <section className="relative overflow-hidden bg-white py-10 lg:py-10">
 
         {/* Background Glow */}
 
@@ -836,482 +836,631 @@ transition={{
       </section>
 
       {/* =========================
-            WHY YOUR BUSINESS NEEDS A PROFESSIONAL WEBSITE
-      ========================= */}
+      INDUSTRIES WE SERVE
+========================= */}
 
-      <section className="relative overflow-hidden bg-[#FFFFFF] py-24 lg:py-32">
+<section className="relative overflow-hidden bg-white py-10 lg:py-10">
 
-        {/* Background Glow */}
+  {/* Background Glow */}
+
+  <motion.div
+    animate={{
+      scale: [1, 1.15, 1],
+      opacity: [0.08, 0.18, 0.08],
+    }}
+    transition={{
+      duration: 8,
+      repeat: Infinity,
+    }}
+    className="absolute left-0 top-10 h-[450px] w-[450px] rounded-full bg-[#F8BC04]/20 blur-[150px]"
+  />
+
+  <motion.div
+    animate={{
+      scale: [1.1, 1, 1.1],
+      opacity: [0.08, 0.18, 0.08],
+    }}
+    transition={{
+      duration: 9,
+      repeat: Infinity,
+    }}
+    className="absolute right-0 bottom-0 h-[520px] w-[520px] rounded-full bg-[#F8BC04]/20 blur-[160px]"
+  />
+
+  <div className="relative max-w-[1500px] mx-auto px-6">
+
+    {/* Heading */}
+
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 60,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        duration: .8,
+      }}
+      className="text-center max-w-5xl mx-auto"
+    >
+
+      
+
+      <h2 className="mt-1 text-[10px] md:text-[50px] font-black leading-tight text-[#171717]">
+         Different Sectors We Served for
+        <span className="text-[#F8BC04]">
+          {" "}Websites Designing & Development
+        </span>
+        <br />
+        
+      </h2>
+
+      <p className="mx-auto mt-4 max-w-8xl text-lg leading-9 text-gray-900">
+        Premium website solutions crafted specifically for every industry with
+        performance, conversion and exceptional user experience 
+      </p>
+
+    </motion.div>
+
+    {/* 6 × 2 Grid */}
+
+    <div className="mt-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      {[
+  {
+    title: "Ecommerce",
+    desc: "Beautiful shopping experiences that increase trust, engagement and online sales.",
+    image: "/assets/websitedevelopment/industries/ecommerce.jpg",
+  },
+  {
+    title: "Education",
+    desc: "Interactive websites that make learning engaging for students and institutions.",
+    image: "/assets/websitedevelopment/industries/education.jpg",
+  },
+  {
+    title: "Real Estate",
+    desc: "Premium property websites that generate enquiries and showcase listings beautifully.",
+    image: "/assets/websitedevelopment/industries/realestate.jpg",
+  },
+  {
+    title: "Tech",
+    desc: "Modern dashboards and business platforms for data-driven organizations.",
+    image: "/assets/websitedevelopment/industries/data.jpg",
+  },
+  
+ 
+  {
+    title: "Transportation",
+    desc: "Responsive websites for logistics, transport and mobility businesses.",
+    image: "/assets/websitedevelopment/industries/transport.jpg",
+  },
+  {
+    title: "FMCG",
+    desc: "Fast-moving consumer brand websites designed for maximum engagement.",
+    image: "/assets/websitedevelopment/industries/fmcg.jpg",
+  },
+  {
+    title: "Travel And Torisum",
+    desc: "Professional healthcare websites that build credibility and patient trust.",
+    image: "/assets/websitedevelopment/industries/TravelAndTorisum.jpg",
+  },
+  {
+    title: "Hospitality",
+    desc: "Luxury hotel and hospitality websites designed to increase bookings.",
+    image: "/assets/websitedevelopment/industries/hospitality.jpg",
+  },
+
+
+].map((industry, index) => (
+
+  <motion.div
+    key={industry.title}
+    initial={{
+      opacity: 0,
+      y: 50,
+    }}
+    whileInView={{
+      opacity: 1,
+      y: 0,
+    }}
+    viewport={{
+      once: true,
+    }}
+    transition={{
+      duration: .6,
+      delay: index * .05,
+    }}
+    whileHover={{
+      y: -10,
+      scale: 1.03,
+    }}
+    className="group rounded-[22px] bg-[#F8BC04] p-4 transition-all duration-500 hover:bg-white shadow-[0_15px_45px_rgba(0,0,0,.08)]"
+  >
+
+    <div className="flex h-full flex-col">
+
+      <h3 className="text-[22px] font-black leading-tight text-[#171717]">
+        {industry.title}
+      </h3>
+
+      <p className="mt-3 text-[14px] leading-6 text-[#171717]">
+        {industry.desc}
+      </p>
+
+      <div className="mt-5 overflow-hidden rounded-[16px]">
+
+        <Image
+          src={industry.image}
+          alt={industry.title}
+          width={400}
+          height={260}
+          className="h-[150px] w-full object-cover transition duration-700 group-hover:scale-110"
+        />
+
+      </div>
+
+    </div>
+
+  </motion.div>
+
+))}
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* =========================
+      END INDUSTRIES WE SERVE
+========================= */}
+
+{/* =========================
+      WEBSITE SHOWCASE
+========================= */}
+
+<section className="relative overflow-hidden bg-white py-24 lg:py-32">
+
+  {/* Background Glow */}
+
+  <motion.div
+    animate={{
+      scale: [1, 1.15, 1],
+      opacity: [0.08, 0.18, 0.08],
+    }}
+    transition={{
+      duration: 8,
+      repeat: Infinity,
+    }}
+    className="absolute left-1/2 top-20 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#F8BC04]/15 blur-[150px]"
+  />
+
+  <div className="relative z-10 max-w-7xl mx-auto px-6">
+
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 60,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        duration: .8,
+      }}
+      className="mx-auto max-w-5xl text-center"
+    >
+
+      <span className="inline-flex rounded-full bg-[#F8BC04]/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.22em] text-[#F8BC04]">
+        Premium Website Portfolio
+      </span>
+
+      <h2 className="mt-6 text-[40px] md:text-[60px] font-black leading-tight text-[#171717]">
+        Leading The Way As The
+        <span className="text-[#F8BC04]">
+          {" "}Top Website Design
+        </span>
+        <br />
+        Company
+      </h2>
+
+      <p className="mx-auto mt-8 max-w-4xl text-lg leading-9 text-gray-600">
+        We design premium websites that combine elegant UI, exceptional
+        performance, seamless user experience and conversion-focused layouts
+        to help businesses establish a powerful online presence.
+      </p>
+
+    </motion.div>
+
+        <div className="relative mt-24 flex items-end justify-center h-[520px]">
+
+      {/* Left Laptop */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: -140,
+          rotate: -10,
+          scale: .82,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+          rotate: -8,
+          scale: .9,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: .9,
+        }}
+        whileHover={{
+          y: -15,
+          rotate: -5,
+        }}
+        className="absolute left-6 bottom-0 z-10"
+      >
+
+        <Image
+          src="/assets/showcase-left.png"
+          alt="Corporate Website"
+          width={520}
+          height={330}
+          className="drop-shadow-[0_35px_60px_rgba(0,0,0,.20)]"
+        />
+
+      </motion.div>
+
+      {/* Center Laptop */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 100,
+          scale: .8,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          scale: 1,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: 1,
+          delay: .15,
+        }}
+        className="relative z-30"
+      >
 
         <motion.div
           animate={{
-            scale: [1, 1.2, 1],
-            opacity: [.15, .3, .15],
+            y: [0, -10, 0],
           }}
           transition={{
-            duration: 8,
+            duration: 4,
             repeat: Infinity,
+            ease: "easeInOut",
           }}
-          className="absolute left-10 top-20 h-[420px] w-[420px] rounded-full bg-[#F8BC04]/20 blur-[130px]"
+        >
+
+          <Image
+            src="/assets/showcase-center.png"
+            alt="Website Showcase"
+            width={760}
+            height={470}
+            className="drop-shadow-[0_45px_80px_rgba(0,0,0,.25)]"
+          />
+
+        </motion.div>
+
+      </motion.div>
+
+      {/* Right Laptop */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: 140,
+          rotate: 10,
+          scale: .82,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+          rotate: 8,
+          scale: .9,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: .9,
+        }}
+        whileHover={{
+          y: -15,
+          rotate: 5,
+        }}
+        className="absolute right-6 bottom-0 z-10"
+      >
+
+        <Image
+          src="/assets/showcase-right.png"
+          alt="Luxury Website"
+          width={520}
+          height={330}
+          className="drop-shadow-[0_35px_60px_rgba(0,0,0,.20)]"
         />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-20 px-6 lg:grid-cols-2">
+      </motion.div>
 
-          {/* ================= IMAGE ================= */}
+          {/* Reflection */}
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: -80,
-              rotateY: -10,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              rotateY: 0,
-            }}
-            viewport={{ once: true }}
-            transition={{ duration: .9 }}
-            className="relative max-w-[620px] mx-auto"
-          >
+      <div className="absolute bottom-0 left-1/2 h-10 w-[900px] -translate-x-1/2 rounded-full bg-black/10 blur-2xl" />
 
-            {/* Image */}
+    </div>
 
-            <motion.div
-              whileHover={{
-                rotateY: 6,
-                rotateX: 5,
-                scale: 1.03,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 170,
-              }}
-              className="overflow-hidden rounded-[36px] shadow-[0_45px_80px_rgba(0,0,0,.15)]"
-            >
+  </div>
 
-              <Image
-                src="/assets/business-growth.jpg"
-                alt="Website Development"
-                width={760}
-                height={760}
-                className="transition duration-700 hover:scale-110"
-              />
+</section>
 
-            </motion.div>
-
-            {/* Floating Tags */}
-
-            <div className="absolute bottom-8 left-8 flex flex-wrap gap-3">
-
-              {[
-                "Responsive",
-                "SEO Ready",
-                "Secure",
-                "Fast",
-                "Scalable",
-              ].map((tag, index) => (
-
-                <motion.div
-                  key={tag}
-                  animate={{
-                    y: [0, -8, 0],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: index * .2,
-                  }}
-                  whileHover={{
-                    scale: 1.08,
-                  }}
-                  className="rounded-full bg-[#171717]/90 px-5 py-3 text-sm font-semibold text-white backdrop-blur-xl"
-                >
-                  {tag}
-                </motion.div>
-
-              ))}
-
-            </div>
-
-            {/* Floating CTA */}
-
-          
-
-          </motion.div>
-
-          {/* ================= CONTENT ================= */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: 80,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            viewport={{ once: true }}
-            transition={{ duration: .9 }}
-          >
-
-            <span className="inline-flex rounded-full bg-[#F8BC04]/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#F8BC04]">
-              Why Your Business Needs One
-            </span>
-
-            <h2 className="mt-7 text-[38px] font-black leading-tight text-[#171717] md:text-[58px]">
-              Transform Visitors
-              <br />
-              Into
-              <span className="text-[#F8BC04]">
-                {" "}Loyal Customers
-              </span>
-            </h2>
-
-            <p className="mt-8 text-lg leading-9 text-gray-600">
-              Your website is often the first interaction customers have with
-              your business. A professionally designed website builds trust,
-              improves visibility on search engines, creates better user
-              experiences, and helps convert visitors into long-term customers.
-            </p>
-
-            <div className="mt-12 space-y-6">
-
-              {[
-                {
-                  title: "Professional Brand Presence",
-                  text: "Create a strong first impression with a modern website that reflects your business identity.",
-                },
-                {
-                  title: "Higher Search Visibility",
-                  text: "SEO-friendly development helps your business appear where potential customers are searching.",
-                },
-                {
-                  title: "Better User Experience",
-                  text: "Responsive layouts and intuitive navigation keep visitors engaged across every device.",
-                },
-                {
-                  title: "More Leads & Conversions",
-                  text: "Strategic layouts and compelling calls-to-action encourage enquiries and sales.",
-                },
-              ].map((item, index) => (
-
-                <motion.div
-                  key={item.title}
-                  initial={{
-                    opacity: 0,
-                    x: 50,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  transition={{
-                    delay: index * .15,
-                  }}
-                  whileHover={{
-                    x: 10,
-                    scale: 1.02,
-                  }}
-                  className="group flex gap-5 rounded-[26px] border border-gray-100 bg-white p-6 shadow-sm transition-all duration-500 hover:border-[#F8BC04]/40 hover:shadow-[0_20px_50px_rgba(248,188,4,.18)]"
-                >
-
-                  <motion.div
-                    whileHover={{
-                      rotate: 360,
-                    }}
-                    transition={{
-                      duration: .7,
-                    }}
-                    className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F8BC04] text-xl font-bold text-white"
-                  >
-                    ✓
-                  </motion.div>
-
-                  <div>
-
-                    <h3 className="text-xl font-bold text-[#171717]">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-2 leading-8 text-gray-600">
-                      {item.text}
-                    </p>
-
-                  </div>
-
-                </motion.div>
-
-              ))}
-
-            </div>
-
-          </motion.div>
-
-        </div>
-
-      </section>
+{/* =========================
+      END WEBSITE SHOWCASE
+========================= */}  
 
       {/* =========================
-            FEATURED PROJECTS
-      ========================= */}
+      WEBSITE DESIGN PROCESS
+========================= */}
 
-      <section className="relative overflow-hidden bg-white py-24 lg:py-32">
+<section className="relative overflow-hidden bg-white py-10 lg:py-10">
 
-        {/* Background */}
+  {/* Background Glow */}
 
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [.15, .3, .15],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-          }}
-          className="absolute left-0 top-20 h-[500px] w-[500px] rounded-full bg-[#F8BC04]/20 blur-[140px]"
-        />
+  <motion.div
+    animate={{
+      scale: [1, 1.15, 1],
+      opacity: [0.08, 0.18, 0.08],
+    }}
+    transition={{
+      duration: 8,
+      repeat: Infinity,
+    }}
+    className="absolute -left-20 top-10 h-[420px] w-[420px] rounded-full bg-[#F8BC04]/15 blur-[140px]"
+  />
 
-        <motion.div
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute -right-80 bottom-0 h-[750px] w-[750px] rounded-full border border-[#F8BC04]/10"
-        />
+  <div className="relative z-10 mx-auto max-w-7xl px-6">
 
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
+    <div className="grid items-start gap-12 lg:grid-cols-[1.5fr_1fr]">
 
-          {/* Heading */}
+      {/* ================= LEFT CONTENT ================= */}
 
-          <motion.div
-            initial={{ opacity:0, y:60 }}
-            whileInView={{ opacity:1, y:0 }}
-            viewport={{ once:true }}
-            transition={{ duration:.8 }}
-            className="mx-auto mb-24 max-w-4xl text-center"
-          >
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: -60,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: .8,
+        }}
+      >
 
-            <span className="inline-flex rounded-full bg-[#F8BC04]/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.25em] text-[#F8BC04]">
-              Featured Projects
-            </span>
+        <h2 className="mt-1 text-[30px] font-black leading-tight text-[#171717] md:text-[45px]">
+          Best Website Design &
+          <br />
+          Development Company 
+          <br></br>
+          <span className="text-[#F8BC04]">
+            {" "}For Startups
+          </span>
+        </h2>
 
-            <h2 className="mt-6 text-[36px] font-black leading-tight text-[#171717] md:text-[56px]">
-              Real Websites.
-              <span className="text-[#F8BC04]">
-                {" "}Real Results.
-              </span>
-            </h2>
+        <p className="mt-8 text-lg leading-7 text-gray-600 text-justify">
+          We design premium websites that combine creativity, strategy,
+          performance and user experience. Every project is built to
+          strengthen your brand, increase engagement, improve credibility
+          and generate measurable business growth.
+        </p>
 
-            <p className="mx-auto mt-8 max-w-3xl text-lg leading-9 text-gray-600">
-              Every website we create is tailored around business goals,
-              customer experience, performance and long-term growth. Here are
-              two recent projects developed by BIGBEANS DIGITAL.
+        <div className="mt-10 space-y-8">
+
+          <div>
+
+            <h3 className="text-2xl font-bold text-[#171717]">
+              Custom Websites That Work For Your Brand
+            </h3>
+
+            <p className="mt-3 text-gray-600 leading-8 text-justify">
+              Every business is unique, so every website we build is completely
+              custom. We focus on user experience, responsiveness, SEO,
+              performance and conversion to ensure your website delivers
+              measurable business results.
             </p>
 
-          </motion.div>
+          </div>
 
-          {[
-            {
-              name:"Cake Glory",
-              industry:"Bakery Website",
-              image:"/assets/project1.png",
-              url:"www.cakeglory.com",
-              features:[
-                "Premium UI Design",
-                "Mobile Responsive",
-                "SEO Optimized",
-                "Fast Loading",
-              ],
-              reverse:false,
-              desc:"Designed for a premium bakery brand, Cake Glory combines elegant visuals, intuitive navigation and optimized performance to deliver a delightful online ordering experience."
-            },
-            {
-              name:"Sleepfree",
-              industry:"FMCG Brand Website",
-              image:"/assets/project2.png",
-              url:"www.sleepfree.com",
-              features:[
-                "Modern Brand Identity",
-                "Conversion Focused",
-                "Responsive Design",
-                "High Performance",
-              ],
-              reverse:true,
-              desc:"Developed to strengthen brand visibility, Sleepfree delivers a modern digital experience with engaging storytelling, clean layouts and an optimized customer journey."
-            }
-          ].map((project,index)=>(
+          <div>
 
-            <div
-              key={project.name}
-              className={`grid items-center gap-16 ${
-                project.reverse
-                  ? "lg:grid-cols-[1.2fr_0.8fr]"
-                  : "lg:grid-cols-[0.8fr_1.2fr]"
-              } ${index!==0 && "mt-28"}`}
-            >
+            <h3 className="text-2xl font-bold text-[#171717]">
+              Smart Design & Seamless Functionality
+            </h3>
 
-              {/* TEXT */}
+            <p className="mt-3 text-gray-600 leading-8 text-justify">
+              Our websites combine premium UI design with modern development
+              technologies to deliver fast loading speeds, intuitive navigation,
+              mobile responsiveness and an exceptional experience across every
+              device.
+            </p>
 
-              <motion.div
-                initial={{
-                  opacity:0,
-                  x:project.reverse?80:-80
-                }}
-                whileInView={{
-                  opacity:1,
-                  x:0
-                }}
-                viewport={{
-                  once:true
-                }}
-                transition={{
-                  duration:.8
-                }}
-                className={project.reverse?"lg:order-2":""}
-              >
+          </div>
 
-                <span className="inline-flex rounded-full bg-[#171717] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-white">
-                  {project.industry}
-                </span>
+          <div>
 
-                <h3 className="mt-7 text-[34px] font-black text-[#171717] md:text-[52px]">
-                  {project.name}
-                </h3>
+            <h3 className="text-2xl font-bold text-[#171717]">
+              Strategic Focus On Business Growth
+            </h3>
 
-                <p className="mt-8 text-lg leading-9 text-gray-600">
-                  {project.desc}
-                </p>
+            <p className="mt-3 text-gray-600 leading-8 text-justify">
+              Every layout, section and interaction is carefully designed to
+              increase engagement, build trust and convert visitors into
+              customers while supporting your long-term business growth.
+            </p>
 
-                <div className="mt-10 grid gap-4 sm:grid-cols-2">
-
-                  {project.features.map((feature,i)=>(
-
-                    <motion.div
-                      key={feature}
-                      whileHover={{
-                        x:8,
-                        scale:1.03
-                      }}
-                      className="flex items-center gap-3 rounded-2xl border border-gray-100 bg-[#fafafa] px-5 py-4"
-                    >
-
-                      <motion.div
-                        animate={{
-                          scale:[1,1.25,1]
-                        }}
-                        transition={{
-                          duration:2,
-                          repeat:Infinity,
-                          delay:i*.2
-                        }}
-                        className="h-3 w-3 rounded-full bg-[#F8BC04]"
-                      />
-
-                      <span className="font-semibold text-[#171717]">
-                        {feature}
-                      </span>
-
-                    </motion.div>
-
-                  ))}
-
-                </div>
-
-                <div className="mt-12 flex flex-wrap gap-5">
-
-                  
-                  <div className="rounded-full border border-gray-200 px-7 py-4 text-gray-500">
-                    {project.url}
-                  </div>
-
-                </div>
-
-              </motion.div>
-
-              {/* IMAGE */}
-
-              <motion.div
-                initial={{
-                  opacity:0,
-                  x:project.reverse?-80:80,
-                  rotateY:project.reverse?-12:12
-                }}
-                whileInView={{
-                  opacity:1,
-                  x:0,
-                  rotateY:0
-                }}
-                viewport={{
-                  once:true
-                }}
-                transition={{
-                  duration:.9
-                }}
-                className={project.reverse?"lg:order-1":""}
-              >
-
-                <motion.div
-                  whileHover={{
-                    rotateY:6,
-                    rotateX:5,
-                    scale:1.03
-                  }}
-                  transition={{
-                    type:"spring",
-                    stiffness:170
-                  }}
-                  className="relative max-w-[620px] mx-auto"
-                >
-
-                  {/* Browser */}
-
-                  <div className="overflow-hidden rounded-[34px] border border-gray-200 bg-white shadow-[0_35px_80px_rgba(0,0,0,.12)]">
-
-                    <div className="flex items-center gap-2 border-b bg-gray-50 px-6 py-4">
-
-                      <div className="h-3 w-3 rounded-full bg-red-400"/>
-
-                      <div className="h-3 w-3 rounded-full bg-yellow-400"/>
-
-                      <div className="h-3 w-3 rounded-full bg-green-400"/>
-
-                      <div className="ml-6 rounded-full bg-white px-5 py-2 text-sm text-gray-400">
-                        {project.url}
-                      </div>
-
-                    </div>
-
-                    <Image
-                      src={project.image}
-                      alt={project.name}
-                      width={900}
-                      height={700}
-                      className="transition duration-700 hover:scale-105"
-                    />
-
-                  </div>
-
-                  {/* Floating Badge */}
-
-               
-
-
-                </motion.div>
-
-              </motion.div>
-
-            </div>
-
-          ))}
+          </div>
 
         </div>
 
-      </section>
+      </motion.div>
+
+      {/* ================= RIGHT CONTENT ================= */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: 60,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        viewport={{
+          once: true,
+        }}
+        transition={{
+          duration: .9,
+        }}
+        className="space-y-4"
+      >
+
+        {/* IMAGE 1 */}
+
+        <motion.div
+          whileHover={{
+            y: -8,
+            scale: 1.01,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 180,
+          }}
+          className="overflow-hidden rounded-[26px] border border-gray-200 bg-white "
+        >
+
+          <Image
+            src="/assets/website-design-showcase.jpg"
+            alt="Website Design Showcase"
+            width={1200}
+            height={700}
+            className="w-full h-[260px] object-cover transition duration-700 hover:scale-105"
+          />
+
+        </motion.div>
+
+        {/* IMAGE 2 */}
+
+        <motion.div
+          whileHover={{
+            y: -8,
+            scale: 1.01,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 180,
+          }}
+          className="overflow-hidden rounded-[26px] border border-gray-200 bg-white "
+        >
+
+          <Image
+            src="/assets/website-design-showcase-2.jpg"
+            alt="Website Design Showcase"
+            width={1200}
+            height={700}
+            className="w-full h-[260px] object-cover transition duration-700 hover:scale-105"
+          />
+
+        </motion.div>
+
+        <motion.div
+          whileHover={{
+            y: -8,
+            scale: 1.01,
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 180,
+          }}
+          className="overflow-hidden rounded-[26px] border border-gray-200 bg-white"
+        >
+
+          <Image
+            src="/assets/website-design-showcase-2.jpg"
+            alt="Website Design Showcase"
+            width={1200}
+            height={700}
+            className="w-full h-[260px] object-cover transition duration-700 hover:scale-105"
+          />
+
+        </motion.div>
+
+      </motion.div>
+
+    </div>
+
+  </div>
+
+</section>
+
+{/* =========================
+      END WEBSITE DESIGN PROCESS
+========================= */}
+
+
+
+
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 {/* FAQ SECTION */}
