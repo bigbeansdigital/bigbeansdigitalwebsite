@@ -462,19 +462,19 @@ const row3 = [
   className="flex -space-x-3"
 >
   <img
-    src="/home/rating1.png"
+    src="/home/ratings/rating1.png"
     alt="Happy Client 1"
     className="w-12 h-12 rounded-full border-2 border-white object-cover"
   />
 
   <img
-    src="/home/rating2.png"
+    src="/home/ratings/rating2.png"
     alt="Happy Client 2"
     className="w-12 h-12 rounded-full border-2 border-white object-cover"
   />
 
   <img
-    src="/home/rating3.png"
+    src="/home/ratings/rating3.png"
     alt="Happy Client 3"
     className="w-12 h-12 rounded-full border-2 border-white object-cover"
   />
@@ -575,7 +575,7 @@ const row3 = [
   >
     <div className="relative h-[220px] bg-[#F8BC04] overflow-hidden">
       <Image
-        src="/services/branding.jpg"
+        src="/home/ourservice/bigbeansdigitalbranding.png"
         alt="Branding"
         fill
         className="object-cover transition duration-700 group-hover:scale-110"
@@ -614,7 +614,7 @@ const row3 = [
   >
     <div className="relative h-[220px] bg-[#171717] overflow-hidden">
       <Image
-        src="/services/social-media.jpg"
+        src="home/ourservice/socialmedia.png"
         alt="Social Media"
         fill
         className="object-cover transition duration-700 group-hover:scale-110"
@@ -628,12 +628,12 @@ const row3 = [
         Digital Marketing
       </h3>
 
-      <p className="text-white/70 group-hover:text-black/75 leading-6 mb-4 transition-colors">
+      <p className="text-white/70 group-hover:text-black/75 leading-5 mb-3 transition-colors">
         Build visibility, engagement and quality leads.
       </p>
 
       <Link
-        href="/services/social-media-marketing"
+        href="/home/ourservice/social-media-marketing"
         className="inline-flex items-center gap-3 rounded-full bg-[#F8BC04] text-black px-16 py-2 font-semibold transition-all duration-300"
       >
         Explore
@@ -653,8 +653,8 @@ const row3 = [
   >
     <div className="relative h-[220px] bg-[#F8BC04] overflow-hidden">
       <Image
-        src="/services/website.jpg"
-        alt="Website"
+        src="/home/ourservice/bigbeansdigitalwebsite.png"
+        alt="bigbeansdigitalwebsite"
         fill
         className="object-cover transition duration-700 group-hover:scale-110"
       />
@@ -692,8 +692,8 @@ const row3 = [
   >
     <div className="relative h-[220px] bg-[#171717] overflow-hidden">
       <Image
-        src="/services/graphic-design.jpg"
-        alt="Graphic Design"
+        src="/home/ourservice/bigbeansdigitalperformancemarketing.png"
+        alt="bigbeansdigitalperformancemarketing"
         fill
         className="object-cover transition duration-700 group-hover:scale-110"
       />
@@ -1196,7 +1196,7 @@ const row3 = [
             transition={{ duration: 0.5 }}
           >
             <Image
-              src="/projects/ourwork-SocialMedia.jpg"
+              src="home/ourservice/socialmedia.png"
               alt="Social Media Marketing"
               width={700}
               height={500}
@@ -1231,7 +1231,7 @@ const row3 = [
               transition-all
             "
           >
-            Read More →
+            Know About The Service →
           </button>
 
         </div>
@@ -1258,7 +1258,7 @@ const row3 = [
             transition={{ duration: 0.5 }}
           >
             <Image
-              src="/projects/ourwork-branding.jpg"
+              src="/home/ourservice/bigbeansdigitalbranding.png"
               alt="Branding"
               width={700}
               height={500}
@@ -1293,7 +1293,7 @@ const row3 = [
               transition-all
             "
           >
-            Read More →
+            Know About The Service →
           </button>
 
         </div>
@@ -1320,7 +1320,7 @@ const row3 = [
             transition={{ duration: 0.5 }}
           >
             <Image
-              src="/projects/ourwork-websitedesign.jpg"
+              src="home/ourservice/bigbeansdigitalwebsite.png"
               alt="Website Design"
               width={700}
               height={500}
@@ -1355,7 +1355,7 @@ const row3 = [
               transition-all
             "
           >
-            Read More →
+            Know About The Service →
           </button>
 
         </div>
@@ -1596,48 +1596,40 @@ const row3 = [
 </section>
 {/* BLOG SECTION */}
 
-<section className="bg-[#FFFFFF] py-15">
+<section className="bg-[#FFFFFF] py-10">
 
   <div className="max-w-[1400px] mx-auto px-6">
 
-    {/* HEADER */}
+    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-16">
 
-    <div className="text-center mb-20 relative">
+      <div>
 
-     
-
-      <p
-        className="
+        <p className="
           uppercase
           tracking-[6px]
           text-sm
           font-semibold
           text-gray-500
-          relative
-        "
-      >
-        OUR BLOGS
-      </p>
+          mb-4
+        ">
+          OUR BLOGS
+        </p>
 
-      <h2
-        className="
-          relative
-          mt-4
-          text-4xl
+        <h2 className="
+          text-5xl
           md:text-6xl
           font-black
           text-[#171717]
-        "
-      >
-        Stay Ahead with the Latest in Social Media Marketing {" "}
-        <span className="text-[#F8BC04]">
-          & Brand Growth
-        </span>
-      </h2>
+        ">
+          Stay Updated with {" "}
+          <span className="text-[#F8BC04]">
+            Our Blogs
+          </span>
+        </h2>
 
-      <p
+        <p
         className="
-          max-w-3xl
+          max-w-6xl
           mx-auto
           mt-8
           text-lg
@@ -1649,6 +1641,26 @@ const row3 = [
         and growing businesses. Explore expert articles from BigBeans Digital to help your business 
         grow online, build a stronger brand, and stay ahead of the competition.
       </p>
+
+      </div>
+
+      <Link href="/blog">
+  <button
+    className="
+      mt-4
+      lg:mt-25
+      bg-[#F8BC04]
+      px-8
+      py-4
+      rounded-full
+      font-semibold
+      hover:scale-105
+      transition
+    "
+  >
+    View All Blogs →
+  </button>
+</Link>
 
     </div>
 
