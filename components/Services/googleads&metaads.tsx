@@ -1511,7 +1511,7 @@ const faqs = [
             "
           >
             Partner with BIGBEANS DIGITAL to launch
-            data-driven digital marketing campaigns that
+            data-driven Social Media Marketing  campaigns that
             generate quality leads, increase conversions
             and accelerate your business growth.
           </p>

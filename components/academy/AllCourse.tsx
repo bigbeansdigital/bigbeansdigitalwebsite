@@ -9,7 +9,7 @@ import CourseCard from "./CourseCard";
 
 const categories = [
   "All",
-  "Digital Marketing",
+  "Social Media Marketing ",
   "Artificial Intelligence",
   "Graphic Design",
   "Web Development",

@@ -15,7 +15,7 @@ export const blogs: BlogPost[] = [
   {
     id: 1,
     slug: "future-of-ai-in-digital-marketing",
-    title: "The Future of AI in Digital Marketing",
+    title: "The Future of AI in Social Media Marketing ",
     excerpt:
       "Discover how artificial intelligence is transforming marketing strategies, automation, customer engagement, and business growth.",
     category: "Artificial Intelligence",
@@ -88,7 +88,7 @@ export const blogs: BlogPost[] = [
     title: "Performance Marketing Explained for Beginners",
     excerpt:
       "A practical guide to understanding paid advertising, ROI, campaign optimization, and performance-driven marketing.",
-    category: "Digital Marketing",
+    category: "Social Media Marketing ",
     image: "/assets/blogs/blog6.jpg",
     author: "BIGBEANS DIGITAL",
     date: "22 May 2026",

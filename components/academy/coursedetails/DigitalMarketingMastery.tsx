@@ -52,14 +52,14 @@ export default function DigitalMarketingMastery() {
     const faqs = [
         
   {
-    question: "Who can join this Digital Marketing Course?",
+    question: "Who can join this Social Media Marketing  Course?",
     answer:
-      "This course is perfect for college students, job seekers, freelancers, business owners, entrepreneurs and anyone who wants to build a career in Digital Marketing.",
+      "This course is perfect for college students, job seekers, freelancers, business owners, entrepreneurs and anyone who wants to build a career in Social Media Marketing .",
   },
   {
     question: "Do I need any prior experience?",
     answer:
-      "No. The course starts from the fundamentals and gradually moves to advanced Digital Marketing strategies, making it suitable for complete beginners.",
+      "No. The course starts from the fundamentals and gradually moves to advanced Social Media Marketing  strategies, making it suitable for complete beginners.",
   },
   {
     question: "Will I receive a certificate after completing the course?",
@@ -94,7 +94,7 @@ export default function DigitalMarketingMastery() {
   {
     question: "How long is the course?",
     answer:
-      "The complete Digital Marketing Mastery Program runs for approximately 3 months with live practical sessions.",
+      "The complete Social Media Marketing  Mastery Program runs for approximately 3 months with live practical sessions.",
   },
   {
     question: "How can I enroll?",
@@ -184,20 +184,20 @@ useEffect(() => {
                 <ChevronRight className="h-4 w-4 text-gray-500" />
 
                 <span className="text-white">
-                  Digital Marketing
+                  Social Media Marketing 
                 </span>
 
               </div>
 
               <span className="inline-flex rounded-full border border-[#F8BC04]/40 bg-[#F8BC04]/10 px-5 py-2 text-sm font-semibold text-[#F8BC04]">
 
-                🚀 Best Selling Digital Marketing Course
+                🚀 Best Selling Social Media Marketing  Course
 
               </span>
 
               <h1 className="mt-8 max-w-4xl text-5xl font-black leading-tight text-white lg:text-7xl">
 
-                Digital Marketing
+                Social Media Marketing 
                 <br />
 
                 Mastery Program
@@ -233,7 +233,7 @@ useEffect(() => {
 
                   <Image
                     src="/academy/Digital-Marketing-Mastery-Program-course-preview.jpg"
-                    alt="Digital Marketing Course"
+                    alt="Social Media Marketing  Course"
                     fill
                     className="object-cover"
                   />
@@ -375,7 +375,7 @@ useEffect(() => {
   <div className="mt-5 grid gap-x-20 gap-y-6 md:grid-cols-2">
 
     {[
-      "Build a Complete Digital Marketing Strategy",
+      "Build a Complete Social Media Marketing  Strategy",
       "Find Your Target Audience",
       "Drive Organic & Paid Traffic",
       "Analyze Website & Campaign Data",
@@ -435,11 +435,11 @@ useEffect(() => {
   <div>
 
     <h3 className="text-4xl font-black text-[#171717]">
-      Build Your Digital Marketing Expertise
+      Build Your Social Media Marketing  Expertise
     </h3>
 
     <p className="mt-8 text-lg leading-9 text-gray-600">
-      Learn practical Digital Marketing through live projects, AI-powered
+      Learn practical Social Media Marketing  through live projects, AI-powered
       workflows and industry-focused training. This course prepares you
       for freelancing, agency jobs and business growth with real-world
       implementation.
@@ -485,7 +485,7 @@ useEffect(() => {
 
       <Image
         src="/academy/Digital-Marketing-Mastery-Program-course-preview.jpg"
-        alt="Digital Marketing Learning"
+        alt="Social Media Marketing  Learning"
         width={700}
         height={500}
         className="h-full w-full object-cover transition duration-700 hover:scale-105"
@@ -529,7 +529,7 @@ useEffect(() => {
         </h2>
 
         <p className="mt-6 text-lg leading-9 text-gray-600">
-            Learn Digital Marketing step-by-step through practical modules,
+            Learn Social Media Marketing  step-by-step through practical modules,
             assignments and live projects.
         </p>
 
@@ -543,11 +543,11 @@ useEffect(() => {
 
             {[
   {
-    title: "Introduction to Digital Marketing",
+    title: "Introduction to Social Media Marketing ",
     lessons: 8,
     duration: "2 Hours",
     content: [
-      "What is Digital Marketing?",
+      "What is Social Media Marketing ?",
       "Marketing Funnel",
       "Customer Journey",
       "Business Models",
@@ -755,7 +755,7 @@ useEffect(() => {
 
       <Image
         src="/academy/Digital-Marketing-Mastery-Program-course-preview.jpg"
-        alt="Digital Marketing Course"
+        alt="Social Media Marketing  Course"
         fill
         className="object-cover"
       />
@@ -851,7 +851,7 @@ useEffect(() => {
 
           <Image
             src="/academy/live-class.jpg"
-            alt="Live Digital Marketing Class"
+            alt="Live Social Media Marketing  Class"
             fill
             className="object-cover transition duration-700 group-hover:scale-110"
           />
@@ -952,7 +952,7 @@ useEffect(() => {
         },
         {
           title: "Business Owner",
-          desc: "Grow your own brand with proven digital marketing strategies and AI tools.",
+          desc: "Grow your own brand with proven Social Media Marketing  strategies and AI tools.",
           emoji: "📈",
         },
       ].map((item) => (
@@ -1017,7 +1017,7 @@ useEffect(() => {
           name: "Ananya Sharma",
           role: "College Student",
           review:
-            "The live practical sessions helped me understand Digital Marketing much faster than any online videos. I even built my own portfolio before completing the course.",
+            "The live practical sessions helped me understand Social Media Marketing  much faster than any online videos. I even built my own portfolio before completing the course.",
         },
         {
   name: "Neha Gupta",
@@ -1117,7 +1117,7 @@ useEffect(() => {
       </h2>
 
       <p className="mt-6 text-lg leading-9 text-gray-600">
-        Find answers to the most commonly asked questions about our Digital Marketing Mastery Program.
+        Find answers to the most commonly asked questions about our Social Media Marketing  Mastery Program.
       </p>
 
     </div>

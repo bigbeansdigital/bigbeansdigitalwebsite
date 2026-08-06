@@ -166,34 +166,30 @@ function ProcessCard({
 }
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-    const row1 = [
-  "/clients/1.png",
-  "/clients/2.png",
-  "/clients/3.png",
-  "/clients/4.png",
-  "/clients/5.png",
-  "/clients/6.png",
+   
+
+const carouselImages = [
+  "/home/clientlogo/1.png",
+  "/home/clientlogo/2.png",
+  "/home/clientlogo/3.png",
+  "/home/clientlogo/4.png",
+  "/home/clientlogo/5.png",
+  "/home/clientlogo/6.png",
+  "/home/clientlogo/7.png",
+  "/home/clientlogo/8.png",
+  "/home/clientlogo/9.png",
+  "/home/clientlogo/10.png",
+  "/home/clientlogo/11.png",
+  "/home/clientlogo/12.png",
+  "/home/clientlogo/13.png",
+  "/home/clientlogo/14.png",
 ];
 
-const row2 = [
- 
-  "/clients/7.png",
-    "/clients/8.png",
-  "/clients/9.png",
-  "/clients/10.png",
-  "/clients/11.png",
-  "/clients/12.png",
-];
 
-const row3 = [
-  "/clients/13.png",
-  "/clients/14.png",
-    "/clients/15.png",
-  "/clients/16.png",
-  "/clients/17.png",
-  "/clients/18.png",
-  "/clients/19.png",
-];
+
+
+
+
   return (
     <section className="bg-[#FFFFFF] overflow-hidden pb-20">
 
@@ -543,6 +539,121 @@ const row3 = [
 
       </div>
 
+
+{/* TRUSTED COMPANIES SECTION */}
+
+<motion.section
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.3 }}
+  transition={{ duration: 0.8 }}
+  className="bg-[#FFFFFF] py-10"
+>
+  <div className="max-w-[1400px] mx-auto px-1 text-center">
+
+    <motion.h2
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="
+  text-3xl
+  md:text-[52px]
+  font-bold
+  text-[#171717]
+  tracking-tight
+  whitespace-nowrap
+"
+    >
+      Trusted by 100+ Startups & Businesses 
+    </motion.h2>
+
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="
+        mt-8
+        text-lg
+        text-gray-600
+        leading-relaxed
+        max-w-4xl
+        mx-auto
+      "
+    >
+      From ambitious startups to growing businesses, BIGBEANS DIGITAL delivers results-driven Digital Marketing, 
+      Social Media Marketing, Performance Marketing, Website Development, and Branding solutions that help brands 
+      grow faster. As a trusted Digital Marketing Agency serving clients across London, India, USA, and Dubai, 
+      we build strategies that increase visibility, generate qualified leads, and create sustainable business growth.
+    </motion.p>
+
+    <div className="flex items-center gap-6 mt-14">
+
+      <div className="flex-1 h-px bg-gray-300"></div>
+
+      <span
+        className="
+          text-[11px]
+          uppercase
+          tracking-[0.25em]
+          text-gray-500
+          whitespace-nowrap
+        "
+      >
+        TRUSTED DIGITAL GROWTH PARTNER FOR STARTUPS & GROWING BUSINESSES
+      </span>
+
+      <div className="flex-1 h-px bg-gray-300"></div>
+
+    </div>
+
+  </div>
+</motion.section>
+
+{/* CLIENT LOGOS SECTION */}
+
+
+
+
+<section className="pt-1 pb-20 overflow-hidden">
+<div className="relative max-w-7xl mx-auto">
+
+  <div
+  className="
+    relative
+    overflow-hidden
+    [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
+    [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
+  "
+>
+<motion.div
+  animate={{ x: ["0%", "-50%"] }}
+  transition={{
+    duration: 35,
+    ease: "linear",
+    repeat: Infinity,
+  }}
+  className="flex gap-8 w-max"
+>
+{[...carouselImages, ...carouselImages].map((image, index) => (
+  <div
+    key={index}
+    className="relative w-[240px] aspect-square flex-shrink-0 overflow-hidden rounded-[28px]"
+  >
+    <Image
+      src={image}
+      alt={`Carousel ${index + 1}`}
+      fill
+      className="object-cover"
+    />
+  </div>
+))}
+</motion.div>
+</div>
+  </div>
+</section>
+
 {/* SERVICES SECTION */}
 <section className="pt-10 pb-10 bg-white overflow-hidden">
   <div className="max-w-7xl mx-auto px-6">
@@ -633,7 +744,7 @@ const row3 = [
       </p>
 
       <Link
-        href="/home/ourservice/social-media-marketing"
+        href="/services/social-media-marketing"
         className="inline-flex items-center gap-3 rounded-full bg-[#F8BC04] text-black px-16 py-2 font-semibold transition-all duration-300"
       >
         Explore
@@ -724,201 +835,6 @@ const row3 = [
   </div>
 </section>
 
-
-
-
-      
-{/* TRUSTED COMPANIES SECTION */}
-
-<motion.section
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: 0.8 }}
-  className="bg-[#FFFFFF] py-10"
->
-  <div className="max-w-[1400px] mx-auto px-1 text-center">
-
-    <motion.h2
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
-      className="
-  text-3xl
-  md:text-[52px]
-  font-bold
-  text-[#171717]
-  tracking-tight
-  whitespace-nowrap
-"
-    >
-      Trusted by 100+ Startups & Businesses 
-    </motion.h2>
-
-    <motion.p
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      className="
-        mt-8
-        text-lg
-        text-gray-600
-        leading-relaxed
-        max-w-4xl
-        mx-auto
-      "
-    >
-      From ambitious startups to growing businesses, BIGBEANS DIGITAL delivers results-driven Digital Marketing, 
-      Social Media Marketing, Performance Marketing, Website Development, and Branding solutions that help brands 
-      grow faster. As a trusted Digital Marketing Agency serving clients across London, India, USA, and Dubai, 
-      we build strategies that increase visibility, generate qualified leads, and create sustainable business growth.
-    </motion.p>
-
-    <div className="flex items-center gap-6 mt-14">
-
-      <div className="flex-1 h-px bg-gray-300"></div>
-
-      <span
-        className="
-          text-[11px]
-          uppercase
-          tracking-[0.25em]
-          text-gray-500
-          whitespace-nowrap
-        "
-      >
-        TRUSTED DIGITAL GROWTH PARTNER FOR STARTUPS & GROWING BUSINESSES
-      </span>
-
-      <div className="flex-1 h-px bg-gray-300"></div>
-
-    </div>
-
-  </div>
-</motion.section>
-
-{/* CLIENT LOGOS SECTION */}
-
-<section className="bg-[#FFFFFF] py-1 overflow-hidden">
-
-  <div className="space-y-6">
-
-    {/* ROW 1 */}
-
-    <motion.div
-      className="flex gap-6 w-max"
-      animate={{
-        x: ["-50%", "0%"],
-      }}
-      transition={{
-        duration: 25,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-    >
-      {[...row1, ...row1].map((logo, index) => (
-        <div
-          key={index}
-          className="
-    w-[220px]
-    h-[110px]
-    flex
-    items-center
-    justify-center
-    shrink-0
-    bg-transparent
-"
-        >
-          <Image
-  src={logo}
-  alt="Client Logo"
-  width={300}
-  height={150}
-  className="object-contain max-h-[110px] w-auto h-auto"
-          />
-        </div>
-      ))}
-    </motion.div>
-
-    {/* ROW 2 */}
-
-    <motion.div
-      className="flex gap-6 w-max"
-      animate={{
-        x: ["0%", "-50%"],
-      }}
-      transition={{
-        duration: 30,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-    >
-      {[...row2, ...row2].map((logo, index) => (
-        <div
-          key={index}
-          className="
-    w-[220px]
-    h-[110px]
-    flex
-    items-center
-    justify-center
-    shrink-0
-    bg-transparent
-"
-        >
-          <Image
-  src={logo}
-  alt="Client Logo"
-  width={300}
-  height={150}
-  className="object-contain max-h-[110px] w-auto h-auto"
-          />
-        </div>
-      ))}
-    </motion.div>
-
-    {/* ROW 3 */}
-
-    <motion.div
-      className="flex gap-6 w-max"
-      animate={{
-        x: ["-50%", "0%"],
-      }}
-      transition={{
-        duration: 28,
-        repeat: Infinity,
-        ease: "linear",
-      }}
-    >
-      {[...row3, ...row3].map((logo, index) => (
-        <div
-          key={index}
-          className="
-    w-[220px]
-    h-[110px]
-    flex
-    items-center
-    justify-center
-    shrink-0
-    bg-transparent
-"
-        >
-          <Image
-  src={logo}
-  alt="Client Logo"
-  width={300}
-  height={150}
-  className="object-contain max-h-[110px] w-auto h-auto"
-          />
-        </div>
-      ))}
-    </motion.div>
-
-  </div>
-
-</section>
 
 {/* OUR PROCESS SECTION */}
 

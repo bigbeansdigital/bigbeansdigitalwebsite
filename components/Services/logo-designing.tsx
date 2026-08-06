@@ -6,15 +6,20 @@ import Link from "next/link";
 import { useState } from "react";
 
 const carouselImages = [
-  "/assets/logodesigning/carousel/1.jpg",
-  "/assets/logodesigning/carousel/2.jpg",
-  "/assets/logodesigning/carousel/3.jpg",
-  "/assets/logodesigning/carousel/4.jpg",
-  "/assets/logodesigning/carousel/5.jpg",
-  "/assets/logodesigning/carousel/6.jpg",
-  "/assets/logodesigning/carousel/7.jpg",
-  "/assets/logodesigning/carousel/8.jpg",
-  "/assets/logodesigning/carousel/9.jpg",
+  "/home/clientlogo/1.png",
+  "/home/clientlogo/2.png",
+  "/home/clientlogo/3.png",
+  "/home/clientlogo/4.png",
+  "/home/clientlogo/5.png",
+  "/home/clientlogo/6.png",
+  "/home/clientlogo/7.png",
+  "/home/clientlogo/8.png",
+  "/home/clientlogo/9.png",
+  "/home/clientlogo/10.png",
+  "/home/clientlogo/11.png",
+  "/home/clientlogo/12.png",
+  "/home/clientlogo/13.png",
+  "/home/clientlogo/14.png",
 ];
 
 
@@ -263,8 +268,8 @@ export default function LogoDesigning() {
         "
       >
         <Image
-          src="/assets/brandingpost3.jpg"
-          alt=""
+          src="/assets/logodesigning/bigbeansdigitalcolorpalate.png"
+          alt="BigBeans Digital Best Logo Designer in London"
           fill
           className="
             object-cover
@@ -298,8 +303,8 @@ export default function LogoDesigning() {
         "
       >
         <Image
-          src="/assets/brandingpost3.jpg"
-          alt=""
+          src="/assets/logodesigning/bigbeansdigitallogoshow.png"
+          alt="BigBeans Digital Best Logo Designer in London"
           fill
           className="
             object-cover
@@ -333,7 +338,7 @@ export default function LogoDesigning() {
         "
       >
         <Image
-          src="/assets/brandingpost3.jpg"
+          src="/assets/logodesigning/bigbeansdigitalbranding.png"
           alt=""
           fill
           className="
@@ -352,16 +357,7 @@ export default function LogoDesigning() {
             duration: 3,
             repeat: Infinity,
           }}
-          className="
-            absolute
-            bottom-10
-            left-8
-            right-8
-            bg-white/90
-            backdrop-blur-md
-            rounded-2xl
-            p-5
-          "
+          
         >
         
         </motion.div>
@@ -389,7 +385,7 @@ export default function LogoDesigning() {
         "
       >
         <Image
-          src="/assets/brandingpost3.jpg"
+          src="/assets/logodesigning/bigbeansdigitalbranding2.png"
           alt=""
           fill
           className="
@@ -422,7 +418,7 @@ export default function LogoDesigning() {
         "
       >
         <Image
-          src="/assets/brandingpost3.jpg"
+          src="/assets/logodesigning/bigbeansdigitalicon.png"
           alt=""
           fill
           className="
@@ -457,7 +453,7 @@ export default function LogoDesigning() {
         "
       >
         <Image
-          src="/assets/brandingpost3.jpg"
+          src="/assets/logodesigning/bigbeansdigitalicon1.jpg"
           alt=""
           fill
           className="
@@ -810,7 +806,7 @@ export default function LogoDesigning() {
         {
           number: "04",
           title: "More Leads",
-          desc: "Generate qualified leads consistently with proven digital marketing systems.",
+          desc: "Generate qualified leads consistently with proven Social Media Marketing  systems.",
         },
         {
           number: "05",
@@ -1493,7 +1489,7 @@ export default function LogoDesigning() {
             "
           >
             Partner with BIGBEANS DIGITAL to launch
-            data-driven digital marketing campaigns that
+            data-driven Social Media Marketing  campaigns that
             generate quality leads, increase conversions
             and accelerate your business growth.
           </p>

@@ -15,8 +15,8 @@ export default function Academy() {
 
     const courses = [
         {
-          title: "Digital Marketing Mastery",
-          category: "Digital Marketing",
+          title: "Social Media Marketing  Mastery",
+          category: "Social Media Marketing ",
           duration: "4 Months",
           mode: "Offline",
           level: "Beginner",
@@ -320,12 +320,12 @@ export default function Academy() {
   <p className="text-[16px] leading-7 text-gray-600 text-justify">
     <span className="font-semibold text-[#F8BC04]">BIGBEANS DIGITAL Academy</span> a platform for students & professionals
     develop in-demand <span className="font-semibold text-[#171717]">Tech & Digital skills</span> through practical
-    workshops and industry-focused training. <span className="font-semibold text-[#171717]">Explore our Digital Marketing
+    workshops and industry-focused training. <span className="font-semibold text-[#171717]">Explore our Social Media Marketing 
     Courses, AI Workshops, Graphic Design Classes, Branding Programs, Social 
     Media Marketing Courses,</span> and hands-on learning experiences designed to 
     build real-world expertise through live projects and expert mentorship.
 <br></br><br></br>
-    Whether you want to learn <span className="font-semibold text-[#171717]">Best Digital Marketing Course, Best AI Course, Best Graphic Design Course,</span>
+    Whether you want to learn <span className="font-semibold text-[#171717]">Best Social Media Marketing  Course, Best AI Course, Best Graphic Design Course,</span>
     or prepare for a high-growth digital or tech career, BIGBEANS DIGITAL Academy 
     provides practical, job-ready classes that helps you build a professional 
     portfolio, earn valuable certifications, and <span className="font-semibold text-[#171717]">stay ahead in today's fast-changing 
@@ -480,7 +480,7 @@ export default function Academy() {
           >
 
             <span className="inline-flex rounded-full bg-[#F8BC04]/100 px-6 py-3 text-sm font-bold text-[#fffff]">
-              Free Live AI & Digital Marketing Masterclass
+              Free Live AI & Social Media Marketing  Masterclass
             </span>
           </motion.div>
 
@@ -495,7 +495,7 @@ export default function Academy() {
 
               <p className="mt-8 text-lg leading-9 text-gray-600">
                 Get a practical introduction to today's most in-demand digital skills through live sessions, real-world examples, and expert 
-                guidance. Whether you're searching for the Best Digital Marketing Course, Best AI Course, or Best Graphic Design Course, 
+                guidance. Whether you're searching for the Best Social Media Marketing  Course, Best AI Course, or Best Graphic Design Course, 
                 this masterclass will help you understand the skills, career opportunities, and learning path to succeed in the digital industry.
               </p>
 
@@ -573,7 +573,7 @@ export default function Academy() {
               <div className="mt-10 space-y-6">
 
                 {[
-                  "Discover how the Best Digital Marketing Course helps businesses generate leads, build brands, and grow online.",
+                  "Discover how the Best Social Media Marketing  Course helps businesses generate leads, build brands, and grow online.",
                   "Learn how AI Tools are transforming marketing, content creation, productivity, and business workflows.",
                   "Explore the fundamentals of Social Media Marketing, Performance Marketing, Google Ads, and Meta Ads used by top brands.",
                   "Understand why Graphic Design, Branding, and Content Creation are among the most valuable skills for creators, freelancers, and businesses.",
@@ -784,7 +784,7 @@ export default function Academy() {
       
                 <Image
                   src="/academy/live-class.jpg"
-                  alt="Live Digital Marketing Class"
+                  alt="Live Social Media Marketing  Class"
                   fill
                   className="object-cover transition duration-700 group-hover:scale-110"
                 />
@@ -1074,11 +1074,11 @@ export default function Academy() {
       {[
         {
           q: "Why should I join BIGBEANS Academy?",
-          a: "BIGBEANS Academy offers practical, industry-focused training designed for students, professionals, entrepreneurs, and freelancers. Whether you're looking for the Best Digital Marketing Course, Best AI Course, or Best Graphic Design Course, our hands-on workshops and certification programs help you build job-ready skills with real-world projects."
+          a: "BIGBEANS Academy offers practical, industry-focused training designed for students, professionals, entrepreneurs, and freelancers. Whether you're looking for the Best Social Media Marketing  Course, Best AI Course, or Best Graphic Design Course, our hands-on workshops and certification programs help you build job-ready skills with real-world projects."
         },
         {
           q: "Which courses are available at BIGBEANS Academy?",
-          a: "BIGBEANS Academy offers practical training in Artificial Intelligence (AI), Digital Marketing, Social Media Marketing, Google Ads, Meta Ads, Performance Marketing, Graphic Design, Branding, and Content Creation. Every course is designed to help learners gain industry-relevant skills and practical experience."
+          a: "BIGBEANS Academy offers practical training in Artificial Intelligence (AI), Social Media Marketing , Social Media Marketing, Google Ads, Meta Ads, Performance Marketing, Graphic Design, Branding, and Content Creation. Every course is designed to help learners gain industry-relevant skills and practical experience."
         },
         {
           q: "Are your courses suitable for beginners?",
@@ -1090,7 +1090,7 @@ export default function Academy() {
         },
         {
           q: "Do I receive a certificate after completing the course?",
-          a: "Yes. Upon successfully completing your course, you'll receive a Professional Certification from BIGBEANS Academy that validates your practical skills in Digital Marketing, AI, Graphic Design, Social Media Marketing, Google Ads, Meta Ads, Performance Marketing, Branding, or Content Creation."
+          a: "Yes. Upon successfully completing your course, you'll receive a Professional Certification from BIGBEANS Academy that validates your practical skills in Social Media Marketing , AI, Graphic Design, Social Media Marketing, Google Ads, Meta Ads, Performance Marketing, Branding, or Content Creation."
         },
         {
           q: "Can these courses help me get a job or internship?",
@@ -1102,7 +1102,7 @@ export default function Academy() {
         },
         {
           q: "Why choose BIGBEANS Academy over other training institutes?",
-          a: "BIGBEANS Academy focuses on practical learning instead of theory. As a destination for the Best Digital Marketing Course, Best AI Course, and Best Graphic Design Course, our workshops are led by industry professionals and emphasize real-world skills that employers and businesses value."
+          a: "BIGBEANS Academy focuses on practical learning instead of theory. As a destination for the Best Social Media Marketing  Course, Best AI Course, and Best Graphic Design Course, our workshops are led by industry professionals and emphasize real-world skills that employers and businesses value."
         },
         {
           q: "Who can join BIGBEANS Academy?",
@@ -1593,7 +1593,7 @@ export default function Academy() {
             "
           >
             Partner with BIGBEANS DIGITAL to launch
-            data-driven digital marketing campaigns that
+            data-driven Social Media Marketing  campaigns that
             generate quality leads, increase conversions
             and accelerate your business growth.
           </p>

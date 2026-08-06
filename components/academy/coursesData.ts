@@ -31,9 +31,9 @@ export const courses: Course[] = [
   {
     id: 1,
 
-    title: "Digital Marketing Mastery",
+    title: "Social Media Marketing  Mastery",
 
-    category: "Digital Marketing",
+    category: "Social Media Marketing ",
 
     duration: "4 Months",
     mode: "Offline",

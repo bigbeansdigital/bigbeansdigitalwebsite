@@ -7,15 +7,20 @@ import { useState } from "react";
 
 
 const carouselImages = [
-  "/assets/branding/carousel/1.jpg",
-  "/assets/branding/carousel/2.jpg",
-  "/assets/branding/carousel/3.jpg",
-  "/assets/branding/carousel/4.jpg",
-  "/assets/branding/carousel/5.jpg",
-  "/assets/branding/carousel/6.jpg",
-  "/assets/branding/carousel/7.jpg",
-  "/assets/branding/carousel/8.jpg",
-  "/assets/branding/carousel/9.jpg",
+  "/assets/branding/carousel/1.png",
+  "/assets/branding/carousel/2.png",
+  "/assets/branding/carousel/3.png",
+  "/assets/branding/carousel/4.png",
+  "/assets/branding/carousel/5.png",
+  "/assets/branding/carousel/6.png",
+  "/assets/branding/carousel/7.png",
+  "/assets/branding/carousel/8.png",
+  "/assets/branding/carousel/9.png",
+  "/assets/branding/carousel/9.png",
+  "/assets/branding/carousel/9.png",
+  "/assets/branding/carousel/9.png",
+  "/assets/branding/carousel/9.png",
+  "/assets/branding/carousel/9.png",
 ];
 
 
@@ -490,8 +495,8 @@ export default function Branding() {
           }}
         >
           <Image
-            src="/assets/brandinglogo1.jpg"
-            alt="Logo Design"
+            src="/assets/branding/showcase/brandinglogo1.png"
+            alt="Big Beans Best Logo Desing Company"
             width={700}
             height={500}
             className="
@@ -505,15 +510,7 @@ export default function Branding() {
           />
         </motion.div>
 
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/70
-            to-transparent
-          "
-        />
+       
       </motion.div>
 
       {/* CARD 2 */}
@@ -540,8 +537,8 @@ export default function Branding() {
           }}
         >
           <Image
-            src="/assets/brandinglogo2.png"
-            alt="Logo Design"
+            src="/assets/branding/showcase/brandinglogo3.png"
+            alt="Big Beans Best Logo Desing Company"
             width={700}
             height={500}
             className="
@@ -555,15 +552,7 @@ export default function Branding() {
           />
         </motion.div>
 
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/70
-            to-transparent
-          "
-        />
+       
       </motion.div>
 
       {/* CARD 3 */}
@@ -590,8 +579,8 @@ export default function Branding() {
           }}
         >
           <Image
-            src="/assets/brandinglogo3.png"
-            alt="Logo Design"
+            src="/assets/branding/showcase/brandinglogo2.png"
+            alt="Big Beans Best Logo Desing Company"
             width={700}
             height={500}
             className="
@@ -605,15 +594,7 @@ export default function Branding() {
           />
         </motion.div>
 
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/70
-            to-transparent
-          "
-        />
+        
       </motion.div>
 
     </div>
@@ -732,8 +713,8 @@ export default function Branding() {
           className="h-full"
         >
           <Image
-            src="/assets/branding/brandingpack1.jpg"
-            alt="Packaging Design"
+            src="/assets/branding/showcase/bigbeansproductpack1.png"
+            alt="BigBeans Digital Best Product Packaging Desing"
             fill
             className="object-cover"
           />
@@ -762,17 +743,7 @@ export default function Branding() {
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
-        <div
-          className="
-            absolute
-            inset-0
-            opacity-0
-            group-hover:opacity-100
-            transition-all
-            duration-700
-            bg-[#F8BC04]/20
-          "
-        />
+        
 
       </motion.div>
 
@@ -820,8 +791,8 @@ export default function Branding() {
           className="h-full"
         >
           <Image
-            src="/assets/branding/brandingpack2.jpg"
-            alt="Packaging Design"
+            src="/assets/branding/showcase/bigbeansproductpack2.png"
+            alt="BigBeans Digital Best Product Packaging Desing"
             fill
             className="object-cover"
           />
@@ -851,17 +822,7 @@ export default function Branding() {
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
-        <div
-          className="
-            absolute
-            inset-0
-            opacity-0
-            group-hover:opacity-100
-            transition-all
-            duration-700
-            bg-[#F8BC04]/20
-          "
-        />
+       
 
 
       </motion.div>
@@ -912,8 +873,8 @@ export default function Branding() {
           className="h-full"
         >
           <Image
-            src="/assets/branding/brandingpack3.jpg"
-            alt="Packaging Design"
+            src="/assets/branding/showcase/bigbeansproductpack3.png"
+            alt="BigBeans Digital Best Product Packaging Desing"
             fill
             className="object-cover"
           />
@@ -940,19 +901,9 @@ export default function Branding() {
           "
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent" />
 
-        <div
-          className="
-            absolute
-            inset-0
-            opacity-0
-            group-hover:opacity-100
-            transition-all
-            duration-700
-            bg-[#F8BC04]/20
-          "
-        />
+       
 
       </motion.div>
 
@@ -977,9 +928,9 @@ export default function Branding() {
         transition={{ duration: 0.8 }}
       >
         <h2 className="text-4xl md:text-5xl font-black text-[#171717]">
-          Brand
+          Digital 
           <br />
-          Showcase
+          Posts
         </h2>
       </motion.div>
 
@@ -1066,8 +1017,8 @@ export default function Branding() {
           className="relative h-[500px]"
         >
           <Image
-            src="/assets/branding/brandingpost1.png"
-            alt="Brand Design"
+            src="/assets/branding/showcase/bigbeansdigitalpost1.png"
+            alt="Bigbeans Digital Best Social Media Marketing Agency"
             fill
             className="object-cover"
           />
@@ -1094,16 +1045,7 @@ export default function Branding() {
           "
         />
 
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/90
-            via-black/20
-            to-transparent
-          "
-        />
+        
 
       </motion.div>
 
@@ -1148,8 +1090,8 @@ export default function Branding() {
           className="relative h-[500px]"
         >
           <Image
-            src="/assets/branding/brandingpost2.jpg"
-            alt="Brand Packaging"
+            src="/assets/branding/showcase/bigbeansdigitalpost2.jpg"
+            alt="Bigbeans Digital Best Social Media Marketing Agency"
             fill
             className="object-cover"
           />
@@ -1175,17 +1117,7 @@ export default function Branding() {
           "
         />
 
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/90
-            via-black/20
-            to-transparent
-          "
-        />
-
+       
        
 
       </motion.div>
@@ -1234,8 +1166,8 @@ export default function Branding() {
           className="relative h-[500px]"
         >
           <Image
-            src="/assets/branding/brandingpost3.jpg"
-            alt="Creative Branding"
+            src="/assets/branding/showcase/bigbeansdigitalpost3.png"
+            alt="Bigbeans Digital Best Social Media Marketing Agency"
             fill
             className="object-cover"
           />
@@ -1262,16 +1194,7 @@ export default function Branding() {
           "
         />
 
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-t
-            from-black/90
-            via-black/20
-            to-transparent
-          "
-        />
+        
 
         
 
@@ -1376,7 +1299,7 @@ export default function Branding() {
         },
         {
           q: "Why choose BIGBEANS DIGITAL as your branding agency?",
-          a: "BIGBEANS DIGITAL is a Branding Agency for Startups focused on creating brands that not only look professional but also drive business growth. Our strategic approach combines branding, graphic design, digital marketing, and customer psychology to build brands that attract, engage, and convert customers."
+          a: "BIGBEANS DIGITAL is a Branding Agency for Startups focused on creating brands that not only look professional but also drive business growth. Our strategic approach combines branding, graphic design, Social Media Marketing , and customer psychology to build brands that attract, engage, and convert customers."
         },
         {
           q: "How long does a branding project take?",
@@ -1863,7 +1786,7 @@ export default function Branding() {
             "
           >
             Partner with BIGBEANS DIGITAL to launch
-            data-driven digital marketing campaigns that
+            data-driven Social Media Marketing  campaigns that
             generate quality leads, increase conversions
             and accelerate your business growth.
           </p>

@@ -72,7 +72,7 @@ export default function Header() {
                 href="/services/social-media-marketing"
                 className="block px-5 py-3 hover:bg-yellow-50 hover:text-[#F8BC04] transition"
                 >
-                Digital Marketing
+                Social Media Marketing 
                 </Link>
               </div>
             </div>

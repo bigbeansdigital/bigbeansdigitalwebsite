@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title:
-    "Best Online Internship Program | Digital Marketing Internship | Best Online Social Media Marketing Internship",
+    "Best Online Internship Program | Social Media Marketing  Internship | Best Online Social Media Marketing Internship",
   description:
-    "Join the BIGBEANS DIGITAL Online Internship Program and gain hands-on experience in AI, Digital Marketing, Social Media Marketing, Graphic Design, Branding, Google Ads, Meta Ads, and Content Creation through live projects and industry-focused training.",
+    "Join the BIGBEANS DIGITAL Online Internship Program and gain hands-on experience in AI, Social Media Marketing , Social Media Marketing, Graphic Design, Branding, Google Ads, Meta Ads, and Content Creation through live projects and industry-focused training.",
 };
 
 

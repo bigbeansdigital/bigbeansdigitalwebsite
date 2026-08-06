@@ -98,7 +98,7 @@ export default function Blog() {
             </h1>
 
             <p className="mx-auto mt-8 max-w-4xl text-lg leading-9 text-gray-600">
-              Stay ahead with expert articles on digital marketing, branding,
+              Stay ahead with expert articles on Social Media Marketing , branding,
               website development, artificial intelligence, SEO, business
               growth, and emerging technologies. Every article is crafted to
               help entrepreneurs, students, and businesses make smarter digital
@@ -165,7 +165,7 @@ export default function Blog() {
               {[
                 "All",
                 "AI",
-                "Digital Marketing",
+                "Social Media Marketing ",
                 "Website",
                 "SEO",
                 "Branding",
@@ -311,7 +311,7 @@ export default function Blog() {
             </h2>
 
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-9 text-gray-600">
-              Explore our latest articles covering digital marketing,
+              Explore our latest articles covering Social Media Marketing ,
               branding, AI, SEO, websites, business growth,
               and everything happening in the digital world.
             </p>
@@ -498,7 +498,7 @@ export default function Blog() {
             </h3>
 
             <p className="mx-auto mt-6 max-w-3xl text-lg leading-9 text-gray-600">
-              We regularly publish practical articles on digital marketing,
+              We regularly publish practical articles on Social Media Marketing ,
               branding, AI, website development, SEO, business growth, and
               emerging technologies to help you stay ahead in the digital world.
             </p>

@@ -1012,7 +1012,7 @@ export default function Internship() {
                 number: "01",
                 title: "Hands-On Client Projects",
                 description:
-                  "Work on real business websites, branding campaigns, SEO strategies, social media, and digital marketing assignments instead of only practicing on demo tasks.",
+                  "Work on real business websites, branding campaigns, SEO strategies, social media, and Social Media Marketing  assignments instead of only practicing on demo tasks.",
               },
               {
                 number: "02",
@@ -1223,7 +1223,7 @@ export default function Internship() {
                         {[
               {
                 feature: "Live Client Projects",
-                ours: "Work on real client websites, branding campaigns and digital marketing projects.",
+                ours: "Work on real client websites, branding campaigns and Social Media Marketing  projects.",
                 other: "Mostly practice assignments or observation-based learning.",
               },
               {
@@ -1738,11 +1738,11 @@ export default function Internship() {
       {[
         {
           q: "Who can apply for the BIGBEANS DIGITAL Internship Program?",
-          a: "The BIGBEANS DIGITAL Internship Program is open to college students, recent graduates, freshers, and aspiring professionals who want to gain practical experience in Digital Marketing, Artificial Intelligence (AI), Social Media Marketing, Graphic Design, Branding, Google Ads, Meta Ads, Performance Marketing, and Content Creation."
+          a: "The BIGBEANS DIGITAL Internship Program is open to college students, recent graduates, freshers, and aspiring professionals who want to gain practical experience in Social Media Marketing , Artificial Intelligence (AI), Social Media Marketing, Graphic Design, Branding, Google Ads, Meta Ads, Performance Marketing, and Content Creation."
         },
         {
           q: "What will I learn during the internship?",
-          a: "Our Digital Marketing Internship provides hands-on training in Social Media Marketing, AI Tools, Graphic Design, Branding, Content Creation, Google Ads, Meta Ads, and Performance Marketing. You'll work on real-world projects, build practical skills, and gain valuable industry experience."
+          a: "Our Social Media Marketing  Internship provides hands-on training in Social Media Marketing, AI Tools, Graphic Design, Branding, Content Creation, Google Ads, Meta Ads, and Performance Marketing. You'll work on real-world projects, build practical skills, and gain valuable industry experience."
         },
         {
           q: "Is this internship suitable for beginners?",
@@ -1750,11 +1750,11 @@ export default function Internship() {
         },
         {
           q: "Will I receive a certificate after completing the internship?",
-          a: "Yes. All eligible interns who successfully complete the program receive an Internship Completion Certificate, recognizing their practical experience and skills in Digital Marketing, AI, Graphic Design, and related digital domains."
+          a: "Yes. All eligible interns who successfully complete the program receive an Internship Completion Certificate, recognizing their practical experience and skills in Social Media Marketing , AI, Graphic Design, and related digital domains."
         },
         {
           q: "Will I get to work on live projects?",
-          a: "Absolutely. Unlike traditional training programs, our Digital Marketing Internship for College Students includes live client projects, practical assignments, and real business case studies that help you build a strong portfolio."
+          a: "Absolutely. Unlike traditional training programs, our Social Media Marketing  Internship for College Students includes live client projects, practical assignments, and real business case studies that help you build a strong portfolio."
         },
         {
           q: "Is the internship available online?",
@@ -1762,7 +1762,7 @@ export default function Internship() {
         },
         {
           q: "How will this internship help my career?",
-          a: "Our internship helps you develop practical digital skills, improve your resume, build a professional portfolio, gain real project experience, and prepare for placements, freelancing, or full-time careers in the digital marketing industry."
+          a: "Our internship helps you develop practical digital skills, improve your resume, build a professional portfolio, gain real project experience, and prepare for placements, freelancing, or full-time careers in the Social Media Marketing  industry."
         },
         {
           q: "Why choose the BIGBEANS DIGITAL Internship Program?",
@@ -2257,7 +2257,7 @@ export default function Internship() {
             "
           >
             Partner with BIGBEANS DIGITAL to launch
-            data-driven digital marketing campaigns that
+            data-driven Social Media Marketing  campaigns that
             generate quality leads, increase conversions
             and accelerate your business growth.
           </p>

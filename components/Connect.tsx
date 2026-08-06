@@ -181,7 +181,7 @@ export default function Connect() {
                 className="mt-8 max-w-3xl text-lg leading-9 text-[#171717]/80"
               >
                 Whether you're looking for branding, website development,
-                digital marketing, AI solutions, or creative strategies,
+                Social Media Marketing , AI solutions, or creative strategies,
                 our team is ready to help transform your ideas into
                 meaningful digital experiences that drive real business growth.
               </motion.p>
@@ -560,7 +560,7 @@ export default function Connect() {
                     Select a Service *
                   </option>
                   <option>Website Development</option>
-                  <option>Digital Marketing</option>
+                  <option>Social Media Marketing </option>
                   <option>Branding</option>
                   <option>SEO</option>
                   <option>Graphic Design</option>
@@ -709,27 +709,27 @@ export default function Connect() {
       {[
         {
           q: "How can I contact BIGBEANS DIGITAL?",
-          a: "You can easily contact BIGBEANS DIGITAL through our contact form, email, phone, or WhatsApp. Whether you're looking for the Best Digital Marketing Agency for Startups or need expert guidance for your business, our team is ready to help."
+          a: "You can easily contact BIGBEANS DIGITAL through our contact form, email, phone, or WhatsApp. Whether you're looking for the Best Social Media Marketing  Agency for Startups or need expert guidance for your business, our team is ready to help."
         },
         {
           q: "Can I book a free consultation before starting my project?",
-          a: "Yes. We offer a free consultation to understand your business goals, target audience, and marketing requirements. Our experts will recommend the best Digital Marketing Services, Website Development, Branding, or Social Media Marketing strategy for your business."
+          a: "Yes. We offer a free consultation to understand your business goals, target audience, and marketing requirements. Our experts will recommend the best Social Media Marketing  Services, Website Development, Branding, or Social Media Marketing strategy for your business."
         },
         {
           q: "Which services can I inquire about through the contact page?",
-          a: "You can contact us for Digital Marketing, Social Media Marketing, Website Development, Logo Design, Branding, Google Ads, Meta Ads, Performance Marketing, and other business growth solutions tailored to startups and growing businesses."
+          a: "You can contact us for Social Media Marketing , Social Media Marketing, Website Development, Logo Design, Branding, Google Ads, Meta Ads, Performance Marketing, and other business growth solutions tailored to startups and growing businesses."
         },
         {
           q: "Do you work with businesses outside India?",
-          a: "Yes. BIGBEANS DIGITAL works with startups and businesses across London, India, USA, and Dubai. Our team provides remote consultations and digital marketing services to clients worldwide."
+          a: "Yes. BIGBEANS DIGITAL works with startups and businesses across London, India, USA, and Dubai. Our team provides remote consultations and Social Media Marketing  services to clients worldwide."
         },
         {
           q: "How quickly will your team respond to my inquiry?",
-          a: "We aim to respond to all inquiries within 24 business hours. Whether you're looking to Hire a Digital Marketing Agency, discuss a new project, or request a quote, our team ensures prompt and professional communication."
+          a: "We aim to respond to all inquiries within 24 business hours. Whether you're looking to Hire a Social Media Marketing  Agency, discuss a new project, or request a quote, our team ensures prompt and professional communication."
         },
         {
           q: "Can startups and small businesses contact BIGBEANS DIGITAL?",
-          a: "Absolutely. We specialize in helping startups, entrepreneurs, and small businesses build their online presence through affordable and result-driven Digital Marketing Services, Website Development, and Branding Solutions."
+          a: "Absolutely. We specialize in helping startups, entrepreneurs, and small businesses build their online presence through affordable and result-driven Social Media Marketing  Services, Website Development, and Branding Solutions."
         },
         {
           q: "Do you provide customized marketing solutions?",
@@ -741,7 +741,7 @@ export default function Connect() {
         },
         {
           q: "Why should I choose BIGBEANS DIGITAL?",
-          a: "BIGBEANS DIGITAL is a Best Digital Marketing Agency for Startups offering end-to-end solutions including Social Media Marketing, Website Development, Branding, Google Ads, Meta Ads, and Performance Marketing. We focus on measurable growth, transparency, and long-term client success."
+          a: "BIGBEANS DIGITAL is a Best Social Media Marketing  Agency for Startups offering end-to-end solutions including Social Media Marketing, Website Development, Branding, Google Ads, Meta Ads, and Performance Marketing. We focus on measurable growth, transparency, and long-term client success."
         },
         {
           q: "How do I get started with BIGBEANS DIGITAL?",
@@ -1227,7 +1227,7 @@ export default function Connect() {
             "
           >
             Partner with BIGBEANS DIGITAL to launch
-            data-driven digital marketing campaigns that
+            data-driven Social Media Marketing  campaigns that
             generate quality leads, increase conversions
             and accelerate your business growth.
           </p>
