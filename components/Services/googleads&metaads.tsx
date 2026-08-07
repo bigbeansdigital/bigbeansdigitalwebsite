@@ -19,7 +19,7 @@ const tabs = {
       heading: "Get More Customers Through Search Ads",
       description:
         "Appear exactly when potential customers are searching for your products or services. Our Google Search Ads campaigns are designed to generate qualified leads, increase conversions and maximize return on ad spend.",
-      image: "/assets/searchads.png",
+      image: "/assets/performancemarketing/bigbeansdigitalmetaads.png",
     },
 
     display: {
@@ -27,7 +27,7 @@ const tabs = {
       heading: "Build Brand Awareness At Scale",
       description:
         "Reach your ideal audience across millions of websites, apps and digital platforms. Display advertising helps businesses stay visible, build trust and drive consistent traffic through visually engaging campaigns.",
-      image: "/assets/displayads.png",
+      image: "/assets/performancemarketing/bigbeansdigitalgoogleads.png",
     },
 
     video: {
@@ -35,9 +35,38 @@ const tabs = {
       heading: "Capture Attention With Video Marketing",
       description:
         "Video advertising helps brands tell compelling stories, increase engagement and generate more conversions. Reach customers across YouTube and premium video networks with highly targeted campaigns.",
-      image: "/assets/videoads.png",
+      image: "/assets/performancemarketing/bigbeansdigitalyoutubeads.png",
     },
   };
+
+const [activeWorkTab, setActiveWorkTab] = useState("meta");
+
+const workTabs = {
+  meta: {
+    title: "Meta Ads",
+    heading: "Meta Ads Campaign",
+    description:
+      "Write your description here.",
+    image: "/assets/performancemarketing/bigbeansdigitalmetaadsresults.png",
+  },
+
+  google: {
+    title: "Google Ads",
+    heading: "Google Ads Campaign",
+    description:
+      "Write your description here.",
+    image: "/assets/performancemarketing/bigbeansdigitalgoogleadsresults.png",
+  },
+
+  youtube: {
+    title: "YouTube Ads",
+    heading: "YouTube Ads Campaign",
+    description:
+      "Write your description here.",
+    image: "/assets/performancemarketing/bigbeansdigitalyoutubeadsresults.png",
+  },
+};
+
 
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
@@ -525,6 +554,163 @@ const faqs = [
 
 </section>
 
+{/* OUR RECENT WORK */}
+
+<section className="py-10">
+      <div className="max-w-7xl mx-auto px-6">
+
+        <div className="text-center max-w-5xl mx-auto mb-20">
+
+  <h2 className="text-5xl md:text-5xl font-black text-[#171717] leading-tight">
+    Our Recent
+    <span className="text-[#F8BC04]">
+      {" "}Result Driven
+    </span>
+    {" "}Work
+  </h2>
+
+</div>
+
+        <div className="grid lg:grid-cols-2 gap-20 items-start">
+
+  {/* CONTENT SIDE */}
+
+  <div>
+
+    {/* TABS */}
+
+    <div
+      className="
+        flex
+        border-b-2
+        border-[#F8BC04]
+        mb-10
+      "
+    >
+      {Object.entries(workTabs).map(([key, tab]) => (
+
+        <button
+          key={key}
+          onClick={() => setActiveWorkTab(key)}
+          className={`
+            px-8 py-4 font-semibold transition-all duration-300
+
+            ${
+              activeWorkTab === key
+                ? "bg-[#F8BC04] text-[#171717]"
+                : "text-[#171717] hover:bg-[#fff5cc]"
+            }
+          `}
+        >
+          {tab.title}
+        </button>
+
+      ))}
+    </div>
+
+    <AnimatePresence mode="wait">
+
+      <motion.div
+        key={activeWorkTab}
+        initial={{
+          opacity: 0,
+          y: 40,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+        }}
+        exit={{
+          opacity: 0,
+          y: -20,
+        }}
+        transition={{
+          duration: 0.4,
+        }}
+      >
+
+        <h4
+          className="
+            text-4xl
+            font-black
+            text-[#171717]
+            mb-6
+          "
+        >
+          {workTabs[activeWorkTab as keyof typeof workTabs].heading}
+        </h4>
+
+        <p
+          className="
+            text-lg
+            text-gray-600
+            leading-relaxed
+          "
+        >
+          {workTabs[activeWorkTab as keyof typeof workTabs].description}
+        </p>
+
+      </motion.div>
+
+    </AnimatePresence>
+
+  </div>
+
+  {/* IMAGE SIDE */}
+
+  <div className="relative">
+
+    <AnimatePresence mode="wait">
+
+      <motion.div
+        key={activeWorkTab}
+        initial={{
+          opacity: 0,
+          x: 80,
+          rotate: 5,
+        }}
+        animate={{
+          opacity: 1,
+          x: 0,
+          rotate: 0,
+        }}
+        exit={{
+          opacity: 0,
+          x: -80,
+          rotate: -5,
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+        className="
+          relative
+          rounded-[35px]
+          overflow-hidden
+          shadow-2xl
+        "
+      >
+
+        <Image
+          src={workTabs[activeWorkTab as keyof typeof workTabs].image}
+          alt=""
+          width={800}
+          height={600}
+          className="w-full h-auto"
+        />
+
+      </motion.div>
+
+    </AnimatePresence>
+
+  </div>
+
+</div>
+
+      </div>
+    </section>
+
+
+
 <section className="py-10">
       <div className="max-w-7xl mx-auto px-6">
 
@@ -687,6 +873,10 @@ const faqs = [
       </div>
     </section>
 
+
+
+    
+
 {/* WHY CHOOSE BIGBEANS DIGITAL */}
 
 <section className="py-20 overflow-hidden">
@@ -697,7 +887,7 @@ const faqs = [
     STRATEGY CALL CTA SECTION
 ========================= */}
 
-<section className="relative overflow-hidden bg-white py-16 lg:py-20">
+<section className="relative overflow-hidden bg-white py-1 lg:py-1">
   
 
   
@@ -714,9 +904,6 @@ const faqs = [
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        <span className="inline-flex rounded-full bg-[#F8BC04]/10 px-5 py-2 text-sm font-semibold text-[#F8BC04]">
-          Free Growth Consultation
-        </span>
 
         <h2 className="mt-5 text-4xl lg:text-5xl font-bold leading-tight text-[#171717] max-w-[600px]">
           Let's Build an
@@ -907,6 +1094,242 @@ const faqs = [
 {/* =========================
     END STRATEGY CALL CTA SECTION
 ========================= */}
+
+{/* =========================
+    WHY CHOOSE BIGBEANS DIGITAL
+========================= */}
+
+<section className="py-20 bg-white overflow-hidden">
+
+  <div className="max-w-7xl mx-auto px-6">
+
+    {/* HEADING */}
+
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7 }}
+      className="text-center mb-20"
+    >
+
+      <h2 className="mt-6 text-4xl md:text-5xl font-black leading-tight text-[#171717]">
+        Why Brands Choose
+        <span className="text-[#F8BC04]">
+          {" "}BIGBEANS DIGITAL
+        </span>
+      </h2>
+
+      <p className="mx-auto mt-2 max-w-5xl text-lg leading-8 text-neutral-600">
+        Performance marketing strategies designed to maximize ROI,
+        generate qualified leads and deliver measurable business growth.
+      </p>
+
+    </motion.div>
+
+    <div className="grid gap-y-8 gap-x-16 lg:grid-cols-3">
+
+      {/* 01 */}
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="flex gap-5"
+      >
+
+        <div className="text-7xl font-black leading-none text-[#F8BC04]">
+          1
+        </div>
+
+        <div>
+
+          <h3 className="text-3xl font-black text-[#171717]">
+            ROI Focused
+          </h3>
+
+          <p className="mt-3 text-lg leading-6 text-neutral-600">
+            Every advertising campaign is built to maximize return on
+            investment by focusing on qualified leads, sales and
+            measurable business growth.
+          </p>
+
+        </div>
+
+      </motion.div>
+
+      {/* 02 */}
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="flex gap-5"
+      >
+
+        <div className="text-7xl font-black leading-none text-[#F8BC04]">
+          2
+        </div>
+
+        <div>
+
+          <h3 className="text-3xl font-black text-[#171717]">
+            ROI Focused
+          </h3>
+
+          <p className="mt-3 text-lg leading-6 text-neutral-600">
+            Every advertising campaign is built to maximize return on
+            investment by focusing on qualified leads, sales and
+            measurable business growth.
+          </p>
+
+        </div>
+
+      </motion.div>
+
+      {/* 03 */}
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="flex gap-5"
+      >
+
+        <div className="text-7xl font-black leading-none text-[#F8BC04]">
+          3
+        </div>
+
+        <div>
+
+          <h3 className="text-3xl font-black text-[#171717]">
+            ROI Focused
+          </h3>
+
+          <p className="mt-3 text-lg leading-6 text-neutral-600">
+            Every advertising campaign is built to maximize return on
+            investment by focusing on qualified leads, sales and
+            measurable business growth.
+          </p>
+
+        </div>
+
+      </motion.div>
+
+      {/* 04 */}
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="flex gap-5"
+      >
+
+        <div className="text-7xl font-black leading-none text-[#F8BC04]">
+          4
+        </div>
+
+        <div>
+
+          <h3 className="text-3xl font-black text-[#171717]">
+            ROI Focused
+          </h3>
+
+          <p className="mt-3 text-lg leading-6 text-neutral-600">
+            Every advertising campaign is built to maximize return on
+            investment by focusing on qualified leads, sales and
+            measurable business growth.
+          </p>
+
+        </div>
+
+      </motion.div>
+
+      {/* 05 */}
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+        className="flex gap-5"
+      >
+
+        <div className="text-7xl font-black leading-none text-[#F8BC04]">
+          5
+        </div>
+
+        <div>
+
+          <h3 className="text-3xl font-black text-[#171717]">
+            ROI Focused
+          </h3>
+
+          <p className="mt-3 text-lg leading-6 text-neutral-600">
+            Every advertising campaign is built to maximize return on
+            investment by focusing on qualified leads, sales and
+            measurable business growth.
+          </p>
+
+        </div>
+
+      </motion.div>
+
+      {/* 06 */}
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        className="flex gap-5"
+      >
+
+        <div className="text-7xl font-black leading-none text-[#F8BC04]">
+          6
+        </div>
+
+        <div>
+
+          <h3 className="text-3xl font-black text-[#171717]">
+            ROI Focused
+          </h3>
+
+          <p className="mt-3 text-lg leading-6 text-neutral-600">
+            Every advertising campaign is built to maximize return on
+            investment by focusing on qualified leads, sales and
+            measurable business growth.
+          </p>
+
+        </div>
+
+      </motion.div>
+
+          </div>
+
+  </div>
+
+</section>
+
+{/* =========================
+        FAQ SECTION
+========================= */}
+
+
+
+
+
+
+
+
+
+
+
+
   
 {/* =========================
         FAQ SECTION
