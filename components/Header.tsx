@@ -47,7 +47,7 @@ export default function Header() {
   href="/services/branding"
   className="block px-5 py-3 hover:bg-yellow-50 hover:text-[#F8BC04] transition"
 >
-  Branding
+  End to End Branding
 </a>
               <Link
   href="/services/logo-designing"
@@ -72,7 +72,7 @@ export default function Header() {
                 href="/services/social-media-marketing"
                 className="block px-5 py-3 hover:bg-yellow-50 hover:text-[#F8BC04] transition"
                 >
-                Social Media Marketing 
+                Digital Marketing 
                 </Link>
               </div>
             </div>
