@@ -137,414 +137,1383 @@ const faqs = [
   </div>
 </section>
 
-      
 
-{/* GOOGLE ADS HERO SECTION */}
+{/* =========================
+    PERFORMANCE MARKETING RESULTS CTA
+========================= */}
 
-<section className="py-1 overflow-hidden">
+<section className="relative overflow-visible bg-white py-1 lg:py-1">
 
-  <div className="max-w-7xl mx-auto px-6">
+  {/* BACKGROUND GLOW */}
 
-    <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="text-center"
-    >
-      {/* Heading */}
+  <motion.div
+    animate={{
+      y: [-20, 20, -20],
+      x: [0, 20, 0],
+      scale: [1, 1.08, 1],
+    }}
+    transition={{
+      duration: 10,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="
+      pointer-events-none
+      absolute
+      right-[-100px]
+      top-20
+      h-96
+      w-96
+      rounded-full
+      bg-[#F8BC04]/10
+      blur-[120px]
+    "
+  />
 
-      <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        className="
-  text-4xl
-  md:text-6xl
-  lg:text-7xl
-  font-black
-  text-[#171717]
-  leading-[1.08]
-  max-w-[1300px]
-  mx-auto
-"
-      >
-        Drive More Leads,
-        <span className="relative inline-block">
+  <div className="container mx-auto px-6 lg:px-10">
 
-          <motion.span
-            animate={{
-              backgroundPosition: [
-                "0% 50%",
-                "100% 50%",
-                "0% 50%",
-              ],
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            className="
-              bg-gradient-to-r
-              from-[#F8BC04]
-              via-[#ffcf4d]
-              to-[#F8BC04]
-              bg-[length:200%_200%]
-              bg-clip-text
-              text-transparent
-            "
-          >
-            Sales & Revenue
-          </motion.span>
+    <div className="grid items-center gap-16 lg:grid-cols-[0.95fr_1.05fr]">
 
-        </span>
-
-        Through Smart Performance Marketing
-      </motion.h2>
-
-      {/* Description */}
-
-      <motion.p
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{
-          delay: 0.2,
-          duration: 0.8,
-        }}
-        className="
-          mt-10
-          text-lg
-          md:text-xl
-          text-gray-600
-          max-w-6xl
-          mx-auto
-          leading-relaxed
-        "
-      >
-        BIGBEANS DIGITAL helps businesses generate
-        high-quality leads, increase website traffic,
-        boost online sales and maximize ROI with
-        data-driven Google Ads, Facebook Ads,
-        Instagram Ads and advanced performance
-        marketing strategies tailored for measurable
-        business growth.
-      </motion.p>
-
-      {/* Buttons */}
+      {/* =========================
+          LEFT CONTENT
+      ========================= */}
 
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        initial={{
+          opacity: 0,
+          x: -80,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
         transition={{
-          delay: 0.4,
-          duration: 0.8,
+          duration: 0.9,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+
+        {/* BADGE */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.6,
+          }}
+          className="
+            inline-flex
+            items-center
+            gap-3
+            rounded-full
+            border
+            border-[#F8BC04]/30
+            bg-black
+            px-5
+            py-2.5
+            text-sm
+            font-semibold
+            text-[#F8BC04]
+            shadow-sm
+          "
+        >
+
+          <span className="text-base">
+           👉
+          </span>
+
+          Growing Performance Marketing Agency in London
+
+        </motion.div>
+
+        {/* HEADING */}
+
+        <motion.h2
+  initial={{
+    opacity: 0,
+    y: 30,
+  }}
+  whileInView={{
+    opacity: 1,
+    y: 0,
+  }}
+  viewport={{
+    once: true,
+  }}
+  transition={{
+    duration: 0.8,
+    delay: 0.1,
+  }}
+  className="
+    mt-7
+    max-w-[680px]
+    text-4xl
+    font-black
+    leading-[1.05]
+    tracking-tight
+    text-[#171717]
+    sm:text-5xl
+    lg:text-5xl
+  "
+>
+  <span className="block">
+    Performance
+  </span>
+
+  <span className="block">
+    Marketing Agency in India
+  </span>
+
+  <span className="block text-[#F8BC04]">
+    Real ROI, Zero Guesswork
+  </span>
+</motion.h2>
+
+        {/* DESCRIPTION */}
+
+        <motion.p
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 0.2,
+          }}
+          className="
+            mt-6
+            max-w-xl
+            text-base
+            leading-7
+            text-neutral-600
+            lg:text-lg
+            lg:leading-8
+          "
+        >
+          BIGBEANS DIGITAL is a performance marketing agency in India
+          that builds data-driven ad campaigns across Google, Meta,
+          LinkedIn, and YouTube — delivering measurable leads, sales,
+          and ROI for 1,500+ brands. We don't just run ads. We build
+          profit machines.
+        </motion.p>
+
+        {/* METRIC PILLS */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 0.3,
+          }}
+          className="
+            mt-6
+            flex
+            flex-wrap
+            gap-2
+          "
+        >
+
+          {[
+            {
+              value: "5×",
+              text: "ROAS for E-commerce",
+            },
+            {
+              value: "60%",
+              text: "Higher Conversions",
+            },
+            {
+              value: "35%",
+              text: "Lower CPL",
+            },
+          ].map((item, index) => (
+
+            <motion.div
+              key={index}
+              whileHover={{
+                y: -4,
+                scale: 1.03,
+              }}
+              transition={{
+                duration: 0.25,
+              }}
+              className="
+                rounded-xl
+                border
+                border-emerald-200
+                bg-emerald-50/60
+                px-4
+                py-3
+                text-sm
+              "
+            >
+
+              <span className="font-black text-emerald-600">
+                {item.value}
+              </span>
+
+              <span className="ml-2 text-xs text-[#171717]">
+                {item.text}
+              </span>
+
+            </motion.div>
+
+          ))}
+
+        </motion.div>
+
+        {/* STATS */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 0.4,
+          }}
+          className="
+            mt-6
+            grid
+            grid-cols-3
+            gap-5
+            max-w-lg
+          "
+        >
+
+          <div>
+
+            <div className="text-2xl font-black text-[#F8BC04]">
+              ₹1Cr+
+            </div>
+
+            <p className="mt-1 text-xs text-neutral-500">
+              Ad Spend Managed
+            </p>
+
+          </div>
+
+          <div>
+
+            <div className="text-2xl font-black text-[#F8BC04]">
+              1500+
+            </div>
+
+            <p className="mt-1 text-xs text-neutral-500">
+              Clients Served
+            </p>
+
+          </div>
+
+          <div>
+
+            <div className="text-2xl font-black text-[#F8BC04]">
+              93K+
+            </div>
+
+            <p className="mt-1 text-xs text-neutral-500">
+              Clicks Delivered
+            </p>
+
+          </div>
+
+        </motion.div>
+
+        {/* BUTTONS */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 0.5,
+          }}
+          className="
+            mt-7
+            flex
+            flex-wrap
+            gap-4
+          "
+        >
+
+          {/* GET FREE PERFORMANCE AUDIT */}
+
+          <motion.a
+            href="#"
+            whileHover={{
+              scale: 1.04,
+              y: -4,
+              boxShadow:
+                "0px 20px 45px rgba(248,188,4,0.30)",
+            }}
+            whileTap={{
+              scale: 0.97,
+            }}
+            className="
+              inline-flex
+              items-center
+              justify-center
+              rounded-xl
+              bg-[#F8BC04]
+              px-7
+              py-4
+              font-bold
+              text-[#171717]
+              transition-all
+            "
+          >
+
+            Get Free Performance Audit
+
+            <span className="ml-2 text-lg">
+              →
+            </span>
+
+          </motion.a>
+
+          {/* SEE REAL RESULTS */}
+
+          <motion.a
+            href="#recent-results"
+            whileHover={{
+              scale: 1.04,
+              y: -4,
+              backgroundColor: "#fffaf0",
+            }}
+            whileTap={{
+              scale: 0.97,
+            }}
+            className="
+              inline-flex
+              items-center
+              justify-center
+              rounded-xl
+              border
+              border-[#171717]/30
+              bg-white
+              px-7
+              py-4
+              font-bold
+              text-[#171717]
+              transition-all
+            "
+          >
+
+            See Real Results
+
+          </motion.a>
+
+        </motion.div>
+
+      </motion.div>
+
+      {/* =========================
+          RIGHT VISUAL
+      ========================= */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: 80,
+          scale: 0.92,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+          scale: 1,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        transition={{
+          duration: 1,
+          ease: [0.22, 1, 0.36, 1],
         }}
         className="
+          relative
           flex
-          flex-wrap
+          min-h-[560px]
+          items-center
           justify-center
-          gap-6
-          mt-0
         "
       >
 
+        {/* CONTINUE IN PART 2 */}
+        {/* RIGHT DASHBOARD CARD */}
+
         <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ delay: 0.3, duration: 0.8 }}
-    className="mt-10 flex justify-center gap-4"
-  >
-  <Link href="/our-work">
-  <button
-    className="
-      bg-[#171717]
-      text-white
-      px-8
-      py-3
-      rounded-full
-      font-semibold
-      transition-all
-      duration-300
-      hover:bg-[#F8BC04]
-      hover:text-[#171717]
-    "
-  >
-    View Our Work
-  </button>
-</Link>
+          animate={{
+            y: [0, -8, 0],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="
+            relative
+            w-full
+            max-w-[660px]
+            rounded-[44px]
+            border
+            border-slate-300
+            bg-[#F8FAFC]
+            p-5
+            
+          "
+        >
 
-    <Link
-  href="https://wa.link/gqxvz0"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <button className="border border-[#171717] px-8 py-3 rounded-full font-semibold hover:bg-[#171717] hover:text-white transition">
-    Get Consultation
-  </button>
-</Link>
+          {/* DASHBOARD HEADER */}
+
+          <div className="flex items-center gap-3 px-1 pb-4">
+
+            <motion.span
+              animate={{
+                scale: [1, 1.25, 1],
+                opacity: [1, 0.6, 1],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+              }}
+              className="
+                h-2
+                w-2
+                rounded-full
+                bg-emerald-500
+              "
+            />
+
+            <span className="text-sm font-bold text-[#171717]">
+              Results We Deliver
+            </span>
+
+          </div>
 
 
-  </motion.div>
+          {/* ROAS CARD */}
 
-   
+          <motion.div
+            whileHover={{
+              scale: 1.015,
+            }}
+            className="
+              relative
+              overflow-hidden
+              rounded-2xl
+              bg-gradient-to-br
+              from-[#F8BC04]
+              to-[#FFD83D]
+              p-6
+              shadow-sm
+            "
+          >
+
+            <div className="relative z-10">
+
+              <div className="flex items-start justify-between">
+
+                <div>
+
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: 10,
+                    }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                    }}
+                    viewport={{
+                      once: true,
+                    }}
+                    transition={{
+                      duration: 0.6,
+                    }}
+                    className="
+                      text-4xl
+                      font-black
+                      tracking-tight
+                      text-[#171717]
+                    "
+                  >
+                    5.2x ROAS
+                  </motion.div>
+
+                  <p className="mt-1 text-sm font-medium text-[#171717]">
+                    Average Client Return
+                  </p>
+
+                </div>
+
+                <div
+                  className="
+                    rounded-full
+                    bg-white/70
+                    px-3
+                    py-1.5
+                    text-[10px]
+                    font-bold
+                    text-[#171717]
+                    shadow-sm
+                  "
+                >
+                  ↗ +32% this month
+                </div>
+
+              </div>
+
+              {/* ANIMATED BAR CHART */}
+
+              <div className="mt-10 flex h-[90px] items-end gap-2">
+
+                {[30, 48, 62, 57, 82, 70].map((height, index) => (
+
+                  <motion.div
+                    key={index}
+                    initial={{
+                      height: 0,
+                      opacity: 0,
+                    }}
+                    whileInView={{
+                      height: `${height}%`,
+                      opacity: 1,
+                    }}
+                    viewport={{
+                      once: true,
+                    }}
+                    transition={{
+                      duration: 0.8,
+                      delay: 0.2 + index * 0.1,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    animate={{
+                      scaleY: [1, 1.04, 1],
+                    }}
+                    className="
+                      flex-1
+                      origin-bottom
+                      rounded-t-lg
+                      bg-white/75
+                    "
+                  />
+
+                ))}
+
+              </div>
+
+            </div>
+
+            {/* CHART GLOW */}
+
+            <motion.div
+              animate={{
+                x: ["-100%", "150%"],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                repeatDelay: 3,
+                ease: "easeInOut",
+              }}
+              className="
+                pointer-events-none
+                absolute
+                inset-y-0
+                w-20
+                rotate-12
+                bg-white/20
+                blur-xl
+              "
+            />
+
+          </motion.div>
+
+
+          {/* PLATFORM CARDS */}
+
+          <div className="mt-4 grid grid-cols-2 gap-4">
+
+            {/* GOOGLE ADS */}
+
+            <motion.div
+              whileHover={{
+                y: -5,
+                scale: 1.02,
+              }}
+              transition={{
+                duration: 0.25,
+              }}
+              className="
+                rounded-2xl
+                border
+                border-[#F8BC04]/30
+                bg-[#FFF9E8]
+                p-4
+                shadow-sm
+              "
+            >
+
+              <div
+                className="
+                  flex
+                  h-9
+                  w-9
+                  items-center
+                  justify-center
+                  rounded-xl
+                  bg-white
+                  text-lg
+                  shadow-sm
+                "
+              >
+                🔺
+              </div>
+
+              <h4 className="mt-4 text-base font-bold text-[#F8BC04]">
+                Google Ads
+              </h4>
+
+              <p className="mt-2 text-xs text-[#171717]">
+                93K+ Clicks
+              </p>
+
+            </motion.div>
+
+
+            {/* META ADS */}
+
+            <motion.div
+              whileHover={{
+                y: -5,
+                scale: 1.02,
+              }}
+              transition={{
+                duration: 0.25,
+              }}
+              className="
+                rounded-2xl
+                border
+                border-blue-200
+                bg-blue-50
+                p-4
+                shadow-sm
+              "
+            >
+
+              <div
+                className="
+                  flex
+                  h-9
+                  w-9
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-[#1877F2]
+                  text-lg
+                  font-black
+                  text-white
+                  shadow-sm
+                "
+              >
+                f
+              </div>
+
+              <h4 className="mt-4 text-base font-bold text-[#1877F2]">
+                Meta Ads
+              </h4>
+
+              <p className="mt-2 text-xs text-[#171717]">
+                2.5M Reach
+              </p>
+
+            </motion.div>
+
+          </div>
+
+
+          {/* PERFORMANCE METRICS */}
+
+          <div className="mt-4 grid grid-cols-3 gap-3">
+
+            {[
+              {
+                value: "35%",
+                label: "Lower CPL",
+              },
+              {
+                value: "60%",
+                label: "Higher Conversion",
+              },
+              {
+                value: "150+",
+                label: "Brands Scaled",
+              },
+            ].map((item, index) => (
+
+              <motion.div
+                key={index}
+                initial={{
+                  opacity: 0,
+                  y: 15,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.2 + index * 0.1,
+                }}
+                whileHover={{
+                  y: -4,
+                }}
+                className="
+                  rounded-xl
+                  border
+                  border-slate-200
+                  bg-slate-50
+                  px-3
+                  py-4
+                  text-center
+                "
+              >
+
+                <div className="text-xl font-black text-[#171717]">
+                  {item.value}
+                </div>
+
+                <p className="mt-2 text-[10px] text-slate-500">
+                  {item.label}
+                </p>
+
+              </motion.div>
+
+            ))}
+
+          </div>
+
+        </motion.div>
 
       </motion.div>
-        </motion.div>
+
+    </div>
 
   </div>
 
 </section>
 
-{/* WHY CHOOSE US SECTION */}
+{/* =========================
+    END PERFORMANCE MARKETING RESULTS CTA
+========================= */}
 
-<section className="py-10 overflow-hidden">
+
+{/* =========================
+    OUR PROCESS
+========================= */}
+
+<section className="relative bg-white py-8 overflow-hidden">
 
   <div className="max-w-7xl mx-auto px-6">
 
-    <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-16 items-center">
+    {/* HEADER */}
 
-      {/* LEFT SIDE */}
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-8"
+    >
 
-      <motion.div
-        initial={{ opacity: 0, x: -80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
+      <div className="inline-flex items-center justify-center rounded-full bg-[#fff7dc] px-6 py-2 mb-4">
+        <span className="text-[#b98200] text-xs font-bold tracking-wide">
+          OUR PROCESS
+        </span>
+      </div>
 
-        <h2
-          className="
-            text-5xl
-            md:text-4xl
-            font-black
-            leading-tight
-            text-[#171717]
-          "
-        >
-          Performance Marketing
-          <br />
-          That Turn
-          <span className="text-[#F8BC04]">
-            {" "}Clicks Into
-          </span>
-          <br />
-          Customers
-        </h2>
+      <h2 className="text-4xl md:text-5xl font-black text-[#0b102b] leading-tight">
+        How We Deliver Results
+      </h2>
 
-        <p
-          className="
-            mt-4
-            text-lg
-            leading-relaxed
-            text-gray-600
-            max-w-xl
-          "
-        >
-          Our performance marketing strategies are
-          built to attract high-intent customers,
-          reduce wasted ad spend and generate
-          measurable business growth through
-          Google Ads, Meta Ads and conversion
-          focused PPC campaigns.
-        </p>
+      <p className="mt-3 text-base md:text-lg text-[#52617d]">
+        A proven 4-step methodology that turns ad spend into predictable revenue.
+      </p>
 
-        <motion.button
-          whileHover={{
-            scale: 1.08,
-            y: -5,
-            boxShadow:
-              "0px 20px 40px rgba(248,188,4,0.35)",
+    </motion.div>
+
+
+    {/* PROCESS */}
+
+    <div className="relative max-w-6xl mx-auto">
+
+      {/* DESKTOP CONNECTING LINE */}
+
+      <div className="hidden md:block absolute top-[46px] left-[8%] right-[8%] h-[2px] bg-[#d8deea]">
+
+        <motion.div
+          initial={{ width: "0%" }}
+          whileInView={{ width: "100%" }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 2.8,
+            delay: 0.8,
+            ease: "easeInOut",
           }}
-          whileTap={{
-            scale: 0.95,
+          className="absolute left-0 top-0 h-full bg-[#F8BC04]"
+        />
+
+      </div>
+
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-5 relative">
+
+        {/* =========================
+            STEP 1
+        ========================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.5,
+            delay: 0.2,
           }}
-          className="
-            mt-10
-            px-8
-            py-4
-            rounded-full
-            bg-[#F8BC04]
-            text-[#171717]
-            font-bold
-          "
+          className="text-center relative"
         >
-          Get Free Strategy Call →
-        </motion.button>
 
-      </motion.div>
-
-      {/* RIGHT SIDE */}
-
-      <div className="space-y-1">
-
-        {[
-          {
-            number: "01",
-            title: "ROI Focused Campaign",
-            text: "Every campaign is optimized around leads, sales and business growth instead of vanity metrics."
-          },
-          {
-            number: "02",
-            title: "Google & Meta Certified Experts",
-            text: "Our specialists continuously optimize targeting, bidding and ad creatives for better results."
-          },
-          {
-            number: "03",
-            title: "Transparent Reporting",
-            text: "Track every click, lead and conversion with detailed reporting and clear performance insights."
-          }
-        ].map((item, index) => (
+          {/* NUMBER */}
 
           <motion.div
-            key={index}
-            initial={{
-              opacity: 0,
-              x: 100,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{
-              duration: 0.7,
-              delay: index * 0.2,
+              duration: 0.5,
+              delay: 0.3,
+              type: "spring",
+              stiffness: 180,
             }}
-            whileHover={{
-              scale: 1.03,
-              x: 10,
-            }}
-            className="
-              group
-              relative
-              flex
-              items-center
-              gap-6
-            "
+            className="relative mx-auto w-[70px] h-[70px] rounded-full border-2 border-[#ffe8a0] flex items-center justify-center bg-white z-10"
           >
 
-            {/* ICON */}
+            <div className="w-[56px] h-[56px] rounded-full bg-[#F8BC04] flex items-center justify-center shadow-[0_8px_20px_rgba(248,188,4,0.18)]">
 
-            <motion.div
-              whileHover={{
-                rotate: 360,
-                scale: 1.15,
-              }}
-              transition={{
-                duration: 0.8,
-              }}
-              className="
-                w-20
-                h-20
-                shrink-0
-                rounded-[24px]
-                bg-[#F8BC04]
-                flex
-                items-center
-                justify-center
-                text-white
-                text-3xl
-                font-black
-                shadow-xl
-              "
-            >
-              ✓
-            </motion.div>
-
-            {/* CARD */}
-
-            <div
-              className="
-                flex-1
-                relative
-                overflow-hidden
-                rounded-[30px]
-                p-8
-                from-white
-                via-[#fff8dc]
-                to-[#fff2b3]
-                shadow-xl
-              "
-            >
-
-              {/* Animated Glow */}
-
-              <motion.div
-                animate={{
-                  x: ["-100%", "200%"],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "linear",
-                  delay: index,
-                }}
-                className="
-                  absolute
-                  top-0
-                  left-0
-                  w-40
-                  h-full
-                  bg-white/30
-                  blur-2xl
-                "
-              />
-
-              <div className="relative z-10">
-
-                <h3
-                  className="
-                    text-3xl
-                    font-black
-                    text-[#171717]
-                    mb-2
-                  "
-                >
-                  {item.title}
-                </h3>
-
-                <p
-                  className="
-                    text-gray-600
-                    leading-relaxed
-                  "
-                >
-                  {item.text}
-                </p>
-
-              </div>
-
-              <motion.span
-                animate={{
-                  opacity: [0.15, 0.4, 0.15],
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  right-6
-                  top-4
-                  text-[90px]
-                  font-black
-                  text-[#F8BC04]
-                  pointer-events-none
-                "
-              >
-                {item.number}
-              </motion.span>
+              <span className="text-[#0b102b] text-3xl font-black">
+                1
+              </span>
 
             </div>
 
           </motion.div>
 
-        ))}
+
+          {/* ICON */}
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7, y: 15 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 0.7,
+            }}
+            className="mx-auto mt-5 w-[72px] h-[72px] rounded-[18px] bg-[#fff9e9] flex items-center justify-center"
+          >
+
+            <svg
+              width="42"
+              height="42"
+              viewBox="0 0 48 48"
+              fill="none"
+            >
+              <circle
+                cx="21"
+                cy="21"
+                r="14"
+                stroke="#0b102b"
+                strokeWidth="2.5"
+              />
+
+              <path
+                d="M31 31L42 42"
+                stroke="#0b102b"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+
+              <rect
+                x="14"
+                y="27"
+                width="4"
+                height="5"
+                rx="1"
+                fill="#F8BC04"
+              />
+
+              <rect
+                x="20"
+                y="23"
+                width="4"
+                height="9"
+                rx="1"
+                fill="#F8BC04"
+              />
+
+              <rect
+                x="26"
+                y="19"
+                width="4"
+                height="13"
+                rx="1"
+                fill="#F8BC04"
+              />
+
+            </svg>
+
+          </motion.div>
+
+
+          {/* CONTENT */}
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 0.9,
+            }}
+            className="mt-4"
+          >
+
+            <h3 className="text-lg md:text-xl font-black text-[#0b102b]">
+              Research & Strategy
+            </h3>
+
+            <p className="mt-2 text-sm md:text-base leading-6 text-[#52617d] max-w-[250px] mx-auto">
+              Deep dive into your business, audience, and competitors to craft a winning strategy
+            </p>
+
+          </motion.div>
+
+        </motion.div>
+
+
+        {/* =========================
+            STEP 2
+        ========================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.5,
+            delay: 1.1,
+          }}
+          className="text-center relative"
+        >
+
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 1.2,
+              type: "spring",
+              stiffness: 180,
+            }}
+            className="relative mx-auto w-[70px] h-[70px] rounded-full border-2 border-[#ffe8a0] flex items-center justify-center bg-white z-10"
+          >
+
+            <div className="w-[56px] h-[56px] rounded-full bg-[#F8BC04] flex items-center justify-center shadow-[0_8px_20px_rgba(248,188,4,0.18)]">
+
+              <span className="text-[#0b102b] text-3xl font-black">
+                2
+              </span>
+
+            </div>
+
+          </motion.div>
+
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7, y: 15 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 1.6,
+            }}
+            className="mx-auto mt-5 w-[72px] h-[72px] rounded-[18px] bg-[#fff9e9] flex items-center justify-center"
+          >
+
+            <svg
+              width="42"
+              height="42"
+              viewBox="0 0 48 48"
+              fill="none"
+            >
+
+              <circle
+                cx="24"
+                cy="24"
+                r="15"
+                stroke="#0b102b"
+                strokeWidth="2.5"
+              />
+
+              <circle
+                cx="24"
+                cy="24"
+                r="8"
+                stroke="#F8BC04"
+                strokeWidth="3"
+              />
+
+              <path
+                d="M24 24L37 11"
+                stroke="#0b102b"
+                strokeWidth="3"
+                strokeLinecap="round"
+              />
+
+              <path
+                d="M35 11H40V16"
+                stroke="#0b102b"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+
+            </svg>
+
+          </motion.div>
+
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 1.8,
+            }}
+            className="mt-4"
+          >
+
+            <h3 className="text-lg md:text-xl font-black text-[#0b102b]">
+              Campaign Setup
+            </h3>
+
+            <p className="mt-2 text-sm md:text-base leading-6 text-[#52617d] max-w-[250px] mx-auto">
+              Build campaigns with precise targeting, compelling creatives, and conversion tracking
+            </p>
+
+          </motion.div>
+
+        </motion.div>
+
+
+        {/* =========================
+            STEP 3
+        ========================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.5,
+            delay: 2,
+          }}
+          className="text-center relative"
+        >
+
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 2.1,
+              type: "spring",
+              stiffness: 180,
+            }}
+            className="relative mx-auto w-[70px] h-[70px] rounded-full border-2 border-[#ffe8a0] flex items-center justify-center bg-white z-10"
+          >
+
+            <div className="w-[56px] h-[56px] rounded-full bg-[#F8BC04] flex items-center justify-center shadow-[0_8px_20px_rgba(248,188,4,0.18)]">
+
+              <span className="text-[#0b102b] text-3xl font-black">
+                3
+              </span>
+
+            </div>
+
+          </motion.div>
+
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7, y: 15 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 2.5,
+            }}
+            className="mx-auto mt-5 w-[72px] h-[72px] rounded-[18px] bg-[#fff9e9] flex items-center justify-center"
+          >
+
+            <svg
+              width="42"
+              height="42"
+              viewBox="0 0 48 48"
+              fill="none"
+            >
+
+              <path
+                d="M11 27C15 19 22 14 34 13C35 24 30 32 21 37L17 31L11 27Z"
+                stroke="#0b102b"
+                strokeWidth="2.5"
+                strokeLinejoin="round"
+              />
+
+              <circle
+                cx="28"
+                cy="21"
+                r="3"
+                stroke="#0b102b"
+                strokeWidth="2"
+              />
+
+              <path
+                d="M17 31L12 39"
+                stroke="#F8BC04"
+                strokeWidth="4"
+                strokeLinecap="round"
+              />
+
+              <path
+                d="M21 36L17 42"
+                stroke="#F8BC04"
+                strokeWidth="4"
+                strokeLinecap="round"
+              />
+
+            </svg>
+
+          </motion.div>
+
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 2.7,
+            }}
+            className="mt-4"
+          >
+
+            <h3 className="text-lg md:text-xl font-black text-[#0b102b]">
+              Launch & Optimize
+            </h3>
+
+            <p className="mt-2 text-sm md:text-base leading-6 text-[#52617d] max-w-[250px] mx-auto">
+              Go live and continuously optimize based on real-time performance data
+            </p>
+
+          </motion.div>
+
+        </motion.div>
+
+
+        {/* =========================
+            STEP 4
+        ========================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.5,
+            delay: 2.9,
+          }}
+          className="text-center relative"
+        >
+
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 3,
+              type: "spring",
+              stiffness: 180,
+            }}
+            className="relative mx-auto w-[70px] h-[70px] rounded-full border-2 border-[#ffe8a0] flex items-center justify-center bg-white z-10"
+          >
+
+            <div className="w-[56px] h-[56px] rounded-full bg-[#F8BC04] flex items-center justify-center shadow-[0_8px_20px_rgba(248,188,4,0.18)]">
+
+              <span className="text-[#0b102b] text-3xl font-black">
+                4
+              </span>
+
+            </div>
+
+          </motion.div>
+
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.7, y: 15 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 3.4,
+            }}
+            className="mx-auto mt-5 w-[72px] h-[72px] rounded-[18px] bg-[#fff9e9] flex items-center justify-center"
+          >
+
+            <svg
+              width="42"
+              height="42"
+              viewBox="0 0 48 48"
+              fill="none"
+            >
+
+              <path
+                d="M9 36L19 27L26 32L39 16"
+                stroke="#F8BC04"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+
+              <path
+                d="M34 16H39V21"
+                stroke="#F8BC04"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+
+              <rect
+                x="11"
+                y="34"
+                width="6"
+                height="7"
+                rx="1"
+                stroke="#0b102b"
+                strokeWidth="2"
+              />
+
+              <rect
+                x="21"
+                y="29"
+                width="6"
+                height="12"
+                rx="1"
+                stroke="#0b102b"
+                strokeWidth="2"
+              />
+
+              <rect
+                x="31"
+                y="23"
+                width="6"
+                height="18"
+                rx="1"
+                stroke="#0b102b"
+                strokeWidth="2"
+              />
+
+            </svg>
+
+          </motion.div>
+
+
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.5,
+              delay: 3.6,
+            }}
+            className="mt-4"
+          >
+
+            <h3 className="text-lg md:text-xl font-black text-[#0b102b]">
+              Scale & Report
+            </h3>
+
+            <p className="mt-2 text-sm md:text-base leading-6 text-[#52617d] max-w-[250px] mx-auto">
+              Scale what works, pause what doesn’t, and deliver transparent weekly reports
+            </p>
+
+          </motion.div>
+
+        </motion.div>
 
       </div>
 
@@ -554,9 +1523,33 @@ const faqs = [
 
 </section>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {/* OUR RECENT WORK */}
 
-<section className="py-10">
+<section id="recent-results" className="py-10">
       <div className="max-w-7xl mx-auto px-6">
 
         <div className="text-center max-w-5xl mx-auto mb-20">
@@ -710,6 +1703,424 @@ const faqs = [
     </section>
 
 
+{/* =========================
+    PERFORMANCE MARKETING
+========================= */}
+
+<section className="relative bg-white py-8 overflow-hidden">
+
+  <div className="max-w-6xl mx-auto px-6">
+
+    <div className="grid lg:grid-cols-[42%_58%] gap-8 items-center min-h-[400px]">
+
+      {/* =========================
+          LEFT CONTENT
+      ========================= */}
+
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="pr-4"
+      >
+
+        <h2 className="text-3xl md:text-[34px] font-black text-[#171717] leading-[1.08] tracking-tight">
+
+          Performance Marketing
+          <br />
+
+          That Turn{" "}
+          <span className="text-[#F8BC04]">
+            Clicks Into
+          </span>
+
+          <br />
+
+          Customers
+
+        </h2>
+
+
+        <p className="mt-4 text-[15px] leading-6 text-[#52617d] max-w-[500px]">
+
+          Our performance marketing strategies are built to attract high-intent
+          customers, reduce wasted ad spend and generate measurable business
+          growth through Google Ads, Meta Ads and conversion focused PPC campaigns.
+
+        </p>
+
+
+        <motion.button
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          whileHover={{
+            scale: 1.04,
+            y: -2,
+          }}
+          whileTap={{
+            scale: 0.97,
+          }}
+          className="
+            mt-5
+            px-7
+            py-3
+            rounded-full
+            bg-[#F8BC04]
+            text-[#171717]
+            text-sm
+            font-bold
+            shadow-[0_8px_20px_rgba(248,188,4,0.18)]
+            transition-all
+          "
+        >
+          Get Free Strategy Call →
+        </motion.button>
+
+      </motion.div>
+
+
+      {/* =========================
+          RIGHT CONTENT
+      ========================= */}
+
+      <div className="relative flex flex-col gap-4">
+
+        {/* =========================
+            CARD 01
+        ========================= */}
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.6,
+            delay: 0.15,
+            ease: "easeOut",
+          }}
+          whileHover={{
+            y: -3,
+          }}
+          className="relative flex items-center"
+        >
+
+          {/* CHECK */}
+
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.45,
+              delay: 0.35,
+              type: "spring",
+              stiffness: 180,
+            }}
+            className="
+              absolute
+              left-0
+              z-20
+              w-[62px]
+              h-[62px]
+              rounded-[18px]
+              bg-[#F8BC04]
+              flex
+              items-center
+              justify-center
+              shadow-[0_10px_20px_rgba(0,0,0,0.12)]
+            "
+          >
+
+            <span className="text-white text-[32px] font-light leading-none">
+              ✓
+            </span>
+
+          </motion.div>
+
+
+          {/* CARD */}
+
+          <div
+            className="
+              relative
+              ml-[46px]
+              w-full
+              min-h-[118px]
+              rounded-[25px]
+              bg-white
+              shadow-[0_12px_28px_rgba(0,0,0,0.12)]
+              px-7
+              py-5
+              pl-8
+              overflow-hidden
+            "
+          >
+
+            <span
+              className="
+                absolute
+                right-5
+                bottom-[-5px]
+                text-[78px]
+                leading-none
+                font-black
+                text-[#fff1c7]
+                pointer-events-none
+              "
+            >
+              01
+            </span>
+
+
+            <div className="relative z-10">
+
+              <h3 className="text-[27px] font-black text-[#171717] leading-tight">
+                ROI Focused Campaign
+              </h3>
+
+              <p className="mt-1 text-[14px] leading-5 text-[#52617d] max-w-[520px]">
+                Every campaign is optimized around leads, sales and business
+                growth instead of vanity metrics.
+              </p>
+
+            </div>
+
+          </div>
+
+        </motion.div>
+
+
+        {/* =========================
+            CARD 02
+        ========================= */}
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.6,
+            delay: 0.3,
+            ease: "easeOut",
+          }}
+          whileHover={{
+            y: -3,
+          }}
+          className="relative flex items-center"
+        >
+
+          {/* CHECK */}
+
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.45,
+              delay: 0.5,
+              type: "spring",
+              stiffness: 180,
+            }}
+            className="
+              absolute
+              left-0
+              z-20
+              w-[62px]
+              h-[62px]
+              rounded-[18px]
+              bg-[#F8BC04]
+              flex
+              items-center
+              justify-center
+              shadow-[0_10px_20px_rgba(0,0,0,0.12)]
+            "
+          >
+
+            <span className="text-white text-[32px] font-light leading-none">
+              ✓
+            </span>
+
+          </motion.div>
+
+
+          {/* CARD */}
+
+          <div
+            className="
+              relative
+              ml-[46px]
+              w-full
+              min-h-[118px]
+              rounded-[25px]
+              bg-white
+              shadow-[0_12px_28px_rgba(0,0,0,0.12)]
+              px-7
+              py-5
+              pl-8
+              overflow-hidden
+            "
+          >
+
+            <span
+              className="
+                absolute
+                right-5
+                bottom-[-5px]
+                text-[78px]
+                leading-none
+                font-black
+                text-[#fff1c7]
+                pointer-events-none
+              "
+            >
+              02
+            </span>
+
+
+            <div className="relative z-10">
+
+              <h3 className="text-[27px] font-black text-[#171717] leading-[1.05] max-w-[480px]">
+                Google & Meta Certified Experts
+              </h3>
+
+              <p className="mt-1 text-[14px] leading-5 text-[#52617d] max-w-[520px]">
+                Our specialists continuously optimize targeting, bidding and ad
+                creatives for better results.
+              </p>
+
+            </div>
+
+          </div>
+
+        </motion.div>
+
+
+        {/* =========================
+            CARD 03
+        ========================= */}
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 0.6,
+            delay: 0.45,
+            ease: "easeOut",
+          }}
+          whileHover={{
+            y: -3,
+          }}
+          className="relative flex items-center"
+        >
+
+          {/* CHECK */}
+
+          <motion.div
+            initial={{ scale: 0 }}
+            whileInView={{ scale: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.45,
+              delay: 0.65,
+              type: "spring",
+              stiffness: 180,
+            }}
+            className="
+              absolute
+              left-0
+              z-20
+              w-[62px]
+              h-[62px]
+              rounded-[18px]
+              bg-[#F8BC04]
+              flex
+              items-center
+              justify-center
+              shadow-[0_10px_20px_rgba(0,0,0,0.12)]
+            "
+          >
+
+            <span className="text-white text-[32px] font-light leading-none">
+              ✓
+            </span>
+
+          </motion.div>
+
+
+          {/* CARD */}
+
+          <div
+            className="
+              relative
+              ml-[46px]
+              w-full
+              min-h-[118px]
+              rounded-[25px]
+              bg-white
+              shadow-[0_12px_28px_rgba(0,0,0,0.12)]
+              px-7
+              py-5
+              pl-8
+              overflow-hidden
+            "
+          >
+
+            <span
+              className="
+                absolute
+                right-5
+                bottom-[-5px]
+                text-[78px]
+                leading-none
+                font-black
+                text-[#fff1c7]
+                pointer-events-none
+              "
+            >
+              03
+            </span>
+
+
+            <div className="relative z-10">
+
+              <h3 className="text-[27px] font-black text-[#171717] leading-tight">
+                Transparent Reporting
+              </h3>
+
+              <p className="mt-1 text-[14px] leading-5 text-[#52617d] max-w-[520px]">
+                Track every click, lead and conversion with detailed reporting
+                and clear performance insights.
+              </p>
+
+            </div>
+
+          </div>
+
+        </motion.div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <section className="py-10">
       <div className="max-w-7xl mx-auto px-6">
@@ -763,7 +2174,7 @@ const faqs = [
                   relative
                   rounded-[35px]
                   overflow-hidden
-                  shadow-2xl
+                  
                 "
               >
 
@@ -874,232 +2285,39 @@ const faqs = [
     </section>
 
 
+{/* END OUR RECENT WORK  */}
 
     
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {/* WHY CHOOSE BIGBEANS DIGITAL */}
 
-<section className="py-20 overflow-hidden">
+<section className="py-1 overflow-hidden">
 
-  
-
-{/* =========================
-    STRATEGY CALL CTA SECTION
-========================= */}
-
-<section className="relative overflow-hidden bg-white py-1 lg:py-1">
-  
-
-  
-
-  <div className="container mx-auto px-6 lg:px-10">
-
-    <div className="grid items-center gap-20 lg:grid-cols-2">
-
-      {/* LEFT CONTENT */}
-
-      <motion.div
-        initial={{ opacity: 0, x: -80 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-      >
-
-        <h2 className="mt-5 text-4xl lg:text-5xl font-bold leading-tight text-[#171717] max-w-[600px]">
-          Let's Build an
-          <span className="block text-[#F8BC04]">
-            Advertising Strategy
-          </span>
-          That Delivers Results.
-        </h2>
-
-        <p className="mt-6 max-w-lg text-base leading-8 text-neutral-600">
-          Whether you're launching a new brand or scaling an established business,
-          our Google Ads and Meta Ads specialists create data-driven campaigns
-          designed to attract the right audience, reduce wasted spend, and generate
-          consistent, measurable growth.
-        </p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-12 flex flex-wrap gap-5"
-        >
-          <motion.button
-            whileHover={{
-              scale: 1.05,
-              y: -4,
-              boxShadow: "0px 20px 50px rgba(248,188,4,0.35)",
-            }}
-            whileTap={{ scale: 0.96 }}
-            className="group flex items-center gap-3 rounded-full bg-[#F8BC04] px-8 py-5 font-semibold text-[#171717]"
-          >
-            Schedule Your Call
-
-            <motion.div
-              animate={{ x: [0, 4, 0] }}
-              transition={{
-                duration: 1.2,
-                repeat: Infinity,
-              }}
-            >
-              <ArrowUpRight size={20} />
-            </motion.div>
-          </motion.button>
-        </motion.div>
-      </motion.div>
-
-      {/* RIGHT VISUAL */}
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="relative flex justify-center"
-      >
-
-        {/* Yellow Background */}
-
-        <motion.div
-          animate={{
-            rotate: [-2, 2, -2],
-            scale: [1, 1.03, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="absolute top-6 h-[520px] w-[420px] rounded-[50px] bg-[#F8BC04]"
-        />
-
-        {/* Campaign Preview */}
-
-        <motion.div
-          whileHover={{
-            y: -8,
-            rotate: -2,
-          }}
-          className="absolute right-0 top-24 z-10 overflow-hidden rounded-3xl bg-white shadow-2xl"
-        >
-          <img
-            src="/assets/googleads-ad-preview.webp"
-            alt="Google Ads Campaign Preview"
-            className="w-[320px]"
-          />
-        </motion.div>
-
-        {/* Performance Card */}
-
-        <motion.div
-          animate={{
-            y: [0, -15, 0],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-          }}
-          className="absolute left-0 top-36 z-20 w-72 rounded-3xl border border-white/50 bg-white/90 p-5 shadow-2xl backdrop-blur-xl"
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-xs text-neutral-500">
-                Campaign Performance
-              </p>
-
-              <h3 className="mt-1 text-3xl font-bold text-[#171717]">
-                +312%
-              </h3>
-            </div>
-
-            <TrendingUp
-              className="text-[#F8BC04]"
-              size={34}
-            />
-          </div>
-
-          <div className="mt-6 flex items-end gap-2">
-            {[35, 60, 42, 80, 55, 95, 70].map((height, index) => (
-              <motion.div
-                key={index}
-                animate={{
-                  height: [height, height + 18, height],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: index * 0.2,
-                }}
-                className="w-full rounded-full bg-gradient-to-t from-[#F8BC04] to-yellow-300"
-                style={{ height }}
-              />
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Main Image */}
-
-        <motion.img
-          whileHover={{
-            scale: 1.03,
-          }}
-          src="/assets/googleads-consultant.webp"
-          alt="BIGBEANS DIGITAL Advertising Expert"
-          className="relative z-30 w-[430px]"
-        />
-
-        {/* Floating Lead Card */}
-
-        <motion.div
-          animate={{
-            y: [0, 15, 0],
-            rotate: [-3, 3, -3],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-          }}
-          className="absolute bottom-10 right-0 z-40 rounded-3xl border border-white/50 bg-white/90 p-5 shadow-2xl backdrop-blur-xl"
-        >
-          <div className="flex items-center gap-4">
-            <div className="rounded-2xl bg-[#F8BC04]/15 p-4">
-              <Target
-                size={22}
-                className="text-[#F8BC04]"
-              />
-            </div>
-
-            <div>
-              <h4 className="font-bold text-[#171717]">
-                High-Quality Leads
-              </h4>
-
-              <p className="text-sm text-neutral-500">
-                Optimized for Maximum ROI
-              </p>
-            </div>
-          </div>
-        </motion.div>
-
-      </motion.div>
-
-    </div>
-
-  </div>
-</section>
-
-{/* =========================
-    END STRATEGY CALL CTA SECTION
-========================= */}
-
-{/* =========================
-    WHY CHOOSE BIGBEANS DIGITAL
-========================= */}
-
-<section className="py-20 bg-white overflow-hidden">
+<section className="py-10 bg-white overflow-hidden">
 
   <div className="max-w-7xl mx-auto px-6">
 
