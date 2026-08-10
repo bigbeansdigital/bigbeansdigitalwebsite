@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Home from "@/components/Home";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Page() {
   return (
@@ -8,6 +9,7 @@ export default function Page() {
       <Header />
       <Home />
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }

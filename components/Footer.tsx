@@ -506,9 +506,12 @@ export default function Footer() {
 
               <span className="h-1 w-1 rounded-full bg-gray-700" />
 
-              <span className="cursor-pointer transition duration-300 hover:text-[#F8BC04]">
-                Sitemap
-              </span>
+              <Link
+                  href="/sitemap"
+                  className="cursor-pointer transition duration-300 hover:text-[#F8BC04]"
+                >
+                  SiteMap
+                </Link>
 
               <span className="h-1 w-1 rounded-full bg-gray-700" />
 

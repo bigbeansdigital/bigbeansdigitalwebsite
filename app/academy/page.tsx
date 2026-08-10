@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Academy from "@/components/Academy";
 import Courses from "@/components/academy/Courses";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function AcademyPage() {
       <Header />
       <Academy />
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }
