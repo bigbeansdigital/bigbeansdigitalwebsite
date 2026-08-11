@@ -1,528 +1,264 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import { blogs } from "@/data/blogs";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
-export default function Blog() {
- const sortedBlogs = [...blogs].sort(
-  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-);
+export default function SocialMediaMarketing() {
+  const [selectedCategory, setSelectedCategory] = useState("All Blogs");
+
+  const categories = [
+    "All Blogs",
+    "Digital Marketing",
+    "Social Media",
+    "Graphic Design",
+    "AI",
+    "Branding",
+    "Website Development",
+  ];
+
+  const blogs = [
+    {
+      id: 1,
+      image: "/images/google-ai-mode.jpg",
+      date: "JULY 28, 2026",
+      category: "Digital Marketing",
+      title: "about bigbeans digital",
+      description: "about bigbeans digital",
+      link: "#",
+    },
+
+    
+    // ADD YOUR NEXT BLOG HERE
+    // {
+    //   id: 2,
+    //   image: "/images/your-image.jpg",
+    //   date: "JULY 25, 2026",
+    //   category: "Social Media",
+    //   title: "Your Blog Title",
+    //   description: "Your blog description",
+    //   link: "#",
+    // },
+
+    // ADD MORE BLOGS HERE
+  ];
+
+  const filteredBlogs =
+    selectedCategory === "All Blogs"
+      ? blogs
+      : blogs.filter((blog) => blog.category === selectedCategory);
+
   return (
-    <main className="overflow-hidden bg-[#FFFFFF]">
+    <>
+      {/* Breadcrumb */}
+      <section className="w-full bg-white py-10">
+        <div className="mx-auto flex max-w-7xl justify-center px-6">
+          <div className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
+            <Link
+              href="/"
+              className="text-gray-700 transition-colors duration-300 hover:text-[#F8BC04]"
+            >
+              Home
+            </Link>
 
-      {/* =========================
-            BLOG HERO
-      ========================= */}
+            <span className="text-lg text-[#F8BC04]">→</span>
 
-      <section className="relative overflow-hidden bg-white py-24 lg:py-32">
-
-        {/* Background Grid */}
-
-        <div
-          className="absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage:
-              "radial-gradient(#171717 1px, transparent 1px)",
-            backgroundSize: "26px 26px",
-          }}
-        />
-
-        {/* Glow */}
-
-        <motion.div
-          animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.12, 0.28, 0.12],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-          }}
-          className="absolute left-1/2 top-24 h-[650px] w-[650px] -translate-x-1/2 rounded-full bg-[#F8BC04]/20 blur-[170px]"
-        />
-
-        {/* Floating Rings */}
-
-        <motion.div
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute -left-24 top-20 h-[320px] w-[320px] rounded-full border border-[#F8BC04]/15"
-        />
-
-        <motion.div
-          animate={{
-            rotate: [360, 0],
-          }}
-          transition={{
-            duration: 35,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute -right-24 bottom-20 h-[420px] w-[420px] rounded-full border border-[#F8BC04]/10"
-        />
-
-        <div className="relative z-10 mx-auto max-w-7xl px-6">
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 60,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: .9,
-            }}
-            className="mx-auto max-w-5xl text-center"
-          >
-
-            <span className="inline-flex rounded-full bg-[#F8BC04]/10 px-6 py-3 text-sm font-bold text-[#F8BC04]">
-              BIGBEANS DIGITAL Insights
+            <span className="font-semibold text-black">
+              BIGBEANS DIGITAL BLOGS
             </span>
-
-            <h1 className="mt-8 text-[48px] font-black leading-tight text-[#171717] md:text-[72px]">
-              Ideas, Insights &
-              <span className="block text-[#F8BC04]">
-                Digital Inspiration
-              </span>
-            </h1>
-
-            <p className="mx-auto mt-8 max-w-4xl text-lg leading-9 text-gray-600">
-              Stay ahead with expert articles on Social Media Marketing , branding,
-              website development, artificial intelligence, SEO, business
-              growth, and emerging technologies. Every article is crafted to
-              help entrepreneurs, students, and businesses make smarter digital
-              decisions.
-            </p>
-
-            {/* Search */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                delay: .35,
-              }}
-              whileHover={{
-                scale: 1.02,
-              }}
-              className="mx-auto mt-14 flex max-w-3xl items-center overflow-hidden rounded-full border border-gray-200 bg-white p-3 shadow-[0_30px_70px_rgba(0,0,0,.08)]"
-            >
-
-              <input
-                type="text"
-                placeholder="Search articles, topics or keywords..."
-                className="flex-1 bg-transparent px-6 py-4 text-lg outline-none"
-              />
-
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                }}
-                whileTap={{
-                  scale: .96,
-                }}
-                className="rounded-full bg-[#171717] px-8 py-4 font-bold text-white transition-all duration-500 hover:bg-[#F8BC04] hover:text-[#171717]"
-              >
-                Search
-              </motion.button>
-
-            </motion.div>
-
-                     {/* Category Pills */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 40,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                delay: .55,
-              }}
-              className="mt-14 flex flex-wrap justify-center gap-4"
-            >
-
-              {[
-                "All",
-                "AI",
-                "Social Media Marketing ",
-                "Website",
-                "SEO",
-                "Branding",
-                "Social Media",
-                "Business",
-              ].map((category, index) => (
-
-                <motion.button
-                  key={category}
-                  whileHover={{
-                    y: -5,
-                    scale: 1.06,
-                  }}
-                  whileTap={{
-                    scale: .95,
-                  }}
-                  transition={{
-                    delay: index * .05,
-                  }}
-                  className={`rounded-full px-6 py-3 text-sm font-bold transition-all duration-300 ${
-                    category === "All"
-                      ? "bg-[#171717] text-white"
-                      : "border border-gray-200 bg-white text-[#171717] hover:bg-[#F8BC04] hover:border-[#F8BC04]"
-                  }`}
-                >
-                  {category}
-                </motion.button>
-
-              ))}
-
-            </motion.div>
-
-            {/* Statistics */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                y: 50,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                delay: .75,
-              }}
-              className="mx-auto mt-16 grid max-w-4xl grid-cols-2 gap-8 md:grid-cols-4"
-            >
-
-              {[
-                {
-                  value: "100+",
-                  label: "Expert Articles",
-                },
-                {
-                  value: "8+",
-                  label: "Categories",
-                },
-                {
-                  value: "Weekly",
-                  label: "Fresh Content",
-                },
-                {
-                  value: "5 min",
-                  label: "Average Read",
-                },
-              ].map((item, index) => (
-
-                <motion.div
-                  key={item.label}
-                  whileHover={{
-                    y: -8,
-                    scale: 1.05,
-                  }}
-                  animate={{
-                    y: [0, -4, 0],
-                  }}
-                  transition={{
-                    duration: 3 + index,
-                    repeat: Infinity,
-                  }}
-                  className="rounded-[24px] border border-white/60 bg-white/80 p-6 text-center shadow-[0_20px_50px_rgba(0,0,0,.06)] backdrop-blur-xl"
-                >
-
-                  <h3 className="text-[34px] font-black text-[#F8BC04]">
-                    {item.value}
-                  </h3>
-
-                  <p className="mt-2 font-semibold text-[#171717]">
-                    {item.label}
-                  </p>
-
-                </motion.div>
-
-              ))}
-
-            </motion.div>
-
-          </motion.div>
-
-        </div>
-
-      </section>   
-
-
-      {/* =========================
-            LATEST ARTICLES
-      ========================= */}
-
-      <section className="relative bg-[#FFFFFF] py-24">
-
-        <div className="mx-auto max-w-7xl px-6">
-
-          {/* Heading */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 50,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: .8,
-            }}
-            className="mb-16 text-center"
-          >
-
-            <span className="inline-flex rounded-full bg-[#F8BC04]/10 px-6 py-3 text-sm font-bold text-[#F8BC04]">
-              Latest Articles
-            </span>
-
-            <h2 className="mt-7 text-[42px] font-black text-[#171717] md:text-[60px]">
-              Fresh Insights &
-              <span className="text-[#F8BC04]">
-                {" "}Expert Guides
-              </span>
-            </h2>
-
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-9 text-gray-600">
-              Explore our latest articles covering Social Media Marketing ,
-              branding, AI, SEO, websites, business growth,
-              and everything happening in the digital world.
-            </p>
-
-          </motion.div>
-
-          {/* Blog Grid */}
-
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-
-            {sortedBlogs.map((blog, index) => (
-
-              <motion.div
-                key={blog.id}
-                initial={{
-                  opacity:0,
-                  y:60,
-                }}
-                whileInView={{
-                  opacity:1,
-                  y:0,
-                }}
-                viewport={{
-                  once:true,
-                }}
-                transition={{
-                  delay:index*.08,
-                }}
-              >
-
-                <Link
-                  href={`/blog/${blog.slug}`}
-                  className="group block overflow-hidden rounded-[28px] bg-white shadow-[0_20px_50px_rgba(0,0,0,.08)] transition duration-500 hover:-translate-y-3 hover:shadow-[0_35px_80px_rgba(0,0,0,.14)]"
-                >
-
-                  {/* Image */}
-
-                  <div className="relative overflow-hidden">
-
-                    <Image
-                      src={blog.image}
-                      alt={blog.title}
-                      width={600}
-                      height={400}
-                      className="h-[240px] w-full object-cover transition duration-700 group-hover:scale-110"
-                    />
-
-                                        {/* Category */}
-
-                    <div className="absolute left-5 top-5">
-
-                      <span className="rounded-full bg-[#F8BC04] px-4 py-2 text-xs font-bold text-[#171717] shadow-lg">
-                        {blog.category}
-                      </span>
-
-                    </div>
-
-                    {/* Reading Time */}
-
-                    <div className="absolute right-5 top-5">
-
-                      <span className="rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-[#171717] backdrop-blur-md">
-                        {blog.readTime}
-                      </span>
-
-                    </div>
-
-                  </div>
-
-                  {/* Content */}
-
-                  <div className="p-7">
-
-                    {/* Date */}
-
-                    <div className="flex items-center gap-2 text-sm text-gray-500">
-
-                      <span className="text-[#F8BC04]">●</span>
-
-                      <span>
-                        {new Date(blog.date).toLocaleDateString("en-IN", {
-                          day: "numeric",
-                          month: "long",
-                          year: "numeric",
-                        })}
-                      </span>
-
-                    </div>
-
-                    {/* Title */}
-
-                    <h3 className="mt-5 text-[28px] font-black leading-tight text-[#171717] transition-colors duration-300 group-hover:text-[#F8BC04]">
-                      {blog.title}
-                    </h3>
-
-                    {/* Excerpt */}
-
-                    <p className="mt-5 line-clamp-3 text-[16px] leading-8 text-gray-600">
-                      {blog.excerpt}
-                    </p>
-
-                                       {/* Footer */}
-
-                    <div className="mt-8 flex items-center justify-between border-t border-gray-100 pt-6">
-
-                      {/* Author */}
-
-                      <div>
-
-                        <p className="text-sm text-gray-500">
-                          By
-                        </p>
-
-                        <h4 className="font-bold text-[#171717]">
-                          {blog.author}
-                        </h4>
-
-                      </div>
-
-                      {/* Read More */}
-
-                      <motion.div
-                        whileHover={{
-                          x: 6,
-                        }}
-                        className="flex items-center gap-2 font-bold text-[#171717] transition-all duration-300 group-hover:text-[#F8BC04]"
-                      >
-
-                        Read More
-
-                        <motion.span
-                          animate={{
-                            x: [0, 5, 0],
-                          }}
-                          transition={{
-                            duration: 1.5,
-                            repeat: Infinity,
-                          }}
-                          className="text-xl"
-                        >
-                          →
-                        </motion.span>
-
-                      </motion.div>
-
-                    </div>
-
-                  </div>
-
-                </Link>
-
-              </motion.div>
-
-                         ))}
-
           </div>
-
-          {/* Bottom CTA */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 50,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: .2,
-              duration: .8,
-            }}
-            className="mx-auto mt-20 max-w-4xl text-center"
-          >
-
-            <h3 className="text-[34px] font-black text-[#171717] md:text-[48px]">
-              Never Miss Our
-              <span className="text-[#F8BC04]">
-                {" "}Latest Insights
-              </span>
-            </h3>
-
-            <p className="mx-auto mt-6 max-w-3xl text-lg leading-9 text-gray-600">
-              We regularly publish practical articles on Social Media Marketing ,
-              branding, AI, website development, SEO, business growth, and
-              emerging technologies to help you stay ahead in the digital world.
-            </p>
-
-            <motion.a
-              whileHover={{
-                scale: 1.05,
-                y: -4,
-              }}
-              whileTap={{
-                scale: .96,
-              }}
-              href="/connect"
-              className="mt-10 inline-flex rounded-full bg-[#171717] px-10 py-5 text-lg font-bold text-white shadow-[0_25px_60px_rgba(0,0,0,.18)] transition-all duration-500 hover:bg-[#F8BC04] hover:text-[#171717]"
-            >
-              Get In Touch →
-            </motion.a>
-
-          </motion.div>
-
         </div>
-
       </section>
 
-    </main>
+      {/* Blog Section */}
+      <section className="w-full bg-white py-16">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-start">
+
+            {/* LEFT CATEGORY TABLE */}
+            <aside className="w-full shrink-0 lg:sticky lg:top-28 lg:w-[220px]">
+              <div className="overflow-hidden rounded-[22px] border border-[#EEEEEE] bg-white shadow-[0_12px_35px_rgba(0,0,0,0.06)]">
+
+                {/* Category Header */}
+                <div className="border-b border-[#EEEEEE] bg-[#171717] px-6 py-5">
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F8BC04]">
+                    Explore
+                  </p>
+
+                  <h3 className="mt-1 text-[20px] font-medium text-white">
+                    Categories
+                  </h3>
+                </div>
+
+                {/* Categories */}
+                <div className="p-3">
+                  {categories.map((category) => {
+                    const isActive = selectedCategory === category;
+
+                    return (
+                      <button
+                        key={category}
+                        type="button"
+                        onClick={() => setSelectedCategory(category)}
+                        className={`group flex w-full items-center justify-between rounded-[14px] px-4 py-3.5 text-left text-[13px] transition-all duration-300 ${
+                          isActive
+                            ? "bg-[#F8BC04] font-semibold text-[#171717]"
+                            : "text-[#777777] hover:bg-[#FAFAFA] hover:text-[#171717]"
+                        }`}
+                      >
+                        <span>{category}</span>
+
+                        <span
+                          className={`text-[16px] transition-all duration-300 ${
+                            isActive
+                              ? "translate-x-0 opacity-100"
+                              : "-translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
+                          }`}
+                        >
+                          →
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </aside>
+
+            {/* RIGHT BLOG GRID */}
+            <div className="min-w-0 flex-1">
+
+              {/* Selected Category Heading */}
+              <div className="mb-8 flex items-end justify-between gap-5">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#F8BC04]">
+                    BIGBEANS DIGITAL
+                  </p>
+
+                  <h2 className="mt-2 text-[28px] font-medium tracking-[-0.03em] text-[#171717]">
+                    {selectedCategory}
+                  </h2>
+                </div>
+
+                <span className="hidden text-[11px] uppercase tracking-[0.12em] text-[#A0A0A0] sm:block">
+                  {filteredBlogs.length}{" "}
+                  {filteredBlogs.length === 1 ? "Article" : "Articles"}
+                </span>
+              </div>
+
+              {/* BLOG CARDS */}
+              <motion.div
+                layout
+                className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3"
+              >
+                {filteredBlogs.map((blog) => (
+                  <motion.article
+                    layout
+                    key={blog.id}
+                    initial={{ opacity: 0, y: 25 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 25 }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.22, 1, 0.36, 1],
+                    }}
+                    className="group relative w-full overflow-hidden rounded-[26px] bg-[#171717] shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-700 hover:-translate-y-3 hover:shadow-[0_30px_70px_rgba(0,0,0,0.18)]"
+                  >
+                    {/* Visual Header */}
+                    <div className="relative h-[265px] overflow-hidden bg-[#F8BC04]">
+
+                      {/* Image */}
+                      <Image
+                        src={blog.image}
+                        alt={blog.title}
+                        fill
+                        className="object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+                      />
+
+                      {/* Dark Gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+
+                      {/* Date */}
+                      <div className="absolute bottom-5 left-5 z-10">
+                        <span className="text-[12px] font-medium tracking-[0.08em] text-white/90">
+                          {blog.date}
+                        </span>
+                      </div>
+
+                      {/* Floating Category */}
+                      <div className="absolute bottom-5 right-5 z-10">
+                        <span className="rounded-full bg-white px-4 py-2 text-[10px] font-semibold text-[#171717] shadow-lg">
+                          {blog.category}
+                        </span>
+                      </div>
+
+                      {/* Decorative Circle */}
+                      <div className="absolute -right-10 -top-10 h-[100px] w-[100px] rounded-full border border-white/30 transition-transform duration-700 group-hover:scale-125" />
+
+                      <div className="absolute -right-5 -top-5 h-[40px] w-[40px] rounded-full bg-white/10 backdrop-blur-sm" />
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative bg-white px-6 pb-7 pt-7">
+
+                      {/* Title */}
+                      <h2 className="text-[21px] font-medium leading-[1.13] tracking-[-0.025em] text-[#171717]">
+                        {blog.title}
+                      </h2>
+
+                      {/* Description */}
+                      <p className="mt-5 text-[13px] leading-[1.65] text-[#929292]">
+                        {blog.description}
+                      </p>
+
+                      {/* Bottom CTA */}
+                      <div className="mt-7 flex items-center justify-between border-t border-[#EEEEEE] pt-5">
+                        <Link
+                          href={blog.link}
+                          className="group/link inline-flex items-center gap-3 text-[12px] font-bold uppercase tracking-[0.08em] text-[#171717]"
+                        >
+                          <span className="relative">
+                            Read Article
+
+                            <span className="absolute -bottom-1 left-0 h-[1px] w-0 bg-[#F8BC04] transition-all duration-300 group-hover/link:w-full" />
+                          </span>
+
+                          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#171717] text-white transition-all duration-300 group-hover/link:bg-[#F8BC04] group-hover/link:text-[#171717]">
+                            <ArrowRight
+                              size={15}
+                              strokeWidth={2.5}
+                              className="transition-transform duration-300 group-hover/link:translate-x-0.5"
+                            />
+                          </span>
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Bottom Yellow Accent */}
+                    <div className="h-[4px] w-full bg-[#F8BC04] transition-all duration-500 group-hover:h-[7px]" />
+                  </motion.article>
+                ))}
+              </motion.div>
+
+              {/* No Blogs */}
+              {filteredBlogs.length === 0 && (
+                <div className="flex min-h-[300px] items-center justify-center rounded-[26px] border border-dashed border-[#DDDDDD]">
+                  <div className="text-center">
+                    <p className="text-[14px] font-medium text-[#171717]">
+                      No blogs found
+                    </p>
+
+                    <p className="mt-2 text-[12px] text-[#999999]">
+                      There are currently no articles in this category.
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

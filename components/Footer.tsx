@@ -91,9 +91,11 @@ export default function Footer() {
   const quickLinks = [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
+    { label: "Blogs", href: "/blog" },
     { label: "Internship", href: "/internship" },
     { label: "Academy", href: "/academy" },
     { label: "Connect", href: "/connect" },
+    
   ];
 
   const serviceLinks = [
