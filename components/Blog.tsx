@@ -16,18 +16,19 @@ export default function SocialMediaMarketing() {
     "Graphic Design",
     "AI",
     "Branding",
+    "Big Beans Digital",
     "Website Development",
   ];
 
   const blogs = [
     {
       id: 1,
-      image: "/images/google-ai-mode.jpg",
+      image: "/assets/blog/allblogs/demoblog/blogthumbnail1.png",
       date: "JULY 28, 2026",
-      category: "Digital Marketing",
-      title: "about bigbeans digital",
-      description: "about bigbeans digital",
-      link: "#",
+      category: "Big Beans Digital",
+      title: "Scaling Startups into Powerhouses",
+      description: "In today’s hyper-competitive digital landscape, turning a breakthrough idea into an industry-leading brand requires far more than aesthetic graphics or basic ad campaigns........Click Read More",
+      link: "/blog/allblogs/demo",
     },
 
     

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-export default function AboutBigbeansDigitalBlog() {
+export default function demo() {
   return (
     <main className="min-h-screen bg-white text-[#4a4a4a]">
 

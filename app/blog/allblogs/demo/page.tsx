@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     "Learn more about BIGBEANS DIGITAL, our journey, services, team, and approach to digital marketing and branding.",
 };
 
-export default function AboutBigbeansdigitalPage() {
+export default function demo() {
   return (
     <>
       <Header />
