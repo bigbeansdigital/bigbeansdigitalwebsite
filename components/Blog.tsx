@@ -20,7 +20,7 @@ export default function SocialMediaMarketing() {
     "Website Development",
   ];
 
-  const blogs = [
+ const blogs = [
     {
       id: 1,
       image: "/assets/blog/allblogs/demoblog/blogthumbnail1.png",
@@ -31,19 +31,78 @@ export default function SocialMediaMarketing() {
       link: "/blog/allblogs/demo",
     },
 
+    {
+      id: 2,
+      image: "/assets/blog/allblogs/website-seo-audit/website-seo-audit-card.png",
+      date: "August 13, 2026",
+      category: "Digital Marketing",
+      title: "How to Do a Website SEO Audit Before Hiring an Agency",
+      description: "Learn how to do a website SEO audit yourself. Use this DIY SEO audit checklist to find speed, indexing, keyword, and technical SEO issues.",
+      link: "/blog/allblogs/website-seo-audit",
+    },
     
-    // ADD YOUR NEXT BLOG HERE
-    // {
-    //   id: 2,
-    //   image: "/images/your-image.jpg",
-    //   date: "JULY 25, 2026",
-    //   category: "Social Media",
-    //   title: "Your Blog Title",
-    //   description: "Your blog description",
-    //   link: "#",
-    // },
+    
+    {
+      id: 3,
+      image: "/assets/blog/allblogs/real-time-weather-marketing/real-time-weather-marketing-card.png",
+      date: "August 13, 2026",
+      category: "AI",
+      title: "Real-Time Marketing: Turn Weather Data Into Revenue",
+      description: "Learn how agile brands use weather data, AI, and real-time signals to create contextual marketing campaigns that drive revenue.",
+      link: "/blog/allblogs/real-time-weather-marketing",
+    },
 
-    // ADD MORE BLOGS HERE
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   ];
 
   const filteredBlogs =

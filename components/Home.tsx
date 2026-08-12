@@ -190,6 +190,7 @@ function ProcessCard({
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+
   const carouselImages = [
     "/home/clientlogo/1.png",
     "/home/clientlogo/2.png",
@@ -206,6 +207,41 @@ export default function Home() {
     "/home/clientlogo/13.png",
     "/home/clientlogo/14.png",
   ];
+
+const blogCards = [
+  {
+    id: 1,
+    image: "/assets/blog/allblogs/demoblog/blogthumbnail1.png",
+    date: "JULY 28, 2026",
+    category: "Big Beans Digital",
+    title: "Scaling Startups into Powerhouses",
+    description:
+      "In today’s hyper-competitive digital landscape, turning a breakthrough idea into an industry-leading brand requires far more than aesthetic graphics or basic ad campaigns........Click Read More",
+    link: "/blog/allblogs/demo",
+  },
+
+  {
+      id: 2,
+      image: "/assets/blog/allblogs/website-seo-audit/website-seo-audit-card.png",
+      date: "August 13, 2026",
+      category: "Digital Marketing",
+      title: "How to Do a Website SEO Audit Before Hiring an Agency",
+      description: "Learn how to do a website SEO audit yourself. Use this DIY SEO audit checklist to find speed, indexing, keyword, and technical SEO issues.",
+      link: "/blog/allblogs/website-seo-audit",
+    },
+
+  {
+      id: 3,
+      image: "/assets/blog/allblogs/real-time-weather-marketing/real-time-weather-marketing-card.png",
+      date: "August 13, 2026",
+      category: "AI",
+      title: "Real-Time Marketing: Turn Weather Data Into Revenue",
+      description: "Learn how agile brands use weather data, AI, and real-time signals to create contextual marketing campaigns that drive revenue.",
+      link: "/blog/allblogs/real-time-weather-marketing",
+    },
+
+];
+
 
   return (
     <section className="bg-[#FFFFFF] overflow-hidden pb-16 sm:pb-20">
@@ -2091,448 +2127,310 @@ export default function Home() {
         </div>
       </section>
 
-      {/* =========================================================
-          BLOGS
-      ========================================================= */}
-      <section className="bg-[#FFFFFF] py-10 sm:py-16">
+      
+{/* =========================================================
+      BLOGS
+   ========================================================= */}
+<section className="bg-[#FFFFFF] py-10 sm:py-16">
 
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+  <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
 
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-9 sm:mb-16">
+    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-9 sm:mb-16">
 
-            <div>
+      <div>
 
-              <p
-                className="
-                  uppercase
-                  tracking-[4px]
-                  sm:tracking-[6px]
-                  text-[10px]
-                  sm:text-sm
-                  font-semibold
-                  text-gray-500
-                  mb-3
-                  sm:mb-4
-                "
-              >
-                OUR BLOGS
-              </p>
+        <p
+          className="
+            uppercase
+            tracking-[4px]
+            sm:tracking-[6px]
+            text-[10px]
+            sm:text-sm
+            font-semibold
+            text-gray-500
+            mb-3
+            sm:mb-4
+          "
+        >
+          OUR BLOGS
+        </p>
 
-              <h2
-                className="
-                  text-[34px]
-                  sm:text-5xl
-                  md:text-6xl
-                  font-black
-                  text-[#171717]
-                  leading-tight
-                "
-              >
-                Stay Updated with{" "}
-                <span className="text-[#F8BC04]">
-                  Our Blogs
-                </span>
-              </h2>
+        <h2
+          className="
+            text-[34px]
+            sm:text-5xl
+            md:text-6xl
+            font-black
+            text-[#171717]
+            leading-tight
+          "
+        >
+          Stay Updated with{" "}
+          <span className="text-[#F8BC04]">
+            Our Blogs
+          </span>
+        </h2>
 
-              <p
-                className="
-                  max-w-6xl
-                  mx-auto
-                  mt-5
-                  sm:mt-8
-                  text-sm
-                  sm:text-lg
-                  text-gray-600
-                  leading-relaxed
-                "
-              >
-                Discover actionable insights, social media marketing strategies, branding tips,
-                creative design trends, and digital marketing guides designed for startups, entrepreneurs,
-                and growing businesses. Explore expert articles from BigBeans Digital to help your business
-                grow online, build a stronger brand, and stay ahead of the competition.
-              </p>
+        <p
+          className="
+            max-w-6xl
+            mx-auto
+            mt-5
+            sm:mt-8
+            text-sm
+            sm:text-lg
+            text-gray-600
+            leading-relaxed
+          "
+        >
+          Discover actionable insights, social media marketing strategies, branding tips,
+          creative design trends, and digital marketing guides designed for startups, entrepreneurs,
+          and growing businesses. Explore expert articles from BigBeans Digital to help your business
+          grow online, build a stronger brand, and stay ahead of the competition.
+        </p>
 
-            </div>
+      </div>
 
-            <Link href="/blog">
+      <Link href="/blog">
 
-              <button
-                className="
-                  mt-6
-                  lg:mt-25
-                  bg-[#F8BC04]
-                  px-6
-                  sm:px-8
-                  py-3
-                  sm:py-4
-                  rounded-full
-                  font-semibold
-                  text-sm
-                  sm:text-base
-                  hover:scale-105
-                  transition
-                  whitespace-nowrap
-                "
-              >
-                View All Blogs →
-              </button>
+        <button
+          className="
+            mt-6
+            lg:mt-25
+            bg-[#F8BC04]
+            px-6
+            sm:px-8
+            py-3
+            sm:py-4
+            rounded-full
+            font-semibold
+            text-sm
+            sm:text-base
+            hover:scale-105
+            transition
+            whitespace-nowrap
+          "
+        >
+          View All Blogs →
+        </button>
 
-            </Link>
+      </Link>
 
-          </div>
+    </div>
 
+    
+
+
+<div
+  className="
+    mt-12
+    grid
+    grid-cols-1
+    md:grid-cols-2
+    xl:grid-cols-3
+    gap-8
+    items-stretch
+  "
+>
+  {blogCards.map((blog) => (
+    <Link
+      key={blog.id}
+      href={blog.link}
+      className="group block h-full"
+    >
+      <motion.div
+        whileHover={{ y: -6 }}
+        transition={{ duration: 0.3 }}
+        className="
+          relative
+          bg-white
+          rounded-[24px]
+          overflow-hidden
+          border
+          border-gray-200
+          shadow-[0_8px_30px_rgba(0,0,0,0.08)]
+          hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)]
+          h-full
+          flex
+          flex-col
+          transition-shadow
+          duration-300
+        "
+      >
+
+        {/* IMAGE */}
+        <div className="relative w-full h-[265px] overflow-hidden">
+
+          <motion.img
+            src={blog.image}
+            alt={blog.title}
+            whileHover={{ scale: 1.04 }}
+            transition={{ duration: 0.5 }}
+            className="
+              w-full
+              h-full
+              object-cover
+              block
+            "
+          />
+
+          {/* DATE */}
           <div
             className="
-              grid
-              grid-cols-1
-              sm:grid-cols-2
-              xl:grid-cols-3
-              gap-4
-              sm:gap-6
-              lg:gap-8
-              items-stretch
+              absolute
+              bottom-4
+              left-5
+              text-white
+              text-[12px]
+              sm:text-[13px]
+              font-semibold
+              tracking-wide
+              drop-shadow-md
+            "
+          >
+            {blog.date}
+          </div>
+
+          {/* CATEGORY */}
+          <div
+            className="
+              absolute
+              bottom-4
+              right-4
+              bg-white
+              text-[#171717]
+              px-5
+              py-2
+              rounded-full
+              text-[11px]
+              sm:text-[12px]
+              font-medium
+              shadow-sm
+            "
+          >
+            {blog.category}
+          </div>
+
+        </div>
+
+        {/* CONTENT */}
+        <div
+          className="
+            flex
+            flex-col
+            flex-1
+            px-6
+            sm:px-7
+            pt-7
+            pb-6
+          "
+        >
+
+          {/* TITLE */}
+          <h3
+            className="
+              text-[21px]
+              sm:text-[22px]
+              leading-[1.15]
+              font-medium
+              text-[#171717]
+              tracking-[-0.3px]
+            "
+          >
+            {blog.title}
+          </h3>
+
+          {/* DESCRIPTION */}
+          <p
+            className="
+              mt-5
+              text-[14px]
+              sm:text-[15px]
+              leading-[1.65]
+              text-gray-500
+              font-normal
+            "
+          >
+            {blog.description}
+          </p>
+
+          {/* DIVIDER */}
+          <div
+            className="
+              mt-7
+              border-t
+              border-gray-200
+            "
+          />
+
+          {/* READ ARTICLE */}
+          <div
+            className="
+              mt-5
+              flex
+              items-center
+              justify-between
             "
           >
 
-            {/* BLOG 1 */}
-            <motion.div
-              whileHover={{
-                y: -8,
-              }}
-              transition={{
-                duration: 0.3,
-              }}
+            <span
               className="
-                bg-white
-                rounded-[24px]
-                sm:rounded-[30px]
-                overflow-hidden
-                shadow-md
-                border
-                border-gray-100
-                h-full
-                flex
-                flex-col
+                text-[12px]
+                sm:text-[13px]
+                font-semibold
+                tracking-[1.5px]
+                text-[#171717]
               "
             >
+              READ ARTICLE
+            </span>
 
-              <div className="overflow-hidden flex-shrink-0">
-
-                <motion.div
-                  whileHover={{
-                    scale: 1.06,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                  }}
-                >
-                  <Image
-                    src="/blog/blog1.jpg"
-                    alt="Blog 1"
-                    width={700}
-                    height={450}
-                    className="
-                      w-full
-                      h-[190px]
-                      sm:h-[220px]
-                      lg:h-[260px]
-                      object-cover
-                    "
-                  />
-                </motion.div>
-
-              </div>
-
-              <div className="p-4 sm:p-6 lg:p-8 flex flex-col flex-1">
-
-                <div className="flex flex-wrap justify-between items-center gap-2">
-
-                  <span className="text-[10px] sm:text-sm text-gray-500">
-                    June 05, 2026
-                  </span>
-
-                  <span
-                    className="
-                      bg-[#F8BC04]/20
-                      px-2.5
-                      sm:px-4
-                      py-1.5
-                      sm:py-2
-                      rounded-full
-                      text-[9px]
-                      sm:text-sm
-                    "
-                  >
-                    Digital Marketing
-                  </span>
-
-                </div>
-
-                <h3
-                  className="
-                    mt-5
-                    sm:mt-6
-                    text-[19px]
-                    sm:text-2xl
-                    font-bold
-                    text-[#171717]
-                    leading-tight
-                  "
-                >
-                  Video Marketing Guide: Strategy,
-                  Examples & Best Practices
-                </h3>
-
-                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Learn how video marketing helps brands increase
-                  engagement, build trust and drive conversions.
-                </p>
-
-                <button
-                  className="
-                    mt-auto
-                    pt-6
-                    font-bold
-                    text-xs
-                    sm:text-sm
-                    text-left
-                    hover:translate-x-2
-                    transition
-                  "
-                >
-                  READ MORE →
-                </button>
-
-              </div>
-            </motion.div>
-
-            {/* BLOG 2 */}
-            <motion.div
-              whileHover={{
-                y: -8,
-              }}
-              transition={{
-                duration: 0.3,
-              }}
+            <span
               className="
-                bg-white
-                rounded-[24px]
-                sm:rounded-[30px]
-                overflow-hidden
-                shadow-md
-                border
-                border-gray-100
-                h-full
+                w-9
+                h-9
+                rounded-full
+                bg-[#171717]
                 flex
-                flex-col
+                items-center
+                justify-center
+                text-white
+                text-lg
+                transition-transform
+                duration-300
+                group-hover:translate-x-1
               "
             >
-
-              <div className="overflow-hidden flex-shrink-0">
-
-                <motion.div
-                  whileHover={{
-                    scale: 1.06,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                  }}
-                >
-                  <Image
-                    src="/blog/blog2.jpg"
-                    alt="Blog 2"
-                    width={700}
-                    height={450}
-                    className="
-                      w-full
-                      h-[190px]
-                      sm:h-[220px]
-                      lg:h-[260px]
-                      object-cover
-                    "
-                  />
-                </motion.div>
-
-              </div>
-
-              <div className="p-4 sm:p-6 lg:p-8 flex flex-col flex-1">
-
-                <div className="flex flex-wrap justify-between items-center gap-2">
-
-                  <span className="text-[10px] sm:text-sm text-gray-500">
-                    May 25, 2026
-                  </span>
-
-                  <span
-                    className="
-                      bg-[#F8BC04]/20
-                      px-2.5
-                      sm:px-4
-                      py-1.5
-                      sm:py-2
-                      rounded-full
-                      text-[9px]
-                      sm:text-sm
-                    "
-                  >
-                    SEO
-                  </span>
-
-                </div>
-
-                <h3
-                  className="
-                    mt-5
-                    sm:mt-6
-                    text-[19px]
-                    sm:text-2xl
-                    font-bold
-                    text-[#171717]
-                    leading-tight
-                  "
-                >
-                  SEO Pricing in India (2026):
-                  Complete Cost Comparison Guide
-                </h3>
-
-                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Compare agency pricing, freelancer costs,
-                  SEO packages and ROI expectations.
-                </p>
-
-                <button
-                  className="
-                    mt-auto
-                    pt-6
-                    font-bold
-                    text-xs
-                    sm:text-sm
-                    text-left
-                    hover:translate-x-2
-                    transition
-                  "
-                >
-                  READ MORE →
-                </button>
-
-              </div>
-            </motion.div>
-
-            {/* BLOG 3 */}
-            <motion.div
-              whileHover={{
-                y: -8,
-              }}
-              transition={{
-                duration: 0.3,
-              }}
-              className="
-                bg-white
-                rounded-[24px]
-                sm:rounded-[30px]
-                overflow-hidden
-                shadow-md
-                border
-                border-gray-100
-                h-full
-                flex
-                flex-col
-              "
-            >
-
-              <div className="overflow-hidden flex-shrink-0">
-
-                <motion.div
-                  whileHover={{
-                    scale: 1.06,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                  }}
-                >
-                  <Image
-                    src="/blog/blog3.jpg"
-                    alt="Blog 3"
-                    width={700}
-                    height={450}
-                    className="
-                      w-full
-                      h-[190px]
-                      sm:h-[220px]
-                      lg:h-[260px]
-                      object-cover
-                    "
-                  />
-                </motion.div>
-
-              </div>
-
-              <div className="p-4 sm:p-6 lg:p-8 flex flex-col flex-1">
-
-                <div className="flex flex-wrap justify-between items-center gap-2">
-
-                  <span className="text-[10px] sm:text-sm text-gray-500">
-                    May 20, 2026
-                  </span>
-
-                  <span
-                    className="
-                      bg-[#F8BC04]/20
-                      px-2.5
-                      sm:px-4
-                      py-1.5
-                      sm:py-2
-                      rounded-full
-                      text-[9px]
-                      sm:text-sm
-                    "
-                  >
-                    Digital Marketing
-                  </span>
-
-                </div>
-
-                <h3
-                  className="
-                    mt-5
-                    sm:mt-6
-                    text-[19px]
-                    sm:text-2xl
-                    font-bold
-                    text-[#171717]
-                    leading-tight
-                  "
-                >
-                  Google Core Update:
-                  What Every Business Should Know
-                </h3>
-
-                <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-600 leading-relaxed">
-                  Understand how algorithm updates impact rankings,
-                  traffic and business visibility.
-                </p>
-
-                <button
-                  className="
-                    mt-auto
-                    pt-6
-                    font-bold
-                    text-xs
-                    sm:text-sm
-                    text-left
-                    hover:translate-x-2
-                    transition
-                  "
-                >
-                  READ MORE →
-                </button>
-
-              </div>
-            </motion.div>
+              →
+            </span>
 
           </div>
+
         </div>
-      </section>
+
+        {/* YELLOW BOTTOM BORDER */}
+        <div
+          className="
+            absolute
+            bottom-0
+            left-0
+            w-full
+            h-[3px]
+            bg-[#F8BC04]
+          "
+        />
+
+      </motion.div>
+    </Link>
+  ))}
+</div>
+
+
+  </div>
+
+</section>
+
+
 
       {/* =========================================================
           GLOBAL PRESENCE
