@@ -1,38 +1,222 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
-export default function WebsiteSeoAudit() {
+const thumbnail =
+  "/assets/blog/allblogs/website-seo-audit/website-seo-audit-thumbnail.png";
+
+const services = [
+  {
+    title: "Social Media Marketing",
+    description: "Build brand awareness and grow your audience across social platforms.",
+    href: "/services/social-media-marketing",
+  },
+  {
+    title: "Performance Marketing",
+    description: "Drive targeted traffic and maximize ROI with data-driven campaigns.",
+    href: "/services/performance-marketing",
+  },
+  {
+    title: "Google Ads",
+    description: "Reach high-intent customers when they are actively searching.",
+    href: "/services/google-ads",
+  },
+  {
+    title: "Website Development",
+    description: "Create fast, responsive and SEO-friendly websites that convert.",
+    href: "/services/website-development",
+  },
+  {
+    title: "Branding",
+    description: "Build a strong brand identity that connects with your audience.",
+    href: "/services/branding",
+  },
+];
+
+const featuredPosts = [
+  {
+    title: "How to Audit Your Own Website SEO Before Hiring an Agency",
+    date: "August 14, 2026",
+    image: thumbnail,
+    href: "/blog/allblogs/website-seo-audit",
+  },
+  {
+    title: "Stop Guessing the Weather: How Agile Brands Turn Real-Time Data into Revenue",
+    date: "August 14, 2026",
+    image:
+      "/assets/blog/allblogs/real-time-weather-marketing/real-time-weather-marketing-card.png",
+    href: "/blog/allblogs/real-time-weather-marketing",
+  },
+];
+
+const checklist = [
+  "Check whether important pages are indexed",
+  "Review your website's mobile experience",
+  "Test page speed and Core Web Vitals",
+  "Find broken links and 404 errors",
+  "Review internal links",
+  "Check page titles",
+  "Review meta descriptions",
+  "Look for duplicate metadata",
+  "Check whether important pages target relevant keywords",
+  "Make sure key services have dedicated pages",
+  "Review content quality",
+  "Check whether content matches search intent",
+  "Identify outdated or thin content",
+  "Review your website navigation",
+];
+
+const auditAreas = [
+  {
+    number: "01",
+    title: "Technical SEO",
+    text: "Make sure search engines can crawl, understand and access your important pages.",
+  },
+  {
+    number: "02",
+    title: "On-Page SEO",
+    text: "Review titles, descriptions, headings, keywords and the structure of important pages.",
+  },
+  {
+    number: "03",
+    title: "Content Quality",
+    text: "Check whether your content genuinely answers the questions your audience is searching for.",
+  },
+  {
+    number: "04",
+    title: "Website Speed",
+    text: "Identify slow pages, oversized media and performance problems affecting user experience.",
+  },
+  {
+    number: "05",
+    title: "Internal Linking",
+    text: "Make sure important pages are connected naturally so visitors and search engines can discover them.",
+  },
+  {
+    number: "06",
+    title: "Mobile Experience",
+    text: "Check whether your website remains useful, readable and easy to navigate on smaller screens.",
+  },
+];
+
+const keywordQuestions = [
+  "Does each important service have a dedicated page?",
+  "Does each page focus on a clear topic?",
+  "Does the page match what the searcher actually wants?",
+  "Are the keywords relevant to people who could become customers?",
+];
+
+const contentQuestions = [
+  "What does this company do?",
+  "Who does it help?",
+  "What service or product is being offered?",
+  "Why should I choose it?",
+  "What should I do next?",
+];
+
+const speedMetrics = [
+  {
+    label: "LCP",
+    title: "Largest Contentful Paint",
+    description: "Measures how quickly the main content becomes visible.",
+  },
+  {
+    label: "INP",
+    title: "Interaction to Next Paint",
+    description: "Measures how responsive the page is to user interactions.",
+  },
+  {
+    label: "CLS",
+    title: "Cumulative Layout Shift",
+    description: "Measures unexpected movement of content while the page loads.",
+  },
+];
+
+function SectionTitle({
+  number,
+  title,
+}: {
+  number: string;
+  title: string;
+}) {
   return (
-    <main className="min-h-screen bg-white text-[#3f3f3f]">
+    <div className="mb-5 flex items-start gap-4">
+      <span className="flex h-9 min-w-9 items-center justify-center rounded-md bg-[#F8BC04] px-2 text-sm font-extrabold text-black">
+        {number}
+      </span>
 
-      {/* =========================================================
-          BREADCRUMB
-      ========================================================= */}
-      <section className="w-full bg-white px-4 py-6 sm:px-6 sm:py-8 lg:py-10">
-        <div className="mx-auto flex max-w-7xl justify-center">
-          <div
-            className="
-              flex
-              max-w-full
-              items-center
-              gap-2
-              overflow-x-auto
-              whitespace-nowrap
-              rounded-full
-              bg-white
-              px-5
-              py-3
-              shadow-[0_8px_28px_rgba(0,0,0,0.08)]
-              sm:gap-3
-              sm:px-7
-              sm:py-3.5
-              lg:px-8
-              lg:py-4
-            "
-          >
+      <h2 className="pt-1 text-[25px] font-extrabold leading-[1.15] tracking-[-0.5px] text-[#171717] md:text-[30px]">
+        {title}
+      </h2>
+    </div>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 12H19M13 6L19 12L13 18"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function CheckIcon() {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 12.5L9.5 17L19 7.5"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export default function WebsiteSeoAuditPage() {
+  const postedDate = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "2-digit",
+    year: "numeric",
+  }).format(new Date());
+
+  const articleTitle =
+    "How to Audit Your Own Website SEO Before Hiring an Agency";
+
+  const aiPrompt = encodeURIComponent(
+    `Summarize the following BIGBEANS DIGITAL blog in a clear, practical way. Highlight the most important SEO lessons, actionable checks, tools mentioned, and key takeaways for a business owner. Blog title: "${articleTitle}". URL: ${typeof window !== "undefined" ? window.location.href : "BIGBEANS DIGITAL blog"}`
+  );
+
+  return (
+    <>
+
+      <main className="bg-[#FAFAFA] text-[#171717]">
+        {/* BREADCRUMB */}
+        <div className="mx-auto max-w-[1380px] px-5 pt-7 md:px-8 lg:px-10">
+          <div className="inline-flex max-w-full items-center gap-2 overflow-hidden rounded-full border border-[#E8E8E8] bg-white px-5 py-3 text-[12px] shadow-[0_8px_25px_rgba(0,0,0,0.05)] md:text-[13px]">
             <Link
               href="/"
-              className="text-sm text-gray-600 transition hover:text-[#F8BC04] sm:text-base"
+              className="shrink-0 transition-colors hover:text-[#F8BC04]"
             >
               Home
             </Link>
@@ -41,1474 +225,870 @@ export default function WebsiteSeoAudit() {
 
             <Link
               href="/blog"
-              className="text-sm text-gray-600 transition hover:text-[#F8BC04] sm:text-base"
+              className="shrink-0 transition-colors hover:text-[#F8BC04]"
             >
-              BLOGS
+              Blogs
             </Link>
 
             <span className="text-[#F8BC04]">→</span>
 
-            <span className="text-sm font-semibold text-[#171717] sm:text-base">
+            <span className="truncate font-bold uppercase">
               Website SEO Audit
             </span>
           </div>
         </div>
-      </section>
 
-
-      {/* =========================================================
-          HERO THUMBNAIL
-          DESKTOP MAX: 1237 × 402
-      ========================================================= */}
-      <section className="px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto w-full max-w-[1237px]">
-          <div
-            className="
-              relative
-              aspect-[1237/402]
-              w-full
-              overflow-hidden
-              rounded-xl
-              bg-[#111111]
-              sm:rounded-2xl
-              lg:rounded-[22px]
-            "
-          >
-            <Image
-              src="/assets/blog/allblogs/website-seo-audit/website-seo-audit-thumbnail.png"
-              alt="How to Audit Your Own Website SEO Before Hiring an Agency"
-              fill
-              priority
-              sizes="(max-width: 640px) 100vw, (max-width: 1280px) 100vw, 1237px"
-              className="object-cover"
-            />
-          </div>
-        </div>
-      </section>
-
-
-      {/* =========================================================
-          ARTICLE
-      ========================================================= */}
-      <article
-        className="
-          mx-auto
-          w-full
-          max-w-[1050px]
-          px-5
-          pb-20
-          pt-12
-          sm:px-7
-          sm:pt-14
-          md:px-8
-          md:pt-16
-          lg:px-10
-          lg:pb-28
-          lg:pt-20
-        "
-      >
-
-        {/* =======================================================
-            TITLE
-        ======================================================= */}
-        <header className="mb-10 sm:mb-12 lg:mb-14">
-
-          <h1
-            className="
-              max-w-[1000px]
-              text-[30px]
-              font-semibold
-              leading-[1.18]
-              tracking-[-0.025em]
-              text-[#222222]
-              sm:text-[36px]
-              md:text-[42px]
-              lg:text-[48px]
-            "
-          >
-            How to Audit Your Own Website SEO Before Hiring an Agency
-          </h1>
-
-        </header>
-
-
-        {/* =======================================================
-            INTRODUCTION
-        ======================================================= */}
-        <section className="mb-16 sm:mb-20 lg:mb-24">
-
-          <div
-            className="
-              space-y-5
-              text-[16px]
-              leading-[1.75]
-              text-[#555555]
-              sm:text-[17px]
-              lg:text-[18px]
-            "
-          >
-
-            <p>
-              If your website isn&apos;t getting enough traffic, enquiries, or
-              sales from Google, you may be wondering:
-              <strong className="font-semibold text-[#303030]">
-                {" "}Is my website SEO actually bad?
-              </strong>
-            </p>
-
-            <p>
-              Before paying an SEO agency, you can perform a basic website SEO
-              audit yourself.
-            </p>
-
-            <p>
-              You don&apos;t need to be an SEO expert. With a few free tools
-              and straightforward checks, you can identify common problems
-              with your{" "}
-              <strong className="font-semibold text-[#303030]">
-                speed, indexing, broken links, page titles, keywords, content,
-                and mobile experience
-              </strong>
-              .
-            </p>
-
-            <p>
-              This DIY SEO audit won&apos;t replace a professional technical
-              audit, but it can help you understand where obvious problems
-              exist and whether your website needs deeper SEO work.
-            </p>
-
-          </div>
-
-        </section>
-
-
-        {/* =======================================================
-            WHAT IS SEO AUDIT
-        ======================================================= */}
-        <section className="mb-16 sm:mb-20 lg:mb-24">
-
-          <h2
-            className="
-              mb-5
-              text-[26px]
-              font-semibold
-              leading-[1.25]
-              tracking-[-0.02em]
-              text-[#333333]
-              sm:text-[31px]
-              lg:text-[36px]
-            "
-          >
-            What Is a Website SEO Audit?
-          </h2>
-
-          <div
-            className="
-              space-y-5
-              text-[16px]
-              leading-[1.75]
-              text-[#555555]
-              sm:text-[17px]
-              lg:text-[18px]
-            "
-          >
-
-            <p>
-              A website SEO audit is a systematic review of your website to
-              find issues that may prevent search engines from crawling,
-              understanding, indexing, and ranking your pages effectively.
-            </p>
-
-            <p>
-              A comprehensive SEO audit can examine:
-            </p>
-
-            <ul className="list-disc space-y-2 pl-6">
-              <li>Technical SEO</li>
-              <li>On-page SEO</li>
-              <li>Keyword targeting</li>
-              <li>Content quality</li>
-              <li>Website speed</li>
-              <li>Internal linking</li>
-              <li>Backlinks</li>
-              <li>Site architecture</li>
-              <li>Structured data</li>
-              <li>Mobile usability</li>
-              <li>Indexing and crawlability</li>
-            </ul>
-
-            <p>
-              For a business owner, you don&apos;t need to start with the most
-              technical areas.
-            </p>
-
-            <p>
-              Start with these{" "}
-              <strong className="font-semibold text-[#303030]">
-                six basic checks.
-              </strong>
-            </p>
-
-          </div>
-
-        </section>
-
-
-        {/* =======================================================
-            SECTION 01
-            TEXT LEFT / IMAGE RIGHT
-        ======================================================= */}
-        <section className="mb-20 sm:mb-24 lg:mb-28">
-
-          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_390px] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_430px]">
-
+        {/* HERO */}
+        <section className="mx-auto max-w-[1380px] px-5 pb-12 pt-8 md:px-8 md:pt-12 lg:px-10 lg:pb-16">
+          <div className="grid items-center gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-14">
+            {/* LEFT */}
             <div>
+              <h1 className="max-w-[650px] text-[42px] font-black leading-[0.98] tracking-[-2px] md:text-[58px] lg:text-[68px]">
+                How to Audit Your Own Website{" "}
+                <span className="text-[#F8BC04]">SEO</span> Before Hiring an
+                Agency
+              </h1>
 
-              <h2
-                className="
-                  mb-6
-                  text-[25px]
-                  font-semibold
-                  leading-[1.25]
-                  tracking-[-0.02em]
-                  text-[#333333]
-                  sm:text-[30px]
-                  lg:text-[34px]
-                "
-              >
-                1. Check If Google Has Indexed Your Website
-              </h2>
+              <p className="mt-7 max-w-[610px] text-[17px] leading-[1.65] text-[#3F3F3F] md:text-[18px]">
+                A step-by-step DIY SEO audit guide to help you find issues,
+                improve rankings, and hire the right SEO agency.
+              </p>
 
-              <div
-                className="
-                  space-y-5
-                  text-[16px]
-                  leading-[1.75]
-                  text-[#555555]
-                  sm:text-[17px]
-                  lg:text-[18px]
-                "
-              >
+              {/* DATE + AUTHOR */}
+              <div className="mt-7 flex flex-wrap items-center gap-3 text-[13px] text-[#555]">
+                <span>{postedDate}</span>
 
-                <p>
+                <span className="h-4 w-px bg-[#BDBDBD]" />
+
+                <span className="font-extrabold tracking-[0.3px] text-[#171717]">
+                  BY BIG BEANS DIGITAL
+                </span>
+              </div>
+            </div>
+
+            {/* THUMBNAIL */}
+            <div className="relative overflow-hidden rounded-[34px] bg-[#F8BC04]">
+              <div className="relative aspect-[1350/1080] w-full">
+                <Image
+                  src={thumbnail}
+                  alt={articleTitle}
+                  fill
+                  priority
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* MAIN BLOG AREA */}
+        <section className="mx-auto max-w-[1380px] px-5 pb-20 md:px-8 lg:px-10">
+          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_370px] lg:gap-14">
+            {/* LEFT CONTENT */}
+            <article className="min-w-0">
+              {/* AI SUMMARY */}
+              <div className="mb-10 flex flex-wrap items-center gap-4 rounded-full border border-[#E5E5E5] bg-white px-5 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+                <span className="text-[15px] font-medium text-[#F0AA00]">
+                  Summarize with AI
+                </span>
+
+                <span className="h-5 w-px bg-[#E5E5E5]" />
+
+                <a
+                  href={`https://chatgpt.com/?q=${aiPrompt}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Summarize this blog with ChatGPT"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#F8BC04] bg-white text-[#F8BC04] transition-all hover:scale-105 hover:bg-[#FFF8DE]"
+                >
+                  <span className="text-[17px] font-bold">◉</span>
+                </a>
+
+                <a
+                  href={`https://gemini.google.com/app?text=${aiPrompt}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Summarize this blog with Gemini"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#F8BC04] bg-white text-[#F8BC04] transition-all hover:scale-105 hover:bg-[#FFF8DE]"
+                >
+                  <span className="text-[20px] font-bold">✦</span>
+                </a>
+              </div>
+
+              {/* INTRODUCTION */}
+              <section className="mb-14">
+                <div className="rounded-[22px] border border-[#ECECEC] bg-white p-7 shadow-[0_8px_30px_rgba(0,0,0,0.035)] md:p-9">
+                  <p className="text-[16px] leading-[1.8] text-[#333]">
+                    If your website isn't getting enough traffic, enquiries,
+                    or sales from Google, you may be wondering:
+                  </p>
+
+                  <div className="my-5 rounded-xl border-l-4 border-[#F8BC04] bg-[#FFF9E8] px-5 py-4 text-[18px] font-bold leading-[1.55]">
+                    Is my website SEO actually bad?
+                  </div>
+
+                  <p className="text-[16px] leading-[1.8] text-[#333]">
+                    Before paying an SEO agency, you can perform a basic
+                    website SEO audit yourself.
+                  </p>
+
+                  <p className="mt-4 text-[16px] leading-[1.8] text-[#333]">
+                    You don't need to be an SEO expert. With a few free tools
+                    and straightforward checks, you can identify common
+                    problems with your{" "}
+                    <strong>
+                      speed, indexing, broken links, page titles, keywords,
+                      content, and mobile experience
+                    </strong>
+                    .
+                  </p>
+
+                  <p className="mt-4 text-[16px] leading-[1.8] text-[#333]">
+                    This DIY SEO audit won't replace a professional technical
+                    audit, but it can help you understand where obvious
+                    problems exist and whether your website needs deeper SEO
+                    work.
+                  </p>
+                </div>
+              </section>
+
+              {/* WHAT IS SEO AUDIT */}
+              <section className="mb-14">
+                <SectionTitle number="01" title="What Is a Website SEO Audit?" />
+
+                <p className="text-[16px] leading-[1.8] text-[#444]">
+                  A website SEO audit is a systematic review of your website
+                  to find issues that may prevent search engines from
+                  crawling, understanding, indexing, and ranking your pages
+                  effectively.
+                </p>
+
+                <p className="mt-5 text-[16px] font-semibold leading-[1.7]">
+                  A comprehensive SEO audit can examine:
+                </p>
+
+                <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {auditAreas.map((item) => (
+                    <div
+                      key={item.number}
+                      className="group rounded-2xl border border-[#E7E7E7] bg-white p-5 transition-all hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_12px_30px_rgba(0,0,0,0.07)]"
+                    >
+                      <div className="mb-4 flex items-center justify-between">
+                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#171717] text-[11px] font-bold text-white">
+                          {item.number}
+                        </span>
+
+                        <span className="text-[#F8BC04]">↗</span>
+                      </div>
+
+                      <h3 className="text-[16px] font-extrabold">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-2 text-[13px] leading-[1.55] text-[#777]">
+                        {item.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-7 rounded-2xl bg-[#171717] p-6 text-white md:p-7">
+                  <p className="text-[15px] leading-[1.75] text-[#E5E5E5]">
+                    For a business owner, you don't need to start with the
+                    most technical areas.
+                  </p>
+
+                  <p className="mt-2 text-[19px] font-extrabold leading-[1.4]">
+                    Start with these six basic checks.
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION 2 */}
+              <section className="mb-14">
+                <SectionTitle
+                  number="02"
+                  title="Check If Google Has Indexed Your Website"
+                />
+
+                <p className="text-[16px] leading-[1.8] text-[#444]">
                   Before worrying about keywords or backlinks, make sure Google
                   can actually find your important pages.
                 </p>
 
-                <p>
-                  A quick way to check is to search Google for:
-                </p>
+                <div className="my-7 overflow-hidden rounded-2xl border border-[#E7E7E7] bg-white">
+                  <div className="bg-[#171717] px-6 py-4 text-sm font-bold text-white">
+                    QUICK GOOGLE CHECK
+                  </div>
 
-                <div className="overflow-x-auto rounded-lg bg-[#f7f7f7] px-5 py-4 font-mono text-sm text-[#333333]">
-                  site:yourwebsite.com
+                  <div className="p-6">
+                    <p className="mb-3 text-[14px] text-[#666]">
+                      Search Google for:
+                    </p>
+
+                    <div className="rounded-xl bg-[#F7F7F7] px-5 py-4 font-mono text-[15px] font-semibold">
+                      site:yourwebsite.com
+                    </div>
+
+                    <p className="mt-3 text-[12px] italic text-[#777]">
+                      Replace yourwebsite.com with your actual domain, e.g.
+                      site:example.com
+                    </p>
+                  </div>
                 </div>
 
-                <p>
-                  Replace <strong>yourwebsite.com</strong> with your actual
-                  domain.
-                </p>
-
-                <p>
-                  For example:
-                </p>
-
-                <div className="overflow-x-auto rounded-lg bg-[#f7f7f7] px-5 py-4 font-mono text-sm text-[#333333]">
-                  site:example.com
-                </div>
-
-                <p>
-                  You should see pages from your website in the results.
-                </p>
-
-                <h3 className="pt-2 text-xl font-semibold text-[#333333]">
+                <h3 className="mt-7 text-[20px] font-extrabold">
                   What should you check?
                 </h3>
 
-                <p>Look for:</p>
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {[
+                    "Your homepage",
+                    "Main service pages",
+                    "Product or category pages",
+                    "Important blog posts",
+                    "Location pages, if applicable",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-3 rounded-xl border border-[#E9E9E9] bg-white px-4 py-4"
+                    >
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#FFF3C5] text-[#E2A500]">
+                        <CheckIcon />
+                      </span>
 
-                <ul className="list-disc space-y-2 pl-6">
-                  <li>Your homepage</li>
-                  <li>Main service pages</li>
-                  <li>Product or category pages</li>
-                  <li>Important blog posts</li>
-                  <li>Location pages, if applicable</li>
-                </ul>
+                      <span className="text-[14px] font-semibold">{item}</span>
+                    </div>
+                  ))}
+                </div>
 
-                <p>
-                  Also look for pages that{" "}
-                  <strong>shouldn&apos;t</strong> be appearing, such as
-                  duplicate, outdated, or irrelevant URLs.
-                </p>
-
-                <p>
-                  If important pages aren&apos;t indexed, don&apos;t
-                  immediately assume your website has been penalized. There may
-                  be a technical reason, such as a{" "}
-                  <strong>noindex directive, crawling problem,
-                  canonicalization issue, or lack of internal links.</strong>
-                </p>
-
-                <p>
-                  For a more accurate diagnosis, use{" "}
-                  <strong>Google Search Console</strong> to inspect your URLs
-                  and review indexing reports.
-                </p>
-
-                <div className="mt-7 border-l-4 border-[#F8BC04] bg-[#fffaf0] px-5 py-4">
-                  <p className="font-medium text-[#333333]">
-                    Quick DIY check
+                <div className="mt-7 rounded-2xl border border-[#F1D982] bg-[#FFF9E8] p-6">
+                  <p className="text-[15px] leading-[1.75] text-[#444]">
+                    Also look for pages that{" "}
+                    <strong>shouldn't be appearing</strong>, such as
+                    duplicate, outdated, or irrelevant URLs.
                   </p>
 
-                  <p className="mt-2 italic">
-                    Can Google find and index the pages that actually generate
-                    business for me?
+                  <p className="mt-4 text-[15px] leading-[1.75] text-[#444]">
+                    If important pages aren't indexed, don't immediately assume
+                    your website has been penalized. There may be a technical
+                    reason, such as a{" "}
+                    <strong>
+                      noindex directive, crawling problem, canonicalization
+                      issue, or lack of internal links
+                    </strong>
+                    .
                   </p>
                 </div>
 
-                <p>
-                  If the answer is unclear, this deserves further
-                  investigation.
-                </p>
+                <div className="mt-7 flex gap-4 rounded-2xl bg-[#171717] p-6 text-white">
+                  <div className="text-[25px] text-[#F8BC04]">★</div>
 
-              </div>
+                  <div>
+                    <h3 className="font-extrabold">Quick DIY Check</h3>
+                    <p className="mt-2 text-[14px] leading-[1.65] text-[#D4D4D4]">
+                      Can Google find and index the pages that actually
+                      generate business for me? If the answer is unclear, this
+                      deserves further investigation.
+                    </p>
+                  </div>
+                </div>
+              </section>
 
-            </div>
+              {/* SECTION 3 */}
+              <section className="mb-14">
+                <SectionTitle
+                  number="03"
+                  title="Test Your Website Speed and Core Web Vitals"
+                />
 
-
-            <figure className="self-start overflow-hidden rounded-2xl bg-[#f5f5f5]">
-              <Image
-                src="/assets/blog/allblogs/website-seo-audit/website-seo-audit-1.png"
-                alt="Website SEO audit showing website indexing and SEO improvement"
-                width={1536}
-                height={1536}
-                sizes="(max-width: 1023px) 100vw, 430px"
-                className="h-auto w-full object-contain"
-              />
-            </figure>
-
-          </div>
-
-        </section>
-
-
-        {/* =======================================================
-            SECTION 02
-            IMAGE LEFT / TEXT RIGHT
-        ======================================================= */}
-        <section className="mb-20 sm:mb-24 lg:mb-28">
-
-          <div className="grid items-start gap-10 lg:grid-cols-[400px_minmax(0,1fr)] lg:gap-12 xl:grid-cols-[430px_minmax(0,1fr)]">
-
-            <figure className="order-2 self-start overflow-hidden rounded-2xl bg-[#f5f5f5] lg:order-1">
-              <Image
-                src="/assets/blog/allblogs/website-seo-audit/website-seo-audit-2.png"
-                alt="SEO audit checklist and website optimization"
-                width={2048}
-                height={1024}
-                sizes="(max-width: 1023px) 100vw, 430px"
-                className="h-auto w-full object-contain"
-              />
-            </figure>
-
-
-            <div className="order-1 lg:order-2">
-
-              <h2
-                className="
-                  mb-6
-                  text-[25px]
-                  font-semibold
-                  leading-[1.25]
-                  tracking-[-0.02em]
-                  text-[#333333]
-                  sm:text-[30px]
-                  lg:text-[34px]
-                "
-              >
-                2. Test Your Website Speed and Core Web Vitals
-              </h2>
-
-              <div
-                className="
-                  space-y-5
-                  text-[16px]
-                  leading-[1.75]
-                  text-[#555555]
-                  sm:text-[17px]
-                  lg:text-[18px]
-                "
-              >
-
-                <p>
+                <p className="text-[16px] leading-[1.8] text-[#444]">
                   Imagine clicking a Google result and waiting several seconds
-                  for the website to load.
+                  for the website to load. Most people won't wait forever.
                 </p>
 
-                <p>
-                  Most people won&apos;t wait forever.
-                </p>
-
-                <p>
-                  Website performance affects user experience, and Google&apos;s
+                <p className="mt-4 text-[16px] leading-[1.8] text-[#444]">
+                  Website performance affects user experience, and Google's
                   page experience systems include{" "}
                   <strong>Core Web Vitals</strong> as important measurements of
                   real-world page experience.
                 </p>
 
-                <p>
-                  Use a tool such as PageSpeed Insights to test your most
-                  important pages.
-                </p>
+                <div className="mt-7 grid gap-4 md:grid-cols-3">
+                  {speedMetrics.map((metric) => (
+                    <div
+                      key={metric.label}
+                      className="relative overflow-hidden rounded-2xl border border-[#E7E7E7] bg-white p-6"
+                    >
+                      <div className="absolute right-4 top-4 text-[30px] font-black text-[#F8BC04]/30">
+                        {metric.label}
+                      </div>
 
-                <p>Pay attention to:</p>
+                      <span className="relative z-10 inline-flex rounded-lg bg-[#171717] px-3 py-1 text-xs font-bold text-white">
+                        {metric.label}
+                      </span>
 
-                <ul className="list-disc space-y-3 pl-6">
-                  <li>
-                    <strong>LCP (Largest Contentful Paint):</strong> How quickly
-                    the main content becomes visible
-                  </li>
+                      <h3 className="mt-6 text-[16px] font-extrabold">
+                        {metric.title}
+                      </h3>
 
-                  <li>
-                    <strong>INP (Interaction to Next Paint):</strong> How
-                    responsive the page is to user interactions
-                  </li>
-
-                  <li>
-                    <strong>CLS (Cumulative Layout Shift):</strong> How much
-                    the page unexpectedly moves while loading
-                  </li>
-                </ul>
-
-                <p>
-                  Don&apos;t obsess over getting a perfect score.
-                </p>
-
-                <p>
-                  Instead, look for obvious problems such as:
-                </p>
-
-                <ul className="list-disc space-y-2 pl-6">
-                  <li>Oversized images</li>
-                  <li>Unoptimized media</li>
-                  <li>Excessive JavaScript</li>
-                  <li>Slow third-party scripts</li>
-                  <li>Poor mobile performance</li>
-                  <li>Heavy themes or plugins</li>
-                  <li>Render-blocking resources</li>
-                </ul>
-
-                <h3 className="pt-2 text-xl font-semibold text-[#333333]">
-                  Don&apos;t audit desktop only
-                </h3>
-
-                <p>
-                  Your customers may be visiting from smartphones.
-                </p>
-
-                <p>
-                  Test your important pages on mobile and ask:
-                </p>
-
-                <div className="border-l-4 border-[#F8BC04] bg-[#fffaf0] px-5 py-4 italic">
-                  Would I stay on this page if I were searching for this
-                  service right now?
+                      <p className="mt-2 text-[13px] leading-[1.6] text-[#777]">
+                        {metric.description}
+                      </p>
+                    </div>
+                  ))}
                 </div>
 
-                <p>
-                  If the answer is no, performance and usability should move
-                  higher on your SEO priority list.
-                </p>
+                <div className="mt-8">
+                  <h3 className="text-[21px] font-extrabold">
+                    Don't obsess over getting a perfect score.
+                  </h3>
 
-              </div>
+                  <p className="mt-3 text-[15px] leading-[1.8] text-[#555]">
+                    Instead, look for obvious problems such as:
+                  </p>
 
-            </div>
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {[
+                      "Oversized images",
+                      "Unoptimized media",
+                      "Excessive JavaScript",
+                      "Slow third-party scripts",
+                      "Poor mobile performance",
+                      "Heavy themes or plugins",
+                      "Render-blocking resources",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="flex items-center gap-3 rounded-xl bg-white px-4 py-4 shadow-[0_4px_20px_rgba(0,0,0,0.04)]"
+                      >
+                        <span className="text-[#F8BC04]">✓</span>
+                        <span className="text-[14px] font-semibold">
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
 
-          </div>
+                <div className="mt-8 rounded-[22px] border border-[#E9E9E9] bg-white p-7">
+                  <h3 className="text-[21px] font-extrabold">
+                    Don't audit desktop only
+                  </h3>
 
-        </section>
+                  <p className="mt-3 text-[15px] leading-[1.8] text-[#555]">
+                    Your customers may be visiting from smartphones. Test your
+                    important pages on mobile and ask:
+                  </p>
 
+                  <div className="my-5 border-l-4 border-[#F8BC04] pl-5 text-[17px] font-bold italic leading-[1.6]">
+                    "Would I stay on this page if I were searching for this
+                    service right now?"
+                  </div>
 
-        {/* =======================================================
-            SECTION 03
-            TEXT LEFT / IMAGE RIGHT
-        ======================================================= */}
-        <section className="mb-20 sm:mb-24 lg:mb-28">
+                  <p className="text-[15px] leading-[1.8] text-[#555]">
+                    If the answer is no, performance and usability should move
+                    higher on your SEO priority list.
+                  </p>
+                </div>
+              </section>
 
-          <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_430px] lg:gap-12">
+              {/* SECTION 4 */}
+              <section className="mb-14">
+                <SectionTitle
+                  number="04"
+                  title="Find Broken Links and 404 Errors"
+                />
 
-            <div>
-
-              <h2
-                className="
-                  mb-6
-                  text-[25px]
-                  font-semibold
-                  leading-[1.25]
-                  tracking-[-0.02em]
-                  text-[#333333]
-                  sm:text-[30px]
-                  lg:text-[34px]
-                "
-              >
-                3. Find Broken Links and 404 Errors
-              </h2>
-
-              <div
-                className="
-                  space-y-5
-                  text-[16px]
-                  leading-[1.75]
-                  text-[#555555]
-                  sm:text-[17px]
-                  lg:text-[18px]
-                "
-              >
-
-                <p>
+                <p className="text-[16px] leading-[1.8] text-[#444]">
                   Broken links are another simple issue to look for during a
-                  DIY SEO audit.
-                </p>
-
-                <p>
-                  A broken link may lead visitors to a page that no longer
-                  exists, often producing a{" "}
+                  DIY SEO audit. A broken link may lead visitors to a page that
+                  no longer exists, often producing a{" "}
                   <strong>404 Not Found</strong> error.
                 </p>
 
-                <p>Check whether your website contains links that:</p>
+                <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                  {[
+                    "Point to deleted pages",
+                    "Use incorrect URLs",
+                    "Lead to 404 pages",
+                    "Redirect unnecessarily",
+                    "Point to outdated resources",
+                  ].map((item, index) => (
+                    <div
+                      key={item}
+                      className="flex items-start gap-4 rounded-2xl border border-[#E8E8E8] bg-white p-5"
+                    >
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#171717] text-xs font-bold text-white">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
 
-                <ul className="list-disc space-y-2 pl-6">
-                  <li>Point to deleted pages</li>
-                  <li>Use incorrect URLs</li>
-                  <li>Lead to 404 pages</li>
-                  <li>Redirect unnecessarily</li>
-                  <li>Point to outdated resources</li>
-                </ul>
-
-                <p>
-                  Don&apos;t only check random pages.
-                </p>
-
-                <p>
-                  Follow the paths that matter to your business.
-                </p>
-
-                <div className="rounded-xl border border-gray-200 bg-[#fafafa] px-5 py-4 font-medium text-[#333333]">
-                  Homepage → SEO Services → SEO Audit → Contact
+                      <span className="pt-1 text-[14px] font-semibold">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
                 </div>
 
-                <p>
-                  If visitors can&apos;t easily move between important pages,
-                  your website may have both a usability and site-structure
-                  problem.
-                </p>
+                <div className="mt-7 rounded-2xl bg-[#F2F2F2] p-6">
+                  <span className="text-xs font-extrabold uppercase tracking-[1.5px] text-[#F0AA00]">
+                    Think Like A Customer
+                  </span>
 
-                <h3 className="pt-2 text-xl font-semibold text-[#333333]">
+                  <p className="mt-3 text-[16px] font-bold">
+                    Homepage → SEO Services → SEO Audit → Contact
+                  </p>
+
+                  <p className="mt-3 text-[14px] leading-[1.7] text-[#666]">
+                    Don't only check random pages. Follow the paths that matter
+                    to your business.
+                  </p>
+                </div>
+
+                <h3 className="mt-8 text-[21px] font-extrabold">
                   Check your internal links too
                 </h3>
 
-                <p>
-                  Internal links connect pages within your own website.
+                <p className="mt-3 text-[15px] leading-[1.8] text-[#555]">
+                  Internal links connect pages within your own website. They
+                  help visitors discover related information and help search
+                  engines understand how your content fits together.
                 </p>
 
-                <p>
-                  They help visitors discover related information and help
-                  search engines understand how your content fits together.
-                </p>
-
-                <p>
-                  For example, a blog post about local SEO could naturally link
-                  to your{" "}
-                  <Link
-                    href="/services/google-ads"
-                    className="font-medium underline decoration-[#F8BC04] decoration-2 underline-offset-4"
-                  >
-                    Local SEO Services
-                  </Link>{" "}
-                  page.
-                </p>
-
-                <p>
-                  Use descriptive anchor text rather than vague phrases such as
-                  &quot;click here.&quot;
-                </p>
-
-              </div>
-
-            </div>
-
-
-            <figure className="self-start overflow-hidden rounded-2xl bg-[#f5f5f5]">
-              <Image
-                src="/assets/blog/allblogs/website-seo-audit/website-seo-audit-3.png"
-                alt="Technical SEO audit dashboard showing website SEO issues"
-                width={2048}
-                height={1365}
-                sizes="(max-width: 1023px) 100vw, 430px"
-                className="h-auto w-full object-contain"
-              />
-            </figure>
-
-          </div>
-
-        </section>
-
-
-        {/* =======================================================
-            SECTION 04
-        ======================================================= */}
-        <section className="mb-20 sm:mb-24 lg:mb-28">
-
-          <h2
-            className="
-              mb-6
-              text-[25px]
-              font-semibold
-              leading-[1.25]
-              tracking-[-0.02em]
-              text-[#333333]
-              sm:text-[30px]
-              lg:text-[34px]
-            "
-          >
-            4. Review Your Page Titles and Meta Descriptions
-          </h2>
-
-          <div
-            className="
-              space-y-5
-              text-[16px]
-              leading-[1.75]
-              text-[#555555]
-              sm:text-[17px]
-              lg:text-[18px]
-            "
-          >
-
-            <p>
-              Your page title is one of the simplest on-page SEO elements to
-              review.
-            </p>
-
-            <p>
-              Open your most important pages and check whether their titles
-              clearly describe what each page is about.
-            </p>
-
-            <p>Look for:</p>
-
-            <ul className="list-disc space-y-2 pl-6">
-              <li>Missing title tags</li>
-              <li>Duplicate titles</li>
-              <li>Generic titles</li>
-              <li>Titles that are too long</li>
-              <li>Titles that don&apos;t reflect the page content</li>
-              <li>Missing or weak meta descriptions</li>
-            </ul>
-
-            <h3 className="pt-2 text-xl font-semibold text-[#333333]">
-              Example
-            </h3>
-
-            <p>
-              A title such as:
-            </p>
-
-            <div className="rounded-xl bg-[#f7f7f7] px-5 py-4 font-semibold text-[#333333]">
-              Home | ABC Company
-            </div>
-
-            <p>
-              doesn&apos;t tell a potential customer much.
-            </p>
-
-            <p>
-              A more descriptive title could be:
-            </p>
-
-            <div className="rounded-xl bg-[#fffaf0] px-5 py-4 font-semibold text-[#333333]">
-              SEO Services for Small Businesses | ABC Company
-            </div>
-
-            <p>
-              It immediately communicates the page&apos;s topic and potential
-              value.
-            </p>
-
-            <p>
-              Your meta description should also accurately summarize the page
-              and give searchers a reason to click.
-            </p>
-
-            <p>Don&apos;t force keywords into every sentence.</p>
-
-            <p className="font-semibold text-[#333333]">
-              Write for people first, then make the topic clear to search
-              engines.
-            </p>
-
-          </div>
-
-        </section>
-
-
-        {/* =======================================================
-            SECTION 05
-        ======================================================= */}
-        <section className="mb-20 sm:mb-24 lg:mb-28">
-
-          <h2
-            className="
-              mb-6
-              text-[25px]
-              font-semibold
-              leading-[1.25]
-              tracking-[-0.02em]
-              text-[#333333]
-              sm:text-[30px]
-              lg:text-[34px]
-            "
-          >
-            5. Check Whether You&apos;re Targeting the Right Keywords
-          </h2>
-
-          <div
-            className="
-              space-y-5
-              text-[16px]
-              leading-[1.75]
-              text-[#555555]
-              sm:text-[17px]
-              lg:text-[18px]
-            "
-          >
-
-            <p>
-              You can have a technically healthy website and still struggle
-              with Google traffic if you&apos;re targeting the wrong search
-              terms.
-            </p>
-
-            <p>
-              Think about what your ideal customer searches for when they need
-              your product or service.
-            </p>
-
-            <p>
-              For example, a digital marketing business might target searches
-              such as:
-            </p>
-
-            <ul className="list-disc space-y-2 pl-6">
-              <li>SEO agency in [city]</li>
-              <li>website SEO audit</li>
-              <li>local SEO services</li>
-              <li>digital marketing services for small businesses</li>
-              <li>technical SEO services</li>
-            </ul>
-
-            <p>
-              Now compare those searches with the pages on your website.
-            </p>
-
-            <h3 className="pt-2 text-xl font-semibold text-[#333333]">
-              Ask these four questions
-            </h3>
-
-            <div className="space-y-3">
-              <p className="font-medium text-[#333333]">
-                Does each important service have a dedicated page?
-              </p>
-
-              <p className="font-medium text-[#333333]">
-                Does each page focus on a clear topic?
-              </p>
-
-              <p className="font-medium text-[#333333]">
-                Does the page match what the searcher actually wants?
-              </p>
-
-              <p className="font-medium text-[#333333]">
-                Are the keywords relevant to people who could become customers?
-              </p>
-            </div>
-
-            <p>
-              This last point is particularly important.
-            </p>
-
-            <p>
-              A keyword with thousands of searches isn&apos;t automatically
-              valuable if those searches have nothing to do with your business.
-            </p>
-
-            <p>
-              A local plumber, for example, may get far more commercial value
-              from a specific search such as{" "}
-              <strong>&quot;emergency plumber in [city]&quot;</strong> than
-              from a broad keyword with a much larger search volume.
-            </p>
-
-            <h3 className="pt-2 text-xl font-semibold text-[#333333]">
-              Don&apos;t keyword-stuff
-            </h3>
-
-            <p>
-              Repeating the same keyword dozens of times isn&apos;t a good SEO
-              strategy.
-            </p>
-
-            <p>
-              Use your primary keyword naturally, then cover related questions,
-              concepts, and terminology that genuinely help the reader.
-            </p>
-
-          </div>
-
-        </section>
-
-
-        {/* =======================================================
-            SECTION 06
-        ======================================================= */}
-        <section className="mb-20 sm:mb-24 lg:mb-28">
-
-          <h2
-            className="
-              mb-6
-              text-[25px]
-              font-semibold
-              leading-[1.25]
-              tracking-[-0.02em]
-              text-[#333333]
-              sm:text-[30px]
-              lg:text-[34px]
-            "
-          >
-            6. Check Your Content Against Search Intent
-          </h2>
-
-          <div
-            className="
-              space-y-5
-              text-[16px]
-              leading-[1.75]
-              text-[#555555]
-              sm:text-[17px]
-              lg:text-[18px]
-            "
-          >
-
-            <p>
-              Now read your most important pages as if you were a potential
-              customer.
-            </p>
-
-            <p>
-              Within the first few seconds, can you understand:
-            </p>
-
-            <ul className="list-disc space-y-2 pl-6">
-              <li>What does this company do?</li>
-              <li>Who does it help?</li>
-              <li>What service or product is being offered?</li>
-              <li>Why should I choose it?</li>
-              <li>What should I do next?</li>
-            </ul>
-
-            <p>
-              If your homepage begins with:
-            </p>
-
-            <div className="rounded-xl bg-[#f7f7f7] px-5 py-4 font-semibold text-[#333333]">
-              &quot;Welcome to Our Website&quot;
-            </div>
-
-            <p>
-              you aren&apos;t giving visitors much information.
-            </p>
-
-            <p>
-              Compare that with something more specific:
-            </p>
-
-            <div className="rounded-xl bg-[#fffaf0] px-5 py-4 font-semibold text-[#333333]">
-              &quot;SEO Services Helping Local Businesses Generate More
-              Qualified Leads&quot;
-            </div>
-
-            <p>
-              The second headline immediately communicates the topic, audience,
-              and value proposition.
-            </p>
-
-            <h3 className="pt-2 text-xl font-semibold text-[#333333]">
-              Look for thin or outdated content
-            </h3>
-
-            <p>
-              During your audit, identify pages containing:
-            </p>
-
-            <ul className="list-disc space-y-2 pl-6">
-              <li>Very little useful information</li>
-              <li>Outdated information</li>
-              <li>Duplicate content</li>
-              <li>Excessive keyword repetition</li>
-              <li>Generic content that offers little original value</li>
-              <li>Content that doesn&apos;t satisfy the searcher&apos;s intent</li>
-            </ul>
-
-            <p>
-              Good SEO content isn&apos;t created simply by adding keywords.
-            </p>
-
-            <p>
-              It should help the reader accomplish what they came to Google to
-              do.
-            </p>
-
-          </div>
-
-        </section>
-
-
-        {/* =======================================================
-            DIY CHECKLIST
-        ======================================================= */}
-        <section className="mb-20 sm:mb-24 lg:mb-28">
-
-          <div
-            className="
-              overflow-hidden
-              rounded-[24px]
-              border
-              border-gray-200
-              bg-[#fafafa]
-            "
-          >
-
-            <div className="grid lg:grid-cols-[minmax(0,1fr)_340px]">
-
-              <div className="p-7 sm:p-9 lg:p-11">
-
-                <h2
-                  className="
-                    mb-5
-                    text-[27px]
-                    font-semibold
-                    leading-[1.25]
-                    tracking-[-0.02em]
-                    text-[#333333]
-                    sm:text-[32px]
-                    lg:text-[36px]
-                  "
-                >
-                  DIY SEO Audit Checklist
-                </h2>
-
-                <p className="mb-7 text-[16px] leading-[1.75] text-[#555555] sm:text-[17px]">
-                  Here&apos;s a quick{" "}
-                  <strong>DIY SEO audit checklist</strong> you can save and
-                  work through:
-                </p>
-
-                <ul className="grid gap-3 sm:grid-cols-2">
-
-                  {[
-                    "Check whether important pages are indexed",
-                    "Review your website's mobile experience",
-                    "Test page speed and Core Web Vitals",
-                    "Find broken links and 404 errors",
-                    "Review internal links",
-                    "Check page titles",
-                    "Review meta descriptions",
-                    "Look for duplicate metadata",
-                    "Check whether important pages target relevant keywords",
-                    "Make sure key services have dedicated pages",
-                    "Review content quality",
-                    "Check whether content matches search intent",
-                    "Identify outdated or thin content",
-                    "Review your website navigation",
-                    "Check whether important pages are easy to reach",
-                  ].map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-3 text-[15px] leading-7 text-[#555555]"
-                    >
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#F8BC04]" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-
-                </ul>
-
-                <p className="mt-7 text-[16px] leading-[1.75] text-[#555555]">
-                  If you discover several problems, you&apos;ve already found
-                  useful information about where your SEO needs attention.
-                </p>
-
-              </div>
-
-
-              <div className="flex items-center justify-center bg-[#111111] p-6 sm:p-8 lg:p-10">
-                <Image
-                  src="/assets/blog/allblogs/website-seo-audit/website-seo-audit-card.png"
-                  alt="DIY SEO audit checklist"
-                  width={1536}
-                  height={1536}
-                  sizes="(max-width: 1023px) 70vw, 340px"
-                  className="h-auto w-full max-w-[320px] rounded-xl object-contain"
+                <div className="mt-5 rounded-2xl border border-[#E7E7E7] bg-white p-6">
+                  <p className="text-[14px] leading-[1.75] text-[#555]">
+                    For example, a blog post about local SEO could naturally
+                    link to your <strong>Local SEO Services</strong> page. Use
+                    descriptive anchor text rather than vague phrases such as
+                    "click here."
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION 5 */}
+              <section className="mb-14">
+                <SectionTitle
+                  number="05"
+                  title="Review Your Page Titles and Meta Descriptions"
                 />
-              </div>
 
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =======================================================
-            FREE TOOLS
-        ======================================================= */}
-        <section className="mb-20 sm:mb-24 lg:mb-28">
-
-          <h2
-            className="
-              mb-6
-              text-[25px]
-              font-semibold
-              leading-[1.25]
-              tracking-[-0.02em]
-              text-[#333333]
-              sm:text-[30px]
-              lg:text-[34px]
-            "
-          >
-            Free Tools You Can Use for a DIY SEO Audit
-          </h2>
-
-          <div
-            className="
-              space-y-8
-              text-[16px]
-              leading-[1.75]
-              text-[#555555]
-              sm:text-[17px]
-              lg:text-[18px]
-            "
-          >
-
-            <p>
-              You don&apos;t need an expensive SEO platform to perform your
-              first audit.
-            </p>
-
-            <div>
-              <h3 className="mb-2 text-xl font-semibold text-[#333333]">
-                Google Search Console
-              </h3>
-
-              <p className="mb-3">Use it to investigate:</p>
-
-              <ul className="list-disc space-y-2 pl-6">
-                <li>Search performance</li>
-                <li>Indexing</li>
-                <li>Search queries</li>
-                <li>Pages appearing in Google</li>
-                <li>Search-related technical issues</li>
-              </ul>
-            </div>
-
-
-            <div>
-              <h3 className="mb-2 text-xl font-semibold text-[#333333]">
-                Google PageSpeed Insights
-              </h3>
-
-              <p className="mb-3">Use it to assess:</p>
-
-              <ul className="list-disc space-y-2 pl-6">
-                <li>Mobile performance</li>
-                <li>Desktop performance</li>
-                <li>Core Web Vitals</li>
-                <li>Performance opportunities</li>
-              </ul>
-            </div>
-
-
-            <div>
-              <h3 className="mb-2 text-xl font-semibold text-[#333333]">
-                Your Browser
-              </h3>
-
-              <p className="mb-3">
-                Don&apos;t underestimate a manual inspection.
-              </p>
-
-              <p>Open your website on:</p>
-
-              <ul className="list-disc space-y-2 pl-6">
-                <li>Desktop</li>
-                <li>Smartphone</li>
-                <li>Different browsers</li>
-              </ul>
-
-              <p className="mt-4">
-                Click through your navigation and important links.
-              </p>
-
-              <p className="mt-4">
-                Sometimes the simplest checks reveal problems that automated
-                reports don&apos;t make obvious to a business owner.
-              </p>
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* =======================================================
-            WHEN DIY ISN'T ENOUGH
-        ======================================================= */}
-        <section className="mb-20 sm:mb-24 lg:mb-28">
-
-          <h2
-            className="
-              mb-6
-              text-[25px]
-              font-semibold
-              leading-[1.25]
-              tracking-[-0.02em]
-              text-[#333333]
-              sm:text-[30px]
-              lg:text-[34px]
-            "
-          >
-            When a DIY SEO Audit Isn&apos;t Enough
-          </h2>
-
-          <div
-            className="
-              space-y-5
-              text-[16px]
-              leading-[1.75]
-              text-[#555555]
-              sm:text-[17px]
-              lg:text-[18px]
-            "
-          >
-
-            <p>
-              This is where many business owners hit a wall.
-            </p>
-
-            <p>
-              Basic SEO checks can uncover obvious problems, but they
-              don&apos;t tell the entire story.
-            </p>
-
-            <p>
-              A deeper technical SEO audit may need to investigate:
-            </p>
-
-            <ul className="grid gap-2 sm:grid-cols-2">
-              {[
-                "XML sitemaps",
-                "Robots.txt",
-                "Canonical URLs",
-                "Schema markup",
-                "JavaScript rendering",
-                "Crawlability",
-                "Crawl budget",
-                "Duplicate URLs",
-                "Redirect chains",
-                "HTTP status codes",
-                "Site architecture",
-                "International SEO",
-                "Backlink quality",
-                "Unnatural link patterns",
-                "Backlink disavowal",
-                "Server and log-file data",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3"
-                >
-                  <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-[#F8BC04]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p>
-              These areas require considerably more technical knowledge.
-            </p>
-
-            <p>
-              For example, discovering a suspicious backlink doesn&apos;t
-              automatically mean you should disavow it.
-            </p>
-
-            <p>
-              Likewise, seeing a crawl warning doesn&apos;t necessarily mean
-              every affected URL is harming your rankings.
-            </p>
-
-            <div className="my-8 border-l-4 border-[#F8BC04] bg-[#fffaf0] px-6 py-5">
-              <p className="font-semibold leading-7 text-[#333333]">
-                The difficult part isn&apos;t finding SEO data. It&apos;s
-                knowing what the data actually means and what should be
-                changed.
-              </p>
-            </div>
-
-            <p>
-              That&apos;s where a professional technical SEO audit can provide
-              much more value.
-            </p>
-
-          </div>
-
-        </section>
-
-
-        {/* =======================================================
-            CTA
-        ======================================================= */}
-        <section className="mb-20 sm:mb-24 lg:mb-28">
-
-          <div
-            className="
-              overflow-hidden
-              rounded-[26px]
-              bg-[#171717]
-              text-white
-            "
-          >
-
-            <div className="grid items-center lg:grid-cols-[minmax(0,1fr)_300px]">
-
-              <div className="p-7 sm:p-10 lg:p-12">
-
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#F8BC04]">
-                  Need Professional Help?
+                <p className="text-[16px] leading-[1.8] text-[#444]">
+                  Your page title is one of the simplest on-page SEO elements
+                  to review. Open your most important pages and check whether
+                  their titles clearly describe what each page is about.
                 </p>
 
-                <h2
-                  className="
-                    mb-5
-                    text-[28px]
-                    font-semibold
-                    leading-[1.2]
-                    tracking-[-0.02em]
-                    sm:text-[34px]
-                    lg:text-[38px]
-                  "
-                >
-                  Want Our SEO Team to Run a Free Deep-Dive Audit?
-                </h2>
+                <div className="mt-7 grid gap-4 sm:grid-cols-2">
+                  {[
+                    "Missing title tags",
+                    "Duplicate titles",
+                    "Generic titles",
+                    "Titles that are too long",
+                    "Titles that don't reflect the page content",
+                    "Missing or weak meta descriptions",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="rounded-xl border border-[#E9E9E9] bg-white p-4 text-[14px] font-semibold"
+                    >
+                      <span className="mr-2 text-[#F8BC04]">●</span>
+                      {item}
+                    </div>
+                  ))}
+                </div>
 
-                <div className="space-y-4 text-[16px] leading-[1.75] text-gray-300 sm:text-[17px]">
+                <div className="mt-8 grid gap-5 md:grid-cols-2">
+                  <div className="rounded-2xl border border-[#E8E8E8] bg-[#F4F4F4] p-6">
+                    <span className="text-xs font-bold uppercase tracking-[1.3px] text-[#888]">
+                      Generic
+                    </span>
 
-                  <p>
-                    If your website isn&apos;t generating the traffic,
-                    enquiries, or sales you expected, guessing at SEO problems
-                    can waste valuable time.
+                    <p className="mt-4 font-mono text-[14px] font-semibold">
+                      Home | ABC Company
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border-2 border-[#F8BC04] bg-[#FFF9E8] p-6">
+                    <span className="text-xs font-bold uppercase tracking-[1.3px] text-[#C48D00]">
+                      Better
+                    </span>
+
+                    <p className="mt-4 text-[14px] font-bold leading-[1.6]">
+                      SEO Services for Small Businesses | ABC Company
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 rounded-2xl bg-[#171717] p-6 text-white">
+                  <p className="text-[15px] leading-[1.75] text-[#DDD]">
+                    Your meta description should accurately summarize the page
+                    and give searchers a reason to click.
                   </p>
 
-                  <p>
-                    Our SEO team can take a deeper look at your website to
-                    identify:
+                  <p className="mt-3 text-[15px] font-bold leading-[1.7]">
+                    Don't force keywords into every sentence. Write for people
+                    first, then make the topic clear to search engines.
+                  </p>
+                </div>
+              </section>
+
+              {/* SECTION 6 */}
+              <section className="mb-14">
+                <SectionTitle
+                  number="06"
+                  title="Check Whether You're Targeting the Right Keywords"
+                />
+
+                <p className="text-[16px] leading-[1.8] text-[#444]">
+                  You can have a technically healthy website and still
+                  struggle with Google traffic if you're targeting the wrong
+                  search terms.
+                </p>
+
+                <div className="mt-7 rounded-[22px] bg-[#171717] p-7 text-white">
+                  <span className="text-xs font-bold uppercase tracking-[1.5px] text-[#F8BC04]">
+                    Example Keyword Set
+                  </span>
+
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                    {[
+                      "SEO agency in [city]",
+                      "website SEO audit",
+                      "local SEO services",
+                      "digital marketing services for small businesses",
+                      "technical SEO services",
+                    ].map((keyword) => (
+                      <div
+                        key={keyword}
+                        className="rounded-xl border border-white/10 bg-white/5 px-4 py-4 text-[14px]"
+                      >
+                        <span className="mr-2 text-[#F8BC04]">#</span>
+                        {keyword}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <h3 className="mt-8 text-[21px] font-extrabold">
+                  Ask these four questions
+                </h3>
+
+                <div className="mt-5 space-y-3">
+                  {keywordQuestions.map((question, index) => (
+                    <div
+                      key={question}
+                      className="flex gap-4 rounded-2xl border border-[#E8E8E8] bg-white p-5"
+                    >
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-xs font-extrabold">
+                        {index + 1}
+                      </span>
+
+                      <p className="pt-1 text-[14px] font-semibold leading-[1.6]">
+                        {question}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-7 rounded-2xl border-l-4 border-[#171717] bg-white p-6 shadow-[0_5px_20px_rgba(0,0,0,0.04)]">
+                  <p className="text-[15px] leading-[1.8] text-[#555]">
+                    A keyword with thousands of searches isn't automatically
+                    valuable if those searches have nothing to do with your
+                    business.
                   </p>
 
-                  <ul className="grid gap-2 sm:grid-cols-2">
-                    <li>• Technical SEO problems</li>
-                    <li>• Indexing issues</li>
-                    <li>• Keyword opportunities</li>
-                    <li>• Content gaps</li>
-                    <li>• Site-structure problems</li>
-                    <li>• Performance concerns</li>
-                    <li>• Other factors affecting organic visibility</li>
-                  </ul>
+                  <p className="mt-3 text-[15px] leading-[1.8] text-[#555]">
+                    A local plumber, for example, may get far more commercial
+                    value from a specific search such as{" "}
+                    <strong>"emergency plumber in [city]"</strong> than from a
+                    broad keyword with a much larger search volume.
+                  </p>
+                </div>
+              </section>
 
-                  <p className="font-medium text-white">
-                    Want our SEO team to run a free, deep-dive technical audit
-                    for you?
+              {/* SECTION 7 */}
+              <section className="mb-14">
+                <SectionTitle
+                  number="07"
+                  title="Check Your Content Against Search Intent"
+                />
+
+                <p className="text-[16px] leading-[1.8] text-[#444]">
+                  Now read your most important pages as if you were a potential
+                  customer.
+                </p>
+
+                <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                  {contentQuestions.map((question, index) => (
+                    <div
+                      key={question}
+                      className="group rounded-2xl border border-[#E8E8E8] bg-white p-5 transition-all hover:border-[#F8BC04]"
+                    >
+                      <span className="text-[12px] font-black text-[#F0AA00]">
+                        0{index + 1}
+                      </span>
+
+                      <p className="mt-2 text-[15px] font-bold leading-[1.55]">
+                        {question}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-7 rounded-[22px] bg-[#FFF7D8] p-7">
+                  <p className="text-[15px] leading-[1.8] text-[#444]">
+                    If your homepage begins with{" "}
+                    <strong>"Welcome to Our Website"</strong>, you aren't
+                    giving visitors much information.
                   </p>
 
-                  <p>
-                    Instead of wondering whether your website SEO is bad,
-                    you&apos;ll have a clearer picture of{" "}
-                    <strong className="text-white">
-                      what needs fixing, why it matters, and where you should
-                      start.
-                    </strong>
+                  <div className="mt-5 rounded-xl bg-white p-5">
+                    <span className="text-xs font-bold uppercase tracking-[1.2px] text-[#999]">
+                      Instead
+                    </span>
+
+                    <p className="mt-2 text-[17px] font-extrabold leading-[1.5]">
+                      "SEO Services Helping Local Businesses Generate More
+                      Qualified Leads"
+                    </p>
+                  </div>
+                </div>
+
+                <h3 className="mt-8 text-[21px] font-extrabold">
+                  Look for thin or outdated content
+                </h3>
+
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  {[
+                    "Very little useful information",
+                    "Outdated information",
+                    "Duplicate content",
+                    "Excessive keyword repetition",
+                    "Generic content with little original value",
+                    "Content that doesn't satisfy search intent",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-start gap-3 rounded-xl bg-white p-4"
+                    >
+                      <span className="mt-0.5 text-[#F8BC04]">✕</span>
+
+                      <span className="text-[14px] font-medium leading-[1.5]">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-7 rounded-2xl bg-[#171717] p-7 text-white">
+                  <p className="text-[18px] font-extrabold leading-[1.5]">
+                    Good SEO content isn't created simply by adding keywords.
                   </p>
 
+                  <p className="mt-3 text-[14px] leading-[1.75] text-[#D5D5D5]">
+                    It should help the reader accomplish what they came to
+                    Google to do.
+                  </p>
+                </div>
+              </section>
+
+              {/* CHECKLIST */}
+              <section className="mb-14">
+                <SectionTitle
+                  number="08"
+                  title="DIY SEO Audit Checklist"
+                />
+
+                <p className="mb-7 text-[16px] leading-[1.8] text-[#444]">
+                  Here's a quick checklist you can save and work through:
+                </p>
+
+                <div className="overflow-hidden rounded-[24px] border border-[#E6E6E6] bg-white">
+                  <div className="grid sm:grid-cols-2">
+                    {checklist.map((item, index) => (
+                      <div
+                        key={item}
+                        className={`flex items-start gap-4 p-5 ${
+                          index % 2 === 0 ? "bg-white" : "bg-[#FAFAFA]"
+                        } border-b border-[#EEEEEE]`}
+                      >
+                        <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-black">
+                          <CheckIcon />
+                        </span>
+
+                        <span className="text-[14px] font-semibold leading-[1.55]">
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* FINAL THOUGHTS */}
+              <section className="mb-14">
+                <div className="rounded-[26px] bg-[#171717] p-8 text-white md:p-10">
+                  <div className="mb-5 flex items-center gap-3">
+                    <span className="h-8 w-2 rounded-full bg-[#F8BC04]" />
+
+                    <span className="text-xs font-bold uppercase tracking-[2px] text-[#F8BC04]">
+                      Final Thoughts
+                    </span>
+                  </div>
+
+                  <h2 className="text-[29px] font-black leading-[1.15] md:text-[36px]">
+                    Audit First. Hire Smarter.
+                  </h2>
+
+                  <p className="mt-5 max-w-[750px] text-[15px] leading-[1.8] text-[#D5D5D5]">
+                    A DIY SEO audit won't replace a professional technical
+                    audit, but it can give you clarity about your website's
+                    most obvious problems.
+                  </p>
+
+                  <p className="mt-4 max-w-[750px] text-[15px] leading-[1.8] text-[#D5D5D5]">
+                    Start with indexing, performance, broken links, metadata,
+                    keywords and content quality. Once you understand the
+                    basics, you'll be in a much stronger position to decide
+                    whether you need professional SEO support.
+                  </p>
+
+                  <div className="mt-7 border-l-4 border-[#F8BC04] pl-5 text-[17px] font-bold leading-[1.6]">
+                    The goal isn't just to rank higher. It's to create a
+                    website that Google understands and your customers trust.
+                  </div>
+                </div>
+              </section>
+
+              {/* BOTTOM CTA — ONLY ONE CTA */}
+              <section className="overflow-hidden rounded-[26px] bg-[#111111] p-7 text-white md:p-9">
+                <div className="grid items-center gap-7 md:grid-cols-[1fr_auto]">
+                  <div>
+                    <span className="text-xs font-bold uppercase tracking-[2px] text-[#F8BC04]">
+                      BIGBEANS DIGITAL
+                    </span>
+
+                    <h2 className="mt-3 text-[25px] font-black leading-[1.2] md:text-[32px]">
+                      Ready to Find What's Holding Your Website Back?
+                    </h2>
+
+                    <p className="mt-3 max-w-[680px] text-[14px] leading-[1.7] text-[#D4D4D4]">
+                      Let our SEO experts identify technical issues, content
+                      gaps and growth opportunities so you can focus on
+                      growing your business.
+                    </p>
+
+                    <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-[12px] font-semibold text-[#E7E7E7]">
+                      <span>✓ Technical SEO Audit</span>
+                      <span>✓ Actionable Insights</span>
+                      <span>✓ Growth Strategy</span>
+                    </div>
+                  </div>
+
+                  <Link
+                    href="/connect"
+                    className="inline-flex items-center justify-center gap-3 rounded-xl bg-[#F8BC04] px-6 py-4 text-sm font-extrabold text-black transition-all hover:-translate-y-1 hover:bg-[#FFC72C]"
+                  >
+                    Get Your SEO Audit
+                    <ArrowIcon />
+                  </Link>
+                </div>
+              </section>
+            </article>
+
+            {/* RIGHT SIDEBAR */}
+            <aside className="space-y-8 lg:sticky lg:top-24">
+              {/* SERVICES */}
+              <div className="rounded-[24px] bg-[#111111] p-5 md:p-6">
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="h-7 w-1 rounded-full bg-[#F8BC04]" />
+
+                  <h2 className="text-[20px] font-extrabold text-white">
+                    Services We Provide
+                  </h2>
+                </div>
+
+                <div className="space-y-3">
+                  {services.map((service) => (
+                    <Link
+                      key={service.title}
+                      href={service.href}
+                      className="group block rounded-2xl bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(248,188,4,0.12)]"
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <div>
+                          <h3 className="text-[14px] font-extrabold text-[#171717]">
+                            {service.title}
+                          </h3>
+
+                          <p className="mt-2 text-[12px] leading-[1.6] text-[#777]">
+                            {service.description}
+                          </p>
+                        </div>
+
+                        <span className="mt-1 shrink-0 text-[#F0AA00] transition-transform group-hover:translate-x-1">
+                          →
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* FEATURED POSTS */}
+              <div className="rounded-[24px] border border-[#E8E8E8] bg-white p-5 md:p-6">
+                <div className="mb-6 flex items-center gap-3">
+                  <span className="h-7 w-1 rounded-full bg-[#F8BC04]" />
+
+                  <h2 className="text-[20px] font-extrabold">
+                    Featured Posts
+                  </h2>
+                </div>
+
+                <div className="space-y-5">
+                  {featuredPosts.map((post) => (
+                    <Link
+                      href={post.href}
+                      key={post.href}
+                      className="group flex gap-4"
+                    >
+                      <div className="relative h-[76px] w-[105px] shrink-0 overflow-hidden rounded-xl bg-[#F4F4F4]">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="105px"
+                        />
+                      </div>
+
+                      <div className="min-w-0">
+                        <h3 className="line-clamp-3 text-[13px] font-extrabold leading-[1.45] group-hover:text-[#D99D00]">
+                          {post.title}
+                        </h3>
+
+                        <p className="mt-2 text-[11px] text-[#888]">
+                          {post.date}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
                 </div>
 
                 <Link
-                  href="/connect"
-                  className="
-                    mt-8
-                    inline-flex
-                    items-center
-                    gap-3
-                    rounded-full
-                    bg-[#F8BC04]
-                    px-6
-                    py-3.5
-                    text-sm
-                    font-semibold
-                    text-[#171717]
-                    transition
-                    duration-300
-                    hover:bg-white
-                  "
+                  href="/blog"
+                  className="mt-7 inline-flex items-center gap-2 border-b-2 border-[#F8BC04] pb-1 text-[13px] font-bold"
                 >
-                  Get Your Free SEO Audit
-                  <span>→</span>
+                  View All Blogs
+                  <ArrowIcon />
                 </Link>
-
               </div>
-
-
-              <div className="hidden h-full min-h-[320px] items-center justify-center bg-[#111111] p-7 lg:flex">
-                <Image
-                  src="/assets/blog/allblogs/website-seo-audit/website-seo-audit-card.png"
-                  alt="DIY SEO audit checklist"
-                  width={1536}
-                  height={1536}
-                  sizes="300px"
-                  className="h-auto w-full max-w-[250px] rounded-xl object-contain"
-                />
-              </div>
-
-            </div>
-
+            </aside>
           </div>
-
         </section>
+      </main>
 
-
-        {/* =======================================================
-            FINAL THOUGHTS
-        ======================================================= */}
-        <section className="mb-16 sm:mb-20">
-
-          <h2
-            className="
-              mb-6
-              text-[25px]
-              font-semibold
-              leading-[1.25]
-              tracking-[-0.02em]
-              text-[#333333]
-              sm:text-[30px]
-              lg:text-[34px]
-            "
-          >
-            Final Thoughts
-          </h2>
-
-          <div
-            className="
-              space-y-5
-              text-[16px]
-              leading-[1.75]
-              text-[#555555]
-              sm:text-[17px]
-              lg:text-[18px]
-            "
-          >
-
-            <p>
-              You don&apos;t need to be an SEO professional to start auditing
-              your website.
-            </p>
-
-            <p>
-              By checking{" "}
-              <strong>
-                indexing, speed, broken links, metadata, keyword targeting,
-                and content quality
-              </strong>
-              , you can uncover many common SEO problems yourself.
-            </p>
-
-            <p>
-              But a DIY audit is only the first step.
-            </p>
-
-            <p>
-              If your website has deeper problems involving schema markup,
-              crawlability, site architecture, backlinks, redirects, or
-              indexing, a professional technical SEO audit can help uncover
-              what&apos;s happening beneath the surface.
-            </p>
-
-            <p>
-              The goal isn&apos;t simply to make your website
-              &quot;SEO-friendly.&quot;
-            </p>
-
-            <p className="font-semibold text-[#333333]">
-              The goal is to create a website that Google can understand, your
-              customers can use, and your business can grow from.
-            </p>
-
-          </div>
-
-        </section>
-
-
-        {/* =======================================================
-            FINAL BIGBEANS CTA
-        ======================================================= */}
-        <section className="border-t border-gray-200 pt-10 text-center sm:pt-12">
-
-          <h2 className="text-[24px] font-semibold text-[#222222] sm:text-[30px]">
-            Ready to Improve Your Website&apos;s SEO?
-          </h2>
-
-          <p className="mx-auto mt-3 max-w-2xl text-[15px] leading-7 text-gray-500 sm:text-[16px]">
-            Let BIGBEANS DIGITAL help you identify SEO problems, improve
-            organic visibility, and build a stronger digital foundation for
-            your business.
-          </p>
-
-          <Link
-            href="/"
-            className="
-              mt-6
-              inline-flex
-              items-center
-              gap-3
-              rounded-full
-              bg-[#F8BC04]
-              px-7
-              py-3.5
-              text-sm
-              font-semibold
-              text-[#171717]
-              transition
-              duration-300
-              hover:bg-[#171717]
-              hover:text-white
-            "
-          >
-            Visit BIGBEANS DIGITAL
-            <span>→</span>
-          </Link>
-
-        </section>
-
-      </article>
-
-    </main>
+    </>
   );
 }
