@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import RealTimeWeatherMarketing from "@/components/blog/allblogs/real-time-weather-marketing";
+import RealTimeWeatherMarketing from "@/components/blogs/real-time-weather-marketing";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {

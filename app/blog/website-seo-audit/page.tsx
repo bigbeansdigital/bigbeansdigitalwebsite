@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import WebsiteSeoAudit from "@/components/blog/allblogs/website-seo-audit";
+import WebsiteSeoAudit from "@/components/blogs/website-seo-audit";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {

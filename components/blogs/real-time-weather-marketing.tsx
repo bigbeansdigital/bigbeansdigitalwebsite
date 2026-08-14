@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useMemo } from "react";
 
 const blogUrl =
   "https://bigbeansdigital.com/blog/allblogs/real-time-weather-marketing";
@@ -13,7 +12,10 @@ Blog: Stop Guessing the Weather: How Agile Brands Turn Real-Time Data into Reven
 URL: ${blogUrl}`;
 
 const chatGPTUrl = `https://chatgpt.com/?q=${encodeURIComponent(aiPrompt)}`;
-const geminiUrl = `https://gemini.google.com/app?prompt=${encodeURIComponent(aiPrompt)}`;
+
+const geminiUrl = `https://gemini.google.com/app?prompt=${encodeURIComponent(
+  aiPrompt
+)}`;
 
 const services = [
   {
@@ -24,7 +26,7 @@ const services = [
     icon: "megaphone",
   },
   {
-    title: "Google Ads & Meta Ads",
+    title: "Performance Marketing",
     description:
       "Reach the right audience with targeted advertising campaigns built for measurable growth.",
     href: "/services/google-ads-meta-ads",
@@ -61,6 +63,7 @@ const featuredPosts = [
     href: "/blog/allblogs/real-time-weather-marketing",
     image:
       "/assets/blog/allblogs/real-time-weather-marketing/real-time-weather-marketing-thumbnail.png",
+    label: "",
   },
 ];
 
@@ -188,29 +191,8 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 }
 
 export default function RealTimeWeatherMarketing() {
-  const currentUrl = useMemo(() => {
-    if (typeof window !== "undefined") {
-      return window.location.href;
-    }
-
-    return blogUrl;
-  }, []);
-
-  const dynamicPrompt = `Summarize this BIGBEANS DIGITAL blog in a clear, concise and useful way. Explain the key ideas, important takeaways, practical recommendations and business implications.
-
-Blog: Stop Guessing the Weather: How Agile Brands Turn Real-Time Data into Revenue
-URL: ${currentUrl}`;
-
-  const dynamicChatGPTUrl = `https://chatgpt.com/?q=${encodeURIComponent(
-    dynamicPrompt
-  )}`;
-
-  const dynamicGeminiUrl = `https://gemini.google.com/app?prompt=${encodeURIComponent(
-    dynamicPrompt
-  )}`;
-
   return (
-    <main className="w-full overflow-hidden bg-white text-[#111111]">
+    <main className="w-full bg-white text-[#111111]">
       {/* =========================================================
           BREADCRUMB
       ========================================================= */}
@@ -272,7 +254,7 @@ URL: ${currentUrl}`;
             </div>
           </div>
 
-          {/* RIGHT - 1350 x 1080 */}
+          {/* RIGHT - HERO IMAGE */}
           <div className="order-1 lg:order-2">
             <div className="relative aspect-[1350/1080] w-full overflow-hidden rounded-[32px] bg-[#F8BC04] shadow-[0_18px_45px_rgba(0,0,0,0.08)]">
               <Image
@@ -290,7 +272,6 @@ URL: ${currentUrl}`;
 
       {/* =========================================================
           MAIN CONTENT + SIDEBAR
-          SIDEBAR IS NOT STICKY — IT SCROLLS NATURALLY
       ========================================================= */}
       <section className="w-full bg-white px-4 pb-20 sm:px-6 md:pb-28">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-12 xl:grid-cols-[minmax(0,1fr)_390px]">
@@ -307,7 +288,7 @@ URL: ${currentUrl}`;
 
                 <div className="flex items-center gap-5">
                   <a
-                    href={dynamicChatGPTUrl}
+                    href={chatGPTUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Summarize this blog with ChatGPT"
@@ -317,7 +298,7 @@ URL: ${currentUrl}`;
                   </a>
 
                   <a
-                    href={dynamicGeminiUrl}
+                    href={geminiUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Summarize this blog with Gemini"
@@ -355,7 +336,7 @@ URL: ${currentUrl}`;
                 </div>
               </section>
 
-              {/* 02 + IMAGE */}
+              {/* 02 */}
               <section>
                 <h2 className="text-[25px] font-extrabold leading-tight tracking-[-0.02em] md:text-[30px]">
                   <span className="mr-3 text-[#F8BC04]">02</span>
@@ -413,7 +394,7 @@ URL: ${currentUrl}`;
                 </div>
               </section>
 
-              {/* 04 + IMAGE */}
+              {/* 04 */}
               <section>
                 <h2 className="text-[25px] font-extrabold leading-tight tracking-[-0.02em] md:text-[30px]">
                   <span className="mr-3 text-[#F8BC04]">04</span>
@@ -471,7 +452,7 @@ URL: ${currentUrl}`;
                 </div>
               </section>
 
-              {/* 06 + IMAGE */}
+              {/* 06 */}
               <section>
                 <h2 className="text-[25px] font-extrabold leading-tight tracking-[-0.02em] md:text-[30px]">
                   <span className="mr-3 text-[#F8BC04]">06</span>
@@ -567,7 +548,9 @@ URL: ${currentUrl}`;
                   </p>
 
                   <ol className="list-decimal space-y-3 pl-6 marker:font-bold marker:text-[#F8BC04]">
-                    <li>Identify the real-time signals relevant to your audience.</li>
+                    <li>
+                      Identify the real-time signals relevant to your audience.
+                    </li>
                     <li>Connect those signals with your customer data.</li>
                     <li>Define campaign triggers and business rules.</li>
                     <li>Create contextual creative variations.</li>
@@ -630,8 +613,7 @@ URL: ${currentUrl}`;
             </div>
 
             {/* ===================================================
-                ONLY ONE FINAL CTA
-                This is intentionally NOT duplicated anywhere.
+                FINAL CTA
             =================================================== */}
             <section className="relative mt-14 overflow-hidden rounded-[28px] bg-[#111111] px-7 py-9 text-white shadow-[0_18px_45px_rgba(0,0,0,0.12)] sm:px-9 md:mt-20 md:px-10 md:py-11">
               <div className="pointer-events-none absolute -right-10 -top-16 h-36 w-36 rounded-full border-[8px] border-[#F8BC04]/20" />
@@ -678,107 +660,101 @@ URL: ${currentUrl}`;
 
           {/* =====================================================
               RIGHT SIDEBAR
-              IMPORTANT: NO sticky / fixed positioning.
-              It scrolls naturally with the page.
           ===================================================== */}
-          <aside className="min-w-0 self-start">
+          <aside className="self-start space-y-8 lg:sticky lg:top-24">
             {/* SERVICES */}
-            <section className="rounded-[22px] bg-[#151515] p-5 shadow-[0_15px_35px_rgba(0,0,0,0.12)] sm:p-6">
-              <div className="mb-6 flex items-center gap-3">
-                <span className="h-5 w-[3px] rounded-full bg-[#F8BC04]" />
+            <div className="rounded-[24px] bg-[#111111] p-5 md:p-6">
+              <div className="mb-5 flex items-center gap-3">
+                <span className="h-7 w-1 rounded-full bg-[#F8BC04]" />
 
-                <h2 className="text-[20px] font-extrabold tracking-[-0.02em] text-white">
+                <h2 className="text-[20px] font-extrabold text-white">
                   Services We Provide
                 </h2>
               </div>
 
-              <div className="space-y-5">
-                {services.map((service, index) => (
+              <div className="space-y-3">
+                {services.map((service) => (
                   <Link
                     key={service.title}
                     href={service.href}
-                    className="group block"
+                    className="group block rounded-2xl bg-white p-5 transition-all hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(248,188,4,0.12)]"
                   >
-                    <div className="overflow-hidden rounded-[11px]">
-                      {/* YELLOW SERVICE CARD */}
-                      <div className="relative min-h-[118px] bg-[#F8BC04] px-5 py-5 transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-[0_12px_25px_rgba(248,188,4,0.18)]">
-                        <div className="flex items-start gap-4">
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center text-black">
-                            <ServiceIcon type={service.icon} />
-                          </div>
+                    <div className="flex items-start justify-between gap-4">
+                      <div>
+                        <h3 className="text-[14px] font-extrabold text-[#171717]">
+                          {service.title}
+                        </h3>
 
-                          <div className="min-w-0 flex-1">
-                            <h3 className="text-[13px] font-extrabold text-black">
-                              {service.title}
-                            </h3>
-
-                            <p className="mt-1.5 text-[11px] leading-[1.55] text-[#222]">
-                              {service.description}
-                            </p>
-                          </div>
-                        </div>
+                        <p className="mt-2 text-[12px] leading-[1.6] text-[#777]">
+                          {service.description}
+                        </p>
                       </div>
 
-                      {/* BLACK BOTTOM + ARROW */}
-                      <div className="relative flex h-8 items-center justify-end bg-[#151515] px-4">
-                        <span className="absolute left-0 top-0 h-px w-1/3 bg-[#F8BC04]/20" />
-
-                        <span className="text-[#F8BC04] transition-transform duration-300 group-hover:translate-x-1">
-                          <ArrowIcon />
-                        </span>
-
-                        <span className="absolute bottom-0 left-0 h-px w-1/3 bg-[#F8BC04]/20" />
-                      </div>
+                      <span className="mt-1 shrink-0 text-[#F0AA00] transition-transform group-hover:translate-x-1">
+                        →
+                      </span>
                     </div>
                   </Link>
                 ))}
               </div>
-            </section>
+            </div>
 
             {/* FEATURED POSTS */}
-            <section className="mt-10">
-              <SectionHeading>Featured Posts</SectionHeading>
+            <div className="rounded-[24px] border border-[#E8E8E8] bg-white p-5 md:p-6">
+              <div className="mb-6 flex items-center gap-3">
+                <span className="h-7 w-1 rounded-full bg-[#F8BC04]" />
+
+                <h2 className="text-[20px] font-extrabold">
+                  Featured Posts
+                </h2>
+              </div>
 
               <div className="space-y-5">
                 {featuredPosts.map((post) => (
                   <Link
-                    key={post.title}
                     href={post.href}
+                    key={post.href}
                     className="group flex gap-4"
                   >
-                    <div className="relative h-[66px] w-[92px] shrink-0 overflow-hidden rounded-[10px] bg-[#151515]">
+                    <div className="relative h-[76px] w-[105px] shrink-0 overflow-hidden rounded-xl bg-[#F4F4F4]">
                       {post.image ? (
                         <Image
                           src={post.image}
                           alt={post.title}
                           fill
-                          sizes="92px"
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
+                          sizes="105px"
                         />
                       ) : (
-                        <div className="flex h-full w-full items-center justify-center px-2 text-center text-[9px] font-extrabold leading-3 text-[#F8BC04]">
-                          {post.label?.split("\n").map((line) => (
-                            <span key={line} className="block">
-                              {line}
-                            </span>
-                          ))}
+                        <div className="flex h-full w-full items-center justify-center bg-[#111111] px-2 text-center">
+                          <span className="whitespace-pre-line text-[9px] font-extrabold leading-[1.2] tracking-[0.08em] text-[#F8BC04]">
+                            {post.label}
+                          </span>
                         </div>
                       )}
                     </div>
 
                     <div className="min-w-0">
-                      <h3 className="text-[12px] font-bold leading-[1.4] text-[#111] transition-colors duration-300 group-hover:text-[#F8BC04]">
+                      <h3 className="line-clamp-3 text-[13px] font-extrabold leading-[1.45] group-hover:text-[#D99D00]">
                         {post.title}
                       </h3>
 
-                      <p className="mt-1.5 text-[10px] text-[#888]">
+                      <p className="mt-2 text-[11px] text-[#888]">
                         {post.date}
                       </p>
                     </div>
                   </Link>
                 ))}
               </div>
-            </section>
+
+              <Link
+                href="/blog"
+                className="mt-7 inline-flex items-center gap-2 border-b-2 border-[#F8BC04] pb-1 text-[13px] font-bold"
+              >
+                View All Blogs
+                <ArrowIcon />
+              </Link>
+            </div>
           </aside>
         </div>
       </section>

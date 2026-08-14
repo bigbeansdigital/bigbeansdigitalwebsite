@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 const thumbnail =
   "/assets/blog/allblogs/website-seo-audit/website-seo-audit-thumbnail.png";
@@ -12,15 +10,13 @@ const services = [
     description: "Build brand awareness and grow your audience across social platforms.",
     href: "/services/social-media-marketing",
   },
+  
   {
     title: "Performance Marketing",
-    description: "Drive targeted traffic and maximize ROI with data-driven campaigns.",
-    href: "/services/performance-marketing",
-  },
-  {
-    title: "Google Ads",
-    description: "Reach high-intent customers when they are actively searching.",
-    href: "/services/google-ads",
+    description:
+      "Reach the right audience with targeted advertising campaigns built for measurable growth.",
+    href: "/services/google-ads-meta-ads",
+    icon: "target",
   },
   {
     title: "Website Development",
@@ -193,6 +189,50 @@ function CheckIcon() {
   );
 }
 
+function ChatGPTIcon() {
+  return (
+    <svg
+      width="27"
+      height="27"
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M16 4.5C12.9 4.5 10.3 6.5 9.4 9.3C6.3 9.1 3.7 11.5 3.7 14.6C3.7 16.2 4.4 17.7 5.5 18.8C4.4 21.6 5.8 24.8 8.7 25.8C10.2 26.3 11.8 26.2 13.1 25.4C15.4 27.5 18.9 27.3 20.8 25C21.8 23.8 22.2 22.3 21.9 20.8C24.9 20.4 27.2 17.8 27.2 14.7C27.2 11.6 24.8 9.1 21.8 8.8C20.8 6.3 18.6 4.5 16 4.5Z"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M9.5 9.4L16 13.1L22.3 9.3M5.6 18.7L12 15M13 25.3L12.1 17.8M21.8 20.6L16 17.2L16.2 13.1M27 14.7L20.4 18.5"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function GeminiIcon() {
+  return (
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M16 2.8C17.4 9.6 21.7 14.1 29.2 16C21.7 17.9 17.4 22.4 16 29.2C14.6 22.4 10.3 17.9 2.8 16C10.3 14.1 14.6 9.6 16 2.8Z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+}
+
 export default function WebsiteSeoAuditPage() {
   const postedDate = new Intl.DateTimeFormat("en-US", {
     month: "long",
@@ -209,10 +249,11 @@ export default function WebsiteSeoAuditPage() {
 
   return (
     <>
+      
 
       <main className="bg-[#FAFAFA] text-[#171717]">
         {/* BREADCRUMB */}
-        <div className="mx-auto max-w-[1380px] px-5 pt-7 md:px-8 lg:px-10">
+        <div className="mx-auto flex max-w-[1380px] justify-center px-5 pt-7 md:px-8 lg:px-10">
           <div className="inline-flex max-w-full items-center gap-2 overflow-hidden rounded-full border border-[#E8E8E8] bg-white px-5 py-3 text-[12px] shadow-[0_8px_25px_rgba(0,0,0,0.05)] md:text-[13px]">
             <Link
               href="/"
@@ -288,32 +329,32 @@ export default function WebsiteSeoAuditPage() {
             {/* LEFT CONTENT */}
             <article className="min-w-0">
               {/* AI SUMMARY */}
-              <div className="mb-10 flex flex-wrap items-center gap-4 rounded-full border border-[#E5E5E5] bg-white px-5 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
-                <span className="text-[15px] font-medium text-[#F0AA00]">
+              <div className="mb-10 flex min-h-[68px] w-full items-center justify-between gap-5 rounded-[16px] bg-[#111111] px-7 py-4 md:px-7">
+                <span className="text-[16px] font-medium text-[#F8BC04] md:text-[18px]">
                   Summarize with AI
                 </span>
 
-                <span className="h-5 w-px bg-[#E5E5E5]" />
+                <div className="flex shrink-0 items-center gap-6">
+                  <a
+                    href={`https://chatgpt.com/?q=${aiPrompt}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Summarize this blog with ChatGPT"
+                    className="flex items-center justify-center text-[#F8BC04] transition-all hover:scale-110"
+                  >
+                    <ChatGPTIcon />
+                  </a>
 
-                <a
-                  href={`https://chatgpt.com/?q=${aiPrompt}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Summarize this blog with ChatGPT"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#F8BC04] bg-white text-[#F8BC04] transition-all hover:scale-105 hover:bg-[#FFF8DE]"
-                >
-                  <span className="text-[17px] font-bold">◉</span>
-                </a>
-
-                <a
-                  href={`https://gemini.google.com/app?text=${aiPrompt}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Summarize this blog with Gemini"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-[#F8BC04] bg-white text-[#F8BC04] transition-all hover:scale-105 hover:bg-[#FFF8DE]"
-                >
-                  <span className="text-[20px] font-bold">✦</span>
-                </a>
+                  <a
+                    href={`https://gemini.google.com/app?text=${aiPrompt}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Summarize this blog with Gemini"
+                    className="flex items-center justify-center text-[#F8BC04] transition-all hover:scale-110"
+                  >
+                    <GeminiIcon />
+                  </a>
+                </div>
               </div>
 
               {/* INTRODUCTION */}
@@ -355,7 +396,10 @@ export default function WebsiteSeoAuditPage() {
 
               {/* WHAT IS SEO AUDIT */}
               <section className="mb-14">
-                <SectionTitle number="01" title="What Is a Website SEO Audit?" />
+                <SectionTitle
+                  number="01"
+                  title="What Is a Website SEO Audit?"
+                />
 
                 <p className="text-[16px] leading-[1.8] text-[#444]">
                   A website SEO audit is a systematic review of your website
@@ -1089,6 +1133,7 @@ export default function WebsiteSeoAuditPage() {
         </section>
       </main>
 
+      
     </>
   );
 }

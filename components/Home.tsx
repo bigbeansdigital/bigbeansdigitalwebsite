@@ -209,36 +209,40 @@ export default function Home() {
   ];
 
 const blogCards = [
+  
+
   {
-    id: 1,
-    image: "/assets/blog/allblogs/demoblog/blogthumbnail1.png",
-    date: "JULY 28, 2026",
-    category: "Big Beans Digital",
-    title: "Scaling Startups into Powerhouses",
-    description:
-      "In today’s hyper-competitive digital landscape, turning a breakthrough idea into an industry-leading brand requires far more than aesthetic graphics or basic ad campaigns........Click Read More",
-    link: "/blog/allblogs/demo",
-  },
+      id: 4,
+      image: "/assets/blog/singleblogs/getmorecustomers.png",
+      date: "August 14, 2026",
+      category: "Social Media",
+      title: "Customer Retention for Startups",
+      description: "Learn how London startups can improve customer retention, build loyalty and keep customers coming back. Read the practical guide today.",
+      link: "/blog/getmorecustomers",
+    },
+
 
   {
       id: 2,
-      image: "/assets/blog/allblogs/website-seo-audit/website-seo-audit-card.png",
-      date: "August 13, 2026",
-      category: "Digital Marketing",
-      title: "How to Do a Website SEO Audit Before Hiring an Agency",
-      description: "Learn how to do a website SEO audit yourself. Use this DIY SEO audit checklist to find speed, indexing, keyword, and technical SEO issues.",
-      link: "/blog/allblogs/website-seo-audit",
-    },
-
-  {
-      id: 3,
       image: "/assets/blog/allblogs/real-time-weather-marketing/real-time-weather-marketing-card.png",
       date: "August 13, 2026",
       category: "AI",
       title: "Real-Time Marketing: Turn Weather Data Into Revenue",
       description: "Learn how agile brands use weather data, AI, and real-time signals to create contextual marketing campaigns that drive revenue.",
-      link: "/blog/allblogs/real-time-weather-marketing",
+      link: "/blog/real-time-weather-marketing",
     },
+
+    {
+      id: 3,
+      image: "/assets/blog/allblogs/In-HousevsAgency/card.png",
+      date: "August 13, 2026",
+      category: "AI",
+      title: "In-House vs Agency: Social Media for London Startups",
+      description: "Should your London startup hire in-house or outsource social media? Discover the key signs, costs, benefits and when an agency is the smarter choice for growth.",
+      link: "/blog/In-HousevsAgency",
+    },
+
+    
 
 ];
 
