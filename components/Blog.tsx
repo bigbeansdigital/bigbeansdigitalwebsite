@@ -193,7 +193,7 @@ export default function SocialMediaMarketing() {
       scale: 1,
       transition: {
         duration: 0.65,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -258,7 +258,7 @@ export default function SocialMediaMarketing() {
             animate={{ opacity: 1, y: 0 }}
             transition={{
               duration: 0.6,
-              ease: [0.22, 1, 0.36, 1],
+              ease: [0.22, 1, 0.36, 1] as const,
             }}
             className="flex justify-center"
           >
@@ -298,7 +298,7 @@ export default function SocialMediaMarketing() {
               transition={{
                 duration: 0.8,
                 delay: 0.15,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.22, 1, 0.36, 1] as const,
               }}
               className="mt-4 text-[36px] font-medium leading-[1.04] tracking-[-0.05em] text-[#171717] sm:text-[46px] md:text-[54px] lg:text-[62px]"
             >
@@ -311,7 +311,7 @@ export default function SocialMediaMarketing() {
                   transition={{
                     duration: 0.9,
                     delay: 0.8,
-                    ease: [0.22, 1, 0.36, 1],
+                    ease: [0.22, 1, 0.36, 1] as const,
                   }}
                   className="absolute -bottom-1 left-0 h-[3px] rounded-full bg-[#F8BC04] sm:-bottom-2"
                 />
@@ -324,7 +324,7 @@ export default function SocialMediaMarketing() {
               transition={{
                 duration: 0.7,
                 delay: 0.3,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.22, 1, 0.36, 1] as const,
               }}
               className="mx-auto mt-6 max-w-4xl text-[13px] leading-[1.75] text-[#858585] sm:text-[14px] md:text-[15px]"
             >
@@ -339,7 +339,7 @@ export default function SocialMediaMarketing() {
               transition={{
                 duration: 0.8,
                 delay: 0.55,
-                ease: [0.22, 1, 0.36, 1],
+                ease: [0.22, 1, 0.36, 1] as const,
               }}
               className="mx-auto mt-7 h-[1px] bg-[#171717]"
             />
@@ -365,7 +365,7 @@ export default function SocialMediaMarketing() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{
                   duration: 0.7,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease: [0.22, 1, 0.36, 1] as const,
                 }}
                 className="sticky top-28 overflow-hidden rounded-[24px] border border-[#EAEAEA] bg-white shadow-[0_15px_45px_rgba(0,0,0,0.045)]"
               >
@@ -607,7 +607,7 @@ export default function SocialMediaMarketing() {
                       }}
                       transition={{
                         duration: 0.3,
-                        ease: [0.22, 1, 0.36, 1],
+                        ease: [0.22, 1, 0.36, 1] as const,
                       }}
                       className="mt-2 overflow-hidden rounded-[17px] border border-[#E6E6E6] bg-white shadow-[0_15px_35px_rgba(0,0,0,0.06)]"
                     >
@@ -697,7 +697,7 @@ export default function SocialMediaMarketing() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.5,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease: [0.22, 1, 0.36, 1] as const,
                 }}
                 className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between sm:gap-6"
               >
@@ -793,7 +793,7 @@ export default function SocialMediaMarketing() {
                         y: -9,
                         transition: {
                           duration: 0.3,
-                          ease: [0.22, 1, 0.36, 1],
+                          ease: [0.22, 1, 0.36, 1] as const,
                         },
                       }}
                       className="group relative flex h-full flex-col overflow-hidden rounded-[22px] border border-[#E9E9E9] bg-white shadow-[0_12px_35px_rgba(0,0,0,0.04)] transition-all duration-500 hover:border-[#DDDDDD] hover:shadow-[0_28px_65px_rgba(0,0,0,0.10)]"
@@ -1005,7 +1005,7 @@ export default function SocialMediaMarketing() {
           viewport={{ once: true }}
           transition={{
             duration: 1.2,
-            ease: [0.22, 1, 0.36, 1],
+            ease: [0.22, 1, 0.36, 1] as const,
           }}
           className="h-px max-w-[1440px] bg-[#EEEEEE]"
         />
