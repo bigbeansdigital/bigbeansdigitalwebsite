@@ -2322,7 +2322,7 @@ const blogCards = [
               shadow-sm
             "
           >
-            {blog.category}
+           {blog.primaryCategory}
           </div>
 
         </div>
