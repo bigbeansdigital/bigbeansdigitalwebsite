@@ -107,6 +107,7 @@ export default function SocialMediaMarketing() {
       id: 6,
       image:
         "/assets/blog/singleblogs/new-instagram-logo-redesign.png",
+      date: "August 17, 2026",
       primaryCategory: "Social Media",
       secondaryCategory: "Business",
       title: "New Instagram Logo 2026: Wordmark Redesign & Brand Refresh",
@@ -120,6 +121,7 @@ export default function SocialMediaMarketing() {
       id: 7,
       image:
         "/assets/blog/singleblogs/why-is-my-competitor-getting-more-leads.png",
+      date: "August 17, 2026",
       primaryCategory: "Social Media",
       secondaryCategory: "Business",
       title: "Why Is My Competitor Getting More Leads? | Digital Marketing India",

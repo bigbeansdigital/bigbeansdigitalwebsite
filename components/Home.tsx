@@ -211,10 +211,11 @@ export default function Home() {
 const blogCards = [
   
 
-  {
+   {
       id: 5,
       image:
         "/assets/blog/singleblogs/clinic-instagram-marketing-strategy.png",
+      date: "August 14, 2026",
       primaryCategory: "Social Media",
       secondaryCategory: "Healthcare",
       title: "How to Do SMM for a New Clinic in India | BigBeans",
@@ -228,6 +229,7 @@ const blogCards = [
       id: 6,
       image:
         "/assets/blog/singleblogs/new-instagram-logo-redesign.png",
+      date: "August 17, 2026",
       primaryCategory: "Social Media",
       secondaryCategory: "Business",
       title: "New Instagram Logo 2026: Wordmark Redesign & Brand Refresh",
@@ -241,6 +243,7 @@ const blogCards = [
       id: 7,
       image:
         "/assets/blog/singleblogs/why-is-my-competitor-getting-more-leads.png",
+      date: "August 17, 2026",
       primaryCategory: "Social Media",
       secondaryCategory: "Business",
       title: "Why Is My Competitor Getting More Leads? | Digital Marketing India",
