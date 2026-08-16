@@ -125,6 +125,14 @@ export default function Header() {
               Academy
             </Link>
 
+            {/* Blogs */}
+            <Link
+              href="/blog"
+              className="transition-all duration-300 hover:scale-110 hover:font-bold hover:text-black"
+            >
+              Blogs
+            </Link>
+
             {/* Connect */}
             <Link
               href="/connect"
@@ -135,7 +143,7 @@ export default function Header() {
 
             {/* Join Our Team */}
             <Link
-              href="/internship"
+              href="https://wa.link/pxmrrm"
               className="transition-all duration-300 hover:scale-110 hover:font-bold hover:text-black"
             >
               Join Our Team
@@ -300,6 +308,15 @@ export default function Header() {
             About
           </Link>
 
+          {/* Blog */}
+          <Link
+            href="/blog"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block py-3 text-[16px] font-medium text-gray-800 border-b border-gray-100"
+          >
+            Blog
+          </Link>
+
           {/* Academy */}
           <Link
             href="/academy"
@@ -308,6 +325,7 @@ export default function Header() {
           >
             Academy
           </Link>
+
 
           {/* Connect */}
           <Link
@@ -320,7 +338,7 @@ export default function Header() {
 
           {/* Join Our Team */}
           <Link
-            href="/internship"
+            href="https://wa.link/pxmrrm"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-3 text-[16px] font-medium text-gray-800 border-b border-gray-100"
           >

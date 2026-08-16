@@ -103,10 +103,30 @@ export default function SocialMediaMarketing() {
     },
 
 
+{
+      id: 6,
+      image:
+        "/assets/blog/singleblogs/new-instagram-logo-redesign.png",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Business",
+      title: "New Instagram Logo 2026: Wordmark Redesign & Brand Refresh",
+      description:
+        "Discover the new Instagram logo 2026, its wordmark redesign, “Instagzam” backlash, typography changes and what Instagram's brand refresh means for marketers.",
+      link: "/blog/new-instagram-logo-redesign",
+    },
 
 
-
-
+{
+      id: 7,
+      image:
+        "/assets/blog/singleblogs/why-is-my-competitor-getting-more-leads.png",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Business",
+      title: "Why Is My Competitor Getting More Leads? | Digital Marketing India",
+      description:
+        "Your competitor opened later but gets more leads. Discover how SEO, Google Business Profile, social media, reviews and local digital marketing can help Indian businesses grow.",
+      link: "/blog/why-is-my-competitor-getting-more-leads",
+    },
 
 
 

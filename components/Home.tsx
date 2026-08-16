@@ -212,34 +212,41 @@ const blogCards = [
   
 
   {
-      id: 4,
-      image: "/assets/blog/singleblogs/getmorecustomers.png",
-      date: "August 14, 2026",
-      category: "Social Media",
-      title: "Customer Retention for Startups",
-      description: "Learn how London startups can improve customer retention, build loyalty and keep customers coming back. Read the practical guide today.",
-      link: "/blog/getmorecustomers",
+      id: 5,
+      image:
+        "/assets/blog/singleblogs/clinic-instagram-marketing-strategy.png",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Healthcare",
+      title: "How to Do SMM for a New Clinic in India | BigBeans",
+      description:
+        "Learn what to post when launching a clinic on Instagram, from educational content to trust-building posts that attract patients. Get started with BigBeans Digital.",
+      link: "/blog/clinic-instagram-marketing-strategy",
     },
 
 
-  {
-      id: 2,
-      image: "/assets/blog/allblogs/real-time-weather-marketing/real-time-weather-marketing-card.png",
-      date: "August 13, 2026",
-      category: "AI",
-      title: "Real-Time Marketing: Turn Weather Data Into Revenue",
-      description: "Learn how agile brands use weather data, AI, and real-time signals to create contextual marketing campaigns that drive revenue.",
-      link: "/blog/real-time-weather-marketing",
+{
+      id: 6,
+      image:
+        "/assets/blog/singleblogs/new-instagram-logo-redesign.png",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Business",
+      title: "New Instagram Logo 2026: Wordmark Redesign & Brand Refresh",
+      description:
+        "Discover the new Instagram logo 2026, its wordmark redesign, “Instagzam” backlash, typography changes and what Instagram's brand refresh means for marketers.",
+      link: "/blog/new-instagram-logo-redesign",
     },
 
-    {
-      id: 3,
-      image: "/assets/blog/allblogs/In-HousevsAgency/card.png",
-      date: "August 13, 2026",
-      category: "AI",
-      title: "In-House vs Agency: Social Media for London Startups",
-      description: "Should your London startup hire in-house or outsource social media? Discover the key signs, costs, benefits and when an agency is the smarter choice for growth.",
-      link: "/blog/In-HousevsAgency",
+
+{
+      id: 7,
+      image:
+        "/assets/blog/singleblogs/why-is-my-competitor-getting-more-leads.png",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Business",
+      title: "Why Is My Competitor Getting More Leads? | Digital Marketing India",
+      description:
+        "Your competitor opened later but gets more leads. Discover how SEO, Google Business Profile, social media, reviews and local digital marketing can help Indian businesses grow.",
+      link: "/blog/why-is-my-competitor-getting-more-leads",
     },
 
     
