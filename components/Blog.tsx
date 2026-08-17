@@ -39,6 +39,62 @@ export default function SocialMediaMarketing() {
   ];
 
   const blogs = [
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    {
+      id: 8,
+      image:
+        "/assets/blog/singleblogs/real-estate-video-marketing-ideas-for-reels.png",
+      date: "August 18, 2026",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Real Estate",
+      title: "Real Estate Video Marketing Ideas By Big Beans Digital",
+      description:
+        "Discover Real Estate Video Marketing ideas for Reels that generate property leads, site visits and sales. Learn strategies for builders, brokers, developers and realtors in India | Big Beans Digital | Best Social Media Marketing Agency for Real Estate",
+      link: "/blog/real-estate-video-marketing-ideas-for-reels",
+    },
+
+{
+      id: 7,
+      image:
+        "/assets/blog/singleblogs/new-instagram-logo-redesign.png",
+      date: "August 17, 2026",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Business",
+      title: "New Instagram Logo 2026: Wordmark Redesign & Brand Refresh",
+      description:
+        "Discover the new Instagram logo 2026, its wordmark redesign, “Instagzam” backlash, typography changes and what Instagram's brand refresh means for marketers.",
+      link: "/blog/new-instagram-logo-redesign",
+    },
+
+
+{
+      id: 6,
+      image:
+        "/assets/blog/singleblogs/why-is-my-competitor-getting-more-leads.png",
+      date: "August 17, 2026",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Business",
+      title: "Why Is My Competitor Getting More Leads? | Digital Marketing India",
+      description:
+        "Your competitor opened later but gets more leads. Discover how SEO, Google Business Profile, social media, reviews and local digital marketing can help Indian businesses grow.",
+      link: "/blog/why-is-my-competitor-getting-more-leads",
+    },
+
+    
+    
+    
     {
       id: 1,
       image:
@@ -103,32 +159,9 @@ export default function SocialMediaMarketing() {
     },
 
 
-{
-      id: 6,
-      image:
-        "/assets/blog/singleblogs/new-instagram-logo-redesign.png",
-      date: "August 17, 2026",
-      primaryCategory: "Social Media",
-      secondaryCategory: "Business",
-      title: "New Instagram Logo 2026: Wordmark Redesign & Brand Refresh",
-      description:
-        "Discover the new Instagram logo 2026, its wordmark redesign, “Instagzam” backlash, typography changes and what Instagram's brand refresh means for marketers.",
-      link: "/blog/new-instagram-logo-redesign",
-    },
 
 
-{
-      id: 7,
-      image:
-        "/assets/blog/singleblogs/why-is-my-competitor-getting-more-leads.png",
-      date: "August 17, 2026",
-      primaryCategory: "Social Media",
-      secondaryCategory: "Business",
-      title: "Why Is My Competitor Getting More Leads? | Digital Marketing India",
-      description:
-        "Your competitor opened later but gets more leads. Discover how SEO, Google Business Profile, social media, reviews and local digital marketing can help Indian businesses grow.",
-      link: "/blog/why-is-my-competitor-getting-more-leads",
-    },
+
 
 
 
