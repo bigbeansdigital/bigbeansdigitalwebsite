@@ -1,0 +1,85 @@
+import type { MetadataRoute } from "next";
+export const dynamic = "force-static";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://www.bigbeansdigital.com";
+
+  return [
+    // Main Pages
+    {
+      url: baseUrl,
+    },
+    {
+      url: `${baseUrl}/about`,
+    },
+    {
+      url: `${baseUrl}/academy`,
+    },
+    {
+      url: `${baseUrl}/blog`,
+    },
+    {
+      url: `${baseUrl}/connect`,
+    },
+    {
+      url: `${baseUrl}/courses`,
+    },
+    {
+      url: `${baseUrl}/internship`,
+    },
+    {
+      url: `${baseUrl}/our-work`,
+    },
+    {
+      url: `${baseUrl}/privacy-policy`,
+    },
+
+    // Courses
+    {
+      url: `${baseUrl}/courses/digital-marketing-mastery`,
+    },
+
+    // Services
+    {
+      url: `${baseUrl}/services/branding`,
+    },
+    {
+      url: `${baseUrl}/services/google-ads-meta-ads`,
+    },
+    {
+      url: `${baseUrl}/services/logo-designing`,
+    },
+    {
+      url: `${baseUrl}/services/social-media-marketing`,
+    },
+    {
+      url: `${baseUrl}/services/website-development`,
+    },
+
+    // Blogs
+    {
+      url: `${baseUrl}/blog/clinic-instagram-marketing-strategy`,
+    },
+    {
+      url: `${baseUrl}/blog/getmorecustomers`,
+    },
+    {
+      url: `${baseUrl}/blog/In-HousevsAgency`,
+    },
+    {
+      url: `${baseUrl}/blog/new-instagram-logo-redesign`,
+    },
+    {
+      url: `${baseUrl}/blog/real-estate-video-marketing-ideas-for-reels`,
+    },
+    {
+      url: `${baseUrl}/blog/real-time-weather-marketing`,
+    },
+    {
+      url: `${baseUrl}/blog/website-seo-audit`,
+    },
+    {
+      url: `${baseUrl}/blog/why-is-my-competitor-getting-more-leads`,
+    },
+  ];
+}
