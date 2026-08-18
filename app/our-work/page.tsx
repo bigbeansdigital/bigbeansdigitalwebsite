@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
-import OurWork from "@/components/OurWork";
+import OurWork from "@/components/Recentwork";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {

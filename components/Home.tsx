@@ -18,6 +18,8 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+import OurWork from "@/components/Recentwork";
+
 function Counter({
   end,
   suffix = "",
@@ -747,7 +749,7 @@ const blogCards = [
       {/* =========================================================
           CORE SERVICES
       ========================================================= */}
-      <section className="pt-6 sm:pt-10 pb-10 sm:pb-14 bg-white overflow-hidden">
+      <section className="pt-6 sm:pt-10 pb-5 sm:pb-5 bg-white overflow-hidden">
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
 
@@ -1260,192 +1262,1769 @@ const blogCards = [
         </div>
       </section>
 
-      {/* =========================================================
-          OUR PROCESS
-      ========================================================= */}
-      <section className="bg-[#FFFFFF] py-10 sm:py-16 lg:py-28">
 
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
 
-          <div
+{/* =========================================================
+    OUR PROCESS
+========================================================= */}
+
+<section
+  className="relative overflow-hidden bg-white pb-10 sm:pb-10 py-8 sm:py-10 lg:py-12"
+  style={{
+    fontFamily: "Roboto, sans-serif",
+  }}
+>
+  {/* =========================
+      BACKGROUND GLOW
+  ========================= */}
+
+  <motion.div
+    animate={{
+      scale: [1, 1.18, 1],
+      opacity: [0.04, 0.09, 0.04],
+    }}
+    transition={{
+      duration: 8,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+  />
+
+  <div
+    
+  >
+
+    {/* =====================================================
+        HEADING
+    ===================================================== */}
+
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 35,
+        scale: 0.97,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        scale: 1,
+      }}
+      viewport={{
+        once: true,
+        amount: 0.3,
+      }}
+      transition={{
+        duration: 0.9,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      className="mx-auto max-w-[1100px] text-center"
+    >
+
+      {/* H2 */}
+
+      <h2
+        className="
+          text-[42px]
+          font-black
+          leading-none
+          tracking-tight
+          text-[#171717]
+          sm:text-[52px]
+          lg:text-[60px]
+        "
+      >
+        Our{" "}
+        <span className="text-[#F8BC04]">
+          Process
+        </span>
+      </h2>
+
+      {/* DESCRIPTION */}
+
+      <p
+        className="
+          mx-auto
+          mt-5
+          max-w-[1150px]
+          text-[13px]
+          leading-[1.5]
+          text-[#171717]
+          sm:mt-6
+          sm:text-[15px]
+          lg:text-[16px]
+          lg:leading-[1.5]
+        "
+        style={{
+          textAlign: "justify",
+          textAlignLast: "center",
+        }}
+      >
+        Every successful brand starts with the right strategy. At BIGBEANS
+        DIGITAL, we follow a proven, data-driven process that helps startups
+        and growing businesses build a strong online presence, attract
+        qualified customers, and achieve sustainable business growth through
+        digital marketing.
+      </p>
+
+    </motion.div>
+
+
+    {/* =====================================================
+        PROCESS CARDS
+    ===================================================== */}
+
+    <div
+      className="
+        mx-auto
+        mt-8
+        grid
+        max-w-[1250px]
+        grid-cols-2
+        gap-3
+        sm:mt-9
+        sm:gap-4
+        lg:mt-10
+        lg:grid-cols-3
+        lg:gap-5
+      "
+    >
+
+      {[
+        {
+          number: "01",
+          title: "Business Discovery",
+          description:
+            "We understand your business, target audience, industry, competitors, and growth goals to create a customized digital marketing strategy that delivers measurable results from day one.",
+          icon: <Search size={18} />,
+          dark: true,
+        },
+        {
+          number: "02",
+          title: "Strategy & Growth Planning",
+          description:
+            "Our experts build a tailored roadmap covering Social Media Marketing, SEO, Performance Marketing, Website Development, Branding, and content strategy to maximize your online growth.",
+          icon: <FileText size={18} />,
+          dark: false,
+        },
+        {
+          number: "03",
+          title: "Brand Development",
+          description:
+            "We create a memorable brand identity with professional branding, graphic design, logo design, and messaging that helps your business stand out and build customer trust.",
+          icon: <Layout size={18} />,
+          dark: true,
+        },
+        {
+          number: "04",
+          title: "Campaign Launch & Management",
+          description:
+            "From Google Ads, Meta Ads, and Social Media Marketing to SEO and lead generation campaigns, we launch, manage, and optimize every campaign for maximum ROI.",
+          icon: <Rocket size={18} />,
+          dark: false,
+        },
+        {
+          number: "05",
+          title: "Performance Optimization",
+          description:
+            "Using real-time analytics and customer insights, we continuously improve campaigns to increase traffic, generate more qualified leads, boost conversions, and accelerate business growth.",
+          icon: <BarChart3 size={18} />,
+          dark: true,
+        },
+        {
+          number: "06",
+          title: "Transparent Reporting",
+          description:
+            "Track every campaign with easy-to-understand reports showing traffic, leads, conversions, ROI, and business performance, so you always know how your marketing investment is performing.",
+          icon: <FileBarChart size={18} />,
+          dark: false,
+        },
+      ].map((item, index) => (
+
+        <motion.div
+          key={item.number}
+          initial={{
+            opacity: 0,
+            y: 70,
+            scale: 0.92,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
+          viewport={{
+            once: true,
+            amount: 0.12,
+          }}
+          transition={{
+            duration: 0.8,
+            delay: index * 1,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          whileHover={{
+            y: -7,
+            scale: 1.015,
+          }}
+          className={`
+            group
+            relative
+            h-[180px]
+            overflow-hidden
+            rounded-[20px]
+            p-4
+            shadow-sm
+            transition-shadow
+            duration-500
+            sm:h-[190px]
+            sm:rounded-[22px]
+            sm:p-5
+            lg:h-[185px]
+            lg:p-5
+            xl:h-[195px]
+            xl:p-6
+
+            ${
+              item.dark
+                ? "bg-[#171717] text-white"
+                : "bg-[#F8BC04] text-black"
+            }
+
+            ${
+              item.dark
+                ? "hover:shadow-[0_20px_50px_rgba(0,0,0,0.22)]"
+                : "hover:shadow-[0_20px_50px_rgba(248,188,4,0.25)]"
+            }
+          `}
+        >
+
+          {/* =========================
+              CARD NUMBER
+          ========================= */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -25,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.6,
+              delay: index * 1 + 0.15,
+              ease: "easeOut",
+            }}
+            className={`
+              relative
+              z-10
+              text-[27px]
+              font-black
+              leading-none
+              sm:text-[30px]
+              lg:text-[32px]
+              ${
+                item.dark
+                  ? "text-[#F8BC04]"
+                  : "text-black"
+              }
+            `}
+          >
+            {item.number}
+          </motion.div>
+
+
+          {/* =========================
+              ICON
+          ========================= */}
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              rotate: -25,
+              scale: 0.7,
+            }}
+            whileInView={{
+              opacity: 1,
+              rotate: 0,
+              scale: 1,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.6,
+              delay: index * 1 + 0.3,
+              ease: "backOut",
+            }}
+            whileHover={{
+              rotate: 360,
+              scale: 1.15,
+            }}
+            className={`
+              absolute
+              right-4
+              top-4
+              z-20
+              sm:right-5
+              sm:top-5
+              ${
+                item.dark
+                  ? "text-white"
+                  : "text-black"
+              }
+            `}
+          >
+            {item.icon}
+          </motion.div>
+
+
+          {/* =========================
+              CONTENT
+          ========================= */}
+
+          <div className="relative z-10 mt-6 sm:mt-7">
+
+            {/* H3 */}
+
+            <motion.h3
+              whileHover={{
+                x: 3,
+              }}
+              className="
+                whitespace-nowrap
+                text-[11px]
+                font-black
+                leading-[1.05]
+                sm:text-[15px]
+                lg:text-[17px]
+                xl:text-[18px]
+              "
+            >
+              {item.title}
+            </motion.h3>
+
+
+            {/* PARAGRAPH */}
+
+            <p
+              className={`
+                mt-3
+                max-w-[500px]
+                text-[9px]
+                leading-[1.45]
+                sm:text-[10px]
+                sm:leading-[1.5]
+                lg:text-[10px]
+                xl:text-[11px]
+
+                ${
+                  item.dark
+                    ? "text-white/80"
+                    : "text-black/75"
+                }
+              `}
+              style={{
+                textAlign: "justify",
+                textAlignLast: "left",
+              }}
+            >
+              {item.description}
+            </p>
+
+          </div>
+
+
+          {/* =========================
+              LARGE BACKGROUND NUMBER
+          ========================= */}
+
+          <motion.div
+            animate={{
+              y: [0, -5, 0],
+              opacity: [0.06, 0.09, 0.06],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: index * 0.2,
+            }}
+            className={`
+              pointer-events-none
+              absolute
+              -bottom-8
+              right-0
+              select-none
+              text-[80px]
+              font-black
+              leading-none
+              sm:text-[90px]
+              lg:text-[100px]
+
+              ${
+                item.dark
+                  ? "text-white/[0.07]"
+                  : "text-black/[0.07]"
+              }
+            `}
+          >
+            {item.number}
+          </motion.div>
+
+
+          {/* =========================
+              HOVER SHINE
+          ========================= */}
+
+          <motion.div
+            initial={{
+              x: "-140%",
+            }}
+            whileHover={{
+              x: "180%",
+            }}
+            transition={{
+              duration: 0.8,
+              ease: "easeInOut",
+            }}
             className="
-              grid
-              lg:grid-cols-4
-              gap-4
-              sm:gap-6
-              lg:gap-6
-              items-stretch
+              pointer-events-none
+              absolute
+              inset-y-0
+              left-0
+              w-[70px]
+              rotate-[18deg]
+              bg-white/10
+              blur-xl
+            "
+          />
+
+        </motion.div>
+
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+
+
+{/* =========================================================
+    OUR WORK CROUSAL 
+========================================================= */}
+
+<OurWork />
+
+
+
+{/* =========================================================
+    CTA • THREE CARDS
+========================================================= */}
+
+<section className="w-full bg-white py-12 sm:py-16 lg:py-20 overflow-visible">
+  <div className="mx-auto w-full max-w-[1200px] px-5 sm:px-8 lg:px-10">
+
+    <div
+      className="
+        grid
+        grid-cols-1
+        md:grid-cols-3
+        gap-8
+        md:gap-6
+        lg:gap-8
+        items-start
+      "
+    >
+
+      {/* =====================================================
+          CARD 01 — REQUEST A PROPOSAL
+      ===================================================== */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 50,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        transition={{
+          duration: 0.8,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="
+          relative
+          h-[500px]
+          sm:h-[520px]
+          lg:h-[500px]
+          overflow-visible
+          bg-[#F8BC04]
+          rounded-tl-[70px]
+          rounded-tr-none
+          rounded-br-none
+          rounded-bl-none
+          px-6
+          pt-12
+          sm:px-7
+          sm:pt-12
+          lg:px-6
+          lg:pt-12
+        "
+      >
+
+        {/* TEXT */}
+
+        <div className="relative z-30 max-w-[320px]">
+          <h3
+            className="
+              text-[25px]
+              sm:text-[26px]
+              lg:text-[24px]
+              font-normal
+              leading-[1.08]
+              tracking-[-0.4px]
+              text-black
             "
           >
+            Looking to grow and be
+            next brand everyone’s talking
+            about?
+            <br />
+            <br />
+            <br />
+            
+          </h3>
 
-            {/* PROCESS INTRO */}
+          <a
+            href="/connect"
+            className="
+              mt-3
+              inline-flex
+              items-center
+              gap-2
+              text-[20px]
+              sm:text-[21px]
+              lg:text-[20px]
+              font-extrabold
+              leading-[1.2]
+              text-black
+              transition-all
+              duration-300
+              hover:gap-3
+            "
+          >
+            Connect With Our Beans 
+            <span className="text-[22px] leading-none">↗</span>
+          </a>
+        </div>
+
+        {/* DECORATIVE ARROW / ILLUSTRATION BEHIND */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.85,
+            rotate: -8,
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 1,
+            delay: 0.15,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            absolute
+            bottom-[95px]
+            left-[8%]
+            z-10
+            pointer-events-none
+            opacity-90
+          "
+        >
+          <svg
+            width="190"
+            height="150"
+            viewBox="0 0 190 150"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8 115C50 112 76 92 105 66C127 47 145 29 174 10"
+              stroke="black"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeDasharray="8 9"
+              opacity="0.45"
+            />
+
+            <path
+              d="M158 13L177 9L172 28"
+              stroke="black"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity="0.45"
+            />
+
+            <path
+              d="M22 35C30 29 41 29 48 35C41 41 30 41 22 35Z"
+              stroke="black"
+              strokeWidth="2.5"
+              opacity="0.35"
+            />
+          </svg>
+        </motion.div>
+
+        {/* CARTOON */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 45,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 1,
+            delay: 0.3,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            absolute
+            z-20
+            bottom-[-195px]
+            left-1/2
+            -translate-x-1/2
+            w-[88%]
+            sm:w-[90%]
+            lg:w-[92%]
+            pointer-events-none
+          "
+        >
+          <Image
+            src="/home/cartoon1.png"
+            alt="Creative character"
+            width={600}
+            height={700}
+            className="
+              block
+              w-full
+              h-auto
+              object-contain
+            "
+          />
+        </motion.div>
+
+      </motion.div>
+
+
+      {/* =====================================================
+          CARD 02 — JOIN OUR TEAM
+      ===================================================== */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 50,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        transition={{
+          duration: 0.8,
+          delay: 0.15,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="
+          relative
+          h-[500px]
+          sm:h-[520px]
+          lg:h-[500px]
+          overflow-visible
+          bg-black
+          rounded-tl-[70px]
+          rounded-tr-none
+          rounded-br-none
+          rounded-bl-none
+          px-6
+          pt-12
+          sm:px-7
+          sm:pt-12
+          lg:px-6
+          lg:pt-12
+        "
+      >
+
+        {/* TEXT */}
+
+        <div className="relative z-30 max-w-[325px]">
+          <h3
+            className="
+              text-[25px]
+              sm:text-[26px]
+              lg:text-[25px]
+              font-normal
+              leading-[1.08]
+              tracking-[-0.4px]
+              text-white
+            "
+          >
+            Dieing to be a part of us?
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+           
+          </h3>
+
+          <a
+            href="/join-our-team"
+            className="
+              mt-3
+              inline-flex
+              items-center
+              gap-2
+              text-[20px]
+              sm:text-[21px]
+              lg:text-[20px]
+              font-extrabold
+              leading-[1.2]
+              text-white
+              transition-all
+              duration-300
+              hover:gap-3
+            "
+          >
+            Join Our Team of Beans
+            <span className="text-[22px] leading-none">↗</span>
+          </a>
+        </div>
+
+        {/* DECORATIVE SPEECH BUBBLES / ARROW */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.85,
+            rotate: 6,
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 1,
+            delay: 0.3,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            absolute
+            bottom-[80px]
+            left-[7%]
+            z-10
+            pointer-events-none
+          "
+        >
+          <svg
+            width="210"
+            height="160"
+            viewBox="0 0 210 160"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 125C51 122 76 101 106 77C132 56 156 31 194 14"
+              stroke="#F8BC04"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeDasharray="8 9"
+              opacity="0.8"
+            />
+
+            <path
+              d="M178 17L196 13L191 31"
+              stroke="#F8BC04"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+
+            <path
+              d="M28 46C41 37 59 37 71 46C59 55 41 55 28 46Z"
+              stroke="#F8BC04"
+              strokeWidth="3"
+              opacity="0.8"
+            />
+
+            <path
+              d="M29 46L23 58"
+              stroke="#F8BC04"
+              strokeWidth="3"
+              strokeLinecap="round"
+              opacity="0.8"
+            />
+          </svg>
+        </motion.div>
+
+        {/* CARTOON */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 45,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 1,
+            delay: 0.45,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            absolute
+            z-20
+            bottom-[-185px]
+            left-1/2
+            -translate-x-1/2
+            w-[91%]
+            sm:w-[93%]
+            lg:w-[95%]
+            pointer-events-none
+          "
+        >
+          <Image
+            src="/home/cartoon2.png"
+            alt="Creative team"
+            width={600}
+            height={700}
+            className="
+              block
+              w-full
+              h-auto
+              object-contain
+            "
+          />
+        </motion.div>
+
+      </motion.div>
+
+
+      {/* =====================================================
+          CARD 03 — NEWSLETTER / BLOG
+      ===================================================== */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          y: 50,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        transition={{
+          duration: 0.8,
+          delay: 0.3,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="
+          relative
+          h-[500px]
+          sm:h-[520px]
+          lg:h-[500px]
+          overflow-visible
+          bg-[#F8BC04]
+          rounded-tl-[70px]
+          rounded-tr-none
+          rounded-br-none
+          rounded-bl-none
+          px-6
+          pt-12
+          sm:px-7
+          sm:pt-12
+          lg:px-6
+          lg:pt-12
+        "
+      >
+
+        {/* TEXT */}
+
+        <div className="relative z-30 max-w-[325px]">
+          <h3
+            className="
+              text-[25px]
+              sm:text-[26px]
+              lg:text-[25px]
+              font-normal
+              leading-[1.08]
+              tracking-[-0.4px]
+              text-black
+            "
+          >
+            Want to read something Interesting?
+            <br />
+            <br />
+            <br />
+            <br />
+            
+          </h3>
+
+          <a
+            href="/blog"
+            className="
+              mt-3
+              inline-flex
+              items-center
+              gap-2
+              text-[20px]
+              sm:text-[21px]
+              lg:text-[20px]
+              font-extrabold
+              leading-[1.2]
+              text-black
+              transition-all
+              duration-300
+              hover:gap-3
+            "
+          >
+            Read Our Blogs
+            <span className="text-[22px] leading-none">↗</span>
+          </a>
+        </div>
+
+        {/* DECORATIVE LIGHTBULB / ENVELOPE ELEMENTS */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.85,
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 1,
+            delay: 0.45,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            absolute
+            bottom-[70px]
+            right-[5%]
+            z-10
+            pointer-events-none
+          "
+        >
+          <svg
+            width="210"
+            height="175"
+            viewBox="0 0 210 175"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M18 142C54 137 79 116 109 91C140 65 164 35 195 16"
+              stroke="black"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeDasharray="8 9"
+              opacity="0.45"
+            />
+
+            <path
+              d="M179 18L197 14L192 32"
+              stroke="black"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity="0.45"
+            />
+
+            {/* Light bulb */}
+
+            <path
+              d="M58 35C58 23 67 14 79 14C91 14 100 23 100 35C100 43 96 49 91 54C87 58 86 62 86 66H72C72 62 70 58 66 54C61 49 58 43 58 35Z"
+              stroke="black"
+              strokeWidth="3"
+              opacity="0.55"
+            />
+
+            <path
+              d="M72 72H86"
+              stroke="black"
+              strokeWidth="3"
+              strokeLinecap="round"
+              opacity="0.55"
+            />
+
+            <path
+              d="M74 79H84"
+              stroke="black"
+              strokeWidth="3"
+              strokeLinecap="round"
+              opacity="0.55"
+            />
+
+            {/* Envelope */}
+
+            <rect
+              x="123"
+              y="48"
+              width="52"
+              height="38"
+              rx="4"
+              stroke="black"
+              strokeWidth="3"
+              opacity="0.55"
+            />
+
+            <path
+              d="M126 52L149 70L172 52"
+              stroke="black"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              opacity="0.55"
+            />
+          </svg>
+        </motion.div>
+
+        {/* CARTOON */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 45,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 1,
+            delay: 0.6,
+            ease: [0.22, 1, 0.36, 1],
+          }}
+          className="
+            absolute
+            z-20
+            bottom-[-180px]
+            left-1/2
+            -translate-x-1/2
+            w-[94%]
+            sm:w-[96%]
+            lg:w-[98%]
+            pointer-events-none
+          "
+        >
+          <Image
+            src="/home/cartoon3.png"
+            alt="Creative storyteller"
+            width={600}
+            height={700}
+            className="
+              block
+              w-full
+              h-auto
+              object-contain
+            "
+          />
+        </motion.div>
+
+      </motion.div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+{/* =========================================================
+    STRATEGY • CREATIVITY • GROWTH
+========================================================= */}
+
+<section
+  className="
+    relative
+    w-full
+    overflow-hidden
+    bg-white
+    pt-10
+    pb-12
+    sm:pt-10
+    sm:pb-14
+    lg:pt-40
+    lg:pb-16
+  "
+  style={{
+    fontFamily: "Roboto, sans-serif",
+  }}
+>
+
+  <div
+    className="
+      relative
+      z-10
+      mx-auto
+      w-full
+      max-w-[1400px]
+      px-5
+      sm:px-7
+      lg:px-10
+      xl:px-12
+    "
+  >
+    <div
+      className="
+        grid
+        grid-cols-1
+        gap-10
+        lg:grid-cols-2
+        lg:gap-0
+      "
+    >
+
+      {/* =====================================================
+          LEFT SIDE
+      ===================================================== */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: -60,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        transition={{
+          duration: 0.9,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+        className="
+          flex
+          flex-col
+          justify-center
+          lg:pr-10
+          xl:pr-14
+        "
+      >
+
+        {/* H2 */}
+
+        <motion.h2
+          initial={{
+            opacity: 0,
+            y: 30,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+            delay: 0.15,
+          }}
+          className="
+            max-w-[650px]
+            text-[34px]
+            font-black
+            leading-[1.08]
+            tracking-tight
+            text-[#171717]
+            sm:text-[40px]
+            md:text-[44px]
+            lg:text-[43px]
+            xl:text-[48px]
+          "
+        >
+          <span className="block whitespace-nowrap">
+            Driven by{" "}
+            <span className="text-[#F8BC04]">
+              Strategy.
+            </span>
+          </span>
+
+          <span className="block whitespace-nowrap">
+            Powered by{" "}
+            <span className="text-[#F8BC04]">
+              Creativity.
+            </span>
+          </span>
+
+          <span
+            className="
+              block
+              whitespace-nowrap
+              text-[32px]
+              sm:text-[38px]
+              md:text-[42px]
+              lg:text-[41px]
+              xl:text-[46px]
+            "
+          >
+            Built for Brand&apos;s{" "}
+            <span className="text-[#F8BC04]">
+              Growth.
+            </span>
+          </span>
+        </motion.h2>
+
+
+        {/* DESCRIPTION */}
+
+        <motion.p
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+            delay: 0.3,
+          }}
+          className="
+            mt-6
+            max-w-[640px]
+            text-[14px]
+            leading-[1.55]
+            text-[#171717]
+            sm:mt-7
+            sm:text-[15px]
+            sm:leading-[1.6]
+            lg:text-[16px]
+          "
+          style={{
+            textAlign: "justify",
+            textAlignLast: "left",
+          }}
+        >
+          BigBeans Digital is a Social Media Marketing Agency in Kolkata
+          helping startups, entrepreneurs, and growing businesses across
+          India, Dubai, the UAE, and the United Kingdom build brands that
+          stand out. From creative social media marketing and branding to
+          graphic design, website development, and performance marketing,
+          we create tailored digital strategies that increase brand
+          visibility, generate qualified leads, and drive sustainable
+          business growth.
+        </motion.p>
+
+
+        {/* CONSULTATION BUTTON */}
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 25,
+            scale: 0.95,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.7,
+            delay: 0.45,
+          }}
+          className="
+            mt-7
+            flex
+            justify-start
+          "
+        >
+          <motion.a
+            href="https://api.whatsapp.com/send?phone=916289102537"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{
+              y: -4,
+              scale: 1.04,
+            }}
+            whileTap={{
+              scale: 0.96,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 250,
+              damping: 18,
+            }}
+            className="
+              inline-flex
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-[#171717]
+              bg-[#171717]
+              px-7
+              py-3.5
+              text-sm
+              font-bold
+              text-[#F8BC04]
+              shadow-[0_12px_30px_rgba(0,0,0,0.14)]
+              transition-all
+              duration-300
+              hover:border-[#F8BC04]
+              hover:bg-[#F8BC04]
+              hover:text-[#171717]
+              hover:shadow-[0_18px_40px_rgba(248,188,4,0.28)]
+              sm:px-8
+              sm:py-4
+              sm:text-base
+            "
+          >
+            Get Free Consultation
+          </motion.a>
+        </motion.div>
+
+      </motion.div>
+
+
+      {/* =====================================================
+          RIGHT SIDE
+      ===================================================== */}
+
+      <motion.div
+        initial={{
+          opacity: 0,
+          x: 60,
+        }}
+        whileInView={{
+          opacity: 1,
+          x: 0,
+        }}
+        viewport={{
+          once: true,
+          amount: 0.2,
+        }}
+        transition={{
+          duration: 0.9,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+        className="
+          relative
+          flex
+          flex-col
+          justify-center
+          lg:border-l
+          lg:border-[#F8BC04]/40
+          lg:pl-9
+          xl:pl-11
+        "
+      >
+
+        {/* H3 */}
+
+        <motion.h3
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+            delay: 0.15,
+          }}
+          className="
+            text-[34px]
+            font-normal
+            leading-[1.05]
+            tracking-tight
+            text-[#171717]
+            sm:text-[40px]
+            md:text-[44px]
+            lg:text-[43px]
+            xl:text-[48px]
+          "
+        >
+          Built for{" "}
+          <span className="font-black text-[#F8BC04]">
+            What&apos;s Next
+          </span>
+        </motion.h3>
+
+
+        {/* DESCRIPTION */}
+
+        <motion.p
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+            delay: 0.28,
+          }}
+          className="
+            mt-5
+            max-w-[650px]
+            text-[13px]
+            leading-[1.4]
+            text-[#171717]
+            sm:text-[14px]
+            sm:leading-[1.45]
+            lg:text-[15px]
+          "
+          style={{
+            textAlign: "justify",
+            textAlignLast: "left",
+          }}
+        >
+          BigBeans Digital is a Social Media Marketing Agency in Kolkata
+          helping startups, entrepreneurs, and growing businesses across
+          India, Dubai, the UAE, and the United Kingdom build brands that
+          stand out. From creative social media marketing and branding to
+          graphic design, website development, and performance marketing,
+          we create tailored digital strategies that increase brand
+          visibility, generate qualified leads, and drive sustainable
+          business growth.
+        </motion.p>
+
+
+        {/* STATS */}
+
+        <div
+          className="
+            mt-6
+            grid
+            grid-cols-2
+            gap-3
+            sm:gap-4
+            lg:grid-cols-4
+            lg:gap-3
+            xl:gap-4
+          "
+        >
+          {[
+            {
+              icon: <TrendingUp size={15} />,
+              label: "Performance",
+              value: "3.5x",
+              description: "Higher Campaign Performance",
+              yellow: true,
+            },
+            {
+              icon: <Users size={15} />,
+              label: "Qualified Leads",
+              value: "10x",
+              description: "More High-Intent Leads",
+              yellow: false,
+            },
+            {
+              icon: <ThumbsUp size={15} />,
+              label: "Audience Growth",
+              value: "70%",
+              description: "Stronger Brand Engagement",
+              yellow: true,
+            },
+            {
+              icon: <BarChart3 size={15} />,
+              label: "Business Growth",
+              value: "60%",
+              description: "Growth in Just 3 Months",
+              yellow: false,
+            },
+            {
+              icon: <TrendingUp size={15} />,
+              label: "Performance",
+              value: "3.5x",
+              description: "Higher Campaign Performance",
+              yellow: true,
+            },
+            {
+              icon: <Users size={15} />,
+              label: "Qualified Leads",
+              value: "10x",
+              description: "More High-Intent Leads",
+              yellow: false,
+            },
+            {
+              icon: <ThumbsUp size={15} />,
+              label: "Audience Growth",
+              value: "70%",
+              description: "Stronger Brand Engagement",
+              yellow: true,
+            },
+            {
+              icon: <BarChart3 size={15} />,
+              label: "Business Growth",
+              value: "60%",
+              description: "Growth in Just 3 Months",
+              yellow: false,
+            },
+          ].map((stat, index) => (
             <motion.div
+              key={`${stat.label}-${index}`}
               initial={{
                 opacity: 0,
-                x: -40,
+                y: 35,
+                scale: 0.92,
               }}
               whileInView={{
                 opacity: 1,
-                x: 0,
+                y: 0,
+                scale: 1,
               }}
               viewport={{
                 once: true,
+                amount: 0.15,
               }}
               transition={{
-                duration: 0.7,
+                duration: 0.55,
+                delay: 0.4 + index * 0.08,
+                ease: [0.16, 1, 0.3, 1],
               }}
-              className="
+              whileHover={{
+                y: -5,
+                scale: 1.025,
+              }}
+              className={`
+                group
                 relative
+                min-h-[96px]
                 overflow-hidden
-                rounded-[28px]
-                sm:rounded-[36px]
-                lg:rounded-[40px]
-                bg-[#F8BC04]
-                p-6
-                sm:p-8
-                lg:p-10
-                min-h-[300px]
-                sm:min-h-[330px]
-                lg:min-h-[720px]
-                lg:row-span-2
-                flex
-                flex-col
-              "
+                rounded-[13px]
+                border
+                p-3
+                transition-all
+                duration-300
+                sm:min-h-[105px]
+                sm:p-4
+
+                ${
+                  stat.yellow
+                    ? "border-[#F8BC04] bg-[#F8BC04]"
+                    : "border-[#F8BC04]/40 bg-white"
+                }
+
+                ${
+                  stat.yellow
+                    ? "hover:shadow-[0_15px_35px_rgba(248,188,4,0.22)]"
+                    : "hover:shadow-[0_15px_35px_rgba(0,0,0,0.10)]"
+                }
+              `}
             >
 
-              <h2
-                className="
-                  text-[34px]
-                  sm:text-5xl
-                  lg:text-[48px]
-                  font-black
-                  text-black
-                  leading-none
-                  relative
-                  z-10
-                "
-              >
-                Our Process
-              </h2>
-
-              <p
-                className="
-                  mt-6
-                  sm:mt-7
-                  lg:mt-8
-                  text-[13px]
-                  sm:text-base
-                  lg:text-[16px]
-                  leading-[1.7]
-                  text-black/80
-                  max-w-[600px]
-                  relative
-                  z-10
-                "
-              >
-                Every successful brand starts with the right strategy. At BIGBEANS DIGITAL, we follow a proven, data-driven process that helps startups and growing businesses build a strong online presence, attract qualified customers, and achieve sustainable business growth through digital marketing.
-              </p>
+              {/* ICON */}
 
               <motion.div
-                animate={{
-                  y: [0, -12, 0],
-                  scale: [1, 1.02, 1],
+                whileHover={{
+                  rotate: 12,
+                  scale: 1.15,
                 }}
                 transition={{
-                  duration: 6,
-                  repeat: Infinity,
+                  type: "spring",
+                  stiffness: 220,
+                }}
+                className={
+                  stat.yellow
+                    ? "text-white"
+                    : "text-[#F8BC04]"
+                }
+              >
+                {stat.icon}
+              </motion.div>
+
+
+              {/* LABEL */}
+
+              <p
+                className={`
+                  mt-1
+                  text-[7px]
+                  font-medium
+                  uppercase
+                  leading-tight
+                  sm:text-[8px]
+
+                  ${
+                    stat.yellow
+                      ? "text-black/70"
+                      : "text-[#171717]/60"
+                  }
+                `}
+              >
+                {stat.label}
+              </p>
+
+
+              {/* VALUE */}
+
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  scale: 0.6,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.55 + index * 0.08,
+                  type: "spring",
+                  stiffness: 180,
+                  damping: 14,
+                }}
+                className={`
+                  mt-1
+                  text-[24px]
+                  font-black
+                  leading-none
+                  sm:text-[27px]
+
+                  ${
+                    stat.yellow
+                      ? "text-black"
+                      : "text-[#171717]"
+                  }
+                `}
+              >
+                {stat.value}
+              </motion.div>
+
+
+              {/* DESCRIPTION */}
+
+              <p
+                className={`
+                  mt-1
+                  text-[6px]
+                  leading-tight
+                  sm:text-[7px]
+
+                  ${
+                    stat.yellow
+                      ? "text-black/70"
+                      : "text-[#171717]/60"
+                  }
+                `}
+              >
+                {stat.description}
+              </p>
+
+
+              {/* HOVER SHINE */}
+
+              <motion.div
+                initial={{
+                  x: "-140%",
+                }}
+                whileHover={{
+                  x: "180%",
+                }}
+                transition={{
+                  duration: 0.8,
                   ease: "easeInOut",
                 }}
                 className="
-                  absolute
-                  bottom-[-5px]
-                  left-[-10px]
-                  opacity-20
                   pointer-events-none
-                  z-0
+                  absolute
+                  inset-y-0
+                  left-0
+                  w-8
+                  rotate-[18deg]
+                  bg-white/20
+                  blur-lg
                 "
-              >
-                <Image
-                  src="/assets/growth-arrow.png"
-                  alt="Growth Arrow"
-                  width={500}
-                  height={300}
-                  className="
-                    w-[280px]
-                    sm:w-[380px]
-                    lg:w-[500px]
-                    h-auto
-                  "
-                />
-              </motion.div>
+              />
 
             </motion.div>
-
-            {/* PROCESS CARDS */}
-            <div
-              className="
-                lg:col-span-3
-                grid
-                grid-cols-2
-                gap-3
-                sm:gap-5
-                lg:gap-6
-                auto-rows-fr
-              "
-            >
-
-              <ProcessCard
-                number="01"
-                title="Business Discovery"
-                description="We understand your business, target audience, industry, competitors, and growth goals to create a customized digital marketing strategy that delivers measurable results from day one."
-                icon={<Search size={22} />}
-                dark
-              />
-
-              <ProcessCard
-                number="02"
-                title="Strategy & Growth Planning"
-                description="Our experts build a tailored roadmap covering Social Media Marketing, SEO, Performance Marketing, Website Development, Branding, and content strategy to maximize your online growth."
-                icon={<FileText size={22} />}
-              />
-
-              <ProcessCard
-                number="03"
-                title="Brand Development"
-                description="We create a memorable brand identity with professional branding, graphic design, logo design, and messaging that helps your business stand out and build customer trust."
-                icon={<Layout size={22} />}
-                dark
-              />
-
-              <ProcessCard
-                number="04"
-                title="Campaign Launch & Management"
-                description="From Google Ads, Meta Ads, and Social Media Marketing to SEO and lead generation campaigns, we launch, manage, and optimize every campaign for maximum ROI."
-                icon={<Rocket size={22} />}
-              />
-
-              <ProcessCard
-                number="05"
-                title="Performance Optimization"
-                description="Using real-time analytics and customer insights, we continuously improve campaigns to increase traffic, generate more qualified leads, boost conversions, and accelerate business growth."
-                icon={<BarChart3 size={22} />}
-                dark
-              />
-
-              <ProcessCard
-                number="06"
-                title="Transparent Reporting"
-                description="Track every campaign with easy-to-understand reports showing traffic, leads, conversions, ROI, and business performance, so you always know how your marketing investment is performing."
-                icon={<FileBarChart size={22} />}
-              />
-
-            </div>
-
-          </div>
+          ))}
         </div>
-      </section>
 
-      {/* =========================================================
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
+
+ {/* =========================================================
           MOVING SERVICES STRIP
       ========================================================= */}
       <section className="py-1 overflow-hidden">
@@ -1508,7 +3087,6 @@ const blogCards = [
                   bg-[#171717]
                   text-white
                   whitespace-nowrap
-                  shadow-xl
                   border
                   border-[#2a2a2a]
                 "
@@ -1523,620 +3101,6 @@ const blogCards = [
               </motion.div>
             ))}
           </motion.div>
-
-        </div>
-      </section>
-
-      {/* =========================================================
-          RECENT WORK
-      ========================================================= */}
-      <section className="bg-[#FFFFFF] py-14 sm:py-20 lg:py-28">
-
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-10 sm:mb-16">
-
-            <div>
-              <p
-                className="
-                  uppercase
-                  tracking-[4px]
-                  sm:tracking-[6px]
-                  text-[10px]
-                  sm:text-sm
-                  font-semibold
-                  text-gray-500
-                  mb-3
-                  sm:mb-4
-                "
-              >
-                SHOWCASING EXCELLENCE
-              </p>
-
-              <h2
-                className="
-                  text-[34px]
-                  sm:text-5xl
-                  md:text-6xl
-                  font-black
-                  text-[#171717]
-                  leading-tight
-                "
-              >
-                Our Recent{" "}
-                <span className="text-[#F8BC04]">
-                  Work
-                </span>
-              </h2>
-            </div>
-
-            <button
-              className="
-                mt-6
-                lg:mt-0
-                self-start
-                lg:self-auto
-                bg-[#F8BC04]
-                px-6
-                sm:px-8
-                py-3
-                sm:py-4
-                rounded-full
-                font-semibold
-                text-sm
-                sm:text-base
-                hover:scale-105
-                transition
-              "
-            >
-              View All →
-            </button>
-
-          </div>
-
-          <div
-            className="
-              grid
-              grid-cols-1
-              sm:grid-cols-2
-              xl:grid-cols-3
-              gap-4
-              sm:gap-6
-              lg:gap-8
-              items-stretch
-            "
-          >
-
-            {/* WORK 1 */}
-            <motion.div
-              whileHover={{
-                y: -8,
-              }}
-              transition={{
-                duration: 0.3,
-              }}
-              className="
-                bg-white
-                rounded-[24px]
-                sm:rounded-[30px]
-                overflow-hidden
-                shadow-sm
-                border
-                border-gray-100
-                h-full
-                flex
-                flex-col
-              "
-            >
-
-              <div className="overflow-hidden flex-shrink-0">
-
-                <motion.div
-                  whileHover={{
-                    scale: 1.06,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                  }}
-                >
-                  <Image
-                    src="/home/ourservice/socialmedia.png"
-                    alt="Social Media Marketing"
-                    width={700}
-                    height={500}
-                    className="
-                      w-full
-                      h-[185px]
-                      sm:h-[200px]
-                      lg:h-[260px]
-                      object-cover
-                    "
-                  />
-                </motion.div>
-
-              </div>
-
-              <div className="p-4 sm:p-6 lg:p-8 flex flex-col flex-1">
-
-                <p className="text-[11px] sm:text-sm text-gray-500 mb-2 sm:mb-3">
-                  Social Media Marketing
-                </p>
-
-                <h3
-                  className="
-                    text-xl
-                    sm:text-2xl
-                    lg:text-3xl
-                    font-bold
-                    text-[#171717]
-                    leading-tight
-                  "
-                >
-                  Social Media Campaigns
-                </h3>
-
-                <button
-                  className="
-                    mt-auto
-                    pt-5
-                    flex
-                    items-center
-                    gap-2
-                    text-xs
-                    sm:text-sm
-                    font-semibold
-                    hover:gap-4
-                    transition-all
-                  "
-                >
-                  Know About The Service →
-                </button>
-
-              </div>
-
-            </motion.div>
-
-            {/* WORK 2 */}
-            <motion.div
-              whileHover={{
-                y: -8,
-              }}
-              transition={{
-                duration: 0.3,
-              }}
-              className="
-                bg-white
-                rounded-[24px]
-                sm:rounded-[30px]
-                overflow-hidden
-                shadow-sm
-                border
-                border-gray-100
-                h-full
-                flex
-                flex-col
-              "
-            >
-
-              <div className="overflow-hidden flex-shrink-0">
-
-                <motion.div
-                  whileHover={{
-                    scale: 1.06,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                  }}
-                >
-                  <Image
-                    src="/home/ourservice/bigbeansdigitalbranding.png"
-                    alt="Branding"
-                    width={700}
-                    height={500}
-                    className="
-                      w-full
-                      h-[185px]
-                      sm:h-[200px]
-                      lg:h-[260px]
-                      object-cover
-                    "
-                  />
-                </motion.div>
-
-              </div>
-
-              <div className="p-4 sm:p-6 lg:p-8 flex flex-col flex-1">
-
-                <p className="text-[11px] sm:text-sm text-gray-500 mb-2 sm:mb-3">
-                  Brand Identity & Design
-                </p>
-
-                <h3
-                  className="
-                    text-xl
-                    sm:text-2xl
-                    lg:text-3xl
-                    font-bold
-                    text-[#171717]
-                    leading-tight
-                  "
-                >
-                  Branding Projects
-                </h3>
-
-                <button
-                  className="
-                    mt-auto
-                    pt-5
-                    flex
-                    items-center
-                    gap-2
-                    text-xs
-                    sm:text-sm
-                    font-semibold
-                    hover:gap-4
-                    transition-all
-                  "
-                >
-                  Know About The Service →
-                </button>
-
-              </div>
-
-            </motion.div>
-
-            {/* WORK 3 */}
-            <motion.div
-              whileHover={{
-                y: -8,
-              }}
-              transition={{
-                duration: 0.3,
-              }}
-              className="
-                bg-white
-                rounded-[24px]
-                sm:rounded-[30px]
-                overflow-hidden
-                shadow-sm
-                border
-                border-gray-100
-                h-full
-                flex
-                flex-col
-              "
-            >
-
-              <div className="overflow-hidden flex-shrink-0">
-
-                <motion.div
-                  whileHover={{
-                    scale: 1.06,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                  }}
-                >
-                  <Image
-                    src="/home/ourservice/bigbeansdigitalwebsite.png"
-                    alt="Website Design"
-                    width={700}
-                    height={500}
-                    className="
-                      w-full
-                      h-[185px]
-                      sm:h-[200px]
-                      lg:h-[260px]
-                      object-cover
-                    "
-                  />
-                </motion.div>
-
-              </div>
-
-              <div className="p-4 sm:p-6 lg:p-8 flex flex-col flex-1">
-
-                <p className="text-[11px] sm:text-sm text-gray-500 mb-2 sm:mb-3">
-                  Website Development
-                </p>
-
-                <h3
-                  className="
-                    text-xl
-                    sm:text-2xl
-                    lg:text-3xl
-                    font-bold
-                    text-[#171717]
-                    leading-tight
-                  "
-                >
-                  Website Design Projects
-                </h3>
-
-                <button
-                  className="
-                    mt-auto
-                    pt-5
-                    flex
-                    items-center
-                    gap-2
-                    text-xs
-                    sm:text-sm
-                    font-semibold
-                    hover:gap-4
-                    transition-all
-                  "
-                >
-                  Know About The Service →
-                </button>
-
-              </div>
-
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          RESULTS
-      ========================================================= */}
-      <section className="bg-[#FFFFFF] py-10 sm:py-16 lg:py-20 overflow-hidden">
-
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-
-          <motion.h2
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.8,
-            }}
-            className="
-              text-center
-              text-[34px]
-              sm:text-5xl
-              md:text-7xl
-              font-black
-              text-[#171717]
-              leading-tight
-            "
-          >
-            Built for{" "}
-            <span className="text-[#F8BC04]">
-              What's Next
-            </span>
-          </motion.h2>
-
-          <div
-            className="
-              grid
-              grid-cols-2
-              xl:grid-cols-4
-              gap-3
-              sm:gap-5
-              mt-9
-              sm:mt-14
-            "
-          >
-
-            <motion.div
-              whileHover={{
-                y: -7,
-              }}
-              className="
-                bg-[#F8BC04]
-                rounded-[22px]
-                sm:rounded-[28px]
-                p-4
-                sm:p-7
-                lg:p-8
-              "
-            >
-              <TrendingUp
-                size={28}
-                className="text-white sm:w-[34px] sm:h-[34px]"
-              />
-
-              <p className="mt-3 sm:mt-4 text-[10px] sm:text-sm">
-                Performance
-              </p>
-
-              <h3 className="text-[38px] sm:text-5xl font-black mt-1 sm:mt-2 leading-none">
-                3.5x
-              </h3>
-
-              <p className="mt-2 text-[11px] sm:text-sm leading-relaxed">
-                Higher Campaign Performance
-              </p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{
-                y: -7,
-              }}
-              className="
-                border-2
-                border-[#F8BC04]
-                rounded-[22px]
-                sm:rounded-[28px]
-                p-4
-                sm:p-7
-                lg:p-8
-              "
-            >
-              <Users
-                size={28}
-                className="text-[#F8BC04] sm:w-[34px] sm:h-[34px]"
-              />
-
-              <p className="mt-3 sm:mt-4 text-[10px] sm:text-sm">
-                Qualified Leads
-              </p>
-
-              <h3 className="text-[38px] sm:text-5xl font-black mt-1 sm:mt-2 leading-none">
-                10x
-              </h3>
-
-              <p className="mt-2 text-[11px] sm:text-sm leading-relaxed">
-                More High-Intent Leads
-              </p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{
-                y: -7,
-              }}
-              className="
-                bg-[#F8BC04]
-                rounded-[22px]
-                sm:rounded-[28px]
-                p-4
-                sm:p-7
-                lg:p-8
-              "
-            >
-              <ThumbsUp
-                size={28}
-                className="text-white sm:w-[34px] sm:h-[34px]"
-              />
-
-              <p className="mt-3 sm:mt-4 text-[10px] sm:text-sm">
-                Audience Growth
-              </p>
-
-              <h3 className="text-[38px] sm:text-5xl font-black mt-1 sm:mt-2 leading-none">
-                70%
-              </h3>
-
-              <p className="mt-2 text-[11px] sm:text-sm leading-relaxed">
-                Stronger Brand Engagement
-              </p>
-            </motion.div>
-
-            <motion.div
-              whileHover={{
-                y: -7,
-              }}
-              className="
-                border-2
-                border-[#F8BC04]
-                rounded-[22px]
-                sm:rounded-[28px]
-                p-4
-                sm:p-7
-                lg:p-8
-              "
-            >
-              <LineChart
-                size={28}
-                className="text-[#F8BC04] sm:w-[34px] sm:h-[34px]"
-              />
-
-              <p className="mt-3 sm:mt-4 text-[10px] sm:text-sm">
-                Business Growth
-              </p>
-
-              <h3 className="text-[38px] sm:text-5xl font-black mt-1 sm:mt-2 leading-none">
-                60%
-              </h3>
-
-              <p className="mt-2 text-[11px] sm:text-sm leading-relaxed">
-                Growth in Just 3 Months
-              </p>
-            </motion.div>
-
-          </div>
-
-          <div className="text-center mt-16 sm:mt-24 relative">
-
-            <h3
-              className="
-                relative
-                text-[27px]
-                sm:text-4xl
-                md:text-5xl
-                lg:text-6xl
-                font-black
-                text-[#171717]
-                text-center
-                leading-tight
-              "
-            >
-              Driven by Strategy. Powered by Creativity.{" "}
-              <span className="text-[#F8BC04]">
-                Built for Growth.
-              </span>
-            </h3>
-
-          </div>
-
-          <motion.p
-            initial={{
-              opacity: 0,
-            }}
-            whileInView={{
-              opacity: 1,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              delay: 0.3,
-            }}
-            className="
-              max-w-4xl
-              mx-auto
-              text-center
-              text-sm
-              sm:text-lg
-              lg:text-xl
-              text-gray-600
-              mt-6
-              sm:mt-10
-              leading-relaxed
-            "
-          >
-            BigBeans Digital is a Social Media Marketing Agency in Kolkata helping startups,
-            entrepreneurs, and growing businesses across India, Dubai, the UAE, and the United Kingdom
-            build brands that stand out. From creative social media marketing and branding to graphic design,
-            website development, and performance marketing, we create tailored digital strategies that increase
-            brand visibility, generate qualified leads, and drive sustainable business growth.
-          </motion.p>
-
-          <div className="flex justify-center mt-7 sm:mt-12">
-
-            <Link href="https://wa.link/pxmrrm">
-              <button
-                className="
-                  bg-[#F8BC04]
-                  text-black
-                  px-6
-                  sm:px-8
-                  py-3
-                  rounded-full
-                  font-semibold
-                  text-sm
-                  sm:text-base
-                  shadow-lg
-                  hover:scale-105
-                  transition-all
-                  duration-300
-                "
-              >
-                Get Free Consultation
-              </button>
-            </Link>
-
-          </div>
 
         </div>
       </section>
