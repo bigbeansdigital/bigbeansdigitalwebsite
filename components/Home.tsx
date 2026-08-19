@@ -285,7 +285,7 @@ const blogCards = [
             whitespace-nowrap
           "
         >
-          where strategy
+          Where Creativity
         </motion.h2>
 
         <motion.h1
@@ -308,7 +308,7 @@ const blogCards = [
             whitespace-nowrap
           "
         >
-          meets creativity
+          Meets Strategy 
         </motion.h1>
 
         <motion.div
