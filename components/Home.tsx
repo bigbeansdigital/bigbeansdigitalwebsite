@@ -14,7 +14,6 @@ import {
   TrendingUp,
   Users,
   ThumbsUp,
-  LineChart,
   ArrowRight,
 } from "lucide-react";
 
@@ -56,142 +55,6 @@ function Counter({
   );
 }
 
-function ProcessCard({
-  number,
-  title,
-  description,
-  icon,
-  dark = false,
-}: {
-  number: string;
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  dark?: boolean;
-}) {
-  return (
-    <motion.div
-      initial={{
-        opacity: 0,
-        y: 30,
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-      }}
-      viewport={{
-        once: true,
-        amount: 0.15,
-      }}
-      transition={{
-        duration: 0.6,
-      }}
-      whileHover={{
-        y: -6,
-        scale: 1.015,
-      }}
-      className={`
-        relative
-        overflow-hidden
-        rounded-[24px] sm:rounded-[28px] lg:rounded-[32px]
-        border
-        p-4 sm:p-5 lg:p-7
-        h-full
-        min-h-[270px]
-        sm:min-h-[290px]
-        lg:min-h-[320px]
-        flex
-        flex-col
-        ${
-          dark
-            ? "bg-[#171717] border-[#171717] text-white"
-            : "bg-[#F8BC04] border-[#F8BC04] text-black"
-        }
-      `}
-    >
-      <div className="flex items-start justify-between relative z-10">
-        <span
-          className={`
-            text-[34px] sm:text-[40px] lg:text-[48px]
-            leading-none
-            font-black
-            ${
-              dark
-                ? "text-[#F8BC04]"
-                : "text-black"
-            }
-          `}
-        >
-          {number}
-        </span>
-
-        <motion.div
-          animate={{
-            y: [0, -4, 0],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="mt-1"
-        >
-          {icon}
-        </motion.div>
-      </div>
-
-      <h3
-        className={`
-          relative
-          z-10
-          mt-6 sm:mt-7
-          text-[20px] sm:text-[22px] lg:text-[25px]
-          leading-[1.15]
-          font-bold
-          max-w-[230px]
-        `}
-      >
-        {title}
-      </h3>
-
-      <p
-        className={`
-          relative
-          z-10
-          mt-4
-          text-[12px] sm:text-[13px] lg:text-[14px]
-          leading-[1.65]
-          ${
-            dark
-              ? "text-gray-300"
-              : "text-black/80"
-          }
-        `}
-      >
-        {description}
-      </p>
-
-      <span
-        className="
-          absolute
-          -bottom-5
-          -right-1
-          text-[90px] sm:text-[110px]
-          leading-none
-          font-black
-          opacity-[0.07]
-          pointer-events-none
-        "
-      >
-        {number}
-      </span>
-    </motion.div>
-  );
-}
-
-export default function Home() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
 
   const carouselImages = [
     "/home/clientlogo/1.png",
@@ -211,7 +74,7 @@ export default function Home() {
   ];
 
 const blogCards = [
-  
+
 
    {
       id: 5,
@@ -219,7 +82,6 @@ const blogCards = [
         "/assets/blog/singleblogs/clinic-instagram-marketing-strategy.png",
       date: "August 14, 2026",
       primaryCategory: "Social Media",
-      secondaryCategory: "Healthcare",
       title: "How to Do SMM for a New Clinic in India | BigBeans",
       description:
         "Learn what to post when launching a clinic on Instagram, from educational content to trust-building posts that attract patients. Get started with BigBeans Digital.",
@@ -233,7 +95,6 @@ const blogCards = [
         "/assets/blog/singleblogs/new-instagram-logo-redesign.png",
       date: "August 17, 2026",
       primaryCategory: "Social Media",
-      secondaryCategory: "Business",
       title: "New Instagram Logo 2026: Wordmark Redesign & Brand Refresh",
       description:
         "Discover the new Instagram logo 2026, its wordmark redesign, “Instagzam” backlash, typography changes and what Instagram's brand refresh means for marketers.",
@@ -247,17 +108,17 @@ const blogCards = [
         "/assets/blog/singleblogs/why-is-my-competitor-getting-more-leads.png",
       date: "August 17, 2026",
       primaryCategory: "Social Media",
-      secondaryCategory: "Business",
       title: "Why Is My Competitor Getting More Leads? | Digital Marketing India",
       description:
         "Your competitor opened later but gets more leads. Discover how SEO, Google Business Profile, social media, reviews and local digital marketing can help Indian businesses grow.",
       link: "/blog/why-is-my-competitor-getting-more-leads",
     },
 
-    
 
 ];
 
+export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
     <section className="bg-[#FFFFFF] overflow-hidden pb-16 sm:pb-20">
@@ -282,7 +143,8 @@ const blogCards = [
             text-gray-200
             leading-[0.95]
             tracking-tight
-            whitespace-nowrap
+            whitespace-normal
+            sm:whitespace-nowrap
           "
         >
           Where Creativity
@@ -305,10 +167,11 @@ const blogCards = [
             -mt-1
             sm:-mt-3
             lg:-mt-5
-            whitespace-nowrap
+            whitespace-normal
+            sm:whitespace-nowrap
           "
         >
-          Meets Strategy 
+          Meets Strategy
         </motion.h1>
 
         <motion.div
@@ -322,9 +185,11 @@ const blogCards = [
             ease: "easeInOut",
           }}
         >
-          <Link href="https://wa.link/pxmrrm">
-            <button
-              className="
+          <a
+            href="https://wa.link/pxmrrm"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
                 bg-[#F8BC04]
                 text-black
                 px-6 sm:px-8
@@ -340,8 +205,7 @@ const blogCards = [
               "
             >
               Get Free Consultation
-            </button>
-          </Link>
+          </a>
         </motion.div>
 
         <motion.div
@@ -601,11 +465,11 @@ const blogCards = [
                   transition={{ delay: 1.7 }}
                   className="text-gray-300 mt-5 sm:mt-8 text-sm sm:text-lg max-w-[500px] leading-relaxed"
                 >
-                  At Big Beans Digital, we help startups and growing businesses turn ideas into brands people remember. 
-                  Our social media marketing agency service combines creative thinking, strategic planning, and measurable 
-                  execution to build visibility, engagement, and long-term growth. From social media marketing services in 
-                  India to social media marketing agency London solutions, we create practical digital strategies for businesses 
-                  ready to grow. Whether you need a digital marketing service near me, stronger branding, a high-performing website, 
+                  At Big Beans Digital, we help startups and growing businesses turn ideas into brands people remember.
+                  Our social media marketing agency service combines creative thinking, strategic planning, and measurable
+                  execution to build visibility, engagement, and long-term growth. From social media marketing services in
+                  India to social media marketing agency London solutions, we create practical digital strategies for businesses
+                  ready to grow. Whether you need a digital marketing service near me, stronger branding, a high-performing website,
                   or campaigns that convert, our team focuses on what your business actually needs—not one-size-fits-all marketing.
                 </motion.p>
 
@@ -661,10 +525,10 @@ const blogCards = [
               mx-auto
             "
           >
-            From ambitious startups to growing businesses, Big Beans Digital delivers practical social 
-            media marketing services in India and social media marketing agency London solutions designed 
-            to build visibility, engagement, and growth. Our team combines digital marketing service expertise, 
-            performance marketing, website development, and branding to help businesses connect with the right 
+            From ambitious startups to growing businesses, Big Beans Digital delivers practical social
+            media marketing services in India and social media marketing agency London solutions designed
+            to build visibility, engagement, and growth. Our team combines digital marketing service expertise,
+            performance marketing, website development, and branding to help businesses connect with the right
             audience and grow with confidence across India, USA, and the UK.
           </motion.p>
 
@@ -1266,7 +1130,6 @@ const blogCards = [
       </section>
 
 
-
 {/* =========================================================
     OUR PROCESS
 ========================================================= */}
@@ -1281,21 +1144,7 @@ const blogCards = [
       BACKGROUND GLOW
   ========================= */}
 
-  <motion.div
-    animate={{
-      scale: [1, 1.18, 1],
-      opacity: [0.04, 0.09, 0.04],
-    }}
-    transition={{
-      duration: 8,
-      repeat: Infinity,
-      ease: "easeInOut",
-    }}
-  />
-
-  <div
-    
-  >
+  <div>
 
     {/* =====================================================
         HEADING
@@ -1362,8 +1211,8 @@ const blogCards = [
           textAlignLast: "center",
         }}
       >
-        Every successful brand starts with the right strategy. At BIGBEANS DIGITAL, we follow a clear, data-informed process combining 
-        social media marketing services in India and digital marketing service near me solutions to help startups and growing businesses 
+        Every successful brand starts with the right strategy. At BIGBEANS DIGITAL, we follow a clear, data-informed process combining
+        social media marketing services in India and digital marketing service near me solutions to help startups and growing businesses
         build visibility, attract the right audience, and achieve measurable growth.
       </p>
 
@@ -1596,7 +1445,8 @@ const blogCards = [
                 x: 3,
               }}
               className="
-                whitespace-nowrap
+                whitespace-normal
+                sm:whitespace-nowrap
                 text-[11px]
                 font-black
                 leading-[1.05]
@@ -1714,13 +1564,11 @@ const blogCards = [
 </section>
 
 
-
 {/* =========================================================
-    OUR WORK CROUSAL 
+    OUR WORK CROUSAL
 ========================================================= */}
 
 <OurWork />
-
 
 
 {/* =========================================================
@@ -1803,7 +1651,7 @@ const blogCards = [
             <br />
             <br />
             <br />
-            
+
           </h3>
 
           <a
@@ -1824,7 +1672,7 @@ const blogCards = [
               hover:gap-3
             "
           >
-            Connect With Our Beans 
+            Connect With Our Beans
             <span className="text-[22px] leading-none">↗</span>
           </a>
         </div>
@@ -2003,7 +1851,7 @@ const blogCards = [
             <br />
             <br />
             <br />
-           
+
           </h3>
 
           <a
@@ -2208,7 +2056,7 @@ const blogCards = [
             <br />
             <br />
             <br />
-            
+
           </h3>
 
           <a
@@ -2388,9 +2236,6 @@ const blogCards = [
 </section>
 
 
-
-
-
 {/* =========================================================
     STRATEGY • CREATIVITY • GROWTH
 ========================================================= */}
@@ -2497,14 +2342,14 @@ const blogCards = [
             xl:text-[48px]
           "
         >
-          <span className="block whitespace-nowrap">
+          <span className="block whitespace-normal sm:whitespace-nowrap">
             Driven by{" "}
             <span className="text-[#F8BC04]">
               Strategy.
             </span>
           </span>
 
-          <span className="block whitespace-nowrap">
+          <span className="block whitespace-normal sm:whitespace-nowrap">
             Powered by{" "}
             <span className="text-[#F8BC04]">
               Creativity.
@@ -3089,7 +2934,7 @@ Looking for a social media marketing agency for startups in India or a trusted d
         </div>
       </section>
 
-      
+
 {/* =========================================================
       BLOGS
    ========================================================= */}
@@ -3101,7 +2946,6 @@ Looking for a social media marketing agency for startups in India or a trusted d
 
       <div>
 
-       
 
         <h2
           className="
@@ -3138,10 +2982,9 @@ Discover expert tips, industry trends, and answers to common marketing questions
 
       </div>
 
-      <Link href="/blog">
-
-        <button
-          className="
+      <Link
+        href="/blog"
+        className="
             mt-6
             lg:mt-25
             bg-[#F8BC04]
@@ -3159,13 +3002,9 @@ Discover expert tips, industry trends, and answers to common marketing questions
           "
         >
           View All Blogs →
-        </button>
-
       </Link>
 
     </div>
-
-    
 
 
 <div
@@ -3376,7 +3215,6 @@ Discover expert tips, industry trends, and answers to common marketing questions
   </div>
 
 </section>
-
 
 
       {/* =========================================================
@@ -3829,6 +3667,8 @@ Discover expert tips, industry trends, and answers to common marketing questions
               >
 
                 <button
+                  type="button"
+                  aria-expanded={openFaq === index}
                   onClick={() =>
                     setOpenFaq(
                       openFaq === index
