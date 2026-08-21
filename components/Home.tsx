@@ -360,31 +360,19 @@ export default function Home() {
                   Looking for a digital partner that understands startups?
                 </motion.p>
 
-                <motion.h2
-                  initial={{
-                    opacity: 0,
-                    x: -50,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  transition={{
-                    duration: 1,
-                    delay: 0.9,
-                  }}
-                  className="
-                    text-[34px]
-                    sm:text-[45px]
-                    md:text-[52px]
-                    lg:text-[62px]
-                    font-bold
-                    leading-[1.05]
-                    max-w-[650px]
-                  "
-                >
-                  Helping Startups & Businesses in India, USA & UK Build Brands That Grow High In Their Niece
-                </motion.h2>
+                <h2
+  className="
+    text-[34px]
+    sm:text-[45px]
+    md:text-[52px]
+    lg:text-[62px]
+    font-bold
+    leading-[1.05]
+    max-w-[650px]
+  "
+>
+  Helping Startups & Businesses in India, USA & UK Build Brands That Grow High In Their Niece
+</h2>
               </div>
 
               <div className="flex flex-col justify-center relative z-10">
