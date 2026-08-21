@@ -38,27 +38,27 @@ const categories: Category[] = [
 const workItems: WorkItem[] = [
   ...Array.from({ length: 10 }, (_, i) => ({
     category: "Branding" as const,
-    image: `/home/Our-Carousal/Branding/${i + 1}.png`,
+    image: `/home/Our-Carousal/Branding/${i + 1}.webp`,
   })),
 
   ...Array.from({ length: 10 }, (_, i) => ({
     category: "Social Media" as const,
-    image: `/home/Our-Carousal/Social Media/${i + 1}.png`,
+    image: `/home/Our-Carousal/Social Media/${i + 1}.webp`,
   })),
 
   ...Array.from({ length: 10 }, (_, i) => ({
     category: "Website Dev" as const,
-    image: `/home/Our-Carousal/Website Dev/${i + 1}.png`,
+    image: `/home/Our-Carousal/Website Dev/${i + 1}.webp`,
   })),
 
   ...Array.from({ length: 10 }, (_, i) => ({
     category: "Digital Marketing" as const,
-    image: `/home/Our-Carousal/Digital Marketing/${i + 1}.png`,
+    image: `/home/Our-Carousal/Digital Marketing/${i + 1}.webp`,
   })),
 
   ...Array.from({ length: 10 }, (_, i) => ({
     category: "Performance Marketing" as const,
-    image: `/home/Our-Carousal/Performance Marketing/${i + 1}.png`,
+    image: `/home/Our-Carousal/Performance Marketing/${i + 1}.webp`,
   })),
 ];
 
@@ -115,7 +115,7 @@ export default function Recentwork() {
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
 
         <Image
-          src="/home/Our-Carousal/ourworkbg.png"
+          src="/home/Our-Carousal/ourworkbg.webp"
           alt=""
           fill
           priority
