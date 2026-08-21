@@ -493,7 +493,7 @@ const blogCards = [
                   transition={{ delay: 0.8 }}
                   className="text-yellow-400 text-sm sm:text-lg mb-5 sm:mb-6"
                 >
-                  ABOUT BIGBEANS DIGITAL
+                  Looking for a digital partner that understands startups?
                 </motion.p>
 
                 <motion.h2
@@ -519,7 +519,7 @@ const blogCards = [
                     max-w-[650px]
                   "
                 >
-                  Helping Startups & Businesses Build Powerful Brands That Grow Faster.
+                  Helping Startups & Businesses in India, USA & UK Build Brands That Grow High In Their Niece
                 </motion.h2>
               </div>
 
@@ -601,10 +601,12 @@ const blogCards = [
                   transition={{ delay: 1.7 }}
                   className="text-gray-300 mt-5 sm:mt-8 text-sm sm:text-lg max-w-[500px] leading-relaxed"
                 >
-                  At BIGBEANS DIGITAL, we help startups transform ideas into successful brands through strategic Digital Marketing,
-                  Social Media Marketing, Website Development, Branding, and Performance Marketing. Whether you're launching your
-                  first business or scaling your next big venture, our team creates growth-focused strategies that generate leads,
-                  increase visibility, and build a strong online presence across London, India, USA, and Dubai.
+                  At Big Beans Digital, we help startups and growing businesses turn ideas into brands people remember. 
+                  Our social media marketing agency service combines creative thinking, strategic planning, and measurable 
+                  execution to build visibility, engagement, and long-term growth. From social media marketing services in 
+                  India to social media marketing agency London solutions, we create practical digital strategies for businesses 
+                  ready to grow. Whether you need a digital marketing service near me, stronger branding, a high-performing website, 
+                  or campaigns that convert, our team focuses on what your business actually needs—not one-size-fits-all marketing.
                 </motion.p>
 
               </div>
@@ -640,7 +642,7 @@ const blogCards = [
               leading-tight
             "
           >
-            Trusted by 100+ Startups & Businesses
+            We Are Trusted by 100+ Startups & Businesses
           </motion.h2>
 
           <motion.p
@@ -659,10 +661,11 @@ const blogCards = [
               mx-auto
             "
           >
-            From ambitious startups to growing businesses, BIGBEANS DIGITAL delivers results-driven Digital Marketing,
-            Social Media Marketing, Performance Marketing, Website Development, and Branding solutions that help brands
-            grow faster. As a trusted Digital Marketing Agency serving clients across London, India, USA, and Dubai,
-            we build strategies that increase visibility, generate qualified leads, and create sustainable business growth.
+            From ambitious startups to growing businesses, Big Beans Digital delivers practical social 
+            media marketing services in India and social media marketing agency London solutions designed 
+            to build visibility, engagement, and growth. Our team combines digital marketing service expertise, 
+            performance marketing, website development, and branding to help businesses connect with the right 
+            audience and grow with confidence across India, USA, and the UK.
           </motion.p>
 
           <div className="flex items-center gap-3 sm:gap-6 mt-9 sm:mt-14">
@@ -881,7 +884,7 @@ const blogCards = [
                     sm:mb-5
                   "
                 >
-                  Strategic branding solutions for startups and businesses.
+                  Build a memorable brand with strategic branding solutions designed for startups and growing businesses.
                 </p>
 
                 <Link
@@ -997,7 +1000,7 @@ const blogCards = [
                     transition-colors
                   "
                 >
-                  Build visibility, engagement and quality leads.
+                  Grow your online presence with a digital marketing service near me focused on visibility, engagement, and qualified leads.
                 </p>
 
                 <Link
@@ -1108,7 +1111,7 @@ const blogCards = [
                     sm:mb-5
                   "
                 >
-                  Premium websites designed for business growth.
+                  Create a fast, modern website that strengthens your brand and turns visitors into potential customers.
                 </p>
 
                 <Link
@@ -1224,7 +1227,7 @@ const blogCards = [
                     transition-colors
                   "
                 >
-                  Professional creatives for every marketing platform.
+                  Reach the right audience with social media advertising agency near me solutions built to drive measurable growth..
                 </p>
 
                 <Link
@@ -1359,11 +1362,9 @@ const blogCards = [
           textAlignLast: "center",
         }}
       >
-        Every successful brand starts with the right strategy. At BIGBEANS
-        DIGITAL, we follow a proven, data-driven process that helps startups
-        and growing businesses build a strong online presence, attract
-        qualified customers, and achieve sustainable business growth through
-        digital marketing.
+        Every successful brand starts with the right strategy. At BIGBEANS DIGITAL, we follow a clear, data-informed process combining 
+        social media marketing services in India and digital marketing service near me solutions to help startups and growing businesses 
+        build visibility, attract the right audience, and achieve measurable growth.
       </p>
 
     </motion.div>
@@ -1394,7 +1395,7 @@ const blogCards = [
           number: "01",
           title: "Business Discovery",
           description:
-            "We understand your business, target audience, industry, competitors, and growth goals to create a customized digital marketing strategy that delivers measurable results from day one.",
+            "We understand your business, audience, competitors, and goals before building a strategy. This helps us create the right social media marketing service India approach alongside a focused digital marketing service near me strategy tailored to your growth objectives.",
           icon: <Search size={18} />,
           dark: true,
         },
@@ -1402,7 +1403,7 @@ const blogCards = [
           number: "02",
           title: "Strategy & Growth Planning",
           description:
-            "Our experts build a tailored roadmap covering Social Media Marketing, SEO, Performance Marketing, Website Development, Branding, and content strategy to maximize your online growth.",
+            "We create a tailored roadmap using social media marketing agency service and social media marketing services in India to strengthen your online presence. Our strategy can also bring together branding, SEO, website development, and performance marketing around your business goals.",
           icon: <FileText size={18} />,
           dark: false,
         },
@@ -1410,7 +1411,7 @@ const blogCards = [
           number: "03",
           title: "Brand Development",
           description:
-            "We create a memorable brand identity with professional branding, graphic design, logo design, and messaging that helps your business stand out and build customer trust.",
+            "We build distinctive identities through strategic branding and best digital marketing services near me that help businesses communicate consistently. Combined with social media marketing agency for startups expertise, we create a brand presence that earns attention and customer trust.",
           icon: <Layout size={18} />,
           dark: true,
         },
@@ -1426,7 +1427,7 @@ const blogCards = [
           number: "05",
           title: "Performance Optimization",
           description:
-            "Using real-time analytics and customer insights, we continuously improve campaigns to increase traffic, generate more qualified leads, boost conversions, and accelerate business growth.",
+            "We continuously improve campaigns using real performance data, audience behaviour, and creative insights. Our social media marketing agencies near me approach works alongside digital marketing service near me strategies to improve reach, qualified leads, conversions, and overall campaign performance.",
           icon: <BarChart3 size={18} />,
           dark: true,
         },
@@ -1434,7 +1435,7 @@ const blogCards = [
           number: "06",
           title: "Transparent Reporting",
           description:
-            "Track every campaign with easy-to-understand reports showing traffic, leads, conversions, ROI, and business performance, so you always know how your marketing investment is performing.",
+            "You deserve to know exactly what your marketing investment is achieving. We provide straightforward reports covering traffic, engagement, leads, conversions, and ROI, giving businesses using our social media marketing services for startups or digital marketing services for startups in India, UK or USA a clear view of progress.",
           icon: <FileBarChart size={18} />,
           dark: false,
         },
@@ -2563,14 +2564,9 @@ const blogCards = [
             textAlignLast: "left",
           }}
         >
-          BigBeans Digital is a Social Media Marketing Agency in Kolkata
-          helping startups, entrepreneurs, and growing businesses across
-          India, Dubai, the UAE, and the United Kingdom build brands that
-          stand out. From creative social media marketing and branding to
-          graphic design, website development, and performance marketing,
-          we create tailored digital strategies that increase brand
-          visibility, generate qualified leads, and drive sustainable
-          business growth.
+          BigBeans Digital helps ambitious startups and growing businesses turn ideas into memorable brands. We combine creative thinking with practical digital strategies to build a stronger online presence, connect businesses with the right audience, and create marketing that drives meaningful growth.
+
+Whether you're launching a new business or looking to take an existing brand to the next level, our approach brings strategy, creativity, and execution together under one roof.
         </motion.p>
 
 
@@ -2751,14 +2747,9 @@ const blogCards = [
             textAlignLast: "left",
           }}
         >
-          BigBeans Digital is a Social Media Marketing Agency in Kolkata
-          helping startups, entrepreneurs, and growing businesses across
-          India, Dubai, the UAE, and the United Kingdom build brands that
-          stand out. From creative social media marketing and branding to
-          graphic design, website development, and performance marketing,
-          we create tailored digital strategies that increase brand
-          visibility, generate qualified leads, and drive sustainable
-          business growth.
+          BIGBEANS DIGITAL is a results-driven digital marketing and social media marketing agency helping startups, entrepreneurs, and growing businesses across India and the UK. We create tailored strategies across social media marketing, branding, website development, graphic design, and performance marketing to help businesses increase visibility, generate qualified leads, and grow online.
+
+Looking for a social media marketing agency for startups in India or a trusted digital marketing partner in the UK? Our team builds flexible marketing strategies around your goals, audience, industry, and growth stage rather than relying on one-size-fits-all campaigns.
         </motion.p>
 
 
@@ -2779,57 +2770,50 @@ const blogCards = [
           {[
             {
               icon: <TrendingUp size={15} />,
-              label: "Performance",
-              value: "3.5x",
-              description: "Higher Campaign Performance",
+              label: "Higher Campaign ROI",
+              value: "4.2x",
               yellow: true,
             },
             {
               icon: <Users size={15} />,
               label: "Qualified Leads",
-              value: "10x",
-              description: "More High-Intent Leads",
+              value: "8x",
               yellow: false,
             },
             {
               icon: <ThumbsUp size={15} />,
               label: "Audience Growth",
               value: "70%",
-              description: "Stronger Brand Engagement",
               yellow: true,
             },
             {
               icon: <BarChart3 size={15} />,
               label: "Business Growth",
               value: "60%",
-              description: "Growth in Just 3 Months",
               yellow: false,
             },
             {
               icon: <TrendingUp size={15} />,
-              label: "Performance",
-              value: "3.5x",
-              description: "Higher Campaign Performance",
+              label: "Website Launched",
+              value: "50+",
               yellow: true,
             },
             {
               icon: <Users size={15} />,
-              label: "Qualified Leads",
-              value: "10x",
-              description: "More High-Intent Leads",
+              label: "Performance Marketing Launched",
+              value: "500+",
               yellow: false,
             },
             {
               icon: <ThumbsUp size={15} />,
-              label: "Audience Growth",
-              value: "70%",
-              description: "Stronger Brand Engagement",
+              label: "Branding Designed",
+              value: "72+",
               yellow: true,
             },
             {
               icon: <BarChart3 size={15} />,
-              label: "Business Growth",
-              value: "60%",
+              label: "Trusted Clients",
+              value: "102+",
               description: "Growth in Just 3 Months",
               yellow: false,
             },
@@ -3117,21 +3101,7 @@ const blogCards = [
 
       <div>
 
-        <p
-          className="
-            uppercase
-            tracking-[4px]
-            sm:tracking-[6px]
-            text-[10px]
-            sm:text-sm
-            font-semibold
-            text-gray-500
-            mb-3
-            sm:mb-4
-          "
-        >
-          OUR BLOGS
-        </p>
+       
 
         <h2
           className="
@@ -3161,10 +3131,9 @@ const blogCards = [
             leading-relaxed
           "
         >
-          Discover actionable insights, social media marketing strategies, branding tips,
-          creative design trends, and digital marketing guides designed for startups, entrepreneurs,
-          and growing businesses. Explore expert articles from BigBeans Digital to help your business
-          grow online, build a stronger brand, and stay ahead of the competition.
+          Explore practical insights on social media marketing, digital marketing, branding, SEO, content strategy, creative design, and business growth. From guides for startups to actionable marketing strategies for established businesses, our blogs help you understand what works, what is changing, and how to build a stronger digital presence in India and the UK.
+
+Discover expert tips, industry trends, and answers to common marketing questions — whether you're researching a social media marketing agency for startups or comparing digital marketing agencies in London to find the right partner for your business.
         </p>
 
       </div>
@@ -3742,7 +3711,7 @@ const blogCards = [
       {/* =========================================================
           FAQ
       ========================================================= */}
-      <section className="bg-[#FFFFFF] py-10 sm:py-16">
+      <section className="bg-[#FFFFFF] py-1 sm:py-1">
 
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
 
@@ -3762,21 +3731,6 @@ const blogCards = [
                 bg-[#F8BC04]/35
               "
             />
-
-            <p
-              className="
-                uppercase
-                tracking-[4px]
-                sm:tracking-[6px]
-                text-[10px]
-                sm:text-sm
-                font-semibold
-                text-gray-500
-                relative
-              "
-            >
-              ANSWERING YOUR QUERIES
-            </p>
 
             <h2
               className="
@@ -3811,45 +3765,54 @@ const blogCards = [
 
             {[
               {
-                q: "How do I choose the best Social Media Marketing Agency in India?",
-                a: "Choosing the right Social Media Marketing Agency depends on experience, creative quality, strategy, transparency, and proven results. The best agencies don't just post content—they build a social media strategy that increases brand awareness, engages your audience, and generates business growth. At BigBeans Digital, we help startups and growing businesses across India, the UAE, and the UK create impactful social media campaigns backed by creativity and data-driven strategy."
-              },
-              {
-                q: "Is social media marketing worth it for startups and small businesses?",
-                a: "Absolutely. Social media marketing is one of the most cost-effective ways for startups and small businesses to build brand awareness, attract customers, and compete with larger brands. With the right content strategy and creative execution, businesses can increase visibility, build trust, and generate quality leads without requiring massive advertising budgets."
-              },
-              {
-                q: "What services does a Social Media Marketing Agency provide?",
-                a: "A professional Social Media Marketing Agency typically offers social media management, content creation, graphic design, video creatives, content strategy, paid social media advertising, community management, and performance reporting. BigBeans Digital combines all of these services to help businesses build a consistent and engaging online presence."
-              },
-              {
-                q: "How long does social media marketing take to show results?",
-                a: "While every business is different, most brands begin to see improvements in engagement, reach, and audience growth within the first few months of a consistent strategy. Sustainable lead generation and long-term brand growth come from continuous content creation, optimization, and audience engagement.."
-              },
-              {
-                q: "Is digital marketing worth it for small businesses?",
-                a: "Absolutely. It helps businesses reach highly targeted audiences while maximizing marketing budgets."
-              },
-              {
-                q: "Can you manage branding, design, and social media together?",
-                a: "Yes. BigBeans Digital provides complete brand growth solutions, including Branding, Logo Design, Graphic Design, Social Media Marketing, Content Creation, Website Development, and Performance Marketing, ensuring every aspect of your digital presence works together to support business growth."
-              },
-              {
-                q: "How much does social media marketing cost?",
-                a: "Our pricing depends on your business goals, the number of platforms you want to manage, content requirements, advertising budget, and campaign objectives. We offer flexible packages designed for startups, small businesses, and growing brands.."
-              },
-              {
-                q: "Who can benefit from BigBeans Digital's services?",
-                a: "Our services are designed for startups, entrepreneurs, small businesses, and growing brands looking to build a strong digital presence. Whether you need social media marketing, branding, creative design, or performance marketing, we help businesses across India, the UAE, and the UK increase brand visibility, attract the right audience, and achieve sustainable business growth."
-              },
-              {
-                q: "Why choose BigBeans Digital as your Social Media Marketing Agency?",
-                a: "BigBeans Digital helps startups, entrepreneurs, and growing businesses build a strong online presence through creative social media marketing, branding, graphic design, and performance-driven digital strategies. As a Social Media Marketing Agency based in Kolkata, we work with businesses across India and international markets to create campaigns that drive engagement, generate leads, and support long-term business growth."
-              },
-              {
-                q: "Do you provide customized strategies?",
-                a: "Yes. Every business has different goals and challenges. That's why we create customized social media marketing, branding, and creative strategies based on your industry, target audience, competitors, and growth objectives instead of using one-size-fits-all templates."
-              },
+  q: "What social media marketing services do you offer?",
+  a: "Big Beans Digital provides a wide range of social media marketing services for startups in India, USA, and London, including social media strategy, creative content, Reels, profile management, audience growth, community engagement, paid campaigns, and performance analysis. Our social media marketing service is customized according to your industry, target audience, and business goals."
+},
+
+{
+  q: "How do I find the best social media marketing agency near me?",
+  a: "When searching for the best social media marketing agency near me, don't look only at pricing. Consider the agency's experience, creative quality, strategy, communication, reporting, industry knowledge, and ability to generate measurable results. Big Beans Digital works with businesses across India, USA, and London, providing strategy-led social media marketing services, digital marketing solutions, and customized website development."
+},
+
+{
+  q: "Why should I choose Big Beans Digital for social media marketing?",
+  a: "Big Beans Digital combines strategy, creative content, branding, and performance marketing to create complete digital growth solutions. Whether you're comparing social media marketing agencies near me, looking for the best social media marketing company, or exploring social media marketing agencies in London, our focus is on building stronger brands, increasing visibility, attracting qualified leads, and creating sustainable growth."
+},
+
+{
+  q: "What digital marketing services does Big Beans Digital offer?",
+  a: "Big Beans Digital provides complete digital marketing solutions including social media marketing, performance marketing, branding, website development, creative design, content strategy, and paid advertising. Our approach connects different marketing channels to create a consistent online presence and help businesses generate visibility, leads, and growth."
+},
+
+{
+  q: "Do you offer website development for businesses and startups?",
+  a: "Yes. We design and develop modern, responsive websites for startups, small businesses, service providers, and established brands. Our website development approach focuses on user experience, mobile responsiveness, performance, SEO-friendly structure, clear navigation, and conversion-focused design rather than simply creating a website that looks good."
+},
+
+{
+  q: "What is performance marketing and how can it help my business?",
+  a: "Performance marketing focuses on measurable outcomes such as leads, enquiries, sales, conversions, and customer acquisition. BIGBEANS DIGITAL combines audience research, campaign strategy, creative development, paid advertising, conversion tracking, and continuous optimisation to help businesses make better use of their marketing budget."
+},
+
+{
+  q: "Can you manage both my website and social media marketing?",
+  a: "Yes. Managing your website and social media together can create a more consistent customer journey. We can combine website development, content strategy, social media management, SEO, and paid campaigns so that your social channels attract attention while your website helps turn visitors into enquiries or customers."
+},
+
+{
+  q: "Do you work with startups and new businesses?",
+  a: "Yes. Our social media marketing agency for startups approach is designed for businesses that are still building their audience and brand identity. We can help with branding, website development, social media, content creation, and performance marketing based on your stage of growth, target audience, and available budget."
+},
+
+{
+  q: "How much does social media marketing cost?",
+  a: "The cost of social media marketing depends on factors such as the number of platforms, content volume, creative requirements, advertising budget, campaign objectives, and level of management required. Instead of offering one fixed package for every business, Big Beans Digital can recommend a suitable approach based on your goals."
+},
+
+{
+  q: "Is social media marketing useful for your businesses?",
+  a: "Yes. Social media can help any business build awareness, communicate directly with potential customers, showcase their products or services, and generate enquiries. A focused strategy can be particularly useful when a business wants to compete with larger brands without trying to be present on every platform."
+},
             ].map((faq, index) => (
 
               <motion.div
