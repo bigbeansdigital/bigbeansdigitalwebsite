@@ -59,7 +59,7 @@ export default function SocialMediaMarketing() {
       title: "Why Are Brands Suddenly Using Spider-Man in Social Media Marketing?",
       description:
         "Discover why brands are suddenly using Spider-Man-inspired visuals on social media and how moment marketing, viral trends and pop culture are shaping brand creativity in 2026",
-      link: "/blog/real-estate-video-marketing-ideas-for-reels",
+      link: "/blog/spider-man-social-media-marketing-trend",
     },
     
     
