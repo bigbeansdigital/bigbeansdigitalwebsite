@@ -6,9 +6,9 @@ import Branding from "@/components/Services/Branding";
 
 export const metadata: Metadata = {
   title:
-    "Best Branding Agency for Startups in London, India, USA & Dubai | BIGBEANS DIGITAL",
+    "Best Branding Agency for Startups | India & United Kingdom",
   description:
-    "Build a powerful brand with BIGBEANS DIGITAL. We provide the best branding, brand strategy, logo design, graphic design, and visual identity services to help startups and businesses stand out, build trust, and grow across London, India, USA & Dubai.",
+    "Build a powerful brand with BIGBEANS DIGITAL, a branding agency for startups in India & UK. Create a memorable identity and grow your brand.",
 };
 
 

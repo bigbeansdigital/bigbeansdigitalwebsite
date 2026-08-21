@@ -7,9 +7,9 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   title:
-    "About BIGBEANS DIGITAL | Best Social Media Marketing  Agency for Startups",
+    "Best Digital Marketing Agency India |  BIGBEANS DIGITAL",
   description:
-    "Learn about BIGBEANS DIGITAL, a results-driven Best Social Media Marketing  Agency helping startups and growing businesses with Social Media Marketing, Website Development, Branding, Google Ads, Meta Ads, and Performance Marketing across London, India, USA & Dubai.",
+    "Meet BIGBEANS DIGITAL, a digital marketing agency helping startups in India & UK build brands, grow online, and reach more customers.",
 };
 
 

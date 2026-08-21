@@ -5,9 +5,9 @@ import LogoDesigning from "@/components/Services/logo-designing";
 
 export const metadata: Metadata = {
   title:
-    "Best Logo Design & Branding Agency for Startups | BIGBEANS DIGITAL",
+    "Best Logo Designing Services for Startups | India USA & UK",
   description:
-    "Build a memorable brand with BIGBEANS DIGITAL, the Best Logo Design & Branding Agency for Startups. We create professional logos, brand identities, and creative branding solutions that help businesses stand out across London, India, USA & Dubai.",
+    "Get professional logo designing services for startups in India & UK. Create a memorable brand identity with creative, strategic logo design.",
 };
 
 export default function LogoDesigningPage() {

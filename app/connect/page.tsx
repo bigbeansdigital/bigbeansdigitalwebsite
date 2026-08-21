@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title:
-    "Contact BIGBEANS DIGITAL | Best Social Media Marketing  Agency for Startups",
+    "Social Media Marketing Agency for Startups | Contact BIGBEANS DIGITAL ",
   description:
-    "Connect with BIGBEANS DIGITAL for the best Social Media Marketing , Social Media Marketing, Website Development, Branding, Google Ads, Meta Ads, and Performance Marketing services for startups across London, India, USA & Dubai.",
+    "Contact BIGBEANS DIGITAL for social media marketing, branding, and digital marketing services for startups in India & UK. Get in touch today.",
 };
 
 export default function ConnectPage() {

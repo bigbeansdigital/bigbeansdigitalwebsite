@@ -16,9 +16,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title:
-    "BIGBEANS DIGITAL | Best Social Media Marketing  Agency for Startups in India, London & USA",
+    "Best Social Media Marketing Agency for Startups | India USA & UK",
   description:
-    "BIGBEANS DIGITAL is a leading Social Media Marketing  Agency helping startups and businesses with Branding, Website Development, SEO, Social Media Marketing, Performance Marketing and AI-powered growth solutions across India, London and the USA.",
+    "Social media marketing agency for startups in India, USA & UK. Build your brand, grow online, and attract customers with BIGBEANS DIGITAL.",
 };
 
 export default function RootLayout({

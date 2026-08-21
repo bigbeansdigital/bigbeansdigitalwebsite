@@ -8,9 +8,9 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   title:
-    "Best Social Media Marketing , AI, IT & Graphic Design Courses Institute Online | BIGBEANS Academy",
+    "Best Digital Marketing Courses in India & UK | BIGBEANS Academy",
   description:
-    "BIGBEANS Academy helps students go from zero to ₹30K–₹1L/month with online courses in AI, Social Media Marketing , Graphic Design, Branding, Social Media Marketing, Google Ads, Meta Ads, Performance Marketing, and Content Creation through practical workshops and certification programs.",
+    "Learn digital marketing, social media, branding, and AI skills with Big Beans Academy. Build practical skills for career and business growth.",
 };
 
 

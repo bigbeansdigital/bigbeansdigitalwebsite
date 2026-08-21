@@ -5,9 +5,9 @@ import SocialMediaMarketing from "@/components/Services/SocialMediaMarketing";
 
 export const metadata: Metadata = {
   title:
-    "Best Social Media Marketing Agency for Startups | BIGBEANS DIGITAL",
+    "Best Social Media Marketing Agency Services | India USA & UK",
   description:
-    "Grow your startup with BIGBEANS DIGITAL's Social Media Marketing Services. We help businesses across India, London and the USA with content creation, social media management, branding, audience growth and performance-driven marketing.",
+    "Grow your brand with social media marketing agency services in India & UK. Build engagement, reach customers, and drive business growth.",
 };
 
 export default function SocialMediaMarketingPage() {

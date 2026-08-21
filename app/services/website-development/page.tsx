@@ -5,9 +5,9 @@ import WebsiteDevelopment from "@/components/Services/WebsiteDevelopment";
 
 export const metadata: Metadata = {
   title:
-    "Best Website Development Agency in KOlkata | BIGBEANS DIGITAL",
+    "Best Website Development Services for Startups | India USA & UK",
   description:
-    "Grow your startup with BIGBEANS DIGITAL's Social Media Marketing Services. We help businesses across India, London and the USA with content creation, social media management, branding, audience growth and performance-driven marketing.",
+    "Build fast, modern websites with website development services for startups in India USA & UK. Create a powerful online presence with BIGBEANS DIGITAL.",
 };
 
 

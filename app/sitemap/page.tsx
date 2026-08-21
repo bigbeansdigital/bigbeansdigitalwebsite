@@ -5,9 +5,9 @@ import Footer from "@/components/Footer";
 
 
 export const metadata: Metadata = {
-  title: "Sitemap | BIGBEANS DIGITAL",
+  title: "Sitemap | BIGBEANS DIGITAL | India & United Kingdom",
   description:
-    "Explore the BIGBEANS DIGITAL website sitemap and easily find our services, pages, resources, and other information.",
+    "Explore the BIGBEANS DIGITAL sitemap to find our services, pages, blogs, academy, and resources for businesses across India & UK.",
 };
 
 export default function SitemapPage() {

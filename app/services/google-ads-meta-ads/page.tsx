@@ -7,9 +7,9 @@ import GoogleAdsMetaAds from "@/components/Services/googleads&metaads";
 
 export const metadata: Metadata = {
   title:
-    "Best Google Ads & Meta Ads Agency for Startups | BIGBEANS DIGITAL",
+    "Performance Marketing Agency for Startups | India USA & UK",
   description:
-    "Generate more leads and sales with the Best Google Ads & Meta Ads Agency for Startups. BIGBEANS DIGITAL creates ROI-driven Performance Marketing campaigns that help startups and businesses scale faster across London, India, USA & Dubai.",
+    "Drive measurable growth with performance marketing for startups in India & UK. Maximize campaigns, leads, conversions, and ROI with BIGBEANS DIGITAL.",
 };
 
 export default function GoogleAdsMetaAdsPage() {
