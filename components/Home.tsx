@@ -394,19 +394,19 @@ export default function Home() {
                     className="flex -space-x-3"
                   >
                     <img
-                      src="/home/ratings/rating1.png"
+                      src="/home/ratings/rating1.webp"
                       alt="Happy Client 1"
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white object-cover"
                     />
 
                     <img
-                      src="/home/ratings/rating2.png"
+                      src="/home/ratings/rating2.webp"
                       alt="Happy Client 2"
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white object-cover"
                     />
 
                     <img
-                      src="/home/ratings/rating3.png"
+                      src="/home/ratings/rating3.webp"
                       alt="Happy Client 3"
                       className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white object-cover"
                     />
@@ -694,7 +694,7 @@ export default function Home() {
               <div className="relative h-[115px] sm:h-[180px] lg:h-[220px] bg-[#F8BC04] overflow-hidden flex-shrink-0">
 
                 <Image
-                  src="/home/ourservice/bigbeansdigitalbranding.png"
+                  src="/home/ourservice/bigbeansdigitalbranding.webp"
                   alt="Branding"
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
@@ -806,7 +806,7 @@ export default function Home() {
               <div className="relative h-[115px] sm:h-[180px] lg:h-[220px] bg-[#171717] overflow-hidden flex-shrink-0">
 
                 <Image
-                  src="/home/ourservice/socialmedia.png"
+                  src="/home/ourservice/bigbeansdigitalsocialmedia.webp"
                   alt="Social Media"
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
@@ -921,7 +921,7 @@ export default function Home() {
               <div className="relative h-[115px] sm:h-[180px] lg:h-[220px] bg-[#F8BC04] overflow-hidden flex-shrink-0">
 
                 <Image
-                  src="/home/ourservice/bigbeansdigitalwebsite.png"
+                  src="/home/ourservice/bigbeansdigitalwebsite.webp"
                   alt="Website Development"
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
@@ -1033,7 +1033,7 @@ export default function Home() {
               <div className="relative h-[115px] sm:h-[180px] lg:h-[220px] bg-[#171717] overflow-hidden flex-shrink-0">
 
                 <Image
-                  src="/home/ourservice/bigbeansdigitalperformancemarketing.png"
+                  src="/home/ourservice/bigbeansdigitalperformancemarketing.webp"
                   alt="Performance Marketing"
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 50vw, 25vw"
@@ -1761,8 +1761,8 @@ export default function Home() {
           "
         >
           <Image
-            src="/home/cartoon1.png"
-            alt="Creative character"
+            src="/home/cartoon1.webp"
+            alt="Best Social Media Marketing Agency"
             width={600}
             height={700}
             className="
@@ -1967,8 +1967,8 @@ export default function Home() {
           "
         >
           <Image
-            src="/home/cartoon2.png"
-            alt="Creative team"
+            src="/home/cartoon2.webp"
+            alt="Best Social Media Marketing Agency"
             width={600}
             height={700}
             className="
@@ -2203,8 +2203,8 @@ export default function Home() {
           "
         >
           <Image
-            src="/home/cartoon3.png"
-            alt="Creative storyteller"
+            src="/home/cartoon3.webp"
+            alt="Best Social Media Marketing Agency"
             width={600}
             height={700}
             className="
