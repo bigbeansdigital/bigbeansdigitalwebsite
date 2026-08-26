@@ -104,44 +104,17 @@ export default function SocialMediaMarketing() {
     },
 
     
-    
-    
     {
-      id: 1,
+      id: 5,
       image:
-        "/assets/blog/allblogs/website-seo-audit/website-seo-audit-card.png",
-      date: "August 13, 2026",
-      primaryCategory: "SEO",
-      secondaryCategory: "Business",
-      title: "How to Do a Website SEO Audit Before Hiring an Agency",
-      description:
-        "Learn how to do a website SEO audit yourself. Use this DIY SEO audit checklist to find speed, indexing, keyword, and technical SEO issues.",
-      link: "/blog/website-seo-audit",
-    },
-
-    {
-      id: 2,
-      image:
-        "/assets/blog/allblogs/real-time-weather-marketing/real-time-weather-marketing-card.png",
-      date: "August 13, 2026",
-      primaryCategory: "AI",
-      secondaryCategory: "Business",
-      title: "Real-Time Marketing: Turn Weather Data Into Revenue",
-      description:
-        "Learn how agile brands use weather data, AI, and real-time signals to create contextual marketing campaigns that drive revenue.",
-      link: "/blog/real-time-weather-marketing",
-    },
-
-    {
-      id: 3,
-      image: "/assets/blog/allblogs/In-HousevsAgency/card.png",
-      date: "August 13, 2026",
+        "/assets/blog/singleblogs/clinic-instagram-marketing-strategy.png",
+      date: "August 14, 2026",
       primaryCategory: "Social Media",
-      secondaryCategory: "Start-Ups",
-      title: "In-House vs Agency: Social Media for London Startups",
+      secondaryCategory: "Healthcare",
+      title: "How to Do SMM for a New Clinic in India | BigBeans",
       description:
-        "Should your London startup hire in-house or outsource social media? Discover the key signs, costs, benefits and when an agency is the smarter choice for growth.",
-      link: "/blog/In-HousevsAgency",
+        "Learn what to post when launching a clinic on Instagram, from educational content to trust-building posts that attract patients. Get started with BigBeans Digital.",
+      link: "/blog/clinic-instagram-marketing-strategy",
     },
 
     {
@@ -156,18 +129,38 @@ export default function SocialMediaMarketing() {
       link: "/blog/getmorecustomers",
     },
 
-    {
-      id: 5,
+{
+      id: 2,
       image:
-        "/assets/blog/singleblogs/clinic-instagram-marketing-strategy.png",
-      date: "August 14, 2026",
-      primaryCategory: "Social Media",
-      secondaryCategory: "Healthcare",
-      title: "How to Do SMM for a New Clinic in India | BigBeans",
+        "/assets/blog/singleblogs/google-marketing-live-gemini-ads-guide.webp",
+      date: "August 13, 2026",
+      primaryCategory: "SEO",
+      secondaryCategory: "Business",
+      title: "Google Marketing Live 2026: Gemini Ads Guide",
       description:
-        "Learn what to post when launching a clinic on Instagram, from educational content to trust-building posts that attract patients. Get started with BigBeans Digital.",
-      link: "/blog/clinic-instagram-marketing-strategy",
+        "Discover how Gemini-powered ad formats from Google Marketing Live 2026 reshape PPC. Learn key strategies for Conversational Ads, AEO & GEO growth.",
+      link: "/blog/google-marketing-live-gemini-ads-guide",
     },
+
+    {
+      id: 1,
+      image:
+        "/assets/blog/singleblogs/website-seo-audit.webp",
+      date: "August 13, 2026",
+      primaryCategory: "SEO",
+      secondaryCategory: "Business",
+      title: "How to Do a Website SEO Audit Before Hiring an Agency",
+      description:
+        "Learn how to do a website SEO audit yourself. Use this DIY SEO audit checklist to find speed, indexing, keyword, and technical SEO issues.",
+      link: "/blog/website-seo-audit",
+    },
+
+    
+    
+
+    
+
+    
 
 
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import SpiderManSocialMediaMarketingTrend from "@/components/blogs/spider-man-social-media-marketing-trend";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import InstagramButton from "@/components/InstagramButton";
 
 export const metadata: Metadata = {
   title:
@@ -36,7 +36,7 @@ export default function SpiderManSocialMediaMarketingTrendPage() {
       <Header />
       <SpiderManSocialMediaMarketingTrend />
       <Footer />
-      <WhatsAppButton />
+      <InstagramButton />
     </>
   );
 }

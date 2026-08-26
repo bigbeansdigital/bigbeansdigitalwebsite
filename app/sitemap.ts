@@ -64,16 +64,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/blog/getmorecustomers`,
     },
     {
-      url: `${baseUrl}/blog/In-HousevsAgency`,
-    },
-    {
       url: `${baseUrl}/blog/new-instagram-logo-redesign`,
     },
     {
       url: `${baseUrl}/blog/real-estate-video-marketing-ideas-for-reels`,
-    },
-    {
-      url: `${baseUrl}/blog/real-time-weather-marketing`,
     },
     {
       url: `${baseUrl}/blog/website-seo-audit`,
@@ -81,5 +75,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/blog/why-is-my-competitor-getting-more-leads`,
     },
+    {
+      url: `${baseUrl}/blog/spider-man-social-media-marketing-trend`,
+    },
+    {
+      url: `${baseUrl}/blog/google-marketing-live-gemini-ads-guide`,
+    },
+    
   ];
 }

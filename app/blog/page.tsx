@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Blog from "@/components/Blog";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import InstagramButton from "@/components/InstagramButton";
 
 
 export const metadata: Metadata = {
@@ -24,7 +24,7 @@ export default function BlogPage() {
       <Header />
       <Blog />
       <Footer />
-      <WhatsAppButton />
+      <InstagramButton />
     </>
   );
 }

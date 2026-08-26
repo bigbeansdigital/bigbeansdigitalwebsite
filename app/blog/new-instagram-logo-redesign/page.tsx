@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import NewInstagramLogoRedesign from "@/components/blogs/new-instagram-logo-redesign";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import InstagramButton from "@/components/InstagramButton";
 
 export const metadata: Metadata = {
   title: "Instagram Logo 2026: What Brands Need to Know | BigBeans",
@@ -34,7 +34,7 @@ export default function NewInstagramLogoRedesignPage() {
       <Header />
       <NewInstagramLogoRedesign />
       <Footer />
-      <WhatsAppButton />
+      <InstagramButton />
     </>
   );
 }
