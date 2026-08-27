@@ -4,16 +4,125 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-
-// Source: :contentReference[oaicite:0]{index=0}
+import {
+  Phone,
+  Mail,
+  MessageCircle,
+  CalendarDays,
+  ArrowRight,
+  ExternalLink,
+  Check,
+  Clock3,
+} from "lucide-react";
 
 export default function Connect() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  return (
-    <main className="overflow-hidden bg-[#FFFFFF]">
 
-      {/* Breadcrumb */}
+  const faqs = [
+    {
+      q: "How can I contact Big Beans Digital?",
+      a: "You can easily contact Big Beans Digital through our contact form, email, phone, or WhatsApp. Whether you're looking for a Social Media Marketing Agency for Startups or need expert guidance for your business, our team is ready to help.",
+    },
+    {
+      q: "Can I book a free consultation before starting my project?",
+      a: "Yes. We offer a free consultation to understand your business goals, target audience, and marketing requirements. Our experts will recommend the best strategy for your business.",
+    },
+    {
+      q: "Which services can I inquire about through the contact page?",
+      a: "You can contact us for Social Media Marketing, Website Development, Logo Design, Branding, Google Ads, Meta Ads, Performance Marketing, and other business growth solutions.",
+    },
+    {
+      q: "Do you work with businesses outside India?",
+      a: "Yes. Big Beans Digital works with startups and businesses internationally and provides remote consultations and digital marketing services worldwide.",
+    },
+    {
+      q: "How quickly will your team respond to my inquiry?",
+      a: "We aim to respond to enquiries as quickly as possible and ensure prompt and professional communication with every potential client.",
+    },
+    {
+      q: "Can startups and small businesses contact Big Beans Digital?",
+      a: "Absolutely. We specialize in helping startups, entrepreneurs, and small businesses build their online presence through affordable and result-driven digital marketing services.",
+    },
+    {
+      q: "Do you provide customized marketing solutions?",
+      a: "Yes. Every business is unique, so we create customized strategies based on your industry, business goals, target audience, and budget.",
+    },
+    {
+      q: "Can I request a quotation for my project?",
+      a: "Yes. Simply share your project requirements through our contact form, and our team can prepare a customized proposal.",
+    },
+    {
+      q: "Why should I choose Big Beans Digital?",
+      a: "Big Beans Digital provides end-to-end digital solutions including Social Media Marketing, Website Development, Branding, Google Ads, Meta Ads, and Performance Marketing.",
+    },
+    {
+      q: "How do I get started with Big Beans Digital?",
+      a: "Getting started is simple. Contact our team, schedule your consultation, discuss your business goals, and let our experts help create a customized growth strategy.",
+    },
+  ];
+
+  const sitemapPages = [
+    {
+      title: "Best Social Media Marketing Agency in London",
+      url: "/",
+    },
+    {
+      title: "About Big Beans Digital Best Social Media Marketing Agency",
+      url: "/about",
+    },
+    {
+      title: "Best Online Digital Marketing Course",
+      url: "/academy",
+    },
+    {
+      title: "Best Social Media Marketing Agency | Big Beans Digital | Blog",
+      url: "/blog",
+    },
+    {
+      title: "Best Social Media Marketing Agency | Big Beans Digital | Connect",
+      url: "/connect",
+    },
+    {
+      title: "Best Social Media Marketing Agency | Big Beans Digital | Courses",
+      url: "/courses",
+    },
+    {
+      title:
+        "Best Social Media Marketing Agency | Big Beans Digital | Internship",
+      url: "/internship",
+    },
+    {
+      title: "Best Social Media Marketing Agency | Big Beans Digital | Our Work",
+      url: "/our-work",
+    },
+    {
+      title: "Best Branding Agency for Startups",
+      url: "/services/branding",
+    },
+    {
+      title: "Best Performance Marketing Agency",
+      url: "/services/google-ads-meta-ads",
+    },
+    {
+      title: "Big Beans Digital Best Logo Designing Agency",
+      url: "/services/logo-designing",
+    },
+    {
+      title: "Big Beans Digital Best Social Media Marketing Agency",
+      url: "/services/social-media-marketing",
+    },
+    {
+      title: "Big Beans Digital Best Website Development Agency",
+      url: "/services/website-development",
+    },
+  ];
+
+  return (
+    <main className="overflow-hidden bg-white">
+      {/* =========================
+          BREADCRUMB
+      ========================= */}
+
       <section className="w-full bg-white py-6 sm:py-8 lg:py-10">
         <div className="mx-auto flex w-full max-w-7xl justify-center px-3 sm:px-5">
           <div className="inline-flex max-w-full items-center gap-2 rounded-full bg-white px-4 py-3 text-[12px] shadow-[0_8px_24px_rgba(0,0,0,0.08)] sm:gap-3 sm:px-6 sm:py-3.5 sm:text-[14px] lg:px-8 lg:py-4 lg:text-base">
@@ -24,7 +133,7 @@ export default function Connect() {
               Home
             </Link>
 
-            <span className="text-[#F8BC04] text-lg">→</span>
+            <span className="text-lg text-[#F8BC04]">→</span>
 
             <span className="font-semibold text-black">
               Connect With Big Beans Digital
@@ -33,675 +142,362 @@ export default function Connect() {
         </div>
       </section>
 
-      {/* =========================
-            CONTACT SECTION
-      ========================= */}
+      {/* =====================================
+          BUILD SOMETHING AMAZING SECTION
+          COMPACT VERSION
+      ===================================== */}
 
-      <section
-        id="contact-form"
-        className="relative overflow-hidden bg-white py-5 sm:py-5 lg:py-5"
-      >
-        {/* Background Glow */}
-
+      <section className="bg-white px-1 py-5 sm:px-1 sm:py-1 lg:px-1 lg:py-1">
         <motion.div
-          animate={{
-            scale: [1, 1.12, 1],
-            opacity: [0.1, 0.18, 0.1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#F8BC04]/20 blur-[150px]"
-        />
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+          className="mx-auto max-w-[1500px]"
+        >
+          <div className="grid items-center gap-6 lg:grid-cols-[0.85fr_1.15fr] lg:gap-10">
+            {/* LEFT CONTENT */}
 
-        <div className="relative z-10 mx-auto w-full max-w-[1180px] px-4 sm:px-6 lg:px-8">
+            <div className="py-2 lg:py-4">
+              {/* SMALL LABEL */}
 
-          <div className="grid items-stretch gap-5 sm:gap-6 lg:grid-cols-2 lg:gap-7">
+              <div className="flex items-center gap-3">
+                <span className="h-2 w-2 rounded-full bg-[#F8BC04]" />
 
-            {/* =========================
-                  LEFT CONTACT CARD
-            ========================= */}
+                <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#555] sm:text-xs">
+                  Get In Touch
+                </span>
+              </div>
 
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: -50,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-              transition={{
-                duration: 0.8,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="flex h-full flex-col overflow-hidden rounded-[24px] bg-[#171717] p-5 text-white sm:rounded-[30px] sm:p-7 md:p-9 lg:rounded-[34px] lg:p-10"
-            >
+              {/* HEADING */}
 
-              {/* Card Header */}
+              <h2 className="mt-4 text-[38px] font-black leading-[1.03] tracking-[-0.04em] text-[#171717] sm:text-[46px] md:text-[52px] lg:text-[54px] xl:text-[62px]">
+                Let&apos;s Build
+                <br />
+                Something
+                <br />
 
-              <div>
+                <span className="text-[#F8BC04]">Amazing</span>
 
-                <div className="w-full">
+                <br />
+                Together.
+              </h2>
 
-                  {/* Company */}
-                  <div className="flex items-center gap-4 border-b border-white/10 pb-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center text-[24px] text-[#F8BC04]">
-                      🏛️
-                    </div>
+              {/* UNDERLINE */}
 
-                    <h3 className="text-[18px] font-bold text-white">
-                      A BRAND OF MADHUSHREE DIGITAL MEDIA
-                    </h3>
+              <div className="mt-2 h-[2px] w-16 rounded-full bg-[#171717]" />
+
+              {/* DESCRIPTION */}
+
+              <div className="mt-5 max-w-xl">
+                <p className="text-sm leading-6 text-[#444] sm:text-base">
+                  Have a project in mind or want to grow your business?
+                </p>
+
+                <p className="mt-1 text-sm leading-6 text-[#444] sm:text-base">
+                  We&apos;d love to hear from you.
+                </p>
+              </div>
+
+              {/* FEATURES */}
+
+              <div className="mt-6 flex flex-wrap gap-x-5 gap-y-3">
+                <div className="flex items-center gap-2">
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F8BC04]">
+                    <Check
+                      size={12}
+                      strokeWidth={3}
+                      className="text-[#171717]"
+                    />
                   </div>
 
-                  {/* CIN */}
-                  <div className="flex gap-4 border-b border-white/10 py-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center text-[22px] text-[#F8BC04]">
-                      📄
-                    </div>
-
-                    <div className="min-w-0">
-                      <h4 className="text-[14px] font-bold text-white">
-                        CIN
-                      </h4>
-
-                      <p className="mt-1 text-[15px] leading-6 text-white/70">
-                        U####################
-                        <br />
-                        U####################
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* GST */}
-                  <div className="flex gap-4 border-b border-white/10 py-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center text-[22px] text-[#F8BC04]">
-                      🧾
-                    </div>
-
-                    <div className="min-w-0">
-                      <h4 className="text-[14px] font-bold text-white">
-                        GST
-                      </h4>
-
-                      <p className="mt-1 text-[15px] leading-6 text-white/70">
-                        19CHSPB4848Q
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* MSME */}
-                  <div className="flex gap-4 pt-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center text-[22px] text-[#F8BC04]">
-                      🏢
-                    </div>
-
-                    <div className="min-w-0">
-                      <h4 className="text-[14px] font-bold text-white">
-                        MSME Registration No.
-                      </h4>
-
-                      <p className="mt-1 text-[15px] leading-6 text-white/70">
-                        UDYAM########
-                      </p>
-                    </div>
-                  </div>
-
+                  <span className="text-xs font-bold text-[#333] sm:text-sm">
+                    Quick Response
+                  </span>
                 </div>
-
-              </div>
-
-              {/* Contact Details */}
-
-              <div className="mt-6 space-y-5 sm:mt-8 sm:space-y-6 lg:mt-9">
-
-                {/* Address */}
-
-                <motion.div
-                  whileHover={{
-                    x: 4,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                  className="group flex gap-4"
-                >
-
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-[#F8BC04]/10 text-xl transition-all duration-300 group-hover:bg-[#F8BC04]">
-                    <span className="transition-transform duration-300 group-hover:scale-110">
-                      📍
-                    </span>
-                  </div>
-
-                  <div className="min-w-0">
-
-                    <h4 className="text-[15px] font-bold text-white sm:text-[16px]">
-                      Office Address
-                    </h4>
-
-                    <p className="mt-1.5 text-[12px] leading-5 text-white/55 sm:text-[13px] sm:leading-6">
-                      Ground Floor, G14, Alapan Apartment
-                      <br />
-                      Baguihati, Jora Mandir, Kolkata
-                      <br />
-                      West Bengal 700059
-                    </p>
-
-                  </div>
-
-                </motion.div>
-
-                {/* Email */}
-
-                <motion.div
-                  whileHover={{
-                    x: 4,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                  className="group flex gap-4"
-                >
-
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-[#F8BC04]/10 text-xl transition-all duration-300 group-hover:bg-[#F8BC04]">
-                    <span className="transition-transform duration-300 group-hover:scale-110">
-                      ✉️
-                    </span>
-                  </div>
-
-                  <div className="min-w-0">
-
-                    <h4 className="text-[15px] font-bold text-white sm:text-[16px]">
-                      Email Us
-                    </h4>
-
-                    <a
-                      href="mailto:connect.bigbeans@gmail.com"
-                      className="mt-1.5 block break-all text-[12px] text-white/55 transition-colors duration-300 hover:text-[#F8BC04] sm:text-[13px]"
-                    >
-                      connect.bigbeans@gmail.com
-                    </a>
-
-                  </div>
-
-                </motion.div>
-
-                {/* Phone */}
-
-                <motion.div
-                  whileHover={{
-                    x: 4,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                  className="group flex gap-4"
-                >
-
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-[#F8BC04]/10 text-xl transition-all duration-300 group-hover:bg-[#F8BC04]">
-                    <span className="transition-transform duration-300 group-hover:scale-110">
-                      📞
-                    </span>
-                  </div>
-
-                  <div className="min-w-0">
-
-                    <h4 className="text-[15px] font-bold text-white sm:text-[16px]">
-                      Call Us
-                    </h4>
-
-                    <a
-                      href="tel:+916289102537"
-                      className="mt-1.5 block text-[12px] text-white/55 transition-colors duration-300 hover:text-[#F8BC04] sm:text-[13px]"
-                    >
-                      +91 62891 02537
-                    </a>
-
-                  </div>
-
-                </motion.div>
-
-                {/* Working Hours */}
-
-                <motion.div
-                  whileHover={{
-                    x: 4,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                  className="group flex gap-4"
-                >
-
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[14px] bg-[#F8BC04]/10 text-xl transition-all duration-300 group-hover:bg-[#F8BC04]">
-                    <span className="transition-transform duration-300 group-hover:scale-110">
-                      ⏰
-                    </span>
-                  </div>
-
-                  <div className="min-w-0">
-
-                    <h4 className="text-[15px] font-bold text-white sm:text-[16px]">
-                      Working Hours
-                    </h4>
-
-                    <p className="mt-1.5 text-[12px] leading-5 text-white/55 sm:text-[13px] sm:leading-6">
-                      Monday - Saturday
-                      <br />
-                      11:00 AM - 8:00 PM
-                    </p>
-
-                  </div>
-
-                </motion.div>
-
-              </div>
-
-              {/* Quick Response */}
-
-              <motion.div
-                whileHover={{
-                  y: -3,
-                }}
-                transition={{
-                  duration: 0.3,
-                }}
-                className="mt-6 rounded-[18px] border border-[#F8BC04]/10 bg-[#F8BC04]/10 p-4 sm:mt-8 sm:p-6"
-              >
 
                 <div className="flex items-center gap-2">
-
-                  <span className="text-base">
-                    ⚡
-                  </span>
-
-                  <h4 className="text-[14px] font-bold text-[#F8BC04] sm:text-[15px]">
-                    Quick Response
-                  </h4>
-
-                </div>
-
-                <p className="mt-2 text-[11px] leading-5 text-white/55 sm:text-[12px] sm:leading-6">
-                  We usually respond to all enquiries within one business day.
-                </p>
-
-              </motion.div>
-
-            </motion.div>
-
-
-            {/* =========================
-                  RIGHT CONSULTATION CARD
-            ========================= */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 50,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-              transition={{
-                duration: 0.8,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="relative flex h-full flex-col overflow-hidden rounded-[24px] bg-[#F8BC04] p-5 text-[#171717] sm:rounded-[30px] sm:p-7 md:p-9 lg:rounded-[34px] lg:p-10"
-            >
-
-              {/* Decorative Glow */}
-
-              <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-white/20 blur-[70px]" />
-
-              <div className="pointer-events-none absolute -bottom-28 -left-20 h-56 w-56 rounded-full bg-white/10 blur-[70px]" />
-
-              {/* Header */}
-
-              <div className="relative z-10">
-
-                <span className="inline-flex rounded-full bg-[#171717] px-4 py-2 text-[9px] font-bold uppercase tracking-[0.22em] text-white sm:px-5 sm:text-[10px]">
-                  Let's Connect
-                </span>
-
-                <h2 className="mt-5 text-[30px] font-black leading-[1.05] tracking-[-0.03em] sm:mt-6 sm:text-[38px] md:text-[42px] lg:mt-6 lg:text-[44px]">
-                  Let's Talk!
-                </h2>
-
-                <p className="mt-4 max-w-[470px] text-[13px] leading-5 text-[#171717]/65 sm:mt-5 sm:text-[14px] sm:leading-6 md:text-[15px] md:leading-7">
-                  Tell us what you're looking to build, grow or improve. Choose the
-                  area you'd like to discuss and connect with our team directly.
-                </p>
-
-              </div>
-
-              {/* Consultation Options */}
-
-              <div className="relative z-10 mt-6 space-y-4 sm:mt-8 sm:space-y-5 lg:mt-9">
-
-                {/* Social Media Marketing */}
-
-                <motion.div
-                  whileHover={{
-                    y: -2,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                >
-
-                  <h3 className="text-[15px] font-bold leading-tight sm:text-[17px]">
-                    For Social Media Marketing
-                  </h3>
-
-                  <a
-                    href="https://wa.me/916289102537?text=Hi%20BIGBEANS%20DIGITAL%2C%20I%20am%20interested%20in%20Social%20Media%20Marketing."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group mt-2.5 flex min-h-[44px] w-full items-center justify-center gap-2 rounded-[11px] bg-white px-3 py-2.5 text-center text-[10px] font-bold text-[#171717] transition-all duration-300 hover:-translate-y-1 sm:px-4 sm:text-[11px] md:text-[12px]"
-                  >
-
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-[11px] text-white">
-                      ✓
-                    </span>
-
-                    <span className="min-w-0">
-                      Get Consultation for Social Media Marketing
-                    </span>
-
-                    <span className="text-[#F8BC04] transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-
-                  </a>
-
-                </motion.div>
-
-
-                {/* End To End Branding */}
-
-                <motion.div
-                  whileHover={{
-                    y: -2,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                >
-
-                  <h3 className="text-[15px] font-bold leading-tight sm:text-[17px]">
-                    For End To End Branding
-                  </h3>
-
-                  <a
-                    href="https://wa.me/916289102537?text=Hi%20BIGBEANS%20DIGITAL%2C%20I%20am%20interested%20in%20End%20To%20End%20Branding."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group mt-2.5 flex min-h-[44px] w-full items-center justify-center gap-2 rounded-[11px] bg-white px-3 py-2.5 text-center text-[10px] font-bold text-[#171717] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.12)] sm:px-4 sm:text-[11px] md:text-[12px]"
-                  >
-
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-[11px] text-white">
-                      ✓
-                    </span>
-
-                    <span className="min-w-0">
-                      Get Consultation for End To End Branding
-                    </span>
-
-                    <span className="text-[#F8BC04] transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-
-                  </a>
-
-                </motion.div>
-
-
-                {/* Website Development */}
-
-                <motion.div
-                  whileHover={{
-                    y: -2,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                >
-
-                  <h3 className="text-[15px] font-bold leading-tight sm:text-[17px]">
-                    For Website Development
-                  </h3>
-
-                  <a
-                    href="https://wa.me/916289102537?text=Hi%20BIGBEANS%20DIGITAL%2C%20I%20am%20interested%20in%20Website%20Development."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group mt-2.5 flex min-h-[44px] w-full items-center justify-center gap-2 rounded-[11px] bg-white px-3 py-2.5 text-center text-[10px] font-bold text-[#171717] transition-all duration-300 hover:-translate-y-1 sm:px-4 sm:text-[11px] md:text-[12px]"
-                  >
-
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-[11px] text-white">
-                      ✓
-                    </span>
-
-                    <span className="min-w-0">
-                      Get Consultation for Website Development
-                    </span>
-
-                    <span className="text-[#F8BC04] transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-
-                  </a>
-
-                </motion.div>
-
-
-                {/* Joining Our Team */}
-
-                <motion.div
-                  whileHover={{
-                    y: -2,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                >
-
-                  <h3 className="text-[15px] font-bold leading-tight sm:text-[17px]">
-                    For Joining Our Team
-                  </h3>
-
-                  <a
-                    href="https://wa.me/916289102537?text=Hi%20BIGBEANS%20DIGITAL%2C%20I%20am%20interested%20in%20joining%20your%20team."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group mt-2.5 flex min-h-[44px] w-full items-center justify-center gap-2 rounded-[11px] bg-white px-3 py-2.5 text-center text-[10px] font-bold text-[#171717] transition-all duration-300 hover:-translate-y-1 sm:px-4 sm:text-[11px] md:text-[12px]"
-                  >
-
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-[11px] text-white">
-                      ✓
-                    </span>
-
-                    <span className="min-w-0">
-                      Get Consultation for Joining Our Team
-                    </span>
-
-                    <span className="text-[#F8BC04] transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-
-                  </a>
-
-                </motion.div>
-
-
-                {/* Big Beans Academy */}
-
-                <motion.div
-                  whileHover={{
-                    y: -2,
-                  }}
-                  transition={{
-                    duration: 0.25,
-                  }}
-                >
-
-                  <h3 className="text-[15px] font-bold leading-tight sm:text-[17px]">
-                    For Big Beans Academy
-                  </h3>
-
-                  <a
-                    href="https://wa.me/916289102537?text=Hi%20BIGBEANS%20DIGITAL%2C%20I%20am%20interested%20in%20Big%20Beans%20Academy."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group mt-2.5 flex min-h-[44px] w-full items-center justify-center gap-2 rounded-[11px] bg-white px-3 py-2.5 text-center text-[10px] font-bold text-[#171717] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(0,0,0,0.12)] sm:px-4 sm:text-[11px] md:text-[12px]"
-                  >
-
-                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-[11px] text-white">
-                      ✓
-                    </span>
-
-                    <span className="min-w-0">
-                      Get Consultation for Big Beans Academy
-                    </span>
-
-                    <span className="text-[#F8BC04] transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-
-                  </a>
-
-                  <div className="mt-4 w-full rounded-[20px] bg-white p-5 shadow-[0_15px_35px_rgba(0,0,0,0.10)]">
-
-                    <div className="flex items-center gap-3">
-
-                      <span className="text-[20px]">🌐</span>
-
-                      <h3 className="text-[18px] font-bold text-[#171717]">
-                        Follow Us
-                      </h3>
-
-                    </div>
-
-                    <p className="mt-3 text-[14px] leading-6 text-[#36506F]">
-                      Stay connected for tips, updates, and success stories.
-                    </p>
-
-                    <div className="mt-4 flex items-center gap-3">
-
-                      {/* Facebook */}
-                      <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Facebook"
-                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[11px] bg-[#DCEAFF] transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                      >
-                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1877F2] text-[18px] font-bold text-white">
-                          f
-                        </span>
-                      </a>
-
-                      {/* Instagram */}
-                      <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="Instagram"
-                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[11px] bg-[#DCEAFF] transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                      >
-                        <span className="flex h-7 w-7 items-center justify-center rounded-[7px] bg-gradient-to-tr from-[#FFDC80] via-[#E1306C] to-[#833AB4] text-[17px] font-bold text-white">
-                          ◎
-                        </span>
-                      </a>
-
-                      {/* LinkedIn */}
-                      <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label="LinkedIn"
-                        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[11px] bg-[#DCEAFF] transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-                      >
-                        <span className="flex h-7 w-7 items-center justify-center rounded-[3px] bg-[#0A66C2] text-[13px] font-bold text-white">
-                          in
-                        </span>
-                      </a>
-
-                    </div>
-
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F8BC04]">
+                    <Check
+                      size={12}
+                      strokeWidth={3}
+                      className="text-[#171717]"
+                    />
                   </div>
 
-                </motion.div>
+                  <span className="text-xs font-bold text-[#333] sm:text-sm">
+                    Expert Advice
+                  </span>
+                </div>
 
+                <div className="flex items-center gap-2">
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#F8BC04]">
+                    <Check
+                      size={12}
+                      strokeWidth={3}
+                      className="text-[#171717]"
+                    />
+                  </div>
+
+                  <span className="text-xs font-bold text-[#333] sm:text-sm">
+                    No Obligation
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT IMAGE AREA */}
+
+            <div className="relative min-h-[280px] overflow-hidden rounded-[24px] sm:min-h-[340px] sm:rounded-[28px] lg:min-h-[390px] lg:rounded-[32px]">
+              {/* BACKGROUND IMAGE */}
+
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{
+                  backgroundImage: "url('assets/about/bigbeansdigital.webp')",
+                }}
+              />
+
+              {/* DARK OVERLAY */}
+
+              <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/10" />
+
+              {/* TOP LEFT CONTACT CARD */}
+
+              <div className="absolute left-4 top-4 z-10 w-[190px] rounded-[18px] bg-white/95 p-4 shadow-[0_15px_35px_rgba(0,0,0,0.18)] backdrop-blur-md sm:left-6 sm:top-6 sm:w-[210px] sm:p-5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F8BC04] text-[#171717]">
+                  <Phone size={17} strokeWidth={2.6} />
+                </div>
+
+                <h3 className="mt-3 text-sm font-bold leading-5 text-[#171717] sm:text-base">
+                  Speak With Our
+                  <br />
+                  Growth Experts
+                </h3>
+
+                <p className="mt-4 text-sm font-black text-[#171717] sm:text-base">
+                  +91 6289102537
+                </p>
+
+                <p className="mt-1.5 text-[10px] leading-4 text-[#777]">
+                  Mon - Fri 9:00 AM - 9:00 PM (IST)
+                </p>
+
+                <a
+                  href="tel:+916289102537"
+                  className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[#D89B00] transition-all hover:gap-3"
+                >
+                  Call Us
+                  <ArrowRight size={14} />
+                </a>
               </div>
 
-            </motion.div>
+              {/* FLOATING WHATSAPP BUTTON */}
 
+              <a
+                href="https://wa.link/nms9wi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute bottom-4 right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-[#F8BC04] text-[#171717] shadow-[0_10px_25px_rgba(248,188,4,0.35)] transition-all duration-300 hover:scale-110 sm:bottom-6 sm:right-6 sm:h-12 sm:w-12"
+                aria-label="Connect on WhatsApp"
+              >
+                <MessageCircle size={21} strokeWidth={2.4} />
+              </a>
+            </div>
           </div>
-
-        </div>
-
+        </motion.div>
       </section>
 
+      {/* =========================
+          CONTACT INFORMATION SECTION
+      ========================= */}
+
+      <section className="bg-white px-1 py-1 sm:px-1 sm:py-1 lg:px-1 lg:py-1">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7 }}
+          className="mx-auto w-full max-w-[1500px]"
+        >
+          <div className="rounded-[28px] border border-[#E8E8E8] bg-white p-6 shadow-[0_15px_50px_rgba(0,0,0,0.06)] sm:rounded-[32px] sm:p-8 md:p-10 lg:rounded-[40px] lg:p-14">
+            <div className="text-center">
+              <h2 className="mt-3 text-[38px] font-black leading-[1.05] tracking-[-0.03em] text-[#171717] sm:text-[50px] md:text-[60px] lg:text-[68px]">
+                We’re Here to Help You{" "}
+                <span className="relative inline-block text-[#F8BC04]">
+                  Grow
+                  <span className="absolute -bottom-1 left-0 h-[4px] w-full rounded-full bg-[#F8BC04]" />
+                </span>
+              </h2>
+
+             
+            </div>
+
+            <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-6">
+              {/* PHONE CARD */}
+
+              <div className="group rounded-[24px] border border-[#E8E8E8] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-[#171717] shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
+                  <Phone size={27} strokeWidth={2.5} />
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold text-[#171717]">
+                  Phone
+                </h3>
+
+                <p className="mt-3 text-base font-bold text-[#555]">
+                  +91 6289102537
+                </p>
+
+                <p className="mt-2 min-h-[48px] text-sm leading-6 text-[#777]">
+                  Mon - Fri 9:00 AM - 9:00 PM (IST)
+                </p>
+
+                <a
+                  href="tel:+916289102537"
+                  className="mt-6 inline-flex items-center gap-2 text-base font-bold text-[#D89B00] transition-all duration-300 hover:gap-4"
+                >
+                  Call Us
+                  <ArrowRight size={18} />
+                </a>
+              </div>
+
+              {/* EMAIL CARD */}
+
+              <div className="group rounded-[24px] border border-[#E8E8E8] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-[#171717] shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
+                  <Mail size={27} strokeWidth={2.5} />
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold text-[#171717]">
+                  Email
+                </h3>
+
+                <p className="mt-3 break-all text-base font-bold text-[#555]">
+                  connect.bigbeans@gmail.com
+                </p>
+             
+                
+
+                <div className="min-h-[48px]" />
+
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=connect.bigbeans@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 text-base font-bold text-[#D89B00] transition-all duration-300 hover:gap-4"
+                >
+                  Send Email
+                  <ArrowRight size={18} />
+                </a>
+              </div>
+
+              {/* WHATSAPP CARD */}
+
+              <div className="group rounded-[24px] border border-[#E8E8E8] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-[#171717] shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
+                  <MessageCircle size={27} strokeWidth={2.5} />
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold text-[#171717]">
+                  WhatsApp
+                </h3>
+
+                <p className="mt-3 text-base font-bold text-[#555]">
+                  Chat with our team
+                </p>
+
+                <p className="mt-2 min-h-[48px] text-sm leading-6 text-[#777]">
+                  Connect with us instantly on WhatsApp.
+                </p>
+
+                <a
+                  href="https://wa.link/nms9wi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 text-base font-bold text-[#D89B00] transition-all duration-300 hover:gap-4"
+                >
+                  Connect on WhatsApp
+                  <ArrowRight size={18} />
+                </a>
+              </div>
+
+              {/* BOOK MEETING CARD */}
+
+              <div className="group rounded-[24px] border border-[#E8E8E8] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-[#171717] shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
+                  <CalendarDays size={27} strokeWidth={2.5} />
+                </div>
+
+                <h3 className="mt-6 text-xl font-bold text-[#171717]">
+                  Book a Meeting
+                </h3>
+
+                <p className="mt-3 text-base font-bold text-[#555]">
+                  Schedule a free
+                </p>
+
+                <p className="mt-2 min-h-[48px] text-sm leading-6 text-[#777]">
+                  Consultation call with our team.
+                </p>
+
+                <a
+                  href="https://wa.link/nms9wi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 text-base font-bold text-[#D89B00] transition-all duration-300 hover:gap-4"
+                >
+                  Book Now
+                  <ArrowRight size={18} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
 
       {/* =========================
             GOOGLE MAP
       ========================= */}
 
-      <motion.div
-        initial={{
-          opacity: 0,
-          y: 40,
-        }}
-        whileInView={{
-          opacity: 1,
-          y: 0,
-        }}
-        viewport={{
-          once: true,
-        }}
-        transition={{
-          duration: 0.8,
-          delay: 0.15,
-        }}
-        className="mx-auto mt-6 w-full overflow-hidden rounded-[20px] shadow-[0_25px_60px_rgba(0,0,0,0.12)] sm:mt-8 sm:rounded-[24px] md:mt-10 lg:mt-12 lg:rounded-[28px]"
-      >
+      <section className="bg-white px-4 pb-8 sm:px-6 sm:pb-10 lg:px-8 lg:pb-12">
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+            delay: 0.15,
+          }}
+          className="mx-auto w-full max-w-[1500px] overflow-hidden rounded-[20px] shadow-[0_25px_60px_rgba(0,0,0,0.12)] sm:rounded-[24px] lg:rounded-[28px]"
+        >
+          <div className="relative h-[240px] w-full sm:h-[300px] md:h-[360px] lg:h-[430px] xl:h-[460px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.0690777499103!2d88.4302524!3d22.613895499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41f6101e9088525%3A0xdb3387d1fd241561!2sBig%20Beans%20Digital%20%7C%20Best%20Website%20Development%20%26%20Digital%20Marketing%20Agency%20in%20UK%20%26%20India!5e0!3m2!1sen!2sin!4v1786303207503!5m2!1sen!2sin"
+              className="absolute inset-0 h-full w-full border-0"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+          </div>
+        </motion.div>
+      </section>
 
-        <div className="relative h-[240px] w-full sm:h-[300px] md:h-[360px] lg:h-[430px] xl:h-[460px]">
-
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.0690777499103!2d88.4302524!3d22.613895499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41f6101e9088525%3A0xdb3387d1fd241561!2sBig%20Beans%20Digital%20%7C%20Best%20Website%20Development%20%26%20Digital%20Marketing%20Agency%20in%20UK%20%26%20India!5e0!3m2!1sen!2sin!4v1786303207503!5m2!1sen!2sin"
-            className="absolute inset-0 h-full w-full border-0"
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-          />
-
-        </div>
-
-      </motion.div>
-
-
-      {/* SERVICES SECTION */}
+      {/* =========================
+            SERVICES SECTION
+      ========================= */}
 
       <section className="overflow-hidden bg-white py-8 sm:py-10">
-
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-
           <div className="mb-8 text-center sm:mb-10">
-
             <h2 className="text-[36px] font-bold leading-tight text-[#171717] sm:text-[44px] md:text-6xl">
               Our Core Services
             </h2>
@@ -713,576 +509,204 @@ export default function Connect() {
               transition={{ duration: 1, ease: "easeOut" }}
               className="mx-auto mt-1 h-[3px] w-[80vw] max-w-[720px] rounded-full bg-gradient-to-r from-transparent via-[#F8BC04] to-transparent"
             />
-
           </div>
-
 
           <div className="grid grid-cols-1 gap-5 sm:gap-6 md:grid-cols-2 lg:gap-7 xl:grid-cols-4 xl:gap-8">
+            {[
+              {
+                title: "Social Media Marketing",
+                text: "Build a stronger brand presence and connect with your audience.",
+                url: "/services/social-media-marketing",
+              },
+              {
+                title: "Website Development",
+                text: "Modern, fast and conversion-focused websites for growing businesses.",
+                url: "/services/website-development",
+              },
+              {
+                title: "Branding",
+                text: "Create a memorable identity that makes your business stand out.",
+                url: "/services/branding",
+              },
+              {
+                title: "Google Ads & Meta Ads",
+                text: "Performance-driven advertising campaigns focused on growth.",
+                url: "/services/google-ads-meta-ads",
+              },
+            ].map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                whileHover={{ y: -8 }}
+                className="group overflow-hidden rounded-[28px] bg-[#F8BC04] shadow-[0_20px_50px_rgba(248,188,4,0.18)]"
+              >
+                <div className="flex min-h-[270px] flex-col justify-between p-7 sm:p-8">
+                  <div>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-[#F8BC04]">
+                      <ArrowRight size={20} />
+                    </div>
 
-            {/* CARD 1 */}
+                    <h3 className="mt-7 text-2xl font-black text-[#171717]">
+                      {service.title}
+                    </h3>
 
-            <motion.div
-              whileHover="hover"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group overflow-hidden rounded-[28px] bg-[#F8BC04] shadow-[0_20px_50px_rgba(248,188,4,.20)] transition-all duration-500 hover:-translate-y-3 hover:bg-white"
-            >
+                    <p className="mt-4 leading-7 text-[#171717]/75">
+                      {service.text}
+                    </p>
+                  </div>
 
-              <div className="relative h-[180px] overflow-hidden bg-[#F8BC04] sm:h-[200px] lg:h-[220px]">
-
-                <Image
-                  src="/home/ourservice/bigbeansdigitalbranding.png"
-                  alt="Branding"
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-110"
-                />
-
-              </div>
-
-              <div className="p-5 sm:p-6 lg:p-7">
-
-                <h3 className="mb-4 text-[20px] font-bold text-[#171717]">
-                  Branding
-                </h3>
-
-                <p className="mb-3 leading-5 text-black/75">
-                  Strategic branding solutions for startups and businesses.
-                </p>
-
-                <Link
-                  href="/services/branding"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#171717] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#F8BC04] hover:text-black sm:w-auto sm:px-10 lg:px-16"
-                >
-                  Explore
-                  <ArrowRight size={18} />
-                </Link>
-
-              </div>
-
-            </motion.div>
-
-
-            {/* CARD 2 */}
-
-            <motion.div
-              whileHover="hover"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group overflow-hidden rounded-[28px] bg-[#171717] transition-all duration-500 hover:-translate-y-3 hover:bg-white"
-            >
-
-              <div className="relative h-[180px] overflow-hidden bg-[#171717] sm:h-[200px] lg:h-[220px]">
-
-                <Image
-                  src="home/ourservice/socialmedia.png"
-                  alt="Social Media"
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-110"
-                />
-
-              </div>
-
-              <div className="p-5 sm:p-6 lg:p-7">
-
-                <h3 className="mb-4 text-[20px] font-bold text-white transition-colors group-hover:text-[#171717]">
-                  Digital Marketing
-                </h3>
-
-                <p className="mb-3 leading-5 text-white/70 transition-colors group-hover:text-black/75">
-                  Build visibility, engagement and quality leads.
-                </p>
-
-                <Link
-                  href="/services/social-media-marketing"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#F8BC04] px-6 py-2.5 text-sm font-semibold text-black transition-all duration-300 sm:w-auto sm:px-10 lg:px-16"
-                >
-                  Explore
-                  <ArrowRight size={18} />
-                </Link>
-
-              </div>
-
-            </motion.div>
-
-
-            {/* CARD 3 */}
-
-            <motion.div
-              whileHover="hover"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group overflow-hidden rounded-[28px] bg-[#F8BC04] shadow-[0_20px_50px_rgba(248,188,4,.20)] transition-all duration-500 hover:-translate-y-3 hover:bg-white"
-            >
-
-              <div className="relative h-[180px] overflow-hidden bg-[#F8BC04] sm:h-[200px] lg:h-[220px]">
-
-                <Image
-                  src="/home/ourservice/bigbeansdigitalwebsite.png"
-                  alt="bigbeansdigitalwebsite"
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-110"
-                />
-
-              </div>
-
-              <div className="p-5 sm:p-6 lg:p-7">
-
-                <h3 className="mb-4 text-[20px] font-bold text-[#171717]">
-                  Website Development
-                </h3>
-
-                <p className="mb-3 leading-5 text-black/75">
-                  Premium websites designed for business growth.
-                </p>
-
-                <Link
-                  href="/services/website-development"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#171717] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#F8BC04] hover:text-black sm:w-auto sm:px-10 lg:px-16"
-                >
-                  Explore
-                  <ArrowRight size={18} />
-                </Link>
-
-              </div>
-
-            </motion.div>
-
-
-            {/* CARD 4 */}
-
-            <motion.div
-              whileHover="hover"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group overflow-hidden rounded-[28px] bg-[#171717] transition-all duration-500 hover:-translate-y-3 hover:bg-white"
-            >
-
-              <div className="relative h-[180px] overflow-hidden bg-[#171717] sm:h-[200px] lg:h-[220px]">
-
-                <Image
-                  src="/home/ourservice/bigbeansdigitalperformancemarketing.png"
-                  alt="bigbeansdigitalperformancemarketing"
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-110"
-                />
-
-              </div>
-
-              <div className="p-5 sm:p-6 lg:p-7">
-
-                <h3 className="mb-4 text-[20px] font-bold text-white transition-colors group-hover:text-[#171717]">
-                  Performance Marketing
-                </h3>
-
-                <p className="mb-3 leading-5 text-white/70 transition-colors group-hover:text-black/75">
-                  Professional creatives for every marketing platform.
-                </p>
-
-                <Link
-                  href="/services/google-ads-meta-ads"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#F8BC04] px-6 py-2.5 text-sm font-semibold text-black transition-all duration-300 sm:w-auto sm:px-10 lg:px-16"
-                >
-                  Explore
-                  <ArrowRight size={18} />
-                </Link>
-
-              </div>
-
-            </motion.div>
-
+                  <Link
+                    href={service.url}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#171717] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black"
+                  >
+                    Explore
+                    <ArrowRight size={18} />
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
           </div>
-
         </div>
-
       </section>
 
-
-      {/* FAQ SECTION */}
+      {/* =========================
+            FAQ SECTION
+      ========================= */}
 
       <section className="bg-white py-8 sm:py-10">
-
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
-
-          {/* HEADER */}
-
           <div className="relative mb-10 text-center sm:mb-12 lg:mb-16">
+            <div className="absolute left-1/2 top-0 h-16 w-16 -translate-x-1/2 rounded-full bg-[#F8BC04]/35 sm:h-24 sm:w-24" />
 
-            <div
-              className="
-                absolute
-                left-1/2
-                top-0
-                -translate-x-1/2
-                h-16
-                w-16
-                sm:h-24
-                sm:w-24
-                rounded-full
-                bg-[#F8BC04]/35
-              "
-            />
-
-            <p
-              className="
-                relative
-                text-sm
-                font-semibold
-                uppercase
-                tracking-[6px]
-                text-gray-500
-              "
-            >
+            <p className="relative text-sm font-semibold uppercase tracking-[6px] text-gray-500">
               CONTACT FAQS
             </p>
 
-            <h2
-              className="
-                relative
-                mt-3
-                text-[36px]
-                leading-[1.08]
-                font-black
-                text-[#171717]
-                sm:text-5xl
-                md:text-6xl
-              "
-            >
+            <h2 className="relative mt-3 text-[36px] font-black leading-[1.08] text-[#171717] sm:text-5xl md:text-6xl">
               Frequently Asked{" "}
-              <span className="text-[#F8BC04]">
-                Questions
-              </span>
+              <span className="text-[#F8BC04]">Questions</span>
             </h2>
-
           </div>
 
-          {/* FAQ GRID */}
-
           <div className="grid gap-4 sm:gap-5 lg:grid-cols-2">
-
-            {[
-              {
-                q: "How can I contact BIGBEANS DIGITAL?",
-                a: "You can easily contact BIGBEANS DIGITAL through our contact form, email, phone, or WhatsApp. Whether you're looking for the Best Social Media Marketing  Agency for Startups or need expert guidance for your business, our team is ready to help."
-              },
-              {
-                q: "Can I book a free consultation before starting my project?",
-                a: "Yes. We offer a free consultation to understand your business goals, target audience, and marketing requirements. Our experts will recommend the best Social Media Marketing  Services, Website Development, Branding, or Social Media Marketing strategy for your business."
-              },
-              {
-                q: "Which services can I inquire about through the contact page?",
-                a: "You can contact us for Social Media Marketing , Social Media Marketing, Website Development, Logo Design, Branding, Google Ads, Meta Ads, Performance Marketing, and other business growth solutions tailored to startups and growing businesses."
-              },
-              {
-                q: "Do you work with businesses outside India?",
-                a: "Yes. BIGBEANS DIGITAL works with startups and businesses across London, India, USA, and Dubai. Our team provides remote consultations and Social Media Marketing  services to clients worldwide."
-              },
-              {
-                q: "How quickly will your team respond to my inquiry?",
-                a: "We aim to respond to all inquiries within 24 business hours. Whether you're looking to Hire a Social Media Marketing  Agency, discuss a new project, or request a quote, our team ensures prompt and professional communication."
-              },
-              {
-                q: "Can startups and small businesses contact BIGBEANS DIGITAL?",
-                a: "Absolutely. We specialize in helping startups, entrepreneurs, and small businesses build their online presence through affordable and result-driven Social Media Marketing  Services, Website Development, and Branding Solutions."
-              },
-              {
-                q: "Do you provide customized marketing solutions?",
-                a: "Yes. Every business is unique, so we create customized strategies based on your industry, business goals, target audience, and budget. Our tailored Marketing Solutions help maximize ROI and long-term business growth."
-              },
-              {
-                q: "Can I request a quotation for my project?",
-                a: "Yes. Simply share your project requirements through our contact form, and our team will prepare a customized proposal with recommended services, estimated timeline, and pricing."
-              },
-              {
-                q: "Why should I choose BIGBEANS DIGITAL?",
-                a: "BIGBEANS DIGITAL is a Best Social Media Marketing  Agency for Startups offering end-to-end solutions including Social Media Marketing, Website Development, Branding, Google Ads, Meta Ads, and Performance Marketing. We focus on measurable growth, transparency, and long-term client success."
-              },
-              {
-                q: "How do I get started with BIGBEANS DIGITAL?",
-                a: "Getting started is simple. Contact our team, schedule your free consultation, discuss your business goals, and let our experts create a customized digital growth strategy that helps your business attract more customers and achieve sustainable success."
-              }
-            ].map((faq, index) => (
-
+            {faqs.map((faq, index) => (
               <motion.div
                 key={index}
                 layout
-                className="
-                  overflow-hidden
-                  rounded-[20px]
-                  border
-                  border-gray-300
-                  bg-white
-                "
+                className="overflow-hidden rounded-[20px] border border-gray-300 bg-white"
               >
-
                 <button
                   onClick={() =>
                     setOpenFaq(openFaq === index ? null : index)
                   }
-                  className="
-                    flex
-                    w-full
-                    items-center
-                    justify-between
-                    p-4
-                    text-left
-                    sm:p-6
-                  "
+                  className="flex w-full items-center justify-between p-4 text-left sm:p-6"
                 >
-
-                  <span
-                    className="
-                      min-w-0
-                      pr-2
-                      text-[14px]
-                      font-semibold
-                      leading-5
-                      text-[#171717]
-                      sm:text-[16px]
-                      sm:leading-6
-                    "
-                  >
+                  <span className="min-w-0 pr-2 text-[14px] font-semibold leading-5 text-[#171717] sm:text-[16px] sm:leading-6">
                     {faq.q}
                   </span>
 
-                  <span
-                    className="
-                      flex
-                      h-9
-                      w-9
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-[#171717]
-                      text-lg
-                      text-white
-                      sm:h-10
-                      sm:w-10
-                      sm:text-xl
-                    "
-                  >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#171717] text-lg text-white sm:h-10 sm:w-10 sm:text-xl">
                     {openFaq === index ? "−" : "+"}
                   </span>
-
                 </button>
 
                 {openFaq === index && (
-
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
                     className="px-4 pb-5 sm:px-6 sm:pb-6"
                   >
-
                     <p className="leading-relaxed text-gray-600">
                       {faq.a}
                     </p>
-
                   </motion.div>
-
                 )}
-
               </motion.div>
-
             ))}
-
           </div>
-
         </div>
-
       </section>
 
+      {/* =========================
+            GLOBAL PRESENCE SECTION
+      ========================= */}
 
-      {/* PRESENCE SECTION */}
-
-      <section className="bg-[#ffffff] py-8 sm:py-10">
-
-        <div
-          className="
-            mx-auto
-            max-w-[1400px]
-            px-4
-            sm:px-6
-          "
-        >
-
-          <div
-            className="
-              grid
-              items-center
-              gap-8
-              rounded-[28px]
-              border
-              border-gray-200
-              bg-white
-              p-5
-              sm:gap-10
-              sm:rounded-[36px]
-              sm:p-8
-              lg:grid-cols-2
-              lg:gap-12
-              lg:rounded-[40px]
-              lg:p-16
-            "
-          >
-
-            {/* LEFT */}
-
+      <section className="bg-white py-10">
+        <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
+          <div className="grid items-center gap-10 rounded-[28px] border border-gray-200 bg-white p-6 shadow-sm sm:p-10 lg:grid-cols-2 lg:gap-12 lg:rounded-[40px] lg:p-16">
             <div>
-
-              <p
-                className="
-                  mb-4
-                  text-sm
-                  font-semibold
-                  uppercase
-                  tracking-[6px]
-                  text-gray-500
-                  sm:mb-6
-                "
-              >
+              <p className="mb-6 text-sm font-semibold uppercase tracking-[6px] text-gray-500">
                 Global Presence
               </p>
 
-              <h2
-                className="
-                  text-[36px]
-                  font-black
-                  leading-tight
-                  text-[#171717]
-                  sm:text-5xl
-                  lg:text-6xl
-                "
-              >
+              <h2 className="text-4xl font-black leading-tight text-[#171717] sm:text-5xl lg:text-6xl">
                 Digital Excellence in{" "}
-                <span className="text-[#F8BC04]">
-                  12+
-                </span>
+                <span className="text-[#F8BC04]">12+</span>
                 <br />
                 Locations
               </h2>
 
-              <p
-                className="
-                  mt-5
-                  max-w-[650px]
-                  text-[15px]
-                  leading-relaxed
-                  text-gray-600
-                  sm:mt-8
-                  sm:text-lg
-                "
-              >
-                BIGBEANS DIGITAL serves businesses across India and international markets.
-                Our strategies are built for local relevance and global scalability.
+              <p className="mt-6 max-w-xl text-base leading-8 text-gray-600 sm:text-lg">
+                Our team works with businesses across India and international
+                markets, helping ambitious brands build stronger digital
+                experiences.
               </p>
 
-              {/* LOCATIONS */}
-
-              <div className="mt-8 grid grid-cols-1 gap-8 sm:mt-10 sm:grid-cols-2 sm:gap-8 lg:mt-12 lg:gap-10">
-
-                <div className="border-b border-black/20 pb-8 sm:border-b-0 sm:border-r sm:border-black/20 sm:pb-0 sm:pr-6 lg:pr-10">
-
-                  <h3 className="text-xl font-bold">
-                    In India
+              <div className="mt-10 grid gap-8 sm:grid-cols-2">
+                <div>
+                  <h3 className="text-xl font-bold text-[#171717]">
+                    India Presence
                   </h3>
 
-                  <div className="mb-5 mt-2 h-[2px] w-20 bg-[#F8BC04]"></div>
+                  <div className="mb-5 mt-2 h-[2px] w-20 bg-[#F8BC04]" />
 
                   <ul className="space-y-3 text-gray-700">
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Kolkata
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Delhi
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Bangalore
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Noida
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Tripura
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Mumbai
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Pune
-                    </li>
-
+                    {[
+                      "Kolkata",
+                      "Delhi",
+                      "Bangalore",
+                      "Noida",
+                      "Tripura",
+                      "Mumbai",
+                      "Pune",
+                    ].map((city) => (
+                      <li key={city} className="flex items-center gap-2">
+                        <span className="text-[#F8BC04]">●</span>
+                        {city}
+                      </li>
+                    ))}
                   </ul>
-
                 </div>
 
                 <div>
-
-                  <h3 className="text-xl font-bold">
+                  <h3 className="text-xl font-bold text-[#171717]">
                     International Presence
                   </h3>
 
-                  <div className="mb-5 mt-2 h-[2px] w-20 bg-[#F8BC04]"></div>
+                  <div className="mb-5 mt-2 h-[2px] w-20 bg-[#F8BC04]" />
 
                   <ul className="space-y-3 text-gray-700">
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      London
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Singapore
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Canada
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Australia
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Nigeria
-                    </li>
-
+                    {[
+                      "London",
+                      "Singapore",
+                      "Canada",
+                      "Australia",
+                      "Nigeria",
+                    ].map((city) => (
+                      <li key={city} className="flex items-center gap-2">
+                        <span className="text-[#F8BC04]">●</span>
+                        {city}
+                      </li>
+                    ))}
                   </ul>
-
                 </div>
-
               </div>
-
             </div>
 
-
-            {/* RIGHT */}
-
             <div className="relative">
-
               <Image
                 src="/maps/world-map.png"
                 alt="World Map"
@@ -1291,254 +715,94 @@ export default function Connect() {
                 className="h-auto w-full"
               />
 
-              {/* INDIA CLUSTER */}
+              <motion.div
+                animate={{
+                  scale: [1, 1.4, 1],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="absolute left-[67%] top-[42%] h-4 w-4 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04]"
+              />
 
               <motion.div
                 animate={{
                   scale: [1, 1.4, 1],
                   opacity: [0.5, 1, 0.5],
                 }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-4
-                  w-4
-                  rounded-full
-                  bg-[#F8BC04]
-                  left-[67%]
-                  top-[42%]
-                "
+                transition={{ duration: 2.2, repeat: Infinity }}
+                className="absolute left-[44%] top-[27%] h-4 w-4 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04]"
               />
-
-              {/* LONDON */}
 
               <motion.div
                 animate={{
                   scale: [1, 1.4, 1],
                   opacity: [0.5, 1, 0.5],
                 }}
-                transition={{
-                  duration: 2.2,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-4
-                  w-4
-                  rounded-full
-                  bg-[#F8BC04]
-                  left-[44%]
-                  top-[27%]
-                "
+                transition={{ duration: 2.4, repeat: Infinity }}
+                className="absolute left-[18%] top-[28%] h-4 w-4 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04]"
               />
-
-              {/* CANADA */}
 
               <motion.div
                 animate={{
                   scale: [1, 1.4, 1],
                   opacity: [0.5, 1, 0.5],
                 }}
-                transition={{
-                  duration: 2.4,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-4
-                  w-4
-                  rounded-full
-                  bg-[#F8BC04]
-                  left-[18%]
-                  top-[28%]
-                  shadow-[0_0_25px_#F8BC04]
-                "
+                transition={{ duration: 2.1, repeat: Infinity }}
+                className="absolute left-[47%] top-[50%] h-4 w-4 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04]"
               />
-
-              {/* NIGERIA */}
 
               <motion.div
                 animate={{
                   scale: [1, 1.4, 1],
                   opacity: [0.5, 1, 0.5],
                 }}
-                transition={{
-                  duration: 2.1,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-4
-                  w-4
-                  rounded-full
-                  bg-[#F8BC04]
-                  left-[47%]
-                  top-[50%]
-                  shadow-[0_0_25px_#F8BC04]
-                "
+                transition={{ duration: 2.3, repeat: Infinity }}
+                className="absolute left-[74%] top-[54%] h-4 w-4 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04]"
               />
-
-              {/* SINGAPORE */}
 
               <motion.div
                 animate={{
                   scale: [1, 1.4, 1],
                   opacity: [0.5, 1, 0.5],
                 }}
-                transition={{
-                  duration: 2.3,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-4
-                  w-4
-                  rounded-full
-                  bg-[#F8BC04]
-                  left-[74%]
-                  top-[54%]
-                  shadow-[0_0_25px_#F8BC04]
-                "
+                transition={{ duration: 2.5, repeat: Infinity }}
+                className="absolute left-[84%] top-[65%] h-4 w-4 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04]"
               />
-
-              {/* AUSTRALIA */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-4
-                  w-4
-                  rounded-full
-                  bg-[#F8BC04]
-                  left-[84%]
-                  top-[65%]
-                  shadow-[0_0_25px_#F8BC04]
-                "
-              />
-
             </div>
-
           </div>
-
         </div>
-
       </section>
-
 
       {/* =========================
             CTA SECTION
       ========================= */}
 
-      <section className="relative overflow-hidden bg-[#ffffff] py-14 sm:py-20 lg:py-24">
-
+      <section className="relative overflow-hidden bg-white px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
+          className="mx-auto max-w-7xl"
         >
+          <div className="relative overflow-hidden rounded-[28px] bg-[#171717] px-5 py-10 sm:rounded-[36px] sm:px-8 sm:py-12 md:px-16 md:py-16 lg:rounded-[40px]">
+            <div className="absolute right-0 top-0 h-72 w-72 rounded-full bg-[#F8BC04]/20 blur-[120px]" />
 
-          <div
-            className="
-              relative
-              mx-auto
-              max-w-7xl
-              overflow-hidden
-              rounded-[28px]
-              bg-[#171717]
-              px-5
-              py-10
-              sm:rounded-[36px]
-              sm:px-8
-              sm:py-12
-              md:px-16
-              md:py-16
-              lg:rounded-[40px]
-            "
-          >
-
-            {/* Glow */}
-
-            <div
-              className="
-                absolute
-                right-0
-                top-0
-                h-72
-                w-72
-                rounded-full
-                bg-[#F8BC04]/20
-                blur-[120px]
-              "
-            />
-
-            <div
-              className="
-                relative
-                z-10
-                flex
-                flex-col
-                items-center
-                justify-between
-                gap-7
-                sm:gap-10
-                lg:flex-row
-              "
-            >
-
-              {/* Left */}
-
-              <div className="w-full">
-
-                <h2
-                  className="
-                    max-w-3xl
-                    text-[32px]
-                    font-black
-                    leading-[1.12]
-                    text-white
-                    sm:text-4xl
-                    md:text-5xl
-                  "
-                >
+            <div className="relative z-10 flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
+              <div>
+                <h2 className="text-[32px] font-black leading-[1.12] text-white sm:text-4xl md:text-5xl">
                   Ready To Turn Clicks Into
                   <span className="text-[#F8BC04]">
                     {" "}Real Business Growth?
                   </span>
                 </h2>
 
-                <p
-                  className="
-                    mt-5
-                    max-w-2xl
-                    text-[15px]
-                    leading-7
-                    text-white/80
-                    sm:mt-6
-                    sm:text-lg
-                    sm:leading-8
-                  "
-                >
-                  Partner with BIGBEANS DIGITAL to launch
-                  data-driven Social Media Marketing  campaigns that
-                  generate quality leads, increase conversions
-                  and accelerate your business growth.
+                <p className="mt-5 max-w-2xl text-[15px] leading-7 text-white/80 sm:mt-6 sm:text-lg sm:leading-8">
+                  Partner with Big Beans Digital to launch data-driven digital
+                  marketing campaigns that generate quality leads, increase
+                  conversions and accelerate your business growth.
                 </p>
-
               </div>
-
-              {/* Button */}
 
               <motion.button
                 whileHover={{
@@ -1546,265 +810,44 @@ export default function Connect() {
                   y: -5,
                   backgroundColor: "#FFD54A",
                 }}
-                whileTap={{
-                  scale: 0.95,
-                }}
-                className="
-                  w-full
-                  rounded-full
-                  bg-[#F8BC04]
-                  px-7
-                  py-4
-                  text-center
-                  text-lg
-                  font-bold
-                  text-[#171717]
-                  shadow-[0_20px_50px_rgba(248,188,4,0.35)]
-                  transition-all
-                  duration-300
-                  sm:w-auto
-                  sm:whitespace-nowrap
-                  sm:px-10
-                  sm:py-5
-                "
+                whileTap={{ scale: 0.95 }}
+                className="w-full rounded-full bg-[#F8BC04] px-7 py-4 text-center text-lg font-bold text-[#171717] shadow-[0_20px_50px_rgba(248,188,4,0.35)] transition-all duration-300 sm:w-auto sm:whitespace-nowrap sm:px-10 sm:py-5"
               >
                 Book Free Strategy Call
               </motion.button>
-
             </div>
-
           </div>
-
         </motion.div>
-
       </section>
-
-      {/* =========================
-            END CTA SECTION
-      ========================= */}
-
 
       {/* =========================
             SITEMAP SECTION
       ========================= */}
 
       <section className="w-full bg-white py-5 sm:py-6 md:py-5">
-
         <div className="mx-auto w-full max-w-[1650px] px-4 sm:px-7 md:px-8 lg:px-10">
-
-          {/* Heading */}
-
-          <h2
-            className="
-              mb-5
-              text-[24px]
-              font-bold
-              leading-[1.2]
-              tracking-[-0.02em]
-              text-[#171717]
-
-              sm:mb-7
-              sm:text-[30px]
-
-              md:text-[34px]
-
-              lg:text-[38px]
-
-              xl:text-[42px]
-            "
-          >
+          <h2 className="mb-5 text-[24px] font-bold leading-[1.2] tracking-[-0.02em] text-[#171717] sm:mb-7 sm:text-[30px] md:text-[34px] lg:text-[38px] xl:text-[42px]">
             Best Social Media Marketing Agency | Big Beans Digital
           </h2>
 
-
-          {/* Sitemap Links */}
-
-          <div
-            className="
-              flex
-              flex-wrap
-              items-center
-              gap-x-3
-              gap-y-3
-
-              sm:gap-x-4
-              sm:gap-y-3.5
-
-              md:gap-x-4
-              md:gap-y-4
-
-              lg:gap-x-5
-              lg:gap-y-4
-            "
-          >
-
-            {[
-              {
-                title: "Best Social Media Marketing Agency in London",
-                url: "/",
-              },
-              {
-                title: "About Big Beans Digital Beast Social Media Marketing Agency",
-                url: "/about",
-              },
-              {
-                title: "Best Online Digital Marketing Course",
-                url: "/academy",
-              },
-              {
-                title: "Best Social Media Marketing Agency | Big Beans Digital | Blog",
-                url: "/blog",
-              },
-              {
-                title: "Best Social Media Marketing Agency | Big Beans Digital | Connect",
-                url: "/connect",
-              },
-              {
-                title: "Best Social Media Marketing Agency | Big Beans Digital | Courses",
-                url: "/courses",
-              },
-
-              {
-                title: "Best Social Media Marketing Agency | Big Beans Digital | Internship",
-                url: "/internship",
-              },
-              {
-                title: "Best Social Media Marketing Agency | Big Beans Digital | Our Work",
-                url: "/our-work",
-              },
-              {
-                title: "Best Branding Agency for Startups",
-                url: "/services/branding",
-              },
-              {
-                title: "Best Performance Marketing Agency",
-                url: "/services/google-ads-meta-ads",
-              },
-              {
-                title: "Big Beans Digital Best Logo Designing Agency",
-                url: "/services/logo-designing",
-              },
-              {
-                title: "Big Beans Digital Best Social Media Marketing Agency",
-                url: "/services/social-media-marketing",
-              },
-              {
-                title: "Big Beans Digital Best Website Development Agency",
-                url: "/services/website-development",
-              },
-            ].map((page) => (
-
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-3 sm:gap-x-4 sm:gap-y-3.5 md:gap-x-4 md:gap-y-4 lg:gap-x-5 lg:gap-y-4">
+            {sitemapPages.map((page) => (
               <Link
                 key={page.url}
                 href={page.url}
-                className="
-                  group
-                  inline-flex
-                  w-fit
-                  max-w-full
-                  items-center
-                  gap-2
-                  rounded-full
-                  bg-[#FFF4C9]
-                  px-4
-                  py-2
-                  text-[13px]
-                  font-medium
-                  leading-none
-                  text-[#171717]
-                  no-underline
-                  transition-all
-                  duration-200
-
-                  hover:bg-[#F8BC04]
-                  hover:text-[#171717]
-
-                  sm:px-4
-                  sm:py-2
-                  sm:text-[14px]
-
-                  md:px-4
-                  md:py-2
-                  md:text-[14px]
-
-                  lg:px-5
-                  lg:py-2.5
-                  lg:text-[15px]
-                "
+                className="group inline-flex w-fit max-w-full items-center gap-2 rounded-full bg-[#FFF4C9] px-4 py-2 text-[13px] font-medium leading-none text-[#171717] no-underline transition-all duration-200 hover:bg-[#F8BC04] sm:text-[14px]"
               >
+                <ExternalLink
+                  size={14}
+                  className="shrink-0 text-[#D99E00]"
+                />
 
-                {/* External Link Icon */}
-
-                <span
-                  className="
-                    flex
-                    h-[15px]
-                    w-[15px]
-                    shrink-0
-                    items-center
-                    justify-center
-                    text-[#F8BC04]
-                    transition-colors
-                    duration-200
-                    group-hover:text-[#171717]
-
-                    sm:h-[16px]
-                    sm:w-[16px]
-                  "
-                >
-
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-full w-full"
-                    aria-hidden="true"
-                  >
-
-                    <path
-                      d="M14 5H19V10"
-                      stroke="currentColor"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-
-                    <path
-                      d="M10 14L19 5"
-                      stroke="currentColor"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-
-                    <path
-                      d="M19 14V18C19 18.5523 18.5523 19 18 19H6C5.44772 19 5 18.5523 5 18V6C5 5.44772 5.44772 5 6 5H10"
-                      stroke="currentColor"
-                      strokeWidth="2.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-
-                  </svg>
-
-                </span>
-
-                {/* Link Text */}
-
-                <span className="min-w-0 break-words">
-                  {page.title}
-                </span>
-
+                <span className="truncate">{page.title}</span>
               </Link>
-
             ))}
-
           </div>
-
         </div>
-
       </section>
-
     </main>
   );
 }

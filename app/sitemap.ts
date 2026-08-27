@@ -33,6 +33,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/privacy-policy`,
     },
+    {
+      url: `${baseUrl}/digital-marketing-agency-london`,
+    },
 
     // Courses
     {
