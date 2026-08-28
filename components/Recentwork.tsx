@@ -36,27 +36,27 @@ const categories: Category[] = [
 ========================================================= */
 
 const workItems: WorkItem[] = [
-  ...Array.from({ length: 10 }, (_, i) => ({
+  ...Array.from({ length: 4 }, (_, i) => ({
     category: "Branding" as const,
     image: `/home/Our-Carousal/Branding/${i + 1}.webp`,
   })),
 
-  ...Array.from({ length: 10 }, (_, i) => ({
+  ...Array.from({ length: 4 }, (_, i) => ({
     category: "Social Media" as const,
     image: `/home/Our-Carousal/Social Media/${i + 1}.webp`,
   })),
 
-  ...Array.from({ length: 10 }, (_, i) => ({
+  ...Array.from({ length: 4 }, (_, i) => ({
     category: "Website Dev" as const,
     image: `/home/Our-Carousal/Website Dev/${i + 1}.webp`,
   })),
 
-  ...Array.from({ length: 10 }, (_, i) => ({
+  ...Array.from({ length: 4 }, (_, i) => ({
     category: "Digital Marketing" as const,
     image: `/home/Our-Carousal/Digital Marketing/${i + 1}.webp`,
   })),
 
-  ...Array.from({ length: 10 }, (_, i) => ({
+  ...Array.from({ length: 4 }, (_, i) => ({
     category: "Performance Marketing" as const,
     image: `/home/Our-Carousal/Performance Marketing/${i + 1}.webp`,
   })),
