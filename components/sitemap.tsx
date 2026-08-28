@@ -158,6 +158,20 @@ export default function Sitemap() {
                 </li>
 
             </ul>
+
+            <ul className="space-y-4">
+
+              <li className="relative pl-5 text-[15px] leading-6 sm:text-[16px]">
+                <span className="absolute left-0 top-[10px] h-[6px] w-[6px] rounded-full bg-[#171717]" />
+                <Link 
+                href="https://www.bigbeansdigital.com/digital-marketing-agency-kolkata" 
+                className="text-[#173B91] transition-colors duration-300 hover:text-[#F8BC04] hover:underline underline-offset-4">
+                 Best Social Media Marketing Agency in Kolkata
+                </Link>
+                </li>
+
+            </ul>
+
           </div>
 
           {/* INDUSTRIES */}

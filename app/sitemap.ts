@@ -37,6 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/digital-marketing-agency-london`,
     },
 
+    {
+      url: `${baseUrl}/digital-marketing-agency-kolkata`,
+    },
+
+
+    
+
     // Courses
     {
       url: `${baseUrl}/courses/digital-marketing-mastery`,
