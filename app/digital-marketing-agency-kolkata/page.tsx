@@ -5,22 +5,22 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "Digital Marketing Agency in London | Big Beans Digital",
+  title: "Best Creative Social Media Marketing Agency in Kolkata",
   description:
-    "We’re a specialist Digital Marketing Agency in London, scaling SMEs to household names and major players across the London. Get in touch today.",
+    "We’re a specialist Digital Marketing Agency in Kolkata, scaling SMEs to household names and major players across the London. Get in touch today.",
 
   openGraph: {
-    title: "Digital Marketing Agency in London | Big Beans Digital",
+    title: "Best Creative Social Media Marketing Agency in Kolkata",
     description:
-      "We’re a specialist Digital Marketing Agency in London, scaling SMEs to household names and major players across the London. Get in touch today.",
-    url: "https://bigbeansdigital.com/digital-marketing-agency-london",
+      "We’re a specialist Digital Marketing Agency in Kolkata, scaling SMEs to household names and major players across the London. Get in touch today.",
+    url: "https://bigbeansdigital.com/digital-marketing-agency-kolkata",
     siteName: "BigBeans Digital",
     images: [
       {
         url: "https://bigbeansdigital.com/citylandingpage/london.webp",
         width: 1350,
         height: 1080,
-        alt: "Digital Marketing Agency in London - Big Beans Digital",
+        alt: "Best Creative Social Media Marketing Agency in Kolkata - Big Beans Digital",
       },
     ],
     locale: "en_GB",

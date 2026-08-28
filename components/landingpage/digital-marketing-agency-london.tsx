@@ -1,1452 +1,1417 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
-  Play,
-  Search,
-  ClipboardList,
-  Rocket,
   BarChart3,
-  Users,
-  Trophy,
-  Target,
   Check,
-  Quote,
-  Plus,
+  ChevronDown,
+  ArrowDownRight,
+  CircleCheck,
+  Globe2,
+  LayoutDashboard,
+  Lightbulb,
   Minus,
+  Monitor,
+  MousePointerClick,
+  Palette,
+  Plus,
+  Search,
+  Share2,
+  Sparkles,
+  Target,
+  TrendingUp,
+  Users,
 } from "lucide-react";
 import OurWork from "@/components/Recentwork";
 
-export default function DigitalMarketingAgencyLondon() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const processSteps = [
-    {
-      number: "01",
-      title: "Discover",
-      description: "We take time to understand your business, target audience, goals and challenges, creating the right foundation for effective digital marketing services in London.",
-      icon: Search,
-    },
-    {
-      number: "02",
-      title: "Strategize",
-      description: "Our team develops a customised strategy tailored to your goals, combining creative planning and the best digital marketing services in London to reach the right audience.",
-      icon: ClipboardList,
-    },
-    {
-      number: "03",
-      title: "Execute",
-      description: "We implement, optimise and manage your campaigns with strategic content and data-driven solutions, delivering a professional social media marketing service in London.",
-      icon: Rocket,
-    },
-    {
-      number: "04",
-      title: "Grow",
-      description:
-        "We track performance and continuously optimise your strategy to drive stronger engagement, quality leads and sustainable business growth with measurable results.",
-      icon: BarChart3,
-    },
-  ];
+const processSteps = [
+ 
+  {
+    number: "01",
+    title: "Research",
+    description:
+      "Our team researches market opportunities, competitors, audience behaviour, content opportunities and digital positioning.",
+    icon: BarChart3,
+  },
+  {
+    number: "02",
+    title: "Strategy",
+    description:
+      "We create a customised strategy covering social media planning, content strategy, branding direction, website planning and advertising.",
+    icon: Target,
+  },
+  {
+    number: "03",
+    title: "Create",
+    description:
+      "Our creative team brings the strategy to life through social media content, brand designs, campaign creatives and digital experiences.",
+    icon: Palette,
+  },
+  {
+    number: "04",
+    title: "Execute",
+    description:
+      "We implement the agreed strategy through social media management, content publishing, website development, Google Ads and Meta Ads.",
+    icon: MousePointerClick,
+  },
+  {
+    number: "05",
+    title: "Monitor",
+    description:
+      "We review relevant indicators including reach, engagement, website traffic, leads, campaign activity and conversion-related data.",
+    icon: LayoutDashboard,
+  },
+  {
+    number: "06",
+    title: "Optimise",
+    description:
+      "We use insights to identify opportunities and improve future activity as digital marketing continuously evolves.",
+    icon: TrendingUp,
+  },
+];
 
-  const services = [
-    {
-      number: "01",
-      title: "SEO & Organic Growth",
-      description:
-        "Rank higher, get found, and drive consistent organic traffic that converts.",
-    },
-    {
-      number: "02",
-      title: "Paid Advertising",
-      description:
-        "High-performing ad campaigns that bring you qualified leads and more sales.",
-    },
-    {
-      number: "03",
-      title: "Social Media Marketing",
-      description:
-        "Build your brand, engage your audience, and turn followers into loyal customers.",
-    },
-    {
-      number: "04",
-      title: "Branding & Creative",
-      description:
-        "Creative that connects. Branding that stands out. Design that leaves an impact.",
-    },
-  ];
+const industries = [
+  {
+    title: "Real Estate",
+    description:
+      "Digital campaigns and creative communication for property, projects and real estate services.",
+  },
+  {
+    title: "Education & Training",
+    description:
+      "Content and campaigns for educational institutions, courses and training providers.",
+  },
+  {
+    title: "Fashion & Beauty",
+    description:
+      "Creative visual storytelling, branding and product communication.",
+  },
+  {
+    title: "Food & Restaurants",
+    description:
+      "Engaging digital content and campaigns for restaurants, cafés and food brands.",
+  },
+  {
+    title: "Travel & Hospitality",
+    description:
+      "Creative marketing that communicates experiences, destinations and services.",
+  },
+  {
+    title: "FMCG Products",
+    description:
+      "Creative marketing that communicates experiences, destinations and services.",
+  },
+  
+  
+];
 
-  const reasons = [
-    "UK-Based Digital Marketing Experts",
-    "Data-Driven Strategies",
-    "Transparent Reporting",
-    "Results You Can Track",
-  ];
+const reasons = [
+  {
+    title: "Creative Thinking",
+    description:
+      "We believe powerful creativity helps brands capture attention and become more memorable.",
+    icon: Sparkles,
+  },
+  {
+    title: "Strategy-Driven Approach",
+    description:
+      "Our creative work is supported by clear business objectives.",
+    icon: Target,
+  },
+  {
+    title: "Connected Digital Services",
+    description:
+      "We combine social media marketing, design and branding, website development and performance marketing.",
+    icon: Globe2,
+  },
+  {
+    title: "Customised Solutions",
+    description:
+      "We understand that every business requires a different approach.",
+    icon: Lightbulb,
+  },
+  {
+    title: "Brand Consistency",
+    description:
+      "We help businesses create more consistent communication across their digital channels.",
+    icon: CircleCheck,
+  },
+  {
+    title: "Performance-Focused Advertising",
+    description:
+      "Our Google Ads and Meta Ads strategies are developed around measurable campaign objectives.",
+    icon: TrendingUp,
+  },
+];
 
-  const stats = [
-    {
-      value: "100+",
-      label: "Happy Clients",
-      sublabel: "Across the UK",
-      icon: Users,
-      yellow: true,
-    },
-    {
-      value: "70%",
-      label: "Average ROI Increase",
-      sublabel: "Month on Month",
-      icon: BarChart3,
-      yellow: false,
-    },
-    {
-      value: "10+",
-      label: "Years of Experience",
-      sublabel: "In Digital Marketing",
-      icon: Trophy,
-      yellow: false,
-    },
-    {
-      value: "250+",
-      label: "Successful Campaigns",
-      sublabel: "Delivered",
-      icon: Target,
-      yellow: true,
-    },
-  ];
+const faqs = [
+  {
+    question: "What does a social media marketing agency in London do?",
+    answer:
+      "A social media marketing agency helps businesses develop and manage their presence across relevant social media platforms. Services can include strategy, content planning, creative design, content creation, account management, campaign planning and performance monitoring.",
+  },
+  {
+    question: "Why should I hire a social media marketing agency for my London business?",
+    answer:
+      "A professional agency can provide strategic expertise, creative resources and consistent management. This can help businesses build a more professional digital presence while allowing internal teams to focus on their core operations.",
+  },
+  {
+    question: "What social media marketing services does Big Beans Digital provide?",
+    answer:
+      "Big Beans Digital provides social media strategy, social media management, content planning, creative content, Instagram marketing, Facebook marketing, LinkedIn marketing and customised social media solutions.",
+  },
+  {
+    question: "Does Big Beans Digital provide branding services?",
+    answer:
+      "Yes. We provide Design & Branding services including brand identity, logo design, visual communication, marketing creatives and social media design.",
+  },
+  {
+    question: "Does Big Beans Digital provide website development services?",
+    answer:
+      "Yes. We create business websites, corporate websites, landing pages and responsive digital experiences based on business requirements.",
+  },
+  {
+    question: "Do you provide Google Ads services?",
+    answer:
+      "Yes. Big Beans Digital provides Google Ads services as part of our Performance Marketing solutions.",
+  },
+  {
+    question: "Do you provide Meta Ads services?",
+    answer:
+      "Yes. We provide Meta Ads services, including advertising campaigns across Facebook and Instagram.",
+  },
+  {
+    question: "How much do social media marketing services cost in London?",
+    answer:
+      "The cost depends on your requirements, including the number of platforms, amount of content, creative requirements, campaign objectives and additional services. A customised proposal can be developed based on your business needs.",
+  },
+  {
+    question: "Which social media platform is best for my London business?",
+    answer:
+      "The best platform depends on your audience and objectives. Instagram may work well for visual brands, LinkedIn can support B2B communication, while Facebook can support broader communities and audience engagement.",
+  },
+  {
+    question: "Can social media marketing help generate leads?",
+    answer:
+      "Yes. Social media marketing can support lead generation when combined with appropriate content, targeting, campaigns and a clear conversion journey.",
+  },
+  {
+    question: "How long does it take to see social media marketing results?",
+    answer:
+      "Results depend on your industry, competition, objectives, existing digital presence and strategy. Organic growth generally requires consistency over time, while paid advertising can provide faster performance data.",
+  },
+  {
+    question: "Does Big Beans Digital work only with London businesses?",
+    answer:
+      "No. While we provide services for businesses targeting London, Big Beans Digital also works with businesses across the London, India and other markets.",
+  },
+];
 
-  const testimonials = [
-    {
-      quote:
-        "Big Beans Digital completely transformed our social media presence. Our engagement increased significantly and we started receiving quality leads consistently.",
-      name: "Rahul Sharma",
-      role: "Startup Founder",
-      initial: "R",
-      featured: false,
-    },
-    {
-      quote:
-        "Their content strategy and advertising campaigns helped us increase brand awareness and improve customer engagement across all major social platforms.",
-      name: "Neha Agarwal",
-      role: "Business Owner",
-      initial: "N",
-      featured: true,
-    },
-    {
-      quote:
-        "Professional team, creative ideas and excellent execution. Working with Big Beans Digital has been one of the best marketing decisions for our brand.",
-      name: "Amit Verma",
-      role: "E-commerce Brand",
-      initial: "A",
-      featured: false,
-    },
-  ];
+const fadeUp = {
+  hidden: {
+    opacity: 0,
+    y: 30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
 
-  const faqs = [
-    {
-  question: "What social media marketing services do you offer in London?",
-  answer:
-    "We offer complete social media marketing services including strategy, content creation, social media management, paid campaigns, audience growth and performance reporting through our social media marketing service in London.",
-},
-{
-  question: "How do I find the best social media marketing agency in London?",
-  answer:
-    "Look for an agency with proven experience, transparent reporting, strong creative work and a strategy tailored to your business goals. Big Beans Digital works with businesses across London and provides a results-focused social media marketing service in London.",
-},
-{
-  question:
-    "Why should I choose Big Beans Digital for social media marketing in London?",
-  answer:
-    "Big Beans Digital combines creative content, data-driven strategy and performance-focused marketing to help businesses build stronger brands and achieve measurable growth as a trusted social media marketing agency London businesses can rely on.",
-},
-{
-  question:
-    "What digital marketing services does Big Beans Digital offer in London?",
-  answer:
-    "Our digital marketing services in London include social media marketing, SEO, paid advertising, branding, creative design, website development and performance marketing, tailored to support business growth.",
-},
-{
-  question:
-    "Do you offer website development for London businesses and startups?",
-  answer:
-    "Yes. We create modern, responsive and conversion-focused websites for London businesses, startups and growing brands as part of our best digital marketing services in London.",
-},
-{
-  question:
-    "What is performance marketing and how can it help my London business?",
-  answer:
-    "Performance marketing focuses on measurable results such as leads, conversions and revenue. As part of our digital marketing services in London, campaigns are tracked and optimised to improve your return on investment.",
-},
-{
-  question:
-    "Can you manage both my website and social media marketing in London?",
-  answer:
-    "Yes. We can manage your website presence alongside your social media strategy to create a consistent digital experience. Our social media marketing service in London helps businesses strengthen visibility and customer engagement.",
-},
-{
-  question: "Do you work with startups and new businesses in London?",
-  answer:
-    "Yes. We work with London startups and growing businesses to build strong digital foundations, improve online visibility and create scalable strategies through our best digital marketing services in London.",
-},
-{
-  question: "How much does social media marketing cost in London?",
-  answer:
-    "The cost depends on your goals, platforms, content requirements and campaign scope. We create customised social media marketing service in London strategies based on your specific business needs and objectives.",
-},
-{
-  question: "Is social media marketing useful for small businesses in London?",
-  answer:
-    "Yes. A strong social media strategy can improve brand awareness, audience engagement, customer trust and lead generation. Working with a social media marketing agency London businesses trust can help create a strategy suited to your goals.",
-},
-  ];
+export default function SocialMediaMarketingLondon() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <main className="overflow-hidden bg-[#FFFFFF] text-[#171717]">
-
+    <main className="min-w-0 overflow-x-hidden bg-white text-[#171717]">
+      
+      
       {/* =========================================================
-          HERO SECTION
-      ========================================================= */}
-      <section className="relative overflow-hidden bg-[#FFFFFF] px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14 xl:px-10">
-        <div className="mx-auto max-w-[1600px]">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.15fr] lg:gap-10 xl:gap-14">
-            <motion.div
-              initial={{ opacity: 0, x: -35 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              className="relative z-10 lg:pb-2"
-            >
-              <div className="mb-4 flex items-center gap-2">
-                <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#353535] sm:text-[12px]">
-                  LOOKING FOR THE BEST DIGITAL MARKETING SERVICES IN LONDON?
-                </span>
-              </div>
-
-
-              <h1 className="max-w-[700px] text-[42px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#171717] sm:text-[54px] md:text-[60px] lg:text-[64px] xl:text-[68px] 2xl:text-[72px]">
-    Social Media & Digital Marketing Agency <span className="text-[#F8BC04]">for UK Businesses</span>
-</h1>
-
-              <p className="mt-5 max-w-[560px] text-[15px] leading-[1.75] text-[#3F3F3F] sm:text-[16px] lg:mt-6 lg:text-[17px]">
-                Our digital marketing services in London combine data-driven strategy, creative content and performance-focused campaigns to help businesses attract, engage and convert the right audience. As a trusted social media marketing agency in London businesses rely on, we create strategies designed for measurable growth.
-              </p>
-
-              <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8">
-                <motion.a
-                  href="https://wa.link/nms9wi"
-                  whileHover={{ scale: 1.03 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="group inline-flex h-12 items-center gap-2 rounded-full bg-[#F8BC04] px-20 text-[17px] font-semibold text-[#171717] shadow-[0_8px_25px_rgba(248,188,4,0.2)] transition-all duration-300"
-                >
-                  <span>Book Your Free Strategy Call</span>
-
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#171717] text-white">
-                    <ArrowRight size={14} strokeWidth={2.5} />
-                  </span>
-                </motion.a>
-
-                <motion.a
-  href="/"
-  whileHover={{ scale: 1.03 }}
-  whileTap={{ scale: 0.98 }}
-  className="group inline-flex h-12 items-center gap-2 rounded-full border border-[#D7D7D7] bg-white px-10 text-[11px] font-medium text-[#303030] transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
->
-  <span>Know More About Us</span>
-</motion.a>
-              </div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.3 }}
-                className="mt-10 sm:mt-12"
-              >
-                <p className="mb-4 text-[8px] font-semibold uppercase tracking-[0.08em] text-[#5A5A5A] sm:text-[15px]">
-                  Trusted by ambitious businesses across the UK
-                </p>
-
-                <div className="flex flex-wrap items-center gap-x-7 gap-y-5 sm:gap-x-10 lg:gap-x-7 xl:gap-x-10">
-                  <Image
-                    src="/citylandingpage/london/client1.webp"
-                    alt="Google Partner"
-                    width={130}
-                    height={55}
-                    className="h-auto w-[92px] object-contain sm:w-[105px]"
-                  />
-
-                  <Image
-                    src="/citylandingpage/london/client2.webp"
-                    alt="Meta Business Partner"
-                    width={130}
-                    height={55}
-                    className="h-auto w-[92px] object-contain sm:w-[105px]"
-                  />
-
-                  <Image
-                    src="/citylandingpage/london/client3.webp"
-                    alt="Trustpilot and Clutch"
-                    width={190}
-                    height={55}
-                    className="h-auto w-[150px] object-contain sm:w-[175px]"
-                  />
-                </div>
-              </motion.div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96, x: 35 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-              className="relative mx-auto w-full max-w-[850px] lg:max-w-none"
-            >
-              <div className="relative aspect-[1.3/1] min-h-[360px] overflow-hidden rounded-[26px] sm:min-h-[480px] lg:min-h-[520px] xl:min-h-[610px]">
-                <Image
-                  src="/citylandingpage/london/london.webp"
-                  alt="London Digital Marketing Agency"
-                  fill
-                  priority
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 58vw"
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/5" />
-
-                <motion.div
-                  initial={{ opacity: 0, y: 25 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.7, delay: 0.55 }}
-                  className="absolute bottom-5 left-[52%] z-10 w-[175px] rounded-[18px] bg-white/95 p-4 shadow-[0_18px_45px_rgba(0,0,0,0.18)] backdrop-blur-xl sm:bottom-7 sm:left-[52%] sm:w-[220px] sm:p-5 md:bottom-8 md:left-[54%] lg:bottom-8 lg:left-[50%] xl:bottom-10 xl:left-[51%]"
-                >
-                  <p className="text-[9px] font-semibold text-[#252525] sm:text-[10px]">
-                    Real Growth.
-                  </p>
-
-                  <p className="mt-1 text-[9px] text-[#565656] sm:text-[10px]">
-                    Measurable Results.
-                  </p>
-
-                  <div className="mt-4 sm:mt-5">
-                    <span className="text-[31px] font-semibold leading-none tracking-[-0.04em] text-[#171717] sm:text-[38px]">
-                      90%
-                    </span>
-
-                    <p className="mt-1 text-[8px] text-[#656565] sm:text-[9px]">
-                      Average ROI Increase for Clients from London
-                    </p>
-                  </div>
-
-                  <div className="relative mt-4 h-[58px] sm:mt-5 sm:h-[65px]">
-                    <svg
-                      viewBox="0 0 220 70"
-                      className="h-full w-full overflow-visible"
-                      fill="none"
-                    >
-                      <path
-                        d="M4 57 L30 43 L58 48 L88 28 L120 33 L150 13 L184 17 L215 0"
-                        stroke="#F8BC04"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-
-                      <circle cx="4" cy="57" r="3.5" fill="#F8BC04" />
-                      <circle cx="30" cy="43" r="3.5" fill="#F8BC04" />
-                      <circle cx="58" cy="48" r="3.5" fill="#F8BC04" />
-                      <circle cx="88" cy="28" r="3.5" fill="#F8BC04" />
-                      <circle cx="120" cy="33" r="3.5" fill="#F8BC04" />
-                      <circle cx="150" cy="13" r="3.5" fill="#F8BC04" />
-                      <circle cx="184" cy="17" r="3.5" fill="#F8BC04" />
-                      <circle cx="215" cy="0" r="3.5" fill="#F8BC04" />
-                    </svg>
-                  </div>
-
-                  <div className="mt-2 flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#36A269]" />
-
-                    <span className="text-[8px] text-[#5D5D5D] sm:text-[9px]">
-                      In Last 6 Months
-                    </span>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          TRUSTED CLIENTS
-      ========================================================= */}
-      <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.8 }}
-        className="bg-[#FFFFFF] py-12 sm:py-5 lg:py-5"
-      >
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 text-center">
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="
-              text-[30px]
-              sm:text-[38px]
-              md:text-[46px]
-              lg:text-[52px]
-              font-semibold
-              text-[#171717]
-              tracking-tight
-              leading-tight
-            "
-          >
-            We Are Trusted by 100+ Startups & Businesses Globally
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="
-              mt-5
-              sm:mt-6
-              text-[15px]
-              sm:text-[16px]
-              lg:text-[18px]
-              text-gray-600
-              leading-relaxed
-              max-w-4xl
-              mx-auto
-            "
-          >
-            From ambitious startups to established businesses, Big Beans Digital delivers digital marketing services in London designed to increase visibility, engagement and sustainable growth. As a trusted social media marketing agency London businesses rely on, we provide strategic social media marketing, performance marketing, website development and branding solutions for businesses across London, the UK, India, the USA and beyond.
-          </motion.p>
-
-        </div>
-      </motion.section>
-
-      {/* =========================================================
-          PROCESS SECTION
-      ========================================================= */}
-      <section className="relative overflow-hidden bg-[#FFFFFF] px-4 py-5 sm:px-6 sm:py-5 lg:px-8 lg:py-10 xl:px-10">
-        <div className="mx-auto max-w-[1600px]">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="mx-auto max-w-[760px] text-center"
-          >
-            <p className="text-[9px] font-bold uppercase tracking-[0.1em] text-[#f8bc04] sm:text-[30px]">
-              Our Process
-            </p>
-
-            <h2 className="mt-3 text-[30px] font-semibold leading-[1.08] tracking-[-0.035em] text-[#222222] sm:text-[38px] lg:text-[46px] xl:text-[52px]">
-              A Simple Process That
-              <br />
-              Delivers Extraordinary{" "}
-              <span className="relative inline-block">
-                Results
-                <span className="absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-[#F8BC04]" />
-              </span>
-            </h2>
-          </motion.div>
-
-          <div className="relative mx-auto mt-10 max-w-[1450px] sm:mt-14">
-            <div className="absolute left-[11%] right-[11%] top-[29px] hidden h-px bg-[#D9D9D9] lg:block" />
-
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-              {processSteps.map((step, index) => {
-                const Icon = step.icon;
-
-                return (
+                HERO SECTION
+            ========================================================= */}
+            <section className="relative overflow-hidden bg-[#FFFFFF] px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14 xl:px-10">
+              <div className="mx-auto max-w-[1600px]">
+                <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.15fr] lg:gap-10 xl:gap-14">
                   <motion.div
-                    key={step.number}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.6,
-                      delay: index * 0.12,
-                    }}
-                    className="relative"
+                    initial={{ opacity: 0, x: -35 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    className="relative z-10 lg:pb-2"
                   >
-                    <div className="relative z-10 mx-auto flex h-[58px] w-[58px] items-center justify-center rounded-full border border-[#E1E1E1] bg-[#FFFFFF] shadow-[0_8px_22px_rgba(0,0,0,0.06)] sm:h-[64px] sm:w-[64px]">
-                      <Icon
-                        size={25}
-                        strokeWidth={1.8}
-                        className="text-[#222222]"
-                      />
+                    <div className="mb-4 flex items-center gap-2">
+                      <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#353535] sm:text-[20px]">
+                        Bild a Brand with us that is <span className="text-[#F8BC04]">IMPOSSIBLE TO IGNORE</span>
+                      </span>
                     </div>
+      
+      
+                    <h1 className="max-w-[700px] text-[42px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#171717] sm:text-[54px] md:text-[60px] lg:text-[64px] xl:text-[68px] 2xl:text-[72px]">
+          <span className="text-[#F8BC04]">Creative Social Media Marketing Agency</span>  in London
+      </h1>
+      
+                    <p className="mt-5 max-w-[560px] text-[15px] leading-[1.75] text-[#3F3F3F] sm:text-[16px] lg:mt-6 lg:text-[17px]">
+                     Big Beans Digital is a creative social media marketing agency in London helping businesses build strong digital identities, create engaging content and connect with the right audience.
 
-                    <div className="mt-6 text-center lg:text-left">
-                      <div className="flex items-baseline justify-center gap-2 lg:justify-start">
-                        <span className="text-[26px] font-semibold text-[#E2A600] sm:text-[30px]">
-                          {step.number}
+We combine creative thinking, strategic social media marketing, professional design and branding, website development and performance marketing to help businesses build a stronger presence in the digital world.
+
+Whether you are a startup, local business, growing company or established organisation, our team creates customised digital strategies based on your business goals and target audience.
+                    </p>
+      
+                    <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8">
+                      <motion.a
+                        href="https://wa.link/nms9wi"
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="group inline-flex h-12 items-center gap-2 rounded-full bg-[#F8BC04] px-20 text-[17px] font-semibold text-[#171717] shadow-[0_8px_25px_rgba(248,188,4,0.2)] transition-all duration-300"
+                      >
+                        <span>Book Your Free Strategy Call</span>
+      
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#171717] text-white">
+                          <ArrowRight size={14} strokeWidth={2.5} />
                         </span>
-
-                        <h3 className="text-[17px] font-semibold text-[#303030] sm:text-[18px]">
-                          {step.title}
-                        </h3>
-                      </div>
-
-                      <p className="mx-auto mt-3 max-w-[260px] text-[14px] leading-[1.75] text-[#5B5B5B] sm:text-[15px] lg:mx-0">
-                        {step.description}
-                      </p>
+                      </motion.a>
+      
+                      <motion.a
+        href="/"
+        whileHover={{ scale: 1.03 }}
+        whileTap={{ scale: 0.98 }}
+        className="group inline-flex h-12 items-center gap-2 rounded-full border border-[#D7D7D7] bg-white px-10 text-[11px] font-medium text-[#303030] transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
+      >
+        <span>Know More About Us</span>
+      </motion.a>
+                    </div>
+      
+                    
+                  </motion.div>
+      
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.96, x: 35 }}
+                    animate={{ opacity: 1, scale: 1, x: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+                    className="relative mx-auto w-full max-w-[850px] lg:max-w-none"
+                  >
+                    <div className="relative aspect-[1.3/1] min-h-[360px] overflow-hidden rounded-[26px] sm:min-h-[480px] lg:min-h-[520px] xl:min-h-[610px]">
+                      <Image
+                        src="/landingpage/hero.webp"
+                        alt="London Digital Marketing Agency"
+                        fill
+                        priority
+                        className="object-cover"
+                        sizes="(max-width: 1024px) 100vw, 58vw"
+                      />
+      
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/5" />
                     </div>
                   </motion.div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+                </div>
+              </div>
+            </section>
 
-{/* =========================================================
-    SERVICES GRID SECTION
-========================================================= */}
+      {/* ========================================================= */}
+      {/* DIGITAL OPPORTUNITY */}
+      {/* ========================================================= */}
 
-<section className="bg-[#FFFFFF] px-4 py-5 sm:px-6 sm:py-5 lg:px-8 lg:py-5">
-  <div className="mx-auto max-w-[1500px]">
+      <section className="bg-white py-12 sm:py-16 lg:py-10">
+        <div className="mx-auto max-w-[1150px] px-4 sm:px-6 lg:px-8">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <p className="text-xs font-bold uppercase tracking-[4px] text-[#d89f00]">
+              The Digital Opportunity
+            </p>
 
-    {/* HEADING */}
-    <div className="mb-6 text-center">
-      <p className="text-[50px] font-bold uppercase tracking-[0.18em] text-[#F8BC04]">
-        Services We Provide
-      </p>
-
-      <h2 className="mt-2 text-[20px] font-semibold text-[#171717] sm:text-[26px]">
-        Our Digital Marketing Solutions for{" "}
-        <span className="text-[#f8bc04]">London Businesses</span>
-      </h2>
-
-      <p className="mx-auto mt-2 max-w-[1100px] text-[9px] leading-relaxed text-[#6B6B6B] sm:text-[19px]">
-        From social media marketing and branding to website development and performance marketing, we deliver tailored digital marketing services in London that help businesses increase visibility, engage the right audience and achieve measurable growth.
-      </p>
-    </div>
-
-    {/* SERVICES GRID */}
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-
-      {/* ROW 1 */}
-
-      {/* SOCIAL MEDIA */}
-      <div className="flex min-h-[240px] flex-col justify-center rounded-[14px] bg-[#F8BC04] p-6 sm:min-h-[280px] sm:p-8">
-        <div className="border-r-2 border-[#171717] pr-4">
-
-          {/* TITLE + BUTTON */}
-          <div className="flex flex-wrap items-center gap-4">
-            <h2 className="text-[16px] font-semibold text-[#171717] sm:text-[40px]">
-              Social Media Marketing
+            <h2 className="mx-auto mt-4 max-w-4xl text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+              Your London Audience Is Already Online. Is Your Brand Reaching Them?
             </h2>
 
-            <a
-              href="services/social-media-marketing"
-              className="inline-flex items-center rounded-full bg-[#171717] px-5 py-2 text-[10px] font-semibold text-white transition-all duration-300 hover:scale-105 sm:text-[11px]"
-            >
-              Know More →
-            </a>
-          </div>
+            <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-gray-600 sm:text-lg">
+              Social media has changed the way people discover businesses,
+              explore products and services, compare brands and make purchasing
+              decisions.
+            </p>
+          </motion.div>
 
-          <p className="mt-3 text-[10px] leading-relaxed text-[#171717] sm:text-[16px]">
-            Build a stronger online presence with our social media marketing service in London, creating engaging content and data-driven strategies that help London businesses reach, connect with and grow their ideal audience.
-          </p>
-
-        </div>
-      </div>
-
-      {/* IMAGE */}
-      <div className="relative min-h-[240px] overflow-hidden rounded-[14px] sm:min-h-[280px]">
-        <img
-          src="/citylandingpage/services/bigbeansdigitalsocialmedia.webp"
-          alt="Social Media Marketing"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-
-
-      {/* ROW 2 */}
-
-      {/* IMAGE */}
-      <div className="relative min-h-[240px] overflow-hidden rounded-[14px] sm:min-h-[280px]">
-        <img
-          src="/citylandingpage/services/bigbeansdigitalbranding.webp"
-          alt="Design and Branding"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-
-      {/* DESIGN */}
-      <div className="flex min-h-[240px] flex-col justify-center rounded-[14px] bg-[#F8BC04] p-6 sm:min-h-[280px] sm:p-8">
-        <div className="border-r-2 border-[#171717] pr-4">
-
-          {/* TITLE + BUTTON */}
-          <div className="flex flex-wrap items-center gap-4">
-            <h3 className="text-[16px] font-semibold text-[#171717] sm:text-[40px]">
-              Design & Branding
-            </h3>
-
-            <a
-              href="services/branding"
-              className="inline-flex items-center rounded-full bg-[#171717] px-5 py-2 text-[10px] font-semibold text-white transition-all duration-300 hover:scale-105 sm:text-[11px]"
-            >
-              Know More →
-            </a>
-          </div>
-
-          <p className="mt-3 text-[10px] leading-relaxed text-[#171717] sm:text-[16px]">
-            Create a memorable brand identity that stands out in London’s competitive market. Our creative branding and design solutions help businesses communicate clearly, build recognition and connect with the right audience.
-          </p>
-
-        </div>
-      </div>
-
-
-      {/* ROW 3 */}
-
-      {/* WEBSITE DEVELOPMENT */}
-      <div className="flex min-h-[240px] flex-col justify-center rounded-[14px] bg-[#F8BC04] p-6 sm:min-h-[280px] sm:p-8">
-        <div className="border-r-2 border-[#171717] pr-4">
-
-          {/* TITLE + BUTTON */}
-          <div className="flex flex-wrap items-center gap-4">
-            <h3 className="text-[16px] font-semibold text-[#171717] sm:text-[40px]">
-              Website Development
-            </h3>
-
-            <a
-              href="services/website-development"
-              className="inline-flex items-center rounded-full bg-[#171717] px-5 py-2 text-[10px] font-semibold text-white transition-all duration-300 hover:scale-105 sm:text-[11px]"
-            >
-              Know More →
-            </a>
-          </div>
-
-          <p className="mt-3 text-[10px] leading-relaxed text-[#171717] sm:text-[16px]">
-            Our website development solutions are designed to create fast, user-friendly and high-performing websites that support your digital marketing goals and help London businesses turn more visitors into customers.
-          </p>
-
-          
-        </div>
-      </div>
-
-      {/* IMAGE */}
-      <div className="relative min-h-[240px] overflow-hidden rounded-[14px] sm:min-h-[280px]">
-        <img
-          src="/citylandingpage/services/bigbeansdigitalwebsite.webp"
-          alt="Website Development"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-
-
-      {/* ROW 4 */}
-
-      {/* IMAGE */}
-      <div className="relative min-h-[240px] overflow-hidden rounded-[14px] sm:min-h-[280px]">
-        <img
-          src="/citylandingpage/services/bigbeansdigitalperformancemarketing.webp"
-          alt="Performance Marketing"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-      </div>
-
-      {/* PERFORMANCE MARKETING */}
-      <div className="flex min-h-[240px] flex-col justify-center rounded-[14px] bg-[#F8BC04] p-6 sm:min-h-[280px] sm:p-8">
-        <div className="border-r-2 border-[#171717] pr-4">
-
-          {/* TITLE + BUTTON */}
-          <div className="flex flex-wrap items-center gap-4">
-            <h3 className="text-[16px] font-semibold text-[#171717] sm:text-[40px]">
-              Performance Marketing
-            </h3>
-
-            <a
-              href="services/google-ads-meta-ads"
-              className="inline-flex items-center rounded-full bg-[#171717] px-5 py-2 text-[10px] font-semibold text-white transition-all duration-300 hover:scale-105 sm:text-[11px]"
-            >
-              Know More →
-            </a>
-          </div>
-
-          <p className="mt-3 text-[10px] leading-relaxed text-[#171717] sm:text-[16px]">
-            Drive measurable results with conversion-focused campaigns designed as part of our digital marketing services in London, helping your business reach the right audience, generate quality leads and maximise ROI.
-          </p>
-
-         
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-      {/* =========================================================
-          WHY CHOOSE US SECTION
-      ========================================================= */}
-      <section className="bg-[#FFFFFF] px-4 py-1 sm:px-6 sm:py-1 lg:px-8 lg:py-1 xl:px-10">
-        <div className="mx-auto max-w-[1600px]">
-          <div className="grid items-center gap-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-12">
+          <div className="mt-10 grid gap-6 sm:gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -25 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="lg:-translate-y-5"
             >
-<motion.h3
-          initial={{
-            opacity: 0,
-            y: 25,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.15,
-          }}
-          className="
-            text-[34px]
-            font-normal
-            leading-[1.05]
-            tracking-tight
-            text-[#171717]
-            sm:text-[40px]
-            md:text-[44px]
-            lg:text-[43px]
-            xl:text-[48px]
-          "
-        >
-          Built for{" "}
-          <span className="font-black text-[#F8BC04]">
-            What&apos;s Next
-          </span>
-        </motion.h3>
-
-
-        {/* DESCRIPTION */}
-
-        <motion.p
-          initial={{
-            opacity: 0,
-            y: 20,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-          }}
-          transition={{
-            duration: 0.8,
-            delay: 0.28,
-          }}
-          className="
-            mt-5
-            max-w-[650px]
-            text-[13px]
-            leading-[1.4]
-            text-[#171717]
-            sm:text-[14px]
-            sm:leading-[1.45]
-            lg:text-[15px]
-          "
-          style={{
-            textAlign: "justify",
-            textAlignLast: "left",
-          }}
-        >
-          Big Beans Digital is a results-driven digital marketing and social media marketing agency London businesses can rely on for strategic, measurable growth. We provide tailored digital marketing services in London, helping startups, entrepreneurs and growing businesses strengthen their online presence, reach the right audience and generate valuable leads.
-          <br></br>
-          <br></br>
-          From creative social media marketing and branding to high-performing websites and performance marketing, our team delivers strategies built around your business goals, industry and audience. As a trusted provider of the best digital marketing services in London, we focus on practical solutions that turn visibility into meaningful business growth.
-          
-          </motion.p>
-
-
-              <p className="mt-5 max-w-[520px] text-[15px] leading-[1.75] text-[#646464] sm:text-[16px]">
-                We combine data, strategy and creativity to deliver campaigns that move your business forward.
+              <p className="text-lg leading-relaxed text-gray-600">
+                Today, customers do not always wait until they need something to
+                search for a business. Instead, they discover brands while
+                exploring content online.
               </p>
 
-              <div className="mt-5 space-y-2.5">
-                {reasons.map((reason, index) => (
+              <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                {[
+                  "Scrolling through Instagram",
+                  "Discovering businesses on Facebook",                  
+                  "Connecting professionally on LinkedIn",
+                  "Searching for products and services online",
+                  "Comparing brands with competitors",
+                  "Looking for recommendations",
+                ].map((item, index) => (
                   <motion.div
-                    key={reason}
-                    initial={{ opacity: 0, x: -15 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    key={item}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{
-                      duration: 0.45,
-                      delay: index * 0.08,
-                    }}
-                    className="flex items-center gap-2.5"
+                    transition={{ delay: index * 0.05 }}
+                    className="flex items-center gap-3 rounded-xl border border-gray-200 bg-white p-4 transition-all hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-md"
                   >
-                    <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#F8BC04] text-[#171717]">
-                      <Check size={10} strokeWidth={3} />
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F8BC04]/15">
+                      <Check size={15} className="text-[#b98700]" />
                     </span>
 
-                    <span className="text-[14px] font-medium text-[#454545] sm:text-[15px]">
-                      {reason}
+                    <span className="text-sm font-medium text-gray-700">
+                      {item}
                     </span>
                   </motion.div>
                 ))}
               </div>
+
+              {/* IMAGE - CHANGE THIS SRC TO YOUR FINAL IMAGE */}
+              <div className="relative mt-5 h-[150px] overflow-hidden rounded-2xl sm:h-[180px] lg:h-[200px]">
+                <Image
+                  src="/landingpage/notice.webp"
+                  alt="Digital marketing opportunity"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
             </motion.div>
 
-            <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
-              {stats.map((stat, index) => {
-                const Icon = stat.icon;
+            <motion.div
+              initial={{ opacity: 0, x: 25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="rounded-[28px] bg-black p-7 text-white sm:p-9"
+            >
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F8BC04]">
+                <Users className="text-black" size={27} />
+              </div>
 
-                return (
-                  <motion.div
-                    key={stat.value}
-                    initial={{ opacity: 0, y: 25 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    transition={{
-                      duration: 0.55,
-                      delay: index * 0.1,
-                    }}
-                    whileHover={{ y: -4 }}
-                    className="flex min-h-[125px] items-center gap-5 rounded-[12px] border border-[#EEEEEE] bg-white px-5 py-5 shadow-[0_8px_30px_rgba(0,0,0,0.035)] transition-shadow duration-300 hover:shadow-[0_14px_40px_rgba(0,0,0,0.07)] sm:min-h-[135px] sm:px-6"
-                  >
-                    <div
-                      className={`flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full ${
-                        stat.yellow
-                          ? "bg-[#F8BC04] text-[#171717]"
-                          : "bg-[#101112] text-white"
-                      }`}
-                    >
-                      <Icon size={24} strokeWidth={2} />
-                    </div>
+              <h3 className="mt-7 text-3xl font-bold leading-tight">
+                Your potential customers may already be online.
+              </h3>
 
-                    <div>
-                      <h3 className="text-[27px] font-semibold leading-none tracking-[-0.035em] text-[#202020] sm:text-[31px]">
-                        {stat.value}
-                      </h3>
+              <div className="mt-7 space-y-4">
+  {[
+    "They are already visiting websites before making contact.",
+    "They are already visiting websites before making contact.",
+    "They are already visiting websites before making contact.",
+  ].map((item, index) => (
+    <div
+      key={`${item}-${index}`}
+      className="flex items-center gap-3 border-b border-white/10 pb-4"
+    >
+      <span className="h-2 w-2 rounded-full bg-[#F8BC04]" />
 
-                      <p className="mt-2 text-[10px] font-semibold text-[#333333] sm:text-[11px]">
-                        {stat.label}
-                      </p>
+      <p className="text-white/70">{item}</p>
+    </div>
+  ))}
+</div>
 
-                      <p className="mt-0.5 text-[9px] text-[#777777] sm:text-[10px]">
-                        {stat.sublabel}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
+              <div className="mt-7 rounded-2xl bg-[#F8BC04] p-5 text-black">
+                <p className="text-sm text-black/60">The question is:</p>
+
+                <h4 className="mt-2 text-xl font-bold">
+                  Is Your Brand Creating Enough Attention in a Competitive Digital Market?
+                </h4>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* WHY SOCIAL MEDIA */}
+      {/* ========================================================= */}
+
+      <section className="bg-white py-12 sm:py-16 lg:py-10">
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              {/* IMAGE - CHANGE THIS SRC TO YOUR FINAL IMAGE */}
+              <div className="relative mb-6 h-[180px] overflow-hidden rounded-2xl sm:h-[220px] lg:h-[250px]">
+                <Image
+                  src="/landingpage/question.webp"
+                  alt="Why social media marketing matters"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                />
+              </div>
+
+              <p className="text-xs font-bold uppercase tracking-[4px] text-[#d89f00]">
+                Why It Matters
+              </p>
+
+              <h2 className="relative z-10 mt-4 text-3xl font-bold leading-tight sm:text-4xl">
+                Why Social Media Marketing Is Important for Businesses in London
+              </h2>
+
+              <p className="mt-5 leading-relaxed text-gray-600">
+                Social media is no longer only a communication platform. It has
+                become an important part of the modern business ecosystem.
+              </p>
+            </motion.div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                "Who you are and what you offer.",
+                "What your brand represents.",
+                "Whether you look professional.",
+                "Whether your services are relevant to them.",
+                "What makes you different.",
+                "Whether they can trust your business.",
+                "Social media can increase brand awareness and audience engagement.",
+                "Creativity and consistency can make a significant difference.",
+              ].map((item, index) => (
+                <motion.div
+                  key={item}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05 }}
+                  className="rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-lg"
+                >
+                  <span className="text-sm font-bold text-[#d89f00]">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                    {item}
+                  </p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-{/* =========================================================
-     DIGITAL MARKETING SECTION
-========================================================= */}
+      {/* ========================================================= */}
+      {/* ABOUT */}
+      {/* ========================================================= */}
 
-<section className="bg-[#FFFFFF] px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
-  <div className="mx-auto grid max-w-[1500px] items-center gap-8 lg:grid-cols-2 lg:gap-12">
+      <section className="bg-white py-12 sm:py-16 lg:py-10">
+        <div className="mx-auto grid max-w-[1200px] gap-6 px-4 sm:gap-8 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-[30px] bg-[#F8BC04] p-8 sm:p-10"
+          >
 
-    {/* LEFT CONTENT */}
-    <div>
-      <h2 className="max-w-[650px] text-[34px] font-semibold leading-[1.15] text-[#24282E] sm:text-[48px] lg:text-[54px]">
-        Digital Marketing That
-        Helps London Businesses{" "}
-        <span className="text-[#F8BC04]">
-          Build Visibility &
-          Drive Real Growth
-        </span>
-      </h2>
+            <p className="relative z-10 mt-9 text-xs font-bold uppercase tracking-[4px] text-black/60">
+              About Big Beans Digital
+            </p>
 
-      <p className="mt-7 max-w-[680px] text-[16px] leading-[1.7] text-[#555B63] sm:text-[18px]">
-        In a competitive digital landscape, London businesses need more than just an online presence. They need a clear strategy that helps them reach the right audience, build meaningful engagement and turn digital opportunities into measurable business growth.
-      </p>
+            <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
+              Big Beans Digital 
+              <br></br>Your Creative Digital Marketing Partner for London
+            </h2>
 
-      <p className="mt-6 max-w-[680px] text-[16px] leading-[1.7] text-[#555B63] sm:text-[18px]">
-        As a trusted social media marketing agency London businesses can rely on, Big Beans Digital delivers tailored digital marketing services in London. From social media and branding to websites and performance campaigns, we create data-driven strategies designed to generate visibility, quality leads and long-term growth.
-      </p>
+            <p className="relative z-10 mt-5 leading-relaxed text-black/70">
+              We help businesses build, communicate and grow their brands in the
+              digital world.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-lg leading-relaxed text-gray-600">
+              We believe successful digital marketing requires more than simply
+              creating posts or running advertisements.
+            </p>
+
+            <p className="mt-5 text-lg leading-relaxed text-gray-600">
+              A strong digital presence requires strategy, creativity,
+              consistency, strong branding, professional design, user-friendly
+              digital experiences, targeted advertising and performance analysis.
+            </p>
+
+            <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+  {[
+    "Social Media",
+    "Connected Strategy",
+    "Website",
+    "Connected Strategy",
+    "Clear Strategy",
+    "Strategic Execution",
+    "Connected Strategy",
+    "Business Objectives",
+  ].map((item, index) => (
+    <div
+      key={`${item}-${index}`}
+      className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium transition-all hover:border-[#F8BC04]"
+    >
+      <Check size={16} className="text-[#d89f00]" />
+
+      {item}
     </div>
+  ))}
+</div>
+             
+            
+          </motion.div>
+        </div>
+      </section>
 
+      
+{/* ========================================================= */}
+{/* OUR DIGITAL MARKETING SERVICES */}
+{/* ========================================================= */}
 
-    {/* RIGHT STATS CARD */}
-    <div className="rounded-[16px] bg-gradient-to-br from-[#F8BC04] via-[#FFBD27] to-[#F9A53A] p-6 shadow-sm sm:p-10">
-
-      {/* TOP CARDS */}
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-
-        {/* ENQUIRIES */}
-        <div className="rounded-[12px] bg-white/20 p-5 backdrop-blur-sm sm:p-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-white/85">
-            Enquiries Generated
+<section className="bg-white py-12 sm:py-16 lg:py-10">
+  <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+    <div className="rounded-[28px] bg-[#050505] p-6 text-white sm:p-8 lg:p-10">
+      
+      {/* SECTION HEADER */}
+      <div className="mb-8 flex flex-col gap-5 sm:mb-10 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p className="text-xs font-bold uppercase tracking-[5px] text-[#F8BC04]">
+            What We Do
           </p>
 
-          <h3 className="mt-3 text-[30px] font-bold text-white sm:text-[36px]">
-            4.9×
-          </h3>
+          <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
+            Our{" "}
+            <span className="text-[#F8BC04]">
+              Digital Marketing
+            </span>{" "}
+            Services
+          </h2>
 
-          <p className="mt-2 text-[13px] text-white/85">
-            Avg. increase in qualified enquiries
+          <p className="mt-3 max-w-[650px] text-sm leading-relaxed text-white/60">
+            Big Beans Digital provides a complete range of creative and
+            performance-focused digital services designed around your business
+            goals.
           </p>
         </div>
 
-
-        {/* PROJECTS */}
-        <div className="rounded-[12px] bg-white/20 p-5 backdrop-blur-sm sm:p-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-white/85">
-            Projects Delivered
-          </p>
-
-          <h3 className="mt-3 text-[30px] font-bold text-white sm:text-[36px]">
-            100+
-          </h3>
-
-          <p className="mt-2 text-[13px] text-white/85">
-            Healthcare brands
-          </p>
-        </div>
+        {/* KNOW MORE - HOME PAGE */}
+        <Link
+          href="/"
+          className="group flex w-fit items-center gap-2 rounded-full border border-[#F8BC04] bg-[#F8BC04] px-5 py-3 text-sm font-semibold text-black transition-all hover:bg-white"
+        >
+          Know More
+          <ArrowRight
+            size={17}
+            className="transition-transform duration-300 group-hover:translate-x-1"
+          />
+        </Link>
       </div>
 
+      {/* SERVICES GRID */}
+      <div className="grid gap-3 sm:gap-4 lg:grid-cols-2">
+        
+        {/* 01 SOCIAL MEDIA MARKETING */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="rounded-[20px] border border-white/10 bg-white/[0.03] p-4 sm:p-5"
+        >
+          <div className="relative h-[120px] overflow-hidden rounded-xl border border-white/10 sm:h-[150px]">
+            <Image
+              src="/landingpage/socialmedia.webp"
+              alt="Social Media Marketing"
+              fill
+              className="object-cover"
+            />
+          </div>
 
-      {/* ORGANIC TRAFFIC */}
-      <div className="relative mt-4 rounded-[12px] bg-white/20 p-5 backdrop-blur-sm sm:p-6">
+          {/* HEADING + KNOW MORE */}
+          <div className="mt-5 flex items-center justify-between gap-4">
+            <h3 className="text-lg font-bold sm:text-xl">
+              Social Media Marketing
+            </h3>
 
-        <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-white/85">
-          Organic Traffic Growth
-        </p>
+            <Link
+              href="/services/social-media-marketing"
+              className="group flex shrink-0 items-center gap-1 text-sm font-semibold text-[#F8BC04] transition-all hover:text-white"
+            >
+              Know More
+              <ArrowRight
+                size={16}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
+          </div>
 
-        <div className="mt-3 flex items-center justify-between">
-          <h3 className="text-[30px] font-bold text-white sm:text-[36px]">
-            +305%
-          </h3>
+          <p className="mt-3 text-xs font-semibold text-[#F8BC04]">
+            Build Visibility and Meaningful Audience Engagement
+          </p>
 
-          <span className="text-[32px] font-light text-white/50">
-            ↑
-          </span>
-        </div>
+          <p className="mt-4 text-sm leading-relaxed text-white/60">
+            We create social media strategies and content designed to help
+            London businesses build visibility, engagement and stronger
+            audience connections.
+          </p>
 
+          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Social Media Strategy
+            </div>
 
-        {/* PROGRESS BAR */}
-        <div className="mt-3 h-[10px] overflow-hidden rounded-full bg-white/25">
-          <div className="h-full w-[72%] rounded-full bg-white" />
-        </div>
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Social Media Management
+            </div>
 
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Content Planning
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Social Media Calendars
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Creative Content
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Instagram, Facebook & LinkedIn
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 02 DESIGN & BRANDING */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          className="rounded-[20px] border border-white/10 bg-white/[0.03] p-4 sm:p-5"
+        >
+          <div className="relative h-[120px] overflow-hidden rounded-xl border border-white/10 sm:h-[150px]">
+            <Image
+              src="/landingpage/branding.webp"
+              alt="Design and Branding"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          
+
+          {/* HEADING + KNOW MORE */}
+          <div className="mt-5 flex items-center justify-between gap-4">
+            <h3 className="text-lg font-bold sm:text-xl">
+              Design & Branding
+            </h3>
+
+            <Link
+              href="/services/branding"
+              className="group flex shrink-0 items-center gap-1 text-sm font-semibold text-[#F8BC04] transition-all hover:text-white"
+            >
+              Know More
+              <ArrowRight
+                size={16}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
+          </div>
+
+          <p className="mt-3 text-xs font-semibold text-[#F8BC04]">
+            Build a Brand That People Recognise
+          </p>
+
+          <p className="mt-4 text-sm leading-relaxed text-white/60">
+            We develop creative visual identities and communication that help
+            businesses become more recognisable and consistent.
+          </p>
+
+          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Brand Identity
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Logo Design
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Visual Communication
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Social Media Design
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Campaign Creatives
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Marketing Design
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 03 WEBSITE DEVELOPMENT */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="rounded-[20px] border border-white/10 bg-white/[0.03] p-4 sm:p-5"
+        >
+          <div className="relative h-[120px] overflow-hidden rounded-xl border border-white/10 sm:h-[150px]">
+            <Image
+              src="/landingpage/website.webp"
+              alt="Website Development"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          
+
+          {/* HEADING + KNOW MORE */}
+          <div className="mt-5 flex items-center justify-between gap-4">
+            <h3 className="text-lg font-bold sm:text-xl">
+              Website Development
+            </h3>
+
+            <Link
+              href="/services/website-development"
+              className="group flex shrink-0 items-center gap-1 text-sm font-semibold text-[#F8BC04] transition-all hover:text-white"
+            >
+              Know More
+              <ArrowRight
+                size={16}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
+          </div>
+
+          <p className="mt-3 text-xs font-semibold text-[#F8BC04]">
+            Create a Website That Represents Your Business Professionally
+          </p>
+
+          <p className="mt-4 text-sm leading-relaxed text-white/60">
+            We create professional, responsive and user-focused digital
+            experiences that represent your business and support growth.
+          </p>
+
+          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Business Websites
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Corporate Websites
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Landing Pages
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Service Websites
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Portfolio Websites
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Responsive Development
+            </div>
+          </div>
+        </motion.div>
+
+        {/* 04 PERFORMANCE MARKETING */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="rounded-[20px] border border-white/10 bg-white/[0.03] p-4 sm:p-5"
+        >
+          <div className="relative h-[120px] overflow-hidden rounded-xl border border-white/10 sm:h-[150px]">
+            <Image
+              src="/landingpage/marketing.webp"
+              alt="Performance Marketing"
+              fill
+              className="object-cover"
+            />
+          </div>
+
+          {/* HEADING + KNOW MORE */}
+          <div className="mt-5 flex items-center justify-between gap-4">
+            <h3 className="text-lg font-bold sm:text-xl">
+              Performance Marketing
+            </h3>
+
+            <Link
+              href="/services/google-ads-meta-ads"
+              className="group flex shrink-0 items-center gap-1 text-sm font-semibold text-[#F8BC04] transition-all hover:text-white"
+            >
+              Know More
+              <ArrowRight
+                size={16}
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
+          </div>
+
+          <p className="mt-3 text-xs font-semibold text-[#F8BC04]">
+            Google Ads and Meta Ads for Business Growth
+          </p>
+
+          <p className="mt-4 text-sm leading-relaxed text-white/60">
+            Paid advertising can help businesses reach targeted audiences more
+            quickly and support measurable campaign growth.
+          </p>
+
+          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Google Ads
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Meta Ads
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Audience Targeting
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Lead Generation Campaigns
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Remarketing
+            </div>
+
+            <div className="flex items-center gap-2">
+              <Check size={12} className="text-[#F8BC04]" />
+              Campaign Optimisation
+            </div>
+          </div>
+        </motion.div>
       </div>
     </div>
-
   </div>
 </section>
 
 
-      {/* =========================================================
+{/* =========================================================
           OUR WORK CROUSAL
       ========================================================= */}
         <OurWork />
 
-      {/* =======================================================
-                      ABOUT US
-      ======================================================= */}
 
-      <section className="bg-white py-8 sm:py-10 overflow-hidden">
-        <div className="max-w-[1450px] mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-[40%_60%] gap-10 lg:gap-20 items-center">
+      {/* ========================================================= */}
+{/* OUR PROCESS */}
+{/* ========================================================= */}
 
-            {/* LEFT IMAGE */}
+<section className="bg-white py-12 sm:py-16 lg:py-10">
+  <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-10">
+    <div className="mx-auto max-w-3xl text-center">
+      <p className="text-xs font-bold uppercase tracking-[5px] text-[#d89f00]">
+        Our Process
+      </p>
 
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: -80,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: .8,
-              }}
-            >
-              <div className="overflow-hidden rounded-[28px] sm:rounded-[35px]">
-                <Image
-                  src="/assets/about/bigbeansdigitalteam.png"
-                  alt="Big Beans Digital Team"
-                  width={800}
-                  height={900}
-                  className="w-full h-[420px] sm:h-[520px] lg:h-[700px] object-cover transition duration-700 hover:scale-105"
-                />
-              </div>
-            </motion.div>
-
-            {/* RIGHT CONTENT */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 80,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: .8,
-              }}
-            >
-
-              {/* Heading */}
-
-              <h2 className="mt-6 sm:mt-8 text-[40px] sm:text-[50px] lg:text-[60px] leading-[1.08] font-black text-[#171717]">
-                Building
-                <span className="text-[#F8BC04]">
-                  {" "}Better Brands.
-                </span>
-              </h2>
-
-              {/* Paragraph */}
-
-              <p className="mt-6 sm:mt-8 text-[16px] sm:text-[17px] lg:text-[18px] leading-7 sm:leading-8 lg:leading-9 text-gray-600">
-                At Big Beans Digital, we help ambitious London businesses build stronger brands, increase their online visibility and achieve measurable digital growth. As a results-focused social media marketing agency London businesses can rely on, we combine creativity, strategy and data to create marketing that connects with the right audience.
-                <br />
-                <br />
-                Our digital marketing services in London cover everything from social media marketing and creative branding to website development and performance marketing. We don't believe in one-size-fits-all strategies—every campaign is tailored around your business goals, audience and position in the competitive London market.
-                <br />
-                <br />
-                Whether you're a startup building your presence or an established business looking to scale, our team develops strategies designed to attract attention, build trust and convert audiences into customers. Through the best digital marketing services in London, we focus on practical, measurable solutions that support sustainable business growth.
-
-Big Beans Digital brings together creative thinking, data-driven insights and strategic execution to help businesses across London compete with confidence, engage their ideal customers and build brands ready for what’s next.
-              </p>
-</motion.div>
-          </div>
-        </div>
-      </section>
-
-
-{/* =========================================================
-    INDUSTRIES WE HAVE WORKED WITH
-========================================================= */}
-
-<section className="bg-[#FFFFFF] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-5">
-  <div className="mx-auto max-w-[1500px]">
-
-    {/* HEADING */}
-    <div className="text-center">
-      <h2 className="text-[32px] font-semibold text-[#303030] sm:text-[42px] lg:text-[48px]">
-        Industries We{" "}
-        <span className="text-[#F8BC04]">Have Worked With</span>
+      <h2 className="mt-4 text-4xl font-bold sm:text-5xl">
+        How Big Beans Digital{" "}
+        <span className="text-[#F8BC04]">
+          Works With Your Brand
+        </span>
       </h2>
 
-      <p className="mx-auto mt-8 max-w-[850px] text-[14px] leading-relaxed text-[#303030] sm:text-[16px]">
-        We provide tailored digital marketing services in London for businesses across a wide range of industries, creating data-driven strategies that connect with the right audiences, strengthen online visibility and support sustainable growth.
+      <p className="mt-5 text-lg leading-relaxed text-gray-600">
+        Successful digital marketing starts with understanding the business.
+        Our process ensures that strategy, creativity and execution work
+        together.
       </p>
     </div>
 
-    {/* INDUSTRIES GRID */}
-    <div className="mx-auto mt-16 grid max-w-[1200px] grid-cols-1 gap-6 md:grid-cols-3">
+    <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-6">
+      {processSteps.map((step, index) => {
+        const Icon = step.icon;
 
-      {/* REAL ESTATE */}
-      <div className="rounded-[16px] bg-[#171717] p-8 text-center sm:p-10">
-        <h3 className="text-[28px] font-semibold text-[#F8BC04] sm:text-[32px]">
-          Real Estate
-        </h3>
+        return (
+          <motion.div
+            key={step.number}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.06 }}
+            whileHover={{ y: -5 }}
+            className="min-w-0 rounded-[24px] border border-gray-200 bg-white p-5 sm:p-6 transition-all hover:border-[#F8BC04] hover:shadow-lg"
+          >
+            <div className="flex items-center justify-between gap-3">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-black">
+                <Icon size={24} />
+              </div>
 
-        <p className="mx-auto mt-5 max-w-[300px] text-[13px] leading-relaxed text-[#FFFFFF]/75 sm:text-[14px]">
-          Helping real estate businesses build stronger visibility, attract
-          potential buyers and generate quality property enquiries online.
-        </p>
-      </div>
+              <span className="text-2xl font-bold text-gray-200 sm:text-3xl">
+                {step.number}
+              </span>
+            </div>
 
-      {/* FINANCE */}
-      <div className="rounded-[16px] bg-[#171717] p-8 text-center sm:p-10">
-        <h3 className="text-[28px] font-semibold text-[#F8BC04] sm:text-[32px]">
-          Shops & Cafes
-        </h3>
+            <h3 className="mt-7 text-xl font-bold">
+              {step.title}
+            </h3>
 
-        <p className="mx-auto mt-5 max-w-[300px] text-[13px] leading-relaxed text-[#FFFFFF]/75 sm:text-[14px]">
-          Creating trusted digital experiences that help bakeries,cafes, and restrurent businesses
-          improve visibility and connect with the right audience.
-        </p>
-      </div>
-
-      {/* LIFESTYLE */}
-      <div className="rounded-[16px] bg-[#171717] p-8 text-center sm:p-10">
-        <h3 className="text-[28px] font-semibold text-[#F8BC04] sm:text-[32px]">
-          Lifestyle
-        </h3>
-
-        <p className="mx-auto mt-5 max-w-[300px] text-[13px] leading-relaxed text-[#FFFFFF]/75 sm:text-[14px]">
-          Building engaging digital identities and campaigns that help
-          lifestyle brands connect with modern audiences.
-        </p>
-      </div>
-
-      {/* HEALTHCARE */}
-      <div className="rounded-[16px] bg-[#171717] p-8 text-center sm:p-10">
-        <h3 className="text-[28px] font-semibold text-[#F8BC04] sm:text-[32px]">
-          Healthcare
-        </h3>
-
-        <p className="mx-auto mt-5 max-w-[300px] text-[13px] leading-relaxed text-[#FFFFFF]/75 sm:text-[14px]">
-          Helping healthcare brands build trust, improve digital visibility and
-          connect with patients through meaningful communication.
-        </p>
-      </div>
-
-      {/* E-COMMERCE */}
-      <div className="rounded-[16px] bg-[#171717] p-8 text-center sm:p-10">
-        <h3 className="text-[28px] font-semibold text-[#F8BC04] sm:text-[32px]">
-          E-Commerce
-        </h3>
-
-        <p className="mx-auto mt-5 max-w-[300px] text-[13px] leading-relaxed text-[#FFFFFF]/75 sm:text-[14px]">
-          Driving product visibility, customer engagement and conversions
-          through effective digital marketing strategies.
-        </p>
-      </div>
-
-      {/* EDUCATION */}
-      <div className="rounded-[16px] bg-[#171717] p-8 text-center sm:p-10">
-        <h3 className="text-[28px] font-semibold text-[#F8BC04] sm:text-[32px]">
-          Education
-        </h3>
-
-        <p className="mx-auto mt-5 max-w-[300px] text-[13px] leading-relaxed text-[#FFFFFF]/75 sm:text-[14px]">
-          Supporting educational institutions with strategies that increase
-          awareness, engagement and student enquiries.
-        </p>
-      </div>
-
+            <p className="mt-3 text-sm leading-relaxed text-gray-600">
+              {step.description}
+            </p>
+          </motion.div>
+        );
+      })}
     </div>
-
   </div>
 </section>
 
+      {/* ========================================================= */}
+      {/* INDUSTRIES */}
+      {/* ========================================================= */}
 
-{/* =========================================================
-    E-COMMERCE WEBSITE SECTION
-========================================================= */}
-
-<section className="bg-[#FFFFFF] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
-  <div className="mx-auto max-w-[1200px]">
-
-    {/* TOP CONTENT */}
-    <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-20">
-
-      {/* LEFT IMAGE */}
-      <div className="overflow-hidden">
-        <img
-          src="/citylandingpage/london/london.webp"
-          alt="E-Commerce Website Design"
-          className="h-auto w-full object-cover"
-        />
-      </div>
-
-      {/* RIGHT CONTENT */}
-      <div>
-        <h2 className="max-w-[520px] text-[28px] font-semibold leading-[1.25] text-[#303030] sm:text-[34px]">
-          Digital Marketing Agency
-          <br />
-          For Businesses In London
-        </h2>
-
-        <p className="mt-6 text-[15px] leading-relaxed text-[#4B4B4B] sm:text-[16px]">
-          We navigate your online vehicle of trade with our think tank.
-        </p>
-
-        <p className="mt-4 text-[15px] leading-[1.6] text-[#4B4B4B] sm:text-[16px]">
-          Big Beans Digital is a creative and results-driven digital marketing agency helping London businesses build stronger online brands and achieve meaningful growth. We combine strategy, creativity and data to create digital experiences that help businesses stand out in one of the world’s most competitive markets.
-        </p>
-
-        <p className="mt-4 text-[15px] leading-[1.6] text-[#4B4B4B] sm:text-[16px]">
-          From social media marketing and brand identity to website development and performance campaigns, our digital marketing services in London are tailored to the unique goals of every business. As a trusted social media marketing agency London businesses can work with, we focus on creating strategies that improve visibility, strengthen audience engagement and support measurable results.
-                  </p>
-      </div>
-
-    </div>
-
-
-    {/* BOTTOM CONTENT */}
-    <div className="mx-auto mt-10 max-w-[1600px] text-center">
-
-      <h3 className="text-[20px] font-semibold text-[#3A3A3A] sm:text-[20px]">
-          We believe successful marketing starts with understanding your business, your audience and your ambitions. That is why our team creates customised solutions rather than one-size-fits-all campaigns—helping startups and established businesses across London build a stronger digital presence and prepare for long-term growth.
-      </h3>
-
-      <p className="mt-2 text-[10px] leading-relaxed text-[#555555] sm:text-[13px]">
-        With creative thinking, data-driven insights and a results-focused approach, Big Beans Digital delivers the best digital marketing services in London for businesses ready to move forward with confidence.
-      </p>
-
-    </div>
-
-  </div>
-</section>
-
-
-      {/* =========================================================
-          CLIENT TESTIMONIALS
-      ========================================================= */}
-      <section className="bg-[#FFFFFF] px-4 py-5 sm:px-6 sm:py-5 lg:px-8 lg:py-5 xl:px-10">
-        <div className="mx-auto max-w-[1600px]">
-          <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:gap-16 xl:gap-20">
-            <motion.div
-              initial={{ opacity: 0, x: -35 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-            >
-              <h2 className="max-w-[620px] text-[30px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#292929] sm:text-[38px] md:text-[46px] lg:text-[52px]">
-                What Our Clients
-                <br />
-                Say About Us
-              </h2>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 35 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{
-                duration: 0.7,
-                ease: "easeOut",
-                delay: 0.1,
-              }}
-              className="flex items-start lg:pt-12 xl:pt-14"
-            >
-              <p className="max-w-[620px] text-[15px] leading-[1.75] text-[#4D5968] sm:text-[16px] lg:text-[17px]">
-                London businesses trust Big Beans Digital for creative, results-driven digital marketing strategies that deliver real value. From social media marketing and branding to website development and performance campaigns, discover what our clients have to say about working with our London-focused digital marketing team.
+      <section className="bg-white py-12 sm:py-16 lg:py-10">
+        <div className="mx-auto max-w-[1300px] px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <div className="max-w-3xl">
+              <p className="text-xs font-bold uppercase tracking-[5px] text-[#d89f00]">
+                Diverse Experience
               </p>
-            </motion.div>
+
+              <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+                Industries We Have{" "}
+                <span className="text-[#F8BC04]">
+                  Worked With
+                </span>
+              </h2>
+            </div>
+
+            <p className="max-w-xl leading-relaxed text-gray-600">
+              Every industry communicates differently. We create digital and
+              creative solutions designed around different audiences, industries
+              and business requirements.
+            </p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:mt-16 lg:grid-cols-3 lg:gap-8">
-            {testimonials.map((testimonial, index) => (
+          <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 lg:grid-cols-3">
+            {industries.map((industry, index) => (
               <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 35 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{
-                  duration: 0.65,
-                  delay: index * 0.12,
-                  ease: "easeOut",
-                }}
+                key={industry.title}
+                initial={{ opacity: 0, scale: 0.97 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.04 }}
                 whileHover={{ y: -5 }}
-                className={`relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded-[28px] px-8 py-9 shadow-[0_18px_45px_rgba(0,0,0,0.07)] transition-shadow duration-300 hover:shadow-[0_25px_60px_rgba(0,0,0,0.11)] sm:min-h-[320px] sm:px-10 sm:py-10 ${
-                  testimonial.featured
-                    ? "bg-[#F8BC04] text-[#171717]"
-                    : "bg-white text-[#334155]"
-                }`}
+                className="rounded-2xl border border-gray-200 bg-white p-6 transition-all hover:border-[#F8BC04] hover:shadow-lg"
               >
-                <Quote
-                  size={38}
-                  strokeWidth={2.4}
-                  className={`absolute right-8 top-8 sm:right-9 sm:top-9 ${
-                    testimonial.featured
-                      ? "text-[#FFF1B8]"
-                      : "text-[#F8BC04]"
-                  }`}
-                />
+                <span className="text-sm font-bold text-[#d89f00]">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
-                <p
-                  className={`max-w-[310px] text-[15px] italic leading-[1.75] sm:text-[16px] ${
-                    testimonial.featured
-                      ? "text-[#252525]"
-                      : "text-[#526071]"
-                  }`}
-                >
-                  {testimonial.quote}
+                <h3 className="mt-5 text-xl font-bold">
+                  {industry.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                  {industry.description}
                 </p>
-
-                <div className="mt-8 flex items-center gap-4">
-                  <div
-                    className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-full text-[17px] font-semibold ${
-                      testimonial.featured
-                        ? "bg-white text-[#171717]"
-                        : "bg-[#F8BC04] text-[#171717]"
-                    }`}
-                  >
-                    {testimonial.initial}
-                  </div>
-
-                  <div>
-                    <h3
-                      className={`text-[17px] font-semibold ${
-                        testimonial.featured
-                          ? "text-[#171717]"
-                          : "text-[#26313F]"
-                      }`}
-                    >
-                      {testimonial.name}
-                    </h3>
-
-                    <p
-                      className={`mt-1 text-[14px] sm:text-[15px] ${
-                        testimonial.featured
-                          ? "text-[#5A4610]"
-                          : "text-[#657080]"
-                      }`}
-                    >
-                      {testimonial.role}
-                    </p>
-                  </div>
-                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* =========================================================
-          SERVICES SECTION
-      ========================================================= */}
-      <section
-        id="services"
-        className="bg-[#FFFFFF] px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20 xl:px-10"
-      >
-        <div className="mx-auto max-w-[1600px]">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="relative overflow-hidden rounded-[18px] bg-[#08090B] px-5 py-6 sm:px-7 sm:py-7 lg:px-8 lg:py-7 xl:px-10"
-          >
-            <div className="relative grid gap-6 border-b border-white/10 pb-4 lg:grid-cols-[1.25fr_1fr_220px] lg:items-center">
-              <div>
-                <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#F8BC04] sm:text-[10px]">
-                  Services
-                </p>
+      {/* ========================================================= */}
+{/* WHY CHOOSE US */}
+{/* ========================================================= */}
 
-                <h2 className="mt-3 text-[30px] font-semibold leading-[1.08] tracking-[-0.035em] text-[#F2F2F2] sm:text-[38px] lg:text-[46px] xl:text-[52px]">
-                  Everything You Need.
-                  <br />
-                  <span className="relative inline-block">
-                    Growth
-                    <span className="absolute -bottom-1 left-0 h-[2px] w-full bg-[#F8BC04]" />
-                  </span>{" "}
-                  You Want.
-                </h2>
-              </div>
+<section className="bg-white py-12 sm:py-16 lg:py-10">
+  <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-10">
+    <div className="rounded-[24px] bg-black p-5 text-white sm:rounded-[28px] sm:p-8 lg:rounded-[32px] lg:p-10 xl:p-12">
+      <div className="mx-auto max-w-3xl text-center">
+        <p className="text-xs font-bold uppercase tracking-[5px] text-[#F8BC04]">
+          Why Choose Us
+        </p>
 
-              <p className="max-w-[360px] text-[14px] leading-[1.7] text-[#A7A7A7] sm:text-[20px]">
-                We offer end-to-end digital marketing solutions that drive real
-                business results.
+        <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+          Why Choose Big Beans Digital as Your{" "}
+          <span className="text-[#F8BC04]">
+            Creative Agency for London?
+          </span>
+        </h2>
+
+        <p className="mt-5 text-lg leading-relaxed text-white/60">
+          Choosing the right agency means choosing a team that understands
+          both creativity and business objectives.
+        </p>
+      </div>
+
+      <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-3 lg:gap-5 xl:grid-cols-6">
+        {reasons.map((reason, index) => {
+          const Icon = reason.icon;
+
+          return (
+            <motion.div
+              key={reason.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.06 }}
+              whileHover={{ y: -5 }}
+              className="min-w-0 rounded-2xl border border-white/10 bg-white/[0.04] p-4 transition-all hover:border-[#F8BC04]/60 sm:p-5 lg:p-6"
+            >
+              <Icon
+                className="text-[#F8BC04]"
+                size={26}
+              />
+
+              <h3 className="mt-5 text-base font-bold sm:text-lg lg:text-xl">
+                {reason.title}
+              </h3>
+
+              <p className="mt-3 text-sm leading-relaxed text-white/60">
+                {reason.description}
               </p>
+            </motion.div>
+          );
+        })}
+      </div>
+    </div>
+  </div>
+</section>
 
-              <div className="hidden justify-end lg:flex">
-                <motion.a
-  href="/"
-  whileHover={{ scale: 1.03 }}
-  whileTap={{ scale: 0.98 }}
-  className="flex items-center gap-3 whitespace-nowrap rounded-full border border-white/20 px-5 py-2.5 text-[10px] font-medium text-white"
->
-  <span className="whitespace-nowrap">View All Services</span>
+      
+{/* ========================================================= */}
+{/* ONE CREATIVE PARTNER */}
+{/* ========================================================= */}
 
-  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-[#171717]">
-    <ArrowRight size={14} strokeWidth={2.5} />
-  </span>
-</motion.a>
-              </div>
-            </div>
+<section className="bg-white py-12 sm:py-16 lg:py-10">
+  <div className="mx-auto grid max-w-[1200px] gap-6 px-4 sm:gap-8 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
+    
+    {/* LEFT CONTENT */}
+    <motion.div
+      initial={{ opacity: 0, x: -25 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      className="lg:-translate-y-5"
+    >
+      
+      <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+        One Creative Partner for Your{" "}
+        <span className="text-[#F8BC04]">
+          Digital Growth
+        </span>
+      </h2>
 
-            <div className="relative mt-4 grid gap-5 lg:grid-cols-[1.68fr_0.72fr] lg:gap-5">
-              <div className="relative flex flex-col justify-between border-r-0 border-white/10 lg:min-h-[400px] lg:border-r lg:pr-5">
-                <div className="absolute bottom-4 left-[1px] top-4 w-px bg-[#5D4B13]" />
+      <p className="mt-6 leading-relaxed text-gray-600">
+        Many businesses work with separate vendors for social media, design,
+        branding, websites, Google Ads and Meta Ads. This can sometimes result
+        in inconsistent communication.
+      </p>
 
-                {services.map((service, index) => (
-                  <motion.div
-                    key={service.number}
-                    initial={{ opacity: 0, x: -25 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      duration: 0.55,
-                      delay: index * 0.08,
-                    }}
-                    className="relative grid grid-cols-[60px_minmax(0,1fr)_40px] items-center gap-3 border-b border-white/10 py-5 last:border-b-0 sm:grid-cols-[88px_minmax(0,1fr)_44px] sm:gap-5 lg:grid-cols-[96px_minmax(0,1fr)_44px] lg:py-5"
-                  >
-                    <span className="absolute -left-[2px] top-1/2 h-[6px] w-[6px] -translate-y-1/2 rounded-full bg-[#F8BC04]" />
+      <p className="mt-5 leading-relaxed text-gray-600">
+        Big Beans Digital brings multiple creative and digital services together
+        to help your digital ecosystem work in a more connected way.
+      </p>
 
-                    <div className="pl-6 sm:pl-7">
-                      <span className="text-[32px] font-semibold leading-none tracking-[-0.04em] text-[#F8BC04] sm:text-[44px] lg:text-[50px]">
-                        {service.number}
-                      </span>
-                    </div>
+      {/* IMAGE - CHANGE THIS SRC TO YOUR FINAL IMAGE */}
+      <div className="relative mt-6 h-[200px] overflow-hidden rounded-2xl sm:h-[260px] lg:h-[280px]">
+        <Image
+          src="/landingpage/brand.webp"
+          alt="Connected Digital Growth"
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      </div>
+    </motion.div>
 
-                    <div>
-                      <h3 className="text-[17px] font-semibold leading-tight text-white sm:text-[18px] lg:text-[20px]">
-                        {service.title}
-                      </h3>
+    {/* RIGHT CONTENT */}
+    <motion.div
+      initial={{ opacity: 0, x: 25 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      className="rounded-[30px] border border-gray-200 bg-white p-5 sm:p-8"
+    >
+      <div className="space-y-4">
 
-                      <p className="mt-2 max-w-[500px] text-[14px] leading-[1.7] text-[#A7A7A7] sm:text-[15px]">
-                        {service.description}
-                      </p>
-                    </div>
+        {/* CONNECTED STRATEGY */}
+        <motion.a
+          href="#"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0 }}
+          whileHover={{ y: -3 }}
+          className="group relative flex items-center justify-between gap-4 rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-[#F8BC04] hover:shadow-md sm:p-6"
+        >
+          <div className="min-w-0">
+            <h3 className="text-lg font-bold text-[#171717]">
+              Build Your Social Media Presence
+            </h3>
 
-                    <motion.div
-                      whileHover={{ scale: 1.08 }}
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-white/40 text-white transition-colors duration-300 hover:border-[#F8BC04] hover:bg-[#F8BC04] hover:text-[#171717] sm:h-11 sm:w-11"
-                    >
-                      <ArrowRight size={19} strokeWidth={1.8} />
-                    </motion.div>
-                  </motion.div>
-                ))}
-              </div>
+            <p className="mt-2 text-sm leading-relaxed text-gray-500">
+              Make Sure that your brand is visible where your customers are there
+            </p>
+          </div>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.96 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: 0.15 }}
-                className="relative min-h-[280px] overflow-hidden bg-[#050607] sm:min-h-[420px] lg:min-h-[400px]"
-              >
-                <Image
-                  src="/citylandingpage/london/services.webp"
-                  alt="Big Beans Digital Marketing Services"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 32vw"
-                />
-              </motion.div>
-            </div>
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-black transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1">
+            <ArrowDownRight size={20} strokeWidth={2.5} />
+          </span>
+        </motion.a>
 
-            <div className="mt-6 lg:hidden">
-              <motion.a
-                href="/services"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-3 rounded-full border border-white/20 px-5 py-2.5 text-[10px] font-medium text-white"
-              >
-                <span>View All Services</span>
+        {/* BRAND IDENTITY */}
+        <motion.a
+          href="#"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.06 }}
+          whileHover={{ y: -3 }}
+          className="group relative flex items-center justify-between gap-4 rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-[#F8BC04] hover:shadow-md sm:p-6"
+        >
+          <div className="min-w-0">
+            <h3 className="text-lg font-bold text-[#171717]">
+              Brand Identity
+            </h3>
 
-                <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#F8BC04] text-[#171717]">
-                  <ArrowRight size={14} strokeWidth={2.5} />
-                </span>
-              </motion.a>
-            </div>
-          </motion.div>
+            <p className="mt-2 text-sm leading-relaxed text-gray-500">
+              Make Sure that your business looks like a Brand
+            </p>
+          </div>
+
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-black transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1">
+            <ArrowDownRight size={20} strokeWidth={2.5} />
+          </span>
+        </motion.a>
+
+        {/* DIGITAL GROWTH */}
+        <motion.a
+          href="#"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.12 }}
+          whileHover={{ y: -3 }}
+          className="group relative flex items-center justify-between gap-4 rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-[#F8BC04] hover:shadow-md sm:p-6"
+        >
+          <div className="min-w-0">
+            <h3 className="text-lg font-bold text-[#171717]">
+              Digital Precence
+            </h3>
+
+            <p className="mt-2 text-sm leading-relaxed text-gray-500">
+              Bring your customers where they can connect and take your service
+            </p>
+          </div>
+
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-black transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1">
+            <ArrowDownRight size={20} strokeWidth={2.5} />
+          </span>
+        </motion.a>
+
+        {/* ADVERTISING */}
+        <motion.a
+          href="#"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.18 }}
+          whileHover={{ y: -3 }}
+          className="group relative flex items-center justify-between gap-4 rounded-2xl border border-gray-200 bg-white p-5 transition-all hover:border-[#F8BC04] hover:shadow-md sm:p-6"
+        >
+          <div className="min-w-0">
+            <h3 className="text-lg font-bold text-[#171717]">
+              Advertising
+            </h3>
+
+            <p className="mt-2 text-sm leading-relaxed text-gray-500">
+              Growing your business and reaching more and more audiance
+            </p>
+          </div>
+
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-black transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1">
+            <ArrowDownRight size={20} strokeWidth={2.5} />
+          </span>
+        </motion.a>
+
+      </div>
+    </motion.div>
+  </div>
+</section>
+
+
+
+{/* ========================================================= */}
+{/* LOCAL SEO */}
+{/* ========================================================= */}
+
+<section className="bg-white py-12 sm:py-16 lg:py-10">
+  <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+    <div className="rounded-[24px] border border-[#F8BC04] bg-[#F8BC04] p-5 sm:rounded-[28px] sm:p-8 lg:rounded-[32px] lg:p-10">
+      <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+        
+        <div>
+          
+
+          <h2 className="mt-4 text-3xl font-bold leading-tight text-[#171717] sm:text-4xl">
+            Looking for a Creative Social Media Marketing Agency in{" "}
+            <span className="text-white">
+              London?
+            </span>
+          </h2>
+
+          <p className="mt-5 leading-relaxed text-[#171717]/75">
+            We create customised digital solutions based on your business,
+            audience and growth objectives.
+          </p>
         </div>
-      </section>
 
-      {/* =========================================================
-          GLOBAL PRESENCE
-      ========================================================= */}
-      <section className="bg-[#FFFFFF] py-12 sm:py-16 lg:py-20">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+        <div className="grid gap-3 sm:grid-cols-2">
+          {[
+            "Creative Social Media Marketing Agency in London",
+            "Social Media Marketing Agency London",
+            "Social Media Management Services London",
+            "Creative Agency London",
+            "Branding Agency London",
+            "Website Development Company London",
+            "Google Ads Agency London",
+            "Meta Ads Agency London",
+            "Performance Marketing Agency London",
+            "Digital Marketing Services London",
+          ].map((keyword) => (
+            <div
+              key={keyword}
+              className="flex items-center gap-3 rounded-xl border border-black/10 bg-white/90 p-4 transition-all hover:bg-white"
+            >
+              <Check
+                size={17}
+                className="shrink-0 text-[#b98700]"
+              />
+
+              <span className="text-sm font-medium text-gray-700">
+                {keyword}
+              </span>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* ========================================================= */}
+{/* FINAL CONTENT */}
+{/* ========================================================= */}
+
+<section className="bg-white py-12 sm:py-16 lg:py-10">
+  <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+    <div className="grid items-stretch gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+      
+      {/* LEFT IMAGE */}
+      <div className="relative min-h-[280px] overflow-hidden rounded-[24px] sm:min-h-[380px] lg:min-h-0">
+        <Image
+          src="/landingpage/wedoall.webp"
+          alt="Big Beans Digital Creative Digital Growth Partner"
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 100vw, 45vw"
+        />
+      </div>
+
+      {/* RIGHT CONTENT */}
+      <div className="flex flex-col justify-center">
+        <p className="text-xs font-bold uppercase tracking-[5px] text-[#d89f00]">
+          Your Digital Growth Partner
+        </p>
+
+        <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
+          Your Creative Digital Growth Partner for London
+        </h2>
+
+        <div className="mt-6 space-y-5 text-base leading-relaxed text-gray-600">
+          <p>
+            If you are looking for a creative social media marketing agency in
+            London that understands the connection between creativity,
+            branding, technology and performance, Big Beans Digital can be your
+            digital growth partner.
+          </p>
+
+          <p>
+            From creating engaging social media content to building memorable
+            brands, developing professional websites and running targeted Google
+            Ads and Meta Ads campaigns, we help businesses create a connected
+            digital ecosystem.
+          </p>
+
+          <p>
+            We do not believe in random marketing activities. We believe in
+            understanding the business first, then understanding the audience,
+            creating the right strategy and bringing that strategy to life
+            through creativity, technology and performance marketing.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+      {/* ========================================================= */}
+      {/* GLOBAL PRESENCE - PROVIDED CODE */}
+      {/* ========================================================= */}
+
+      <section className="bg-[#FFFFFF] py-12 sm:py-16 lg:py-10">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className="
               bg-white
@@ -1493,9 +1458,7 @@ Big Beans Digital brings together creative thinking, data-driven insights and st
                 "
               >
                 Empowering Businesses Across{" "}
-                <span className="text-[#F8BC04]">
-                  12+
-                </span>
+                <span className="text-[#F8BC04]">12+</span>
                 <br />
                 Locations Currently
               </h2>
@@ -1512,107 +1475,67 @@ Big Beans Digital brings together creative thinking, data-driven insights and st
                   max-w-[650px]
                 "
               >
-                Big Beans Digital partners with startups, entrepreneurs,
-                and growing businesses across Kolkata, Delhi, Bangalore, Mumbai, Pune,
-                Noida, Tripura, London, Singapore, Canada, Australia, and Nigeria.
-                Our creative social media marketing, branding, and digital growth
-                strategies are designed to help businesses build a stronger online
-                presence, connect with their audience, and achieve sustainable
-                growth—wherever they operate.
+                Big Beans Digital partners with startups, entrepreneurs, and
+                growing businesses across London, Delhi, Bangalore, Mumbai,
+                Pune, Noida, Tripura, London, Singapore, Canada, Australia, and
+                Nigeria. Our creative social media marketing, branding, and
+                digital growth strategies are designed to help businesses build a
+                stronger online presence, connect with their audience, and
+                achieve sustainable growth—wherever they operate.
               </p>
 
-              <div className="grid grid-cols-2 gap-5 sm:gap-10 mt-8 sm:mt-12">
-
+              <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-10 mt-8 sm:mt-12">
                 <div className="sm:border-r sm:border-black/30 sm:pr-10">
-
                   <h3 className="font-semibold text-[18px] sm:text-[20px]">
                     In India
                   </h3>
 
-                  <div className="w-14 sm:w-20 h-[2px] bg-[#F8BC04] mt-2 mb-4 sm:mb-5"></div>
+                  <div className="w-14 sm:w-20 h-[2px] bg-[#F8BC04] mt-2 mb-4 sm:mb-5" />
 
                   <ul className="space-y-2 sm:space-y-3 text-[14px] sm:text-[15px] text-gray-700">
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Kolkata
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Delhi
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Bangalore
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Noida
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Tripura
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Mumbai
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Pune
-                    </li>
-
+                    {[
+                      "London",
+                      "Delhi",
+                      "Bangalore",
+                      "Noida",
+                      "Tripura",
+                      "Mumbai",
+                      "Pune",
+                    ].map((city) => (
+                      <li key={city} className="flex items-center gap-2">
+                        <span className="text-[#F8BC04]">●</span>
+                        {city}
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
                 <div>
-
                   <h3 className="font-semibold text-[18px] sm:text-[20px]">
                     International Presence
                   </h3>
 
-                  <div className="w-14 sm:w-20 h-[2px] bg-[#F8BC04] mt-2 mb-4 sm:mb-5"></div>
+                  <div className="w-14 sm:w-20 h-[2px] bg-[#F8BC04] mt-2 mb-4 sm:mb-5" />
 
                   <ul className="space-y-2 sm:space-y-3 text-[14px] sm:text-[15px] text-gray-700">
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      London
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Singapore
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Canada
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Australia
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Nigeria
-                    </li>
-
+                    {[
+                      "London",
+                      "Singapore",
+                      "Canada",
+                      "Australia",
+                      "Nigeria",
+                    ].map((country) => (
+                      <li key={country} className="flex items-center gap-2">
+                        <span className="text-[#F8BC04]">●</span>
+                        {country}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </div>
             </div>
 
             <div className="relative w-full mt-4 lg:mt-0">
-
               <Image
                 src="/maps/world-map.png"
                 alt="World Map"
@@ -1763,10 +1686,13 @@ Big Beans Digital brings together creative thinking, data-driven insights and st
         </div>
       </section>
 
+
+      
+
       {/* =========================================================
           FAQ SECTION
       ========================================================= */}
-      <section className="bg-[#FFFFFF] px-4 py-5 sm:px-6 sm:py-5 lg:px-8 lg:py-5 xl:px-10">
+      <section className="bg-[#FFFFFF] px-4 py-10 sm:px-6 sm:py-10 lg:px-8 lg:py-10 xl:px-10">
         <div className="mx-auto max-w-[1600px]">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -1840,124 +1766,91 @@ Big Beans Digital brings together creative thinking, data-driven insights and st
         </div>
       </section>
 
-      {/* =========================
-          CTA SECTION
-      ========================= */}
+      {/* ========================================================= */}
+      {/* FINAL CTA */}
+      {/* ========================================================= */}
 
-      <section className="relative overflow-hidden bg-[#FFFFFF] py-12 sm:py-16 lg:py-24">
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <div
-            className="
-              relative
-              overflow-hidden
-              max-w-7xl
-              mx-auto
-              rounded-[28px] sm:rounded-[40px]
-              bg-[#171717]
-              px-5 sm:px-8
-              py-10 sm:py-12
-              md:px-16 md:py-16
-            "
+      <section className="bg-white py-12 sm:py-16 lg:py-10">
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative overflow-hidden rounded-[24px] bg-black px-5 py-10 sm:rounded-[28px] sm:px-10 sm:py-14 lg:rounded-[32px] lg:px-20 lg:py-16"
           >
+            <div className="absolute right-[-25%] top-[-35%] h-[300px] w-[300px] sm:right-[-10%] sm:top-[-40%] sm:h-[450px] sm:w-[450px] rounded-full bg-[#F8BC04]/15 blur-3xl" />
 
-            <div
-              className="
-                absolute
-                right-0
-                top-0
-                h-48 w-48 sm:h-72 sm:w-72
-                rounded-full
-                bg-[#F8BC04]/20
-                blur-[100px] sm:blur-[120px]
-              "
-            />
+            <div className="relative z-10 max-w-3xl">
+              <p className="text-xs font-bold uppercase tracking-[5px] text-[#F8BC04]">
+                Ready When You Are
+              </p>
 
-            <div
-              className="
-                relative
-                z-10
-                flex
-                flex-col
-                items-center
-                justify-between
-                gap-8 sm:gap-10
-                lg:flex-row
-              "
-            >
+              <h2 className="mt-5 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+                Ready to Build a{" "}
+                <span className="text-[#F8BC04]">
+                  Stronger Digital Presence?
+                </span>
+              </h2>
 
-              <div className="w-full text-center lg:text-left">
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/65">
+                Your customers are online. Your competitors are creating content.
+                Your brand deserves a digital presence that is creative,
+                professional and strategically managed.
+              </p>
 
-                <h2
-                  className="
-                    max-w-3xl
-                    text-[30px] sm:text-[38px] md:text-[46px] lg:text-[52px]
-                    font-semibold
-                    leading-[1.1]
-                    text-white
-                  "
-                >
-                  Ready To Turn Clicks Into
-                  <span className="text-[#F8BC04]">
-                    {" "}Real Business Growth?
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                {[
+                  "Social Media Marketing",
+                  "Design & Branding",
+                  "Website Development",
+                  "Google Ads",
+                  "Meta Ads",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/75"
+                  >
+                    {item}
                   </span>
-                </h2>
-
-                <p
-                  className="
-                    mt-5 sm:mt-6
-                    max-w-2xl
-                    text-[15px] sm:text-[16px] lg:text-[18px]
-                    leading-7 sm:leading-8
-                    text-white/80
-                  "
-                >
-                  Partner with Big Beans Digital to launch
-                  data-driven digital marketing campaigns that
-                  generate quality leads, increase conversions
-                  and accelerate your business growth.
-                </p>
-
+                ))}
               </div>
 
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  y: -5,
-                  backgroundColor: "#FFD54A",
-                }}
-                whileTap={{
-                  scale: 0.95,
-                }}
-                className="
-                  rounded-full
-                  bg-[#F8BC04]
-                  w-full sm:w-auto
-                  px-7 sm:px-10
-                  py-4 sm:py-5
-                  text-base sm:text-lg
-                  font-bold
-                  text-[#171717]
-                  text-center
-                  shadow-[0_20px_50px_rgba(248,188,4,0.35)]
-                  transition-all
-                  duration-300
-                "
-              >
-                Book Free Strategy Call
-              </motion.button>
+              <h3 className="mt-9 text-2xl font-bold text-white sm:text-3xl">
+                Let&apos;s Create a Digital Strategy That Works for Your{" "}
+                <span className="text-[#F8BC04]">
+                  Brand.
+                </span>
+              </h3>
 
+              <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
+                <a
+                  href="/connect"
+                  className="group inline-flex min-h-[54px] items-center justify-center gap-3 rounded-full bg-[#F8BC04] px-7 text-sm font-bold text-black transition-all hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(248,188,4,0.3)]"
+                >
+                  Request a Call Back
+
+                  <ArrowRight
+                    size={18}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </a>
+
+                <a
+                  href="/connect"
+                  className="group inline-flex min-h-[54px] items-center justify-center gap-3 rounded-full border border-white/20 px-7 text-sm font-bold text-white transition-all hover:bg-white hover:text-black"
+                >
+                  Get a Free Consultation
+
+                  <ArrowRight
+                    size={18}
+                    className="transition-transform group-hover:translate-x-1"
+                  />
+                </a>
+              </div>
             </div>
-          </div>
-
-        </motion.div>
+          </motion.div>
+        </div>
       </section>
-
     </main>
   );
 }

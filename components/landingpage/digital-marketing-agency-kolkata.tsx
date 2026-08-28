@@ -243,8 +243,8 @@ export default function SocialMediaMarketingKolkata() {
                     className="relative z-10 lg:pb-2"
                   >
                     <div className="mb-4 flex items-center gap-2">
-                      <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#353535] sm:text-[10px]">
-                        Grow Your Brand, Build Meaningful Engagement & Turn Social Media into a Powerful Growth Channel
+                      <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#353535] sm:text-[20px]">
+                        Bild a Brand with us that is <span className="text-[#F8BC04]">IMPOSSIBLE TO IGNORE</span>
                       </span>
                     </div>
       
@@ -296,7 +296,7 @@ Whether you are a startup, local business, growing company or established organi
                   >
                     <div className="relative aspect-[1.3/1] min-h-[360px] overflow-hidden rounded-[26px] sm:min-h-[480px] lg:min-h-[520px] xl:min-h-[610px]">
                       <Image
-                        src="/citylandingpage/Kolkata/Kolkata.webp"
+                        src="/landingpage/hero.webp"
                         alt="Kolkata Digital Marketing Agency"
                         fill
                         priority
@@ -385,7 +385,7 @@ Whether you are a startup, local business, growing company or established organi
               {/* IMAGE - CHANGE THIS SRC TO YOUR FINAL IMAGE */}
               <div className="relative mt-5 h-[150px] overflow-hidden rounded-2xl sm:h-[180px] lg:h-[200px]">
                 <Image
-                  src="/images/digital-opportunity.jpg"
+                  src="/landingpage/notice.webp"
                   alt="Digital marketing opportunity"
                   fill
                   className="object-cover"
@@ -410,21 +410,21 @@ Whether you are a startup, local business, growing company or established organi
               </h3>
 
               <div className="mt-7 space-y-4">
-                {[
-                  "They are already visiting websites before making contact.",
-                  "They are already visiting websites before making contact.",
-                  "They are already visiting websites before making contact.",
-                ].map((item) => (
-                  <div
-                    key={item}
-                    className="flex items-center gap-3 border-b border-white/10 pb-4"
-                  >
-                    <span className="h-2 w-2 rounded-full bg-[#F8BC04]" />
+  {[
+    "They are already visiting websites before making contact.",
+    "They are already visiting websites before making contact.",
+    "They are already visiting websites before making contact.",
+  ].map((item, index) => (
+    <div
+      key={`${item}-${index}`}
+      className="flex items-center gap-3 border-b border-white/10 pb-4"
+    >
+      <span className="h-2 w-2 rounded-full bg-[#F8BC04]" />
 
-                    <p className="text-white/70">{item}</p>
-                  </div>
-                ))}
-              </div>
+      <p className="text-white/70">{item}</p>
+    </div>
+  ))}
+</div>
 
               <div className="mt-7 rounded-2xl bg-[#F8BC04] p-5 text-black">
                 <p className="text-sm text-black/60">The question is:</p>
@@ -453,7 +453,7 @@ Whether you are a startup, local business, growing company or established organi
               {/* IMAGE - CHANGE THIS SRC TO YOUR FINAL IMAGE */}
               <div className="relative mb-6 h-[180px] overflow-hidden rounded-2xl sm:h-[220px] lg:h-[250px]">
                 <Image
-                  src="/images/why-it-matters.jpg"
+                  src="/landingpage/question.webp"
                   alt="Why social media marketing matters"
                   fill
                   className="object-cover"
@@ -553,26 +553,28 @@ Whether you are a startup, local business, growing company or established organi
             </p>
 
             <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {[
-                "Social Media",
-                "Connected Strategy",
-                "Website",
-                "Connected Strategy",
-                "Clear Strategy",
-                "Strategic Execution",
-                "Connected Strategy",
-                "Business Objectives",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium transition-all hover:border-[#F8BC04]"
-                >
-                  <Check size={16} className="text-[#d89f00]" />
+  {[
+    "Social Media",
+    "Connected Strategy",
+    "Website",
+    "Connected Strategy",
+    "Clear Strategy",
+    "Strategic Execution",
+    "Connected Strategy",
+    "Business Objectives",
+  ].map((item, index) => (
+    <div
+      key={`${item}-${index}`}
+      className="flex items-center gap-2 rounded-xl border border-gray-200 bg-white px-4 py-3 text-sm font-medium transition-all hover:border-[#F8BC04]"
+    >
+      <Check size={16} className="text-[#d89f00]" />
 
-                  {item}
-                </div>
-              ))}
-            </div>
+      {item}
+    </div>
+  ))}
+</div>
+             
+            
           </motion.div>
         </div>
       </section>
@@ -634,7 +636,7 @@ Whether you are a startup, local business, growing company or established organi
         >
           <div className="relative h-[120px] overflow-hidden rounded-xl border border-white/10 sm:h-[150px]">
             <Image
-              src="/images/social-media-marketing.jpg"
+              src="/landingpage/socialmedia.webp"
               alt="Social Media Marketing"
               fill
               className="object-cover"
@@ -712,7 +714,7 @@ Whether you are a startup, local business, growing company or established organi
         >
           <div className="relative h-[120px] overflow-hidden rounded-xl border border-white/10 sm:h-[150px]">
             <Image
-              src="/images/design-branding.jpg"
+              src="/landingpage/branding.webp"
               alt="Design and Branding"
               fill
               className="object-cover"
@@ -791,7 +793,7 @@ Whether you are a startup, local business, growing company or established organi
         >
           <div className="relative h-[120px] overflow-hidden rounded-xl border border-white/10 sm:h-[150px]">
             <Image
-              src="/images/website-development.jpg"
+              src="/landingpage/website.webp"
               alt="Website Development"
               fill
               className="object-cover"
@@ -870,7 +872,7 @@ Whether you are a startup, local business, growing company or established organi
         >
           <div className="relative h-[120px] overflow-hidden rounded-xl border border-white/10 sm:h-[150px]">
             <Image
-              src="/images/performance-marketing.jpg"
+              src="/landingpage/marketing.webp"
               alt="Performance Marketing"
               fill
               className="object-cover"
@@ -1162,7 +1164,7 @@ Whether you are a startup, local business, growing company or established organi
       {/* IMAGE - CHANGE THIS SRC TO YOUR FINAL IMAGE */}
       <div className="relative mt-6 h-[200px] overflow-hidden rounded-2xl sm:h-[260px] lg:h-[280px]">
         <Image
-          src="/images/connected-digital-growth.jpg"
+          src="/landingpage/brand.webp"
           alt="Connected Digital Growth"
           fill
           className="object-cover"
@@ -1357,7 +1359,7 @@ Whether you are a startup, local business, growing company or established organi
       {/* LEFT IMAGE */}
       <div className="relative min-h-[280px] overflow-hidden rounded-[24px] sm:min-h-[380px] lg:min-h-0">
         <Image
-          src="/images/creative-digital-growth-partner.jpg"
+          src="/landingpage/wedoall.webp"
           alt="Big Beans Digital Creative Digital Growth Partner"
           fill
           className="object-cover"
