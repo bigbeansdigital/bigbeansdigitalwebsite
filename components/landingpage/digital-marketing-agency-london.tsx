@@ -35,42 +35,42 @@ const processSteps = [
     number: "01",
     title: "Research",
     description:
-      "Our team researches market opportunities, competitors, audience behaviour, content opportunities and digital positioning.",
+      "We begin by understanding your business, industry, target audience, competitors and existing digital presence. This helps us identify opportunities and develop a stronger direction for your digital growth.",
     icon: BarChart3,
   },
   {
     number: "02",
     title: "Strategy",
     description:
-      "We create a customised strategy covering social media planning, content strategy, branding direction, website planning and advertising.",
+      "We create a customised strategy based on your business objectives. This may include Social Media Marketing, content strategy, branding direction, website planning and performance marketing.",
     icon: Target,
   },
   {
     number: "03",
     title: "Create",
     description:
-      "Our creative team brings the strategy to life through social media content, brand designs, campaign creatives and digital experiences.",
+      "Our creative team brings the strategy to life through social media content, brand designs, campaign creatives, websites and advertising materials.",
     icon: Palette,
   },
   {
     number: "04",
     title: "Execute",
     description:
-      "We implement the agreed strategy through social media management, content publishing, website development, Google Ads and Meta Ads.",
+      "We implement the agreed strategy through relevant digital channels, including social media management, website development, Google Ads and Meta Ads.",
     icon: MousePointerClick,
   },
   {
     number: "05",
     title: "Monitor",
     description:
-      "We review relevant indicators including reach, engagement, website traffic, leads, campaign activity and conversion-related data.",
+      "We review relevant performance indicators, including reach, engagement, website traffic, leads, enquiries and campaign activity.",
     icon: LayoutDashboard,
   },
   {
     number: "06",
     title: "Optimise",
     description:
-      "We use insights to identify opportunities and improve future activity as digital marketing continuously evolves.",
+      "We use insights to identify opportunities and improve future activity as your digital marketing strategy continues to evolve.",
     icon: TrendingUp,
   },
 ];
@@ -114,56 +114,61 @@ const reasons = [
   {
     title: "Creative Thinking",
     description:
-      "We believe powerful creativity helps brands capture attention and become more memorable.",
+      "We believe powerful creativity can help businesses capture attention and create a stronger impression.",
     icon: Sparkles,
   },
   {
     title: "Strategy-Driven Approach",
     description:
-      "Our creative work is supported by clear business objectives.",
+      "Our creative work is supported by clear business objectives and an understanding of your target audience.",
     icon: Target,
   },
   {
     title: "Connected Digital Services",
     description:
-      "We combine social media marketing, design and branding, website development and performance marketing.",
+      "We combine Social Media Marketing, Design & Branding, Website Development and Performance Marketing.",
     icon: Globe2,
   },
   {
     title: "Customised Solutions",
     description:
-      "We understand that every business requires a different approach.",
+      "Every business is different. We develop strategies based on your industry, audience and growth objectives.",
     icon: Lightbulb,
   },
   {
     title: "Brand Consistency",
     description:
-      "We help businesses create more consistent communication across their digital channels.",
+      "We help businesses create more consistent communication across their important digital channels.",
     icon: CircleCheck,
   },
   {
     title: "Performance-Focused Advertising",
     description:
-      "Our Google Ads and Meta Ads strategies are developed around measurable campaign objectives.",
+      "Our Google Ads and Meta Ads strategies are developed around measurable campaign objectives and relevant audience targeting.",
     icon: TrendingUp,
   },
 ];
 
 const faqs = [
   {
-    question: "What does a social media marketing agency in London do?",
+    question: "What does a digital marketing agency in London do?",
     answer:
-      "A social media marketing agency helps businesses develop and manage their presence across relevant social media platforms. Services can include strategy, content planning, creative design, content creation, account management, campaign planning and performance monitoring.",
+      "A digital marketing agency in London helps businesses build and improve their online presence through services such as Social Media Marketing, Design & Branding, Website Development, Google Ads and Meta Ads. The right digital strategy depends on the business, audience and growth objectives.",
   },
   {
-    question: "Why should I hire a social media marketing agency for my London business?",
+    question: "Why should I hire a digital marketing agency for my London business?",
     answer:
-      "A professional agency can provide strategic expertise, creative resources and consistent management. This can help businesses build a more professional digital presence while allowing internal teams to focus on their core operations.",
+      "A professional digital marketing agency can provide creative expertise, strategic planning and specialised services to help businesses build visibility, connect with relevant audiences and create stronger opportunities for growth.",
   },
   {
-    question: "What social media marketing services does Big Beans Digital provide?",
+    question: "What services does Big Beans Digital provide?",
     answer:
-      "Big Beans Digital provides social media strategy, social media management, content planning, creative content, Instagram marketing, Facebook marketing, LinkedIn marketing and customised social media solutions.",
+      "Big Beans Digital provides Social Media Marketing, Design & Branding, Website Development and Performance Marketing, including Google Ads and Meta Ads.",
+  },
+  {
+    question: "How can Social Media Marketing help my business?",
+    answer:
+      "Social Media Marketing can help businesses build brand awareness, engage audiences, communicate with potential customers and remain visible across important digital platforms.",
   },
   {
     question: "Does Big Beans Digital provide branding services?",
@@ -173,42 +178,37 @@ const faqs = [
   {
     question: "Does Big Beans Digital provide website development services?",
     answer:
-      "Yes. We create business websites, corporate websites, landing pages and responsive digital experiences based on business requirements.",
+      "Yes. We create professional business websites, corporate websites, service websites and responsive landing pages based on business requirements and audience needs.",
   },
   {
-    question: "Do you provide Google Ads services?",
+    question: "Do you provide Google Ads services for London businesses?",
     answer:
-      "Yes. Big Beans Digital provides Google Ads services as part of our Performance Marketing solutions.",
+      "Yes. Big Beans Digital provides Google Ads services as part of our Performance Marketing solutions, helping businesses create targeted campaigns based on relevant business objectives.",
   },
   {
     question: "Do you provide Meta Ads services?",
     answer:
-      "Yes. We provide Meta Ads services, including advertising campaigns across Facebook and Instagram.",
+      "Yes. We provide Meta Ads services for Facebook and Instagram, including campaigns focused on brand awareness, website traffic, enquiries and lead generation.",
   },
   {
-    question: "How much do social media marketing services cost in London?",
+    question: "Can digital marketing help increase website traffic?",
     answer:
-      "The cost depends on your requirements, including the number of platforms, amount of content, creative requirements, campaign objectives and additional services. A customised proposal can be developed based on your business needs.",
+      "Yes. A well-planned combination of content, social media, website optimisation and targeted advertising can help businesses attract more relevant visitors to their website.",
   },
   {
-    question: "Which social media platform is best for my London business?",
+    question: "Can digital marketing help businesses get more customers?",
     answer:
-      "The best platform depends on your audience and objectives. Instagram may work well for visual brands, LinkedIn can support B2B communication, while Facebook can support broader communities and audience engagement.",
+      "Digital marketing can help businesses create more opportunities to reach potential customers, build trust and encourage enquiries. Results depend on factors such as the industry, target audience, competition and overall marketing strategy.",
   },
   {
-    question: "Can social media marketing help generate leads?",
+    question: "How much do digital marketing services cost in London?",
     answer:
-      "Yes. Social media marketing can support lead generation when combined with appropriate content, targeting, campaigns and a clear conversion journey.",
+      "The cost depends on the services required, business objectives, content requirements, campaign scope and advertising budget. A customised strategy can be developed based on your specific requirements.",
   },
   {
-    question: "How long does it take to see social media marketing results?",
+    question: "How long does it take to see results from digital marketing?",
     answer:
-      "Results depend on your industry, competition, objectives, existing digital presence and strategy. Organic growth generally requires consistency over time, while paid advertising can provide faster performance data.",
-  },
-  {
-    question: "Does Big Beans Digital work only with London businesses?",
-    answer:
-      "No. While we provide services for businesses targeting London, Big Beans Digital also works with businesses across the London, India and other markets.",
+      "Results depend on your business, industry, competition and objectives. Organic digital marketing generally requires consistency over time, while paid advertising can provide faster campaign data and measurable insights.",
   },
 ];
 
@@ -223,99 +223,154 @@ const fadeUp = {
   },
 };
 
-export default function SocialMediaMarketingLondon() {
+export default function SocialMediaMarketingKolkata() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <main className="min-w-0 overflow-x-hidden bg-white text-[#171717]">
+    <main className="w-full min-w-0 overflow-x-hidden bg-white text-[#171717]">
       
       
       {/* =========================================================
                 HERO SECTION
             ========================================================= */}
-            <section className="relative overflow-hidden bg-[#FFFFFF] px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14 xl:px-10">
-              <div className="mx-auto max-w-[1600px]">
-                <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.15fr] lg:gap-10 xl:gap-14">
-                  <motion.div
-                    initial={{ opacity: 0, x: -35 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="relative z-10 lg:pb-2"
-                  >
-                    <div className="mb-4 flex items-center gap-2">
-                      <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#353535] sm:text-[20px]">
-                        Bild a Brand with us that is <span className="text-[#F8BC04]">IMPOSSIBLE TO IGNORE</span>
-                      </span>
-                    </div>
-      
-      
-                    <h1 className="max-w-[700px] text-[42px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#171717] sm:text-[54px] md:text-[60px] lg:text-[64px] xl:text-[68px] 2xl:text-[72px]">
-          <span className="text-[#F8BC04]">Creative Social Media Marketing Agency</span>  in London
-      </h1>
-      
-                    <p className="mt-5 max-w-[560px] text-[15px] leading-[1.75] text-[#3F3F3F] sm:text-[16px] lg:mt-6 lg:text-[17px]">
-                     Big Beans Digital is a creative social media marketing agency in London helping businesses build strong digital identities, create engaging content and connect with the right audience.
+            <section className="relative overflow-hidden bg-[#FFFFFF] px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-14 xl:px-10">
+  <div className="mx-auto max-w-[1600px]">
 
-We combine creative thinking, strategic social media marketing, professional design and branding, website development and performance marketing to help businesses build a stronger presence in the digital world.
+    <div className="grid items-stretch gap-1 lg:grid-cols-[1.1fr_0.9fr] lg:gap-1 xl:gap-1">
 
-Whether you are a startup, local business, growing company or established organisation, our team creates customised digital strategies based on your business goals and target audience.
-                    </p>
-      
-                    <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8">
-                      <motion.a
-                        href="https://wa.link/nms9wi"
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="group inline-flex h-12 items-center gap-2 rounded-full bg-[#F8BC04] px-20 text-[17px] font-semibold text-[#171717] shadow-[0_8px_25px_rgba(248,188,4,0.2)] transition-all duration-300"
-                      >
-                        <span>Book Your Free Strategy Call</span>
-      
-                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#171717] text-white">
-                          <ArrowRight size={14} strokeWidth={2.5} />
-                        </span>
-                      </motion.a>
-      
-                      <motion.a
-        href="/"
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
-        className="group inline-flex h-12 items-center gap-2 rounded-full border border-[#D7D7D7] bg-white px-10 text-[11px] font-medium text-[#303030] transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
+      {/* LEFT CONTENT */}
+      <motion.div
+        initial={{ opacity: 0, x: -35 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="relative z-10 flex min-w-0 flex-col"
       >
-        <span>Know More About Us</span>
-      </motion.a>
-                    </div>
-      
-                    
-                  </motion.div>
-      
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.96, x: 35 }}
-                    animate={{ opacity: 1, scale: 1, x: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                    className="relative mx-auto w-full max-w-[850px] lg:max-w-none"
-                  >
-                    <div className="relative aspect-[1.3/1] min-h-[360px] overflow-hidden rounded-[26px] sm:min-h-[480px] lg:min-h-[520px] xl:min-h-[610px]">
-                      <Image
-                        src="/landingpage/hero.webp"
-                        alt="London Digital Marketing Agency"
-                        fill
-                        priority
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 58vw"
-                      />
-      
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/5" />
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-            </section>
+
+        {/* TOP TAGLINE */}
+        <div className="mb-4">
+          <span className="text-[10px] font-bold leading-relaxed tracking-[0.08em] text-[#353535] sm:text-[14px] lg:text-[18px]">
+            Build a Brand with us that is{" "}
+            <span className="text-[#F8BC04]">
+              IMPOSSIBLE TO IGNORE
+            </span>
+          </span>
+        </div>
+
+        {/* MAIN HEADING */}
+<h1 className="font-semibold leading-[1.15] tracking-[-0.035em] text-[#171717]">
+
+  {/* LINE 1 – BIGGER */}
+  <span className="mt-2 block text-[26px] text-[#F8BC04] sm:text-[38px] md:text-[42px] lg:text-[44px] xl:text-[48px]">
+    Creative Digital Marketing Agency
+  </span>
+
+  {/* LINE 2 – SMALLER */}
+  <span className="mt-2 block text-[21px] sm:text-[25px] md:text-[29px] lg:text-[31px] xl:text-[35px]">
+    in London for Businesses Ready to Grow
+  </span>
+
+</h1>
+
+        {/* DESCRIPTION */}
+        <p className="mt-5 max-w-[680px] text-[15px] leading-[1.75] text-[#3F3F3F] sm:text-[16px] lg:mt-6 lg:text-[17px]">
+          Big Beans Digital is a creative digital marketing agency in London
+          helping businesses, startups, entrepreneurs and growing brands build
+          stronger digital identities, attract the right audience and create
+          meaningful opportunities for growth.
+
+          <br />
+          <br />
+
+          We combine Social Media Marketing, Design & Branding, Website
+          Development and Performance Marketing through Google Ads and Meta Ads
+          to create connected digital strategies for businesses targeting London
+          and the wider UK market.
+
+          <br />
+          <br />
+
+          Whether you are a startup, small business, established company,
+          entrepreneur or growing brand, we help create a digital presence that
+          gets your business noticed by the people who matter.
+        </p>
+
+        {/* CTA BUTTONS */}
+        <div className="mt-7 flex flex-col items-stretch gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
+
+          {/* BUTTON 1 */}
+          <motion.a
+            href="https://wa.link/nms9wi"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#F8BC04] px-5 py-3 text-center text-[14px] font-semibold text-[#171717] shadow-[0_8px_25px_rgba(248,188,4,0.2)] transition-all duration-300 sm:w-auto sm:px-8 sm:text-[16px] lg:px-10 lg:text-[16px]"
+          >
+            <span>Book Your Free Strategy Call</span>
+
+            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#171717] text-white">
+              <ArrowRight size={14} strokeWidth={2.5} />
+            </span>
+          </motion.a>
+
+          {/* BUTTON 2 */}
+          <motion.a
+            href="/about"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-[#D7D7D7] bg-white px-5 py-3 text-center text-[13px] font-medium text-[#303030] transition-all duration-300 hover:border-black hover:bg-black hover:text-white sm:w-auto sm:px-8 sm:text-[14px]"
+          >
+            <span>Know More About Us</span>
+          </motion.a>
+
+        </div>
+
+      </motion.div>
+
+
+      {/* RIGHT IMAGE */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96, x: 35 }}
+        animate={{ opacity: 1, scale: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+        className="relative mx-auto flex w-full min-w-0 lg:h-full"
+      >
+
+        <div className="relative h-full min-h-[350px] w-full overflow-hidden rounded-[20px] sm:rounded-[24px] lg:rounded-[26px]">
+
+          <Image
+            src="/landingpage/hero.webp"
+            alt="Creative Digital Marketing Agency in London"
+            width={850}
+            height={1063}
+            priority
+            className="h-full w-full object-cover"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/5" />
+
+        </div>
+
+      </motion.div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+            
 
       {/* ========================================================= */}
       {/* DIGITAL OPPORTUNITY */}
       {/* ========================================================= */}
 
-      <section className="bg-white py-12 sm:py-16 lg:py-10">
+      <section className="bg-white py-1 sm:py-1 lg:py-1">
         <div className="mx-auto max-w-[1150px] px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeUp}
@@ -325,19 +380,22 @@ Whether you are a startup, local business, growing company or established organi
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <p className="text-xs font-bold uppercase tracking-[4px] text-[#d89f00]">
-              The Digital Opportunity
-            </p>
+                   
+<h2 className="mx-auto mt-4 max-w-6xl text-2xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+  <span className="block text-[#F8BC04]">
+    Your Potential Customers Are Already Online.
+  </span>
 
-            <h2 className="mx-auto mt-4 max-w-4xl text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-              Your London Audience Is Already Online. Is Your Brand Reaching Them?
-            </h2>
+  <span className="block">
+    Is Your Business Reaching Them?
+  </span>
+</h2>
 
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-gray-600 sm:text-lg">
-              Social media has changed the way people discover businesses,
-              explore products and services, compare brands and make purchasing
-              decisions.
-            </p>
+<p className="mx-auto mt-5 max-w-5xl text-sm leading-relaxed text-gray-600 sm:text-base lg:text-lg">
+  London is one of the world's most competitive and diverse business markets, where customers have more choices and more ways than ever to discover, research and interact with businesses online.
+</p>
+
+
           </motion.div>
 
           <div className="mt-10 grid gap-6 sm:gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
@@ -349,9 +407,7 @@ Whether you are a startup, local business, growing company or established organi
               className="lg:-translate-y-5"
             >
               <p className="text-lg leading-relaxed text-gray-600">
-                Today, customers do not always wait until they need something to
-                search for a business. Instead, they discover brands while
-                exploring content online.
+                Today, people do not always discover a business through traditional advertising or by visiting a physical location. They search online, explore social media, visit websites, compare businesses and look for brands that appear relevant, professional and trustworthy.
               </p>
 
               <div className="mt-7 grid gap-3 sm:grid-cols-2">
@@ -383,7 +439,7 @@ Whether you are a startup, local business, growing company or established organi
               </div>
 
               {/* IMAGE - CHANGE THIS SRC TO YOUR FINAL IMAGE */}
-              <div className="relative mt-5 h-[150px] overflow-hidden rounded-2xl sm:h-[180px] lg:h-[200px]">
+              <div className="relative mt-5 h-[150px] overflow-hidden rounded-2xl sm:h-[180px] lg:h-[450px]">
                 <Image
                   src="/landingpage/notice.webp"
                   alt="Digital marketing opportunity"
@@ -399,7 +455,7 @@ Whether you are a startup, local business, growing company or established organi
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="rounded-[28px] bg-black p-7 text-white sm:p-9"
+              className="rounded-[22px] bg-black p-5 text-white sm:rounded-[28px] sm:p-7 lg:p-9"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F8BC04]">
                 <Users className="text-black" size={27} />
@@ -411,9 +467,12 @@ Whether you are a startup, local business, growing company or established organi
 
               <div className="mt-7 space-y-4">
   {[
-    "They are already visiting websites before making contact.",
-    "They are already visiting websites before making contact.",
-    "They are already visiting websites before making contact.",
+    "They are already searching for products and services.",
+    "They are already comparing businesses.",
+    "They are already visiting websites before making decisions.",
+    "They are already discovering brands through social media.",
+    "They are already looking for businesses they can trust.",
+    "They are already making purchase decisions based on what they see online.",
   ].map((item, index) => (
     <div
       key={`${item}-${index}`}
@@ -442,8 +501,8 @@ Whether you are a startup, local business, growing company or established organi
       {/* WHY SOCIAL MEDIA */}
       {/* ========================================================= */}
 
-      <section className="bg-white py-12 sm:py-16 lg:py-10">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+      <section className="bg-white py-10 sm:py-14 lg:py-12">
+        <div className="mx-auto max-w-[1300px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.85fr_1.15fr]">
             <motion.div
               initial={{ opacity: 0, y: 25 }}
@@ -451,7 +510,7 @@ Whether you are a startup, local business, growing company or established organi
               viewport={{ once: true }}
             >
               {/* IMAGE - CHANGE THIS SRC TO YOUR FINAL IMAGE */}
-              <div className="relative mb-6 h-[180px] overflow-hidden rounded-2xl sm:h-[220px] lg:h-[250px]">
+              <div className="relative mb-6 h-[180px] overflow-hidden rounded-2xl sm:h-[220px] lg:h-[350px]">
                 <Image
                   src="/landingpage/question.webp"
                   alt="Why social media marketing matters"
@@ -461,31 +520,32 @@ Whether you are a startup, local business, growing company or established organi
                 />
               </div>
 
-              <p className="text-xs font-bold uppercase tracking-[4px] text-[#d89f00]">
+              <p className="text-xs font-bold uppercase tracking-[2px] sm:tracking-[4px] text-[#d89f00]">
                 Why It Matters
               </p>
 
-              <h2 className="relative z-10 mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-                Why Social Media Marketing Is Important for Businesses in London
+              <h2 className="relative z-10 mt-4 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
+                Why Digital Marketing for Businesses in London Is Important for Growth
               </h2>
 
               <p className="mt-5 leading-relaxed text-gray-600">
-                Social media is no longer only a communication platform. It has
-                become an important part of the modern business ecosystem.
+                Digital marketing has become an important part of how modern businesses build visibility, communicate with customers and create opportunities for growth. Today, your potential customers may interact with your business online before they ever call, visit your office or make a purchase.
               </p>
             </motion.div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               {[
-                "Who you are and what you offer.",
-                "What your brand represents.",
-                "Whether you look professional.",
-                "Whether your services are relevant to them.",
-                "What makes you different.",
-                "Whether they can trust your business.",
-                "Social media can increase brand awareness and audience engagement.",
-                "Creativity and consistency can make a significant difference.",
-              ].map((item, index) => (
+                 "Who you are and what your business offers.",
+                 "Whether your brand looks professional and trustworthy.",
+                 "What products or services you provide.",
+                 "Whether your business is easy to discover online.",
+                 "Whether your website clearly communicates your value.",
+                 "What makes your brand different from competitors.",
+                 "Whether customers can easily contact or enquire about your services.",
+                 "Social Media Marketing can help businesses improve visibility and audience engagement.",
+                 "A strong brand identity can help make your business more recognisable.",
+                 "Targeted digital advertising can help businesses reach relevant audiences.",
+               ].map((item, index) => (
                 <motion.div
                   key={item}
                   initial={{ opacity: 0, y: 20 }}
@@ -512,27 +572,26 @@ Whether you are a startup, local business, growing company or established organi
       {/* ABOUT */}
       {/* ========================================================= */}
 
-      <section className="bg-white py-12 sm:py-16 lg:py-10">
+      <section className="bg-white py-10 sm:py-14 lg:py-12">
         <div className="mx-auto grid max-w-[1200px] gap-6 px-4 sm:gap-8 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[30px] bg-[#F8BC04] p-8 sm:p-10"
+            className="relative overflow-hidden rounded-[24px] bg-[#F8BC04] p-5 sm:rounded-[30px] sm:p-8 lg:p-10"
           >
 
-            <p className="relative z-10 mt-9 text-xs font-bold uppercase tracking-[4px] text-black/60">
+            <p className="relative z-10 mt-9 text-xs font-bold uppercase tracking-[2px] sm:tracking-[4px] text-black/60">
               About Big Beans Digital
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
+            <h2 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
               Big Beans Digital 
-              <br></br>Your Creative Digital Marketing Partner for London
+              <br></br>Your Creative Digital Marketing Partner for Businesses in London
             </h2>
 
             <p className="relative z-10 mt-5 leading-relaxed text-black/70">
-              We help businesses build, communicate and grow their brands in the
-              digital world.
+              We help businesses, startups, entrepreneurs and growing brands build, communicate and grow in the digital world.
             </p>
           </motion.div>
 
@@ -542,14 +601,11 @@ Whether you are a startup, local business, growing company or established organi
             viewport={{ once: true }}
           >
             <p className="text-lg leading-relaxed text-gray-600">
-              We believe successful digital marketing requires more than simply
-              creating posts or running advertisements.
+              We believe successful digital marketing requires more than simply posting content or running advertisements.
             </p>
 
             <p className="mt-5 text-lg leading-relaxed text-gray-600">
-              A strong digital presence requires strategy, creativity,
-              consistency, strong branding, professional design, user-friendly
-              digital experiences, targeted advertising and performance analysis.
+              A strong digital presence requires strategy, creativity, consistency, powerful branding, professional design, user-focused websites, targeted advertising and continuous optimisation.
             </p>
 
             <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -584,29 +640,26 @@ Whether you are a startup, local business, growing company or established organi
 {/* OUR DIGITAL MARKETING SERVICES */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
   <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
     <div className="rounded-[28px] bg-[#050505] p-6 text-white sm:p-8 lg:p-10">
       
       {/* SECTION HEADER */}
       <div className="mb-8 flex flex-col gap-5 sm:mb-10 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[5px] text-[#F8BC04]">
+          <p className="text-xs font-bold uppercase tracking-[3px] sm:tracking-[5px] text-[#F8BC04]">
             What We Do
           </p>
 
-          <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
+          <h2 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl lg:text-3xl">
             Our{" "}
             <span className="text-[#F8BC04]">
-              Digital Marketing
-            </span>{" "}
-            Services
+              Digital Marketing Services for Businesses in London
+            </span>
           </h2>
 
           <p className="mt-3 max-w-[650px] text-sm leading-relaxed text-white/60">
-            Big Beans Digital provides a complete range of creative and
-            performance-focused digital services designed around your business
-            goals.
+            Big Beans Digital provides creative and performance-focused digital services for businesses, startups and growing brands looking to build a stronger online presence and connect with relevant audiences.
           </p>
         </div>
 
@@ -666,12 +719,10 @@ Whether you are a startup, local business, growing company or established organi
           </p>
 
           <p className="mt-4 text-sm leading-relaxed text-white/60">
-            We create social media strategies and content designed to help
-            London businesses build visibility, engagement and stronger
-            audience connections.
+            We create social media marketing strategies for businesses designed to help brands build visibility, communicate with their audience and create engaging digital experiences across relevant social media platforms.
           </p>
 
-          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+          <div className="mt-5 grid grid-cols-1 gap-x-4 gap-y-3 text-xs text-white/60 sm:grid-cols-2">
             <div className="flex items-center gap-2">
               <Check size={12} className="text-[#F8BC04]" />
               Social Media Strategy
@@ -746,11 +797,10 @@ Whether you are a startup, local business, growing company or established organi
           </p>
 
           <p className="mt-4 text-sm leading-relaxed text-white/60">
-            We develop creative visual identities and communication that help
-            businesses become more recognisable and consistent.
+            Your brand is often one of the first things potential customers notice about your business. We create professional and creative visual identities designed to help businesses become more recognisable, consistent and memorable.
           </p>
 
-          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+          <div className="mt-5 grid grid-cols-1 gap-x-4 gap-y-3 text-xs text-white/60 sm:grid-cols-2">
             <div className="flex items-center gap-2">
               <Check size={12} className="text-[#F8BC04]" />
               Brand Identity
@@ -825,11 +875,10 @@ Whether you are a startup, local business, growing company or established organi
           </p>
 
           <p className="mt-4 text-sm leading-relaxed text-white/60">
-            We create professional, responsive and user-focused digital
-            experiences that represent your business and support growth.
+            Your website can become one of the most important digital touchpoints for your customers. We create professional, responsive and user-focused website development solutions designed to represent your business, communicate your services and create a better digital experience for visitors.
           </p>
 
-          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+          <div className="mt-5 grid grid-cols-1 gap-x-4 gap-y-3 text-xs text-white/60 sm:grid-cols-2">
             <div className="flex items-center gap-2">
               <Check size={12} className="text-[#F8BC04]" />
               Business Websites
@@ -902,11 +951,10 @@ Whether you are a startup, local business, growing company or established organi
           </p>
 
           <p className="mt-4 text-sm leading-relaxed text-white/60">
-            Paid advertising can help businesses reach targeted audiences more
-            quickly and support measurable campaign growth.
+            Paid advertising can help businesses reach targeted audiences and create more opportunities for website traffic, enquiries and customer acquisition. Our Google Ads and Meta Ads services for London businesses are developed around your target audience, business objectives and campaign requirements.
           </p>
 
-          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+          <div className="mt-5 grid grid-cols-1 gap-x-4 gap-y-3 text-xs text-white/60 sm:grid-cols-2">
             <div className="flex items-center gap-2">
               <Check size={12} className="text-[#F8BC04]" />
               Google Ads
@@ -954,28 +1002,24 @@ Whether you are a startup, local business, growing company or established organi
 {/* OUR PROCESS */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
   <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-10">
-    <div className="mx-auto max-w-3xl text-center">
-      <p className="text-xs font-bold uppercase tracking-[5px] text-[#d89f00]">
-        Our Process
-      </p>
+    <div className="mx-auto max-w-5xl text-center">
+  <h2 className="mt-4 whitespace-nowrap text-2xl font-bold leading-tight sm:text-3xl lg:text-5xl">
+    How Big Beans Digital{" "}
+    <span className="text-[#F8BC04]">
+      Works With Your Business
+    </span>
+  </h2>
 
-      <h2 className="mt-4 text-4xl font-bold sm:text-5xl">
-        How Big Beans Digital{" "}
-        <span className="text-[#F8BC04]">
-          Works With Your Brand
-        </span>
-      </h2>
+  <p className="mx-auto mt-5 max-w-3xl text-center text-lg leading-relaxed text-gray-600">
+  Successful digital marketing for businesses starts with understanding the brand, the audience and the objectives.
+  <br />
+  Our process ensures that strategy, creativity and execution work together.
+</p>
+</div>
 
-      <p className="mt-5 text-lg leading-relaxed text-gray-600">
-        Successful digital marketing starts with understanding the business.
-        Our process ensures that strategy, creativity and execution work
-        together.
-      </p>
-    </div>
-
-    <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-6">
+    <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-6">
       {processSteps.map((step, index) => {
         const Icon = step.icon;
 
@@ -1017,16 +1061,17 @@ Whether you are a startup, local business, growing company or established organi
       {/* INDUSTRIES */}
       {/* ========================================================= */}
 
-      <section className="bg-white py-12 sm:py-16 lg:py-10">
+      <section className="bg-white py-10 sm:py-14 lg:py-12">
         <div className="mx-auto max-w-[1300px] px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div className="max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[5px] text-[#d89f00]">
+              <p className="text-xs font-bold uppercase tracking-[3px] sm:tracking-[5px] text-[#d89f00]">
                 Diverse Experience
               </p>
 
-              <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+              <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
                 Industries We Have{" "}
+                <br></br>
                 <span className="text-[#F8BC04]">
                   Worked With
                 </span>
@@ -1072,28 +1117,27 @@ Whether you are a startup, local business, growing company or established organi
 {/* WHY CHOOSE US */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
   <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-10">
     <div className="rounded-[24px] bg-black p-5 text-white sm:rounded-[28px] sm:p-8 lg:rounded-[32px] lg:p-10 xl:p-12">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-xs font-bold uppercase tracking-[5px] text-[#F8BC04]">
+        <p className="text-xs font-bold uppercase tracking-[3px] sm:tracking-[5px] text-[#F8BC04]">
           Why Choose Us
         </p>
 
-        <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+        <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
           Why Choose Big Beans Digital as Your{" "}
           <span className="text-[#F8BC04]">
-            Creative Agency for London?
+            Digital Marketing Agency for London Businesses?
           </span>
         </h2>
 
         <p className="mt-5 text-lg leading-relaxed text-white/60">
-          Choosing the right agency means choosing a team that understands
-          both creativity and business objectives.
+          Choosing the right agency means choosing a creative partner that understands both audience attention and business objectives.
         </p>
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-3 lg:gap-5 xl:grid-cols-6">
+      <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:gap-5 xl:grid-cols-6">
         {reasons.map((reason, index) => {
           const Icon = reason.icon;
 
@@ -1132,7 +1176,7 @@ Whether you are a startup, local business, growing company or established organi
 {/* ONE CREATIVE PARTNER */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
   <div className="mx-auto grid max-w-[1200px] gap-6 px-4 sm:gap-8 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
     
     {/* LEFT CONTENT */}
@@ -1143,7 +1187,7 @@ Whether you are a startup, local business, growing company or established organi
       className="lg:-translate-y-5"
     >
       
-      <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+      <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
         One Creative Partner for Your{" "}
         <span className="text-[#F8BC04]">
           Digital Growth
@@ -1151,18 +1195,15 @@ Whether you are a startup, local business, growing company or established organi
       </h2>
 
       <p className="mt-6 leading-relaxed text-gray-600">
-        Many businesses work with separate vendors for social media, design,
-        branding, websites, Google Ads and Meta Ads. This can sometimes result
-        in inconsistent communication.
+        Many businesses work with separate agencies or vendors for social media, branding, website development and paid advertising. This can sometimes result in inconsistent communication and disconnected digital experiences.
       </p>
 
       <p className="mt-5 leading-relaxed text-gray-600">
-        Big Beans Digital brings multiple creative and digital services together
-        to help your digital ecosystem work in a more connected way.
+        Big Beans Digital brings multiple creative and digital services together to help your business create a more connected digital ecosystem.
       </p>
 
       {/* IMAGE - CHANGE THIS SRC TO YOUR FINAL IMAGE */}
-      <div className="relative mt-6 h-[200px] overflow-hidden rounded-2xl sm:h-[260px] lg:h-[280px]">
+      <div className="relative mt-6 h-[180px] overflow-hidden rounded-2xl sm:h-[240px] lg:h-[280px]">
         <Image
           src="/landingpage/brand.webp"
           alt="Connected Digital Growth"
@@ -1178,7 +1219,7 @@ Whether you are a startup, local business, growing company or established organi
       initial={{ opacity: 0, x: 25 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
-      className="rounded-[30px] border border-gray-200 bg-white p-5 sm:p-8"
+      className="rounded-[22px] border border-gray-200 bg-white p-4 sm:rounded-[30px] sm:p-8"
     >
       <div className="space-y-4">
 
@@ -1198,7 +1239,7 @@ Whether you are a startup, local business, growing company or established organi
             </h3>
 
             <p className="mt-2 text-sm leading-relaxed text-gray-500">
-              Make Sure that your brand is visible where your customers are there
+              Make sure your business is visible where potential customers are discovering and exploring brands.
             </p>
           </div>
 
@@ -1223,7 +1264,7 @@ Whether you are a startup, local business, growing company or established organi
             </h3>
 
             <p className="mt-2 text-sm leading-relaxed text-gray-500">
-              Make Sure that your business looks like a Brand
+              Create a professional and recognisable identity that helps people remember your business.
             </p>
           </div>
 
@@ -1244,11 +1285,11 @@ Whether you are a startup, local business, growing company or established organi
         >
           <div className="min-w-0">
             <h3 className="text-lg font-bold text-[#171717]">
-              Digital Precence
+              Digital Presence
             </h3>
 
             <p className="mt-2 text-sm leading-relaxed text-gray-500">
-              Bring your customers where they can connect and take your service
+              Create a website and digital experience where customers can understand your business, explore your services and connect with you.
             </p>
           </div>
 
@@ -1273,7 +1314,7 @@ Whether you are a startup, local business, growing company or established organi
             </h3>
 
             <p className="mt-2 text-sm leading-relaxed text-gray-500">
-              Growing your business and reaching more and more audiance
+              Reach more relevant audiences through targeted Google Ads and Meta Ads campaigns designed around your business objectives.
             </p>
           </div>
 
@@ -1293,7 +1334,7 @@ Whether you are a startup, local business, growing company or established organi
 {/* LOCAL SEO */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
   <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
     <div className="rounded-[24px] border border-[#F8BC04] bg-[#F8BC04] p-5 sm:rounded-[28px] sm:p-8 lg:rounded-[32px] lg:p-10">
       <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
@@ -1302,31 +1343,30 @@ Whether you are a startup, local business, growing company or established organi
           
 
           <h2 className="mt-4 text-3xl font-bold leading-tight text-[#171717] sm:text-4xl">
-            Looking for a Creative Social Media Marketing Agency in{" "}
+            Looking for a Creative Digital Marketing Agency in{" "}
             <span className="text-white">
               London?
             </span>
           </h2>
 
           <p className="mt-5 leading-relaxed text-[#171717]/75">
-            We create customised digital solutions based on your business,
-            audience and growth objectives.
+            Big Beans Digital creates customised digital strategies for businesses, startups, entrepreneurs and growing brands looking to improve their online visibility and connect with relevant audiences in London. Whether you are looking to build a stronger brand, improve your social media presence, develop a professional website or run targeted advertising campaigns, our services are designed around your business objectives and target audience.
           </p>
         </div>
 
         <div className="grid gap-3 sm:grid-cols-2">
           {[
-            "Creative Social Media Marketing Agency in London",
-            "Social Media Marketing Agency London",
-            "Social Media Management Services London",
-            "Creative Agency London",
-            "Branding Agency London",
-            "Website Development Company London",
-            "Google Ads Agency London",
-            "Meta Ads Agency London",
-            "Performance Marketing Agency London",
-            "Digital Marketing Services London",
-          ].map((keyword) => (
+             "Digital Marketing Agency London",
+             "Creative Digital Marketing Agency London",
+             "Social Media Marketing Agency London",
+             "Creative Agency London",
+             "Branding Agency London",
+             "Website Development Company London",
+             "Google Ads Agency London",
+             "Meta Ads Agency London",
+             "Performance Marketing Agency London",
+             "Digital Marketing Services London",
+           ].map((keyword) => (
             <div
               key={keyword}
               className="flex items-center gap-3 rounded-xl border border-black/10 bg-white/90 p-4 transition-all hover:bg-white"
@@ -1352,12 +1392,12 @@ Whether you are a startup, local business, growing company or established organi
 {/* FINAL CONTENT */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
-  <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
+  <div className="mx-auto max-w-[1300px] px-4 sm:px-6 lg:px-8">
     <div className="grid items-stretch gap-8 lg:grid-cols-[0.9fr_1.1fr]">
       
       {/* LEFT IMAGE */}
-      <div className="relative min-h-[280px] overflow-hidden rounded-[24px] sm:min-h-[380px] lg:min-h-0">
+      <div className="relative min-h-[240px] overflow-hidden rounded-[20px] sm:min-h-[320px] sm:rounded-[24px] lg:min-h-0">
         <Image
           src="/landingpage/wedoall.webp"
           alt="Big Beans Digital Creative Digital Growth Partner"
@@ -1369,34 +1409,23 @@ Whether you are a startup, local business, growing company or established organi
 
       {/* RIGHT CONTENT */}
       <div className="flex flex-col justify-center">
-        <p className="text-xs font-bold uppercase tracking-[5px] text-[#d89f00]">
-          Your Digital Growth Partner
-        </p>
+        
 
-        <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-          Your Creative Digital Growth Partner for London
+        <h2 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
+          Your Creative Digital Growth Partner for Businesses in London
         </h2>
 
         <div className="mt-6 space-y-5 text-base leading-relaxed text-gray-600">
           <p>
-            If you are looking for a creative social media marketing agency in
-            London that understands the connection between creativity,
-            branding, technology and performance, Big Beans Digital can be your
-            digital growth partner.
+            If you are looking for a creative digital marketing agency in London that understands the connection between creativity, branding, technology and performance, Big Beans Digital can be your digital growth partner.
           </p>
 
           <p>
-            From creating engaging social media content to building memorable
-            brands, developing professional websites and running targeted Google
-            Ads and Meta Ads campaigns, we help businesses create a connected
-            digital ecosystem.
+            From creating engaging social media content and memorable brand identities to developing professional websites and running targeted Google Ads and Meta Ads campaigns, we help businesses create a stronger and more connected digital presence.
           </p>
 
           <p>
-            We do not believe in random marketing activities. We believe in
-            understanding the business first, then understanding the audience,
-            creating the right strategy and bringing that strategy to life
-            through creativity, technology and performance marketing.
+            We do not believe in random marketing activities. We believe in understanding your business first, then understanding your audience, identifying opportunities, creating a clear strategy and bringing that strategy to life through creativity, technology and performance marketing. Whether your objective is to improve brand visibility, attract more website traffic, connect with relevant audiences or create more opportunities for business growth, your digital strategy should be designed around the people you want to reach.
           </p>
         </div>
       </div>
@@ -1410,7 +1439,7 @@ Whether you are a startup, local business, growing company or established organi
       {/* GLOBAL PRESENCE - PROVIDED CODE */}
       {/* ========================================================= */}
 
-      <section className="bg-[#FFFFFF] py-12 sm:py-16 lg:py-10">
+      <section className="bg-[#FFFFFF] py-10 sm:py-14 lg:py-12">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className="
@@ -1433,7 +1462,7 @@ Whether you are a startup, local business, growing company or established organi
               <p
                 className="
                   uppercase
-                  tracking-[4px]
+                  tracking-[2px] sm:tracking-[4px]
                   sm:tracking-[6px]
                   text-[10px]
                   sm:text-[11px]
@@ -1458,9 +1487,8 @@ Whether you are a startup, local business, growing company or established organi
                 "
               >
                 Empowering Businesses Across{" "}
-                <span className="text-[#F8BC04]">12+</span>
-                <br />
-                Locations Currently
+                <span className="text-[#F8BC04]">12+            
+                Locations Currently </span>
               </h2>
 
               <p
@@ -1476,8 +1504,8 @@ Whether you are a startup, local business, growing company or established organi
                 "
               >
                 Big Beans Digital partners with startups, entrepreneurs, and
-                growing businesses across London, Delhi, Bangalore, Mumbai,
-                Pune, Noida, Tripura, London, Singapore, Canada, Australia, and
+                growing businesses across Kolkata, Delhi, Bangalore, Mumbai,
+                Pune, Noida, Tripura, Kolkata, Singapore, Canada, Australia, and
                 Nigeria. Our creative social media marketing, branding, and
                 digital growth strategies are designed to help businesses build a
                 stronger online presence, connect with their audience, and
@@ -1494,7 +1522,7 @@ Whether you are a startup, local business, growing company or established organi
 
                   <ul className="space-y-2 sm:space-y-3 text-[14px] sm:text-[15px] text-gray-700">
                     {[
-                      "London",
+                      "Kolkata",
                       "Delhi",
                       "Bangalore",
                       "Noida",
@@ -1702,13 +1730,13 @@ Whether you are a startup, local business, growing company or established organi
             className="relative mx-auto max-w-[1100px] text-center"
           >
             
-            <h2 className="relative text-[30px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#292929] sm:text-[38px] md:text-[46px] lg:text-[52px]">
+            <h2 className="relative text-[28px] font-semibold leading-[1.1] tracking-[-0.035em] text-[#292929] sm:text-[36px] md:text-[44px] lg:text-[52px]">
               Frequently Asked{" "}
               <span className="text-[#F8BC04]">Questions</span>
             </h2>
           </motion.div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:mt-16 lg:gap-x-5 lg:gap-y-5">
+          <div className="mt-8 grid gap-4 md:mt-12 md:grid-cols-2 lg:mt-16 lg:gap-x-5 lg:gap-y-5">
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index;
 
@@ -1729,13 +1757,13 @@ Whether you are a startup, local business, growing company or established organi
                     onClick={() =>
                       setOpenFaq(isOpen ? null : index)
                     }
-                    className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left sm:px-7 sm:py-7"
+                    className="flex w-full items-start justify-between gap-3 px-4 py-5 text-left sm:items-center sm:gap-6 sm:px-7 sm:py-7"
                   >
-                    <span className="text-[17px] font-semibold leading-[1.5] text-[#26313F] sm:text-[17px]">
+                    <span className="text-[15px] font-semibold leading-[1.5] text-[#26313F] sm:text-[17px]">
                       {faq.question}
                     </span>
 
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#202428] text-white">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center sm:h-11 sm:w-11 rounded-full bg-[#202428] text-white">
                       {isOpen ? (
                         <Minus size={20} strokeWidth={2.4} />
                       ) : (
@@ -1753,7 +1781,7 @@ Whether you are a startup, local business, growing company or established organi
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="border-t border-[#E8E8E8] px-6 pb-7 pt-5 sm:px-7">
+                    <div className="border-t border-[#E8E8E8] px-4 pb-6 pt-4 sm:px-7 sm:pb-7 sm:pt-5">
                       <p className="text-[15px] leading-[1.75] text-[#626D7A] sm:text-[16px]">
                         {faq.answer}
                       </p>
@@ -1769,88 +1797,111 @@ Whether you are a startup, local business, growing company or established organi
       {/* ========================================================= */}
       {/* FINAL CTA */}
       {/* ========================================================= */}
+<section className="bg-white py-10 sm:py-14 lg:py-12">
+  <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="relative overflow-hidden rounded-[24px] bg-black px-5 py-8 sm:rounded-[28px] sm:px-10 sm:py-10 lg:rounded-[32px] lg:px-20 lg:py-12"
+    >
+      <div className="absolute right-[-25%] top-[-35%] h-[300px] w-[300px] rounded-full bg-[#F8BC04]/15 blur-3xl sm:right-[-10%] sm:top-[-40%] sm:h-[450px] sm:w-[450px]" />
 
-      <section className="bg-white py-12 sm:py-16 lg:py-10">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[24px] bg-black px-5 py-10 sm:rounded-[28px] sm:px-10 sm:py-14 lg:rounded-[32px] lg:px-20 lg:py-16"
-          >
-            <div className="absolute right-[-25%] top-[-35%] h-[300px] w-[300px] sm:right-[-10%] sm:top-[-40%] sm:h-[450px] sm:w-[450px] rounded-full bg-[#F8BC04]/15 blur-3xl" />
+      <div className="relative z-10 max-w-4xl">
+        <p className="text-xs font-bold uppercase tracking-[3px] text-[#F8BC04] sm:tracking-[5px]">
+          Ready When You Are
+        </p>
 
-            <div className="relative z-10 max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[5px] text-[#F8BC04]">
-                Ready When You Are
-              </p>
+        <h2 className="mt-4 whitespace-nowrap text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl xl:text-5xl">
+  Ready to Build a{" "}
+  <span className="text-[#F8BC04]">
+    Stronger Digital Presence?
+  </span>
+</h2>
 
-              <h2 className="mt-5 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-                Ready to Build a{" "}
-                <span className="text-[#F8BC04]">
-                  Stronger Digital Presence?
-                </span>
-              </h2>
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/65">
+          Your potential customers are online. Your competitors are creating content. Your business deserves a digital presence that is creative, professional and strategically managed. Whether you want to strengthen your brand, improve your social media presence, build a professional website or reach more relevant audiences through Google Ads and Meta Ads, BIGBEANS DIGITAL is ready to help you take the next step.
+        </p>
 
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/65">
-                Your customers are online. Your competitors are creating content.
-                Your brand deserves a digital presence that is creative,
-                professional and strategically managed.
-              </p>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                {[
-                  "Social Media Marketing",
-                  "Design & Branding",
-                  "Website Development",
-                  "Google Ads",
-                  "Meta Ads",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/75"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <h3 className="mt-9 text-2xl font-bold text-white sm:text-3xl">
-                Let&apos;s Create a Digital Strategy That Works for Your{" "}
-                <span className="text-[#F8BC04]">
-                  Brand.
-                </span>
-              </h3>
-
-              <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
-                <a
-                  href="/connect"
-                  className="group inline-flex min-h-[54px] items-center justify-center gap-3 rounded-full bg-[#F8BC04] px-7 text-sm font-bold text-black transition-all hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(248,188,4,0.3)]"
-                >
-                  Request a Call Back
-
-                  <ArrowRight
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </a>
-
-                <a
-                  href="/connect"
-                  className="group inline-flex min-h-[54px] items-center justify-center gap-3 rounded-full border border-white/20 px-7 text-sm font-bold text-white transition-all hover:bg-white hover:text-black"
-                >
-                  Get a Free Consultation
-
-                  <ArrowRight
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </a>
-              </div>
-            </div>
-          </motion.div>
+        <div className="mt-7 flex flex-wrap gap-3">
+          {[
+            {
+              name: "Social Media Marketing",
+              link: "https://www.bigbeansdigital.com/services/social-media-marketing",
+            },
+            {
+              name: "Design & Branding",
+              link: "https://www.bigbeansdigital.com/services/branding",
+            },
+            {
+              name: "Website Development",
+              link: "https://www.bigbeansdigital.com/services/website-development",
+            },
+            {
+              name: "Google Ads",
+              link: "https://www.bigbeansdigital.com/services/google-ads-meta-ads",
+            },
+            {
+              name: "Meta Ads",
+              link: "https://www.bigbeansdigital.com/services/google-ads-meta-ads",
+            },
+          ].map((item) => (
+            <a
+              key={item.name}
+              href={item.link}
+              className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/75 transition-all hover:border-[#F8BC04] hover:bg-[#F8BC04] hover:text-black"
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
-      </section>
+
+        <h3 className="mt-7 text-2xl font-bold text-white sm:text-3xl">
+          Let&apos;s Create a Digital Strategy That Works for Your{" "}
+          <span className="text-[#F8BC04]">Brand.</span>
+        </h3>
+
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-4">
+          <a
+            href="https://www.bigbeansdigital.com/about"
+            className="group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[#F8BC04] px-7 text-sm font-bold text-black transition-all hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(248,188,4,0.3)]"
+          >
+            About BIGBEANS
+
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
+            />
+          </a>
+
+          <a
+            href="https://www.bigbeansdigital.com/blog"
+            className="group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full border border-white/20 px-7 text-sm font-bold text-white transition-all hover:bg-white hover:text-black"
+          >
+            Read Our Blogs
+
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
+            />
+          </a>
+          <a
+            href="https://api.whatsapp.com/send?phone=916289102537&text=Hello%20Big%20Beans%20%0AWould%20like%20to%20Book%20Your%20Free%20Strategy%20Call!"
+            className="group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[#F8BC04] px-7 text-sm font-bold text-black transition-all hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(248,188,4,0.3)]"
+          >
+            Connect With Us
+
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
+            />
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</section>
+      
     </main>
   );
 }

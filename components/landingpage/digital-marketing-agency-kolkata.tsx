@@ -227,13 +227,13 @@ export default function SocialMediaMarketingKolkata() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <main className="min-w-0 overflow-x-hidden bg-white text-[#171717]">
+    <main className="w-full min-w-0 overflow-x-hidden bg-white text-[#171717]">
       
       
       {/* =========================================================
                 HERO SECTION
             ========================================================= */}
-            <section className="relative overflow-hidden bg-[#FFFFFF] px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14 xl:px-10">
+            <section className="relative overflow-hidden bg-[#FFFFFF] px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-14 xl:px-10">
               <div className="mx-auto max-w-[1600px]">
                 <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.15fr] lg:gap-10 xl:gap-14">
                   <motion.div
@@ -243,13 +243,13 @@ export default function SocialMediaMarketingKolkata() {
                     className="relative z-10 lg:pb-2"
                   >
                     <div className="mb-4 flex items-center gap-2">
-                      <span className="text-[11px] font-bold uppercase tracking-[0.1em] text-[#353535] sm:text-[20px]">
+                      <span className="text-[10px] font-bold uppercase leading-relaxed tracking-[0.08em] text-[#353535] sm:text-[14px] lg:text-[18px]">
                         Bild a Brand with us that is <span className="text-[#F8BC04]">IMPOSSIBLE TO IGNORE</span>
                       </span>
                     </div>
       
       
-                    <h1 className="max-w-[700px] text-[42px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#171717] sm:text-[54px] md:text-[60px] lg:text-[64px] xl:text-[68px] 2xl:text-[72px]">
+                    <h1 className="max-w-[700px] text-[32px] font-semibold leading-[1.1] tracking-[-0.035em] text-[#171717] xs:text-[36px] sm:text-[46px] md:text-[52px] lg:text-[58px] xl:text-[64px] 2xl:text-[68px]">
           <span className="text-[#F8BC04]">Creative Social Media Marketing Agency</span>  in Kolkata
       </h1>
       
@@ -261,12 +261,12 @@ We combine creative thinking, strategic social media marketing, professional des
 Whether you are a startup, local business, growing company or established organisation, our team creates customised digital strategies based on your business goals and target audience.
                     </p>
       
-                    <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8">
+                    <div className="mt-7 flex flex-col items-stretch gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
                       <motion.a
                         href="https://wa.link/nms9wi"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.98 }}
-                        className="group inline-flex h-12 items-center gap-2 rounded-full bg-[#F8BC04] px-20 text-[17px] font-semibold text-[#171717] shadow-[0_8px_25px_rgba(248,188,4,0.2)] transition-all duration-300"
+                        className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-[#F8BC04] px-5 py-3 text-center text-[14px] sm:w-auto sm:px-8 sm:text-[16px] lg:px-12 lg:text-[17px] font-semibold text-[#171717] shadow-[0_8px_25px_rgba(248,188,4,0.2)] transition-all duration-300"
                       >
                         <span>Book Your Free Strategy Call</span>
       
@@ -279,7 +279,7 @@ Whether you are a startup, local business, growing company or established organi
         href="/"
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.98 }}
-        className="group inline-flex h-12 items-center gap-2 rounded-full border border-[#D7D7D7] bg-white px-10 text-[11px] font-medium text-[#303030] transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
+        className="group inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-[#D7D7D7] bg-white px-5 py-3 text-center text-[13px] sm:w-auto sm:px-8 sm:text-[14px] font-medium text-[#303030] transition-all duration-300 hover:border-black hover:bg-black hover:text-white"
       >
         <span>Know More About Us</span>
       </motion.a>
@@ -292,16 +292,17 @@ Whether you are a startup, local business, growing company or established organi
                     initial={{ opacity: 0, scale: 0.96, x: 35 }}
                     animate={{ opacity: 1, scale: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-                    className="relative mx-auto w-full max-w-[850px] lg:max-w-none"
+                    className="relative mx-auto w-full max-w-[850px] lg:max-w-[620px] xl:max-w-[700px]"
                   >
-                    <div className="relative aspect-[1.3/1] min-h-[360px] overflow-hidden rounded-[26px] sm:min-h-[480px] lg:min-h-[520px] xl:min-h-[610px]">
+                    <div className="relative w-full overflow-hidden rounded-[20px] sm:rounded-[24px] lg:rounded-[26px]">
                       <Image
                         src="/landingpage/hero.webp"
                         alt="Kolkata Digital Marketing Agency"
-                        fill
+                        width={850}
+                        height={1063}
                         priority
-                        className="object-cover"
-                        sizes="(max-width: 1024px) 100vw, 58vw"
+                        className="h-auto w-full object-contain"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
                       />
       
                       <div className="absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-white/5" />
@@ -315,7 +316,7 @@ Whether you are a startup, local business, growing company or established organi
       {/* DIGITAL OPPORTUNITY */}
       {/* ========================================================= */}
 
-      <section className="bg-white py-12 sm:py-16 lg:py-10">
+      <section className="bg-white py-1 sm:py-1 lg:py-1">
         <div className="mx-auto max-w-[1150px] px-4 sm:px-6 lg:px-8">
           <motion.div
             variants={fadeUp}
@@ -325,19 +326,22 @@ Whether you are a startup, local business, growing company or established organi
             transition={{ duration: 0.6 }}
             className="text-center"
           >
-            <p className="text-xs font-bold uppercase tracking-[4px] text-[#d89f00]">
-              The Digital Opportunity
-            </p>
+                   
+<h2 className="mx-auto mt-4 max-w-6xl text-2xl font-bold leading-tight sm:text-4xl lg:text-5xl">
+  <span className="block text-[#F8BC04]">
+    Your Kolkata Audience Is Already Online.
+  </span>
 
-            <h2 className="mx-auto mt-4 max-w-4xl text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
-              Your Kolkata Audience Is Already Online. Is Your Brand Reaching Them?
-            </h2>
+  <span className="block">
+    Is Your Brand Reaching Them?
+  </span>
+</h2>
 
-            <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-gray-600 sm:text-lg">
-              Social media has changed the way people discover businesses,
-              explore products and services, compare brands and make purchasing
-              decisions.
-            </p>
+<p className="mx-auto mt-5 max-w-5xl text-sm leading-relaxed text-gray-600 sm:text-base lg:text-lg">
+  Social media has changed the way people discover businesses, explore products and services, compare brands and make purchasing decisions.
+</p>
+
+
           </motion.div>
 
           <div className="mt-10 grid gap-6 sm:gap-8 lg:grid-cols-[1fr_0.9fr] lg:items-center">
@@ -399,7 +403,7 @@ Whether you are a startup, local business, growing company or established organi
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="rounded-[28px] bg-black p-7 text-white sm:p-9"
+              className="rounded-[22px] bg-black p-5 text-white sm:rounded-[28px] sm:p-7 lg:p-9"
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F8BC04]">
                 <Users className="text-black" size={27} />
@@ -442,7 +446,7 @@ Whether you are a startup, local business, growing company or established organi
       {/* WHY SOCIAL MEDIA */}
       {/* ========================================================= */}
 
-      <section className="bg-white py-12 sm:py-16 lg:py-10">
+      <section className="bg-white py-10 sm:py-14 lg:py-12">
         <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.85fr_1.15fr]">
             <motion.div
@@ -461,11 +465,11 @@ Whether you are a startup, local business, growing company or established organi
                 />
               </div>
 
-              <p className="text-xs font-bold uppercase tracking-[4px] text-[#d89f00]">
+              <p className="text-xs font-bold uppercase tracking-[2px] sm:tracking-[4px] text-[#d89f00]">
                 Why It Matters
               </p>
 
-              <h2 className="relative z-10 mt-4 text-3xl font-bold leading-tight sm:text-4xl">
+              <h2 className="relative z-10 mt-4 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
                 Why Social Media Marketing Is Important for Businesses in Kolkata
               </h2>
 
@@ -512,20 +516,20 @@ Whether you are a startup, local business, growing company or established organi
       {/* ABOUT */}
       {/* ========================================================= */}
 
-      <section className="bg-white py-12 sm:py-16 lg:py-10">
+      <section className="bg-white py-10 sm:py-14 lg:py-12">
         <div className="mx-auto grid max-w-[1200px] gap-6 px-4 sm:gap-8 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[30px] bg-[#F8BC04] p-8 sm:p-10"
+            className="relative overflow-hidden rounded-[24px] bg-[#F8BC04] p-5 sm:rounded-[30px] sm:p-8 lg:p-10"
           >
 
-            <p className="relative z-10 mt-9 text-xs font-bold uppercase tracking-[4px] text-black/60">
+            <p className="relative z-10 mt-9 text-xs font-bold uppercase tracking-[2px] sm:tracking-[4px] text-black/60">
               About Big Beans Digital
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
+            <h2 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
               Big Beans Digital 
               <br></br>Your Creative Digital Marketing Partner for Kolkata
             </h2>
@@ -584,18 +588,18 @@ Whether you are a startup, local business, growing company or established organi
 {/* OUR DIGITAL MARKETING SERVICES */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
   <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
     <div className="rounded-[28px] bg-[#050505] p-6 text-white sm:p-8 lg:p-10">
       
       {/* SECTION HEADER */}
       <div className="mb-8 flex flex-col gap-5 sm:mb-10 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="text-xs font-bold uppercase tracking-[5px] text-[#F8BC04]">
+          <p className="text-xs font-bold uppercase tracking-[3px] sm:tracking-[5px] text-[#F8BC04]">
             What We Do
           </p>
 
-          <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
+          <h2 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
             Our{" "}
             <span className="text-[#F8BC04]">
               Digital Marketing
@@ -671,7 +675,7 @@ Whether you are a startup, local business, growing company or established organi
             audience connections.
           </p>
 
-          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+          <div className="mt-5 grid grid-cols-1 gap-x-4 gap-y-3 text-xs text-white/60 sm:grid-cols-2">
             <div className="flex items-center gap-2">
               <Check size={12} className="text-[#F8BC04]" />
               Social Media Strategy
@@ -750,7 +754,7 @@ Whether you are a startup, local business, growing company or established organi
             businesses become more recognisable and consistent.
           </p>
 
-          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+          <div className="mt-5 grid grid-cols-1 gap-x-4 gap-y-3 text-xs text-white/60 sm:grid-cols-2">
             <div className="flex items-center gap-2">
               <Check size={12} className="text-[#F8BC04]" />
               Brand Identity
@@ -829,7 +833,7 @@ Whether you are a startup, local business, growing company or established organi
             experiences that represent your business and support growth.
           </p>
 
-          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+          <div className="mt-5 grid grid-cols-1 gap-x-4 gap-y-3 text-xs text-white/60 sm:grid-cols-2">
             <div className="flex items-center gap-2">
               <Check size={12} className="text-[#F8BC04]" />
               Business Websites
@@ -906,7 +910,7 @@ Whether you are a startup, local business, growing company or established organi
             quickly and support measurable campaign growth.
           </p>
 
-          <div className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-xs text-white/60">
+          <div className="mt-5 grid grid-cols-1 gap-x-4 gap-y-3 text-xs text-white/60 sm:grid-cols-2">
             <div className="flex items-center gap-2">
               <Check size={12} className="text-[#F8BC04]" />
               Google Ads
@@ -954,28 +958,24 @@ Whether you are a startup, local business, growing company or established organi
 {/* OUR PROCESS */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
   <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-10">
-    <div className="mx-auto max-w-3xl text-center">
-      <p className="text-xs font-bold uppercase tracking-[5px] text-[#d89f00]">
-        Our Process
-      </p>
+    <div className="mx-auto max-w-5xl text-center">
+  <h2 className="mt-4 whitespace-nowrap text-2xl font-bold leading-tight sm:text-3xl lg:text-5xl">
+    How Big Beans Digital{" "}
+    <span className="text-[#F8BC04]">
+      Works With Your Brand
+    </span>
+  </h2>
 
-      <h2 className="mt-4 text-4xl font-bold sm:text-5xl">
-        How Big Beans Digital{" "}
-        <span className="text-[#F8BC04]">
-          Works With Your Brand
-        </span>
-      </h2>
+  <p className="mx-auto mt-5 max-w-3xl text-center text-lg leading-relaxed text-gray-600">
+  Successful digital marketing starts with understanding the business.
+  <br />
+  Our process ensures that strategy, creativity and execution work together.
+</p>
+</div>
 
-      <p className="mt-5 text-lg leading-relaxed text-gray-600">
-        Successful digital marketing starts with understanding the business.
-        Our process ensures that strategy, creativity and execution work
-        together.
-      </p>
-    </div>
-
-    <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-6">
+    <div className="mt-8 grid grid-cols-1 gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 xl:grid-cols-6">
       {processSteps.map((step, index) => {
         const Icon = step.icon;
 
@@ -1017,16 +1017,17 @@ Whether you are a startup, local business, growing company or established organi
       {/* INDUSTRIES */}
       {/* ========================================================= */}
 
-      <section className="bg-white py-12 sm:py-16 lg:py-10">
+      <section className="bg-white py-10 sm:py-14 lg:py-12">
         <div className="mx-auto max-w-[1300px] px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <div className="max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[5px] text-[#d89f00]">
+              <p className="text-xs font-bold uppercase tracking-[3px] sm:tracking-[5px] text-[#d89f00]">
                 Diverse Experience
               </p>
 
-              <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+              <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
                 Industries We Have{" "}
+                <br></br>
                 <span className="text-[#F8BC04]">
                   Worked With
                 </span>
@@ -1072,15 +1073,15 @@ Whether you are a startup, local business, growing company or established organi
 {/* WHY CHOOSE US */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
   <div className="mx-auto w-full max-w-none px-4 sm:px-6 lg:px-8 xl:px-10">
     <div className="rounded-[24px] bg-black p-5 text-white sm:rounded-[28px] sm:p-8 lg:rounded-[32px] lg:p-10 xl:p-12">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="text-xs font-bold uppercase tracking-[5px] text-[#F8BC04]">
+        <p className="text-xs font-bold uppercase tracking-[3px] sm:tracking-[5px] text-[#F8BC04]">
           Why Choose Us
         </p>
 
-        <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+        <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
           Why Choose Big Beans Digital as Your{" "}
           <span className="text-[#F8BC04]">
             Creative Agency for Kolkata?
@@ -1093,7 +1094,7 @@ Whether you are a startup, local business, growing company or established organi
         </p>
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-3 lg:gap-5 xl:grid-cols-6">
+      <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:gap-5 xl:grid-cols-6">
         {reasons.map((reason, index) => {
           const Icon = reason.icon;
 
@@ -1132,7 +1133,7 @@ Whether you are a startup, local business, growing company or established organi
 {/* ONE CREATIVE PARTNER */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
   <div className="mx-auto grid max-w-[1200px] gap-6 px-4 sm:gap-8 sm:px-6 lg:grid-cols-2 lg:items-center lg:px-8">
     
     {/* LEFT CONTENT */}
@@ -1143,7 +1144,7 @@ Whether you are a startup, local business, growing company or established organi
       className="lg:-translate-y-5"
     >
       
-      <h2 className="mt-4 text-4xl font-bold leading-tight sm:text-5xl">
+      <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl">
         One Creative Partner for Your{" "}
         <span className="text-[#F8BC04]">
           Digital Growth
@@ -1162,7 +1163,7 @@ Whether you are a startup, local business, growing company or established organi
       </p>
 
       {/* IMAGE - CHANGE THIS SRC TO YOUR FINAL IMAGE */}
-      <div className="relative mt-6 h-[200px] overflow-hidden rounded-2xl sm:h-[260px] lg:h-[280px]">
+      <div className="relative mt-6 h-[180px] overflow-hidden rounded-2xl sm:h-[240px] lg:h-[280px]">
         <Image
           src="/landingpage/brand.webp"
           alt="Connected Digital Growth"
@@ -1178,7 +1179,7 @@ Whether you are a startup, local business, growing company or established organi
       initial={{ opacity: 0, x: 25 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
-      className="rounded-[30px] border border-gray-200 bg-white p-5 sm:p-8"
+      className="rounded-[22px] border border-gray-200 bg-white p-4 sm:rounded-[30px] sm:p-8"
     >
       <div className="space-y-4">
 
@@ -1293,7 +1294,7 @@ Whether you are a startup, local business, growing company or established organi
 {/* LOCAL SEO */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
   <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
     <div className="rounded-[24px] border border-[#F8BC04] bg-[#F8BC04] p-5 sm:rounded-[28px] sm:p-8 lg:rounded-[32px] lg:p-10">
       <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
@@ -1352,12 +1353,12 @@ Whether you are a startup, local business, growing company or established organi
 {/* FINAL CONTENT */}
 {/* ========================================================= */}
 
-<section className="bg-white py-12 sm:py-16 lg:py-10">
+<section className="bg-white py-10 sm:py-14 lg:py-12">
   <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
     <div className="grid items-stretch gap-8 lg:grid-cols-[0.9fr_1.1fr]">
       
       {/* LEFT IMAGE */}
-      <div className="relative min-h-[280px] overflow-hidden rounded-[24px] sm:min-h-[380px] lg:min-h-0">
+      <div className="relative min-h-[240px] overflow-hidden rounded-[20px] sm:min-h-[320px] sm:rounded-[24px] lg:min-h-0">
         <Image
           src="/landingpage/wedoall.webp"
           alt="Big Beans Digital Creative Digital Growth Partner"
@@ -1369,11 +1370,11 @@ Whether you are a startup, local business, growing company or established organi
 
       {/* RIGHT CONTENT */}
       <div className="flex flex-col justify-center">
-        <p className="text-xs font-bold uppercase tracking-[5px] text-[#d89f00]">
+        <p className="text-xs font-bold uppercase tracking-[3px] sm:tracking-[5px] text-[#d89f00]">
           Your Digital Growth Partner
         </p>
 
-        <h2 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
+        <h2 className="mt-4 text-2xl font-bold leading-tight sm:text-3xl lg:text-4xl">
           Your Creative Digital Growth Partner for Kolkata
         </h2>
 
@@ -1410,7 +1411,7 @@ Whether you are a startup, local business, growing company or established organi
       {/* GLOBAL PRESENCE - PROVIDED CODE */}
       {/* ========================================================= */}
 
-      <section className="bg-[#FFFFFF] py-12 sm:py-16 lg:py-10">
+      <section className="bg-[#FFFFFF] py-10 sm:py-14 lg:py-12">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div
             className="
@@ -1433,7 +1434,7 @@ Whether you are a startup, local business, growing company or established organi
               <p
                 className="
                   uppercase
-                  tracking-[4px]
+                  tracking-[2px] sm:tracking-[4px]
                   sm:tracking-[6px]
                   text-[10px]
                   sm:text-[11px]
@@ -1458,9 +1459,8 @@ Whether you are a startup, local business, growing company or established organi
                 "
               >
                 Empowering Businesses Across{" "}
-                <span className="text-[#F8BC04]">12+</span>
-                <br />
-                Locations Currently
+                <span className="text-[#F8BC04]">12+            
+                Locations Currently </span>
               </h2>
 
               <p
@@ -1519,7 +1519,7 @@ Whether you are a startup, local business, growing company or established organi
 
                   <ul className="space-y-2 sm:space-y-3 text-[14px] sm:text-[15px] text-gray-700">
                     {[
-                      "Kolkata",
+                      "London",
                       "Singapore",
                       "Canada",
                       "Australia",
@@ -1702,13 +1702,13 @@ Whether you are a startup, local business, growing company or established organi
             className="relative mx-auto max-w-[1100px] text-center"
           >
             
-            <h2 className="relative text-[30px] font-semibold leading-[1.08] tracking-[-0.045em] text-[#292929] sm:text-[38px] md:text-[46px] lg:text-[52px]">
+            <h2 className="relative text-[28px] font-semibold leading-[1.1] tracking-[-0.035em] text-[#292929] sm:text-[36px] md:text-[44px] lg:text-[52px]">
               Frequently Asked{" "}
               <span className="text-[#F8BC04]">Questions</span>
             </h2>
           </motion.div>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:mt-16 lg:gap-x-5 lg:gap-y-5">
+          <div className="mt-8 grid gap-4 md:mt-12 md:grid-cols-2 lg:mt-16 lg:gap-x-5 lg:gap-y-5">
             {faqs.map((faq, index) => {
               const isOpen = openFaq === index;
 
@@ -1729,13 +1729,13 @@ Whether you are a startup, local business, growing company or established organi
                     onClick={() =>
                       setOpenFaq(isOpen ? null : index)
                     }
-                    className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left sm:px-7 sm:py-7"
+                    className="flex w-full items-start justify-between gap-3 px-4 py-5 text-left sm:items-center sm:gap-6 sm:px-7 sm:py-7"
                   >
-                    <span className="text-[17px] font-semibold leading-[1.5] text-[#26313F] sm:text-[17px]">
+                    <span className="text-[15px] font-semibold leading-[1.5] text-[#26313F] sm:text-[17px]">
                       {faq.question}
                     </span>
 
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#202428] text-white">
+                    <span className="flex h-9 w-9 shrink-0 items-center justify-center sm:h-11 sm:w-11 rounded-full bg-[#202428] text-white">
                       {isOpen ? (
                         <Minus size={20} strokeWidth={2.4} />
                       ) : (
@@ -1753,7 +1753,7 @@ Whether you are a startup, local business, growing company or established organi
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <div className="border-t border-[#E8E8E8] px-6 pb-7 pt-5 sm:px-7">
+                    <div className="border-t border-[#E8E8E8] px-4 pb-6 pt-4 sm:px-7 sm:pb-7 sm:pt-5">
                       <p className="text-[15px] leading-[1.75] text-[#626D7A] sm:text-[16px]">
                         {faq.answer}
                       </p>
@@ -1769,88 +1769,113 @@ Whether you are a startup, local business, growing company or established organi
       {/* ========================================================= */}
       {/* FINAL CTA */}
       {/* ========================================================= */}
+<section className="bg-white py-10 sm:py-14 lg:py-12">
+  <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
+    <motion.div
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="relative overflow-hidden rounded-[24px] bg-black px-5 py-8 sm:rounded-[28px] sm:px-10 sm:py-10 lg:rounded-[32px] lg:px-20 lg:py-12"
+    >
+      <div className="absolute right-[-25%] top-[-35%] h-[300px] w-[300px] rounded-full bg-[#F8BC04]/15 blur-3xl sm:right-[-10%] sm:top-[-40%] sm:h-[450px] sm:w-[450px]" />
 
-      <section className="bg-white py-12 sm:py-16 lg:py-10">
-        <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative overflow-hidden rounded-[24px] bg-black px-5 py-10 sm:rounded-[28px] sm:px-10 sm:py-14 lg:rounded-[32px] lg:px-20 lg:py-16"
-          >
-            <div className="absolute right-[-25%] top-[-35%] h-[300px] w-[300px] sm:right-[-10%] sm:top-[-40%] sm:h-[450px] sm:w-[450px] rounded-full bg-[#F8BC04]/15 blur-3xl" />
+      <div className="relative z-10 max-w-4xl">
+        <p className="text-xs font-bold uppercase tracking-[3px] text-[#F8BC04] sm:tracking-[5px]">
+          Ready When You Are
+        </p>
 
-            <div className="relative z-10 max-w-3xl">
-              <p className="text-xs font-bold uppercase tracking-[5px] text-[#F8BC04]">
-                Ready When You Are
-              </p>
+        <h2 className="mt-4 whitespace-nowrap text-2xl font-bold leading-tight text-white sm:text-3xl lg:text-4xl xl:text-5xl">
+  Ready to Build a{" "}
+  <span className="text-[#F8BC04]">
+    Stronger Digital Presence?
+  </span>
+</h2>
 
-              <h2 className="mt-5 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-                Ready to Build a{" "}
-                <span className="text-[#F8BC04]">
-                  Stronger Digital Presence?
-                </span>
-              </h2>
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/65">
+          Your customers are online. Your competitors are creating content.
+          Your brand deserves a digital presence that is creative,
+          professional and strategically managed.
+        </p>
 
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/65">
-                Your customers are online. Your competitors are creating content.
-                Your brand deserves a digital presence that is creative,
-                professional and strategically managed.
-              </p>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                {[
-                  "Social Media Marketing",
-                  "Design & Branding",
-                  "Website Development",
-                  "Google Ads",
-                  "Meta Ads",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/75"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <h3 className="mt-9 text-2xl font-bold text-white sm:text-3xl">
-                Let&apos;s Create a Digital Strategy That Works for Your{" "}
-                <span className="text-[#F8BC04]">
-                  Brand.
-                </span>
-              </h3>
-
-              <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:gap-4">
-                <a
-                  href="/connect"
-                  className="group inline-flex min-h-[54px] items-center justify-center gap-3 rounded-full bg-[#F8BC04] px-7 text-sm font-bold text-black transition-all hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(248,188,4,0.3)]"
-                >
-                  Request a Call Back
-
-                  <ArrowRight
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </a>
-
-                <a
-                  href="/connect"
-                  className="group inline-flex min-h-[54px] items-center justify-center gap-3 rounded-full border border-white/20 px-7 text-sm font-bold text-white transition-all hover:bg-white hover:text-black"
-                >
-                  Get a Free Consultation
-
-                  <ArrowRight
-                    size={18}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </a>
-              </div>
-            </div>
-          </motion.div>
+        <div className="mt-7 flex flex-wrap gap-3">
+          {[
+            {
+              name: "Social Media Marketing",
+              link: "https://www.bigbeansdigital.com/services/social-media-marketing",
+            },
+            {
+              name: "Design & Branding",
+              link: "https://www.bigbeansdigital.com/services/branding",
+            },
+            {
+              name: "Website Development",
+              link: "https://www.bigbeansdigital.com/services/website-development",
+            },
+            {
+              name: "Google Ads",
+              link: "https://www.bigbeansdigital.com/services/google-ads-meta-ads",
+            },
+            {
+              name: "Meta Ads",
+              link: "https://www.bigbeansdigital.com/services/google-ads-meta-ads",
+            },
+          ].map((item) => (
+            <a
+              key={item.name}
+              href={item.link}
+              className="rounded-full border border-white/15 px-4 py-2 text-sm text-white/75 transition-all hover:border-[#F8BC04] hover:bg-[#F8BC04] hover:text-black"
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
-      </section>
+
+        <h3 className="mt-7 text-2xl font-bold text-white sm:text-3xl">
+          Let&apos;s Create a Digital Strategy That Works for Your{" "}
+          <span className="text-[#F8BC04]">Brand.</span>
+        </h3>
+
+        <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:gap-4">
+          <a
+            href="https://www.bigbeansdigital.com/about"
+            className="group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[#F8BC04] px-7 text-sm font-bold text-black transition-all hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(248,188,4,0.3)]"
+          >
+            About BIGBEANS
+
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
+            />
+          </a>
+
+          <a
+            href="https://www.bigbeansdigital.com/blog"
+            className="group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full border border-white/20 px-7 text-sm font-bold text-white transition-all hover:bg-white hover:text-black"
+          >
+            Read Our Blogs
+
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
+            />
+          </a>
+          <a
+            href="https://api.whatsapp.com/send?phone=916289102537&text=Hello%20Big%20Beans%20%0AWould%20like%20to%20Book%20Your%20Free%20Strategy%20Call!"
+            className="group inline-flex min-h-[52px] items-center justify-center gap-3 rounded-full bg-[#F8BC04] px-7 text-sm font-bold text-black transition-all hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(248,188,4,0.3)]"
+          >
+            Connect With Us
+
+            <ArrowRight
+              size={18}
+              className="transition-transform group-hover:translate-x-1"
+            />
+          </a>
+        </div>
+      </div>
+    </motion.div>
+  </div>
+</section>
+      
     </main>
   );
 }
