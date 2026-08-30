@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import {
   ArrowUpRight,
   ArrowRight,
@@ -908,12 +908,7 @@ export default function DigitalMarketingLondonPage() {
               <RichText text={item.text} />
             </p>
 
-            {/* EXTRA CONTENT */}
-            {item.extra && (
-              <p className="mt-4 text-[12px] leading-6 text-black/60 sm:text-[13px]">
-                <RichText text={item.extra} />
-              </p>
-            )}
+            
 
             {/* Bottom hover line */}
             <motion.div
