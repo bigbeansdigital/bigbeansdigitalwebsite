@@ -153,7 +153,7 @@ export default function DigitalMarketingLondonPage() {
               variants={fadeUp}
               className="mb-5 text-[10px] font-bold tracking-[0.18em] text-black sm:text-[11px]"
             >
-              Helping Kolkata Businesses Build Stronger Brands, Reach the Right Audience and Grow Online
+              Helping Mumbai Businesses Build Stronger Brands, Reach the Right Audience and Grow With Purpose
             </motion.p>
 
             <motion.h1
@@ -161,7 +161,7 @@ export default function DigitalMarketingLondonPage() {
               className="max-w-[700px] text-[36px] font-semibold leading-[1.1] tracking-[-0.04em] text-black sm:text-[44px] lg:text-[50px] xl:text-[54px]"
             >
               <span className="text-[#F8BC04]">Digital Marketing Agency</span>{" "}
-              in London
+              in Mumbai
             </motion.h1>
 
             <motion.div
@@ -169,11 +169,11 @@ export default function DigitalMarketingLondonPage() {
               className="mt-6 max-w-[690px] space-y-7 text-[14px] leading-7 text-black/70 sm:text-[15px] sm:leading-8"
             >
               <p>
-                <RichText text="Looking for a **best digital marketing agency Kolkata** businesses can work with for a more strategic and connected online presence? Big Beans Digital helps businesses strengthen their brand, reach relevant audiences, generate meaningful enquiries and build digital marketing strategies around real business goals." />
+                <RichText text="Looking for a **digital marketing agency Mumbai** businesses can work with to build stronger visibility, reach the right audience and turn marketing activity into meaningful business opportunities? Big Beans Digital helps businesses bring together strategy, creativity, social media, advertising, websites and performance marketing around clear business goals." />
               </p>
 
               <p>
-                <RichText text="From social media and creative advertising to website development and performance marketing, we help businesses address common challenges such as wasted advertising budgets, inconsistent branding, low-quality leads, websites that fail to convert and marketing activities with no clear direction. As a **Kolkata digital marketing agency**, Big Beans Digital focuses on bringing the right digital activities together to help businesses move towards clearer, more measurable growth." />
+                <RichText text="Mumbai is home to highly competitive businesses and fast-moving markets. Simply being online is no longer enough. Businesses need marketing that helps them stand out without wasting budgets on disconnected campaigns, inconsistent branding, poor-quality leads or digital activities that produce plenty of effort but little clarity. As a **digital marketing company Mumbai** businesses can partner with, Big Beans Digital helps create a more connected approach—so your brand, campaigns and digital presence work towards the same direction." />
               </p>
             </motion.div>
 
@@ -195,7 +195,7 @@ export default function DigitalMarketingLondonPage() {
                 href="https://www.bigbeansdigital.com/about"
                 className="inline-flex min-h-[48px] items-center justify-center rounded-full border border-black/15 bg-white px-7 text-[13px] font-medium text-black transition-all duration-300 hover:-translate-y-1 hover:border-black hover:bg-black hover:text-white"
               >
-                Know More About Big Beans
+                Know More About Big Beans Digital
               </Link>
             </motion.div>
           </motion.div>
@@ -213,7 +213,7 @@ export default function DigitalMarketingLondonPage() {
             >
               <Image
                 src="/landingpage/hero.webp"
-                alt="Digital Marketing Agency in Kolkata"
+                alt="Digital Marketing Agency in Mumbai"
                 fill
                 priority
                 className="object-cover"
@@ -254,25 +254,24 @@ export default function DigitalMarketingLondonPage() {
       >
         {/* HEADING */}
         <h2 className="text-[28px] font-bold leading-tight text-[#171717] sm:text-[34px] lg:text-[40px]">
-          Is Your Digital Marketing Helping Your Kolkata Business Grow?
+          Is Your Digital Marketing Helping Your Mumbai Business Compete and Grow?
           <span className="text-[#F8BC04]">
             
           </span>
         </h2>
 
         <p className="mt-5 text-[14px] leading-7 text-black/70 sm:text-[15px]">
-          London is one of the most competitive business markets in the UK.
-          Customers have more choices, advertising costs can quickly add up
-          and simply being present online does not guarantee that the right
-          people will find or choose your business.
+          Mumbai is one of India's most competitive business environments.
+          Customers have more choices, brands compete constantly for attention
+          and businesses need to make an impact across multiple digital channels.
         </p>
 
         
         <p className="mt-4 text-[14px] leading-7 text-black/70 sm:text-[15px]">
-          Many businesses invest in SEO, social media, PPC and creative
-          campaigns without a clear connection between those activities and
-          their actual business objectives. The result can be plenty of
-          marketing activity but very little clarity about what is working.
+          Many companies invest in advertising, social media, creative campaigns and
+          websites without having a clear strategy connecting these activities.
+          The result can be increasing marketing costs, inconsistent communication
+          and uncertainty about what is genuinely helping the business move forward.
         </p>
       </motion.div>
 
@@ -283,35 +282,35 @@ export default function DigitalMarketingLondonPage() {
   variants={fadeUp}
   className="mt-7 text-center text-[18px] font-semibold text-[#F8BC04] sm:text-[20px]"
 >
-  Common Challenges We See
+  COMMON CHALLENGES
 </motion.h3>
 
     {/* CARDS */}
     <div className="mt-5 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
       {[
         {
-          title: "Your Business Is Not Reaching the Right Audience",
-          text: "Your marketing may be generating visibility, but if it is not reaching people who are genuinely interested in your products or services, that visibility may not translate into meaningful opportunities.",
+          title: "Your Brand Is Getting Lost in a Competitive Market",
+          text: "When customers see countless businesses and advertisements every day, generic communication can easily disappear into the noise.",
         },
         {
-          title: "Advertising Spend Is Not Delivering Enough Value",
-          text: "Businesses can invest heavily in digital advertising without having the right targeting, creative messaging, landing pages or tracking in place.",
+          title: "Your Advertising Budget Is Not Producing Enough Value",
+          text: "Running campaigns without clear audience targeting, creative direction, landing-page alignment and performance measurement can lead to wasted marketing investment.",
         },
         {
-          title: "Your Brand Looks Different Across Every Platform",
-          text: "When your website, social media, advertisements and other marketing materials communicate inconsistent messages, customers may struggle to clearly understand and remember your brand.",
+          title: "Your Digital Channels Feel Disconnected",
+          text: "Your social media, advertisements, website and branding may all exist, but they may not communicate a consistent message or support one another effectively.",
         },
         {
-          title: "Your Social Media Has Activity but No Clear Direction",
-          text: "Posting regularly does not automatically create business value. Without a strategy, social media can become a time-consuming activity that produces content without supporting larger marketing goals.",
+          title: "Your Social Media Has Activity but Not Enough Business Direction",
+          text: "Regular posting can keep your pages active, but without a clear strategy, social media may struggle to support brand awareness, audience engagement or wider marketing objectives.",
         },
         {
-          title: "Your Website Gets Visitors but Does Not Generate Enough Enquiries",
-          text: "Traffic alone is not enough. If visitors cannot quickly understand what your business offers, why they should trust you or what they should do next, opportunities can be lost.",
+          title: "Your Website Is Not Supporting Your Marketing Properly",
+          text: "Advertising and social campaigns often send potential customers to your website. If the experience is unclear or difficult to navigate, valuable opportunities can be lost.",
         },
         {
-          title: "You Do Not Have a Clear Picture of What Is Working",
-          text: "When different agencies, freelancers or teams handle separate activities without connected reporting, it can become difficult to understand where your marketing budget is going and what deserves further investment.",
+          title: "You Are Unsure Which Marketing Activities Are Actually Working",
+          text: "When multiple campaigns and channels are running simultaneously without clear measurement, it becomes difficult to know where your business should continue investing.",
         },
       ].map((item, index) => {
         const isYellow = index % 2 === 0;
@@ -366,7 +365,7 @@ export default function DigitalMarketingLondonPage() {
 
 
 
-      {/* About Big Beans */}
+      {/* About Big Beans Digital */}
       <Section>
         <div className="grid items-center gap-6 lg:grid-cols-[1fr_0.9fr]">
           <motion.div
@@ -377,8 +376,8 @@ export default function DigitalMarketingLondonPage() {
           >
             <motion.div variants={fadeUp}>
               <SectionTitle>
-                A Digital Marketing Partner for Businesses That Want More
-                Clarity and Direction
+                A Digital Marketing Partner for Businesses That Want a More
+                Connected Approach
               </SectionTitle>
             </motion.div>
 
@@ -386,28 +385,21 @@ export default function DigitalMarketingLondonPage() {
               variants={fadeUp}
               className="mt-5 text-[14px] leading-7 text-black/70 sm:text-[15px]"
             >
-              Big Beans Digital works with businesses that want a more connected
-              approach to digital marketing. Rather than treating SEO, social
-              media, advertising, branding and websites as completely separate
-              activities, we look at how each part of your digital presence can
-              support your wider business goals.
+              Big Beans Digital works with businesses that want their digital marketing to have a clearer purpose. Instead of treating social media, advertising, branding, websites and performance marketing as isolated services, we look at how they can work together to support wider business objectives.
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="mt-4 text-[14px] leading-7 text-black/70 sm:text-[15px]"
             >
-              <RichText text="Whether you are searching for a **creative marketing agency in Kolkata**, a **social media marketing agency in Kolkata**, an **ad agency in Kolkata**, an **online marketing agency Kolkata** businesses can rely on, or broader digital marketing support, we begin by understanding your business before recommending the work that makes sense." />
+              <RichText text="Whether you are searching for the **best digital marketing agency in Mumbai**, a **social media marketing agency Mumbai**, a **branding company in Mumbai**, an **ad agency in Mumbai** or a broader **digital media agency in Mumbai**, our approach begins with understanding your business, audience and priorities." />
             </motion.p>
 
             <motion.p
               variants={fadeUp}
               className="mt-4 text-[14px] leading-7 text-black/70 sm:text-[15px]"
             >
-              We believe good marketing should be clear, purposeful and
-              accountable. That means focusing on the right audience, the right
-              channels and the right priorities instead of adding unnecessary
-              activity simply to make a marketing plan look bigger.
+              <RichText text="We combine strategic thinking with creative communication and digital execution to help businesses build stronger and more consistent digital experiences. As a **digital marketing agency Mumbai**, our focus is not simply on creating more marketing activity. It is on helping businesses identify the activities that make the most sense for their goals." />
             </motion.p>
           </motion.div>
 
@@ -462,31 +454,31 @@ export default function DigitalMarketingLondonPage() {
           },
           {
             number: "02",
-            title: "Improve Paid Social Advertising",
-            text: "We help businesses think more carefully about who they need to reach and how different digital channels can support that goal. Better targeting can help create more relevant engagement and stronger opportunities.",
+            title: "Improve How Your Brand Communicates",
+            text: "In a competitive market, your business needs clear and consistent communication. We help create stronger alignment between your branding, creative work and digital marketing activities.",
           },
           {
             number: "03",
             
             title: "Make Advertising More Purposeful",
-            text: "Businesses looking for an **advertising agency in Kolkata** need more than attractive campaigns. We help connect advertising strategy, audience targeting, creative communication and performance measurement around meaningful objectives.",
+            text: "Businesses looking for an **advertising agency Mumbai** or one of the **advertising agencies in Mumbai** need more than campaigns that simply attract attention. We help connect strategy, audience targeting, creative communication and measurable objectives.",
           },
           {
             number: "04",
-            title: "Build a More Consistent Brand Presence",
-            text: "Our design and branding work helps businesses create stronger consistency across their website, advertising, social media and other customer touchpoints.",
+            title: "Build a More Consistent Digital Presence",
+            text: "Your website, social media and advertising should give customers a more consistent experience. We help businesses strengthen alignment across important digital touchpoints.",
           },
           {
             number: "05",
            
-            title: "Improve the Customer Journey",
-            text: "We look beyond simply generating clicks or website visits. By considering the journey from first interaction to enquiry or conversion, we identify opportunities to make your digital experience clearer and more effective.",
+            title: "Improve the Journey From Attention to Action",
+            text: "Generating attention is only the first step. We look at how potential customers move from discovering your business to understanding your offer and taking meaningful next steps.",
           },
           {
             number: "06",
             icon: ChartNoAxesCombined,
-            title: "Create Better Marketing Clarity",
-            text: "We help businesses move away from disconnected marketing activities and towards a clearer understanding of what their digital efforts are designed to achieve.",
+            title: "Create Better Visibility Into Marketing Performance",
+            text: "We help businesses bring more clarity to their marketing activities by connecting campaigns with relevant objectives and meaningful performance indicators.",
           },
         ].map((item) => {
           const Icon = item.icon;
@@ -537,7 +529,7 @@ export default function DigitalMarketingLondonPage() {
     {/* HEADING */}
     <motion.div variants={fadeUp}>
       <p className="text-[9px] font-bold uppercase tracking-[0.35em] text-[#F8BC04]">
-        Our Digital Marketing Services for Businesses in Kolkata
+        Our Digital Marketing Services for Businesses in Mumbai
       </p>
 
       <h2 className="mt-2 text-2xl font-semibold leading-tight text-white sm:text-3xl lg:text-4xl">
@@ -547,8 +539,7 @@ export default function DigitalMarketingLondonPage() {
       </h2>
 
       <p className="mt-3 max-w-2xl text-[12px] leading-5 text-white/60 sm:text-[13px]">
-        Big Beans Digital provides a complete range of creative and
-        performance-focused digital services designed around your business goals.
+        Big Beans Digital brings together creative, social, digital and performance-focused services to help businesses create a stronger and more connected online presence.
       </p>
     </motion.div>
 
@@ -557,8 +548,8 @@ export default function DigitalMarketingLondonPage() {
       {[
         {
           title: "Social Media Marketing",
-          subtitle: "Build a Social Media Presence With a Clear Purpose",
-          text: "As a business working with a **social media marketing agency in Kolkata**, you need more than regular posts. We help create social media strategies designed around your audience, brand communication and wider marketing objectives.",
+          subtitle: "Build a Social Presence That Supports Your Brand and Business Goals",
+          text: "As a **social media marketing agency Mumbai**, we help businesses develop social media activities around their audience, brand communication and wider marketing objectives.",
           items: [
             "Social Media Strategy",
             "Content Creation",
@@ -572,8 +563,8 @@ export default function DigitalMarketingLondonPage() {
         },
         {
           title: "Design & Branding",
-          subtitle: "Build a Brand People Can Recognise and Understand",
-          text: "Strong creative communication helps businesses stand out in competitive markets. Our design and branding services support businesses that want to create a more recognisable, consistent and purposeful brand presence. For businesses comparing a **creative marketing agency in Kolkata**, **advertising companies in Kolkata** or an **advertising company in Kolkata**, creative work should do more than look attractive—it should communicate the right message to the right audience.",
+          subtitle: "Create a Brand That Is Clear, Consistent and Recognisable",
+          text: "Strong branding helps businesses communicate more effectively across every customer touchpoint. For businesses looking for a **branding company in Mumbai**, we support the development of more consistent and purposeful brand experiences. Businesses comparing the **top ad agency in Mumbai**, **Mumbai top advertising agencies**, **advertising companies in Mumbai** or the **best advertising agency in Mumbai** should look beyond creative output alone. The right creative work should help communicate a clear message and support a wider business objective.",
           items: [
             "Brand Strategy",
             "Brand Identity Design",
@@ -587,11 +578,11 @@ export default function DigitalMarketingLondonPage() {
         },
         {
           title: "Website Development",
-          subtitle: "Build a Website That Supports Your Business Goals",
-          text: "Your website is often where potential customers go to learn more about your business after discovering you through social media, advertising or other marketing activities.",
+          subtitle: "Build a Website That Supports Your Digital Marketing",
+          text: "Your website plays an important role in helping potential customers understand your business after discovering you through advertising, social media and other digital activities.",
           items: [
             "Business Website Development",
-            "Website Landing Page Development",
+            "Website UI/UX Design",
             "Landing Page Development",
             "E-commerce Website Development",
             "Website Optimisation",
@@ -603,7 +594,7 @@ export default function DigitalMarketingLondonPage() {
         {
           title: "Performance Marketing",
           subtitle: "Make Your Marketing Investment More Measurable",
-          text: "Performance marketing helps businesses connect advertising activity with meaningful objectives. Whether your priority is generating leads, increasing sales, reaching new audiences or driving other measurable actions, campaigns need a clear strategy and ongoing attention.",
+          text: "Performance marketing helps businesses connect paid activity with meaningful objectives. Whether your priority is leads, sales, audience growth or another measurable action, campaigns need clear strategy, relevant targeting and continuous optimisation.",
           items: [
             "Google Ads Management",
             "PPC Campaign Management",
@@ -736,9 +727,7 @@ export default function DigitalMarketingLondonPage() {
 
       {/* DESCRIPTION */}
       <p className="mt-5 max-w-[500px] text-[14px] leading-7 text-black/70 sm:text-[15px]">
-        Good digital marketing starts with understanding the business behind the
-        brief. Our process is designed to create clarity before execution and
-        maintain focus as campaigns and priorities evolve.
+        Our process is designed to help businesses move from uncertainty and disconnected marketing activity towards a clearer, more purposeful approach.
       </p>
     </motion.div>
 
@@ -747,11 +736,11 @@ export default function DigitalMarketingLondonPage() {
       {[
         {
           title: "Understand Your Business",
-          text: "We begin by learning about your business, objectives, audience, market and the challenges you want to solve.",
+          text: "We begin by learning about your business, objectives, target audience, market and the challenges you want to solve.",
         },
         {
           title: "Review Your Current Digital Presence",
-          text: "We assess the relevant areas of your digital presence, which may include your website, social media, advertising activity, branding and other marketing channels.",
+          text: "We assess relevant parts of your digital presence, including areas such as your website, social media, advertising, branding and existing marketing activities.",
         },
         {
           title: "Identify the Right Priorities",
@@ -759,7 +748,7 @@ export default function DigitalMarketingLondonPage() {
         },
         {
           title: "Build the Strategy",
-          text: "We develop a practical approach that connects your marketing priorities, target audience and selected digital activities.",
+          text: "We develop a practical approach that connects your audience, marketing priorities and selected digital activities.",
         },
         {
           title: "Execute and Develop",
@@ -767,7 +756,7 @@ export default function DigitalMarketingLondonPage() {
         },
         {
           title: "Measure, Learn and Improve",
-          text: "Marketing should evolve as businesses and audiences change. We review performance, identify opportunities and continue improving the approach where required.",
+          text: "Digital marketing should evolve. We review performance, identify opportunities and continue improving the approach as priorities and markets change.",
         },
       ].map((item, index) => (
         <motion.div
@@ -817,7 +806,7 @@ export default function DigitalMarketingLondonPage() {
       className="mx-auto max-w-3xl text-center"
     >
       <SectionTitle center>
-        Why Businesses Choose 
+        Why Choose
         <br></br>Big Beans Digital
       </SectionTitle>
 
@@ -825,7 +814,7 @@ export default function DigitalMarketingLondonPage() {
         variants={fadeUp}
         className="mx-auto mt-4 max-w-3xl text-[13px] leading-6 text-black/65 sm:text-[14px] sm:leading-7"
       >
-        <RichText text="When businesses search for the **best digital marketing company Kolkata** has to offer or compare different **digital marketing firms in Kolkata**, the right choice should depend on more than broad promises. A good agency should understand your business, communicate clearly and recommend activities that connect to your actual objectives." />
+        <RichText text="Businesses searching for the **best digital marketing agency in Mumbai** or comparing different **digital marketing firms in Mumbai** need to look beyond broad promises and generic service lists. The right marketing partner should understand your business, communicate clearly and recommend activities that connect with your actual objectives." />
       </motion.p>
     </motion.div>
 
@@ -837,52 +826,51 @@ export default function DigitalMarketingLondonPage() {
           text: "We look at how different digital activities can support each other instead of treating every channel as completely separate.",
         },
         {
-          title: "Creative Thinking With Business Purpose",
+          title: "Strategy Before Unnecessary Activity",
           text: "We believe businesses should understand why something is being done before investing in it. Our approach focuses on relevant priorities rather than simply recommending every possible service.",
         },
         {
           title: "Creative Thinking With Business Purpose",
-          text: "Creative work should support communication and business objectives. We connect design and advertising with a clearer strategic direction.",
+          text: "Creative work should do more than attract attention. We connect design and advertising with clearer communication and wider marketing objectives.",
         },
         {
           title: "Audience-Focused Marketing",
-          text: "Your marketing should be built around the people you want to reach. We consider your audience and their journey when developing marketing strategies and activities.",
+          text: "Your marketing should be built around the people you want to reach. We consider your audience and their journey when developing marketing activities.",
         },
         {
           title: "Clearer Communication and Collaboration",
-          text: "We aim to make marketing discussions easier to understand by reducing unnecessary jargon and keeping attention on priorities and objectives.",
+          text: "We aim to make marketing easier to understand by reducing unnecessary jargon and keeping discussions focused on priorities and objectives.",
         },
         {
           title: "Flexible Support for Different Business Needs",
-          text: "Every business is different. Whether you are building a new brand, growing an established business or looking to improve specific areas of your digital presence, we adapt our approach around your requirements. For businesses looking for the **best digital marketing agency Kolkata** has to offer, the most important consideration should be finding a marketing partner whose approach and capabilities genuinely fit your business.",
+          text: "Every business has different challenges. Whether you are a startup, growing company or established brand, we adapt our approach around your requirements. Businesses may also search for a **digital marketing agency Navi Mumbai** or a **digital marketing company in Navi Mumbai** when comparing agencies across the Mumbai region. What matters most is finding a marketing partner whose approach, capabilities and understanding genuinely fit your business needs.",
                   },
       ].map((item, index) => (
-
-  <motion.div
-    key={`${item.title}-${index}`}
-    variants={{
-      hidden: {
-        opacity: 0,
-        y: 35,
-        scale: 0.96,
-      },
-      visible: {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: {
-          duration: 0.55,
-          delay: index * 0.08,
-          ease: [0.22, 1, 0.36, 1],
-        },
-      },
-    }}
-    whileHover={{
-      y: -8,
-      transition: { duration: 0.25 },
-    }}
-    className="group relative min-h-[230px] overflow-hidden rounded-[10px] border border-black/10 bg-white px-6 py-8 shadow-[0_8px_25px_rgba(0,0,0,0.08)] transition-shadow duration-300 hover:shadow-[0_16px_35px_rgba(0,0,0,0.12)] sm:min-h-[250px] sm:px-7 sm:py-9"
-  >
+        <motion.div
+          key={item.title}
+          variants={{
+            hidden: {
+              opacity: 0,
+              y: 35,
+              scale: 0.96,
+            },
+            visible: {
+              opacity: 1,
+              y: 0,
+              scale: 1,
+              transition: {
+                duration: 0.55,
+                delay: index * 0.08,
+                ease: [0.22, 1, 0.36, 1],
+              },
+            },
+          }}
+          whileHover={{
+            y: -8,
+            transition: { duration: 0.25 },
+          }}
+          className="group relative min-h-[230px] overflow-hidden rounded-[10px] border border-black/10 bg-white px-6 py-8 shadow-[0_8px_25px_rgba(0,0,0,0.08)] transition-shadow duration-300 hover:shadow-[0_16px_35px_rgba(0,0,0,0.12)] sm:min-h-[250px] sm:px-7 sm:py-9"
+        >
           {/* Subtle top accent animation */}
           <motion.div
             initial={{ width: 0 }}
@@ -967,24 +955,21 @@ export default function DigitalMarketingLondonPage() {
             variants={fadeUp}
             className="mt-5 max-w-3xl text-[14px] leading-7 text-black/70 sm:text-[15px]"
           >
-            Big Beans Digital can support businesses that want to improve how
-            they are discovered, understood and chosen online. The value we aim
-            to add comes from connecting the right digital activities to your
-            wider business priorities.
+            Big Beans Digital helps businesses strengthen how they communicate, connect and compete in the digital space. Our focus is on bringing the right marketing activities together around clearer business priorities.
           </motion.p>
 
           <div className="mt-7 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {[
-  ["Digital Marketing Strategy", "Create a clearer direction for your marketing activities and priorities."],
+  ["Digital Marketing Strategy", "Create a clearer direction for your digital marketing activities."],
   ["Social Media Marketing", "Build a more purposeful social media presence around your audience and brand."],
-  ["Creative Advertising", "Develop advertising creative that communicates clearly and supports campaign objectives."],
-  ["Branding and Design", "Create a more consistent and recognisable brand presence across your digital channels."],
-  ["Website Development", "Build a website that helps customers understand your business and take meaningful next steps."],
-  ["Performance Marketing", "Connect paid marketing activity with measurable goals and ongoing optimisation."],
-  ["Google Ads", "Reach relevant audiences through strategically managed paid advertising campaigns."],
-  ["Paid Social Advertising", "Use targeted social campaigns to improve reach and connect with relevant audiences."],
+  ["Creative Advertising", "Develop creative campaigns that communicate clearly and support marketing objectives."],
+  ["Branding and Design", "Create a more consistent and recognisable brand experience."],
+  ["Website Development", "Build a website that helps potential customers understand your business and take meaningful next steps."],
+  ["Performance Marketing", "Connect paid marketing activity with measurable objectives and ongoing optimisation."],
+  ["Google Ads", "Reach relevant audiences through strategically managed paid campaigns."],
+  ["Paid Social Advertising", "Use targeted advertising to reach and engage relevant audiences."],
   ["Content Strategy", "Create clearer content directions around your audience, communication and marketing priorities."],
-  ["Conversion-Focused Digital Experiences", "Improve the journey from initial interaction to enquiry, lead or another meaningful action."],
+  ["Conversion-Focused Digital Experiences", "Improve the journey from initial attention to enquiry, lead or another meaningful business action."],
 ].map(([title, text]) => (
               <motion.div
                 key={title}
@@ -1013,34 +998,34 @@ export default function DigitalMarketingLondonPage() {
         >
           <SectionTitle center>
             Frequently Asked Questions About Our Digital Marketing Services in
-            London
+            Mumbai
           </SectionTitle>
 
           <div className="mt-7 grid gap-3 lg:grid-cols-2">
             {[
   {
-    q: "Why should I choose Big Beans Digital as my **digital marketing agency in Kolkata**?",
+    q: "Why should I choose Big Beans Digital as my **digital marketing agency Mumbai**?",
     a: "Big Beans Digital supports businesses looking for a more connected approach across social media marketing, advertising, branding, creative design, website development and performance marketing. We begin by understanding your business objectives and challenges before focusing on the activities that are most relevant to your needs.",
   },
   {
-    q: "What services does your **Kolkata digital marketing agency** provide?",
+    q: "What services does your **digital marketing company Mumbai** provide?",
     a: "Our services include social media marketing, creative advertising, branding and design, website development, paid advertising and performance marketing. The right combination of services depends on your business goals, target audience and current marketing priorities.",
   },
   {
-    q: "Do you provide social media marketing services for Kolkata businesses?",
-    a: "Yes. As a **social media marketing agency in Kolkata**, we help businesses develop social media strategies, plan content, create engaging content, manage communities, run social advertising campaigns and review performance.",
+    q: "Do you provide social media marketing services for Mumbai businesses?",
+    a: "Yes. As a **social media marketing agency Mumbai**, we help businesses develop social media strategies, plan content, create relevant content, support community management, run paid social campaigns and review performance.",
   },
   {
     q: "Can you help my business with advertising campaigns?",
-    a: "Yes. Businesses looking for an **ad agency in Kolkata** or an **advertising agency in Kolkata** can work with Big Beans Digital on advertising strategy, campaign creative, paid digital campaigns and performance-focused optimisation.",
+    a: "Yes. Businesses looking for an **ad agency in Mumbai**, an **advertising agency Mumbai** or other **advertising agencies in Mumbai** can work with Big Beans Digital on advertising strategy, campaign creative, paid digital campaigns and performance-focused optimisation.",
   },
   {
-    q: "Do you provide branding and creative marketing services?",
-    a: "Yes. We support businesses with brand strategy, brand identity, logo design, creative advertising, social media creative and marketing collateral. Our goal is to help businesses create a more consistent and recognisable brand presence.",
+    q: "Do you provide branding and creative services?",
+    a: "Yes. We support businesses with brand strategy, brand identity, logo design, creative advertising, social media creative and marketing collateral. As a business looking for a **branding company in Mumbai**, you can work with us to create a more consistent and recognisable brand presence.",
   },
   {
     q: "Can you build or improve my business website?",
-    a: "Yes. Our website services can include business website development, UI/UX design, landing pages, e-commerce websites, website optimisation and ongoing support.",
+    a: "Yes. Our website development services can include business websites, UI/UX design, landing pages, e-commerce websites, website optimisation and ongoing support.",
   },
   {
     q: "Do you offer performance marketing services?",
@@ -1048,15 +1033,15 @@ export default function DigitalMarketingLondonPage() {
   },
   {
     q: "How do you decide which digital marketing services my business needs?",
-    a: "We start by understanding your business, target audience, goals, existing marketing activities and the challenges you are facing. We then identify the areas that are most relevant to your priorities rather than recommending every service automatically.",
+    a: "We start by understanding your business, target audience, objectives, existing marketing activities and the challenges you are facing. We then identify the areas that are most relevant to your priorities rather than automatically recommending every available service.",
   },
   {
     q: "How do you measure digital marketing performance?",
-    a: "The right measures depend on your business objectives. Depending on the activity, we may focus on relevant website traffic, leads, conversions, engagement, campaign performance and other meaningful outcomes.",
+    a: "The right metrics depend on your business objectives. Depending on the activity, we may focus on relevant website traffic, leads, conversions, engagement, campaign performance and other meaningful outcomes.",
   },
   {
-    q: "Do you provide SEO services for businesses in Kolkata?",
-    a: "Businesses searching for an **SEO agency Kolkata** or **SEO company Kolkata** can discuss their search visibility requirements with our team. We can assess your requirements and help identify the right approach based on your website, target audience and business objectives.",
+    q: "Do you work with businesses across Mumbai and Navi Mumbai?",
+    a: "Yes. We can support businesses across Mumbai and surrounding areas. Whether you are searching for a **digital marketing agency Navi Mumbai**, a **digital marketing company in Navi Mumbai** or a **digital media agency in Mumbai**, the focus remains on understanding your business needs and developing an approach around relevant objectives.",
   },
 ].map((faq, index) => {
               const isOpen = activeFaq === index;
@@ -1193,7 +1178,7 @@ export default function DigitalMarketingLondonPage() {
                         max-w-[650px]
                       "
                     >
-                      Big Beans Digital partners with startups, entrepreneurs, and
+                      Big Beans Digital Digital partners with startups, entrepreneurs, and
                       growing businesses across Kolkata, Delhi, Bangalore, Mumbai,
                       Pune, Noida, Tripura, Kolkata, Singapore, Canada, Australia, and
                       Nigeria. Our creative social media marketing, branding, and
@@ -1430,25 +1415,20 @@ export default function DigitalMarketingLondonPage() {
             <h2 className="text-[30px] font-semibold leading-[1.12] tracking-[-0.035em] text-white sm:text-[38px] lg:text-[46px]">
               Ready to Build a{" "}
               <span className="text-yellow-400">
-                Stronger Digital Presence?
+                Stronger Digital Presence for Your Business?
               </span>
             </h2>
 
             <p className="mt-5 max-w-3xl text-[14px] leading-7 text-white/65 sm:text-[15px]">
-              Whether you are looking for support with SEO, PPC, social media,
-              creative advertising, branding, website development or a broader
-              digital marketing strategy, Big Beans Digital can help you identify
-              the areas that deserve your attention.
+              Your business does not necessarily need more marketing activity. It needs the right activities, connected by a clear strategy and focused on meaningful objectives.
             </p>
 
             <p className="mt-4 max-w-3xl text-[14px] leading-7 text-white/65 sm:text-[15px]">
-              If your current marketing feels disconnected, difficult to measure
-              or no longer aligned with where your business is heading, it may be
-              time for a clearer approach.
+              Whether you need support with social media marketing, creative advertising, branding, website development or performance marketing, Big Beans Digital can help you identify where your business should focus next.
             </p>
 
             <h3 className="mt-7 text-[21px] font-semibold text-white sm:text-[25px]">
-              Let’s Explore What Your Business Needs Next.
+              Let’s Build a Clearer Direction for Your Digital Growth.
             </h3>
 
             <div className="mt-7 flex flex-wrap gap-3">

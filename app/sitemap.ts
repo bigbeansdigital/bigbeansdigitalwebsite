@@ -40,7 +40,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     {
       url: `${baseUrl}/digital-marketing-agency-kolkata`,
     },
-
+{
+      url: `${baseUrl}/digital-marketing-agency-mumbai`,
+    },
 
     
 
