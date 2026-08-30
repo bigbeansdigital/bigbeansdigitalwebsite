@@ -78,7 +78,7 @@ function RichText({ text }: { text: string }) {
   );
 }
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
