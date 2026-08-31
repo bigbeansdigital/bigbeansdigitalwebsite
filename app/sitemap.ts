@@ -94,5 +94,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/blog/google-marketing-live-gemini-ads-guide`,
     },
     
+    {
+      url: `${baseUrl}/blog/social-media-marketing-cost-india`,
+    },
+
+
   ];
 }

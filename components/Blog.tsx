@@ -41,16 +41,20 @@ export default function SocialMediaMarketing() {
   const blogs = [
     
     
-    
-    
-
-    
-    
-    
-    
-    
     {
       id: 9,
+      image: "/assets/blog/singleblogs/social-media-marketing-cost-india.webp",
+      date: "August 31, 2026",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Start-Ups",
+      title: "Social Media Marketing Cost in India",
+      description:
+        "Discover social media marketing costs in India, what agencies charge, package pricing, and what affects your budget. Plan smarter with BigBeans Digital.",
+      link: "/blog/social-media-marketing-cost-india",
+    },
+    
+    {
+      id: 8,
       image:
         "/assets/blog/singleblogs/Spider-Man-inspired-social-media-marketing-creative.webp",
       date: "August 22, 2026",
@@ -64,7 +68,7 @@ export default function SocialMediaMarketing() {
     
     
     {
-      id: 8,
+      id: 7,
       image:
         "/assets/blog/singleblogs/real-estate-video-marketing-ideas-for-reels.png",
       date: "August 18, 2026",
@@ -77,7 +81,7 @@ export default function SocialMediaMarketing() {
     },
 
 {
-      id: 7,
+      id: 6,
       image:
         "/assets/blog/singleblogs/new-instagram-logo-redesign.png",
       date: "August 17, 2026",
@@ -91,7 +95,7 @@ export default function SocialMediaMarketing() {
 
 
 {
-      id: 6,
+      id: 5,
       image:
         "/assets/blog/singleblogs/why-is-my-competitor-getting-more-leads.png",
       date: "August 17, 2026",
@@ -105,7 +109,7 @@ export default function SocialMediaMarketing() {
 
     
     {
-      id: 5,
+      id: 4,
       image:
         "/assets/blog/singleblogs/clinic-instagram-marketing-strategy.png",
       date: "August 14, 2026",
@@ -118,7 +122,7 @@ export default function SocialMediaMarketing() {
     },
 
     {
-      id: 4,
+      id: 3,
       image: "/assets/blog/singleblogs/getmorecustomers.png",
       date: "August 14, 2026",
       primaryCategory: "Social Media",
