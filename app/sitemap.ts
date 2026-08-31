@@ -98,6 +98,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/blog/social-media-marketing-cost-india`,
     },
 
+    {
+      url: `${baseUrl}/blog/how-to-choose-a-business-name-guide-for-startups`,
+    },
+
 
   ];
 }

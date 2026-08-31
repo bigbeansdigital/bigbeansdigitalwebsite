@@ -40,7 +40,17 @@ export default function SocialMediaMarketing() {
 
   const blogs = [
     
-    
+    {
+      id: 10,
+      image: "/assets/blog/singleblogs/how-to-choose-a-business-name-guide-for-startups.webp",
+      date: "August 31, 2026",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Start-Ups",
+      title: "How to Choose a Business Name: A Complete Guide for Startups",
+      description:
+        "A practical, step-by-step guide to choosing a business name — brainstorming methods, legal checks for India and the UK, and a scoring framework to help you commit.",
+      link: "/blog/how-to-choose-a-business-name-guide-for-startups",
+    },
     {
       id: 9,
       image: "/assets/blog/singleblogs/social-media-marketing-cost-india.webp",
