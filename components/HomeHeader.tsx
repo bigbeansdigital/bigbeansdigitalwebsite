@@ -31,7 +31,7 @@ const headerEntry = {
 
     transition: {
       duration: 1.15,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 };
@@ -59,7 +59,7 @@ const logoEntry = {
     transition: {
       duration: 0.9,
       delay: 0.35,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 };
@@ -99,7 +99,7 @@ const navItem = {
 
     transition: {
       duration: 0.6,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 };
@@ -125,7 +125,7 @@ const ctaEntry = {
     transition: {
       duration: 0.9,
       delay: 1.0,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 };
@@ -514,7 +514,7 @@ export default function Header() {
                       }}
                       transition={{
                         duration: 0.28,
-                        ease: [0.16, 1, 0.3, 1],
+                        ease: [0.16, 1, 0.3, 1] as const,
                       }}
                       className="
                         absolute
@@ -873,7 +873,7 @@ export default function Header() {
               }}
               transition={{
                 duration: 0.45,
-                ease: [0.16, 1, 0.3, 1],
+                ease: [0.16, 1, 0.3, 1] as const,
               }}
               className="
                 lg:hidden
