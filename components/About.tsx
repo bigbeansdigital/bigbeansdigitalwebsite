@@ -493,7 +493,16 @@ function CinematicSection({
     offset: ["start end", "end start"],
   });
 
-  const presets = {
+  type Preset = {
+    x: number[];
+    y: number[];
+    scale: number[];
+    opacity: number[];
+    rotateX: number[];
+    rotateY: number[];
+  };
+
+  const presets: Record<CinematicVariant, Preset> = {
     pop: {
       x: [0, 0, 0, 0],
       y: [90, 0, 0, -65],
@@ -538,7 +547,7 @@ function CinematicSection({
       rotateX: [3, 0, 0, -2],
       rotateY: [2, 0, 0, -2],
     },
-  } as const;
+  };
 
   const preset = presets[variant];
 

@@ -25,7 +25,16 @@ const carouselImages = [
   "/home/clientlogo/14.png",
 ];
 
-const services = [
+type Service = {
+  title: string;
+  navTitle: string;
+  image: string;
+  text: string;
+  href: string;
+  pointers?: string[];
+};
+
+const services: Service[] = [
   {
   title: "Branding",
   navTitle: "Branding",
@@ -1019,7 +1028,7 @@ function ImmersiveSection({
       variants={variants[animation]}
       transition={{
         duration: animation === "pop" ? 0.85 : 0.8,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       }}
       className={`relative z-10 ${className}`}
     >
@@ -1631,7 +1640,7 @@ export default function Home() {
       initial={{ opacity: 0, x: -25 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] as const }}
       className="
         relative
         z-[200]
@@ -1785,7 +1794,7 @@ export default function Home() {
                 }}
                 transition={{
                   duration: 5.0,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease: [0.22, 1, 0.36, 1] as const,
                 }}
                 style={{
                   position: "absolute",
@@ -1903,7 +1912,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 transition={{
                   duration: 1.0,
-                  ease: [0.22, 1, 0.36, 1],
+                  ease: [0.22, 1, 0.36, 1] as const,
                 }}
                 className="overflow-hidden rounded-[25px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
               >
