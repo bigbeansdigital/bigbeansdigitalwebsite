@@ -30,7 +30,7 @@ const footerEntry = {
 
     transition: {
       duration: 0.9,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 };
@@ -53,7 +53,7 @@ const columnEntry = {
 
     transition: {
       duration: 0.65,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 };
@@ -85,7 +85,7 @@ const listItem = {
 
     transition: {
       duration: 0.4,
-      ease: [0.16, 1, 0.3, 1],
+      ease: [0.16, 1, 0.3, 1] as const,
     },
   },
 };
@@ -393,7 +393,7 @@ export default function Footer() {
 
               transition={{
                 duration: 0.8,
-                ease: [0.16, 1, 0.3, 1],
+                ease: [0.16, 1, 0.3, 1] as const,
               }}
 
               whileHover={{
@@ -1039,7 +1039,7 @@ export default function Footer() {
           transition={{
             duration: 0.65,
             delay: 0.25,
-            ease: [0.16, 1, 0.3, 1],
+            ease: [0.16, 1, 0.3, 1] as const,
           }}
 
           className="
