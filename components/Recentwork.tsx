@@ -6,29 +6,31 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 /* =========================================================
-   OUR RECENT WORK
+   TYPES
 ========================================================= */
 
 type Category =
-  | "All"
   | "Branding"
   | "Social Media"
   | "Website Dev"
-  | "Digital Marketing"
-  | "Performance Marketing";
+  | "Performance Marketing"
+  | "Digital Marketing";
 
 type WorkItem = {
-  category: Exclude<Category, "All">;
+  category: Category;
   image: string;
 };
 
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
 const categories: Category[] = [
-  "All",
   "Branding",
   "Social Media",
   "Website Dev",
-  "Digital Marketing",
   "Performance Marketing",
+  "Digital Marketing",
 ];
 
 /* =========================================================
@@ -52,13 +54,13 @@ const workItems: WorkItem[] = [
   })),
 
   ...Array.from({ length: 4 }, (_, i) => ({
-    category: "Digital Marketing" as const,
-    image: `/home/Our-Carousal/Digital Marketing/${i + 1}.webp`,
+    category: "Performance Marketing" as const,
+    image: `/home/Our-Carousal/Performance Marketing/${i + 1}.webp`,
   })),
 
   ...Array.from({ length: 4 }, (_, i) => ({
-    category: "Performance Marketing" as const,
-    image: `/home/Our-Carousal/Performance Marketing/${i + 1}.webp`,
+    category: "Digital Marketing" as const,
+    image: `/home/Our-Carousal/Digital Marketing/${i + 1}.webp`,
   })),
 ];
 
@@ -68,32 +70,152 @@ const workItems: WorkItem[] = [
 
 export default function Recentwork() {
   const [activeCategory, setActiveCategory] =
-    useState<Category>("All");
+    useState<Category>("Branding");
+
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const [isPaused, setIsPaused] = useState(false);
 
-  const filteredItems = useMemo(() => {
-    if (activeCategory === "All") {
-      return workItems;
-    }
+  /* =======================================================
+     FILTER CURRENT CATEGORY
+  ======================================================= */
 
+  const filteredItems = useMemo(() => {
     return workItems.filter(
       (item) => item.category === activeCategory
     );
   }, [activeCategory]);
 
-  const carouselItems = useMemo(() => {
-    return [...filteredItems, ...filteredItems];
-  }, [filteredItems]);
+  /* =======================================================
+     RESET WHEN CATEGORY CHANGES
+  ======================================================= */
 
   useEffect(() => {
-    setIsPaused(false);
+    setCurrentIndex(0);
   }, [activeCategory]);
 
-  const isLandscapeCategory =
-    activeCategory === "Website Dev" ||
-    activeCategory === "Digital Marketing" ||
-    activeCategory === "Performance Marketing";
+  /* =======================================================
+     AUTO SLIDE
+  ======================================================= */
+
+  useEffect(() => {
+    if (isPaused || filteredItems.length <= 1) {
+      return;
+    }
+
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => {
+        return (prev + 1) % filteredItems.length;
+      });
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [isPaused, filteredItems.length]);
+
+  /* =======================================================
+     NEXT SLIDE
+  ======================================================= */
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => {
+      return (prev + 1) % filteredItems.length;
+    });
+  };
+
+  /* =======================================================
+     PREVIOUS SLIDE
+  ======================================================= */
+
+  const previousSlide = () => {
+    setCurrentIndex((prev) => {
+      return (
+        (prev - 1 + filteredItems.length) %
+        filteredItems.length
+      );
+    });
+  };
+
+  /* =======================================================
+     CALCULATE RELATIVE POSITION
+  ======================================================= */
+
+  const getRelativePosition = (index: number) => {
+    const total = filteredItems.length;
+
+    let difference = index - currentIndex;
+
+    if (difference > total / 2) {
+      difference -= total;
+    }
+
+    if (difference < -total / 2) {
+      difference += total;
+    }
+
+    return difference;
+  };
+
+  /* =======================================================
+     CARD PROPERTIES
+  ======================================================= */
+
+  const getCardProperties = (position: number) => {
+    switch (position) {
+      case -2:
+        return {
+          x: -560,
+          scale: 0.72,
+          opacity: 0.38,
+          zIndex: 5,
+          filter: "grayscale(100%)",
+        };
+
+      case -1:
+        return {
+          x: -330,
+          scale: 0.88,
+          opacity: 0.62,
+          zIndex: 20,
+          filter: "grayscale(100%)",
+        };
+
+      case 0:
+        return {
+          x: 0,
+          scale: 1,
+          opacity: 1,
+          zIndex: 100,
+          filter: "grayscale(0%)",
+        };
+
+      case 1:
+        return {
+          x: 330,
+          scale: 0.88,
+          opacity: 0.62,
+          zIndex: 20,
+          filter: "grayscale(100%)",
+        };
+
+      case 2:
+        return {
+          x: 560,
+          scale: 0.72,
+          opacity: 0.38,
+          zIndex: 5,
+          filter: "grayscale(100%)",
+        };
+
+      default:
+        return {
+          x: position < 0 ? -760 : 760,
+          scale: 0.6,
+          opacity: 0,
+          zIndex: 0,
+          filter: "grayscale(100%)",
+        };
+    }
+  };
 
   return (
     <section
@@ -101,50 +223,15 @@ export default function Recentwork() {
         relative
         w-full
         overflow-hidden
-        bg-black
-        py-14
-        sm:py-16
-        lg:py-20
+        bg-[#000000]/[70%]
+        py-16
+        sm:py-20
+        lg:py-24
       "
     >
-
-      {/* =========================================================
-          BACKGROUND IMAGE
-      ========================================================= */}
-
-      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-
-        <Image
-          src="/home/Our-Carousal/ourworkbg.webp"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="
-            object-cover
-            object-center
-          "
-        />
-
-        {/* Dark overlay only — NO BLUR */}
-        <div className="absolute inset-0 bg-black/60" />
-
-        {/* Very subtle texture */}
-        <div
-          className="
-            absolute
-            inset-0
-            opacity-[0.10]
-            [background-image:radial-gradient(rgba(255,255,255,0.12)_0.6px,transparent_0.6px)]
-            [background-size:5px_5px]
-          "
-        />
-
-      </div>
-
-      {/* =========================================================
+      {/* =====================================================
           MAIN CONTENT
-      ========================================================= */}
+      ===================================================== */}
 
       <div
         className="
@@ -159,22 +246,15 @@ export default function Recentwork() {
         "
       >
 
-        {/* =======================================================
-            HEADER
-        ======================================================= */}
+        {/* ===================================================
+            HEADING + PARAGRAPH + CTA
+        =================================================== */}
 
-        <div
-          className="
-            flex
-            flex-col
-            gap-7
-            lg:flex-row
-            lg:items-center
-            lg:justify-between
-          "
-        >
+        <div className="flex w-full flex-col items-center text-center">
 
-          {/* TITLE */}
+          {/* =================================================
+              HEADING
+          ================================================= */}
 
           <motion.h2
             initial={{
@@ -194,7 +274,6 @@ export default function Recentwork() {
               ease: [0.22, 1, 0.36, 1],
             }}
             className="
-              whitespace-nowrap
               text-[48px]
               font-black
               leading-[0.95]
@@ -211,16 +290,18 @@ export default function Recentwork() {
             </span>
           </motion.h2>
 
-          {/* KNOW MORE BUTTON */}
+          {/* =================================================
+              PARAGRAPH
+          ================================================= */}
 
-          <motion.div
+          <motion.p
             initial={{
               opacity: 0,
-              x: 35,
+              y: 20,
             }}
             whileInView={{
               opacity: 1,
-              x: 0,
+              y: 0,
             }}
             viewport={{
               once: true,
@@ -228,154 +309,270 @@ export default function Recentwork() {
             }}
             transition={{
               duration: 0.8,
-              delay: 0.15,
-              ease: [0.22, 1, 0.36, 1],
+              delay: 0.1,
             }}
-            className="shrink-0"
+            className="
+              mx-auto
+              mt-5
+              max-w-[720px]
+              text-[16px]
+              leading-[1.65]
+              text-white/70
+              sm:text-[18px]
+            "
           >
-            <Link
-              href="/our-work"
-              className="
-                group
-                inline-flex
-                items-center
-                justify-center
-                gap-3
-                rounded-full
-                bg-[#F8BC04]
-                px-7
-                py-4
-                text-sm
-                font-bold
-                text-black
-                shadow-[0_15px_40px_rgba(248,188,4,0.18)]
-                transition-all
-                duration-300
-                hover:bg-white
-                sm:px-8
-                sm:py-[18px]
-                sm:text-base
-              "
-            >
-              Know More About Our Work
+            A selection of projects that reflect our creativity,
+            strategy, and the impact we create.
+          </motion.p>
 
-              <span
-                className="
-                  text-lg
-                  transition-transform
-                  duration-300
-                  group-hover:-translate-y-1
-                  group-hover:translate-x-1
-                "
+          {/* =================================================
+              BOOK FREE CONSULTATION CTA
+          ================================================= */}
+
+          <section className="relative mt-4 w-full">
+            <div className="flex w-full items-center justify-center">
+
+              <motion.div
+                whileHover={{
+                  y: -5,
+                  scale: 1.045,
+                  rotateX: -4,
+                  rotateY: 2,
+                }}
+                whileTap={{
+                  scale: 0.97,
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 320,
+                  damping: 17,
+                }}
+                className="relative inline-block"
               >
-                ↗
-              </span>
-            </Link>
-          </motion.div>
+
+                {/* ========================================================
+                    MOVING YELLOW GLOW BORDER
+                ======================================================== */}
+
+                <svg
+                  aria-hidden="true"
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    z-20
+                    h-full
+                    w-full
+                    overflow-visible
+                  "
+                  viewBox="0 0 1000 160"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <filter
+                      id="yellowGlow"
+                      x="-50%"
+                      y="-50%"
+                      width="200%"
+                      height="200%"
+                    >
+                      <feGaussianBlur
+                        stdDeviation="3"
+                        result="blur1"
+                      />
+
+                      <feGaussianBlur
+                        in="SourceGraphic"
+                        stdDeviation="7"
+                        result="blur2"
+                      />
+
+                      <feGaussianBlur
+                        in="SourceGraphic"
+                        stdDeviation="14"
+                        result="blur3"
+                      />
+
+                      <feMerge>
+                        <feMergeNode in="blur3" />
+                        <feMergeNode in="blur2" />
+                        <feMergeNode in="blur1" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  <rect
+                    x="1.5"
+                    y="1.5"
+                    width="997"
+                    height="157"
+                    rx="78.5"
+                    ry="78.5"
+                    pathLength="1000"
+                    fill="none"
+                    stroke="#f8bc04"
+                    strokeWidth="5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeDasharray="55 945"
+                    strokeDashoffset="0"
+                    filter="url(#yellowGlow)"
+                    style={{
+                      animation:
+                        "yellowBorderMove 6s linear infinite",
+                    }}
+                  />
+
+                  <style>
+                    {`
+                      @keyframes yellowBorderMove {
+                        0% {
+                          stroke-dashoffset: 0;
+                        }
+
+                        100% {
+                          stroke-dashoffset: -1000;
+                        }
+                      }
+                    `}
+                  </style>
+                </svg>
+
+                {/* ========================================================
+                    OUTER GLASS BORDER
+                ======================================================== */}
+
+                <div
+                  aria-hidden="true"
+                  className="
+                    pointer-events-none
+                    absolute
+                    -inset-[1px]
+                    z-10
+                    rounded-full
+                    border
+                    border-white/30
+                  "
+                />
+
+                {/* ========================================================
+                    MAIN GLASS BUTTON
+                ======================================================== */}
+
+                <Link
+                  href="/OurWork"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    relative
+                    z-10
+
+                    flex
+                    items-center
+                    justify-center
+
+                    gap-2.5
+
+                    h-[54px]
+                    px-7
+
+                    overflow-hidden
+
+                    rounded-full
+
+                    border
+                    border-white/30
+
+                    bg-black/40
+
+                    text-white
+                    font-bold
+                    text-[16px]
+
+                    whitespace-nowrap
+
+                    shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]
+
+                    backdrop-blur-2xl
+                    backdrop-saturate-150
+
+                    transition-all
+                    duration-300
+
+                    hover:border-white/60
+                    hover:bg-black/30
+                  "
+                >
+
+                  {/* ======================================================
+                      MOVING WHITE REFLECTION
+                  ====================================================== */}
+
+                  <motion.span
+                    aria-hidden="true"
+                    initial={{
+                      x: "-150%",
+                    }}
+                    animate={{
+                      x: "150%",
+                    }}
+                    transition={{
+                      duration: 2.8,
+                      delay: 2,
+                      repeat: Infinity,
+                      repeatDelay: 3,
+                      ease: "easeInOut",
+                    }}
+                    className="
+                      pointer-events-none
+                      absolute
+                      top-0
+                      bottom-0
+                      w-16
+                      rotate-[18deg]
+                      bg-white/20
+                      blur-md
+                    "
+                  />
+
+                  {/* ======================================================
+                      BUTTON TEXT
+                  ====================================================== */}
+
+                  <span className="relative z-10">
+                    Check More Work
+                  </span>
+
+                </Link>
+
+              </motion.div>
+            </div>
+          </section>
 
         </div>
 
-        {/* =======================================================
-            CATEGORY BUTTONS
-        ======================================================= */}
-
-        <motion.div
-          initial={{
-            opacity: 0,
-            y: 25,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
-          viewport={{
-            once: true,
-            amount: 0.25,
-          }}
-          transition={{
-            duration: 0.7,
-            delay: 0.1,
-          }}
-          className="
-            mt-8
-            flex
-            w-full
-            flex-wrap
-            gap-3
-            sm:mt-9
-          "
-        >
-
-          {categories.map((category, index) => {
-            const active = activeCategory === category;
-
-            return (
-              <motion.button
-                key={category}
-                initial={{
-                  opacity: 0,
-                  scale: 0.9,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  scale: 1,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  delay: 0.12 + index * 0.06,
-                  duration: 0.4,
-                }}
-                whileHover={{
-                  y: -3,
-                }}
-                whileTap={{
-                  scale: 0.96,
-                }}
-                onClick={() =>
-                  setActiveCategory(category)
-                }
-                className={`
-                  rounded-full
-                  border
-                  px-5
-                  py-2.5
-                  text-sm
-                  font-medium
-                  transition-all
-                  duration-300
-                  sm:px-6
-                  sm:py-3
-                  ${
-                    active
-                      ? "border-[#F8BC04] bg-[#F8BC04] text-black shadow-[0_10px_30px_rgba(248,188,4,0.18)]"
-                      : "border-white/25 bg-white/[0.04] text-white hover:border-[#F8BC04] hover:bg-[#F8BC04] hover:text-black"
-                  }
-                `}
-              >
-                {category}
-              </motion.button>
-            );
-          })}
-
-        </motion.div>
-
       </div>
 
-      {/* =========================================================
+      {/* =====================================================
           CAROUSEL
-      ========================================================= */}
+      ===================================================== */}
 
       <div
+        id="recent-work-carousel"
         className="
           relative
           z-10
-          mt-10
+          mx-auto
+          mt-12
+          h-[500px]
           w-full
-          overflow-hidden
-          sm:mt-12
-          lg:mt-14
+          max-w-[1500px]
+          sm:mt-14
+          sm:h-[530px]
+          lg:mt-16
+          lg:h-[540px]
         "
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
@@ -383,177 +580,145 @@ export default function Recentwork() {
         onTouchEnd={() => setIsPaused(false)}
       >
 
-        {/* LEFT FADE */}
+        {/* LEFT ARROW */}
 
-        <div
+        <button
+          type="button"
+          onClick={previousSlide}
+          aria-label="Previous project"
           className="
-            pointer-events-none
             absolute
-            left-0
-            top-0
-            z-30
-            h-full
-            w-[80px]
-            bg-gradient-to-r
-            from-black
-            via-black/75
-            to-transparent
-            sm:w-[120px]
-            lg:w-[190px]
-          "
-        />
-
-        {/* RIGHT FADE */}
-
-        <div
-          className="
-            pointer-events-none
-            absolute
-            right-0
-            top-0
-            z-30
-            h-full
-            w-[80px]
-            bg-gradient-to-l
-            from-black
-            via-black/75
-            to-transparent
-            sm:w-[120px]
-            lg:w-[190px]
-          "
-        />
-
-        {/* =======================================================
-            MOVING TRACK
-        ======================================================= */}
-
-        <motion.div
-          key={activeCategory}
-          initial={{
-            x: "0%",
-          }}
-          animate={{
-            x: isPaused
-              ? undefined
-              : ["0%", "-50%"],
-          }}
-          transition={{
-            /*
-             * Very slow / medium-speed continuous movement.
-             * Higher duration = slower carousel.
-             */
-            duration: 140,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="
+            left-2
+            top-1/2
+            z-[200]
             flex
-            w-max
+            h-[54px]
+            w-[54px]
+            -translate-y-1/2
             items-center
-            gap-5
-            sm:gap-6
-            lg:gap-7
-          "
-        >
-
-          {carouselItems.map((item, index) => (
-            <motion.div
-              key={`${item.category}-${index}`}
-              className="
-                group
-                relative
-                shrink-0
-                overflow-hidden
-                bg-white
-              "
-              style={{
-                width:
-                  "clamp(250px, 23vw, 375px)",
-
-                aspectRatio:
-                  isLandscapeCategory
-                    ? "1350 / 1080"
-                    : "1080 / 1350",
-              }}
-              whileHover={{
-                y: -6,
-                scale: 1.01,
-              }}
-              transition={{
-                duration: 0.35,
-                ease: "easeOut",
-              }}
-            >
-
-              {/* =================================================
-                  CAROUSEL IMAGE
-              ================================================= */}
-
-              <Image
-                src={item.image}
-                alt={`${item.category} project`}
-                fill
-                sizes="
-                  (max-width: 640px) 78vw,
-                  (max-width: 1024px) 42vw,
-                  23vw
-                "
-                className="
-                  object-cover
-                  opacity-100
-                  blur-0
-                  transition-transform
-                  duration-700
-                  group-hover:scale-[1.02]
-                "
-                priority={index < 5}
-              />
-
-            </motion.div>
-          ))}
-
-        </motion.div>
-
-      </div>
-
-      {/* =========================================================
-          MOBILE BUTTON
-      ========================================================= */}
-
-      <div
-        className="
-          relative
-          z-10
-          mt-10
-          flex
-          justify-center
-          lg:hidden
-        "
-      >
-        <Link
-          href="/our-work"
-          className="
-            inline-flex
-            items-center
-            gap-3
+            justify-center
             rounded-full
-            bg-[#F8BC04]
-            px-7
-            py-3.5
-            text-sm
-            font-bold
-            text-black
+            border
+            border-[#F8BC04]
+            bg-black
+            text-[28px]
+            font-light
+            text-[#F8BC04]
             transition-all
             duration-300
-            hover:bg-white
+            hover:bg-[#F8BC04]
+            hover:text-black
+            sm:left-5
+            lg:left-8
           "
         >
-          Know More About Our Work
+          ←
+        </button>
 
-          <span className="text-lg">
-            ↗
-          </span>
-        </Link>
+        {/* RIGHT ARROW */}
+
+        <button
+          type="button"
+          onClick={nextSlide}
+          aria-label="Next project"
+          className="
+            absolute
+            right-2
+            top-1/2
+            z-[200]
+            flex
+            h-[54px]
+            w-[54px]
+            -translate-y-1/2
+            items-center
+            justify-center
+            rounded-full
+            border
+            border-[#F8BC04]
+            bg-black
+            text-[28px]
+            font-light
+            text-[#F8BC04]
+            transition-all
+            duration-300
+            hover:bg-[#F8BC04]
+            hover:text-black
+            sm:right-5
+            lg:right-8
+          "
+        >
+          →
+        </button>
+
+        {/* =================================================
+            CARDS
+        ================================================= */}
+
+        <div className="relative h-full w-full">
+
+          {filteredItems.map((item, index) => {
+            const relativePosition =
+              getRelativePosition(index);
+
+            const properties =
+              getCardProperties(relativePosition);
+
+            const isCenter =
+              relativePosition === 0;
+
+            return (
+              <motion.div
+                key={`${item.image}-${index}`}
+                initial={false}
+                animate={{
+                  x: properties.x,
+                  scale: properties.scale,
+                  opacity: properties.opacity,
+                  filter: properties.filter,
+                }}
+                transition={{
+                  duration: 1.2,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                style={{
+                  width: "360px",
+                  height: isCenter
+                    ? "480px"
+                    : "390px",
+                  zIndex: properties.zIndex,
+                }}
+                className="
+                  absolute
+                  left-1/2
+                  top-1/2
+                  -translate-x-1/2
+                  -translate-y-1/2
+                  overflow-hidden
+                  rounded-[22px]
+                  bg-white
+                  shadow-[0_25px_80px_rgba(0,0,0,0.55)]
+                  will-change-transform
+                "
+              >
+                <Image
+                  src={item.image}
+                  alt={`${activeCategory} project ${
+                    index + 1
+                  }`}
+                  fill
+                  sizes="
+                    (max-width: 640px) 280px,
+                    (max-width: 1024px) 320px,
+                    360px
+                  "
+                  priority={isCenter}
+                  className="object-cover"
+                />
+              </motion.div>
+            );
+          })}
+
+        </div>
       </div>
 
     </section>

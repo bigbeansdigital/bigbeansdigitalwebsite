@@ -1,16 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { useState } from "react";
 import {
+  ArrowRight,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   BarChart3,
   Handshake,
   Lightbulb,
   TrendingUp,
 } from "lucide-react";
+import {
+  motion,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
+
+/* =========================================================
+   BIG BEANS DIGITAL — ABOUT PAGE
+========================================================= */
 
 const carouselImages = [
   "/assets/about/teammember/Aavika Sharma.png",
@@ -25,1936 +38,2638 @@ const carouselImages = [
   "/assets/about/teammember/Swetha Ramesh.png",
 ];
 
-export default function About() {
+const journeyPoints = [
+  {
+    number: "01",
+    title: "ABC",
+    description: "Building the foundation for ambitious brands.",
+    left: "5.5%",
+    top: "74%",
+    label: "bottom",
+  },
+  {
+    number: "02",
+    title: "ABCD",
+    description: "Turning ideas into recognizable identities.",
+    left: "25%",
+    top: "27%",
+    label: "top",
+  },
+  {
+    number: "03",
+    title: "ABCDE",
+    description: "Creating digital experiences that connect.",
+    left: "36.5%",
+    top: "49%",
+    label: "bottom",
+  },
+  {
+    number: "04",
+    title: "ABCDEF",
+    description: "Expanding creativity across markets.",
+    left: "57%",
+    top: "26%",
+    label: "top",
+  },
+  {
+    number: "05",
+    title: "ABCDEFG",
+    description: "Scaling brands through strategy and performance.",
+    left: "69%",
+    top: "49%",
+    label: "bottom",
+  },
+  {
+    number: "06",
+    title: "ABCDEFGH",
+    description: "Building what comes next.",
+    left: "90%",
+    top: "29%",
+    label: "top",
+  },
+];
+
+const faqs = [
+  {
+    q: "What is BIGBEANS DIGITAL?",
+    a: "BIGBEANS DIGITAL is a Best Digital Marketing Agency for Startups that helps businesses grow through Digital Marketing, Social Media Marketing, Website Development, Branding, Google Ads, Meta Ads, Performance Marketing, and creative digital solutions. We work with startups, small businesses, and growing brands across London, India, USA, and Dubai.",
+  },
+  {
+    q: "Why choose BIGBEANS DIGITAL over other digital marketing agencies?",
+    a: "BIGBEANS DIGITAL combines creativity, strategy, and performance to deliver measurable business growth. As a Digital Marketing Agency for Startups, we focus on building strong brands, generating qualified leads, increasing online visibility, and helping businesses achieve long-term success.",
+  },
+  {
+    q: "Which industries does BIGBEANS DIGITAL work with?",
+    a: "We work with startups, ecommerce brands, healthcare businesses, real estate companies, FMCG brands, gyms, restaurants, educational institutes, local businesses, and service-based companies.",
+  },
+  {
+    q: "What services does BIGBEANS DIGITAL provide?",
+    a: "We provide complete Digital Marketing Services, including Social Media Marketing, Website Development, Branding, Logo Design, Google Ads, Meta Ads, Performance Marketing, Graphic Design, and business growth strategies.",
+  },
+  {
+    q: "Do you work only with startups?",
+    a: "No. While we are known as a Best Digital Marketing Agency for Startups, we also work with small businesses, established companies, entrepreneurs, and growing brands.",
+  },
+  {
+    q: "Which countries do you serve?",
+    a: "BIGBEANS DIGITAL proudly serves clients across London, India, USA, and Dubai.",
+  },
+  {
+    q: "How does BIGBEANS DIGITAL help businesses grow?",
+    a: "We combine Social Media Marketing, Performance Marketing, Website Development, Branding, Google Ads, Meta Ads, and creative content to increase brand awareness, attract qualified customers, generate leads, and improve business revenue.",
+  },
+  {
+    q: "What makes BIGBEANS DIGITAL different?",
+    a: "We don't believe in one-size-fits-all marketing. Every business receives a customized growth strategy based on its goals, audience, industry, and competition.",
+  },
+  {
+    q: "Can BIGBEANS DIGITAL handle both branding and marketing?",
+    a: "Yes. We provide both Branding and Digital Marketing Services under one roof.",
+  },
+  {
+    q: "How can I get started with BIGBEANS DIGITAL?",
+    a: "Getting started is simple. Contact our team for a consultation, and we'll understand your business goals and recommend the best digital strategy.",
+  },
+];
+
+/* =========================================================
+   SPACE PARTICLES
+========================================================= */
+
+function SpaceParticles() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+
+    if (!ctx) return;
+
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let animationFrame = 0;
+
+    const mouse = {
+      x: 0,
+      y: 0,
+    };
+
+    type Particle = {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      radius: number;
+      alpha: number;
+      yellow: boolean;
+      twinkle: number;
+      depth: number;
+    };
+
+    let particles: Particle[] = [];
+
+    const createParticles = () => {
+      const count =
+        window.innerWidth < 768
+          ? 240
+          : window.innerWidth < 1200
+            ? 400
+            : 600;
+
+      particles = Array.from({ length: count }, () => {
+        const depth = Math.random() * 0.85 + 0.15;
+
+        return {
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * (0.08 + depth * 0.2),
+          vy: (Math.random() - 0.5) * (0.08 + depth * 0.2),
+          radius:
+            Math.random() < 0.09
+              ? Math.random() * 2.1 + 1.5
+              : Math.random() * 1.1 + 0.35,
+          alpha: Math.random() * 0.48 + 0.22,
+          yellow: Math.random() > 0.66,
+          twinkle: Math.random() * Math.PI * 2,
+          depth,
+        };
+      });
+    };
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      width = window.innerWidth;
+      height = window.innerHeight;
+
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      createParticles();
+    };
+
+    const handleMouse = (event: MouseEvent) => {
+      mouse.x = event.clientX / width - 0.5;
+      mouse.y = event.clientY / height - 0.5;
+    };
+
+    const draw = (time: number) => {
+      ctx.clearRect(0, 0, width, height);
+
+      particles.forEach((particle) => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+
+        particle.x += mouse.x * particle.depth * 0.018;
+        particle.y += mouse.y * particle.depth * 0.018;
+
+        if (particle.x < -10) particle.x = width + 10;
+        if (particle.x > width + 10) particle.x = -10;
+        if (particle.y < -10) particle.y = height + 10;
+        if (particle.y > height + 10) particle.y = -10;
+
+        const twinkle =
+          0.72 +
+          Math.sin(time * 0.001 + particle.twinkle) * 0.28;
+
+        const alpha = particle.alpha * twinkle;
+
+        ctx.beginPath();
+
+        ctx.arc(
+          particle.x,
+          particle.y,
+          particle.radius,
+          0,
+          Math.PI * 2
+        );
+
+        if (particle.yellow) {
+          ctx.fillStyle = `rgba(248,188,4,${alpha})`;
+
+          if (particle.radius > 1.5) {
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = "rgba(248,188,4,0.4)";
+          }
+        } else {
+          ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+
+          if (particle.radius > 1.5) {
+            ctx.shadowBlur = 7;
+            ctx.shadowColor = "rgba(255,255,255,0.25)";
+          }
+        }
+
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+
+      animationFrame = requestAnimationFrame(draw);
+    };
+
+    resize();
+
+    window.addEventListener("resize", resize);
+
+    window.addEventListener("mousemove", handleMouse, {
+      passive: true,
+    });
+
+    animationFrame = requestAnimationFrame(draw);
+
+    return () => {
+      cancelAnimationFrame(animationFrame);
+
+      window.removeEventListener("resize", resize);
+
+      window.removeEventListener("mousemove", handleMouse);
+    };
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      aria-hidden="true"
+      className="
+        pointer-events-none
+        fixed
+        inset-0
+        z-0
+        opacity-90
+      "
+    />
+  );
+}
+
+/* =========================================================
+   SPACE ATMOSPHERE
+========================================================= */
+
+function SpaceAtmosphere() {
+  const { scrollYProgress } = useScroll();
+
+  const orbOneY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, 450]
+  );
+
+  const orbTwoY = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -350]
+  );
+
+  return (
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+      <motion.div
+        style={{ y: orbOneY }}
+        className="
+          absolute
+          left-[-220px]
+          top-[10%]
+          h-[420px]
+          w-[420px]
+          rounded-full
+          bg-[#F8BC04]/[0.025]
+          blur-[110px]
+        "
+      />
+
+      <motion.div
+        style={{ y: orbTwoY }}
+        className="
+          absolute
+          right-[-220px]
+          top-[30%]
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-[#F8BC04]/[0.018]
+          blur-[120px]
+        "
+      />
+
+      <div
+        className="
+          absolute
+          inset-0
+          bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.72)_100%)]
+        "
+      />
+    </div>
+  );
+}
+
+/* =========================================================
+   GRAIN
+========================================================= */
+
+function Grain() {
+  return (
+    <div
+      className="
+        pointer-events-none
+        fixed
+        inset-0
+        z-[1]
+        opacity-[0.025]
+      "
+      style={{
+        backgroundImage:
+          'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 180 180\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\' opacity=\'.55\'/%3E%3C/svg%3E")',
+      }}
+    />
+  );
+}
+
+/* =========================================================
+   BREADCRUMB
+========================================================= */
+
+function Breadcrumb() {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: -12,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 0.7,
+        delay: 0.2,
+      }}
+      className="
+        absolute
+        left-0
+        right-0
+        top-[96px]
+        z-50
+        flex
+        justify-center
+        px-5
+      "
+    >
+      <nav
+        aria-label="Breadcrumb"
+        className="
+          flex
+          items-center
+          gap-2
+          text-[11px]
+          font-medium
+          tracking-wide
+        "
+      >
+        <Link
+          href="/"
+          className="
+            text-white/45
+            transition-colors
+            duration-300
+            hover:text-[#F8BC04]
+          "
+        >
+          Home
+        </Link>
+
+        <span className="text-white/20">
+          →
+        </span>
+
+        <Link
+          href="/about"
+          className="
+            text-[#F8BC04]
+            transition-colors
+            duration-300
+            hover:text-white
+          "
+          aria-current="page"
+        >
+          About
+        </Link>
+      </nav>
+    </motion.div>
+  );
+}
+
+/* =========================================================
+   CINEMATIC SECTION
+   EXACTLY 15PX TOP + 15PX BOTTOM
+========================================================= */
+
+type CinematicVariant =
+  | "pop"
+  | "left"
+  | "right"
+  | "up"
+  | "zoom";
+
+function CinematicSection({
+  children,
+  className = "",
+  variant = "pop",
+}: {
+  children: ReactNode;
+  className?: string;
+  variant?: CinematicVariant;
+}) {
+  const ref = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const presets = {
+    pop: {
+      x: [0, 0, 0, 0],
+      y: [90, 0, 0, -65],
+      scale: [0.94, 1, 1, 0.97],
+      opacity: [0, 1, 1, 0],
+      rotateX: [5, 0, 0, -2],
+      rotateY: [0, 0, 0, 0],
+    },
+
+    left: {
+      x: [-100, 0, 0, 65],
+      y: [20, 0, 0, -30],
+      scale: [0.97, 1, 1, 0.98],
+      opacity: [0, 1, 1, 0],
+      rotateX: [2, 0, 0, -2],
+      rotateY: [-4, 0, 0, 3],
+    },
+
+    right: {
+      x: [100, 0, 0, -65],
+      y: [20, 0, 0, -30],
+      scale: [0.97, 1, 1, 0.98],
+      opacity: [0, 1, 1, 0],
+      rotateX: [2, 0, 0, -2],
+      rotateY: [4, 0, 0, -3],
+    },
+
+    up: {
+      x: [0, 0, 0, 0],
+      y: [100, 0, 0, -65],
+      scale: [0.97, 1, 1, 0.98],
+      opacity: [0, 1, 1, 0],
+      rotateX: [4, 0, 0, -3],
+      rotateY: [0, 0, 0, 0],
+    },
+
+    zoom: {
+      x: [0, 0, 0, 0],
+      y: [30, 0, 0, -30],
+      scale: [0.9, 1, 1, 1.04],
+      opacity: [0, 1, 1, 0],
+      rotateX: [3, 0, 0, -2],
+      rotateY: [2, 0, 0, -2],
+    },
+  } as const;
+
+  const preset = presets[variant];
+
+  const x = useTransform(
+    scrollYProgress,
+    [0, 0.18, 0.72, 1],
+    preset.x
+  );
+
+  const y = useTransform(
+    scrollYProgress,
+    [0, 0.18, 0.72, 1],
+    preset.y
+  );
+
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.18, 0.72, 1],
+    preset.scale
+  );
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [0, 0.14, 0.78, 1],
+    preset.opacity
+  );
+
+  const rotateX = useTransform(
+    scrollYProgress,
+    [0, 0.18, 0.72, 1],
+    preset.rotateX
+  );
+
+  const rotateY = useTransform(
+    scrollYProgress,
+    [0, 0.18, 0.72, 1],
+    preset.rotateY
+  );
+
+  return (
+    <motion.section
+      ref={ref}
+      style={{
+        x,
+        y,
+        scale,
+        opacity,
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
+        transformPerspective: 1400,
+        willChange: "transform, opacity",
+      }}
+      className={`
+        relative
+        z-10
+        py-[15px]
+        ${className}
+      `}
+    >
+      {children}
+    </motion.section>
+  );
+}
+
+/* =========================================================
+   SCENE 1 — HERO
+   CORRECTED:
+   - Removed the huge empty space above title.
+   - Breadcrumb added near the top.
+   - Main title moved substantially upward.
+   - Description moved upward accordingly.
+========================================================= */
+
+function OpeningScene() {
+  const ref = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 60,
+    damping: 22,
+    mass: 0.7,
+  });
+
+  const titleY = useTransform(
+    progress,
+    [0, 0.7, 1],
+    ["0vh", "-18vh", "-38vh"]
+  );
+
+  const titleScale = useTransform(
+    progress,
+    [0, 0.7, 1],
+    [1, 0.93, 0.78]
+  );
+
+  const paragraphY = useTransform(
+    progress,
+    [0, 0.65, 1],
+    ["0vh", "8vh", "28vh"]
+  );
+
+  const paragraphOpacity = useTransform(
+    progress,
+    [0, 0.55, 0.9],
+    [1, 0.7, 0]
+  );
+
+  return (
+    <section
+      ref={ref}
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-[#050505]
+      "
+    >
+      <Breadcrumb />
+
+      <motion.div
+        style={{
+          y: titleY,
+          scale: titleScale,
+        }}
+        className="
+          absolute
+          inset-x-0
+          top-[20%]
+          z-10
+          flex
+          justify-center
+          px-5
+          text-center
+        "
+      >
+        <div>
+          <p className="mb-4 text-[9px] font-semibold uppercase tracking-[0.45em] text-white/35 sm:text-xs">
+            About Big Beans Digital
+          </p>
+
+          <h1
+            className="
+              text-[48px]
+              font-black
+              leading-[0.86]
+              tracking-[-0.065em]
+              text-white
+              sm:text-[76px]
+              md:text-[100px]
+              lg:text-[125px]
+            "
+          >
+            Building
+            <br />
+
+            <span className="text-[#F8BC04]">
+              Better Brands.
+            </span>
+          </h1>
+        </div>
+      </motion.div>
+
+      {/* =================================================
+          HERO DESCRIPTION
+
+          Also moved up so it doesn't overlap the heading.
+      ================================================= */}
+
+      <motion.div
+        style={{
+          y: paragraphY,
+          opacity: paragraphOpacity,
+        }}
+        className="
+          absolute
+          left-1/2
+          top-[48%]
+          z-10
+          w-[min(800px,90vw)]
+          -translate-x-1/2
+          text-center
+        "
+      >
+        <p className="text-[13px] leading-6 text-white/55 sm:text-[15px] sm:leading-7 lg:text-[17px] lg:leading-8">
+          At BigBeans Digital, we help startups,
+          entrepreneurs, and growing businesses build brands
+          that stand out, connect with the right audience, and
+          drive measurable business growth.
+          <br />
+          <br />
+          As a Social Media Marketing Agency specializing in
+          creative design, branding, performance marketing,
+          and website development, we don't believe in
+          one-size-fits-all strategies. Every business has a
+          unique story, and our job is to help you tell it in a
+          way that attracts attention, builds trust, and
+          converts customers.
+        </p>
+      </motion.div>
+
+      <motion.div
+        style={{
+          opacity: paragraphOpacity,
+        }}
+        className="
+          absolute
+          bottom-8
+          left-1/2
+          z-20
+          flex
+          -translate-x-1/2
+          flex-col
+          items-center
+          gap-2
+          text-white/30
+        "
+      >
+        <span className="text-[9px] uppercase tracking-[0.5em]">
+          Scroll
+        </span>
+
+        <motion.div
+          animate={{
+            y: [0, 7, 0],
+          }}
+          transition={{
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <ChevronDown size={17} />
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
+
+/* =========================================================
+   SIDE IMAGE OPENING
+   SCENE 2 + SCENE 4
+========================================================= */
+
+function SideImageOpening({
+  leftImage,
+  rightImage,
+  progress,
+}: {
+  leftImage: string;
+  rightImage: string;
+  progress: any;
+}) {
+  const leftX = useTransform(
+    progress,
+    [0, 0.18, 0.72, 1],
+    ["-52vw", "0vw", "0vw", "-52vw"]
+  );
+
+  const rightX = useTransform(
+    progress,
+    [0, 0.18, 0.72, 1],
+    ["52vw", "0vw", "0vw", "52vw"]
+  );
+
+  const imageScale = useTransform(
+    progress,
+    [0, 0.2, 0.72, 1],
+    [1.08, 1, 1, 1.08]
+  );
+
+  return (
+    <>
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-[50vw] overflow-hidden">
+        <motion.div
+          style={{
+            x: leftX,
+            scale: imageScale,
+          }}
+          className="
+            absolute
+            left-[-8vw]
+            top-0
+            h-full
+            w-[66vw]
+            will-change-transform
+          "
+        >
+          <Image
+            src={leftImage}
+            alt=""
+            fill
+            priority
+            sizes="66vw"
+            className="object-cover object-center grayscale"
+          />
+
+          <div className="absolute inset-0 bg-black/30" />
+
+          <div
+            className="
+              absolute
+              inset-y-0
+              right-0
+              w-[24vw]
+              bg-gradient-to-r
+              from-transparent
+              via-[#050505]/70
+              to-[#050505]
+            "
+          />
+        </motion.div>
+      </div>
+
+      <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-[50vw] overflow-hidden">
+        <motion.div
+          style={{
+            x: rightX,
+            scale: imageScale,
+          }}
+          className="
+            absolute
+            right-[-8vw]
+            top-0
+            h-full
+            w-[66vw]
+            will-change-transform
+          "
+        >
+          <Image
+            src={rightImage}
+            alt=""
+            fill
+            priority
+            sizes="66vw"
+            className="object-cover object-center grayscale"
+          />
+
+          <div className="absolute inset-0 bg-black/30" />
+
+          <div
+            className="
+              absolute
+              inset-y-0
+              left-0
+              w-[24vw]
+              bg-gradient-to-l
+              from-transparent
+              via-[#050505]/70
+              to-[#050505]
+            "
+          />
+        </motion.div>
+      </div>
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-y-0
+          left-1/2
+          z-[20]
+          w-[38vw]
+          -translate-x-1/2
+          bg-[#050505]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-y-0
+          left-[42%]
+          z-[21]
+          w-[10vw]
+          bg-gradient-to-r
+          from-transparent
+          to-[#050505]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-y-0
+          right-[42%]
+          z-[21]
+          w-[10vw]
+          bg-gradient-to-l
+          from-transparent
+          to-[#050505]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          z-[22]
+          bg-[radial-gradient(ellipse_at_center,transparent_18%,rgba(5,5,5,0.15)_45%,rgba(5,5,5,0.72)_100%)]
+        "
+      />
+    </>
+  );
+}
+
+/* =========================================================
+   VERTICAL MOUNTAIN OPENING
+   SCENE 3
+========================================================= */
+
+function VerticalMountainOpening({
+  topImage,
+  bottomImage,
+  progress,
+}: {
+  topImage: string;
+  bottomImage: string;
+  progress: any;
+}) {
+  const topY = useTransform(
+    progress,
+    [0, 0.18, 0.72, 1],
+    ["-54vh", "0vh", "0vh", "-54vh"]
+  );
+
+  const bottomY = useTransform(
+    progress,
+    [0, 0.18, 0.72, 1],
+    ["54vh", "0vh", "0vh", "54vh"]
+  );
+
+  const imageScale = useTransform(
+    progress,
+    [0, 0.18, 0.72, 1],
+    [1.08, 1, 1, 1.08]
+  );
+
+  return (
+    <>
+      {/* TOP IMAGE */}
+
+      <div className="pointer-events-none absolute left-0 top-0 z-10 h-[54vh] w-full overflow-hidden">
+        <motion.div
+          style={{
+            y: topY,
+            scale: imageScale,
+          }}
+          className="
+            absolute
+            left-[-5vw]
+            top-[-5vh]
+            h-[62vh]
+            w-[110vw]
+            will-change-transform
+          "
+        >
+          <Image
+            src={topImage}
+            alt=""
+            fill
+            priority
+            sizes="110vw"
+            className="object-cover object-center grayscale"
+          />
+
+          <div className="absolute inset-0 bg-black/35" />
+
+          <div
+            className="
+              absolute
+              inset-x-0
+              bottom-0
+              h-[28vh]
+              bg-gradient-to-b
+              from-transparent
+              via-[#050505]/70
+              to-[#050505]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[linear-gradient(to_right,rgba(5,5,5,0.45),transparent_25%,transparent_75%,rgba(5,5,5,0.45))]
+            "
+          />
+        </motion.div>
+      </div>
+
+      {/* BOTTOM IMAGE */}
+
+      <div className="pointer-events-none absolute bottom-0 left-0 z-10 h-[54vh] w-full overflow-hidden">
+        <motion.div
+          style={{
+            y: bottomY,
+            scale: imageScale,
+          }}
+          className="
+            absolute
+            bottom-[-5vh]
+            left-[-5vw]
+            h-[62vh]
+            w-[110vw]
+            will-change-transform
+          "
+        >
+          <Image
+            src={bottomImage}
+            alt=""
+            fill
+            priority
+            sizes="110vw"
+            className="object-cover object-center grayscale"
+          />
+
+          <div className="absolute inset-0 bg-black/35" />
+
+          <div
+            className="
+              absolute
+              inset-x-0
+              top-0
+              h-[28vh]
+              bg-gradient-to-t
+              from-transparent
+              via-[#050505]/70
+              to-[#050505]
+            "
+          />
+
+          <div
+            className="
+              absolute
+              inset-0
+              bg-[linear-gradient(to_right,rgba(5,5,5,0.45),transparent_25%,transparent_75%,rgba(5,5,5,0.45))]
+            "
+          />
+        </motion.div>
+      </div>
+
+      {/* CENTRAL BLACK VALLEY */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          top-[27%]
+          z-[20]
+          h-[46%]
+          bg-[#050505]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          top-[22%]
+          z-[21]
+          h-[18vh]
+          bg-gradient-to-b
+          from-transparent
+          via-[#050505]/65
+          to-[#050505]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-x-0
+          bottom-[22%]
+          z-[21]
+          h-[18vh]
+          bg-gradient-to-t
+          from-transparent
+          via-[#050505]/65
+          to-[#050505]
+        "
+      />
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-0
+          z-[22]
+          bg-[radial-gradient(ellipse_at_center,transparent_28%,rgba(5,5,5,0.18)_58%,rgba(5,5,5,0.72)_100%)]
+        "
+      />
+    </>
+  );
+}
+
+/* =========================================================
+   SCENE 2
+========================================================= */
+
+function SceneTwo() {
+  const ref = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 65,
+    damping: 24,
+  });
+
+  const contentY = useTransform(
+    progress,
+    [0, 0.2, 0.72, 1],
+    ["14vh", "0vh", "0vh", "-16vh"]
+  );
+
+  const contentOpacity = useTransform(
+    progress,
+    [0, 0.18, 0.72, 0.9],
+    [0, 1, 1, 0]
+  );
+
+  return (
+    <section
+      ref={ref}
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-[#050505]
+      "
+    >
+      <SideImageOpening
+        leftImage="/assets/about/teammember/Aavika Sharma.png"
+        rightImage="/assets/about/teammember/Sharvani Gupta.png"
+        progress={progress}
+      />
+
+      <motion.div
+        style={{
+          y: contentY,
+          opacity: contentOpacity,
+        }}
+        className="
+          absolute
+          left-1/2
+          top-1/2
+          z-40
+          w-[min(540px,30vw)]
+          min-w-[310px]
+          -translate-x-1/2
+          -translate-y-1/2
+          text-center
+        "
+      >
+        <div className="flex items-center justify-center gap-4">
+          <span className="h-px w-10 bg-[#F8BC04]/60 sm:w-16" />
+
+          <span className="text-[60px] font-black leading-none tracking-[-0.06em] text-white/[0.13] sm:text-[78px] lg:text-[95px]">
+            2020
+          </span>
+
+          <span className="h-px w-10 bg-[#F8BC04]/60 sm:w-16" />
+        </div>
+
+        <h2 className="mt-3 text-[35px] font-black leading-[0.94] tracking-[-0.05em] text-white sm:text-[48px] lg:text-[58px]">
+          Where It All
+          <br />
+          <span className="text-[#F8BC04]">
+            Began.
+          </span>
+        </h2>
+
+        <p className="mt-6 text-[12px] leading-6 text-white/65 sm:text-[14px] sm:leading-7 lg:text-[15px] lg:leading-7">
+          BigBeans Digital was founded with a clear
+          vision—to help startups, entrepreneurs, and
+          growing businesses build brands that stand out
+          in today's competitive digital world. As a
+          trusted Social Media Marketing Agency for
+          Startups, we combine strategic branding,
+          creative design, and performance-driven
+          marketing to help businesses strengthen their
+          online presence, connect with the right
+          audience, and achieve sustainable growth.
+        </p>
+      </motion.div>
+    </section>
+  );
+}
+
+/* =========================================================
+   SCENE 3
+========================================================= */
+
+function SceneThree() {
+  const ref = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 65,
+    damping: 24,
+  });
+
+  const contentY = useTransform(
+    progress,
+    [0, 0.2, 0.72, 1],
+    ["14vh", "0vh", "0vh", "-16vh"]
+  );
+
+  const contentOpacity = useTransform(
+    progress,
+    [0, 0.18, 0.72, 0.9],
+    [0, 1, 1, 0]
+  );
+
+  return (
+    <section
+      ref={ref}
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-[#050505]
+      "
+    >
+      <VerticalMountainOpening
+        topImage="/assets/about/teammember/Kritika Das.png"
+        bottomImage="/assets/about/teammember/Sneha Roy.png"
+        progress={progress}
+      />
+
+      <motion.div
+        style={{
+          y: contentY,
+          opacity: contentOpacity,
+        }}
+        className="
+          absolute
+          left-1/2
+          top-1/2
+          z-40
+          w-[min(560px,42vw)]
+          min-w-[315px]
+          -translate-x-1/2
+          -translate-y-1/2
+          text-center
+        "
+      >
+        <div className="flex items-center justify-center gap-4">
+          <span className="h-px w-10 bg-[#F8BC04]/60 sm:w-16" />
+
+          <span className="text-[60px] font-black leading-none tracking-[-0.06em] text-white/[0.13] sm:text-[80px] lg:text-[95px]">
+            2024
+          </span>
+
+          <span className="h-px w-10 bg-[#F8BC04]/60 sm:w-16" />
+        </div>
+
+        <h2 className="mt-3 text-[35px] font-black leading-[0.94] tracking-[-0.05em] text-white sm:text-[50px] lg:text-[62px]">
+          Taking Our
+          <br />
+          <span className="text-[#F8BC04]">
+            Creativity Global.
+          </span>
+        </h2>
+
+        <p className="mt-6 text-[12px] leading-6 text-white/65 sm:text-[14px] sm:leading-7 lg:text-[15px] lg:leading-7">
+          As businesses across India began recognizing
+          BigBeans Digital as a trusted Social Media
+          Marketing Agency for Startups, we expanded our
+          creative expertise to serve brands in the United
+          Kingdom and the UAE. Today, we help businesses
+          looking for a Social Media Marketing Agency in
+          London, a Creative Branding Agency in the UAE,
+          or a reliable digital growth partner build
+          stronger brands through strategic content,
+          creative design, and performance-driven
+          marketing.
+        </p>
+      </motion.div>
+    </section>
+  );
+}
+
+/* =========================================================
+   SCENE 4
+========================================================= */
+
+function SceneFour() {
+  const ref = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 65,
+    damping: 24,
+  });
+
+  const contentY = useTransform(
+    progress,
+    [0, 0.2, 0.72, 1],
+    ["14vh", "0vh", "0vh", "-16vh"]
+  );
+
+  const contentOpacity = useTransform(
+    progress,
+    [0, 0.18, 0.72, 0.9],
+    [0, 1, 1, 0]
+  );
+
+  return (
+    <section
+      ref={ref}
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-[#050505]
+      "
+    >
+      <SideImageOpening
+        leftImage="/assets/about/teammember/Ananya Sharma.png"
+        rightImage="/assets/about/teammember/Anjali Bose.png"
+        progress={progress}
+      />
+
+      <motion.div
+        style={{
+          y: contentY,
+          opacity: contentOpacity,
+        }}
+        className="
+          absolute
+          left-1/2
+          top-1/2
+          z-40
+          w-[min(540px,30vw)]
+          min-w-[310px]
+          -translate-x-1/2
+          -translate-y-1/2
+          text-center
+        "
+      >
+        <div className="flex items-center justify-center gap-4">
+          <span className="h-px w-10 bg-[#F8BC04]/60 sm:w-16" />
+
+          <span className="text-[60px] font-black leading-none tracking-[-0.06em] text-white/[0.13] sm:text-[78px] lg:text-[95px]">
+            2025
+          </span>
+
+          <span className="h-px w-10 bg-[#F8BC04]/60 sm:w-16" />
+        </div>
+
+        <h2 className="mt-3 text-[35px] font-black leading-[0.94] tracking-[-0.05em] text-white sm:text-[48px] lg:text-[58px]">
+          100+ Brands.
+          <br />
+          <span className="text-[#F8BC04]">
+            One Purpose.
+          </span>
+        </h2>
+
+        <p className="mt-6 text-[12px] leading-6 text-white/65 sm:text-[14px] sm:leading-7 lg:text-[15px] lg:leading-7">
+          Today, BigBeans Digital has earned the trust of
+          100+ startups, entrepreneurs, and growing
+          businesses looking for a reliable Social Media
+          Marketing Agency for startups and growing
+          businesses in India, Dubai, and London. Through
+          strategic branding, creative content, social
+          media marketing, and performance-driven digital
+          solutions, we've helped businesses strengthen
+          their online presence, reach the right audience,
+          and build brands that inspire trust and drive
+          long-term growth.
+        </p>
+      </motion.div>
+    </section>
+  );
+}
+
+/* =========================================================
+   SCENE 5
+========================================================= */
+
+function GuidingPrinciples() {
+  return (
+    <CinematicSection
+      variant="up"
+      className="bg-[#050505] overflow-hidden"
+    >
+      <div className="mx-auto max-w-[1450px] px-4 sm:px-6">
+        <div className="grid items-center gap-10 lg:grid-cols-[40%_60%] lg:gap-20">
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -70,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
+          >
+            <div className="relative overflow-hidden rounded-[30px] sm:rounded-[35px]">
+              <Image
+                src="/assets/about/bigbeansdigital.png"
+                alt="Big Beans Digital Team"
+                width={800}
+                height={900}
+                className="
+                  h-[420px]
+                  w-full
+                  object-cover
+                  transition
+                  duration-700
+                  hover:scale-105
+                  sm:h-[520px]
+                  lg:h-[650px]
+                "
+              />
+            </div>
+
+            <Link
+              href="/connect"
+              className="
+                mt-8
+                inline-flex
+                items-center
+                gap-3
+                rounded-full
+                bg-[#171717]
+                px-7
+                py-4
+                text-sm
+                font-bold
+                text-white
+                transition-all
+                duration-300
+                hover:-translate-y-1
+                hover:bg-[#F8BC04]
+                hover:text-black
+              "
+            >
+              Let's Build Your Brand
+
+              <ArrowRight size={17} />
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: 70,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
+          >
+            <h2 className="text-[40px] font-black leading-[1.02] tracking-[-0.05em] text-white sm:text-[55px] lg:text-[65px]">
+              Helping Startups
+              <br />
+              Becoming{" "}
+              <span className="text-[#F8BC04]">
+                Brands.
+              </span>
+            </h2>
+
+            <p className="mt-7 text-[15px] leading-7 text-white/60 sm:text-[17px] sm:leading-8">
+              Looking for the Best Social Media Marketing
+              Agency for Startups or a trusted Creative
+              Branding Agency to grow your business?
+              BigBeans Digital helps startups,
+              entrepreneurs, and growing businesses build
+              memorable brands through Social Media
+              Marketing, Creative Design, Branding,
+              Performance Marketing, and Website
+              Development.
+              <br />
+              <br />
+              Whether you're launching a startup in India,
+              scaling your business in the UAE, or
+              expanding your brand in the UK, we create
+              customized marketing strategies that
+              increase brand visibility, attract the right
+              audience, generate quality leads, and deliver
+              measurable business growth.
+            </p>
+
+            <div className="mt-9 grid grid-cols-2 gap-3 xl:grid-cols-4">
+              {[
+                {
+                  title: "Creative Excellence",
+                  text: "Designs that make brands unforgettable.",
+                  icon: BarChart3,
+                },
+                {
+                  title: "Customized Strategy",
+                  text: "Tailored marketing plans for your goals.",
+                  icon: Handshake,
+                },
+                {
+                  title: "Dedicated Team",
+                  text: "Your growth partners every step.",
+                  icon: Lightbulb,
+                },
+                {
+                  title: "Startup-Focused",
+                  text: "Built for startups. Designed to scale.",
+                  icon: TrendingUp,
+                },
+              ].map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <motion.div
+                    key={item.title}
+                    whileHover={{
+                      y: -8,
+                      scale: 1.03,
+                    }}
+                    className="
+                      rounded-[22px]
+                      bg-[#F8BC04]
+                      p-4
+                      sm:p-5
+                    "
+                  >
+                    <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#050505]">
+                      <Icon
+                        size={21}
+                        className="text-white"
+                      />
+                    </div>
+
+                    <h3 className="text-[14px] font-bold leading-tight text-[#171717] sm:text-[16px]">
+                      {item.title}
+                    </h3>
+
+                    <p className="mt-2 text-[12px] leading-5 text-[#171717]/75 sm:text-[13px]">
+                      {item.text}
+                    </p>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </CinematicSection>
+  );
+}
+
+/* =========================================================
+   SCENE 6 — JOURNEY
+========================================================= */
+
+function JourneyCurve() {
+  const ref = useRef<HTMLElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 60,
+    damping: 23,
+  });
+
+  const lineProgress = useTransform(
+    progress,
+    [0.05, 0.72],
+    [0, 1]
+  );
+
+  const contentOpacity = useTransform(
+    progress,
+    [0.05, 0.2, 0.8, 0.95],
+    [0, 1, 1, 0]
+  );
+
+  return (
+    <section
+      ref={ref}
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-[#050505]
+        py-[15px]
+      "
+    >
+      <motion.div
+        style={{
+          opacity: contentOpacity,
+        }}
+        className="
+          absolute
+          left-1/2
+          top-[9%]
+          z-30
+          w-full
+          -translate-x-1/2
+          text-center
+        "
+      >
+        <p className="text-[10px] font-semibold uppercase tracking-[0.5em] text-[#F8BC04] sm:text-xs">
+          The Journey Continues
+        </p>
+
+        <h2 className="mt-4 text-[45px] font-black leading-none tracking-[-0.055em] text-white sm:text-[65px] lg:text-[82px]">
+          Our{" "}
+          <span className="text-[#F8BC04]">
+            Journey.
+          </span>
+        </h2>
+      </motion.div>
+
+      <div className="absolute left-1/2 top-[48%] z-10 h-[52vh] w-[96vw] -translate-x-1/2 -translate-y-1/2">
+        <svg
+          viewBox="0 0 1000 520"
+          preserveAspectRatio="none"
+          className="
+            absolute
+            inset-0
+            h-full
+            w-full
+            overflow-visible
+          "
+        >
+          <defs>
+            <filter
+              id="journeyGlow"
+              x="-50%"
+              y="-50%"
+              width="200%"
+              height="200%"
+            >
+              <feGaussianBlur
+                stdDeviation="5"
+                result="blur"
+              />
+
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <path
+            d="
+              M 55 385
+              C 145 90, 260 40, 365 255
+              C 470 470, 585 470, 690 250
+              C 800 35, 885 60, 955 205
+            "
+            fill="none"
+            stroke="rgba(255,255,255,0.10)"
+            strokeWidth="2"
+            vectorEffect="non-scaling-stroke"
+          />
+
+          <motion.path
+            d="
+              M 55 385
+              C 145 90, 260 40, 365 255
+              C 470 470, 585 470, 690 250
+              C 800 35, 885 60, 955 205
+            "
+            fill="none"
+            stroke="#F8BC04"
+            strokeWidth="2.5"
+            pathLength={1}
+            style={{
+              pathLength: lineProgress,
+            }}
+            filter="url(#journeyGlow)"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
+
+        {journeyPoints.map((point) => (
+          <JourneyPoint
+            key={point.number}
+            point={point}
+            opacity={contentOpacity}
+          />
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* =========================================================
+   JOURNEY POINT
+========================================================= */
+
+function JourneyPoint({
+  point,
+  opacity,
+}: {
+  point: {
+    number: string;
+    title: string;
+    description: string;
+    left: string;
+    top: string;
+    label: string;
+  };
+  opacity: any;
+}) {
+  return (
+    <motion.div
+      style={{
+        left: point.left,
+        top: point.top,
+        opacity,
+      }}
+      className="
+        absolute
+        z-20
+        -translate-x-1/2
+        -translate-y-1/2
+      "
+    >
+      <motion.div
+        animate={{
+          boxShadow: [
+            "0 0 0 rgba(248,188,4,0)",
+            "0 0 28px rgba(248,188,4,0.42)",
+            "0 0 0 rgba(248,188,4,0)",
+          ],
+        }}
+        transition={{
+          duration: 2.3,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="
+          relative
+          flex
+          h-10
+          w-10
+          items-center
+          justify-center
+          rounded-full
+          border
+          border-[#F8BC04]
+          bg-[#050505]
+          sm:h-12
+          sm:w-12
+        "
+      >
+        <span className="h-3 w-3 rounded-full bg-[#F8BC04]" />
+      </motion.div>
+
+      <div
+        className={`
+          absolute
+          left-1/2
+          w-[145px]
+          -translate-x-1/2
+          text-center
+          sm:w-[210px]
+          ${
+            point.label === "top"
+              ? "bottom-14"
+              : "top-14"
+          }
+        `}
+      >
+        <p className="text-[8px] font-bold tracking-[0.25em] text-[#F8BC04] sm:text-[9px]">
+          {point.number}
+        </p>
+
+        <h3 className="mt-1 text-[12px] font-black text-white sm:text-[17px]">
+          {point.title}
+        </h3>
+
+        <p className="mt-1 text-[8px] leading-4 text-white/45 sm:text-[11px] sm:leading-5">
+          {point.description}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+
+/* =========================================================
+   SCENE 7 — CORE TEAM
+========================================================= */
+
+function CoreTeam() {
+  return (
+    <CinematicSection
+      variant="left"
+      className="bg-[#050505] overflow-hidden"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mb-14 text-center sm:mb-20">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.5em] text-[#F8BC04]">
+            The People Behind The Work
+          </p>
+
+          <h2 className="mt-4 text-[42px] font-black leading-none tracking-[-0.05em] text-white sm:text-[62px] lg:text-[78px]">
+            Know Our Core{" "}
+            <span className="text-[#F8BC04]">
+              Team.
+            </span>
+          </h2>
+        </div>
+
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 60,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.8,
+          }}
+          className="
+            relative
+            mb-10
+            overflow-visible
+            rounded-[30px]
+            border
+            border-white/10
+            bg-[#171717]
+          "
+        >
+          <div className="absolute bottom-0 left-1/2 z-20 h-[300px] w-[230px] -translate-x-1/2 sm:left-7 sm:h-[390px] sm:w-[320px] sm:translate-x-0">
+            <Image
+              src="/team/TamojyotiBhowmik.png"
+              alt="Tamojyoti Bhowmik"
+              fill
+              className="object-contain object-bottom"
+            />
+          </div>
+
+          <div className="px-6 pb-[310px] pt-8 sm:py-16 sm:pl-[370px] sm:pr-14">
+            <p className="text-[9px] font-semibold uppercase tracking-[0.4em] text-[#F8BC04]">
+              Founder
+            </p>
+
+            <h3 className="mt-4 text-3xl font-bold text-white sm:text-5xl lg:text-6xl">
+              Tamojyoti Bhowmik
+            </h3>
+
+            <p className="mt-6 max-w-xl text-sm leading-7 text-white/60 sm:text-base sm:leading-8">
+              Leading BIGBEANS DIGITAL with a vision
+              to combine creativity, technology,
+              branding and performance marketing into
+              measurable business growth.
+            </p>
+          </div>
+        </motion.div>
+
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          <TeamCard
+            name="Neha Gupta"
+            role="Head of Social Media Marketing"
+            image="/team/NehaGupta.png"
+            yellow
+          />
+
+          <TeamCard
+            name="Sonia Parveen"
+            role="Head of Branding and Designing"
+            image="/team/SoniaParveen.png"
+          />
+
+          <TeamCard
+            name="Harshita Gautam"
+            role="Head of Performance Marketing"
+            image="/team/HarshitaGautam.png"
+            yellow
+          />
+
+          <TeamCard
+            name="Jui Banerjee"
+            role="Head of Content & Digital Marketing"
+            image="/team/JuiBanerjee.png"
+          />
+        </div>
+      </div>
+    </CinematicSection>
+  );
+}
+
+function TeamCard({
+  name,
+  role,
+  image,
+  yellow = false,
+}: {
+  name: string;
+  role: string;
+  image: string;
+  yellow?: boolean;
+}) {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 50,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      whileHover={{
+        y: -10,
+        scale: 1.02,
+      }}
+      viewport={{
+        once: true,
+      }}
+      transition={{
+        duration: 0.65,
+      }}
+      className={`
+        relative
+        min-h-[480px]
+        overflow-visible
+        rounded-[30px]
+        ${yellow ? "bg-[#F8BC04]" : "bg-[#171717]"}
+      `}
+    >
+      <div className="absolute bottom-0 right-1/2 z-20 h-[320px] w-[250px] translate-x-1/2 sm:right-[-10px] sm:h-[430px] sm:w-[330px] sm:translate-x-0">
+        <Image
+          src={image}
+          alt={name}
+          fill
+          className="object-contain object-bottom"
+        />
+      </div>
+
+      <div className="relative z-10 max-w-[55%] p-7 sm:p-10">
+        <h3
+          className={`
+            text-3xl
+            font-bold
+            leading-tight
+            sm:text-4xl
+            ${yellow ? "text-[#171717]" : "text-white"}
+          `}
+        >
+          {name}
+        </h3>
+
+        <p
+          className={`
+            mt-4
+            text-sm
+            leading-6
+            sm:text-base
+            ${yellow ? "text-[#171717]/70" : "text-[#F8BC04]"}
+          `}
+        >
+          {role}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+
+/* =========================================================
+   SCENE 8 — AUTOMATIC TEAM CAROUSEL
+========================================================= */
+
+function TeamCarousel() {
+  const [active, setActive] = useState(0);
+
+  const total = carouselImages.length;
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActive((current) => (current + 1) % total);
+    }, 3000);
+
+    return () => window.clearInterval(interval);
+  }, [total]);
+
+  const next = () => {
+    setActive((current) => (current + 1) % total);
+  };
+
+  const previous = () => {
+    setActive((current) => (current - 1 + total) % total);
+  };
+
+  return (
+    <CinematicSection
+      variant="right"
+      className="bg-[#050505] overflow-hidden"
+    >
+      <div className="mx-auto max-w-[1450px] px-4 sm:px-6">
+        <div className="mb-8 text-center sm:mb-12">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.5em] text-[#F8BC04]">
+            The People Behind The Work
+          </p>
+
+          <h2 className="mt-4 text-[44px] font-black leading-none tracking-[-0.05em] text-white sm:text-[65px] lg:text-[80px]">
+            Team{" "}
+            <span className="text-[#F8BC04]">
+              Members.
+            </span>
+          </h2>
+
+          <div className="mx-auto mt-5 h-px w-28 bg-[#F8BC04]/60" />
+        </div>
+
+        <div className="relative flex h-[480px] w-full items-center justify-center overflow-hidden sm:h-[560px]">
+          {carouselImages.map((image, index) => {
+            let offset = index - active;
+
+            if (offset > total / 2) {
+              offset -= total;
+            }
+
+            if (offset < -total / 2) {
+              offset += total;
+            }
+
+            const isCenter = offset === 0;
+
+            return (
+              <motion.div
+                key={image}
+                animate={{
+                  x: offset * 285,
+
+                  scale: isCenter
+                    ? 1
+                    : Math.max(
+                        0.68,
+                        1 - Math.abs(offset) * 0.15
+                      ),
+
+                  rotateY: offset * -13,
+
+                  opacity:
+                    Math.abs(offset) > 2
+                      ? 0
+                      : isCenter
+                        ? 1
+                        : 0.45,
+
+                  zIndex: 20 - Math.abs(offset),
+                }}
+                transition={{
+                  duration: 0.75,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="
+                  absolute
+                  h-[370px]
+                  w-[255px]
+                  overflow-hidden
+                  rounded-[30px]
+                  border
+                  border-white/10
+                  bg-[#111]
+                  shadow-[0_40px_100px_rgba(0,0,0,0.7)]
+                  sm:h-[460px]
+                  sm:w-[330px]
+                "
+                style={{
+                  perspective: 1200,
+                }}
+              >
+                <Image
+                  src={image}
+                  alt={`Team member ${index + 1}`}
+                  fill
+                  className="object-cover"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <p className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#F8BC04]">
+                    Team Member
+                  </p>
+
+                  <h3 className="mt-2 text-xl font-bold text-white sm:text-2xl">
+                    {image
+                      .split("/")
+                      .pop()
+                      ?.replace(".png", "")}
+                  </h3>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        <div className="flex items-center justify-center gap-4">
+          <button
+            type="button"
+            onClick={previous}
+            className="
+              flex
+              h-12
+              w-12
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-white/10
+              bg-white/[0.03]
+              text-white
+              transition
+              hover:border-[#F8BC04]
+              hover:bg-[#F8BC04]
+              hover:text-black
+            "
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          <div className="flex items-center gap-1.5">
+            {carouselImages.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setActive(index)}
+                className={`
+                  h-1.5
+                  rounded-full
+                  transition-all
+                  duration-300
+                  ${
+                    index === active
+                      ? "w-8 bg-[#F8BC04]"
+                      : "w-1.5 bg-white/20"
+                  }
+                `}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={next}
+            className="
+              flex
+              h-12
+              w-12
+              items-center
+              justify-center
+              rounded-full
+              border
+              border-white/10
+              bg-white/[0.03]
+              text-white
+              transition
+              hover:border-[#F8BC04]
+              hover:bg-[#F8BC04]
+              hover:text-black
+            "
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+      </div>
+    </CinematicSection>
+  );
+}
+
+/* =========================================================
+   SCENE 9 — SERVICES
+========================================================= */
+
+function ServicesSection() {
+  const services = [
+    {
+      title: "Branding",
+      description:
+        "Strategic branding solutions for startups and businesses.",
+      image:
+        "/home/ourservice/bigbeansdigitalbranding.png",
+      href: "/services/branding",
+    },
+    {
+      title: "Digital Marketing",
+      description:
+        "Build visibility, engagement and quality leads.",
+      image:
+        "/home/ourservice/socialmedia.png",
+      href: "/services/social-media-marketing",
+    },
+    {
+      title: "Website Development",
+      description:
+        "Premium websites designed for business growth.",
+      image:
+        "/home/ourservice/bigbeansdigitalwebsite.png",
+      href: "/services/website-development",
+    },
+    {
+      title: "Performance Marketing",
+      description:
+        "Professional campaigns for every marketing platform.",
+      image:
+        "/home/ourservice/bigbeansdigitalperformancemarketing.png",
+      href: "/services/google-ads-meta-ads",
+    },
+  ];
+
+  return (
+    <CinematicSection
+      variant="pop"
+      className="bg-[#050505] overflow-hidden"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mb-10 text-center">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.5em] text-[#F8BC04]">
+            What We Create
+          </p>
+
+          <h2 className="mt-4 text-[44px] font-black leading-none tracking-[-0.05em] text-white sm:text-[62px] lg:text-[78px]">
+            Our Core{" "}
+            <span className="text-[#F8BC04]">
+              Services.
+            </span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{
+                opacity: 0,
+                y: 50,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              whileHover={{
+                y: -10,
+              }}
+              viewport={{
+                once: true,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.08,
+              }}
+              className="
+                group
+                overflow-hidden
+                rounded-[28px]
+                border
+                border-white/10
+                bg-[#111]
+              "
+            >
+              <div className="relative h-[210px] overflow-hidden">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="
+                    object-cover
+                    grayscale
+                    transition
+                    duration-700
+                    group-hover:scale-110
+                    group-hover:grayscale-0
+                  "
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent" />
+
+                <div className="absolute left-5 top-5 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-black/40 text-xs font-bold text-[#F8BC04] backdrop-blur-md">
+                  0{index + 1}
+                </div>
+              </div>
+
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-white">
+                  {service.title}
+                </h3>
+
+                <p className="mt-3 min-h-[48px] text-sm leading-6 text-white/50">
+                  {service.description}
+                </p>
+
+                <Link
+                  href={service.href}
+                  className="
+                    mt-5
+                    inline-flex
+                    items-center
+                    gap-2
+                    text-sm
+                    font-semibold
+                    text-[#F8BC04]
+                    transition-all
+                    hover:gap-3
+                  "
+                >
+                  Explore
+                  <ArrowRight size={16} />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </CinematicSection>
+  );
+}
+
+/* =========================================================
+   SCENE 10 — FAQ
+========================================================= */
+
+function FAQSection() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <main className="bg-[#FFFFFF] overflow-hidden">
+    <CinematicSection
+      variant="left"
+      className="bg-[#050505] overflow-hidden"
+    >
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+        <div className="mb-12 text-center sm:mb-16">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.5em] text-[#F8BC04]">
+            About Big Beans Digital
+          </p>
 
-      {/* Breadcrumb */}
-      <section className="w-full bg-white py-6 sm:py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex justify-center">
-          <div className="inline-flex items-center gap-2 sm:gap-3 rounded-full bg-white px-5 sm:px-8 py-3 sm:py-4 shadow-[0_8px_24px_rgba(0,0,0,0.08)]">
-            <Link
-              href="/"
-              className="text-sm sm:text-base text-gray-700 hover:text-[#F8BC04] transition-colors duration-300"
-            >
-              Home
-            </Link>
-
-            <span className="text-[#F8BC04] text-base sm:text-lg">→</span>
-
-            <span className="text-sm sm:text-base font-semibold text-black">
-              About Us
+          <h2 className="mt-4 text-[43px] font-black leading-none tracking-[-0.05em] text-white sm:text-[62px] lg:text-[78px]">
+            Frequently Asked{" "}
+            <span className="text-[#F8BC04]">
+              Questions.
             </span>
-          </div>
+          </h2>
         </div>
-      </section>
 
-      {/* =======================================================
-                      ABOUT US
-      ======================================================= */}
+        <div className="mx-auto max-w-[1050px]">
+          {faqs.map((faq, index) => {
+            const open = openFaq === index;
 
-      <section className="bg-white py-8 sm:py-10 overflow-hidden">
-        <div className="max-w-[1450px] mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-[40%_60%] gap-10 lg:gap-20 items-center">
-
-            {/* LEFT IMAGE */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: -80,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: .8,
-              }}
-            >
-              <div className="overflow-hidden rounded-[28px] sm:rounded-[35px]">
-                <Image
-                  src="/assets/about/bigbeansdigitalteam.png"
-                  alt="BIGBEANS DIGITAL Team"
-                  width={800}
-                  height={900}
-                  className="w-full h-[420px] sm:h-[520px] lg:h-[700px] object-cover transition duration-700 hover:scale-105"
-                />
-              </div>
-            </motion.div>
-
-            {/* RIGHT CONTENT */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 80,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: .8,
-              }}
-            >
-
-              {/* Heading */}
-
-              <h2 className="mt-6 sm:mt-8 text-[40px] sm:text-[50px] lg:text-[60px] leading-[1.08] font-black text-[#171717]">
-                Building
-                <span className="text-[#F8BC04]">
-                  {" "}Better Brands.
-                </span>
-              </h2>
-
-              {/* Paragraph */}
-
-              <p className="mt-6 sm:mt-8 text-[16px] sm:text-[17px] lg:text-[18px] leading-7 sm:leading-8 lg:leading-9 text-gray-600">
-                At BigBeans Digital, we help startups, entrepreneurs, and
-                growing businesses build brands that stand out, connect with
-                the right audience, and drive measurable business growth. As a
-                Social Media Marketing Agency specializing in creative design,
-                branding, performance marketing, and website development, we
-                don't believe in one-size-fits-all strategies.
-                <br />
-                <br />
-                Every business has a unique story, and our job is to help you
-                tell it in a way that attracts attention, builds trust, and
-                converts customers. Whether you're launching a new business,
-                strengthening your brand, or looking to scale your online
-                presence, we create customized marketing strategies designed
-                around your goals—not generic templates.
-                <br />
-                <br />
-                Proudly serving businesses across India, the UAE, and the UK,
-                we combine creativity, strategy, and data-driven insights to
-                help brands increase visibility, engage their audience,
-                generate quality leads, and achieve sustainable long-term
-                growth.
-              </p>
-
-              {/* PRINCIPLES */}
-
-              <div className="mt-10 sm:mt-12 grid grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
-              </div>
-
-              {/* CTA */}
-
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 40,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.2,
-                }}
-              >
-                <Link
-                  href="/internship"
-                  className="
-                    inline-flex
-                    items-center
-                    gap-3
-                    rounded-full
-                    bg-[#171717]
-                    px-7 sm:px-10
-                    py-3.5 sm:py-4
-                    text-base sm:text-lg
-                    font-bold
-                    text-white
-                    transition-all
-                    duration-300
-                    hover:bg-[#F8BC04]
-                    hover:text-[#171717]
-                    hover:-translate-y-1
-                  "
-                >
-                  Join Our Team
-
-                  <motion.span
-                    animate={{
-                      x: [0, 5, 0],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                    }}
-                  >
-                    →
-                  </motion.span>
-                </Link>
-              </motion.div>
-
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-                          OUR JOURNEY
-      ========================================================= */}
-
-      <section className="bg-white py-8 sm:py-10 overflow-hidden">
-        <div className="max-w-[1450px] mx-auto px-4 sm:px-6">
-
-          {/* 2020 */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 80,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: .8,
-            }}
-            className="mb-1"
-          >
-
-            {/* Year */}
-
-            <div className="flex items-center gap-3 sm:gap-6">
-              <h2
-                className="
-                  text-[56px]
-                  sm:text-[72px]
-                  md:text-[110px]
-                  font-black
-                  text-gray-300
-                  leading-none
-                  shrink-0
-                "
-              >
-                2020
-              </h2>
-
-              <div className="h-px w-full bg-gray-300"></div>
-            </div>
-
-            {/* Content */}
-
-            <div className="mt-1 ml-0 sm:ml-6 lg:ml-12">
-              <motion.h3
-                initial={{
-                  opacity: 0,
-                  x: -40,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  delay: .2,
-                  duration: .7,
-                }}
-                className="
-                  text-4xl
-                  sm:text-5xl
-                  md:text-6xl
-                  xl:text-7xl
-                  font-black
-                  leading-tight
-                  text-[#171717]
-                "
-              >
-                Where It All
-                <span className="text-[#F8BC04]">
-                  {" "}Began.
-                </span>
-              </motion.h3>
-
+            return (
               <div
-                className="
-                  mt-6 sm:mt-8
-                  grid
-                  lg:grid-cols-1
-                  gap-8
-                  text-[16px] sm:text-[17px]
-                  leading-7 sm:leading-8 lg:leading-9
-                  text-gray-600
-                "
+                key={faq.q}
+                className="border-b border-white/10"
               >
-                <p>
-                  BigBeans Digital was founded with a clear vision—to help
-                  startups, entrepreneurs, and growing businesses build brands
-                  that stand out in today's competitive digital world. As a
-                  trusted Social Media Marketing Agency for Startups, we
-                  combine strategic branding, creative design, and
-                  performance-driven marketing to help businesses strengthen
-                  their online presence, connect with the right audience, and
-                  achieve sustainable growth. Whether you're launching a new
-                  venture or scaling an existing business, our goal is to
-                  deliver tailored digital solutions that create lasting
-                  business impact across India, the UAE, and the UK.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* =========================================================
-                              2024
-          ========================================================= */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 80,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: .8,
-            }}
-            className="mb-1"
-          >
-
-            {/* Year */}
-
-            <div className="flex items-center gap-3 sm:gap-6">
-              <div className="h-px w-full bg-gray-200"></div>
-
-              <h2
-                className="
-                  text-[56px]
-                  sm:text-[72px]
-                  md:text-[110px]
-                  font-black
-                  text-gray-300
-                  leading-none
-                  shrink-0
-                "
-              >
-                2024
-              </h2>
-            </div>
-
-            {/* Content */}
-
-            <div className="mt-6 sm:mt-8 mr-0 sm:mr-6 lg:mr-12 text-left sm:text-right">
-              <motion.h3
-                initial={{
-                  opacity: 0,
-                  x: 40,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  delay: .2,
-                  duration: .7,
-                }}
-                className="
-                  text-4xl
-                  sm:text-5xl
-                  md:text-6xl
-                  xl:text-7xl
-                  font-black
-                  leading-tight
-                  text-[#171717]
-                "
-              >
-                Taking Our
-                <span className="text-[#F8BC04]">
-                  {" "}Creativity Global.
-                </span>
-              </motion.h3>
-
-              <div
-                className="
-                  mt-6 sm:mt-8
-                  grid
-                  lg:grid-cols-1
-                  gap-8
-                  text-[16px] sm:text-[17px]
-                  leading-7 sm:leading-8 lg:leading-9
-                  text-gray-600
-                "
-              >
-                <p>
-                  As businesses across India began recognizing BigBeans Digital
-                  as a trusted Social Media Marketing Agency for Startups, we
-                  expanded our creative expertise to serve brands in the United
-                  Kingdom and the UAE. Today, we help businesses looking for a
-                  Social Media Marketing Agency in London, a Creative Branding
-                  Agency in the UAE, or a reliable digital growth partner build
-                  stronger brands through strategic content, creative design,
-                  and performance-driven marketing.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* =========================================================
-                              2025
-          ========================================================= */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 80,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: .8,
-            }}
-          >
-
-            {/* Year */}
-
-            <div className="flex items-center gap-3 sm:gap-6">
-              <h2
-                className="
-                  text-[56px]
-                  sm:text-[72px]
-                  md:text-[110px]
-                  font-black
-                  text-gray-300
-                  leading-none
-                  shrink-0
-                "
-              >
-                2025
-              </h2>
-
-              <div className="h-px w-full bg-gray-200"></div>
-            </div>
-
-            {/* Content */}
-
-            <div className="mt-6 sm:mt-8 ml-0 sm:ml-6 lg:ml-12">
-              <motion.h3
-                initial={{
-                  opacity: 0,
-                  x: -40,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  delay: .2,
-                  duration: .7,
-                }}
-                className="
-                  text-4xl
-                  sm:text-5xl
-                  md:text-6xl
-                  xl:text-7xl
-                  font-black
-                  leading-tight
-                  text-[#171717]
-                "
-              >
-                100+ Brands.
-                <span className="text-[#F8BC04]">
-                  {" "}One Purpose.
-                </span>
-              </motion.h3>
-
-              <div
-                className="
-                  mt-6 sm:mt-8
-                  grid
-                  lg:grid-cols-1
-                  gap-8
-                  text-[16px] sm:text-[17px]
-                  leading-7 sm:leading-8 lg:leading-9
-                  text-gray-600
-                "
-              >
-                <p>
-                  Today, BigBeans Digital has earned the trust of 100+ startups,
-                  entrepreneurs, and growing businesses looking for a reliable
-                  Social Media Marketing Agency for startups and growing
-                  businesses in India, the Dubai, and London and creative growth
-                  partner. Through strategic branding, creative content, social
-                  media marketing, and performance-driven digital solutions,
-                  we've helped businesses strengthen their online presence,
-                  reach the right audience, and build brands that inspire trust
-                  and drive long-term growth. As we continue expanding across
-                  India, the UAE, and the UK, our commitment remains the same—to
-                  help ambitious businesses turn ideas into impactful brands.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* =======================================================
-                    OUR GUIDING PRINCIPLES
-      ======================================================= */}
-
-      <section className="bg-white py-2 sm:py-1 overflow-hidden">
-        <div className="max-w-[1450px] mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-[40%_60%] gap-10 lg:gap-20 items-center">
-
-            {/* LEFT IMAGE */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: -80,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: .8,
-              }}
-            >
-              <div className="overflow-hidden rounded-[28px] sm:rounded-[35px] shadow-2xl">
-                <Image
-                  src="/assets/about/bigbeansdigital.png"
-                  alt="BIGBEANS DIGITAL Team"
-                  width={800}
-                  height={900}
-                  className="w-full h-[420px] sm:h-[520px] lg:h-[700px] object-cover transition duration-700 hover:scale-105"
-                />
-              </div>
-
-              {/* CTA */}
-
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 40,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.2,
-                }}
-                className="mt-8 sm:mt-12"
-              >
-                <Link
-                  href="/connect"
-                  className="
-                    inline-flex
-                    items-center
-                    gap-3
-                    rounded-full
-                    bg-[#171717]
-                    px-7 sm:px-10
-                    py-4 sm:py-5
-                    text-base sm:text-lg
-                    font-bold
-                    text-white
-                    transition-all
-                    duration-300
-                    hover:bg-[#F8BC04]
-                    hover:text-[#171717]
-                    hover:-translate-y-1
-                  "
-                >
-                  Let's Build Your Brand
-
-                  <motion.span
-                    animate={{
-                      x: [0, 5, 0],
-                    }}
-                    transition={{
-                      duration: 1.5,
-                      repeat: Infinity,
-                    }}
-                  >
-                    →
-                  </motion.span>
-                </Link>
-              </motion.div>
-            </motion.div>
-
-            {/* RIGHT CONTENT */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 80,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: .8,
-              }}
-            >
-
-              {/* Heading */}
-
-              <h2 className="mt-8 sm:mt-12 lg:mt-20 text-[40px] sm:text-[50px] lg:text-[60px] leading-[1.08] font-black text-[#171717]">
-                Helping Startups Becoming
-                <span className="text-[#F8BC04]">
-                  {" "}Brands
-                </span>
-              </h2>
-
-              {/* Paragraph */}
-
-              <p className="mt-6 sm:mt-8 text-[16px] sm:text-[17px] lg:text-[18px] leading-7 sm:leading-8 lg:leading-9 text-gray-600">
-                Looking for the Best Social Media Marketing Agency for Startups
-                or a trusted Creative Branding Agency to grow your business?
-                BigBeans Digital helps startups, entrepreneurs, and growing
-                businesses build memorable brands through Social Media
-                Marketing, Creative Design, Branding, Performance Marketing,
-                and Website Development. Whether you're launching a startup in
-                India, scaling your business in the UAE, or expanding your
-                brand in the UK, we create customized marketing strategies that
-                increase brand visibility, attract the right audience, generate
-                quality leads, and deliver measurable business growth. Every
-                strategy we create is built around your business goals—because
-                your success is the true measure of ours.
-              </p>
-
-              {/* PRINCIPLES */}
-
-              <div className="mt-10 sm:mt-12 grid grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
-
-                {/* Card 1 */}
-
-                <motion.div
-                  whileHover={{
-                    y: -8,
-                    scale: 1.03,
-                  }}
-                  className="rounded-[20px] sm:rounded-[24px] bg-[#F8BC04] p-4 sm:p-5 transition-all duration-300"
-                >
-                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-white mb-3 sm:mb-4">
-                    <BarChart3
-                      size={24}
-                      className="text-[#171717]"
-                    />
-                  </div>
-
-                  <h3 className="text-[15px] sm:text-lg font-bold text-[#171717] leading-tight">
-                    Creative Excellence
-                  </h3>
-
-                  <p className="mt-2 text-[13px] sm:text-[14px] leading-5 sm:leading-6 text-[#171717]/80">
-                    Designs that make brands unforgettable.
-                  </p>
-                </motion.div>
-
-                {/* Card 2 */}
-
-                <motion.div
-                  whileHover={{
-                    y: -8,
-                    scale: 1.03,
-                  }}
-                  className="rounded-[20px] sm:rounded-[24px] bg-[#F8BC04] p-4 sm:p-5 transition-all duration-300"
-                >
-                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-white mb-3 sm:mb-4">
-                    <Handshake
-                      size={24}
-                      className="text-[#171717]"
-                    />
-                  </div>
-
-                  <h3 className="text-[15px] sm:text-lg font-bold text-[#171717] leading-tight">
-                    Customized Strategy
-                  </h3>
-
-                  <p className="mt-2 text-[13px] sm:text-[14px] leading-5 sm:leading-6 text-[#171717]/80">
-                    Tailored marketing plans for your business goals.
-                  </p>
-                </motion.div>
-
-                {/* Card 3 */}
-
-                <motion.div
-                  whileHover={{
-                    y: -8,
-                    scale: 1.03,
-                  }}
-                  className="rounded-[20px] sm:rounded-[24px] bg-[#F8BC04] p-4 sm:p-5 transition-all duration-300"
-                >
-                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-white mb-3 sm:mb-4">
-                    <Lightbulb
-                      size={24}
-                      className="text-[#171717]"
-                    />
-                  </div>
-
-                  <h3 className="text-[15px] sm:text-lg font-bold text-[#171717] leading-tight">
-                    Dedicated Team
-                  </h3>
-
-                  <p className="mt-2 text-[13px] sm:text-[14px] leading-5 sm:leading-6 text-[#171717]/80">
-                    Your growth partners, every step of the way.
-                  </p>
-                </motion.div>
-
-                {/* Card 4 */}
-
-                <motion.div
-                  whileHover={{
-                    y: -8,
-                    scale: 1.03,
-                  }}
-                  className="rounded-[20px] sm:rounded-[24px] bg-[#F8BC04] p-4 sm:p-5 transition-all duration-300"
-                >
-                  <div className="flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-xl bg-white mb-3 sm:mb-4">
-                    <TrendingUp
-                      size={24}
-                      className="text-[#171717]"
-                    />
-                  </div>
-
-                  <h3 className="text-[15px] sm:text-lg font-bold text-[#171717] leading-tight">
-                    Startup-Focused Approach
-                  </h3>
-
-                  <p className="mt-2 text-[13px] sm:text-[14px] leading-5 sm:leading-6 text-[#171717]/80">
-                    Built for startups. Designed to scale businesses.
-                  </p>
-                </motion.div>
-
-              </div>
-
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* COMPANY STORY */}
-
-      <section className="py-8 sm:py-10 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
-          <div className="flex justify-between items-start mb-10 sm:mb-20">
-            <h2 className="mt-8 sm:mt-12 lg:mt-20 text-[40px] sm:text-[50px] lg:text-[60px] leading-[1.08] font-black text-[#171717]">
-              Why To Choose
-              <span className="text-[#F8BC04]">
-                {" "}BIGBEANS DIGITAL
-              </span>
-            </h2>
-          </div>
-
-          <div className="grid lg:grid-cols-[320px_1fr] gap-8 items-stretch">
-
-            {/* LEFT VISUAL */}
-
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="relative bg-[#171717] rounded-[28px] min-h-[300px] sm:min-h-[420px] overflow-hidden"
-            >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  animate={{
-                    rotate: [0, 6, -6, 0],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="text-[130px] sm:text-[180px] lg:text-[220px]"
-                >
-                  🚀
-                </motion.div>
-              </div>
-            </motion.div>
-
-            {/* RIGHT CONTENT */}
-
-            <div className="flex flex-col gap-5 sm:gap-6">
-
-              {/* STATS */}
-
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
-
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  className="bg-[#171717] rounded-[24px] p-6 sm:p-8 border border-[#2A2A2A]"
-                >
-                  <h3 className="text-white text-4xl sm:text-5xl font-bold">
-                    8+
-                  </h3>
-
-                  <p className="text-white/60 mt-3">
-                    Years Of Experience
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  className="bg-[#171717] rounded-[24px] p-6 sm:p-8 border border-[#2A2A2A]"
-                >
-                  <h3 className="text-white text-4xl sm:text-5xl font-bold">
-                    100+
-                  </h3>
-
-                  <p className="text-white/60 mt-3">
-                    Successful Projects
-                  </p>
-                </motion.div>
-
-                <motion.div
-                  whileHover={{ y: -8 }}
-                  className="bg-[#171717] rounded-[24px] p-6 sm:p-8 border border-[#2A2A2A]"
-                >
-                  <h3 className="text-white text-4xl sm:text-5xl font-bold">
-                    26+
-                  </h3>
-
-                  <p className="text-white/60 mt-3">
-                    Team Members
-                  </p>
-                </motion.div>
-
-              </div>
-
-              {/* STORY CARD */}
-
-              <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 }}
-                className="bg-[#171717] rounded-[28px] p-6 sm:p-10 border border-[#2A2A2A]"
-              >
-                <p className="text-white/80 text-base sm:text-lg leading-7 sm:leading-relaxed">
-                  Finding the right Social Media Marketing Agency for Startups
-                  isn't just about choosing an agency—it's about choosing a
-                  partner who understands your business goals. At BigBeans
-                  Digital, we combine strategic branding, creative social media
-                  marketing, and customized digital solutions to help startups,
-                  entrepreneurs, and growing businesses build stronger brands,
-                  generate quality leads, and achieve sustainable growth.
-                  Whether you're looking for a Startup Branding Agency, a
-                  Startup Digital Marketing Company, or a trusted partner
-                  across India, the UAE, or the UK, our focus is always on
-                  delivering measurable business results—not just marketing
-                  services.
-                </p>
-              </motion.div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* LEADERSHIP TEAM */}
-
-      <section className="py-8 sm:py-10 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
-          <div className="text-center mb-14 sm:mb-20 lg:mb-24">
-            <h2 className="mt-8 sm:mt-12 lg:mt-20 text-[40px] sm:text-[50px] lg:text-[60px] leading-[1.08] font-black text-[#171717]">
-              Know Our Core Team
-              <br />
-              <span className="text-[#F8BC04]">
-                {" "}Who Will Help You Becoming Brand
-              </span>
-            </h2>
-          </div>
-
-          {/* FOUNDER */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative mb-12 sm:mb-16"
-          >
-            <div className="bg-[#171717] rounded-[28px] border border-[#2A2A2A] min-h-[500px] sm:min-h-[300px] relative overflow-visible">
-
-              <div className="absolute left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 bottom-0 w-[230px] h-[300px] sm:w-[300px] sm:h-[360px] z-20">
-                <Image
-                  src="/team/TamojyotiBhowmik.png"
-                  alt="Tamojyoti Bhowmik"
-                  fill
-                  className="object-contain object-bottom"
-                />
-              </div>
-
-              <div className="px-6 pt-8 pb-[310px] sm:pl-[340px] sm:pr-14 sm:py-16">
-                <h3 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold">
-                  Tamojyoti Bhowmik
-                </h3>
-
-                <p className="text-[#F8BC04] mt-4 font-medium">
-                  Founder
-                </p>
-
-                <p className="text-white/70 mt-6 max-w-xl leading-relaxed">
-                  Leading BIGBEANS DIGITAL with a vision to combine creativity,
-                  technology, branding and performance marketing into measurable
-                  business growth.
-                </p>
-              </div>
-
-            </div>
-          </motion.div>
-
-          {/* TEAM GRID */}
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 mt-12 sm:mt-16">
-
-            {/* NEHA */}
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{
-                y: -12,
-                scale: 1.02,
-              }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative bg-[#F8BC04] rounded-[28px] min-h-[480px] sm:min-h-[300px] overflow-visible shadow-xl"
-            >
-              <div className="absolute right-1/2 translate-x-1/2 sm:right-[-10px] sm:translate-x-0 bottom-0 w-[230px] h-[300px] sm:w-[320px] sm:h-[420px] z-20">
-                <Image
-                  src="/team/NehaGupta.png"
-                  alt="Neha Gupta"
-                  fill
-                  className="object-contain object-bottom"
-                />
-              </div>
-
-              <div className="p-6 pt-8 pb-[300px] sm:p-10 sm:max-w-[50%]">
-                <h3 className="text-[#171717] text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                  Neha Gupta
-                </h3>
-
-                <p className="text-[#171717]/80 mt-4 text-base sm:text-lg">
-                  Head of Social Media Marketing
-                </p>
-              </div>
-            </motion.div>
-
-            {/* SONIA */}
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{
-                y: -12,
-                scale: 1.02,
-              }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative bg-[#171717] rounded-[28px] min-h-[480px] sm:min-h-[300px] overflow-visible shadow-xl"
-            >
-              <div className="absolute left-1/2 -translate-x-1/2 sm:left-[-10px] sm:translate-x-0 bottom-0 w-[230px] h-[300px] sm:w-[320px] sm:h-[420px] z-20">
-                <Image
-                  src="/team/SoniaParveen.png"
-                  alt="Sonia Parveen"
-                  fill
-                  className="object-contain object-bottom"
-                />
-              </div>
-
-              <div className="p-6 pt-8 pb-[300px] sm:p-10 sm:pl-[300px]">
-                <h3 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                  Sonia Parveen
-                </h3>
-
-                <p className="text-[#F8BC04] mt-4 text-base sm:text-lg">
-                  Head of Branding and Designing
-                </p>
-              </div>
-            </motion.div>
-
-            {/* HARSHITA */}
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{
-                y: -12,
-                scale: 1.02,
-              }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative bg-[#F8BC04] rounded-[28px] min-h-[480px] sm:min-h-[300px] overflow-visible shadow-xl"
-            >
-              <div className="absolute right-1/2 translate-x-1/2 sm:right-[-10px] sm:translate-x-0 bottom-0 w-[230px] h-[300px] sm:w-[320px] sm:h-[420px] z-20">
-                <Image
-                  src="/team/HarshitaGautam.png"
-                  alt="Harshita Gautam"
-                  fill
-                  className="object-contain object-bottom"
-                />
-              </div>
-
-              <div className="p-6 pt-8 pb-[300px] sm:p-10 sm:max-w-[50%]">
-                <h3 className="text-[#171717] text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                  Harshita
-                  <br />
-                  Gautam
-                </h3>
-
-                <p className="text-[#171717]/80 mt-4 text-base sm:text-lg">
-                  Head of Performance Marketing
-                </p>
-              </div>
-            </motion.div>
-
-            {/* JUI */}
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover={{
-                y: -12,
-                scale: 1.02,
-              }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative bg-[#171717] rounded-[28px] min-h-[480px] sm:min-h-[300px] overflow-visible shadow-xl"
-            >
-              <div className="absolute left-1/2 -translate-x-1/2 sm:left-[-10px] sm:translate-x-0 bottom-0 w-[220px] h-[300px] sm:w-[280px] sm:h-[420px] z-20">
-                <Image
-                  src="/team/JuiBanerjee.png"
-                  alt="Jui Banerjee"
-                  fill
-                  unoptimized
-                  priority
-                  className="object-contain object-bottom"
-                />
-              </div>
-
-              <div className="p-6 pt-8 pb-[300px] sm:p-10 sm:pl-[300px]">
-                <h3 className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight">
-                  Jui
-                  <br />
-                  Banerjee
-                </h3>
-
-                <p className="text-[#F8BC04] mt-4 text-base sm:text-lg">
-                  Head of Content & Digital Marketing
-                </p>
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* Other Team Member Crousal */}
-
-      <section className="pt-10 sm:pt-15 pb-14 sm:pb-20 overflow-hidden">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
-
-          <motion.div
-            initial={{ opacity: 0, x: -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-8"
-          >
-            <h2 className="text-4xl sm:text-5xl md:text-6xl leading-tight">
-              <span
-                className="italic font-normal text-[#171717]"
-                style={{ fontFamily: '"Cormorant Garamond", serif' }}
-              >
-                Team
-              </span>{" "}
-              <span className="font-normal text-[#F8BC04]">
-                Members
-              </span>
-            </h2>
-
-            <motion.div
-              initial={{ width: 0, opacity: 0 }}
-              whileInView={{ width: "220px", opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="mx-auto mt-1 h-[3px] rounded-full bg-gradient-to-r from-transparent via-[#F8BC04] to-transparent"
-            />
-          </motion.div>
-
-          <div
-            className="
-              relative
-              overflow-hidden
-              [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
-              [-webkit-mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]
-            "
-          >
-            <motion.div
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                duration: 35,
-                ease: "linear",
-                repeat: Infinity,
-              }}
-              className="flex gap-5 sm:gap-8 w-max"
-            >
-              {[...carouselImages, ...carouselImages].map((image, index) => (
-                <div
-                  key={index}
-                  className="relative w-[190px] sm:w-[220px] lg:w-[240px] aspect-square flex-shrink-0 overflow-hidden rounded-[24px] sm:rounded-[28px]"
-                >
-                  <Image
-                    src={image}
-                    alt={`Carousel ${index + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-
-                  {/* Dark Gradient */}
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-
-                  {/* File Name */}
-
-                  <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 right-4 sm:right-5 z-10">
-                    <h3 className="text-white text-base sm:text-xl font-bold drop-shadow-lg">
-                      {image
-                        .split("/")
-                        .pop()
-                        ?.replace(/\.[^/.]+$/, "")
-                        .replace(/[-_]/g, " ")}
-                    </h3>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-        </div>
-      </section>
-
-      <section>
-      </section>
-
-      {/* SERVICES SECTION */}
-
-      <section className="pt-8 sm:pt-10 pb-8 sm:pb-10 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-
-          <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-[#171717] text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
-              Our Core Services
-            </h2>
-
-            <motion.div
-              initial={{ width: 0, opacity: 0 }}
-              whileInView={{ width: "min(720px, 80vw)", opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              className="mx-auto mt-1 h-[3px] rounded-full bg-gradient-to-r from-transparent via-[#F8BC04] to-transparent"
-            />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 sm:gap-8">
-
-            {/* CARD 1 */}
-
-            <motion.div
-              whileHover="hover"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group rounded-[28px] overflow-hidden bg-[#F8BC04] transition-all duration-500 shadow-[0_20px_50px_rgba(248,188,4,.20)] hover:bg-white hover:-translate-y-3"
-            >
-              <div className="relative h-[190px] sm:h-[220px] bg-[#F8BC04] overflow-hidden">
-                <Image
-                  src="/home/ourservice/bigbeansdigitalbranding.png"
-                  alt="Branding"
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-110"
-                />
-              </div>
-
-              <div className="p-5 sm:p-7">
-                <h3 className="text-[19px] sm:text-[20px] font-bold text-[#171717] mb-4">
-                  Branding
-                </h3>
-
-                <p className="text-black/75 leading-5 mb-4">
-                  Strategic branding solutions for startups and businesses.
-                </p>
-
-                <Link
-                  href="/services/branding"
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-[#171717] text-white w-full sm:w-auto px-8 sm:px-16 py-3 sm:py-2 font-semibold transition-all duration-300 hover:bg-[#F8BC04] hover:text-black"
-                >
-                  Explore
-                  <ArrowRight size={18}/>
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* CARD 2 */}
-
-            <motion.div
-              whileHover="hover"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group rounded-[28px] overflow-hidden bg-[#171717] transition-all duration-500 hover:bg-white hover:-translate-y-3"
-            >
-              <div className="relative h-[190px] sm:h-[220px] bg-[#171717] overflow-hidden">
-                <Image
-                  src="home/ourservice/socialmedia.png"
-                  alt="Social Media"
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-110"
-                />
-              </div>
-
-              <div className="p-5 sm:p-7">
-                <h3 className="text-[19px] sm:text-[20px] font-bold text-white group-hover:text-[#171717] mb-4 transition-colors">
-                  Digital Marketing
-                </h3>
-
-                <p className="text-white/70 group-hover:text-black/75 leading-6 mb-4 transition-colors">
-                  Build visibility, engagement and quality leads.
-                </p>
-
-                <Link
-                  href="/services/social-media-marketing"
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F8BC04] text-black w-full sm:w-auto px-8 sm:px-16 py-3 sm:py-2 font-semibold transition-all duration-300"
-                >
-                  Explore
-                  <ArrowRight size={18}/>
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* CARD 3 */}
-
-            <motion.div
-              whileHover="hover"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group rounded-[28px] overflow-hidden bg-[#F8BC04] transition-all duration-500 shadow-[0_20px_50px_rgba(248,188,4,.20)] hover:bg-white hover:-translate-y-3"
-            >
-              <div className="relative h-[190px] sm:h-[220px] bg-[#F8BC04] overflow-hidden">
-                <Image
-                  src="/home/ourservice/bigbeansdigitalwebsite.png"
-                  alt="Website"
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-110"
-                />
-              </div>
-
-              <div className="p-5 sm:p-7">
-                <h3 className="text-[19px] sm:text-[20px] font-bold text-[#171717] mb-4">
-                  Website Development
-                </h3>
-
-                <p className="text-black/75 leading-5 mb-4">
-                  Premium websites designed for business growth.
-                </p>
-
-                <Link
-                  href="/services/website-development"
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-[#171717] text-white w-full sm:w-auto px-8 sm:px-16 py-3 sm:py-2 font-semibold transition-all duration-300 hover:bg-[#F8BC04] hover:text-black"
-                >
-                  Explore
-                  <ArrowRight size={18}/>
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* CARD 4 */}
-
-            <motion.div
-              whileHover="hover"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="group rounded-[28px] overflow-hidden bg-[#171717] transition-all duration-500 hover:bg-white hover:-translate-y-3"
-            >
-              <div className="relative h-[190px] sm:h-[220px] bg-[#171717] overflow-hidden">
-                <Image
-                  src="/home/ourservice/bigbeansdigitalperformancemarketing.png"
-                  alt="Graphic Design"
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-110"
-                />
-              </div>
-
-              <div className="p-5 sm:p-7">
-                <h3 className="text-[19px] sm:text-[20px] font-bold text-white group-hover:text-[#171717] mb-4 transition-colors">
-                  Performance Marketing
-                </h3>
-
-                <p className="text-white/70 group-hover:text-black/75 leading-5 mb-4 transition-colors">
-                  Professional creatives for every marketing platform.
-                </p>
-
-                <Link
-                  href="/services/google-ads-meta-ads"
-                  className="inline-flex items-center justify-center gap-3 rounded-full bg-[#F8BC04] text-black w-full sm:w-auto px-8 sm:px-16 py-3 sm:py-2 font-semibold transition-all duration-300"
-                >
-                  Explore
-                  <ArrowRight size={18}/>
-                </Link>
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ SECTION */}
-
-      <section className="bg-white py-8 sm:py-10">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-
-          {/* HEADER */}
-
-          <div className="text-center mb-10 sm:mb-16 relative">
-
-            <div
-              className="
-                absolute
-                left-1/2
-                top-0
-                -translate-x-1/2
-                w-20 h-20 sm:w-24 sm:h-24
-                rounded-full
-                bg-[#F8BC04]/35
-              "
-            />
-
-            <p
-              className="
-                uppercase
-                tracking-[3px] sm:tracking-[6px]
-                text-xs sm:text-sm
-                font-semibold
-                text-gray-500
-                relative
-              "
-            >
-              ABOUT BIGBEANS DIGITAL FAQS
-            </p>
-
-            <h2
-              className="
-                relative
-                mt-4
-                text-4xl sm:text-5xl md:text-6xl
-                font-black
-                text-[#171717]
-              "
-            >
-              Frequently Asked{" "}
-              <span className="text-[#F8BC04]">
-                Questions
-              </span>
-            </h2>
-          </div>
-
-          {/* FAQ GRID */}
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
-
-            {[
-              {
-                q: "What is BIGBEANS DIGITAL?",
-                a: "BIGBEANS DIGITAL is a Best Digital Marketing Agency for Startups that helps businesses grow through Digital Marketing, Social Media Marketing, Website Development, Branding, Google Ads, Meta Ads, Performance Marketing, and creative digital solutions. We work with startups, small businesses, and growing brands across London, India, USA, and Dubai."
-              },
-              {
-                q: "Why choose BIGBEANS DIGITAL over other digital marketing agencies?",
-                a: "BIGBEANS DIGITAL combines creativity, strategy, and performance to deliver measurable business growth. As a Digital Marketing Agency for Startups, we focus on building strong brands, generating qualified leads, increasing online visibility, and helping businesses achieve long-term success."
-              },
-              {
-                q: "Which industries does BIGBEANS DIGITAL work with?",
-                a: "We work with startups, ecommerce brands, healthcare businesses, real estate companies, FMCG brands, gyms, restaurants, educational institutes, local businesses, and service-based companies. Our customized Digital Marketing Services are tailored to each industry's goals and target audience."
-              },
-              {
-                q: "What services does BIGBEANS DIGITAL provide?",
-                a: "We provide complete Digital Marketing Services, including Social Media Marketing, Website Development, Branding, Logo Design, Google Ads, Meta Ads, Performance Marketing, Graphic Design, and business growth strategies designed to help brands grow faster."
-              },
-              {
-                q: "Do you work only with startups?",
-                a: "No. While we are known as a Best Digital Marketing Agency for Startups, we also work with small businesses, established companies, entrepreneurs, and growing brands looking to strengthen their online presence and accelerate business growth."
-              },
-              {
-                q: "Which countries do you serve?",
-                a: "BIGBEANS DIGITAL proudly serves clients across London, India, USA, and Dubai, helping businesses build their brand, generate leads, and grow through customized digital marketing strategies."
-              },
-              {
-                q: "How does BIGBEANS DIGITAL help businesses grow?",
-                a: "We combine Social Media Marketing, Performance Marketing, Website Development, Branding, Google Ads, Meta Ads, and creative content to increase brand awareness, attract qualified customers, generate leads, and improve business revenue through data-driven marketing strategies."
-              },
-              {
-                q: "What makes BIGBEANS DIGITAL different?",
-                a: "We don't believe in one-size-fits-all marketing. Every business receives a customized growth strategy based on its goals, audience, industry, and competition. Our focus on creativity, transparency, measurable results, and long-term partnerships makes us a trusted Business Growth Agency."
-              },
-              {
-                q: "Can BIGBEANS DIGITAL handle both branding and marketing?",
-                a: "Yes. Unlike many agencies, we provide both Branding and Digital Marketing Services under one roof. From building your brand identity to running high-performing marketing campaigns, we help businesses create a consistent and impactful digital presence."
-              },
-              {
-                q: "How can I get started with BIGBEANS DIGITAL?",
-                a: "Getting started is simple. Contact our team for a free consultation, and we'll understand your business goals, analyze your current digital presence, and recommend the best Digital Marketing Services to help your startup or business achieve sustainable growth."
-              }
-            ].map((faq, index) => (
-
-              <motion.div
-                key={index}
-                layout
-                className="
-                  bg-white
-                  border
-                  border-gray-300
-                  rounded-[20px]
-                  overflow-hidden
-                "
-              >
-
                 <button
+                  type="button"
                   onClick={() =>
-                    setOpenFaq(openFaq === index ? null : index)
+                    setOpenFaq(open ? null : index)
                   }
                   className="
-                    w-full
                     flex
-                    justify-between
+                    w-full
                     items-center
-                    gap-3
-                    p-4 sm:p-6
+                    justify-between
+                    gap-5
+                    py-5
                     text-left
+                    sm:py-7
                   "
                 >
+                  <span className="text-sm font-semibold text-white sm:text-base lg:text-lg">
+                    <span className="mr-4 text-[#F8BC04]/50">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-                  <span
-                    className="
-                      font-semibold
-                      text-[#171717]
-                      pr-2 sm:pr-4
-                      min-w-0
-                    "
-                  >
                     {faq.q}
                   </span>
 
-                  <span
+                  <motion.span
+                    animate={{
+                      rotate: open ? 45 : 0,
+                    }}
                     className="
-                      w-9 h-9 sm:w-10 sm:h-10
-                      shrink-0
-                      rounded-full
-                      bg-[#171717]
-                      text-white
                       flex
+                      h-9
+                      w-9
+                      shrink-0
                       items-center
                       justify-center
-                      text-xl
+                      rounded-full
+                      border
+                      border-white/10
+                      bg-white/[0.03]
+                      text-white
                     "
                   >
-                    {openFaq === index ? "−" : "+"}
-                  </span>
-
+                    +
+                  </motion.span>
                 </button>
 
-                {openFaq === index && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    className="px-5 sm:px-6 pb-5 sm:pb-6"
-                  >
-                    <p className="text-gray-600 leading-relaxed">
-                      {faq.a}
-                    </p>
-                  </motion.div>
-                )}
-
-              </motion.div>
-
-            ))}
-
-          </div>
-        </div>
-      </section>
-
-      {/* PRESENCE SECTION */}
-
-      <section className="bg-[#ffffff] py-8 sm:py-10">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-
-          <div
-            className="
-              bg-white
-              rounded-[28px] sm:rounded-[40px]
-              border
-              border-gray-200
-              p-6 sm:p-10
-              lg:p-16
-              grid
-              grid-cols-1
-              lg:grid-cols-2
-              gap-8 lg:gap-12
-              items-center
-            "
-          >
-
-            {/* LEFT */}
-
-            <div>
-
-              <p
-                className="
-                  uppercase
-                  tracking-[3px] sm:tracking-[6px]
-                  text-xs sm:text-sm
-                  font-semibold
-                  text-gray-500
-                  mb-5 sm:mb-6
-                "
-              >
-                Global Presence
-              </p>
-
-              <h2
-                className="
-                  text-4xl sm:text-5xl
-                  lg:text-6xl
-                  font-black
-                  text-[#171717]
-                  leading-tight
-                "
-              >
-                Digital Excellence in{" "}
-                <span className="text-[#F8BC04]">
-                  12+
-                </span>
-                <br />
-                Locations
-              </h2>
-
-              <p
-                className="
-                  mt-6 sm:mt-8
-                  text-base sm:text-lg
-                  text-gray-600
-                  leading-relaxed
-                  max-w-[650px]
-                "
-              >
-                BIGBEANS DIGITAL serves businesses across India and
-                international markets. Our strategies are built for local
-                relevance and global scalability.
-              </p>
-
-              {/* LOCATIONS */}
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10 mt-8 sm:mt-12">
-
-                <div className="border-r-0 sm:border-r border-[#000000]/30 pr-0 sm:pr-10">
-
-                  <h3 className="font-bold text-xl">
-                    In India
-                  </h3>
-
-                  <div className="w-20 h-[2px] bg-[#F8BC04] mt-2 mb-5"></div>
-
-                  <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Kolkata
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Delhi
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Bangalore
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Noida
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Tripura
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Mumbai
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Pune
-                    </li>
-                  </ul>
-
-                </div>
-
-                <div>
-
-                  <h3 className="font-bold text-xl">
-                    International Presence
-                  </h3>
-
-                  <div className="w-20 h-[2px] bg-[#F8BC04] mt-2 mb-5"></div>
-
-                  <ul className="space-y-3 text-gray-700">
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      London
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Singapore
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Canada
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Australia
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Nigeria
-                    </li>
-                  </ul>
-
-                </div>
-
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: open ? "auto" : 0,
+                    opacity: open ? 1 : 0,
+                  }}
+                  className="overflow-hidden"
+                >
+                  <p className="pb-7 pl-0 text-sm leading-7 text-white/50 sm:pb-8 sm:pl-10 sm:text-base sm:leading-8">
+                    {faq.a}
+                  </p>
+                </motion.div>
               </div>
-            </div>
-
-            {/* RIGHT */}
-
-            <div className="relative w-full">
-
-              <Image
-                src="/maps/world-map.png"
-                alt="World Map"
-                width={1200}
-                height={700}
-                className="w-full h-auto"
-              />
-
-              {/* INDIA CLUSTER */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  w-3 h-3 sm:w-4 sm:h-4
-                  bg-[#F8BC04]
-                  rounded-full
-                  top-[42%]
-                  left-[67%]
-                  shadow-[0_0_25px_#F8BC04]
-                "
-              />
-
-              {/* LONDON */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.2,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  w-3 h-3 sm:w-4 sm:h-4
-                  bg-[#F8BC04]
-                  rounded-full
-                  top-[27%]
-                  left-[44%]
-                  shadow-[0_0_25px_#F8BC04]
-                "
-              />
-
-              {/* CANADA */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.4,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  w-3 h-3 sm:w-4 sm:h-4
-                  bg-[#F8BC04]
-                  rounded-full
-                  top-[28%]
-                  left-[18%]
-                  shadow-[0_0_25px_#F8BC04]
-                "
-              />
-
-              {/* NIGERIA */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.1,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  w-3 h-3 sm:w-4 sm:h-4
-                  bg-[#F8BC04]
-                  rounded-full
-                  top-[50%]
-                  left-[47%]
-                  shadow-[0_0_25px_#F8BC04]
-                "
-              />
-
-              {/* SINGAPORE */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.3,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  w-3 h-3 sm:w-4 sm:h-4
-                  bg-[#F8BC04]
-                  rounded-full
-                  top-[54%]
-                  left-[74%]
-                  shadow-[0_0_25px_#F8BC04]
-                "
-              />
-
-              {/* AUSTRALIA */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  w-3 h-3 sm:w-4 sm:h-4
-                  bg-[#F8BC04]
-                  rounded-full
-                  top-[65%]
-                  left-[84%]
-                  shadow-[0_0_25px_#F8BC04]
-                "
-              />
-
-            </div>
-          </div>
+            );
+          })}
         </div>
-      </section>
+      </div>
+    </CinematicSection>
+  );
+}
 
-      {/* =========================
-              CTA SECTION
-      ========================= */}
+/* =========================================================
+   SCENE 11 — CTA
+========================================================= */
 
-      <section className="relative overflow-hidden bg-[#ffffff] py-12 sm:py-16 lg:py-24">
+function FinalCTA() {
+  const ref = useRef<HTMLElement>(null);
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 55,
+    damping: 22,
+  });
+
+  const scale = useTransform(
+    progress,
+    [0, 0.25, 0.75, 1],
+    [0.78, 1, 1, 1.1]
+  );
+
+  const opacity = useTransform(
+    progress,
+    [0, 0.18, 0.8, 1],
+    [0, 1, 1, 0]
+  );
+
+  return (
+    <section
+      ref={ref}
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-[#050505]
+        py-[15px]
+      "
+    >
+      <motion.div
+        style={{
+          scale,
+          opacity,
+        }}
+        className="
+          flex
+          min-h-screen
+          flex-col
+          items-center
+          justify-center
+          px-5
+          text-center
+        "
+      >
+        <p className="text-[10px] font-semibold uppercase tracking-[0.5em] text-[#F8BC04] sm:text-xs">
+          Your Next Chapter Starts Here
+        </p>
+
+        <h2 className="mt-6 max-w-[1100px] text-[50px] font-black leading-[0.88] tracking-[-0.065em] text-white sm:text-[78px] md:text-[100px] lg:text-[125px]">
+          Ready To Build
+          <br />
+          <span className="text-[#F8BC04]">
+            Better Brands?
+          </span>
+        </h2>
+
+        <p className="mt-8 max-w-[650px] text-sm leading-7 text-white/50 sm:text-base sm:leading-8">
+          Let's turn your idea into a brand people
+          remember, trust, and choose.
+        </p>
+
+        <Link
+          href="/connect"
+          className="
+            group
+            mt-9
+            inline-flex
+            items-center
+            gap-4
+            rounded-full
+            bg-[#F8BC04]
+            px-8
+            py-4
+            text-sm
+            font-bold
+            text-black
+            transition-all
+            duration-300
+            hover:-translate-y-1
+            hover:px-10
+            sm:px-10
+            sm:py-5
+            sm:text-base
+          "
         >
+          Let's Build Together
 
-          <div
-            className="
-              relative
-              overflow-hidden
-              max-w-7xl
-              mx-auto
-              rounded-[28px] sm:rounded-[40px]
-              bg-[#171717]
-              px-5 sm:px-8
-              py-10 sm:py-12
-              md:px-16 md:py-16
-            "
-          >
+          <span className="flex h-7 w-7 items-center justify-center rounded-full bg-black text-[#F8BC04] transition-transform duration-300 group-hover:translate-x-1">
+            <ArrowRight size={15} />
+          </span>
+        </Link>
+      </motion.div>
+    </section>
+  );
+}
 
-            {/* Glow */}
+/* =========================================================
+   MAIN ABOUT PAGE
+========================================================= */
 
-            <div
-              className="
-                absolute
-                right-0
-                top-0
-                h-48 w-48 sm:h-72 sm:w-72
-                rounded-full
-                bg-[#F8BC04]/20
-                blur-[100px] sm:blur-[120px]
-              "
-            />
+export default function About() {
+  return (
+    <main
+      className="
+        relative
+        min-h-screen
+        overflow-hidden
+        bg-[#050505]
+        text-white
+      "
+      style={{
+        perspective: "1400px",
+      }}
+    >
+      <SpaceParticles />
+      <SpaceAtmosphere />
+      <Grain />
 
-            <div
-              className="
-                relative
-                z-10
-                flex
-                flex-col
-                items-center
-                justify-between
-                gap-8 sm:gap-10
-                lg:flex-row
-              "
-            >
+      <div className="relative z-10">
+        {/* SCENE 1 */}
 
-              {/* Left */}
+        <OpeningScene />
 
-              <div className="w-full text-center lg:text-left">
+        {/* SCENE 2 */}
 
-                <h2
-                  className="
-                    max-w-3xl
-                    text-3xl sm:text-4xl md:text-5xl
-                    font-black
-                    leading-tight
-                    text-white
-                  "
-                >
-                  Ready To Turn Clicks Into
-                  <span className="text-[#F8BC04]">
-                    {" "}Real Business Growth?
-                  </span>
-                </h2>
+        <SceneTwo />
 
-                <p
-                  className="
-                    mt-5 sm:mt-6
-                    max-w-2xl
-                    text-base sm:text-lg
-                    leading-7 sm:leading-8
-                    text-white/80
-                  "
-                >
-                  Partner with BIGBEANS DIGITAL to launch
-                  data-driven digital marketing campaigns that
-                  generate quality leads, increase conversions
-                  and accelerate your business growth.
-                </p>
+        {/* SCENE 3 — TOP + BOTTOM */}
 
-              </div>
+        <SceneThree />
 
-              {/* Button */}
+        {/* SCENE 4 */}
 
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  y: -5,
-                  backgroundColor: "#FFD54A",
-                }}
-                whileTap={{
-                  scale: 0.95,
-                }}
-                className="
-                  rounded-full
-                  bg-[#F8BC04]
-                  w-full sm:w-auto
-                  px-7 sm:px-10
-                  py-4 sm:py-5
-                  text-base sm:text-lg
-                  font-bold
-                  text-[#171717]
-                  text-center
-                  shadow-[0_20px_50px_rgba(248,188,4,0.35)]
-                  transition-all
-                  duration-300
-                "
-              >
-                Book Free Strategy Call
-              </motion.button>
+        <SceneFour />
 
-            </div>
-          </div>
+        {/* SCENE 5 */}
 
-        </motion.div>
-      </section>
+        <GuidingPrinciples />
 
+        {/* SCENE 6 */}
+
+        <JourneyCurve />
+
+        {/* SCENE 7 */}
+
+        <CoreTeam />
+
+        {/* SCENE 8 */}
+
+        <TeamCarousel />
+
+        {/* SCENE 9 */}
+
+        <ServicesSection />
+
+        {/* SCENE 10 */}
+
+        <FAQSection />
+
+        {/* SCENE 11 */}
+
+        <FinalCTA />
+      </div>
     </main>
   );
 }

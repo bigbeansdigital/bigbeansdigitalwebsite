@@ -111,7 +111,7 @@ export default function Header() {
 
             {/* About */}
             <Link
-              href="/about"
+              href="/#"
               className="transition-all duration-300 hover:scale-110 hover:font-bold hover:text-black"
             >
               About
@@ -301,7 +301,7 @@ export default function Header() {
 
           {/* About */}
           <Link
-            href="/about"
+            href="/#"
             onClick={() => setMobileMenuOpen(false)}
             className="block py-3 text-[16px] font-medium text-gray-800 border-b border-gray-100"
           >
