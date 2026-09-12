@@ -1,13 +1,31 @@
 "use client";
 
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { ArrowRight } from "lucide-react";
-import OurWork from "@/components/Recentwork";
-import OurProcess from "@/components/OurProcess";
+import dynamic from "next/dynamic";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
+import { 
+  ArrowRight, 
+  Sparkles, 
+  Globe2, 
+  CheckCircle2, 
+  PhoneCall, 
+  ExternalLink 
+} from "lucide-react";
 
+// Dynamically import client-only components with ssr: false to prevent SSR chunk loading failures
+const OurWork = dynamic(() => import("@/components/Recentwork"), {
+  ssr: false,
+  loading: () => <div className="min-h-[300px] w-full animate-pulse bg-white/[0.02] rounded-2xl" />
+});
+
+const OurProcess = dynamic(() => import("@/components/OurProcess"), {
+  ssr: false,
+  loading: () => <div className="min-h-[300px] w-full animate-pulse bg-white/[0.02] rounded-2xl" />
+});
+
+// Client Logos
 const carouselImages = [
   "/home/clientlogo/1.png",
   "/home/clientlogo/2.png",
@@ -25,58 +43,166 @@ const carouselImages = [
   "/home/clientlogo/14.png",
 ];
 
+// Services Data
 type Service = {
+  id: string;
+  tag: string;
   title: string;
   navTitle: string;
   image: string;
   text: string;
   href: string;
-  pointers?: string[];
+  pointers: string[];
+  metric: string;
+  metricLabel: string;
 };
 
 const services: Service[] = [
   {
-  title: "Branding",
-  navTitle: "Branding",
-  image: "/home/ourservice/bigbeansdigitalbranding.webp",
-  text:
-    "Create a brand people remember with clear brand strategy, logo design, and a strong visual identity.",
-  href: "/services/branding",
-},
+    id: "branding",
+    tag: "BRAND AUTHORITY",
+    title: "Strategic Branding",
+    navTitle: "Branding",
+    image: "/home/ourservice/bigbeansdigitalbranding.webp",
+    text: "Establish early market trust and distinct identity using strategic visual systems, custom messaging, and guidelines built by a full-service branding agency and creative ad firm.",
+    href: "/services/branding",
+    metric: "3.8x",
+    metricLabel: "Recall Lift",
+    pointers: [
+      "Logo Design & Visual Guidelines",
+      "Brand Positioning & Messaging",
+      "Product Packaging & Collateral",
+      "Creative Campaign Assets",
+    ],
+  },
   {
-  title: "Social Media Marketing",
-  navTitle: "Social Media Marketing & Optimisation",
-  image: "/home/ourservice/bigbeansdigitalsocialmedia.webp",
-  text:
-    "Build your audience with social media marketing, creative content, and a strategy that keeps your brand active and relevant.",
-  href: "/services/social-media-marketing",
-},
+    id: "smm",
+    tag: "Social Media Optimisation and Marketing",
+    title: "Social Media Growth",
+    navTitle: "Social Media Marketing",
+    image: "/home/ourservice/bigbeansdigitalsocialmedia.webp",
+    text: "Build an active Social Media for your brand,  generate loyal audience with creative posts , reels, custom calendars, and creator partnerships driven by a specialized social media marketing agency and influencer marketing agency.",
+    href: "/services/social-media-marketing",
+    metric: "450%",
+    metricLabel: "Avg. Reach Surge",
+    pointers: [
+      "Creative Metaphoric Posts",
+      "Viral Short-Form Reels & UGC",
+      "Build Social Media Presence",
+      "Influencer & Creator Collaborations",
+    ],
+  },
   {
-  title: "Website Development",
-  navTitle: "Website Development",
-  image: "/home/ourservice/bigbeansdigitalwebsite.webp",
-  text:
-    "Get a modern, user-friendly website built to represent your brand, attract visitors, and turn them into customers.",
-  href: "/services/website-development",
-},
+    id: "web-dev",
+    tag: "3D Website For Brands",
+    title: "3D Immersive Website Development",
+    navTitle: "3D Website Development",
+    image: "/home/ourservice/bigbeansdigitalwebsite.webp",
+    text: "Ultra-fast, responsive web experiences crafted with Next.js, modern micro-interactions, and conversion-focused architecture engineered to drive revenue.",
+    href: "/services/website-development",
+    metric: "98+",
+    metricLabel: "Lighthouse Performance",
+    pointers: [
+      "Headless Next.js & React Builds",
+      "UI/UX Conversion Optimization",
+      "Interactive 3D & Micro-Animations",
+      "Technical SEO & Core Web Vitals",
+    ],
+  },
   {
-  title: "Performance Marketing",
-  navTitle: "Performance Marketing",
-  image: "/home/ourservice/bigbeansdigitalperformancemarketing.webp",
-  text:
-    "Get more from your ad budget with Google Ads, Meta Ads, and PPC campaigns focused on leads, sales, and growth.",
-  href: "/services/google-ads-meta-ads",
-},
+    id: "performance",
+    tag: "Data & ROI",
+    title: "Performance Marketing",
+    navTitle: "Performance Marketing",
+    image: "/home/ourservice/bigbeansdigitalperformancemarketing.webp",
+    text: "Maximize returns through precision-targeted Meta Ads, Google PPC campaigns, and conversion funnel optimization engineered for strict CAC and ROAS targets.",
+    href: "/services/google-ads-meta-ads",
+    metric: "4.2x",
+    metricLabel: "Average ROAS",
+    pointers: [
+      "Google Search, Display & PMax",
+      "Meta Ads & Creative Testing",
+      "Deep Retargeting & Attribution",
+      "Funnel & Landing Page CRO",
+    ],
+  },
   {
-  title: "Digital Marketing",
-  navTitle: "Full Service Digital Marketing",
-  image: "/home/ourservice/bigbeansdigitalsocialmedia.webp",
-  text:
-    "Bring SEO, social media, content, branding, and paid advertising together with one focused digital marketing strategy.",
-  href: "/services/social-media-marketing",
+    id: "full-growth",
+    tag: "Holistic Engine",
+    title: "Full-Stack Digital Growth",
+    navTitle: "Digital Marketing",
+    image: "/home/ourservice/bigbeansdigitalsocialmedia.webp",
+    text: "Synchronize SEO, branding, high-intent paid traffic, and omnichannel content into an integrated compounding growth flywheel.",
+    href: "/services/social-media-marketing",
+    metric: "10x",
+    metricLabel: "Pipeline Scale",
+    pointers: [
+      "Omnichannel Strategy & Execution",
+      "Organic Search & Keyword Dominance",
+      "Customer Lifecycle Automation",
+      "Executive Growth Dashboards",
+    ],
+  },
+];
+
+// Industries Data
+const industries = [
+ {
+  id: "real-estate",
+  title: "Real Estate & Interior Decorators",
+  description: "Creating stunning digital experiences for spaces and lifestyles.",
+  image: "/industries/Real Estate & Interior Decorators.webp",
+  alt: "Real Estate and Interior Decorators",
+  href: "/services",
+},
+
+{
+  id: "travel-tourism",
+  title: "Travel and Tourism",
+  description: "Inspiring journeys with creative storytelling and digital campaigns.",
+  image: "/industries/Travel and Tourism.webp",
+  alt: "Travel and Tourism",
+  href: "/services",
+},
+
+{
+  id: "fmcg-brands",
+  title: "FMCG Brands",
+  description: "Building brands that become household names.",
+  image: "/industries/FMCG Brands.webp",
+  alt: "FMCG Brands",
+  href: "/services",
+},
+
+{
+  id: "bakery-restaurants",
+  title: "Bakery and Restaurants",
+  description: "Serving creativity for brands that serve happiness.",
+  image: "/industries/Bakery and Restaurants.webp",
+  alt: "Bakery and Restaurant Brands",
+  href: "/services",
+},
+
+{
+  id: "ecommerce",
+  title: "Ecommerce",
+  description: "Driving growth for online stores with scroll-stopping content.",
+  image: "/industries/ecommerce.webp",
+  alt: "Ecommerce Brands and Online Stores",
+  href: "/services",
+},
+
+{
+  id: "it-consultancy",
+  title: "IT & Consultancy",
+  description: "Simplifying complex ideas with impactful digital solutions.",
+  image: "/industries/IT & Consultancy.webp",
+  alt: "IT and Consultancy Services",
+  href: "/services",
 },
 ];
 
+// Blog Posts Data
 const blogCards = [
   {
     id: 5,
@@ -85,75 +211,87 @@ const blogCards = [
     primaryCategory: "Social Media",
     title: "How to Do SMM for a New Clinic in India | BigBeans",
     description:
-      "Learn what to post when launching a clinic on Instagram, from educational content to trust-building posts that attract patients. Get started with BigBeans Digital.",
+      "Learn what to post when launching a clinic on Instagram, from educational reels to trust-building posts that attract regular patients.",
     link: "/blog/clinic-instagram-marketing-strategy",
+    readTime: "5 min read",
   },
   {
     id: 6,
     image: "/assets/blog/singleblogs/new-instagram-logo-redesign.webp",
     date: "August 17, 2026",
-    primaryCategory: "Social Media",
+    primaryCategory: "Brand Design",
     title: "New Instagram Logo 2026: Wordmark Redesign & Brand Refresh",
     description:
-      "Discover the new Instagram logo 2026, its wordmark redesign, “Instagzam” backlash, typography changes and what Instagram's brand refresh means for marketers.",
+      "A critical breakdown of the new Instagram typography overhaul, public sentiment shifts, and what dynamic brand refreshes mean for digital marketers.",
     link: "/blog/new-instagram-logo-redesign",
+    readTime: "4 min read",
   },
   {
     id: 7,
     image: "/assets/blog/singleblogs/why-is-my-competitor-getting-more-leads.webp",
     date: "August 17, 2026",
-    primaryCategory: "Social Media",
+    primaryCategory: "Growth Strategy",
     title: "Why Is My Competitor Getting More Leads? | Digital Marketing India",
     description:
-      "Your competitor opened later but gets more leads. Discover how SEO, Google Business Profile, social media, reviews and local digital marketing can help Indian businesses grow.",
+      "Your competitor opened later but takes the majority of local leads. Discover how local SEO, reviews, and omnichannel remarketing bridge the gap.",
     link: "/blog/why-is-my-competitor-getting-more-leads",
+    readTime: "6 min read",
   },
 ];
-function AnimatedCounter({
-  target,
-  suffix = "",
-}: {
-  target: number;
-  suffix?: string;
-}) {
+
+// High-Performance Animated Counter using requestAnimationFrame
+function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const [inView, setInView] = useState(false);
 
   useEffect(() => {
-    const duration = 1800;
-    const startTime = performance.now();
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
 
-    const updateCounter = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
+  useEffect(() => {
+    if (!inView) return;
+    let startTime: number | null = null;
+    const duration = 1400;
 
-      // Smooth ease-out animation
-      const easedProgress = 1 - Math.pow(1 - progress, 3);
-
-      setCount(Math.floor(target * easedProgress));
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const easeOutQuad = 1 - (1 - progress) * (1 - progress);
+      setCount(Math.floor(easeOutQuad * target));
 
       if (progress < 1) {
-        requestAnimationFrame(updateCounter);
+        requestAnimationFrame(step);
       } else {
         setCount(target);
       }
     };
 
-    requestAnimationFrame(updateCounter);
-
-    return () => {
-      // Animation naturally stops when component unmounts
-    };
-  }, [target]);
+    const animId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animId);
+  }, [inView, target]);
 
   return (
-    <>
+    <span ref={ref}>
       {count}
       {suffix}
-    </>
+    </span>
   );
 }
 
-
+/* =========================================================================
+   3D PARTICLE ROCKET (Battery & Mobile GPU Optimized, Zero Touch Conflict)
+   ========================================================================= */
 function ParticleUniverse() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: 0, y: 0 });
@@ -162,13 +300,13 @@ function ParticleUniverse() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
+    const ctx = canvas.getContext("2d", { alpha: true });
     if (!ctx) return;
 
     let width = 0;
     let height = 0;
     let raf = 0;
+    let isVisible = true;
 
     type Particle = {
       x: number;
@@ -176,792 +314,173 @@ function ParticleUniverse() {
       z: number;
       size: number;
       yellow: boolean;
-      alpha: number;
       phase: number;
     };
 
     const particles: Particle[] = [];
+    const isMobileDevice = window.innerWidth < 768;
+    const pCountMul = isMobileDevice ? 0.45 : 1;
 
-    const addParticle = (
-      x: number,
-      y: number,
-      z: number,
-      yellowChance = 0.5,
-      sizeMultiplier = 1
-    ) => {
+    const addP = (x: number, y: number, z: number, yellowProb = 0.45, sizeMul = 1) => {
       particles.push({
         x,
         y,
         z,
-
-        size:
-          (Math.random() < 0.075
-            ? Math.random() * 1.4 + 1
-            : Math.random() * 0.65 + 0.38) *
-          sizeMultiplier,
-
-        yellow:
-          Math.random() < yellowChance,
-
-        alpha:
-          Math.random() * 0.25 + 0.72,
-
-        phase:
-          Math.random() * Math.PI * 2,
+        size: (Math.random() < 0.1 ? 1.4 : 0.8) * sizeMul,
+        yellow: Math.random() < yellowProb,
+        phase: Math.random() * Math.PI * 2,
       });
     };
 
-    const bodyParticles = 4800;
-
-    for (let i = 0; i < bodyParticles; i++) {
-      const x =
-        -1.25 +
-        Math.random() * 1.85;
-
-      let radius = 0.47;
-
-      if (x < -0.95) {
-        radius =
-          0.32 +
-          ((x + 1.25) / 0.30) *
-            0.15;
-      }
-
-      if (x > 0.25) {
-        radius =
-          0.47 -
-          ((x - 0.25) / 0.35) *
-            0.10;
-      }
-
-      const angle =
-        Math.random() *
-        Math.PI *
-        2;
-
-      const surface =
-        0.91 +
-        Math.random() * 0.09;
-
-      const y =
-        Math.sin(angle) *
-        radius *
-        surface;
-
-      const z =
-        Math.cos(angle) *
-        radius *
-        0.34 *
-        surface;
-
-      addParticle(
-        x,
-        y,
-        z,
-        0.52
-      );
+    // Fuselage
+    for (let i = 0; i < Math.floor(400 * pCountMul); i++) {
+      const x = -1.2 + Math.random() * 1.8;
+      let r = 0.44;
+      if (x < -0.9) r = 0.32 + ((x + 1.2) / 0.3) * 0.12;
+      if (x > 0.2) r = 0.44 - ((x - 0.2) / 0.4) * 0.12;
+      const angle = Math.random() * Math.PI * 2;
+      addP(x, Math.sin(angle) * r, Math.cos(angle) * r * 0.35, 0.45);
     }
 
-    const noseParticles = 2400;
-
-    for (let i = 0; i < noseParticles; i++) {
-      const t =
-        Math.random();
-
-      const x =
-        0.48 +
-        t * 1.18;
-
-      const radius =
-        0.47 *
-        Math.pow(
-          1 - t,
-          0.72
-        );
-
-      const angle =
-        Math.random() *
-        Math.PI *
-        2;
-
-      const y =
-        Math.sin(angle) *
-        radius;
-
-      const z =
-        Math.cos(angle) *
-        radius *
-        0.34;
-
-      addParticle(
-        x,
-        y,
-        z,
-        0.48
-      );
+    // Aerodynamic Nose
+    for (let i = 0; i < Math.floor(220 * pCountMul); i++) {
+      const t = Math.random();
+      const x = 0.45 + t * 1.15;
+      const r = 0.44 * Math.pow(1 - t, 0.72);
+      const angle = Math.random() * Math.PI * 2;
+      addP(x, Math.sin(angle) * r, Math.cos(angle) * r * 0.35, 0.4);
     }
 
-    const topFinParticles = 2100;
-
-    for (
-      let i = 0;
-      i < topFinParticles;
-      i++
-    ) {
-      const u =
-        Math.random();
-
-      const v =
-        Math.random();
-
-      const x =
-        -1.08 +
-        u * 1.28;
-
-      const maxY =
-        0.50 +
-        (1 - u) *
-          0.72;
-
-      const y =
-        0.45 +
-        v *
-          (maxY - 0.45);
-
-      const z =
-        (Math.random() - 0.5) *
-        0.20;
-
-      addParticle(
-        x,
-        y,
-        z,
-        0.52,
-        1.02
-      );
+    // Stabilizer Fins
+    for (let i = 0; i < Math.floor(240 * pCountMul); i++) {
+      const u = Math.random();
+      const v = Math.random();
+      const x = -1.05 + u * 1.2;
+      const maxY = 0.45 + (1 - u) * 0.7;
+      const z = (Math.random() - 0.5) * 0.18;
+      addP(x, 0.42 + v * (maxY - 0.42), z, 0.55, 1.1);
+      addP(x, -0.42 - v * (maxY - 0.42), z, 0.55, 1.1);
     }
 
-    for (
-      let i = 0;
-      i < 700;
-      i++
-    ) {
-      const t =
-        Math.random();
-
-      const x =
-        -1.08 +
-        t * 1.28;
-
-      const y =
-        1.17 -
-        t * 0.68;
-
-      const z =
-        (Math.random() - 0.5) *
-        0.16;
-
-      addParticle(
-        x,
-        y,
-        z,
-        0.56,
-        1.12
-      );
+    // Cockpit Window
+    for (let i = 0; i < Math.floor(100 * pCountMul); i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const r = 0.22 + (Math.random() - 0.5) * 0.04;
+      addP(-0.05, Math.cos(angle) * r, 0.16 + Math.sin(angle) * 0.02, 0.25, 1.2);
     }
 
-    const bottomFinParticles = 2100;
-
-    for (
-      let i = 0;
-      i < bottomFinParticles;
-      i++
-    ) {
-      const u =
-        Math.random();
-
-      const v =
-        Math.random();
-
-      const x =
-        -1.08 +
-        u * 1.28;
-
-      const maxY =
-        0.50 +
-        (1 - u) *
-          0.72;
-
-      const y =
-        -0.45 -
-        v *
-          (maxY - 0.45);
-
-      const z =
-        (Math.random() - 0.5) *
-        0.20;
-
-      addParticle(
-        x,
-        y,
-        z,
-        0.52,
-        1.02
-      );
-    }
-
-    for (
-      let i = 0;
-      i < 700;
-      i++
-    ) {
-      const t =
-        Math.random();
-
-      const x =
-        -1.08 +
-        t * 1.28;
-
-      const y =
-        -1.17 +
-        t * 0.68;
-
-      const z =
-        (Math.random() - 0.5) *
-        0.16;
-
-      addParticle(
-        x,
-        y,
-        z,
-        0.56,
-        1.12
-      );
-    }
-
-    const windowX =
-      -0.05;
-
-    const windowRadius =
-      0.255;
-
-    for (
-      let i = 0;
-      i < 1250;
-      i++
-    ) {
-      const angle =
-        Math.random() *
-        Math.PI *
-        2;
-
-      const radius =
-        windowRadius +
-        (Math.random() - 0.5) *
-          0.045;
-
-      const y =
-        Math.cos(angle) *
-        radius;
-
-      const z =
-        0.17 +
-        Math.sin(angle) *
-          0.025;
-
-      addParticle(
-        windowX,
-        y,
-        z,
-        0.44,
-        1.08
-      );
-    }
-
-    for (
-      let i = 0;
-      i < 950;
-      i++
-    ) {
-      const angle =
-        Math.random() *
-        Math.PI *
-        2;
-
-      const radius =
-        Math.sqrt(
-          Math.random()
-        ) *
-        0.20;
-
-      const y =
-        Math.cos(angle) *
-        radius;
-
-      const z =
-        0.185 +
-        Math.sin(angle) *
-          0.018;
-
-      addParticle(
-        windowX,
-        y,
-        z,
-        0.34,
-        0.82
-      );
-    }
-
-    for (
-      let i = 0;
-      i < 850;
-      i++
-    ) {
-      const angle =
-        Math.random() *
-        Math.PI *
-        2;
-
-      const radius =
-        Math.sqrt(
-          Math.random()
-        ) *
-        0.28;
-
-      addParticle(
-        -1.28,
-
-        Math.cos(angle) *
-          radius,
-
-        Math.sin(angle) *
-          radius *
-          0.38,
-
-        0.72,
-        1.0
-      );
-    }
-
-    const exhaustParticles =
-      1900;
-
-    for (
-      let i = 0;
-      i < exhaustParticles;
-      i++
-    ) {
-      const distance =
-        Math.pow(
-          Math.random(),
-          0.72
-        ) *
-        1.15;
-
-      const spread =
-        0.025 +
-        distance * 0.20;
-
-      const x =
-        -1.28 -
-        distance;
-
-      const y =
-        (Math.random() - 0.5) *
-        spread;
-
-      const z =
-        (Math.random() - 0.5) *
-        spread *
-        0.45;
-
-      addParticle(
-        x,
-        y,
-        z,
-        0.74,
-        0.82
-      );
+    // Thruster Plume
+    for (let i = 0; i < Math.floor(250 * pCountMul); i++) {
+      const d = Math.pow(Math.random(), 0.75) * 1.35;
+      const spread = 0.03 + d * 0.22;
+      addP(-1.25 - d, (Math.random() - 0.5) * spread, (Math.random() - 0.5) * spread * 0.45, 0.85, 0.95);
     }
 
     const resize = () => {
-      const dpr =
-        Math.min(
-          window.devicePixelRatio || 1,
-          2
-        );
-
-      width =
-        window.innerWidth;
-
-      height =
-        window.innerHeight;
-
-      canvas.width =
-        Math.floor(
-          width * dpr
-        );
-
-      canvas.height =
-        Math.floor(
-          height * dpr
-        );
-
-      canvas.style.width =
-        `${width}px`;
-
-      canvas.style.height =
-        `${height}px`;
-
-      ctx.setTransform(
-        dpr,
-        0,
-        0,
-        dpr,
-        0,
-        0
-      );
+      width = window.innerWidth;
+      height = window.innerHeight;
+      const isMobile = width < 768;
+      const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1.2 : 1.75);
+      canvas.width = Math.floor(width * dpr);
+      canvas.height = Math.floor(height * dpr);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
-    const onMouse = (
-      event: MouseEvent
-    ) => {
-      mouseRef.current.x =
-        (
-          event.clientX /
-            window.innerWidth -
-          0.5
-        ) * 2;
-
-      mouseRef.current.y =
-        (
-          event.clientY /
-            window.innerHeight -
-          0.5
-        ) * 2;
+    const handleMouse = (e: MouseEvent) => {
+      mouseRef.current.x = (e.clientX / window.innerWidth - 0.5) * 2;
+      mouseRef.current.y = (e.clientY / window.innerHeight - 0.5) * 2;
     };
 
-    const onScroll = () => {
-      scrollRef.current =
-        window.scrollY /
-        Math.max(
-          document.body.scrollHeight -
-            window.innerHeight,
-          1
-        );
+    const handleScroll = () => {
+      scrollRef.current = window.scrollY / Math.max(document.body.scrollHeight - window.innerHeight, 1);
     };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    });
+    observer.observe(canvas);
 
     resize();
-    onScroll();
+    window.addEventListener("resize", resize, { passive: true });
+    window.addEventListener("mousemove", handleMouse, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-    window.addEventListener(
-      "resize",
-      resize
-    );
+    const rocketAngle = -18 * (Math.PI / 180);
+    const rocketCos = Math.cos(rocketAngle);
+    const rocketSin = Math.sin(rocketAngle);
 
-    window.addEventListener(
-      "mousemove",
-      onMouse,
-      { passive: true }
-    );
+    const render = (time: number) => {
+      if (!isVisible) {
+        raf = requestAnimationFrame(render);
+        return;
+      }
 
-    window.addEventListener(
-      "scroll",
-      onScroll,
-      { passive: true }
-    );
+      ctx.clearRect(0, 0, width, height);
 
-    const draw = (
-      time: number
-    ) => {
-      ctx.clearRect(
-        0,
-        0,
-        width,
-        height
-      );
+      const isMobile = width < 768;
+      const mx = isMobile ? 0 : mouseRef.current.x;
+      const my = isMobile ? 0 : mouseRef.current.y;
+      const scroll = scrollRef.current;
 
-      const mouseX =
-        mouseRef.current.x;
+      const rot = time * 0.000045 + mx * 0.012 + scroll * 0.04;
+      const tilt = my * 0.05;
+      const cosR = Math.cos(rot);
+      const sinR = Math.sin(rot);
+      const cosT = Math.cos(tilt);
+      const sinT = Math.sin(tilt);
 
-      const mouseY =
-        mouseRef.current.y;
+      const scale = Math.min(width, height) * (isMobile ? 0.19 : 0.25);
+      const baseX = isMobile ? 0.82 : 0.74 - scroll * 0.48;
+      const centerX = width * baseX + mx * 18;
+      const centerY = height * (isMobile ? 0.22 : 0.46) + my * 15;
 
-      const scroll =
-        scrollRef.current;
+      const yellowPath = new Path2D();
+      const whitePath = new Path2D();
 
-      const rotation =
-        time * 0.000030 +
-        mouseX * 0.010 +
-        scroll * 0.02;
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        const dx = p.x + Math.sin(time * 0.00007 + p.phase) * 0.0015;
+        const dy = p.y + Math.cos(time * 0.00006 + p.phase) * 0.0015;
 
-      const tilt =
-        mouseY * 0.045;
+        const rx = dx * cosR - p.z * sinR;
+        const rz = dx * sinR + p.z * cosR;
+        const ry = dy * cosT - rz * sinT;
+        const fz = dy * sinT + rz * cosT;
 
-      const startPosition = 0.74;
+        const psp = 1 / (1 + fz * 0.45);
+        const lx = rx * scale * psp;
+        const ly = ry * scale * psp;
 
-      const endPosition = 0.20;
+        const sx = centerX + (lx * rocketCos - ly * rocketSin);
+        const sy = centerY + (lx * rocketSin + ly * rocketCos);
 
-      const scrollEase =
-        scroll * scroll *
-        (3 - 2 * scroll);
+        if (sx < -20 || sx > width + 20 || sy < -20 || sy > height + 20) continue;
 
-      const baseX =
-        startPosition +
-        (
-          endPosition -
-          startPosition
-        ) *
-          scrollEase;
+        const rad = Math.max(0.5, p.size * psp);
+        const path = p.yellow ? yellowPath : whitePath;
+        path.moveTo(sx + rad, sy);
+        path.arc(sx, sy, rad, 0, Math.PI * 2);
+      }
 
-      const mouseOffsetX =
-        mouseX * 0.035;
+      ctx.fillStyle = isMobile ? "rgba(248, 188, 4, 0.4)" : "rgba(248, 188, 4, 0.75)";
+      ctx.fill(yellowPath);
 
-      const mouseOffsetY =
-        mouseY * 0.025;
+      ctx.fillStyle = isMobile ? "rgba(255, 255, 255, 0.35)" : "rgba(255, 255, 255, 0.75)";
+      ctx.fill(whitePath);
 
-      const centerX =
-        width *
-        baseX +
-        width *
-          mouseOffsetX;
-
-      const centerY =
-        height *
-          0.46 +
-        height *
-          mouseOffsetY;
-
-      const scale =
-        Math.min(
-          width,
-          height
-        ) *
-        (width < 768
-          ? 0.19
-          : 0.255);
-
-      const rocketAngle =
-        -18 *
-        (Math.PI / 180);
-
-      const rocketCos =
-        Math.cos(
-          rocketAngle
-        );
-
-      const rocketSin =
-        Math.sin(
-          rocketAngle
-        );
-
-      const rendered =
-        particles
-          .map((particle) => {
-
-            const driftX =
-              Math.sin(
-                time * 0.00005 +
-                  particle.phase
-              ) *
-              0.0012;
-
-            const driftY =
-              Math.cos(
-                time * 0.000045 +
-                  particle.phase
-              ) *
-              0.0012;
-
-            const x =
-              particle.x +
-              driftX;
-
-            const y =
-              particle.y +
-              driftY;
-
-            const z =
-              particle.z;
-
-            const cosR =
-              Math.cos(
-                rotation
-              );
-
-            const sinR =
-              Math.sin(
-                rotation
-              );
-
-            const rotatedX =
-              x * cosR -
-              z * sinR;
-
-            const rotatedZ =
-              x * sinR +
-              z * cosR;
-
-            const cosT =
-              Math.cos(
-                tilt
-              );
-
-            const sinT =
-              Math.sin(
-                tilt
-              );
-
-            const rotatedY =
-              y * cosT -
-              rotatedZ * sinT;
-
-            const finalZ =
-              y * sinT +
-              rotatedZ * cosT;
-
-            const perspective =
-              1 /
-              (
-                1 +
-                finalZ * 0.42
-              );
-
-            return {
-              particle,
-              rotatedX,
-              rotatedY,
-              finalZ,
-              perspective,
-            };
-          })
-          .sort(
-            (a, b) =>
-              a.finalZ -
-              b.finalZ
-          );
-
-      rendered.forEach(
-        ({
-          particle,
-          rotatedX,
-          rotatedY,
-          perspective,
-        }) => {
-
-          const localX =
-            rotatedX *
-            scale *
-            perspective;
-
-          const localY =
-            rotatedY *
-            scale *
-            perspective;
-
-          const diagonalX =
-            localX *
-              rocketCos -
-            localY *
-              rocketSin;
-
-          const diagonalY =
-            localX *
-              rocketSin +
-            localY *
-              rocketCos;
-
-          const screenX =
-            centerX +
-            diagonalX;
-
-          const screenY =
-            centerY +
-            diagonalY;
-
-          if (
-            screenX < -100 ||
-            screenX >
-              width + 100 ||
-            screenY < -100 ||
-            screenY >
-              height + 100
-          ) {
-            return;
-          }
-
-          const depth =
-            Math.max(
-              0.62,
-              perspective
-            );
-
-          const radius =
-            Math.max(
-              0.32,
-              particle.size *
-                depth
-            );
-
-          const alpha =
-            Math.min(
-              1,
-              particle.alpha *
-                (
-                  0.68 +
-                  depth * 0.32
-                )
-            );
-
-          ctx.beginPath();
-
-          ctx.arc(
-            screenX,
-            screenY,
-            radius,
-            0,
-            Math.PI * 2
-          );
-
-          ctx.fillStyle =
-            particle.yellow
-              ? `rgba(248,188,4,${alpha})`
-              : `rgba(255,255,255,${alpha})`;
-
-          ctx.fill();
-        }
-      );
-
-      raf =
-        window.requestAnimationFrame(
-          draw
-        );
+      raf = requestAnimationFrame(render);
     };
 
-    raf =
-      window.requestAnimationFrame(
-        draw
-      );
+    raf = requestAnimationFrame(render);
 
     return () => {
-      window.cancelAnimationFrame(
-        raf
-      );
-
-      window.removeEventListener(
-        "resize",
-        resize
-      );
-
-      window.removeEventListener(
-        "mousemove",
-        onMouse
-      );
-
-      window.removeEventListener(
-        "scroll",
-        onScroll
-      );
+      cancelAnimationFrame(raf);
+      observer.disconnect();
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", handleMouse);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -969,1910 +488,998 @@ function ParticleUniverse() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="
-        pointer-events-none
-        fixed
-        inset-0
-        z-0
-        opacity-95
-      "
+      className="pointer-events-none fixed inset-0 z-0 h-full w-full will-change-transform"
+      style={{ transform: "translateZ(0)" }}
     />
-  );
-}
-
-
-function ImmersiveSection({
-  children,
-  className = "",
-  animation = "up",
-}: {
-  children: React.ReactNode;
-  className?: string;
-  animation?: "none" | "up" | "down" | "left" | "right" | "pop";
-}) {
-  const ref = useRef<HTMLElement>(null);
-
-  const variants = {
-    none: {
-      hidden: { opacity: 1, x: 0, y: 0, scale: 1 },
-      visible: { opacity: 1, x: 0, y: 0, scale: 1 },
-    },
-    up: {
-      hidden: { opacity: 0, x: 0, y: 70, scale: 0.985 },
-      visible: { opacity: 1, x: 0, y: 0, scale: 1 },
-    },
-    down: {
-      hidden: { opacity: 0, x: 0, y: -70, scale: 0.985 },
-      visible: { opacity: 1, x: 0, y: 0, scale: 1 },
-    },
-    left: {
-      hidden: { opacity: 0, x: -100, y: 0, scale: 0.985 },
-      visible: { opacity: 1, x: 0, y: 0, scale: 1 },
-    },
-    right: {
-      hidden: { opacity: 0, x: 100, y: 0, scale: 0.985 },
-      visible: { opacity: 1, x: 0, y: 0, scale: 1 },
-    },
-    pop: {
-      hidden: { opacity: 0, x: 0, y: 55, scale: 0.86 },
-      visible: { opacity: 1, x: 0, y: 0, scale: 1 },
-    },
-  } as const;
-
-  return (
-    <motion.section
-      ref={ref}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.18 }}
-      variants={variants[animation]}
-      transition={{
-        duration: animation === "pop" ? 0.85 : 0.8,
-        ease: [0.22, 1, 0.36, 1] as const,
-      }}
-      className={`relative z-10 ${className}`}
-    >
-      {children}
-    </motion.section>
   );
 }
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [activeService, setActiveService] = useState(0);
-  
-
-  useEffect(() => {
-  const timer = setTimeout(() => {
-    setActiveService((current) => (current + 1) % services.length);
-  }, 5000);
-  return () => clearTimeout(timer);
-}, [activeService]);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveService((current) => (current + 1) % services.length);
-    }, 3000);
-
-    return () => window.clearInterval(timer);
-  }, []);
+  const [isPaused, setIsPaused] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
-
   const pageRef = useRef<HTMLDivElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: pageRef,
-    offset: ["start start", "end end"],
+  // Auto-rotate services with pause support when touched/hovered
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setActiveService((prev) => (prev + 1) % services.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [isPaused]);
+
+  // Reading progress bar
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001,
   });
-
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 45,
-    damping: 18,
-    mass: 0.4,
-  });
-
-  const progressWidth = useTransform(
-    smoothProgress,
-    [0, 1],
-    ["0%", "100%"]
-  );
-
-  const { scrollYProgress: heroScrollProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
-
-  const smoothHeroProgress = useSpring(heroScrollProgress, {
-    stiffness: 70,
-    damping: 22,
-    mass: 0.45,
-  });
-
-  const heroScale = useTransform(
-    smoothHeroProgress,
-    [0, 0.55, 1],
-    [1, 1.35, 2.35]
-  );
-
-  const heroOpacity = useTransform(
-    smoothHeroProgress,
-    [0, 0.68, 1],
-    [1, 0.85, 0]
-  );
-
-  const heroY = useTransform(
-    smoothHeroProgress,
-    [0, 1],
-    [0, -35]
-  );
-
-  const heroBlur = useTransform(
-    smoothHeroProgress,
-    [0, 0.72, 1],
-    [0, 0, 8]
-  );
-
-  const heroFilter = useTransform(heroBlur, (value) => `blur(${value}px)`);
 
   return (
     <main
       ref={pageRef}
-      className="
-        relative
-        min-h-screen
-        overflow-x-hidden
-        overflow-y-visible
-        bg-[#050505]
-        text-white
-      "
+      className="relative min-h-screen bg-[#050505] text-white selection:bg-[#F8BC04] selection:text-black font-sans overflow-x-clip"
     >
-      
+      {/* Top Ambient Reading Progress Bar */}
+      <motion.div
+        style={{ scaleX }}
+        className="fixed top-0 left-0 right-0 h-[2.5px] bg-[#F8BC04] origin-left z-50 shadow-[0_0_12px_#F8BC04]"
+      />
 
-      <div className="pointer-events-none fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_18%,rgba(248,188,4,0.10),transparent_24%),radial-gradient(circle_at_18%_72%,rgba(80,100,130,0.08),transparent_28%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.82)_100%)]" />
+      {/* Background Glow Accents */}
+      <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+        <div className="absolute -top-32 right-1/4 h-[380px] sm:h-[580px] w-[380px] sm:w-[580px] rounded-full bg-[#F8BC04]/[0.05] blur-[100px] sm:blur-[150px]" />
+        <div className="absolute top-1/2 -left-28 h-[400px] sm:h-[600px] w-[400px] sm:w-[600px] rounded-full bg-white/[0.02] blur-[120px] sm:blur-[170px]" />
+        <div className="absolute bottom-1/4 right-2 h-[350px] sm:h-[500px] w-[350px] sm:w-[500px] rounded-full bg-[#F8BC04]/[0.04] blur-[100px] sm:blur-[140px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,transparent_60%,#050505_100%)]" />
       </div>
 
-      <div className="fixed left-0 top-0 z-[80] h-[2px] w-full bg-white/5">
-        <motion.div
-          style={{ width: progressWidth }}
-          className="h-full bg-[#F8BC04]"
-        />
-      </div>
-
+      {/* 3D Particle Universe Canvas */}
       <ParticleUniverse />
 
-      {/* ===== Hero Section ===== */}
-      <ImmersiveSection className="min-h-[120vh] py-5 sm:py-10" animation="none">
-  <section
-    ref={heroRef}
-    className="relative min-h-[105vh] sm:min-h-[100vh]"
-  >
-    <div className="sticky top-0 flex min-h-screen items-start overflow-hidden sm:items-center">
-      
-      <motion.div
-        style={{
-          scale: heroScale,
-          opacity: heroOpacity,
-          y: heroY,
-          filter: heroFilter,
-        }}
-        className="w-full origin-center will-change-transform"
+      {/* 70% Black Background Overlay (Layered above glow & 3D rocket, below interactive elements) */}
+      <div 
+        aria-hidden="true" 
+        className="pointer-events-none fixed inset-0 z-[1] bg-[#000000]/[70%]" 
+      />
+
+      {/* =========================================================================
+          HERO SECTION
+          ========================================================================= */}
+      <section
+        ref={heroRef}
+        className="relative z-10 min-h-[92dvh] sm:min-h-screen flex items-center px-4 sm:px-8 lg:px-16 pt-24 sm:pt-28 pb-12 max-w-[1550px] mx-auto"
       >
-        <div className="mx-auto flex min-h-screen w-full max-w-[1600px] items-start px-4 pt-[110px] pb-12 sm:items-center sm:px-10 sm:py-24 lg:px-16 xl:px-20">
-
-          <div className="grid w-full grid-cols-1 items-center lg:grid-cols-[minmax(0,0.78fr)_minmax(420px,1.22fr)] lg:gap-8 xl:gap-14">
-
-            <div className="relative z-20 w-full max-w-[650px] pr-0 sm:pr-8 lg:pr-10 xl:pr-14">
-
-              <motion.h1
-                initial={{ opacity: 0, y: 35 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.12 }}
-                className="mt-5 max-w-[680px] leading-[0.92] tracking-[-0.055em]"
-              >
-                <span className="block whitespace-normal text-[38px] font-extrabold leading-[0.95] text-white sm:whitespace-nowrap sm:text-[56px] md:text-[68px] lg:text-[64px] xl:text-[76px]">
-                  Where Creativity
-                </span>
-
-                <span
-                  className="mt-2 block whitespace-normal text-[40px] font-medium italic leading-[0.95] text-[#F8BC04] sm:whitespace-nowrap sm:text-[62px] md:text-[74px] lg:text-[70px] xl:text-[84px]"
-                  style={{
-                    fontFamily:
-                      "Georgia, 'Times New Roman', Times, serif",
-                  }}
-                >
-                  meets strategy.
-                </span>
-              </motion.h1>
-
-                    
-                          <motion.p
-                          initial={{ opacity: 0, y: 18 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, delay: 0.38 }}
-                          className="mt-6 w-full max-w-[570px] text-left text-[12px] leading-[1.7] text-white/100 sm:text-justify sm:text-[15px] sm:leading-6"
-                        >
-                          At Big Beans Digital, we help startups and growing businesses turn ideas into brands people remember. Our best digital marketing approach brings branding, web development, SEO, social media marketing, and performance marketing together to build visibility, engagement, and measurable growth.
-                          <br></br>
-                          From social media marketing services in India to digital marketing for international markets, we create practical strategies around your business goals not one size fits all packages. Whether you’re looking for a digital marketing agency near me, stronger branding, a high-performing 3D websites, or campaigns built to convert into sales, our team connects every piece of your digital presence into one growth focused system.
-                        </motion.p>
-                   
-
-
-
-
-                    <motion.div
-  initial={{ opacity: 0, y: 18 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, delay: 0.5 }}
-  className="mt-7 grid max-w-[570px] grid-cols-2 gap-x-5 gap-y-5 sm:grid-cols-4 sm:gap-6"
->
-  {[
-    [120, "+", "Projects Launched"],
-    [28, "+", "Growth Partners"],
-    [64, "+", "Brands Elevated"],
-    [97, "%", "Retention Rate"],
-  ].map(([number, suffix, label], index) => (
-    <div key={index} className="min-w-0 text-left">
-      <div className="text-[22px] font-black leading-none tracking-[-0.045em] text-[#F8BC04] sm:text-[27px] lg:text-[30px]">
-        <AnimatedCounter
-          target={Number(number)}
-          suffix={String(suffix)}
-        />
-      </div>
-
-      <div className="mt-2 max-w-[110px] text-[8px] font-medium uppercase leading-[1.35] tracking-[0.04em] text-white/45 sm:max-w-[78px] sm:text-[8px]">
-        {label}
-      </div>
-    </div>
-  ))}
-</motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0, y: 18 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.8, delay: 0.62 }}
-                      className="mt-6"
-                    >
-                      <div className="flex items-center gap-3.5">
-                        <div className="flex -space-x-3">
-                          {[
-                            "/home/ratings/rating1.webp",
-                            "/home/ratings/rating2.webp",
-                            "/home/ratings/rating3.webp",
-                          ].map((src, index) => (
-                            <img
-                              key={src}
-                              src={src}
-                              alt={`Happy-0 Client ${index + 1}`}
-                              className="h-8 w-8 rounded-full border-2 border-[#050505] object-cover sm:h-9 sm:w-9"
-                            />
-                          ))}
-                        </div>
-
-                        <div>
-                          <div className="flex items-center gap-1.5">
-                            <span className="text-xl font-black leading-none tracking-[-0.04em] text-white sm:text-2xl">
-                              4.9
-                            </span>
-                            <span className="text-sm text-[#F8BC04] sm:text-base">
-                              ★
-                            </span>
-                          </div>
-                          <p className="mt-1 text-[10px] leading-4 text-white/100 sm:text-[15px] sm:leading-normal">
-                            Trusted by founders and Business around the world
-                          </p>
-                        </div>
-                      </div>
-                    </motion.div>
-
-                      {/* ============================================================
-                          BOOK AN ENQUIRY CALL SECTION
-                      ============================================================ */}
-
-                      <section className="relative w-full py-5">
-                        <div className="flex w-full items-center justify-start">
-
-                          <motion.div
-                            whileHover={{
-                              y: -5,
-                              scale: 1.045,
-                              rotateX: -4,
-                              rotateY: 2,
-                            }}
-                            whileTap={{
-                              scale: 0.97,
-                            }}
-                            transition={{
-                              type: "spring",
-                              stiffness: 320,
-                              damping: 17,
-                            }}
-                            className="relative inline-block"
-                          >
-
-                            {/* ========================================================
-                                MOVING YELLOW GLOW BORDER
-                            ======================================================== */}
-
-                            <svg
-                              aria-hidden="true"
-                              className="
-                                pointer-events-none
-                                absolute
-                                inset-0
-                                z-20
-                                h-full
-                                w-full
-                                overflow-visible
-                              "
-                              viewBox="0 0 1000 160"
-                              preserveAspectRatio="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <defs>
-                                <filter
-                                  id="yellowGlow"
-                                  x="-50%"
-                                  y="-50%"
-                                  width="200%"
-                                  height="200%"
-                                >
-                                  <feGaussianBlur
-                                    stdDeviation="3"
-                                    result="blur1"
-                                  />
-
-                                  <feGaussianBlur
-                                    in="SourceGraphic"
-                                    stdDeviation="7"
-                                    result="blur2"
-                                  />
-
-                                  <feGaussianBlur
-                                    in="SourceGraphic"
-                                    stdDeviation="14"
-                                    result="blur3"
-                                  />
-
-                                  <feMerge>
-                                    <feMergeNode in="blur3" />
-                                    <feMergeNode in="blur2" />
-                                    <feMergeNode in="blur1" />
-                                    <feMergeNode in="SourceGraphic" />
-                                  </feMerge>
-                                </filter>
-                              </defs>
-
-                              <rect
-                                x="1.5"
-                                y="1.5"
-                                width="997"
-                                height="157"
-                                rx="78.5"
-                                ry="78.5"
-                                pathLength="1000"
-                                fill="none"
-                                stroke="#f8bc04"
-                                strokeWidth="5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeDasharray="55 945"
-                                strokeDashoffset="0"
-                                filter="url(#yellowGlow)"
-                                style={{
-                                  animation: "yellowBorderMove 6s linear infinite",
-                                }}
-                              />
-
-                              <style>
-                                {`
-                                  @keyframes yellowBorderMove {
-                                    0% {
-                                      stroke-dashoffset: 0;
-                                    }
-
-                                    100% {
-                                      stroke-dashoffset: -1000;
-                                    }
-                                  }
-                                `}
-                              </style>
-                            </svg>
-
-
-                            {/* ========================================================
-                                OUTER GLASS BORDER
-                            ======================================================== */}
-
-                            <div
-                              aria-hidden="true"
-                              className="
-                                pointer-events-none
-                                absolute
-                                -inset-[1px]
-                                z-10
-                                rounded-full
-                                border
-                                border-white/30
-                              "
-                            />
-
-
-                            {/* ========================================================
-                                MAIN GLASS BUTTON
-                            ======================================================== */}
-
-                            <Link
-                              href="https://wa.link/pxmrrm"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="
-                                relative
-                                z-10
-
-                                flex
-                                items-center
-                                justify-center
-
-                                gap-2.5
-
-                                h-[54px]
-                                px-7
-
-                                overflow-hidden
-
-                                rounded-full
-
-                                border
-                                border-white/30
-
-                                bg-black/40
-
-                                text-white
-                                font-bold
-                                text-[16px]
-
-                                whitespace-nowrap
-
-                                shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]
-
-                                backdrop-blur-2xl
-                                backdrop-saturate-150
-
-                                transition-all
-                                duration-300
-
-                                hover:border-white/60
-                                hover:bg-black/30
-                              "
-                            >
-
-                              {/* ======================================================
-                                  MOVING WHITE REFLECTION
-                              ====================================================== */}
-
-                              <motion.span
-                                aria-hidden="true"
-                                initial={{
-                                  x: "-150%",
-                                }}
-                                animate={{
-                                  x: "150%",
-                                }}
-                                transition={{
-                                  duration: 2.8,
-                                  delay: 2,
-                                  repeat: Infinity,
-                                  repeatDelay: 3,
-                                  ease: "easeInOut",
-                                }}
-                                className="
-                                  pointer-events-none
-                                  absolute
-                                  top-0
-                                  bottom-0
-                                  w-16
-                                  rotate-[18deg]
-                                  bg-white/20
-                                  blur-md
-                                "
-                              />
-
-
-                              {/* ======================================================
-                                  PHONE ICON
-                              ====================================================== */}
-
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                className="
-                                  relative
-                                  z-10
-                                  h-[19px]
-                                  w-[19px]
-                                  flex-shrink-0
-                                "
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.09l-4.423-1.106a1.125 1.125 0 0 0-1.173.417l-.97 1.293a1.125 1.125 0 0 1-1.21.38 12.035 12.035 0 0 1-7.35-7.35 1.125 1.125 0 0 1 .38-1.21l1.293-.97c.363-.272.528-.74.417-1.173L6.506 3.9A1.125 1.125 0 0 0 5.416 3H4.5A2.25 2.25 0 0 0 2.25 5.25v1.5Z"
-                                />
-                              </svg>
-
-
-                              {/* ======================================================
-                                  BUTTON TEXT
-                              ====================================================== */}
-
-                              <span className="relative z-10">
-                                Book Free Consultation Call
-                              </span>
-
-                            </Link>
-
-                          </motion.div>
-
-                        </div>
-                      </section>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              style={{ opacity: heroOpacity }}
-              className="absolute bottom-5 left-1/2 z-20 hidden -translate-x-1/2 text-center sm:block"
-            >
-              <div className="text-[9px] uppercase tracking-[0.35em] text-white/30">
-                Scroll to explore
-              </div>
-              <div className="mx-auto mt-3 h-10 w-px bg-gradient-to-b from-[#F8BC04] to-transparent" />
-            </motion.div>
-          </div>
-        </section>
-      </ImmersiveSection>
-      
-
-      {/* ===== Trusted Partnerships Section ===== */}
-      <ImmersiveSection className="w-full bg-black/70 py-1 sm:py-1">
-        <div className="mx-auto max-w-[1400px] px-5 pt-8 sm:px-8 sm:pt-10 lg:px-12  lg:pt-12">
-          <div className="mb-12 max-w-[1180px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
+          {/* Hero Left Content */}
+          <div className="lg:col-span-8 xl:col-span-8 z-20">
+           
             
-            
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.85, delay: 0.08 }}
-              className="mt-5 leading-[0.86] tracking-[-0.065em]"
-            >
-              <span className="block whitespace-normal text-[36px] font-extrabold leading-[0.95] text-white sm:whitespace-nowrap sm:text-[54px] md:text-[66px] lg:text-[76px] xl:text-[80px]">
-                We are trusted by
-              </span>
 
+            {/* Main Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-3xl sm:text-5xl md:text-7xl xl:text-[80px] font-black tracking-[-0.04em] leading-[1.08] sm:leading-[1.02]"
+            >
+              Where Creativity{" "}
               <span
-                className="mt-2 block whitespace-normal text-[34px] font-medium italic leading-[0.95] text-[#F8BC04] sm:whitespace-nowrap sm:text-[52px] md:text-[64px] lg:text-[74px] xl:text-[60px]"
-                style={{
-                  fontFamily:
-                    "Georgia, 'Times New Roman', Times, serif",
-                }}
+                className="block sm:inline font-medium italic text-[#F8BC04] font-serif pr-2"
+                style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
               >
-                100+ startups in India &amp; businesses.
+                <br></br>
+                meets strategy.
               </span>
-            </motion.h2>
+            </motion.h1>
 
+            {/* Narrative Copy */}
             <motion.p
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.75, delay: 0.18 }}
-              className="mt-6 max-w-[700px] text-[13px] leading-6 text-white/100 sm:text-[15px] sm:leading-7"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-white/75 max-w-2xl leading-relaxed"
             >
-              From ambitious startups to established businesses, we build marketing around what actually matters to the people behind the business. Our clients trust us for thoughtful strategy, strong creative work, clear communication, and execution that stays focused on real growth.
+              At <strong className="text-white font-bold">Big Beans Digital</strong>, we help businesses grow through digital 
+              marketing, branding, SEO, social media marketing, website development, Google Ads and Meta Ads. Whether you need a 
+              digital marketing agency, branding partner or performance marketing team, we combine creative strategy, content and 
+              measurable campaigns to build stronger brands, attract the right audience and turn online attention into business results.
             </motion.p>
-          </div>
 
-          <div className="relative overflow-hidden rounded-[34px] border border-white/10 bg-white/[0.025] py-5 sm:py-7 backdrop-blur-md">
-            <div className="absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-[#050505] to-transparent" />
-            <div className="absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-[#050505] to-transparent" />
-
+            {/* CTAs and Ratings */}
             <motion.div
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{
-                duration: 38,
-                ease: "linear",
-                repeat: Infinity,
-              }}
-              className="flex w-max gap-3 sm:gap-5"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-5 sm:gap-6"
             >
-              {[...carouselImages, ...carouselImages].map(
-                (image, index) => (
-                  <div
-                    key={`${image}-${index}`}
-                    className="
-                      relative
-                      h-[105px]
-                      w-[105px]
-                      flex-shrink-0
-                      overflow-hidden
-                      rounded-[24px]
-                      border
-                      border-white/10
-                      bg-white/[0.035]
-                      p-3
-                      sm:h-[170px]
-                      sm:w-[170px]
-                    "
-                  >
-                    <Image
-                      src={image}
-                      alt={`Client ${index + 1}`}
-                      fill
-                      sizes="170px"
-                      className="object-contain p-4 opacity-80"
-                    />
+              <Link
+                href="https://wa.link/pxmrrm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#F8BC04] text-black font-extrabold text-sm sm:text-base tracking-tight transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_25px_rgba(248,188,4,0.3)] hover:shadow-[0_0_30px_rgba(248,188,4,0.5)]"
+              >
+                <PhoneCall className="w-4 h-4 transition-transform group-hover:rotate-12" />
+                <span>Book Free Consultation Call</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+
+              <div className="flex items-center gap-3 sm:pl-1 self-start sm:self-auto">
+                <div className="flex -space-x-2.5 sm:-space-x-3">
+                  {["/home/ratings/rating1.webp", "/home/ratings/rating2.webp", "/home/ratings/rating3.webp"].map(
+                    (src, i) => (
+                      <div
+                        key={i}
+                        className="relative h-9 w-9 sm:h-10 sm:w-10 rounded-full border-2 border-[#050505] overflow-hidden bg-neutral-800"
+                      >
+                        <Image
+                          src={src}
+                          alt="Client Reviewer"
+                          fill
+                          sizes="40px"
+                          className="object-cover"
+                          priority
+                        />
+                      </div>
+                    )
+                  )}
+                </div>
+                <div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm sm:text-base font-black text-white">4.9/5.0</span>
+                    <span className="text-[#F8BC04] text-xs sm:text-sm">★★★★★</span>
                   </div>
-                )
-              )}
+                  <p className="text-[11px] sm:text-xs text-white/50">Trusted by 100+ global brands</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Performance Metric Counters */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-9 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl"
+            >
+              {[
+                { target: 120, suffix: "+", label: "Projects Launched" },
+                { target: 28, suffix: "+", label: "Active Partners" },
+                { target: 64, suffix: "+", label: "Brands Elevated" },
+                { target: 97, suffix: "%", label: "Client Retention" },
+              ].map((stat, i) => (
+                <div key={i} className="flex flex-col">
+                  <span className="text-xl sm:text-3xl font-black text-[#F8BC04] tracking-tight">
+                    <AnimatedCounter target={stat.target} suffix={stat.suffix} />
+                  </span>
+                  <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-white/50 mt-1">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
             </motion.div>
           </div>
+
+          {/* Reserved Space for Desktop 3D Canvas */}
+          <div className="hidden lg:block lg:col-span-4 min-h-[450px] relative pointer-events-none" />
         </div>
-      </ImmersiveSection>
+      </section>
 
+      {/* =========================================================================
+          CLIENT LOGOS CAROUSEL
+          ========================================================================= */}
+      <section className="relative z-10 py-5">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4 sm:gap-6">
+            <div>
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+                Trusted by <span className="font-serif italic font-normal text-[#F8BC04]">100+ Startups in India</span> <br></br> &amp; Businesses around the world
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm text-white/60 max-w-md leading-relaxed">
+              Businesses across India, the UK and other states and contries work with Big Beans Digital for digital marketing, branding, SEO, social media marketing and performance advertising from DTC brands and startups to healthcare companies, technology businesses and growing enterprises.
+            </p>
+          </div>
 
-      {/* ===== Our Process Section ===== */}
-<OurProcess />
-
-
-{/* ===== What We Do Section ===== */}
-<ImmersiveSection className="w-full bg-black/70 py-1 sm:py-1">
-
-  <div className="relative flex w-full max-w-7xl mx-auto flex-col px-4 sm:px-6 lg:flex-row lg:px-8">
-
-    <motion.div
-      initial={{ opacity: 0, x: -25 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] as const }}
-      className="
-        relative
-        z-[200]
-        w-full
-        shrink-0
-        lg:w-[360px]
-        pt-8 sm:pt-10 lg:pt-[60px]
-        flex
-        flex-col
-        items-start
-      "
-    >
-      
-
-      <h2 className="mt-3 text-[38px] font-medium leading-[0.92] tracking-[-0.055em] text-white sm:text-[54px] lg:text-[56px]">
-        Our
-        <br />
-        <span
-          className="font-serif font-normal italic text-[#F8BC04]"
-          style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-        >
-          Services
-        </span>
-      </h2>
-
-      <p className="mt-5 max-w-[320px] text-[14px] leading-[1.75] text-white/70 sm:mt-7 sm:text-[15px]">
-        We help brands grow with bold ideas, strategic thinking, and
-        impactful digital experiences that drive real results.
-      </p>
-
-      <div className="mt-6 w-full max-w-full sm:mt-8 sm:max-w-[300px]">
-
-        {/* Service Navigation */}
-        <div className="flex flex-col gap-1.5 rounded-[16px] border border-white/10 bg-white/5 p-1.5 backdrop-blur-md">
-
-          {services.map((service, index) => {
-            const active = activeService === index;
-
-            return (
-              <button
-                key={service.title}
-                type="button"
-                aria-label={`Show ${service.title}`}
-                aria-pressed={active}
-                onClick={() => setActiveService(index)}
-                className={`
-                  w-full
-                  rounded-[10px]
-                  px-2.5
-                  py-1.5
-                  text-left
-                  text-[11px]
-                  font-bold
-                  transition-all
-                  duration-500
-                  ${
-                    active
-                      ? "bg-[#F8BC04] text-black shadow-[0_4px_15px_rgba(248,188,4,0.3)]"
-                      : "text-white/80 hover:bg-white/10"
-                  }
-                `}
-              >
-                {service.navTitle}
-              </button>
-            );
-          })}
-
-        </div>
-      </div>
-    </motion.div>
-
-    {/* Service Cards */}
-    <div className="relative min-w-0 flex-1 mt-8 lg:ml-6 lg:mt-0">
-
-      <div className="relative w-full sm:h-[680px] lg:h-[700px]">
-
-        {/* Desktop Cards */}
-        <div
-          className="absolute left-1/2 top-[5px] h-[550px] w-[900px] -translate-x-1/2 hidden sm:block"
-          style={{
-            perspective: "1800px",
-            perspectiveOrigin: "50% 40%",
-          }}
-        >
-          {services.map((service, index) => {
-
-            let relativeIndex = index - activeService;
-            const total = services.length;
-
-            if (relativeIndex > total / 2) relativeIndex -= total;
-            if (relativeIndex < -total / 2) relativeIndex += total;
-
-            const visible = Math.abs(relativeIndex) <= 1;
-
-            if (!visible) return null;
-
-            const isCenter = relativeIndex === 0;
-            const isLeft = relativeIndex === -1;
-            const isActuallyRight = relativeIndex === 1;
-
-            const arcAngle = 38;
-            const angle = relativeIndex * arcAngle;
-            const radius = 640;
-
-            let y = 0;
-
-            if (isLeft || isActuallyRight) {
-              y = 45;
-            }
-
-            let scale = 1;
-
-            if (isLeft || isActuallyRight) {
-              scale = 0.78;
-            }
-
-            let opacity = 1;
-            let zIndex = isCenter ? 100 : 60;
-
-            let rotateY = 0;
-
-            if (relativeIndex < 0) {
-              rotateY = -38;
-            }
-
-            if (relativeIndex > 0) {
-              rotateY = 38;
-            }
-
-            const cardWidth = isCenter ? 380 : 330;
-
-            const pointers = service.pointers || [
-              "Digital Marketing Experts",
-              "Creative Agency Thinking",
-              "Custom Marketing Strategies",
-              "Social Media Growth",
-              "Performance Marketing Focus",
-              "Results Driven Growth",
-            ];
-
-            return (
-              <motion.div
-                key={service.title}
-                animate={{
-                  x: Math.sin((angle * Math.PI) / 180) * radius,
-                  y,
-                  scale,
-                  rotateY,
-                  rotateZ: 0,
-                  opacity,
-                }}
-                transition={{
-                  duration: 5.0,
-                  ease: [0.22, 1, 0.36, 1] as const,
-                }}
-                style={{
-                  position: "absolute",
-                  left: "50%",
-                  top: "0px",
-                  width: `${cardWidth}px`,
-                  marginLeft: `${-cardWidth / 2}px`,
-                  zIndex,
-                  transformStyle: "preserve-3d",
-                  transformPerspective: 1800,
-                }}
-              >
-                <div className="relative overflow-hidden rounded-[25px] border border-white/[0.15] bg-white shadow-[0_30px_80px_rgba(0,0,0,0.55)]">
-
-                  {/* Card Image */}
-                  <div
-                    className={`relative overflow-hidden rounded-t-[25px] ${
-                      isCenter ? "h-[240px]" : "h-[210px]"
-                    }`}
-                  >
+          <div className="relative overflow-hidden py-2 sm:py-4 mask-gradient">
+            <div className="flex w-max gap-4 sm:gap-8 animate-marquee">
+              {[...carouselImages, ...carouselImages].map((img, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center justify-center h-16 w-32 sm:h-24 sm:w-44 rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.02] p-3 sm:p-4 backdrop-blur-sm transition-all duration-300 hover:border-[#F8BC04]/40 hover:bg-white/[0.05]"
+                >
+                  <div className="relative h-full w-full">
                     <Image
-                      src={service.image}
-                      alt={service.title}
+                      src={img}
+                      alt={`Client logo ${idx}`}
                       fill
-                      sizes="380px"
-                      className="object-cover"
-                      priority={index < 3}
+                      sizes="(max-width: 640px) 130px, 180px"
+                      className="object-contain filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-opacity"
                     />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-
-                    <div className="absolute left-5 top-5">
-                      <span className="text-[10px] font-bold uppercase tracking-[0.05em] text-[#F8BC04] bg-black/60 px-2.5 py-1 rounded-full backdrop-blur-sm">
-                        {isCenter ? "POPULAR" : "SERVICE"}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="bg-white p-6">
-
-                    <h3
-                      className={`font-black leading-[1.05] tracking-[-0.035em] text-black ${
-                        isCenter ? "text-[23px]" : "text-[20px]"
-                      }`}
-                    >
-                      {service.title}
-                    </h3>
-
-                    <p className="mt-2 text-[12px] leading-[1.5] text-black/60 line-clamp-2">
-                      {service.text}
-                    </p>
-
-                    <div className="mt-4 grid grid-cols-2 gap-x-3 gap-y-2 border-t border-black/5 pt-4">
-                      {pointers.map((point, pIdx) => (
-                        <div
-                          key={pIdx}
-                          className="flex items-start gap-1.5"
-                        >
-                          <div className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#F8BC04]/20 text-black"></div>
-
-                          <span className="text-[11px] font-medium leading-tight text-black/80">
-                            {point}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-5 border-t border-black/5 pt-4 flex items-center justify-between">
-
-                      <Link
-                        href={service.href || "#"}
-                        className="inline-flex items-center gap-2 text-[13px] font-black text-black hover:text-[#F8BC04] transition-colors"
-                      >
-                        Know More
-                        <ArrowRight size={15} strokeWidth={2.5} />
-                      </Link>
-
-                      {isCenter && (
-                        <div className="flex items-center gap-1">
-                          <div className="h-1.5 w-4 rounded-full bg-[#F8BC04]" />
-                          <div className="h-1.5 w-1.5 rounded-full bg-black/10" />
-                          <div className="h-1.5 w-1.5 rounded-full bg-black/10" />
-                        </div>
-                      )}
-
-                    </div>
                   </div>
                 </div>
-              </motion.div>
-            );
-          })}
+              ))}
+            </div>
+          </div>
         </div>
+      </section>
 
-        {/* Mobile Card */}
-        <div className="w-full sm:hidden">
-
-          {services.map((service, index) => {
-
-            if (index !== activeService) return null;
-
-            const pointers = service.pointers || [
-              "Strategic Planning",
-              "Custom Development",
-              "Brand Positioning",
-              "Quality Assurance",
-              "Performance Tuning",
-              "Ongoing Support",
-            ];
-
-            return (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 15, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{
-                  duration: 1.0,
-                  ease: [0.22, 1, 0.36, 1] as const,
-                }}
-                className="overflow-hidden rounded-[25px] bg-white shadow-[0_20px_50px_rgba(0,0,0,0.4)]"
-              >
-
-                <div className="relative h-[220px] w-full">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="100vw"
-                    className="object-cover"
-                    priority
-                  />
-                </div>
-
-                <div className="bg-white p-5">
-
-                  <h3 className="text-[20px] font-black leading-tight text-black">
-                    {service.title}
-                  </h3>
-
-                  <p className="mt-2 text-[13px] leading-relaxed text-black/60">
-                    {service.text}
-                  </p>
-
-                  <div className="mt-4 grid grid-cols-2 gap-x-3 gap-y-2 border-t border-black/5 pt-4">
-
-                    {pointers.map((point, pIdx) => (
-                      <div
-                        key={pIdx}
-                        className="flex items-start gap-1.5"
-                      >
-                        <div className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#F8BC04]/20 text-black"></div>
-
-                        <span className="text-[11px] font-medium leading-tight text-black/80">
-                          {point}
-                        </span>
-                      </div>
-                    ))}
-
-                  </div>
-
-                  <div className="mt-5 border-t border-black/5 pt-4">
-
-                    <Link
-                      href={service.href || "#"}
-                      className="inline-flex items-center gap-2 text-sm font-black text-black"
-                    >
-                      Know More
-                      <ArrowRight size={16} />
-                    </Link>
-
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
-
-        </div>
+      {/* =========================================================================
+          OUR PROCESS
+          ========================================================================= */}
+      <div className="relative z-10">
+        <OurProcess />
       </div>
-    </div>
+
+      {/* =========================================================================
+          WHAT WE DO / SERVICES
+          ========================================================================= */}
+      <section 
+        className="relative z-10 py-5"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onTouchStart={() => setIsPaused(true)}
+        onTouchEnd={() => setIsPaused(false)}
+      >
+       <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
+  <div className="mb-8 max-w-[900px]">
+    <h2 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight mt-2 sm:mt-3">
+      Services provided by <br />
+      <span className="font-serif italic font-normal text-[#F8BC04]">
+        Big Beans Digital for your Brand.
+      </span>
+    </h2>
+
+    <p className="mt-3 sm:mt-4 text-white/65 text-xs sm:text-base leading-relaxed text-justify">
+      We eliminate disjointed marketing silos so early stage Startups in India and around the world and also businesses can scale predictably. By pairing data-backed strategy and conversion web architecture with precision paid campaigns, our digital marketing agency and creative ad firm ensure your branding, search visibility, and performance media work in unison to build continuous market momentum.
+    </p>
   </div>
 
-  <style jsx>{`
-    .button-custom {
-      position: relative;
-      width: 250px;
-      height: 80px;
-      border-radius: 50px;
-      display: flex;
-      transition: all 5.0s ease-in-out;
-      box-shadow: 0px 0px 15px 0 #48301e;
-      cursor: pointer;
-    }
+          {/* Mobile Horizontal Tabs (< lg) */}
+          <div className="flex lg:hidden overflow-x-auto gap-2.5 pb-3 mb-6 no-scrollbar snap-x">
+            {services.map((item, idx) => {
+              const isActive = activeService === idx;
+              return (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => setActiveService(idx)}
+                  className={`snap-start shrink-0 px-4 py-2.5 rounded-full border text-xs font-bold transition-all ${
+                    isActive
+                      ? "border-[#F8BC04] bg-[#F8BC04] text-black shadow-[0_0_15px_rgba(248,188,4,0.3)]"
+                      : "border-white/10 bg-white/[0.03] text-white/70 hover:bg-white/[0.08]"
+                  }`}
+                >
+                  {item.navTitle}
+                </button>
+              );
+            })}
+          </div>
 
-    .left-side {
-      position: relative;
-      width: 80px;
-      height: 80px;
-      border-top-left-radius: 50px;
-      border-bottom-left-radius: 50px;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
-      overflow: hidden;
-      border: 1px solid hsla(250, 4%, 30%, 1);
-      background: radial-gradient(
-        circle,
-        hsla(252, 3%, 28%, 1) 0%,
-        hsla(250, 4%, 30%, 1) 56%
-      );
-      box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.3);
-    }
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Desktop Vertical Tabs (>= lg) */}
+            <div className="hidden lg:flex lg:col-span-4 flex-col gap-2.5">
+              {services.map((item, idx) => {
+                const isActive = activeService === idx;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => setActiveService(idx)}
+                    className={`group text-left p-4 rounded-2xl border transition-all duration-300 flex items-center justify-between ${
+                      isActive
+                        ? "border-[#F8BC04] bg-[#F8BC04]/10 text-white shadow-[0_0_25px_rgba(248,188,4,0.15)]"
+                        : "border-white/5 bg-white/[0.015] text-white/60 hover:border-white/20 hover:text-white"
+                    }`}
+                  >
+                    <div>
+                      <span className="text-[10px] font-bold tracking-widest uppercase block mb-1 text-[#F8BC04]">
+                        0{idx + 1}
+                      </span>
+                      <span className="text-base sm:text-lg font-bold block">{item.navTitle}</span>
+                    </div>
+                    <ArrowRight
+                      className={`w-5 h-5 transition-transform duration-300 ${
+                        isActive ? "text-[#F8BC04] translate-x-1" : "text-white/20 group-hover:text-white/60"
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </div>
 
-    .metal-pill {
-      position: absolute;
-      width: 90px;
-      height: 40px;
-      border-top-left-radius: 25px;
-      border-bottom-left-radius: 25px;
-      background: radial-gradient(
-        circle,
-        hsla(0, 0%, 90%, 1) 0%,
-        hsla(0, 0%, 50%, 1) 100%
-      );
-      top: 12%;
-      left: 20%;
-      filter: blur(7px);
-      z-index: 2;
-    }
+            {/* Active Service Showcase Card */}
+            <div className="lg:col-span-8">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeService}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.3 }}
+                  className="relative rounded-2xl sm:rounded-3xl border border-white/10 bg-gradient-to-b from-white/[0.05] to-black/80 p-5 sm:p-10 backdrop-blur-xl overflow-hidden shadow-2xl"
+                >
+                  <div className="flex flex-col-reverse md:grid md:grid-cols-12 gap-6 sm:gap-8 items-center">
+                    <div className="w-full md:col-span-7 flex flex-col justify-between">
+                      <div>
+                        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F8BC04]/10 border border-[#F8BC04]/30 text-[#F8BC04] text-[10px] sm:text-[11px] font-bold uppercase tracking-wider mb-3 sm:mb-4">
+                          <Sparkles className="w-3 h-3" /> {services[activeService].tag}
+                        </div>
+                        <h3 className="text-xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                          {services[activeService].title}
+                        </h3>
+                        <p className="mt-3 sm:mt-4 text-xs sm:text-base text-white/70 leading-relaxed">
+                          {services[activeService].text}
+                        </p>
+                      </div>
 
-    .metal-reflex {
-      position: absolute;
-      width: 70px;
-      height: 50px;
-      bottom: 5%;
-      right: 0;
-      border-bottom-left-radius: 30px;
-      filter: blur(4px);
-      border-bottom: 2px solid #e6e6e6;
-      background: transparent;
-      z-index: 2;
-    }
+                      {/* Bullet Highlights */}
+                      <div className="mt-5 sm:mt-6 pt-5 sm:pt-6 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                        {services[activeService].pointers.map((pointer, pIdx) => (
+                          <div key={pIdx} className="flex items-center gap-2 text-xs sm:text-sm text-white/85">
+                            <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F8BC04] shrink-0" />
+                            <span>{pointer}</span>
+                          </div>
+                        ))}
+                      </div>
 
-    .metal-line {
-      position: absolute;
-      top: 0;
-      right: 1px;
-      width: 3px;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        rgba(74, 74, 74, 1) 0%,
-        rgba(255, 255, 255, 0.4) 50%,
-        rgba(74, 74, 74, 1) 100%
-      );
-      z-index: 0;
-    }
+                      <div className="mt-6 sm:mt-8 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-4">
+                        <Link
+                          href={services[activeService].href}
+                          className="inline-flex items-center justify-center gap-2 text-xs sm:text-sm font-bold text-black bg-[#F8BC04] px-6 py-3 rounded-full hover:shadow-[0_0_20px_#F8BC04] transition-all"
+                        >
+                          Explore Service <ArrowRight className="w-4 h-4" />
+                        </Link>
 
-    .right-side {
-      overflow: hidden;
-      position: relative;
-      top: 0px;
-      left: -2px;
-      width: 170px;
-      height: 80px;
-      border-top-right-radius: 50px;
-      border-bottom-right-radius: 50px;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
-      background: rgba(71, 60, 50, 1);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      transition: all 0.2s ease-in-out;
-    }
+                        <div className="text-left sm:text-right flex sm:flex-col items-baseline justify-between sm:justify-start">
+                          <div className="text-xl sm:text-3xl font-black text-[#F8BC04]">
+                            {services[activeService].metric}
+                          </div>
+                          <div className="text-[10px] uppercase tracking-wider text-white/50">
+                            {services[activeService].metricLabel}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
-    .glass-pill {
-      position: absolute;
-      width: 140px;
-      height: 50px;
-      border-top-right-radius: 25px;
-      border-bottom-right-radius: 25px;
-      border-top-left-radius: 3px;
-      border-bottom-left-radius: 3px;
-      background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.38) 25%,
-        transparent 75%
-      );
-      top: 10%;
-      left: 0%;
-      filter: blur(1px);
-    }
+                    <div className="w-full md:col-span-5 relative h-48 sm:h-72 md:h-80 rounded-xl sm:rounded-2xl overflow-hidden border border-white/10">
+                      <Image
+                        src={services[activeService].image}
+                        alt={services[activeService].title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 400px"
+                        className="object-cover"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    .glass-reflex1,
-    .glass-reflex2 {
-      position: absolute;
-      width: 160px;
-      height: 50px;
-      left: 0;
-      border-bottom-right-radius: 30px;
-      filter: blur(4px);
-      border-bottom: 2px solid #e6e6e6;
-      background: transparent;
-      z-index: 2;
-    }
-
-    .glass-reflex1 {
-      bottom: 20%;
-    }
-
-    .glass-reflex2 {
-      bottom: 0%;
-    }
-
-    .caption-text {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 35px;
-      font-size: 15px;
-      letter-spacing: 1.5px;
-      color: white;
-      text-shadow: 0 0px 10px #f9d185;
-      filter: drop-shadow(0 0 5px #f9d185);
-    }
-
-    .bulb-wire {
-      position: relative;
-      width: 80px;
-      height: 100%;
-      filter: drop-shadow(0px 0px 6px rgba(245, 165, 36, 1));
-    }
-
-    .top-wire,
-    .bottom-wire {
-      position: absolute;
-      width: 15px;
-      height: 2px;
-      background: rgba(220, 220, 220, 0.6);
-      z-index: 2;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .top-wire {
-      top: 42%;
-    }
-
-    .bottom-wire {
-      bottom: 42%;
-    }
-
-    .top-curl,
-    .bottom-curl {
-      position: absolute;
-      width: 8px;
-      height: 10px;
-      border-radius: 50%;
-      border: 2px solid rgba(220, 220, 220, 0.6);
-      left: 15px;
-      z-index: 2;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .top-curl {
-      top: 24px;
-      border-bottom-left-radius: 0px;
-    }
-
-    .bottom-curl {
-      bottom: 25px;
-      border-top-left-radius: 0px;
-    }
-
-    .mid-wire {
-      position: absolute;
-      width: 2px;
-      height: 15px;
-      background: rgba(220, 220, 220, 0.6);
-      top: 40%;
-      left: 15px;
-      z-index: 2;
-      transition: all 0.2s ease-in-out;
-    }
-
-    .glow {
-      position: absolute;
-      width: 35px;
-      height: 35px;
-      background: radial-gradient(
-        circle,
-        rgba(244, 169, 31, 1) 0%,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(244, 169, 31, 1) 100%
-      );
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 1;
-      filter: blur(15px);
-      transition: all 0.2s ease-in-out;
-    }
-
-    .button-custom:hover {
-      transform: scale(1.05);
-      box-shadow: 0px 0px 85px 0 #48301e;
-    }
-
-    .button-custom:hover .top-wire,
-    .button-custom:hover .bottom-wire {
-      width: 55px;
-    }
-
-    .button-custom:hover .mid-wire,
-    .button-custom:hover .top-curl,
-    .button-custom:hover .bottom-curl {
-      left: 55px;
-    }
-
-    .button-custom:hover .glow {
-      left: 0px;
-      width: 130px;
-    }
-
-    .button-custom:hover .sentence-custom .letter {
-      transform: rotate(20deg) translateY(-20px);
-      opacity: 0;
-      filter: blur(20px);
-    }
-
-    .button-custom:hover .sentence-custom .hidden-letter {
-      top: 50%;
-      transform: translateY(-50%);
-      opacity: 1;
-      filter: blur(0px);
-    }
-
-    .sentence-custom {
-      display: flex;
-      padding: 0;
-      margin: 0;
-    }
-
-    .sentence-custom .letter {
-      list-style: none;
-      font-weight: normal;
-      filter: blur(0px);
-      transition: all 0.5s ease-in-out;
-    }
-
-    .sentence-custom .hidden-letter {
-      position: absolute;
-      list-style: none;
-      font-weight: normal;
-      opacity: 0;
-      top: -20px;
-      left: 15px;
-      filter: blur(20px);
-      transition: all 0.5s ease-in-out;
-    }
-
-    .sentence-custom #hl1 {
-      left: 40px;
-    }
-
-    .sentence-custom #hl2 {
-      left: 53px;
-    }
-
-    .sentence-custom #hl3 {
-      left: 63px;
-    }
-
-    .sentence-custom #hl4 {
-      left: 76px;
-    }
-  `}</style>
-
-</ImmersiveSection>
-
-
-      {/* ===== Our Work Section ===== */}
-      <ImmersiveSection className="py-0" animation="left">
+      {/* =========================================================================
+          OUR WORK
+          ========================================================================= */}
+      <div className="relative z-10">
         <OurWork />
-      </ImmersiveSection>
+      </div>
 
+      {/* =========================================================================
+          INDUSTRIES WE WORKED WITH SECTION
+          ========================================================================= */}
+      <section className="relative z-10 py-5 sm:py-20">
+        <div className="max-w-[1550px] mx-auto px-4 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-10 items-start">
+            {/* Left Column Header */}
+            <div className="xl:col-span-3 flex flex-col justify-start xl:sticky xl:top-28">
+              <span className="text-xs sm:text-sm font-black tracking-[0.25em] text-[#F8BC04]">
+                [ INDUSTRIES ]
+              </span>
 
-      {/* ===== Blogs Section ===== */}
-      <ImmersiveSection className="py-5 sm:py-5 bg-black/70" animation="left">
-        <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-8 lg:px-1">
-          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <div className="max-w-[1000px]">
-              <h2 className="mt-4 text-[38px] font-black leading-[0.98] tracking-[-0.05em] sm:text-5xl">
-                Stay Updated with{" "}
-                <span className="text-[#F8BC04]">
-                  Our Blogs
-                </span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mt-4 sm:mt-5">
+                <span className="text-white block">Industries</span>
+                <span className="text-[#F8BC04] block">We</span>
+                <span className="text-[#F8BC04] block">worked</span>
+                <span className="text-[#F8BC04] block">with</span>
               </h2>
 
-              <p className="mt-5 text-sm leading-6 text-white/100 sm:mt-6 sm:text-base sm:leading-7">
-                Explore practical insights on social media marketing, digital
-                marketing, branding, SEO, content strategy, creative design,
-                and business growth. From guides for startups to actionable
-                marketing strategies for established businesses, our blogs
-                help you understand what works, what is changing, and how to
-                build a stronger digital presence in India and the UK.
+              {/* Accent Underline */}
+              <div className="w-14 h-1 bg-[#F8BC04] rounded-full mt-4 sm:mt-6 mb-4 sm:mb-5" />
+
+              <p className="text-sm sm:text-base text-white/70 font-medium leading-snug">
+                Different industries. <br />
+                Real impact.
+              </p>
+            </div>
+
+            {/* Right Column: 6 Cards Grid (2 rows x 3 columns on desktop) */}
+            <div className="xl:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+              {industries.map((ind) => (
+                <div
+                  key={ind.id}
+                  className="group relative flex flex-col justify-between min-h-[300px] sm:min-h-[340px] rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0c0c] p-5 sm:p-6 overflow-hidden transition-all duration-300 hover:border-[#F8BC04]/50 shadow-xl"
+                >
+                  {/* Background Image & Gradient Overlays */}
+                  <div className="absolute inset-0 z-0">
+                    <Image
+                      src={ind.image}
+                      alt={ind.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                      className="object-cover object-center brightness-75 group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Dark gradient fade for text legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/30" />
+                  </div>
+
+                  {/* Card Top Spacer / Pill */}
+                  <div className="relative z-10" />
+
+                  {/* Card Content & Action Button */}
+                  <div className="relative z-10 flex flex-col justify-end pt-24 sm:pt-28">
+                    <h3 className="text-base sm:text-lg font-extrabold text-white group-hover:text-[#F8BC04] transition-colors leading-snug">
+                      {ind.title}
+                    </h3>
+                    <p className="mt-2 text-xs sm:text-[13px] text-white/70 leading-relaxed">
+                      {ind.description}
+                    </p>
+
+                    <div className="mt-4 sm:mt-5 flex justify-end">
+                      <Link
+                        href={ind.href}
+                        className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-[#F8BC04] text-black text-xs sm:text-sm font-extrabold tracking-tight transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(248,188,4,0.3)] hover:shadow-[0_0_20px_rgba(248,188,4,0.5)]"
+                      >
+                        <span>Know More</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+<div className="mx-auto max-w-[1600px] py-10">
+
+    {/* Section Heading */}
+    <div className="mx-auto Py-[5py] mb-12 max-w-[1600px] text-center">
+      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        Case Studies
+      </h2>
+
+      <p className="mt-4 text-base leading-6 text-white/100 sm:text-lg">
+        Explore how our digital marketing agency engineers data-driven strategies that scale early-stage startups and established businesses. From lowering customer acquisition costs to multiplying qualified leads, see how our performance marketing agency delivers measurable return on investment through real-world client success stories.
+      </p>
+    </div>
+
+    {/* Feature Cards */}
+    <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+
+      {/* Card 1 */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
+
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 1.webp"
+            alt="BigBeans Case Study 1"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Adoring India
+          </h3>
+
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            We partnered with Adoring India, an NGO dedicated to supporting school students, to build digital visibility and expand their community impact. By leveraging data-driven storytelling and targeted outreach campaigns, our digital marketing agency helped increase volunteer engagement, boost corporate sponsorship inquiries, and scale their educational awareness initiatives across major digital platforms.
+          </p>
+
+          <a
+            href="www.bigbeansdigital.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
+        </div>
+      </div>
+
+      {/* Card 2 */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
+
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 2.webp"
+            alt="BigBeans Case Study 2"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Gupshup Bharat 
+          </h3>
+
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            To establish Gupshup India as the premier news agency in Tripura, we designed an agile content and distribution strategy focused on instant reader retention and search visibility. Functioning as their growth partner, our social media marketing agency optimized news distribution pipelines, expanding their daily reader reach and boosting cross-platform audience engagement across regional markets.
+          </p>
+
+          <a
+            href="www.bigbeansdigtial.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
+        </div>
+      </div>
+
+      {/* Card 3 */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
+
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 3.webp"
+            alt="BigBeans Case Study 3"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Entimessi
+          </h3>
+
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            For Entimessi, a premium female lingerie brand, we built an end-to-end sales engine focused on customer acquisition and brand authority. By uniting high-converting visual ad creatives with precise audience targeting, our performance marketing agency lowered customer acquisition costs (CAC) and maximized return on ad spend (ROAS) while scaling direct website sales.
+          </p>
+
+          <a
+            href="www.bigbeansdigital.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+      </section>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* =========================================================================
+          BLOGS SECTION
+          ========================================================================= */}
+      <section className="relative z-10 py-5">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
+            <div className="max-w-[1600px]">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight mt-2">
+                Stay Ahead with <span className="font-serif italic font-normal text-[#F8BC04]">Our Insights</span>
+              </h2>
+              <p className="mt-2.5 sm:mt-3 text-xs sm:text-base text-white/60 leading-relaxed">
+                Actionable playbooks covering high-converting organic reach, branding turnarounds, and performance marketing shifts.
               </p>
             </div>
 
             <Link
               href="/blog"
-              className="
-                inline-flex
-                w-fit
-                items-center
-                gap-2
-                rounded-full
-                bg-[#F8BC04]
-                px-6
-                py-3.5
-                text-sm
-                font-bold
-                text-black
-              "
+              className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-bold text-white border border-white/20 px-5 py-3 rounded-full hover:border-[#F8BC04] hover:text-[#F8BC04] transition-colors self-start md:self-auto"
             >
-              View All Blogs
-              <ArrowRight size={16} />
+              Browse All Articles <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-5 sm:gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {blogCards.map((blog) => (
               <Link
                 key={blog.id}
                 href={blog.link}
-                className="group relative block rounded-[32px] p-[2px] overflow-hidden"
+                className="group relative flex flex-col rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-[#F8BC04]/50 transition-all duration-300 hover:-translate-y-1.5 shadow-lg"
               >
-                {/* Continuous Moving Yellow Border Glow Layer */}
-                <div className="absolute -inset-[100%] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0deg,transparent_270deg,#F8BC04_360deg)] animate-border-rotate pointer-events-none" />
-
-                {/* Card Content Container */}
-                <motion.article
-                  whileHover={{ y: -8 }}
-                  transition={{ duration: 0.35 }}
-                  className="
-                    relative
-                    h-full
-                    overflow-hidden
-                    rounded-[30px]
-                    border
-                    border-white/10
-                    bg-[#0b0b0b]
-                    backdrop-blur-md
-                    z-10
-                  "
-                >
-                  <div className="relative h-[220px] overflow-hidden sm:h-[270px]">
-                    <motion.img
-                      src={blog.image}
-                      alt={blog.title}
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ duration: 0.6 }}
-                      className="h-full w-full object-cover"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
-                    <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between gap-3">
-                      <span className="text-[10px] font-semibold text-white/70">
-                        {blog.date}
-                      </span>
-
-                      <span className="rounded-full bg-white px-4 py-2 text-[9px] font-bold text-black">
-                        {blog.primaryCategory}
-                      </span>
-                    </div>
+                <div className="relative h-48 sm:h-52 w-full overflow-hidden">
+                  <Image
+                    src={blog.image}
+                    alt={blog.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4">
+                    <span className="px-2.5 py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-black/70 text-[#F8BC04] border border-[#F8BC04]/30 backdrop-blur-sm">
+                      {blog.primaryCategory}
+                    </span>
                   </div>
+                  <span className="absolute bottom-3 right-3 sm:right-4 text-[10px] sm:text-[11px] font-medium text-white/70">
+                    {blog.readTime}
+                  </span>
+                </div>
 
-                  <div className="p-5 sm:p-6">
-                    <h3 className="text-xl font-bold leading-tight text-white">
+                <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between">
+                  <div>
+                    <span className="text-[10px] sm:text-[11px] text-white/40 block mb-1.5">{blog.date}</span>
+                    <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#F8BC04] transition-colors line-clamp-2">
                       {blog.title}
                     </h3>
-
-                    <p className="mt-4 text-sm leading-6 text-white/40">
+                    <p className="mt-2 text-xs text-white/60 line-clamp-3 leading-relaxed">
                       {blog.description}
                     </p>
-
-                    <div className="mt-7 flex items-center justify-between border-t border-white/10 pt-5">
-                      <span className="text-[10px] font-bold tracking-[0.18em] text-white/55">
-                        READ ARTICLE
-                      </span>
-
-                      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#F8BC04] text-black">
-                        →
-                      </span>
-                    </div>
                   </div>
-                </motion.article>
+
+                  <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#F8BC04]">
+                    <span>Read Article</span>
+                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* CSS Keyframes for Rotating Border Effect */}
-        <style jsx global>{`
-          @keyframes borderRotate {
-            0% {
-              transform: rotate(0deg);
-            }
-            100% {
-              transform: rotate(360deg);
-            }
-          }
-
-          .animate-border-rotate {
-            animation: borderRotate 4s linear infinite;
-          }
-        `}</style>
-      </ImmersiveSection>
-
-
-
-
-
-      
-
-      {/* ===== Global Presence Section ===== */}
-      <ImmersiveSection className="w-full bg-black/70 py-10 sm:py-16">
-        <div className="mx-auto max-w-[1400px] px-5 sm:px-8 lg:px-12">
-          <div className="overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.035] p-5 backdrop-blur-md sm:rounded-[38px] sm:p-9 lg:p-14">
-            <div className="grid items-center gap-12 lg:grid-cols-2">
-              <div>
-
-                <h2 className="mt-5 text-[34px] font-black leading-[1] tracking-[-0.05em] sm:text-6xl">
-                  Empowering Businesses Across{" "}
-                  <span className="text-[#F8BC04]">
-                    12+
-                  </span>
-                  <br />
-                  Locations Currently
+      {/* =========================================================================
+          GLOBAL PRESENCE SECTION
+          ========================================================================= */}
+      <section className="relative z-10 py-5">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
+          <div className="rounded-2xl sm:rounded-[36px] border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent p-6 sm:p-14 overflow-hidden relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              <div className="lg:col-span-6">
+                
+                <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
+                  Empowering Brands Across <span className="font-serif italic font-normal text-[#F8BC04]">12+ Global Hubs</span>
                 </h2>
-
-                <p className="mt-5 text-sm leading-6 text-white/45 sm:mt-6 sm:text-base sm:leading-7">
-                  BigBeans Digital partners with startups, entrepreneurs, and
-                  growing businesses across Kolkata, Delhi, Bangalore, Mumbai,
-                  Pune, Noida, Tripura, London, Singapore, Canada, Australia,
-                  and Nigeria. Our creative social media marketing, branding,
-                  and digital growth strategies are designed to help
-                  businesses build a stronger online presence, connect with
-                  their audience, and achieve sustainable growth—wherever they
-                  operate.
+                <p className="mt-3 sm:mt-4 text-xs sm:text-base text-white/60 leading-relaxed">
+                  Headquartered in India with strategic partner nodes across London, North America, Singapore, and Australia. We engineer hyper-localized growth campaigns tailored to diverse consumer behaviors.
                 </p>
 
-                <div className="mt-8 grid grid-cols-1 gap-7 sm:grid-cols-2 sm:gap-8">
+                <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-white/10 pt-5 sm:pt-6">
                   <div>
-                    <h3 className="font-bold text-white">
-                      In India
-                    </h3>
-                    <div className="mt-2 h-px w-16 bg-[#F8BC04]" />
-
-                    <ul className="mt-4 space-y-2 text-sm text-white/45">
-                      {[
-                        "Kolkata",
-                        "Delhi",
-                        "Bangalore",
-                        "Noida",
-                        "Tripura",
-                        "Mumbai",
-                        "Pune",
-                      ].map((location) => (
-                        <li key={location} className="flex items-center gap-2">
-                          <span className="text-[#F8BC04]">
-                            ●
-                          </span>
-                          {location}
-                        </li>
-                      ))}
+                    <h4 className="text-xs sm:text-sm font-bold text-white mb-2 sm:mb-3 flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#F8BC04]" /> India Operations
+                    </h4>
+                    <ul className="space-y-1 sm:space-y-1.5 text-xs text-white/60">
+                      <li>Kolkata</li>
+                      <li>Delhi NCR &amp; Noida</li>
+                      <li>Bangalore</li>
+                      <li>Mumbai &amp; Pune</li>
+                      <li>Tripura</li>
                     </ul>
                   </div>
 
                   <div>
-                    <h3 className="font-bold text-white">
-                      International Presence
-                    </h3>
-                    <div className="mt-2 h-px w-16 bg-[#F8BC04]" />
-
-                    <ul className="mt-4 space-y-2 text-sm text-white/45">
-                      {[
-                        "London",
-                        "Singapore",
-                        "Canada",
-                        "Australia",
-                        "Nigeria",
-                      ].map((location) => (
-                        <li key={location} className="flex items-center gap-2">
-                          <span className="text-[#F8BC04]">
-                            ●
-                          </span>
-                          {location}
-                        </li>
-                      ))}
+                    <h4 className="text-xs sm:text-sm font-bold text-white mb-2 sm:mb-3 flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#F8BC04]" /> International Operations
+                    </h4>
+                    <ul className="space-y-1 sm:space-y-1.5 text-xs text-white/60">
+                      <li>London, United Kingdom</li>
+                      <li>Singapore</li>
+                      <li>Toronto &amp; Vancouver, Canada</li>
+                      <li>Sydney &amp; Melbourne, Australia</li>
+                      <li>Lagos, Nigeria</li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              <div className="relative">
-                <div className="absolute left-1/2 top-1/2 h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#F8BC04]/10 blur-3xl" />
-
-                <motion.div
-                  animate={{
-                    rotateY: [0, 4, 0, -4, 0],
-                    rotateX: [0, -2, 0, 2, 0],
-                  }}
-                  transition={{
-                    duration: 12,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className="relative [transform-style:preserve-3d]"
-                >
+              <div className="lg:col-span-6 relative flex items-center justify-center mt-2 lg:mt-0">
+                <div className="relative w-full aspect-[16/10] max-w-[620px]">
                   <Image
                     src="/maps/world-map.png"
-                    alt="World Map"
-                    width={1200}
-                    height={700}
-                    className="w-full opacity-75"
+                    alt="BigBeans Global Footprint Map"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 600px"
+                    className="object-contain opacity-70"
                   />
-
+                  {/* Map Node Dots */}
                   {[
-                    ["42%", "67%"],
-                    ["27%", "44%"],
-                    ["28%", "18%"],
-                    ["50%", "47%"],
-                    ["54%", "74%"],
-                    ["65%", "84%"],
-                  ].map(([top, left], index) => (
-                    <motion.span
-                      key={index}
-                      animate={{
-                        scale: [1, 1.7, 1],
-                        opacity: [0.45, 1, 0.45],
-                      }}
-                      transition={{
-                        duration: 2 + index * 0.15,
-                        repeat: Infinity,
-                      }}
-                      className="absolute h-2.5 w-2.5 rounded-full bg-[#F8BC04] shadow-[0_0_22px_#F8BC04] sm:h-4 sm:w-4"
-                      style={{ top, left }}
-                    />
+                    { top: "42%", left: "67%" }, // India
+                    { top: "27%", left: "44%" }, // UK
+                    { top: "28%", left: "18%" }, // North America
+                    { top: "54%", left: "74%" }, // Singapore
+                    { top: "65%", left: "84%" }, // Australia
+                  ].map((pos, idx) => (
+                    <div
+                      key={idx}
+                      className="absolute -translate-x-1/2 -translate-y-1/2"
+                      style={{ top: pos.top, left: pos.left }}
+                    >
+                      <span className="relative flex h-2.5 w-2.5 sm:h-3.5 sm:w-3.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F8BC04] opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 bg-[#F8BC04] shadow-[0_0_12px_#F8BC04]" />
+                      </span>
+                    </div>
                   ))}
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </ImmersiveSection>
+      </section>
 
-      {/* ===== FAQ Section ===== */}
-      <ImmersiveSection className="relative overflow-hidden py-10 sm:py-16 bg-[#000000]/[70%]" animation="up">
-  {/* Embedded CSS for the custom 3D Metallic/Glow Container & Button styling */}
-  <style>{`
-    .faq-metallic-container {
-      position: relative;
-      background: transparent;
-      border-radius: 30px;
-      box-shadow:
-        6px 6px 11px rgba(0, 0, 0, 0.7),
-        -6px -6px 12px rgba(255, 255, 255, 0.01),
-        inset 2px 2px 4px rgba(255, 255, 255, 0.08),
-        inset -2px -2px 4px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      overflow: hidden;
-    }
+      {/* =========================================================================
+          FAQ SECTION
+          ========================================================================= */}
+      <section className="relative z-10 py-5">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-10">
+          <div className="text-center mb-8">
+            
 
-    .faq-metallic-container::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        45deg,
-        transparent,
-        rgba(0, 0, 0, 0.15),
-        transparent
-      );
-      background-size: 200% 200%;
-      animation: shine 5s infinite ease-in-out;
-      border-radius: 30px;
-      pointer-events: none;
-    }
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight mt-2">
+              Frequently Asked{" "}
+              <span className="font-serif italic font-normal text-[#F8BC04]">
+                Questions
+              </span>
+            </h2>
+          </div>
 
-    .faq-metallic-container::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 180px;
-      height: 170px;
-      background: linear-gradient(
-        210deg,
-        rgba(255, 179, 57, 0.729),
-        rgba(222, 114, 0, 0.196),
-        transparent
-      );
-      filter: blur(20px);
-      border-radius: 0 0 0 50%;
-      animation: glowPulse 5s infinite ease-in-out;
-      pointer-events: none;
-    }
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-5">
+            {/* LEFT COLUMN */}
+            <div className="space-y-3 sm:space-y-4">
+              {[
+                {
+                  q: "What social media marketing services do you offer?",
+                  a: "Big Beans Digital provides full-lifecycle social media solutions for startups and enterprises across India, the US, and the UK. Our scope includes visual feed architecture, algorithm-specific short-form Reels & TikTok production, organic growth strategy, community management, and synchronized paid social campaigns.",
+                },
+                {
+                  q: "How do I find the best social media marketing agency near me?",
+                  a: "Beyond physical proximity, evaluate verified case studies, aesthetic consistency, conversion tracking transparency, and strategic depth. Big Beans Digital operates a distributed agile team delivering high-touch collaboration regardless of whether you are based in London, Kolkata, Delhi, or New York.",
+                },
+                {
+                  q: "Why choose Big Beans Digital over traditional agencies?",
+                  a: "Traditional agencies separate creative thinking from performance metrics. We merge branding, web engineering, and performance marketing into a single unit so every dollar spent directly advances brand equity and customer acquisition.",
+                },
+                {
+                  q: "Do you engineer conversion-focused websites for startups?",
+                  a: "Yes. We build responsive, fast headless websites using modern frameworks (Next.js, Tailwind CSS) optimized for sub-second load times, technical SEO compliance, and conversion funnels designed to turn traffic into pipeline.",
+                },
+                {
+                  q: "How does performance marketing work with your team?",
+                  a: "We deploy rigorous quantitative testing across Google Ads, Meta Ads, and PPC remarketing funnels. We focus on true business levers—CAC, ROAS, and customer lifetime value—rather than vanity impressions.",
+                },
+                {
+                  q: "What does an engagement cost?",
+                  a: "We offer tailored milestone or retainer engagements based on growth objectives, required content cadence, and ad spend scale. Schedule a consultation call to receive an honest, transparent roadmap.",
+                },
+              ].map((faq, idx) => {
+                const isOpen = openFaq === idx;
 
-    @keyframes shine {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+                return (
+                  <div
+                    key={idx}
+                    className="w-full rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden transition-colors hover:border-white/20"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : idx)}
+                      className="w-full min-h-[84px] flex items-center justify-between gap-4 px-5 py-5 sm:px-6 sm:py-6 text-left"
+                    >
+                      <span className="flex-1 whitespace-nowrap text-sm sm:text-base md:text-lg font-bold text-white">
+                        {faq.q}
+                      </span>
 
-    @keyframes glowPulse {
-      0% { opacity: 0.5; transform: scale(1); }
-      50% { opacity: 1; transform: scale(1.2); }
-      100% { opacity: 0.4; transform: scale(1); }
-    }
-  `}</style>
+                      <span
+                        className={`flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-xs sm:text-sm font-bold transition-transform duration-300 ${
+                          isOpen
+                            ? "bg-[#F8BC04] text-black rotate-45"
+                            : "bg-white/5 text-white/80"
+                        }`}
+                      >
+                        +
+                      </span>
+                    </button>
 
-  {/* Ambient background accent */}
-  <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-[#F8BC04]/5 blur-[140px]" />
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-xs sm:text-base text-white/70 leading-relaxed border-t border-white/5">
+                            {faq.a}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
 
-  <div className="relative z-10 mx-auto max-w-[1200px] px-5 sm:px-8">
-    <div className="mx-auto mb-10 max-w-[850px] px-1 text-center sm:mb-14">
-      <h2 className="mt-4 text-[34px] font-black leading-[1] tracking-[-0.05em] sm:text-6xl text-white">
-        Frequently Asked{" "}
-        <span className="text-[#F8BC04] drop-shadow-[0_0_25px_rgba(248,188,4,0.4)]">
-          Questions
-        </span>
-      </h2>
-    </div>
+            {/* RIGHT COLUMN */}
+            <div className="space-y-3 sm:space-y-4">
+              {[
+                {
+                  q: "What industries do you work with?",
+                  a: "We work with businesses across sectors including real estate, healthcare, restaurants, ecommerce, education, professional services, home improvement, gyms, FMCG, and other growth-focused businesses.",
+                },
+                {
+                  q: "Can you manage both organic social media and paid advertising?",
+                  a: "Yes. Our team can manage organic social media strategy and content alongside paid campaigns on platforms such as Meta and Google. This allows creative, audience targeting, messaging, and performance data to work together.",
+                },
+                {
+                  q: "How long does it take to see results from social media marketing?",
+                  a: "The timeline depends on your industry, starting position, content quality, audience, and objectives. Organic growth generally requires consistent execution over time, while paid campaigns can generate measurable traffic and leads much sooner.",
+                },
+                {
+                  q: "Do you provide content creation and graphic design?",
+                  a: "Yes. Our social media services can include creative direction, graphic design, short-form video concepts, social media creatives, campaign content, and platform-specific content planning.",
+                },
+                {
+                  q: "Do you provide SEO and website optimization?",
+                  a: "Yes. We can integrate technical SEO, on-page optimization, content strategy, conversion-focused landing pages, and website improvements into a broader digital marketing strategy.",
+                },
+                {
+                  q: "How can I get started with Big Beans Digital?",
+                  a: "Start by sharing your business, current challenges, goals, target audience, and the services you are looking for. We can then discuss the right approach, scope, milestones, and next steps for your project.",
+                },
+              ].map((faq, idx) => {
+                const faqIndex = idx + 6;
+                const isOpen = openFaq === faqIndex;
 
-    <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
-      {[
-        {
-          q: "What social media marketing services do you offer?",
-          a: "Big Beans Digital provides a wide range of social media marketing services for startups in India, USA, and London, including social media strategy, creative content, Reels, profile management, audience growth, community engagement, paid campaigns, and performance analysis. Our social media marketing service is customized according to your industry, target audience, and business goals.",
-        },
-        {
-          q: "How do I find the best social media marketing agency near me?",
-          a: "When searching for the best social media marketing agency near me, don't look only at pricing. Consider the agency's experience, creative quality, strategy, communication, reporting, industry knowledge, and ability to generate measurable results. Big Beans Digital works with businesses across India, USA, and London, providing strategy-led social media marketing services, digital marketing solutions, and customized website development.",
-        },
-        {
-          q: "Why should I choose Big Beans Digital for social media marketing?",
-          a: "Big Beans Digital combines strategy, creative content, branding, and performance marketing to create complete digital growth solutions. Whether you're comparing social media marketing agencies near me, looking for the best social media marketing company, or exploring social media marketing agencies in London, our focus is on building stronger brands, increasing visibility, attracting qualified leads, and creating sustainable growth.",
-        },
-        {
-          q: "What digital marketing services does Big Beans Digital offer?",
-          a: "Big Beans Digital provides complete digital marketing solutions including social media marketing, performance marketing, branding, website development, creative design, content strategy, and paid advertising. Our approach connects different marketing channels to create a consistent online presence and help businesses generate visibility, leads, and growth.",
-        },
-        {
-          q: "Do you offer website development for businesses and startups?",
-          a: "Yes. We design and develop modern, responsive websites for startups, small businesses, service providers, and established brands. Our website development approach focuses on user experience, mobile responsiveness, performance, SEO-friendly structure, clear navigation, and conversion-focused design rather than simply creating a website that looks good.",
-        },
-        {
-          q: "What is performance marketing and how can it help my business?",
-          a: "Performance marketing focuses on measurable outcomes such as leads, enquiries, sales, conversions, and customer acquisition. BIGBEANS DIGITAL combines audience research, campaign strategy, creative development, paid advertising, conversion tracking, and continuous optimisation to help businesses make better use of their marketing budget.",
-        },
-        {
-          q: "Can you manage both my website and social media marketing?",
-          a: "Yes. Managing your website and social media together can create a more consistent customer journey. We can combine website development, content strategy, social media management, SEO, and paid campaigns so that your social channels attract attention while your website helps turn visitors into enquiries or customers.",
-        },
-        {
-          q: "Do you work with startups and new businesses?",
-          a: "Yes. Our social media marketing agency for startups approach is designed for businesses that are still building their audience and brand identity. We can help with branding, website development, social media, content creation, and performance marketing based on your stage of growth, target audience, and available budget.",
-        },
-        {
-          q: "How much does social media marketing cost?",
-          a: "The cost of social media marketing depends on factors such as the number of platforms, content volume, creative requirements, advertising budget, campaign objectives, and level of management required. Instead of offering one fixed package for every business, Big Beans Digital can recommend a suitable approach based on your goals.",
-        },
-        {
-          q: "Is social media marketing useful for your businesses?",
-          a: "Yes. Social media can help any business build awareness, communicate directly with potential customers, showcase their products or services, and generate enquiries. A focused strategy can be particularly useful when a business wants to compete with larger brands without trying to be present on every platform.",
-        },
-      ].map((faq, index) => {
-        const open = openFaq === index;
+                return (
+                  <div
+                    key={faqIndex}
+                    className="w-full rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden transition-colors hover:border-white/20"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpenFaq(isOpen ? null : faqIndex)}
+                      className="w-full min-h-[84px] flex items-center justify-between gap-4 px-5 py-5 sm:px-6 sm:py-6 text-left"
+                    >
+                      <span className="flex-1 whitespace-nowrap text-sm sm:text-base md:text-lg font-bold text-white">
+                        {faq.q}
+                      </span>
 
-        return (
-          <motion.div
-            layout
-            key={faq.q}
-            className="faq-metallic-container group"
-          >
-            <button
-              type="button"
-              aria-expanded={open}
-              onClick={() => setOpenFaq(open ? null : index)}
-              className="flex min-h-[74px] w-full items-center justify-between gap-5 px-6 py-0-5 text-left bg-black/40 hover:bg-black/20 transition-colors"
+                      <span
+                        className={`flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-xs sm:text-sm font-bold transition-transform duration-300 ${
+                          isOpen
+                            ? "bg-[#F8BC04] text-black rotate-45"
+                            : "bg-white/5 text-white/80"
+                        }`}
+                      >
+                        +
+                      </span>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-xs sm:text-base text-white/70 leading-relaxed border-t border-white/5">
+                            {faq.a}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          FINAL CTA SECTION
+          ========================================================================= */}
+      <section className="relative z-10 py-5 sm:py-5 overflow-hidden text-center">
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.1] sm:leading-[1.05]">
+            Scale Your Brand
+            Today{" "}
+            <span
+              className="font-serif italic font-normal text-[#F8BC04]"
+              style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
             >
-              <span className="pr-2 text-[13px] font-semibold leading-5 text-white/90 transition-colors group-hover:text-white sm:pr-0 sm:text-sm sm:leading-6">
-                {faq.q}
-              </span>
+              with Big Beans Digital 
+            </span>
+          </h2>
 
-              <span
-                className={`
-                  flex h-9 w-9 flex-shrink-0 items-center justify-center 
-                  rounded-full text-lg font-bold transition-all duration-300
-                  ${
-                    open
-                      ? "bg-[#F8BC04] text-black shadow-[0_0_20px_rgba(248,188,4,0.6)] rotate-180"
-                      : "bg-white/10 text-white group-hover:bg-[#F8BC04]/20 group-hover:text-[#F8BC04]"
-                  }
-                `}
-              >
-                {open ? "−" : "+"}
-              </span>
-            </button>
+          <p className="mt-4 sm:mt-6 text-xs sm:text-base md:text-lg text-white/60 max-w-xl mx-auto leading-relaxed">
+            Ready to turn fragmented tactics into a predictable growth engine? Book your free strategy session with our digital marketing agency now.
+          </p>
 
-            {open && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                className="border-t border-white/10 px-4 pb-5 pt-4 bg-black/60 sm:px-6 sm:pb-6 sm:pt-5"
-              >
-                <p className="text-[13px] leading-6 text-white/70 sm:text-sm sm:leading-7">
-                  {faq.a}
-                </p>
-              </motion.div>
-            )}
-          </motion.div>
-        );
-      })}
-    </div>
-  </div>
-</ImmersiveSection>
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4">
+            <Link
+              href="/connect"
+              className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-[#F8BC04] text-black font-extrabold text-sm sm:text-base tracking-tight transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(248,188,4,0.5)]"
+            >
+              <span>Connect With Us</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
 
-
-      
-      {/* ===== Final CTA Section ===== */}
-<section className="relative overflow-hidden py-20 text-center bg-[#000000]/[70%] sm:py-32">
-  <style>{`
-    @keyframes liveGlowPulse {
-      0%, 100% { 
-        transform: scale(1) translate(0, 0); 
-        opacity: 0.4; 
-      }
-      50% { 
-        transform: scale(1.35) translate(25px, -20px); 
-        opacity: 0.8; 
-      }
-    }
-
-    .animate-live-glow-1 {
-      animation: liveGlowPulse 7s infinite ease-in-out;
-    }
-
-    .animate-live-glow-2 {
-      animation: liveGlowPulse 5s infinite ease-in-out 2s;
-    }
-
-    /* Custom 3D Split Capsule Glass Button Styles */
-    .glass-pill-button {
-      position: relative;
-      width: 290px;
-      height: 74px;
-      cursor: pointer;
-      border-radius: 50px;
-      display: flex;
-      background: transparent;
-      border: none;
-      padding: 0;
-      box-shadow:
-        6px 6px 18px rgba(0, 0, 0, 0.8),
-        -6px -6px 18px rgba(255, 255, 255, 0.02);
-      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    }
-
-    .glass-pill-button:hover {
-      transform: scale(1.03);
-    }
-
-    .pill-left {
-      position: relative;
-      width: 32%;
-      height: 100%;
-      border-radius: 50px 6px 6px 50px;
-      background: linear-gradient(135deg, rgba(45, 45, 45, 0.6), rgba(15, 15, 15, 0.8));
-      box-shadow:
-        -1px -12px 10px rgba(255, 255, 255, 0.08) inset,
-        2px 2px 6px rgba(255, 255, 255, 0.05) inset;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .pill-left::after {
-      content: "";
-      position: absolute;
-      right: 1px;
-      top: 0;
-      width: 2px;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      filter: blur(0.5px);
-    }
-
-    .pill-right {
-      position: relative;
-      width: 68%;
-      height: 100%;
-      border-radius: 6px 50px 50px 6px;
-      background: rgba(18, 18, 18, 0.45);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      border: 1.5px solid rgba(255, 255, 255, 0.15);
-      border-left: 1.5px solid rgba(70, 70, 70, 0.4);
-      box-shadow:
-        1px 1px 20px rgba(255, 255, 255, 0.07) inset,
-        0px -4px 10px rgba(0, 0, 0, 0.6) inset;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .glass-pill-button:hover .pill-left {
-      transform: translateX(-4px) rotate(-2deg);
-    }
-
-    .glass-pill-button:hover .pill-right {
-      transform: translateX(4px) rotate(2deg);
-      border-color: rgba(248, 188, 4, 0.4);
-      box-shadow:
-        1px 1px 25px rgba(248, 188, 4, 0.2) inset,
-        0px -4px 10px rgba(0, 0, 0, 0.6) inset;
-    }
-  `}</style>
-
-  {/* Live Animated Background Ambient Lighting */}
-  <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[700px] rounded-full bg-[#F8BC04]/10 blur-[150px] animate-live-glow-1" />
-  <div className="pointer-events-none absolute left-1/3 bottom-5 h-[300px] w-[500px] rounded-full bg-orange-500/10 blur-[130px] animate-live-glow-2" />
-
-  <div className="relative z-10 mx-auto max-w-[1200px] px-5 sm:px-8">
-    
-    {/* Brand Tag */}
-    
-
-    {/* Main Heading */}
-    <h2 className="mx-auto mt-6 max-w-[900px] px-1 text-[36px] font-black leading-[1.05] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl">
-      Your next big move <br />
-      starts{" "}
-      <span className="text-[#F8BC04] drop-shadow-[0_0_35px_rgba(248,188,4,0.6)]">
-        here.
-      </span>
-    </h2>
-
-    {/* Supporting Description */}
-    <p className="mx-auto mt-6 max-w-[550px] px-1 text-sm leading-relaxed text-white/60 sm:text-base">
-      Ready to scale your brand, dominate your market, and turn clicks into loyal customers? Let's build something extraordinary together.
-    </p>
-
-    {/* 3D Glass Split-Capsule CTA Button */}
-    <div className="mt-10 flex justify-center">
-      <a href="/connect" className="glass-pill-button group">
-        <div className="pill-left flex items-center justify-center">
-          <ArrowRight size={18} className="text-[#F8BC04] transition-transform duration-300 group-hover:translate-x-1" />
+            <Link
+              href="https://wa.link/pxmrrm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/20 text-white font-semibold text-sm sm:text-base hover:bg-white/5 hover:border-white/40 transition-colors"
+            >
+              Quick WhatsApp Chat <ExternalLink className="w-4 h-4 text-white/60" />
+            </Link>
+          </div>
         </div>
-        <div className="pill-right">
-          <span className="text-sm font-semibold tracking-wide text-white/90 group-hover:text-white transition-colors">
-            Connect With Us
-          </span>
-        </div>
-      </a>
-    </div>
+      </section>
 
-  </div>
-</section>
-
-
-
-
-
-
-
+      {/* Embedded Global Styles */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            @keyframes marquee {
+              0% {
+                transform: translate3d(0, 0, 0);
+              }
+              100% {
+                transform: translate3d(-50%, 0, 0);
+              }
+            }
+            .animate-marquee {
+              animation: marquee 26s linear infinite;
+            }
+            .animate-marquee:hover {
+              animation-play-state: paused;
+            }
+            .mask-gradient {
+              mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 10%,
+                black 90%,
+                transparent
+              );
+              -webkit-mask-image: linear-gradient(
+                to right,
+                transparent,
+                black 10%,
+                black 90%,
+                transparent
+              );
+            }
+            .no-scrollbar::-webkit-scrollbar {
+              display: none;
+            }
+            .no-scrollbar {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+            }
+          `,
+        }}
+      />
     </main>
   );
 }

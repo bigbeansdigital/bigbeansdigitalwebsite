@@ -193,7 +193,6 @@ export default function Header() {
     >
       {/* ========================================================
           MAIN HEADER
-          EXACT 5PX SPACE BELOW THE GLASS HEADER
       ======================================================== */}
 
       <motion.div
@@ -213,17 +212,17 @@ export default function Header() {
         className="
           relative
           mx-auto
-          mb-[5px]
           h-[72px]
           w-full
           max-w-[1895px]
+          mb-[5px]
           transform-gpu
           sm:h-[78px]
-          lg:h-[92px]
+          lg:h-[86px]
         "
       >
         {/* ======================================================
-            OUTER WHITE GLASS CAPSULE
+            OUTER GLASS CAPSULE
         ====================================================== */}
 
         <div
@@ -231,26 +230,26 @@ export default function Header() {
             absolute
             inset-0
             overflow-hidden
-            rounded-[50px]
+            rounded-[48px]
             border
-            border-black/[0.06]
-            bg-white/[0.88]
-            shadow-[0_18px_60px_rgba(0,0,0,0.10),0_2px_8px_rgba(0,0,0,0.04)]
+            border-white/[0.14]
+            bg-[#0b0b0b]/90
+            shadow-[0_25px_80px_rgba(0,0,0,0.65)]
             backdrop-blur-2xl
           "
         >
-          {/* Soft white glass gradient */}
+          {/* Inner black gradient */}
 
           <div
             className="
               pointer-events-none
               absolute
               inset-0
-              rounded-[50px]
+              rounded-[48px]
               bg-gradient-to-b
-              from-white
-              via-white/[0.90]
-              to-[#f8f8f8]/[0.94]
+              from-white/[0.035]
+              via-transparent
+              to-black/[0.35]
             "
           />
 
@@ -266,7 +265,7 @@ export default function Header() {
               h-px
               bg-gradient-to-r
               from-transparent
-              via-black/[0.08]
+              via-white/[0.28]
               to-transparent
             "
           />
@@ -278,12 +277,12 @@ export default function Header() {
               pointer-events-none
               absolute
               left-[25%]
-              top-[-150px]
-              h-[220px]
+              top-[-140px]
+              h-[200px]
               w-[50%]
               rounded-full
-              bg-white
-              blur-[80px]
+              bg-white/[0.025]
+              blur-[70px]
             "
           />
 
@@ -298,12 +297,12 @@ export default function Header() {
               h-[350%]
               w-[28%]
               rotate-[12deg]
-              bg-white/[0.80]
+              bg-white/[0.018]
               blur-3xl
             "
           />
 
-          {/* Bottom glass reflection */}
+          {/* Bottom reflection */}
 
           <div
             className="
@@ -315,14 +314,12 @@ export default function Header() {
               h-px
               bg-gradient-to-r
               from-transparent
-              via-black/[0.08]
+              via-white/[0.14]
               to-transparent
             "
           />
 
-          {/* ====================================================
-              ANIMATED GLASS REFLECTION
-          ==================================================== */}
+          {/* Animated glass reflection */}
 
           <motion.div
             aria-hidden="true"
@@ -346,25 +343,9 @@ export default function Header() {
               rotate-[18deg]
               bg-gradient-to-r
               from-transparent
-              via-black/[0.025]
+              via-white/[0.045]
               to-transparent
               blur-xl
-            "
-          />
-
-          {/* Very subtle yellow ambient light */}
-
-          <div
-            className="
-              pointer-events-none
-              absolute
-              right-[14%]
-              top-[-90px]
-              h-[170px]
-              w-[240px]
-              rounded-full
-              bg-[#F8BC04]/[0.06]
-              blur-[80px]
             "
           />
         </div>
@@ -388,6 +369,10 @@ export default function Header() {
         >
           {/* ====================================================
               DESKTOP LOGO
+              
+              IMPORTANT:
+              hidden on mobile/tablet
+              visible from lg and above
           ==================================================== */}
 
           <motion.div
@@ -445,6 +430,20 @@ export default function Header() {
                   lg:w-[185px]
                 "
               />
+
+              {/* Logo subtle reflection */}
+
+              <span
+                aria-hidden="true"
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-[-10px]
+                  rounded-full
+                  bg-white/[0.015]
+                  blur-xl
+                "
+              />
             </Link>
           </motion.div>
 
@@ -459,34 +458,27 @@ export default function Header() {
             className="
               hidden
               lg:flex
-              h-[62px]
+              h-[58px]
               flex-1
               max-w-[1085px]
               items-center
               justify-center
               rounded-full
               border
-              border-black/[0.055]
-              bg-white/[0.72]
+              border-white/[0.10]
+              bg-[#111111]/65
               px-2
-              shadow-[inset_0_1px_0_rgba(255,255,255,0.95),0_4px_18px_rgba(0,0,0,0.035)]
+              shadow-[inset_0_1px_0_rgba(255,255,255,0.055)]
               backdrop-blur-2xl
             "
           >
-            {/* ==================================================
-                HOME
-                NO YELLOW BACKGROUND
-                NO GLOW
-                NO SHADOW
-            ================================================== */}
+            {/* HOME */}
 
             <AnimatedNavItem href="/">
               Home
             </AnimatedNavItem>
 
-            {/* ==================================================
-                SERVICES
-            ================================================== */}
+            {/* SERVICES */}
 
             <motion.div
               variants={navItem}
@@ -512,19 +504,19 @@ export default function Header() {
                 className="
                   group
                   flex
-                  h-[50px]
+                  h-[46px]
                   items-center
                   gap-2
                   rounded-full
                   px-5
-                  text-[18px]
-                  font-semibold
-                  tracking-[-0.02em]
-                  text-black/85
+                  text-[17px]
+                  font-medium
+                  tracking-[-0.01em]
+                  text-white/85
                   transition-all
                   duration-300
-                  hover:bg-black/[0.035]
-                  hover:text-black
+                  hover:bg-white/[0.055]
+                  hover:text-white
                 "
               >
                 <span>Services</span>
@@ -539,7 +531,7 @@ export default function Header() {
                   className="
                     mt-[1px]
                     text-[11px]
-                    text-black/55
+                    text-white/55
                   "
                 >
                   ▾
@@ -568,7 +560,7 @@ export default function Header() {
                   left-1/2
                   top-full
                   z-[200]
-                  w-[290px]
+                  w-[280px]
                   -translate-x-1/2
                   pt-4
                   origin-top
@@ -579,9 +571,9 @@ export default function Header() {
                     overflow-hidden
                     rounded-[24px]
                     border
-                    border-black/[0.07]
-                    bg-white/[0.96]
-                    shadow-[0_25px_70px_rgba(0,0,0,0.14)]
+                    border-white/[0.12]
+                    bg-[#080808]/95
+                    shadow-[0_30px_80px_rgba(0,0,0,0.7)]
                     backdrop-blur-2xl
                   "
                 >
@@ -688,23 +680,23 @@ export default function Header() {
                   group
                   relative
                   flex
-                  h-[62px]
-                  min-w-[290px]
+                  h-[58px]
+                  min-w-[275px]
                   items-center
                   justify-center
                   gap-3
                   overflow-hidden
                   rounded-full
                   border
-                  border-[#DFA900]/60
+                  border-[#FFD52A]/70
                   bg-[#F8BC04]
                   px-6
                   text-black
-                  shadow-[0_8px_30px_rgba(248,188,4,0.20),inset_0_1px_0_rgba(255,255,255,0.55)]
+                  shadow-[0_8px_30px_rgba(248,188,4,0.18),inset_0_1px_0_rgba(255,255,255,0.45)]
                   transition-all
                   duration-300
                   hover:bg-[#FFD21A]
-                  hover:shadow-[0_12px_40px_rgba(248,188,4,0.30),inset_0_1px_0_rgba(255,255,255,0.65)]
+                  hover:shadow-[0_12px_40px_rgba(248,188,4,0.28),inset_0_1px_0_rgba(255,255,255,0.5)]
                 "
               >
                 {/* CTA shine */}
@@ -729,7 +721,7 @@ export default function Header() {
                     inset-y-[-40%]
                     w-[80px]
                     rotate-[18deg]
-                    bg-white/[0.38]
+                    bg-white/[0.30]
                     blur-lg
                   "
                 />
@@ -769,9 +761,10 @@ export default function Header() {
                     relative
                     z-10
                     whitespace-nowrap
-                    text-[17px]
+                    text-[16px]
                     font-bold
-                    tracking-[-0.025em]
+                    tracking-[-0.02em]
+                    sm:text-[17px]
                   "
                 >
                   Request For A Quote
@@ -791,7 +784,7 @@ export default function Header() {
                   className="
                     relative
                     z-10
-                    text-[21px]
+                    text-[20px]
                     font-medium
                   "
                 >
@@ -807,7 +800,7 @@ export default function Header() {
                     absolute
                     inset-0
                     rounded-full
-                    bg-white/[0.10]
+                    bg-white/[0.08]
                     opacity-0
                     transition-opacity
                     duration-300
@@ -820,6 +813,9 @@ export default function Header() {
 
           {/* ====================================================
               MOBILE LOGO
+              
+              IMPORTANT:
+              only visible below lg
           ==================================================== */}
 
           <Link
@@ -877,8 +873,8 @@ export default function Header() {
               gap-[5px]
               rounded-full
               border
-              border-black/[0.08]
-              bg-black/[0.025]
+              border-white/[0.12]
+              bg-white/[0.045]
               backdrop-blur-xl
               lg:hidden
             "
@@ -895,7 +891,7 @@ export default function Header() {
                 block
                 h-[2px]
                 w-[21px]
-                bg-black
+                bg-white
               "
             />
 
@@ -911,7 +907,7 @@ export default function Header() {
                 block
                 h-[2px]
                 w-[21px]
-                bg-black
+                bg-white
               "
             />
 
@@ -927,7 +923,7 @@ export default function Header() {
                 block
                 h-[2px]
                 w-[21px]
-                bg-black
+                bg-white
               "
             />
           </motion.button>
@@ -961,12 +957,12 @@ export default function Header() {
               overflow-hidden
               rounded-[28px]
               border
-              border-black/[0.07]
-              bg-white/[0.97]
+              border-white/[0.1]
+              bg-[#090909]/95
               px-5
               pb-5
               pt-3
-              shadow-[0_25px_70px_rgba(0,0,0,0.12)]
+              shadow-[0_25px_70px_rgba(0,0,0,0.6)]
               backdrop-blur-2xl
             "
           >
@@ -986,7 +982,7 @@ export default function Header() {
             <div
               className="
                 border-b
-                border-black/[0.08]
+                border-white/[0.08]
               "
             >
               <button
@@ -1003,8 +999,8 @@ export default function Header() {
                   justify-between
                   py-4
                   text-[16px]
-                  font-semibold
-                  text-black
+                  font-medium
+                  text-white
                 "
               >
                 <span>Services</span>
@@ -1021,7 +1017,7 @@ export default function Header() {
                   }}
                   className="
                     text-xs
-                    text-black/50
+                    text-white/50
                   "
                 >
                   ▾
@@ -1187,7 +1183,7 @@ export default function Header() {
               className="mt-4"
             >
               <Link
-                href="https://wa.link/rtfeow"
+                href="https://wa.link/pxmrrm"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() =>
@@ -1204,7 +1200,7 @@ export default function Header() {
                   overflow-hidden
                   rounded-full
                   border
-                  border-[#DFA900]/60
+                  border-[#FFD52A]/60
                   bg-[#F8BC04]
                   text-[15px]
                   font-bold
@@ -1247,10 +1243,12 @@ function AnimatedNavItem({
   href,
   children,
   external = false,
+  active = false,
 }: {
   href: string;
   children: React.ReactNode;
   external?: boolean;
+  active?: boolean;
 }) {
   return (
     <motion.div
@@ -1281,23 +1279,26 @@ function AnimatedNavItem({
             ? "noopener noreferrer"
             : undefined
         }
-        className="
+        className={`
           group
           relative
           flex
-          h-[50px]
+          h-[46px]
           items-center
           rounded-full
           px-5
-          text-[18px]
-          font-semibold
-          tracking-[-0.02em]
-          text-black/80
+          text-[17px]
+          font-medium
+          tracking-[-0.01em]
           transition-all
           duration-300
-          hover:bg-black/[0.035]
-          hover:text-black
-        "
+
+          ${
+            active
+              ? "text-white/80"
+              : "text-white/80 hover:bg-white/[0.055] hover:text-white"
+          }
+        `}
       >
         {/* Text */}
 
@@ -1305,47 +1306,53 @@ function AnimatedNavItem({
           {children}
         </span>
 
-        {/* Subtle black hover background ONLY */}
+        {/* Hover background */}
 
-        <span
-          aria-hidden="true"
+        <motion.span
+          initial={false}
+          animate={{
+            opacity: active ? 1 : 0,
+            scale: active ? 1 : 0.7,
+          }}
+          whileHover={{
+            opacity: 1,
+            scale: 1,
+          }}
           className="
             pointer-events-none
             absolute
             inset-0
             rounded-full
-            bg-black/[0.025]
-            opacity-0
-            transition-opacity
-            duration-300
-            group-hover:opacity-100
+            bg-white/[0.025]
           "
         />
 
-        {/* Subtle hover underline */}
+        {/* Hover underline */}
 
-        <motion.span
-          initial={{
-            width: 0,
-            opacity: 0,
-          }}
-          whileHover={{
-            width: "45%",
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.25,
-          }}
-          className="
-            absolute
-            bottom-[5px]
-            left-1/2
-            h-[1px]
-            -translate-x-1/2
-            rounded-full
-            bg-black/40
-          "
-        />
+        {!active && (
+          <motion.span
+            initial={{
+              width: 0,
+              opacity: 0,
+            }}
+            whileHover={{
+              width: "45%",
+              opacity: 1,
+            }}
+            transition={{
+              duration: 0.25,
+            }}
+            className="
+              absolute
+              bottom-[5px]
+              left-1/2
+              h-[1px]
+              -translate-x-1/2
+              rounded-full
+              bg-white/50
+            "
+          />
+        )}
       </Link>
     </motion.div>
   );
@@ -1371,17 +1378,17 @@ function ServiceLink({
         block
         overflow-hidden
         border-b
-        border-black/[0.06]
+        border-white/[0.06]
         px-5
         py-4
-        text-[15px]
-        font-semibold
-        text-black/70
+        text-[14px]
+        font-medium
+        text-white/75
         transition-all
         duration-300
         last:border-b-0
-        hover:bg-black/[0.025]
-        hover:text-black
+        hover:bg-white/[0.04]
+        hover:text-white
       "
     >
       {/* Moving hover light */}
@@ -1404,12 +1411,12 @@ function ServiceLink({
           inset-y-0
           w-[90px]
           rotate-[15deg]
-          bg-[#F8BC04]/[0.12]
+          bg-white/[0.04]
           blur-md
         "
       />
 
-      {/* Yellow left indicator */}
+      {/* Left indicator */}
 
       <span
         className="
@@ -1475,14 +1482,14 @@ function MobileNavLink({
         className="
           block
           border-b
-          border-black/[0.08]
+          border-white/[0.08]
           py-4
           text-[16px]
-          font-semibold
-          text-black/85
+          font-medium
+          text-white/85
           transition-colors
           duration-300
-          hover:text-[#D99F00]
+          hover:text-[#F8BC04]
         "
       >
         {children}
@@ -1518,10 +1525,10 @@ function MobileServiceLink({
           py-2.5
           pl-3
           text-[15px]
-          text-black/55
+          text-white/55
           transition-colors
           duration-300
-          hover:text-[#D99F00]
+          hover:text-[#F8BC04]
         "
       >
         {children}

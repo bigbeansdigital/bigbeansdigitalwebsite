@@ -223,7 +223,6 @@ export default function Recentwork() {
         relative
         w-full
         overflow-hidden
-        bg-[#000000]/[70%]
         py-16
         sm:py-20
         lg:py-24
