@@ -205,38 +205,47 @@ const industries = [
 // Blog Posts Data
 const blogCards = [
   {
-    id: 5,
-    image: "/assets/blog/singleblogs/clinic-instagram-marketing-strategy.webp",
-    date: "August 14, 2026",
-    primaryCategory: "Social Media",
-    title: "How to Do SMM for a New Clinic in India | BigBeans",
-    description:
-      "Learn what to post when launching a clinic on Instagram, from educational reels to trust-building posts that attract regular patients.",
-    link: "/blog/clinic-instagram-marketing-strategy",
-    readTime: "5 min read",
-  },
-  {
-    id: 6,
-    image: "/assets/blog/singleblogs/new-instagram-logo-redesign.webp",
-    date: "August 17, 2026",
-    primaryCategory: "Brand Design",
-    title: "New Instagram Logo 2026: Wordmark Redesign & Brand Refresh",
-    description:
-      "A critical breakdown of the new Instagram typography overhaul, public sentiment shifts, and what dynamic brand refreshes mean for digital marketers.",
-    link: "/blog/new-instagram-logo-redesign",
-    readTime: "4 min read",
-  },
-  {
-    id: 7,
-    image: "/assets/blog/singleblogs/why-is-my-competitor-getting-more-leads.webp",
-    date: "August 17, 2026",
-    primaryCategory: "Growth Strategy",
-    title: "Why Is My Competitor Getting More Leads? | Digital Marketing India",
-    description:
-      "Your competitor opened later but takes the majority of local leads. Discover how local SEO, reviews, and omnichannel remarketing bridge the gap.",
-    link: "/blog/why-is-my-competitor-getting-more-leads",
-    readTime: "6 min read",
-  },
+      id: 11,
+      image:
+        "/assets/blog/singleblogs/viral-80s-ai-photo-trend-and-prompt.webp",
+      date: "September 17 2026",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Start-Ups",
+      title:
+        "Viral '80s Trend: Why Is it Suddenly popular and also the Prompt for 1980 image generation",
+      description:
+        "The 1980s AI photo trend is taking over social media. Here's what it is, why everyone's obsessed, and how your brand can use it with real ChatGPT prompts included.",
+      link: "/blog/viral-80s-ai-photo-trend-and-prompt",
+    },
+
+
+    {
+      id: 10,
+      image:
+        "/assets/blog/singleblogs/how-to-choose-a-business-name-guide-for-startups.webp",
+      date: "August 31, 2026",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Start-Ups",
+      title:
+        "How to Choose a Business Name: A Complete Guide for Startups",
+      description:
+        "A practical, step-by-step guide to choosing a business name — brainstorming methods, legal checks for India and the UK, and a scoring framework to help you commit.",
+      link: "/blog/how-to-choose-a-business-name-guide-for-startups",
+    },
+
+
+    {
+      id: 9,
+      image:
+        "/assets/blog/singleblogs/social-media-marketing-cost-india.webp",
+      date: "August 31, 2026",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Start-Ups",
+      title: "Social Media Marketing Cost in India",
+      description:
+        "Discover social media marketing costs in India, what agencies charge, package pricing, and what affects your budget. Plan smarter with BigBeans Digital.",
+      link: "/blog/social-media-marketing-cost-india",
+    },
 ];
 
 // High-Performance Animated Counter using requestAnimationFrame

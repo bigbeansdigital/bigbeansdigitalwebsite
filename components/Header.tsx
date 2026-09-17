@@ -177,18 +177,17 @@ export default function Header() {
   return (
     <header
       className="
-        fixed
+        sticky
         left-0
         right-0
         top-0
         z-[100]
         w-full
-        px-4
-        pt-4
+        bg-black
+        px-5
+        pb-1
         sm:px-6
-        sm:pt-5
-        lg:px-8
-        lg:pt-7
+        lg:px-4
       "
     >
       {/* ========================================================
@@ -1422,7 +1421,7 @@ function ServiceLink({
         className="
           absolute
           left-0
-          top-0
+          top-00
           h-full
           w-[2px]
           origin-bottom

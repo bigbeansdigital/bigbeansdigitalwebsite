@@ -102,6 +102,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/blog/how-to-choose-a-business-name-guide-for-startups`,
     },
 
+    {
+      url: `${baseUrl}/blog/viral-80s-ai-photo-trend-and-prompt`,
+    },
+
 
   ];
 }

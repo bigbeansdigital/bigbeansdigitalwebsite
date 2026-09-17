@@ -45,6 +45,21 @@ export default function SocialMediaMarketing() {
 
   const blogs = [
     {
+      id: 11,
+      image:
+        "/assets/blog/singleblogs/viral-80s-ai-photo-trend-and-prompt.webp",
+      date: "September 17 2026",
+      primaryCategory: "Social Media",
+      secondaryCategory: "Start-Ups",
+      title:
+        "Viral '80s Trend: Why Is it Suddenly popular and also the Prompt for 1980 image generation",
+      description:
+        "The 1980s AI photo trend is taking over social media. Here's what it is, why everyone's obsessed, and how your brand can use it with real ChatGPT prompts included.",
+      link: "/blog/viral-80s-ai-photo-trend-and-prompt",
+    },
+
+
+    {
       id: 10,
       image:
         "/assets/blog/singleblogs/how-to-choose-a-business-name-guide-for-startups.webp",
@@ -57,6 +72,7 @@ export default function SocialMediaMarketing() {
         "A practical, step-by-step guide to choosing a business name — brainstorming methods, legal checks for India and the UK, and a scoring framework to help you commit.",
       link: "/blog/how-to-choose-a-business-name-guide-for-startups",
     },
+
 
     {
       id: 9,

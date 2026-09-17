@@ -258,9 +258,14 @@ export default function Sitemap() {
                 </Link>
               </li>
 
-
-
-
+              <li className="relative pl-5 text-[15px] leading-6 sm:text-[16px]">
+                <span className="absolute left-0 top-[10px] h-[6px] w-[6px] rounded-full bg-[#171717]" />
+                <Link 
+                href="/blog/allblogs/viral-80s-ai-photo-trend-and-prompt" 
+                className="text-[#173B91] transition-colors duration-300 hover:text-[#F8BC04] hover:underline underline-offset-4">
+                 Viral '80s Trend: Why Is it Suddenly popular and also the Prompt for 1980 image generation
+                </Link>
+              </li>
 
             </ul>
           </div>

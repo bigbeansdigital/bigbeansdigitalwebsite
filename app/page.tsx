@@ -1,15 +1,15 @@
-import HomeHeader from "@/components/HomeHeader";
+import Header from "@/components/Header";
 import Home from "@/components/Home";
-import HomeFooter from "@/components/HomeFooter";
+import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Page() {
   return (
     <>
-      <HomeHeader />
+      <Header />
       <Home />
-      <HomeFooter />
-    
+      <Footer />
+      <WhatsAppButton />
     </>
   );
 }
