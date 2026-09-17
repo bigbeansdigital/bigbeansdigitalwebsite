@@ -30,7 +30,7 @@ interface BlogCard {
 interface BrandingCard {
   title: string;
   image: string;
-  icon: string;
+  alt: string;
   description: string;
 }
 
@@ -955,7 +955,7 @@ export default function Home() {
             <h2 className="branding-heading text-1xl font-bold sm:text-3xl md:text-4xl">
               <span className="text-white">Do you need Branding?</span>
               <br /><br />
-              <span className="highlight-font block text-[#ffd400]">The Trth no one tells you when you are starting your business</span>
+              <span className="highlight-font block text-[#ffd400]">The Truth no one tells you when you are starting your business</span>
             </h2>
 
             <p className="branding-text !text-[18px]">
@@ -988,7 +988,7 @@ export default function Home() {
               <article className="branding-card" key={card.title}>
                 <img
                   src={card.image}
-                  alt=""
+                  alt={card.alt}
                   className="branding-card-image"
                 />
 
@@ -1560,7 +1560,7 @@ export default function Home() {
                   </p>
 
                   <a
-                    href="www.bigbeansdigtial.com"
+                    href="www.bigbeansdigial.com"
                     className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
                   >
                     Know More

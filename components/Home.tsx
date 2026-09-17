@@ -216,6 +216,7 @@ const blogCards = [
       description:
         "The 1980s AI photo trend is taking over social media. Here's what it is, why everyone's obsessed, and how your brand can use it with real ChatGPT prompts included.",
       link: "/blog/viral-80s-ai-photo-trend-and-prompt",
+      readTime: "5 min read",
     },
 
 
@@ -231,6 +232,7 @@ const blogCards = [
       description:
         "A practical, step-by-step guide to choosing a business name — brainstorming methods, legal checks for India and the UK, and a scoring framework to help you commit.",
       link: "/blog/how-to-choose-a-business-name-guide-for-startups",
+      readTime: "6 min read",
     },
 
 
@@ -245,6 +247,7 @@ const blogCards = [
       description:
         "Discover social media marketing costs in India, what agencies charge, package pricing, and what affects your budget. Plan smarter with BigBeans Digital.",
       link: "/blog/social-media-marketing-cost-india",
+      readTime: "5 min read",
     },
 ];
 
