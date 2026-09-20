@@ -185,7 +185,7 @@ export default function Header() {
         w-full
         bg-black
         px-5
-        pb-1
+        pb-0
         sm:px-6
         lg:px-4
       "
@@ -214,7 +214,7 @@ export default function Header() {
           h-[72px]
           w-full
           max-w-[1895px]
-          mb-[5px]
+          mb-0
           transform-gpu
           sm:h-[78px]
           lg:h-[86px]
@@ -581,35 +581,32 @@ export default function Header() {
                   </ServiceLink>
 
                   <ServiceLink href="/services/branding">
-                    End to End Branding
+                    Full Scale Branding
+                  </ServiceLink>
+
+                  <ServiceLink href="/services/website-development">
+                    3D Immersive Website Development
                   </ServiceLink>
 
                   <ServiceLink href="/services/google-ads-meta-ads">
-                    Performance Marketing
+                    Performance Marketing 
                   </ServiceLink>
 
                   <ServiceLink href="/services/logo-designing">
                     Logo Designing
                   </ServiceLink>
 
-                  <ServiceLink href="/services/website-development">
-                    Website Development
+                  <ServiceLink href="/services/social-media-marketing">
+                    Full Scale Digital Marketing
                   </ServiceLink>
 
-                  <ServiceLink href="/services/social-media-marketing">
-                    Digital Marketing
-                  </ServiceLink>
-
-                  <ServiceLink href="/services/social-media-marketing">
-                    SEO & Content Writing
-                  </ServiceLink>
                 </div>
               </motion.div>
             </motion.div>
 
             {/* ABOUT */}
 
-            <AnimatedNavItem href="/#">
+            <AnimatedNavItem href="/about">
               About
             </AnimatedNavItem>
 
@@ -1111,7 +1108,7 @@ export default function Header() {
             {/* ABOUT */}
 
             <MobileNavLink
-              href="/#"
+              href="/about"
               onClick={() =>
                 setMobileMenuOpen(false)
               }
@@ -1421,7 +1418,7 @@ function ServiceLink({
         className="
           absolute
           left-0
-          top-00
+          top-0
           h-full
           w-[2px]
           origin-bottom

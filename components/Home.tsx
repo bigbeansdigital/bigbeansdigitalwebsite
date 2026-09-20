@@ -27,21 +27,22 @@ const OurProcess = dynamic(() => import("@/components/OurProcess"), {
 
 // Client Logos
 const carouselImages = [
-  "/home/clientlogo/1.png",
-  "/home/clientlogo/2.png",
-  "/home/clientlogo/3.png",
-  "/home/clientlogo/4.png",
-  "/home/clientlogo/5.png",
-  "/home/clientlogo/6.png",
-  "/home/clientlogo/7.png",
-  "/home/clientlogo/8.png",
-  "/home/clientlogo/9.png",
-  "/home/clientlogo/10.png",
-  "/home/clientlogo/11.png",
-  "/home/clientlogo/12.png",
-  "/home/clientlogo/13.png",
-  "/home/clientlogo/14.png",
-];
+    "/clientlogo/1.webp",
+    "/clientlogo/2.webp",
+    "/clientlogo/3.webp",
+    "/clientlogo/4.webp",
+    "/clientlogo/5.webp",
+    "/clientlogo/6.webp",
+    "/clientlogo/7.webp",
+    "/clientlogo/8.webp",
+    "/clientlogo/9.webp",
+    "/clientlogo/10.webp",
+    "/clientlogo/11.webp",
+    "/clientlogo/12.webp",
+    "/clientlogo/13.webp",
+    "/clientlogo/14.webp",
+    "/clientlogo/15.webp",
+  ];
 
 // Services Data
 type Service = {
@@ -563,7 +564,7 @@ export default function Home() {
           ========================================================================= */}
       <section
         ref={heroRef}
-        className="relative z-10 min-h-[92dvh] sm:min-h-screen flex items-center px-4 sm:px-8 lg:px-16 pt-24 sm:pt-28 pb-12 max-w-[1550px] mx-auto"
+        className="relative z-10 min-h-[78dvh] sm:min-h-[84vh] flex items-start px-4 sm:px-8 lg:px-16 pt-2 sm:pt-4 lg:pt-4 pb-12 max-w-[1550px] mx-auto"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
           {/* Hero Left Content */}
@@ -576,14 +577,14 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl sm:text-5xl md:text-7xl xl:text-[80px] font-black tracking-[-0.04em] leading-[1.08] sm:leading-[1.02]"
+              className="text-center lg:text-left text-3xl sm:text-5xl md:text-7xl xl:text-[80px] font-black tracking-[-0.04em] leading-[1.08] sm:leading-[1.02]"
             >
               Where Creativity{" "}
+              <br className="hidden sm:block" />
               <span
                 className="block sm:inline font-medium italic text-[#F8BC04] font-serif pr-2"
                 style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
               >
-                <br></br>
                 meets strategy.
               </span>
             </motion.h1>
@@ -593,7 +594,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-white/75 max-w-2xl leading-relaxed"
+              className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-white/100 max-w-2xl leading-relaxed"
             >
               At <strong className="text-white font-bold">Big Beans Digital</strong>, we help businesses grow through digital 
               marketing, branding, SEO, social media marketing, website development, Google Ads and Meta Ads. Whether you need a 
@@ -885,96 +886,110 @@ export default function Home() {
       {/* =========================================================================
           INDUSTRIES WE WORKED WITH SECTION
           ========================================================================= */}
-      <section className="relative z-10 py-5 sm:py-20">
-        <div className="max-w-[1550px] mx-auto px-4 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 xl:grid-cols-12 gap-8 lg:gap-10 items-start">
-            {/* Left Column Header */}
-            <div className="xl:col-span-3 flex flex-col justify-start xl:sticky xl:top-28">
-              <span className="text-xs sm:text-sm font-black tracking-[0.25em] text-[#F8BC04]">
-                [ INDUSTRIES ]
-              </span>
+          <section className="relative z-10 py-5 sm:py-20">
+  <div className="mx-auto max-w-[1550px] px-4 sm:px-8 lg:px-12">
+    <div className="grid grid-cols-1 items-start gap-8 lg:gap-10 xl:grid-cols-12">
 
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.05] mt-4 sm:mt-5">
-                <span className="text-white block">Industries</span>
-                <span className="text-[#F8BC04] block">We</span>
-                <span className="text-[#F8BC04] block">worked</span>
-                <span className="text-[#F8BC04] block">with</span>
-              </h2>
+      {/* =========================
+          LEFT COLUMN — INDUSTRIES
+      ========================== */}
+      <div className="flex flex-col justify-start xl:sticky xl:top-28 xl:col-span-3">
+        <h2 className="mt-4 text-2xl font-bold leading-[1.05] sm:mt-5 sm:text-4xl md:text-5xl">
+          <span className="block text-white">Industries</span>
+          <span className="highlight-font block text-[#F8BC04]">We</span>
+          <span className="highlight-font block text-[#F8BC04]">worked</span>
+          <span className="highlight-font block text-[#F8BC04]">with</span>
+        </h2>
 
-              {/* Accent Underline */}
-              <div className="w-14 h-1 bg-[#F8BC04] rounded-full mt-4 sm:mt-6 mb-4 sm:mb-5" />
+        <div className="mb-4 mt-4 h-1 w-14 rounded-full bg-[#F8BC04] sm:mb-5 sm:mt-6" />
 
-              <p className="text-sm sm:text-base text-white/70 font-medium leading-snug">
-                Different industries. <br />
-                Real impact.
-              </p>
+        <p className="!text-[18px] text-sm font-medium leading-snug text-white/70 sm:text-base">
+          Different industries.
+          <br />
+          Real impact.
+        </p>
+      </div>
+
+      {/* =========================
+          RIGHT COLUMN — INDUSTRY CARDS
+      ========================== */}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:col-span-9">
+        {industries.map((ind) => (
+          <div
+            key={ind.id}
+            className="group relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#0c0c0c] p-5 shadow-xl transition-all duration-300 hover:border-[#F8BC04]/50 sm:min-h-[340px] sm:rounded-3xl sm:p-6"
+          >
+            {/* Background Image & Gradient Overlay */}
+            <div className="absolute inset-0 z-0">
+              <Image
+                src={ind.image}
+                alt={ind.title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                className="object-cover object-center brightness-75 transition-transform duration-500 group-hover:scale-105"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/30" />
             </div>
 
-            {/* Right Column: 6 Cards Grid (2 rows x 3 columns on desktop) */}
-            <div className="xl:col-span-9 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-              {industries.map((ind) => (
-                <div
-                  key={ind.id}
-                  className="group relative flex flex-col justify-between min-h-[300px] sm:min-h-[340px] rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0c0c] p-5 sm:p-6 overflow-hidden transition-all duration-300 hover:border-[#F8BC04]/50 shadow-xl"
+            {/* Card Top Spacer */}
+            <div className="relative z-10" />
+
+            {/* Card Content */}
+            <div className="relative z-10 flex flex-col justify-end pt-24 sm:pt-28">
+              <h3 className="text-base font-extrabold leading-snug text-white transition-colors group-hover:text-[#F8BC04] sm:text-lg">
+                {ind.title}
+              </h3>
+
+              <p className="mt-2 text-xs leading-relaxed text-white/70 sm:text-[13px]">
+                {ind.description}
+              </p>
+
+              {/* Know More Button */}
+              <div className="mt-4 flex justify-end sm:mt-5">
+                <Link
+                  href={ind.href}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[#F8BC04] px-4 py-2 text-xs font-extrabold tracking-tight text-black shadow-[0_0_15px_rgba(248,188,4,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(248,188,4,0.5)] active:scale-95 sm:px-5 sm:text-sm"
                 >
-                  {/* Background Image & Gradient Overlays */}
-                  <div className="absolute inset-0 z-0">
-                    <Image
-                      src={ind.image}
-                      alt={ind.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
-                      className="object-cover object-center brightness-75 group-hover:scale-105 transition-transform duration-500"
-                    />
-                    {/* Dark gradient fade for text legibility */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/30" />
-                  </div>
-
-                  {/* Card Top Spacer / Pill */}
-                  <div className="relative z-10" />
-
-                  {/* Card Content & Action Button */}
-                  <div className="relative z-10 flex flex-col justify-end pt-24 sm:pt-28">
-                    <h3 className="text-base sm:text-lg font-extrabold text-white group-hover:text-[#F8BC04] transition-colors leading-snug">
-                      {ind.title}
-                    </h3>
-                    <p className="mt-2 text-xs sm:text-[13px] text-white/70 leading-relaxed">
-                      {ind.description}
-                    </p>
-
-                    <div className="mt-4 sm:mt-5 flex justify-end">
-                      <Link
-                        href={ind.href}
-                        className="inline-flex items-center gap-1.5 px-4 sm:px-5 py-2 rounded-full bg-[#F8BC04] text-black text-xs sm:text-sm font-extrabold tracking-tight transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(248,188,4,0.3)] hover:shadow-[0_0_20px_rgba(248,188,4,0.5)]"
-                      >
-                        <span>Know More</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
+                  <span>Know More</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
             </div>
           </div>
-        </div>
+        ))}
+      </div>
+    </div>
+  </div>
 
-<div className="mx-auto max-w-[1600px] py-10">
+  {/* ==================================================
+      CASE STUDIES SECTION
+  =================================================== */}
+  <div className="mx-auto max-w-[1600px] py-10">
 
     {/* Section Heading */}
-    <div className="mx-auto Py-[5py] mb-12 max-w-[1600px] text-center">
+    <div className="mx-auto mb-12 max-w-[1600px] px-4 text-center">
       <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
         Case Studies
       </h2>
 
-      <p className="mt-4 text-base leading-6 text-white/100 sm:text-lg">
-        Explore how our digital marketing agency engineers data-driven strategies that scale early-stage startups and established businesses. From lowering customer acquisition costs to multiplying qualified leads, see how our performance marketing agency delivers measurable return on investment through real-world client success stories.
+      <p className="mt-4 text-center text-base leading-6 text-white/100 sm:text-lg">
+        Explore how our digital marketing agency engineers data-driven
+        strategies that scale early-stage startups and established businesses.
+        From lowering customer acquisition costs to multiplying qualified
+        leads, see how our performance marketing agency delivers measurable
+        return on investment through real-world client success stories.
       </p>
     </div>
 
-    {/* Feature Cards */}
-    <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+    {/* =========================
+        FEATURE CASE STUDY CARDS
+    ========================== */}
+    <div className="grid grid-cols-1 gap-5 px-4 md:grid-cols-3">
 
-      {/* Card 1 */}
+      {/* =========================
+          CASE STUDY 1 — ADORING INDIA
+      ========================== */}
       <div className="overflow-hidden rounded-[4px] bg-[#101010]">
 
         {/* Image */}
@@ -993,7 +1008,13 @@ export default function Home() {
           </h3>
 
           <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
-            We partnered with Adoring India, an NGO dedicated to supporting school students, to build digital visibility and expand their community impact. By leveraging data-driven storytelling and targeted outreach campaigns, our digital marketing agency helped increase volunteer engagement, boost corporate sponsorship inquiries, and scale their educational awareness initiatives across major digital platforms.
+            We partnered with Adoring India, an NGO dedicated to supporting
+            school students, to build digital visibility and expand their
+            community impact. By leveraging data-driven storytelling and
+            targeted outreach campaigns, our digital marketing agency helped
+            increase volunteer engagement, boost corporate sponsorship
+            inquiries, and scale their educational awareness initiatives
+            across major digital platforms.
           </p>
 
           <a
@@ -1005,7 +1026,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Card 2 */}
+      {/* =========================
+          CASE STUDY 2 — GUPSHUP BHARAT
+      ========================== */}
       <div className="overflow-hidden rounded-[4px] bg-[#101010]">
 
         {/* Image */}
@@ -1020,11 +1043,17 @@ export default function Home() {
         {/* Content */}
         <div className="px-7 py-6 text-center sm:px-8">
           <h3 className="text-2xl font-semibold text-white">
-            Gupshup Bharat 
+            Gupshup Bharat
           </h3>
 
           <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
-            To establish Gupshup India as the premier news agency in Tripura, we designed an agile content and distribution strategy focused on instant reader retention and search visibility. Functioning as their growth partner, our social media marketing agency optimized news distribution pipelines, expanding their daily reader reach and boosting cross-platform audience engagement across regional markets.
+            To establish Gupshup India as the premier news agency in Tripura,
+            we designed an agile content and distribution strategy focused on
+            instant reader retention and search visibility. Functioning as
+            their growth partner, our social media marketing agency optimized
+            news distribution pipelines, expanding their daily reader reach
+            and boosting cross-platform audience engagement across regional
+            markets.
           </p>
 
           <a
@@ -1036,7 +1065,9 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Card 3 */}
+      {/* =========================
+          CASE STUDY 3 — ENTIMESSI
+      ========================== */}
       <div className="overflow-hidden rounded-[4px] bg-[#101010]">
 
         {/* Image */}
@@ -1055,7 +1086,12 @@ export default function Home() {
           </h3>
 
           <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
-            For Entimessi, a premium female lingerie brand, we built an end-to-end sales engine focused on customer acquisition and brand authority. By uniting high-converting visual ad creatives with precise audience targeting, our performance marketing agency lowered customer acquisition costs (CAC) and maximized return on ad spend (ROAS) while scaling direct website sales.
+            For Entimessi, a premium female lingerie brand, we built an
+            end-to-end sales engine focused on customer acquisition and brand
+            authority. By uniting high-converting visual ad creatives with
+            precise audience targeting, our performance marketing agency
+            lowered customer acquisition costs (CAC) and maximized return on
+            ad spend (ROAS) while scaling direct website sales.
           </p>
 
           <a
@@ -1069,21 +1105,7 @@ export default function Home() {
 
     </div>
   </div>
-      </section>
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
+</section>
 
       {/* =========================================================================
           BLOGS SECTION

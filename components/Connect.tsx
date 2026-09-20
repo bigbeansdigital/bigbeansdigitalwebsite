@@ -118,24 +118,24 @@ export default function Connect() {
   ];
 
   return (
-    <main className="overflow-hidden bg-white">
+    <main className="overflow-hidden bg-black">
       {/* =========================
           BREADCRUMB
       ========================= */}
 
-      <section className="w-full bg-white py-6 sm:py-8 lg:py-10">
+      <section className="w-full bg-black py-6 sm:py-8 lg:py-10">
         <div className="mx-auto flex w-full max-w-7xl justify-center px-3 sm:px-5">
-          <div className="inline-flex max-w-full items-center gap-2 rounded-full bg-white px-4 py-3 text-[12px] shadow-[0_8px_24px_rgba(0,0,0,0.08)] sm:gap-3 sm:px-6 sm:py-3.5 sm:text-[14px] lg:px-8 lg:py-4 lg:text-base">
+          <div className="inline-flex max-w-full items-center gap-2 rounded-full bg-black px-4 py-3 text-[12px] shadow-[0_8px_24px_rgba(0,0,0,0.45)] sm:gap-3 sm:px-6 sm:py-3.5 sm:text-[14px] lg:px-8 lg:py-4 lg:text-base">
             <Link
               href="/"
-              className="text-gray-700 transition-colors duration-300 hover:text-[#F8BC04]"
+              className="text-gray-300 transition-colors duration-300 hover:text-[#F8BC04]"
             >
               Home
             </Link>
 
             <span className="text-lg text-[#F8BC04]">→</span>
 
-            <span className="font-semibold text-black">
+            <span className="font-semibold text-white">
               Connect With Big Beans Digital
             </span>
           </div>
@@ -147,7 +147,7 @@ export default function Connect() {
           COMPACT VERSION
       ===================================== */}
 
-      <section className="bg-white px-1 py-5 sm:px-1 sm:py-1 lg:px-1 lg:py-1">
+      <section className="bg-black px-1 py-5 sm:px-1 sm:py-1 lg:px-1 lg:py-1">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -164,14 +164,14 @@ export default function Connect() {
               <div className="flex items-center gap-3">
                 <span className="h-2 w-2 rounded-full bg-[#F8BC04]" />
 
-                <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-[#555] sm:text-xs">
+                <span className="text-[10px] font-bold uppercase tracking-[0.08em] text-gray-300 sm:text-xs">
                   Get In Touch
                 </span>
               </div>
 
               {/* HEADING */}
 
-              <h2 className="mt-4 text-[38px] font-black leading-[1.03] tracking-[-0.04em] text-[#171717] sm:text-[46px] md:text-[52px] lg:text-[54px] xl:text-[62px]">
+              <h2 className="mt-4 text-[38px] font-black leading-[1.03] tracking-[-0.04em] text-white sm:text-[46px] md:text-[52px] lg:text-[54px] xl:text-[62px]">
                 Let&apos;s Build
                 <br />
                 Something
@@ -190,11 +190,11 @@ export default function Connect() {
               {/* DESCRIPTION */}
 
               <div className="mt-5 max-w-xl">
-                <p className="text-sm leading-6 text-[#444] sm:text-base">
+                <p className="text-sm leading-6 text-gray-300 sm:text-base">
                   Have a project in mind or want to grow your business?
                 </p>
 
-                <p className="mt-1 text-sm leading-6 text-[#444] sm:text-base">
+                <p className="mt-1 text-sm leading-6 text-gray-300 sm:text-base">
                   We&apos;d love to hear from you.
                 </p>
               </div>
@@ -207,11 +207,11 @@ export default function Connect() {
                     <Check
                       size={12}
                       strokeWidth={3}
-                      className="text-[#171717]"
+                      className="text-white"
                     />
                   </div>
 
-                  <span className="text-xs font-bold text-[#333] sm:text-sm">
+                  <span className="text-xs font-bold text-gray-200 sm:text-sm">
                     Quick Response
                   </span>
                 </div>
@@ -221,11 +221,11 @@ export default function Connect() {
                     <Check
                       size={12}
                       strokeWidth={3}
-                      className="text-[#171717]"
+                      className="text-white"
                     />
                   </div>
 
-                  <span className="text-xs font-bold text-[#333] sm:text-sm">
+                  <span className="text-xs font-bold text-gray-200 sm:text-sm">
                     Expert Advice
                   </span>
                 </div>
@@ -235,11 +235,11 @@ export default function Connect() {
                     <Check
                       size={12}
                       strokeWidth={3}
-                      className="text-[#171717]"
+                      className="text-white"
                     />
                   </div>
 
-                  <span className="text-xs font-bold text-[#333] sm:text-sm">
+                  <span className="text-xs font-bold text-gray-200 sm:text-sm">
                     No Obligation
                   </span>
                 </div>
@@ -264,22 +264,22 @@ export default function Connect() {
 
               {/* TOP LEFT CONTACT CARD */}
 
-              <div className="absolute left-4 top-4 z-10 w-[190px] rounded-[18px] bg-white/95 p-4 shadow-[0_15px_35px_rgba(0,0,0,0.18)] backdrop-blur-md sm:left-6 sm:top-6 sm:w-[210px] sm:p-5">
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F8BC04] text-[#171717]">
+              <div className="absolute left-4 top-4 z-10 w-[190px] rounded-[18px] bg-black/95 p-4 shadow-[0_15px_35px_rgba(0,0,0,0.18)] backdrop-blur-md sm:left-6 sm:top-6 sm:w-[210px] sm:p-5">
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F8BC04] text-white">
                   <Phone size={17} strokeWidth={2.6} />
                 </div>
 
-                <h3 className="mt-3 text-sm font-bold leading-5 text-[#171717] sm:text-base">
+                <h3 className="mt-3 text-sm font-bold leading-5 text-white sm:text-base">
                   Speak With Our
                   <br />
                   Growth Experts
                 </h3>
 
-                <p className="mt-4 text-sm font-black text-[#171717] sm:text-base">
+                <p className="mt-4 text-sm font-black text-white sm:text-base">
                   +91 6289102537
                 </p>
 
-                <p className="mt-1.5 text-[10px] leading-4 text-[#777]">
+                <p className="mt-1.5 text-[10px] leading-4 text-gray-400">
                   Mon - Fri 9:00 AM - 9:00 PM (IST)
                 </p>
 
@@ -298,7 +298,7 @@ export default function Connect() {
                 href="https://wa.link/nms9wi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute bottom-4 right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-[#F8BC04] text-[#171717] shadow-[0_10px_25px_rgba(248,188,4,0.35)] transition-all duration-300 hover:scale-110 sm:bottom-6 sm:right-6 sm:h-12 sm:w-12"
+                className="absolute bottom-4 right-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-[#F8BC04] text-white shadow-[0_10px_25px_rgba(248,188,4,0.35)] transition-all duration-300 hover:scale-110 sm:bottom-6 sm:right-6 sm:h-12 sm:w-12"
                 aria-label="Connect on WhatsApp"
               >
                 <MessageCircle size={21} strokeWidth={2.4} />
@@ -312,7 +312,7 @@ export default function Connect() {
           CONTACT INFORMATION SECTION
       ========================= */}
 
-      <section className="bg-white px-1 py-1 sm:px-1 sm:py-1 lg:px-1 lg:py-1">
+      <section className="bg-black px-1 py-1 sm:px-1 sm:py-1 lg:px-1 lg:py-1">
         <motion.div
           initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -320,9 +320,9 @@ export default function Connect() {
           transition={{ duration: 0.7 }}
           className="mx-auto w-full max-w-[1500px]"
         >
-          <div className="rounded-[28px] border border-[#E8E8E8] bg-white p-6 shadow-[0_15px_50px_rgba(0,0,0,0.06)] sm:rounded-[32px] sm:p-8 md:p-10 lg:rounded-[40px] lg:p-14">
+          <div className="rounded-[28px] border border-white/10 bg-black p-6 shadow-[0_15px_50px_rgba(0,0,0,0.45)] sm:rounded-[32px] sm:p-8 md:p-10 lg:rounded-[40px] lg:p-14">
             <div className="text-center">
-              <h2 className="mt-3 text-[38px] font-black leading-[1.05] tracking-[-0.03em] text-[#171717] sm:text-[50px] md:text-[60px] lg:text-[68px]">
+              <h2 className="mt-3 text-[38px] font-black leading-[1.05] tracking-[-0.03em] text-white sm:text-[50px] md:text-[60px] lg:text-[68px]">
                 We’re Here to Help You{" "}
                 <span className="relative inline-block text-[#F8BC04]">
                   Grow
@@ -336,20 +336,20 @@ export default function Connect() {
             <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-6">
               {/* PHONE CARD */}
 
-              <div className="group rounded-[24px] border border-[#E8E8E8] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)]">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-[#171717] shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
+              <div className="group rounded-[24px] border border-white/10 bg-black p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.45)]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-white shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
                   <Phone size={27} strokeWidth={2.5} />
                 </div>
 
-                <h3 className="mt-6 text-xl font-bold text-[#171717]">
+                <h3 className="mt-6 text-xl font-bold text-white">
                   Phone
                 </h3>
 
-                <p className="mt-3 text-base font-bold text-[#555]">
+                <p className="mt-3 text-base font-bold text-gray-300">
                   +91 6289102537
                 </p>
 
-                <p className="mt-2 min-h-[48px] text-sm leading-6 text-[#777]">
+                <p className="mt-2 min-h-[48px] text-sm leading-6 text-gray-400">
                   Mon - Fri 9:00 AM - 9:00 PM (IST)
                 </p>
 
@@ -364,16 +364,16 @@ export default function Connect() {
 
               {/* EMAIL CARD */}
 
-              <div className="group rounded-[24px] border border-[#E8E8E8] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)]">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-[#171717] shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
+              <div className="group rounded-[24px] border border-white/10 bg-black p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.45)]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-white shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
                   <Mail size={27} strokeWidth={2.5} />
                 </div>
 
-                <h3 className="mt-6 text-xl font-bold text-[#171717]">
+                <h3 className="mt-6 text-xl font-bold text-white">
                   Email
                 </h3>
 
-                <p className="mt-3 break-all text-base font-bold text-[#555]">
+                <p className="mt-3 break-all text-base font-bold text-gray-300">
                   connect.bigbeans@gmail.com
                 </p>
              
@@ -394,20 +394,20 @@ export default function Connect() {
 
               {/* WHATSAPP CARD */}
 
-              <div className="group rounded-[24px] border border-[#E8E8E8] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)]">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-[#171717] shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
+              <div className="group rounded-[24px] border border-white/10 bg-black p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.45)]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-white shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
                   <MessageCircle size={27} strokeWidth={2.5} />
                 </div>
 
-                <h3 className="mt-6 text-xl font-bold text-[#171717]">
+                <h3 className="mt-6 text-xl font-bold text-white">
                   WhatsApp
                 </h3>
 
-                <p className="mt-3 text-base font-bold text-[#555]">
+                <p className="mt-3 text-base font-bold text-gray-300">
                   Chat with our team
                 </p>
 
-                <p className="mt-2 min-h-[48px] text-sm leading-6 text-[#777]">
+                <p className="mt-2 min-h-[48px] text-sm leading-6 text-gray-400">
                   Connect with us instantly on WhatsApp.
                 </p>
 
@@ -424,20 +424,20 @@ export default function Connect() {
 
               {/* BOOK MEETING CARD */}
 
-              <div className="group rounded-[24px] border border-[#E8E8E8] bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.08)]">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-[#171717] shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
+              <div className="group rounded-[24px] border border-white/10 bg-black p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04] hover:shadow-[0_15px_35px_rgba(0,0,0,0.45)]">
+                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#F8BC04] text-white shadow-[0_8px_20px_rgba(248,188,4,0.25)]">
                   <CalendarDays size={27} strokeWidth={2.5} />
                 </div>
 
-                <h3 className="mt-6 text-xl font-bold text-[#171717]">
+                <h3 className="mt-6 text-xl font-bold text-white">
                   Book a Meeting
                 </h3>
 
-                <p className="mt-3 text-base font-bold text-[#555]">
+                <p className="mt-3 text-base font-bold text-gray-300">
                   Schedule a free
                 </p>
 
-                <p className="mt-2 min-h-[48px] text-sm leading-6 text-[#777]">
+                <p className="mt-2 min-h-[48px] text-sm leading-6 text-gray-400">
                   Consultation call with our team.
                 </p>
 
@@ -460,7 +460,7 @@ export default function Connect() {
             GOOGLE MAP
       ========================= */}
 
-      <section className="bg-white px-4 pb-8 sm:px-6 sm:pb-10 lg:px-8 lg:pb-12">
+      <section className="bg-black px-4 pb-8 sm:px-6 sm:pb-10 lg:px-8 lg:pb-12">
         <motion.div
           initial={{
             opacity: 0,
@@ -495,10 +495,10 @@ export default function Connect() {
             SERVICES SECTION
       ========================= */}
 
-      <section className="overflow-hidden bg-white py-8 sm:py-10">
+      <section className="overflow-hidden bg-black py-8 sm:py-10">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-8 text-center sm:mb-10">
-            <h2 className="text-[36px] font-bold leading-tight text-[#171717] sm:text-[44px] md:text-6xl">
+            <h2 className="text-[36px] font-bold leading-tight text-white sm:text-[44px] md:text-6xl">
               Our Core Services
             </h2>
 
@@ -549,18 +549,18 @@ export default function Connect() {
                       <ArrowRight size={20} />
                     </div>
 
-                    <h3 className="mt-7 text-2xl font-black text-[#171717]">
+                    <h3 className="mt-7 text-2xl font-black text-white">
                       {service.title}
                     </h3>
 
-                    <p className="mt-4 leading-7 text-[#171717]/75">
+                    <p className="mt-4 leading-7 text-white/75">
                       {service.text}
                     </p>
                   </div>
 
                   <Link
                     href={service.url}
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#171717] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white hover:text-black"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#171717] px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-black hover:text-white"
                   >
                     Explore
                     <ArrowRight size={18} />
@@ -576,16 +576,16 @@ export default function Connect() {
             FAQ SECTION
       ========================= */}
 
-      <section className="bg-white py-8 sm:py-10">
+      <section className="bg-black py-8 sm:py-10">
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
           <div className="relative mb-10 text-center sm:mb-12 lg:mb-16">
             <div className="absolute left-1/2 top-0 h-16 w-16 -translate-x-1/2 rounded-full bg-[#F8BC04]/35 sm:h-24 sm:w-24" />
 
-            <p className="relative text-sm font-semibold uppercase tracking-[6px] text-gray-500">
+            <p className="relative text-sm font-semibold uppercase tracking-[6px] text-gray-400">
               CONTACT FAQS
             </p>
 
-            <h2 className="relative mt-3 text-[36px] font-black leading-[1.08] text-[#171717] sm:text-5xl md:text-6xl">
+            <h2 className="relative mt-3 text-[36px] font-black leading-[1.08] text-white sm:text-5xl md:text-6xl">
               Frequently Asked{" "}
               <span className="text-[#F8BC04]">Questions</span>
             </h2>
@@ -596,7 +596,7 @@ export default function Connect() {
               <motion.div
                 key={index}
                 layout
-                className="overflow-hidden rounded-[20px] border border-gray-300 bg-white"
+                className="overflow-hidden rounded-[20px] border border-white/10 bg-black"
               >
                 <button
                   onClick={() =>
@@ -604,7 +604,7 @@ export default function Connect() {
                   }
                   className="flex w-full items-center justify-between p-4 text-left sm:p-6"
                 >
-                  <span className="min-w-0 pr-2 text-[14px] font-semibold leading-5 text-[#171717] sm:text-[16px] sm:leading-6">
+                  <span className="min-w-0 pr-2 text-[14px] font-semibold leading-5 text-white sm:text-[16px] sm:leading-6">
                     {faq.q}
                   </span>
 
@@ -619,7 +619,7 @@ export default function Connect() {
                     animate={{ height: "auto", opacity: 1 }}
                     className="px-4 pb-5 sm:px-6 sm:pb-6"
                   >
-                    <p className="leading-relaxed text-gray-600">
+                    <p className="leading-relaxed text-gray-400">
                       {faq.a}
                     </p>
                   </motion.div>
@@ -634,22 +634,22 @@ export default function Connect() {
             GLOBAL PRESENCE SECTION
       ========================= */}
 
-      <section className="bg-white py-10">
+      <section className="bg-black py-10">
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
-          <div className="grid items-center gap-10 rounded-[28px] border border-gray-200 bg-white p-6 shadow-sm sm:p-10 lg:grid-cols-2 lg:gap-12 lg:rounded-[40px] lg:p-16">
+          <div className="grid items-center gap-10 rounded-[28px] border border-white/10 bg-black p-6 shadow-[0_15px_50px_rgba(0,0,0,0.45)] sm:p-10 lg:grid-cols-2 lg:gap-12 lg:rounded-[40px] lg:p-16">
             <div>
-              <p className="mb-6 text-sm font-semibold uppercase tracking-[6px] text-gray-500">
+              <p className="mb-6 text-sm font-semibold uppercase tracking-[6px] text-gray-400">
                 Global Presence
               </p>
 
-              <h2 className="text-4xl font-black leading-tight text-[#171717] sm:text-5xl lg:text-6xl">
+              <h2 className="text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
                 Digital Excellence in{" "}
                 <span className="text-[#F8BC04]">12+</span>
                 <br />
                 Locations
               </h2>
 
-              <p className="mt-6 max-w-xl text-base leading-8 text-gray-600 sm:text-lg">
+              <p className="mt-6 max-w-xl text-base leading-8 text-gray-400 sm:text-lg">
                 Our team works with businesses across India and international
                 markets, helping ambitious brands build stronger digital
                 experiences.
@@ -657,13 +657,13 @@ export default function Connect() {
 
               <div className="mt-10 grid gap-8 sm:grid-cols-2">
                 <div>
-                  <h3 className="text-xl font-bold text-[#171717]">
+                  <h3 className="text-xl font-bold text-white">
                     India Presence
                   </h3>
 
                   <div className="mb-5 mt-2 h-[2px] w-20 bg-[#F8BC04]" />
 
-                  <ul className="space-y-3 text-gray-700">
+                  <ul className="space-y-3 text-gray-300">
                     {[
                       "Kolkata",
                       "Delhi",
@@ -682,13 +682,13 @@ export default function Connect() {
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold text-[#171717]">
+                  <h3 className="text-xl font-bold text-white">
                     International Presence
                   </h3>
 
                   <div className="mb-5 mt-2 h-[2px] w-20 bg-[#F8BC04]" />
 
-                  <ul className="space-y-3 text-gray-700">
+                  <ul className="space-y-3 text-gray-300">
                     {[
                       "London",
                       "Singapore",
@@ -777,7 +777,7 @@ export default function Connect() {
             CTA SECTION
       ========================= */}
 
-      <section className="relative overflow-hidden bg-white px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
+      <section className="relative overflow-hidden bg-black px-4 py-14 sm:px-6 sm:py-20 lg:px-8 lg:py-24">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -811,7 +811,7 @@ export default function Connect() {
                   backgroundColor: "#FFD54A",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full rounded-full bg-[#F8BC04] px-7 py-4 text-center text-lg font-bold text-[#171717] shadow-[0_20px_50px_rgba(248,188,4,0.35)] transition-all duration-300 sm:w-auto sm:whitespace-nowrap sm:px-10 sm:py-5"
+                className="w-full rounded-full bg-[#F8BC04] px-7 py-4 text-center text-lg font-bold text-white shadow-[0_20px_50px_rgba(248,188,4,0.35)] transition-all duration-300 sm:w-auto sm:whitespace-nowrap sm:px-10 sm:py-5"
               >
                 Book Free Strategy Call
               </motion.button>
@@ -824,9 +824,9 @@ export default function Connect() {
             SITEMAP SECTION
       ========================= */}
 
-      <section className="w-full bg-white py-5 sm:py-6 md:py-5">
+      <section className="w-full bg-black py-5 sm:py-6 md:py-5">
         <div className="mx-auto w-full max-w-[1650px] px-4 sm:px-7 md:px-8 lg:px-10">
-          <h2 className="mb-5 text-[24px] font-bold leading-[1.2] tracking-[-0.02em] text-[#171717] sm:mb-7 sm:text-[30px] md:text-[34px] lg:text-[38px] xl:text-[42px]">
+          <h2 className="mb-5 text-[24px] font-bold leading-[1.2] tracking-[-0.02em] text-white sm:mb-7 sm:text-[30px] md:text-[34px] lg:text-[38px] xl:text-[42px]">
             Best Social Media Marketing Agency | Big Beans Digital
           </h2>
 
@@ -835,7 +835,7 @@ export default function Connect() {
               <Link
                 key={page.url}
                 href={page.url}
-                className="group inline-flex w-fit max-w-full items-center gap-2 rounded-full bg-[#FFF4C9] px-4 py-2 text-[13px] font-medium leading-none text-[#171717] no-underline transition-all duration-200 hover:bg-[#F8BC04] sm:text-[14px]"
+                className="group inline-flex w-fit max-w-full items-center gap-2 rounded-full bg-[#171717] px-4 py-2 text-[13px] font-medium leading-none text-white no-underline transition-all duration-200 hover:bg-[#F8BC04] sm:text-[14px]"
               >
                 <ExternalLink
                   size={14}

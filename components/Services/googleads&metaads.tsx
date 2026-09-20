@@ -1,2306 +1,2805 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+import {
+  ArrowRight,
+  ExternalLink,
+  Search,
+  Target,
+  MousePointerClick,
+  BarChart3,
+  TrendingUp,
+  Settings2,
+  Layers3,
+  Filter,
+  Users,
+  LineChart,
+  Megaphone,
+  RefreshCw,
+  CheckCircle2,
+  Gauge,
+  FileText,
+  Eye,
+  ShoppingCart,
+  UserCheck,
+  Database,
+  Smartphone,
+  Monitor,
+  ShieldCheck,
+  Code2,
+} from "lucide-react";
 
-export default function GoogleAdsMetaAds() {
-  const [activeTab, setActiveTab] = useState("search");
+const OurWork = dynamic(() => import("@/components/Recentwork"), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[300px] w-full animate-pulse rounded-2xl bg-white/[0.02]" />
+  ),
+});
 
-  const tabs = {
-    search: {
-      title: "Meta Ads",
-      heading: "Get More Customers Through Search Ads",
-      description:
-        "Appear exactly when potential customers are searching for your products or services. Our Google Search Ads campaigns are designed to generate qualified leads, increase conversions and maximize return on ad spend.",
-      image: "/assets/performancemarketing/bigbeansdigitalmetaads.png",
-    },
+interface FAQ {
+  q: string;
+  a: string;
+}
 
-    display: {
-      title: "Google Ads",
-      heading: "Build Brand Awareness At Scale",
-      description:
-        "Reach your ideal audience across millions of websites, apps and digital platforms. Display advertising helps businesses stay visible, build trust and drive consistent traffic through visually engaging campaigns.",
-      image: "/assets/performancemarketing/bigbeansdigitalgoogleads.png",
-    },
+interface CaseStudy {
+  id: number;
+  client: string;
+  objective: string;
+  image: string;
+  alt: string;
+  services: string[];
+}
 
-    video: {
-      title: "Youtube Ads",
-      heading: "Capture Attention With Video Marketing",
-      description:
-        "Video advertising helps brands tell compelling stories, increase engagement and generate more conversions. Reach customers across YouTube and premium video networks with highly targeted campaigns.",
-      image: "/assets/performancemarketing/bigbeansdigitalyoutubeads.png",
-    },
-  };
+interface PaidChannel {
+  id: string;
+  name: string;
+  eyebrow: string;
+  description: string;
+  image: string;
+  alt: string;
+  icon: React.ReactNode;
+}
 
-  const [activeWorkTab, setActiveWorkTab] = useState("meta");
+interface Industry {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  href: string;
+}
 
-  const workTabs = {
-    meta: {
-      title: "Meta Ads",
-      heading: "Meta Ads Campaign",
-      description: "Write your description here.",
-      image:
-        "/assets/performancemarketing/bigbeansdigitalmetaadsresults.png",
-    },
+interface BlogCard {
+  id: number;
+  image: string;
+  date: string;
+  primaryCategory: string;
+  title: string;
+  description: string;
+  link: string;
+  readTime: string;
+}
 
-    google: {
-      title: "Google Ads",
-      heading: "Google Ads Campaign",
-      description: "Write your description here.",
-      image:
-        "/assets/performancemarketing/bigbeansdigitalgoogleadsresults.png",
-    },
+interface MapPosition {
+  top: string;
+  left: string;
+}
 
-    youtube: {
-      title: "YouTube Ads",
-      heading: "YouTube Ads Campaign",
-      description: "Write your description here.",
-      image:
-        "/assets/performancemarketing/bigbeansdigitalyoutubeadsresults.png",
-    },
-  };
+interface TechnologyLogo {
+  name: string;
+  image: string;
+  alt: string;
+}
 
-  const [openFaq, setOpenFaq] = useState<number | null>(0);
+const caseStudies: CaseStudy[] = [
+  {
+    id: 1,
+    client: "Client Campaign 01",
+    objective: "Lead generation campaign",
+    image: "/assets/performance-marketing/case-studies/case-study-1.webp",
+    alt: "Performance marketing lead generation campaign",
+    services: ["Paid Search", "Lead Generation", "Conversion Tracking"],
+  },
+  {
+    id: 2,
+    client: "Client Campaign 02",
+    objective: "Ecommerce acquisition campaign",
+    image: "/assets/performance-marketing/case-studies/case-study-2.webp",
+    alt: "Performance marketing ecommerce campaign",
+    services: ["Meta Ads", "Shopping Ads", "Remarketing"],
+  },
+  {
+    id: 3,
+    client: "Client Campaign 03",
+    objective: "B2B demand generation",
+    image: "/assets/performance-marketing/case-studies/case-study-3.webp",
+    alt: "B2B performance marketing campaign",
+    services: ["LinkedIn Ads", "Lead Generation", "Analytics"],
+  },
+  {
+    id: 4,
+    client: "Client Campaign 04",
+    objective: "Product and website acquisition",
+    image: "/assets/performance-marketing/case-studies/case-study-4.webp",
+    alt: "Digital advertising campaign and analytics dashboard",
+    services: ["Google Ads", "YouTube Ads", "CRO"],
+  },
+];
 
-  const faqs = [
+const paidChannels: PaidChannel[] = [
+  {
+    id: "google",
+    name: "Google Ads",
+    eyebrow: "SEARCH / SHOPPING / DISPLAY / YOUTUBE",
+    description:
+      "Search, Shopping, Display and YouTube campaigns planned around intent, audience quality, conversion goals and measurable acquisition.",
+    image: "/assets/performance-marketing/platforms/google-ads.webp",
+    alt: "Google Ads campaign management",
+    icon: <Search className="h-6 w-6" />,
+  },
+  {
+    id: "meta",
+    name: "Meta Ads",
+    eyebrow: "FACEBOOK / INSTAGRAM",
+    description:
+      "Facebook and Instagram advertising for prospecting, lead generation, ecommerce acquisition, retargeting and customer re-engagement.",
+    image: "/assets/performance-marketing/platforms/meta-ads.webp",
+    alt: "Meta Ads campaign management",
+    icon: <Megaphone className="h-6 w-6" />,
+  },
+  {
+    id: "linkedin",
+    name: "LinkedIn Ads",
+    eyebrow: "B2B / LEAD GENERATION",
+    description:
+      "B2B targeting, lead generation and account-based campaigns designed around professional audiences, decision-makers and business intent.",
+    image: "/assets/performance-marketing/platforms/linkedin-ads.webp",
+    alt: "LinkedIn Ads campaign management",
+    icon: <Users className="h-6 w-6" />,
+  },
+  {
+    id: "youtube",
+    name: "YouTube Ads",
+    eyebrow: "VIDEO / AWARENESS / ACTION",
+    description:
+      "Video campaigns that connect audience targeting, creative messaging and measurable actions across the customer journey.",
+    image: "/assets/performance-marketing/platforms/youtube-ads.webp",
+    alt: "YouTube Ads campaign management",
+    icon: <Monitor className="h-6 w-6" />,
+  },
+  {
+    id: "display",
+    name: "Display Ads",
+    eyebrow: "REACH / REMARKETING",
+    description:
+      "Display campaigns for audience reach, remarketing and repeated exposure across relevant websites and digital properties.",
+    image: "/assets/performance-marketing/platforms/display-ads.webp",
+    alt: "Display advertising campaign management",
+    icon: <Layers3 className="h-6 w-6" />,
+  },
+  {
+    id: "shopping",
+    name: "Shopping Ads",
+    eyebrow: "ECOMMERCE / PRODUCT",
+    description:
+      "Product-led campaigns that connect catalogues, product feeds, search intent and ecommerce conversion journeys.",
+    image: "/assets/performance-marketing/platforms/shopping-ads.webp",
+    alt: "Shopping advertising campaign management",
+    icon: <ShoppingCart className="h-6 w-6" />,
+  },
+];
+
+// Industries Data
+const industries = [
+ {
+  id: "real-estate",
+  title: "Real Estate & Interior Decorators",
+  description: "Creating stunning digital experiences for spaces and lifestyles.",
+  image: "/industries/Real Estate & Interior Decorators.webp",
+  alt: "Real Estate and Interior Decorators",
+  href: "/services",
+},
+
+{
+  id: "travel-tourism",
+  title: "Travel and Tourism",
+  description: "Inspiring journeys with creative storytelling and digital campaigns.",
+  image: "/industries/Travel and Tourism.webp",
+  alt: "Travel and Tourism",
+  href: "/services",
+},
+
+{
+  id: "fmcg-brands",
+  title: "FMCG Brands",
+  description: "Building brands that become household names.",
+  image: "/industries/FMCG Brands.webp",
+  alt: "FMCG Brands",
+  href: "/services",
+},
+
+{
+  id: "bakery-restaurants",
+  title: "Bakery and Restaurants",
+  description: "Serving creativity for brands that serve happiness.",
+  image: "/industries/Bakery and Restaurants.webp",
+  alt: "Bakery and Restaurant Brands",
+  href: "/services",
+},
+
+{
+  id: "ecommerce",
+  title: "Ecommerce",
+  description: "Driving growth for online stores with scroll-stopping content.",
+  image: "/industries/ecommerce.webp",
+  alt: "Ecommerce Brands and Online Stores",
+  href: "/services",
+},
+
+{
+  id: "it-consultancy",
+  title: "IT & Consultancy",
+  description: "Simplifying complex ideas with impactful digital solutions.",
+  image: "/industries/IT & Consultancy.webp",
+  alt: "IT and Consultancy Services",
+  href: "/services",
+},
+];
+
+const blogCards: BlogCard[] = [
+  {
+    id: 1,
+    image: "/assets/blog/singleblogs/performance-marketing-guide.webp",
+    date: "August 28, 2026",
+    primaryCategory: "Performance Marketing",
+    title: "What Is Performance Marketing and How Does It Work?",
+    description:
+      "A practical guide to paid acquisition, conversion tracking, optimisation and measurable campaign outcomes.",
+    link: "/blog/what-is-performance-marketing",
+    readTime: "7 min read",
+  },
+  {
+    id: 2,
+    image: "/assets/blog/singleblogs/google-ads-optimization.webp",
+    date: "September 2, 2026",
+    primaryCategory: "Google Ads",
+    title: "How to Improve Google Ads Campaign Performance",
+    description:
+      "A practical look at search intent, campaign structure, creative, landing pages, bidding and conversion data.",
+    link: "/blog/google-ads-optimization",
+    readTime: "6 min read",
+  },
+  {
+    id: 3,
+    image: "/assets/blog/singleblogs/meta-ads-strategy.webp",
+    date: "September 6, 2026",
+    primaryCategory: "Meta Ads",
+    title: "A Practical Meta Ads Strategy for Lead Generation",
+    description:
+      "How audience structure, creative testing, lead forms, landing pages and remarketing work together.",
+    link: "/blog/meta-ads-lead-generation",
+    readTime: "6 min read",
+  },
+];
+
+const technologyRows: TechnologyLogo[][] = [
+  [
     {
-      question: "How can Google Ads help my business grow?",
-      answer:
-        "Google Ads connects your business with customers who are actively searching for your products or services. With the right strategy, it increases qualified traffic, generates high-quality leads, improves conversions, and delivers measurable return on investment.",
+      name: "Google Ads",
+      image: "/assets/technologies/google-ads.svg",
+      alt: "Google Ads",
     },
     {
-      question: "Should I choose Google Ads or Meta Ads?",
-      answer:
-        "Both platforms serve different goals. Google Ads captures users with strong buying intent, while Meta Ads helps build brand awareness, generate demand, and engage highly targeted audiences. Combining both often produces the strongest marketing results.",
+      name: "Meta Ads",
+      image: "/assets/technologies/meta.svg",
+      alt: "Meta",
     },
     {
-      question: "How much should I invest in paid advertising?",
-      answer:
-        "There is no fixed budget for every business. We recommend a budget based on your industry, competition, objectives, and expected return. Our team creates scalable campaigns that maximize every advertising rupee.",
+      name: "Google Analytics",
+      image: "/assets/technologies/google-analytics.svg",
+      alt: "Google Analytics",
     },
     {
-      question: "How long does it take to see results?",
-      answer:
-        "Many campaigns begin generating clicks and leads within the first few days. Meaningful optimization and consistent performance improvements generally occur over the first 30 to 90 days depending on competition and campaign goals.",
+      name: "Google Tag Manager",
+      image: "/assets/technologies/google-tag-manager.svg",
+      alt: "Google Tag Manager",
+    },
+  ],
+  [
+    {
+      name: "Looker Studio",
+      image: "/assets/technologies/looker-studio.svg",
+      alt: "Looker Studio",
     },
     {
-      question: "Do you manage existing advertising accounts?",
-      answer:
-        "Yes. Whether you already have active campaigns or need a completely new setup, we audit your account, improve campaign structure, optimize targeting, reduce wasted spend, and scale profitable campaigns.",
+      name: "LinkedIn",
+      image: "/assets/technologies/linkedin.svg",
+      alt: "LinkedIn",
     },
     {
-      question: "Can you generate leads for local businesses?",
-      answer:
-        "Absolutely. We create highly targeted local advertising campaigns using geographic targeting, audience segmentation, and conversion-focused landing strategies to generate quality local enquiries.",
+      name: "YouTube",
+      image: "/assets/technologies/youtube.svg",
+      alt: "YouTube",
     },
     {
-      question: "Will I receive campaign performance reports?",
-      answer:
-        "Yes. Every client receives transparent reporting with insights into impressions, clicks, conversions, cost per lead, return on ad spend, and continuous optimization recommendations.",
+      name: "WordPress",
+      image: "/assets/technologies/wordpress.svg",
+      alt: "WordPress",
+    },
+  ],
+  [
+    {
+      name: "Shopify",
+      image: "/assets/technologies/shopify.svg",
+      alt: "Shopify",
     },
     {
-      question: "Do you also create ad creatives?",
-      answer:
-        "Yes. Our team designs high-converting ad creatives, persuasive copy, compelling visuals, and optimized landing page recommendations to improve campaign performance.",
+      name: "HubSpot",
+      image: "/assets/technologies/hubspot.svg",
+      alt: "HubSpot",
     },
-  ];
+  ],
+];
+
+const mapPositions: MapPosition[] = [
+  { top: "42%", left: "67%" },
+  { top: "27%", left: "44%" },
+  { top: "28%", left: "18%" },
+  { top: "54%", left: "74%" },
+  { top: "65%", left: "84%" },
+];
+
+const performanceSlides = [
+  {
+    image: "/assets/performance-marketing/performance-1.webp",
+    alt: "Performance marketing campaign dashboard",
+  },
+  {
+    image: "/assets/performance-marketing/performance-2.webp",
+    alt: "Paid advertising analytics",
+  },
+  {
+    image: "/assets/performance-marketing/performance-3.webp",
+    alt: "Digital campaign optimisation",
+  },
+  {
+    image: "/assets/performance-marketing/performance-4.webp",
+    alt: "Lead generation campaign",
+  },
+  {
+    image: "/assets/performance-marketing/performance-5.webp",
+    alt: "Performance marketing reporting",
+  },
+];
+
+const strategySteps = [
+  {
+    number: "01",
+    title: "Research",
+    description: "Understand the market, audience, competitors and search intent.",
+    icon: <Search className="h-5 w-5" />,
+  },
+  {
+    number: "02",
+    title: "Strategy",
+    description: "Define channels, audiences, offers, budgets and conversion goals.",
+    icon: <Target className="h-5 w-5" />,
+  },
+  {
+    number: "03",
+    title: "Campaign Setup",
+    description: "Build campaigns, creatives, tracking, audiences and landing paths.",
+    icon: <Settings2 className="h-5 w-5" />,
+  },
+  {
+    number: "04",
+    title: "Traffic",
+    description: "Generate targeted traffic through relevant paid advertising channels.",
+    icon: <MousePointerClick className="h-5 w-5" />,
+  },
+  {
+    number: "05",
+    title: "Conversion",
+    description: "Turn qualified visits into leads, enquiries, purchases or actions.",
+    icon: <UserCheck className="h-5 w-5" />,
+  },
+  {
+    number: "06",
+    title: "Optimisation",
+    description: "Use campaign data to refine audiences, creative, bids and pages.",
+    icon: <LineChart className="h-5 w-5" />,
+  },
+  {
+    number: "07",
+    title: "Scale",
+    description: "Increase investment where performance data supports expansion.",
+    icon: <TrendingUp className="h-5 w-5" />,
+  },
+];
+
+const acquisitionSteps = [
+  {
+    title: "Ad Impression",
+    description: "A relevant person sees the campaign.",
+    icon: <Eye className="h-5 w-5" />,
+  },
+  {
+    title: "Click",
+    description: "The message creates enough intent to visit.",
+    icon: <MousePointerClick className="h-5 w-5" />,
+  },
+  {
+    title: "Landing Page",
+    description: "The visitor reaches a focused conversion experience.",
+    icon: <Monitor className="h-5 w-5" />,
+  },
+  {
+    title: "Lead",
+    description: "The visitor submits an enquiry or takes the target action.",
+    icon: <FileText className="h-5 w-5" />,
+  },
+  {
+    title: "Qualified Lead",
+    description: "The enquiry matches the agreed customer criteria.",
+    icon: <UserCheck className="h-5 w-5" />,
+  },
+  {
+    title: "Customer",
+    description: "The acquisition journey reaches a business outcome.",
+    icon: <CheckCircle2 className="h-5 w-5" />,
+  },
+];
+
+const retargetingSteps = [
+  {
+    title: "Visitor",
+    description: "A person interacts with the website or product.",
+    icon: <Users className="h-5 w-5" />,
+  },
+  {
+    title: "Leaves Website",
+    description: "The person leaves without completing the target action.",
+    icon: <ExternalLink className="h-5 w-5" />,
+  },
+  {
+    title: "Retargeting Ad",
+    description: "A relevant follow-up message brings the brand back into view.",
+    icon: <RefreshCw className="h-5 w-5" />,
+  },
+  {
+    title: "Returns",
+    description: "The visitor comes back through a relevant campaign.",
+    icon: <MousePointerClick className="h-5 w-5" />,
+  },
+  {
+    title: "Conversion",
+    description: "The returning visitor completes the intended action.",
+    icon: <CheckCircle2 className="h-5 w-5" />,
+  },
+];
+
+
+const leftFaqs: FAQ[] = [
+  {
+    q: "What social media marketing services do you offer?",
+    a: "Big Beans Digital provides full-lifecycle social media solutions for startups and enterprises across India, the US, and the UK. Our scope includes visual feed architecture, algorithm-specific short-form Reels & TikTok production, organic growth strategy, community management, and synchronized paid social campaigns.",
+  },
+  {
+    q: "How do I find the best social media marketing agency near me?",
+    a: "Beyond physical proximity, evaluate verified case studies, aesthetic consistency, conversion tracking transparency, and strategic depth. Big Beans Digital operates a distributed agile team delivering high-touch collaboration regardless of whether you are based in London, Kolkata, Delhi, or New York.",
+  },
+  {
+    q: "Why choose Big Beans Digital over traditional agencies?",
+    a: "Traditional agencies separate creative thinking from performance metrics. We merge branding, web engineering, and performance marketing into a single unit so every dollar spent directly advances brand equity and customer acquisition.",
+  },
+  {
+    q: "Do you engineer conversion-focused websites for startups?",
+    a: "Yes. We build responsive, fast headless websites using modern frameworks (Next.js, Tailwind CSS) optimized for sub-second load times, technical SEO compliance, and conversion funnels designed to turn traffic into pipeline.",
+  },
+  {
+    q: "How does performance marketing work with your team?",
+    a: "We deploy rigorous quantitative testing across Google Ads, Meta Ads, and PPC remarketing funnels. We focus on true business levers—CAC, ROAS, and customer lifetime value—rather than vanity impressions.",
+  },
+  {
+    q: "What does an engagement cost?",
+    a: "We offer tailored milestone or retainer engagements based on growth objectives, required content cadence, and ad spend scale. Schedule a consultation call to receive an honest, transparent roadmap.",
+  },
+];
+
+const rightFaqs: FAQ[] = [
+  {
+    q: "What industries do you work with?",
+    a: "We work with businesses across sectors including real estate, healthcare, restaurants, ecommerce, education, professional services, home improvement, gyms, FMCG, and other growth-focused businesses.",
+  },
+  {
+    q: "Can you manage both organic social media and paid advertising?",
+    a: "Yes. Our team can manage organic social media strategy and content alongside paid campaigns on platforms such as Meta and Google. This allows creative, audience targeting, messaging, and performance data to work together.",
+  },
+  {
+    q: "How long does it take to see results from social media marketing?",
+    a: "The timeline depends on your industry, starting position, content quality, audience, and objectives. Organic growth generally requires consistent execution over time, while paid campaigns can generate measurable traffic and leads much sooner.",
+  },
+  {
+    q: "Do you provide content creation and graphic design?",
+    a: "Yes. Our social media services can include creative direction, graphic design, short-form video concepts, social media creatives, campaign content, and platform-specific content planning.",
+  },
+  {
+    q: "Do you provide SEO and website optimization?",
+    a: "Yes. We can integrate technical SEO, on-page optimization, content strategy, conversion-focused landing pages, and website improvements into a broader digital marketing strategy.",
+  },
+  {
+    q: "How can I get started with Big Beans Digital?",
+    a: "Start by sharing your business, current challenges, goals, target audience, and the services you are looking for. We can then discuss the right approach, scope, milestones, and next steps for your project.",
+  },
+];
+
+function FAQItem({
+  faq,
+  index,
+  openFaq,
+  setOpenFaq,
+}: {
+  faq: FAQ;
+  index: number;
+  openFaq: number | null;
+  setOpenFaq: (value: number | null) => void;
+}) {
+  const isOpen = openFaq === index;
 
   return (
-    <main className="w-full overflow-x-hidden">
-      {/* =========================================================
-          BREADCRUMB
-      ========================================================= */}
+    <div className="w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] transition-colors hover:border-white/20 sm:rounded-2xl">
+      <button
+        type="button"
+        onClick={() => setOpenFaq(isOpen ? null : index)}
+        className="flex min-h-[84px] w-full items-center justify-between gap-4 px-5 py-5 text-left sm:px-6 sm:py-6"
+        aria-expanded={isOpen}
+      >
+        <span className="flex-1 font-bold text-white">{faq.q}</span>
 
-      <section className="w-full bg-white py-6 sm:py-8 lg:py-10">
-        <div className="mx-auto flex max-w-7xl justify-center px-4 sm:px-6">
-          <div className="inline-flex max-w-full items-center gap-2 rounded-full bg-white px-4 py-3 text-sm shadow-[0_8px_24px_rgba(0,0,0,0.08)] sm:gap-3 sm:px-8 sm:py-4 sm:text-base">
-            <Link
-              href="/"
-              className="shrink-0 text-gray-700 transition-colors duration-300 hover:text-[#F8BC04]"
-            >
-              Home
-            </Link>
+        <span
+          className={
+            isOpen
+              ? "flex h-7 w-7 shrink-0 rotate-45 items-center justify-center rounded-full border border-white/10 bg-[#F8BC04] text-xs font-bold text-black transition-transform duration-300 sm:h-8 sm:w-8 sm:text-sm"
+              : "flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs font-bold text-white/80 transition-transform duration-300 sm:h-8 sm:w-8 sm:text-sm"
+          }
+        >
+          +
+        </span>
+      </button>
 
-            <span className="shrink-0 text-[#F8BC04] text-lg">→</span>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="border-t border-white/5 px-5 pb-5 pt-1 text-white/70 sm:px-6 sm:pb-6">
+              {faq.a}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
-            <span className="truncate font-semibold text-black">
-              Performance Marketing
-            </span>
+function DashboardMetric({
+  label,
+  value,
+  change,
+  icon,
+}: {
+  label: string;
+  value: string;
+  change?: string;
+  icon: React.ReactNode;
+}) {
+  return (
+    <div className="rounded-2xl border border-white/10 bg-[#0d0d0d] p-4 sm:p-5">
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/45">
+          {label}
+        </span>
+        <span className="text-[#F8BC04]">{icon}</span>
+      </div>
+      <div className="mt-3 text-xl font-bold text-white sm:text-2xl">
+        {value}
+      </div>
+      {change && (
+        <div className="mt-1 text-[11px] text-white/40">{change}</div>
+      )}
+    </div>
+  );
+}
+
+function CampaignDashboard({
+  compact = false,
+}: {
+  compact?: boolean;
+}) {
+  return (
+    <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#080808] p-4 shadow-[0_30px_100px_rgba(0,0,0,0.45)] sm:p-6">
+      <div className="absolute right-0 top-0 h-52 w-52 rounded-full bg-[#F8BC04]/10 blur-3xl" />
+
+      <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4">
+        <div>
+          <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#F8BC04]">
+            PERFORMANCE DASHBOARD
+          </div>
+          <div className="mt-1 text-sm font-bold text-white">
+            Campaign Overview
           </div>
         </div>
+
+        <div className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[10px] text-white/50">
+          Live Data UI
+        </div>
+      </div>
+
+      <div className="relative z-10 mt-4 grid grid-cols-2 gap-3">
+        <DashboardMetric
+          label="ROAS"
+          value="—"
+          change="Account data"
+          icon={<TrendingUp className="h-4 w-4" />}
+        />
+        <DashboardMetric
+          label="CPA"
+          value="—"
+          change="Account data"
+          icon={<Gauge className="h-4 w-4" />}
+        />
+        <DashboardMetric
+          label="CPL"
+          value="—"
+          change="Account data"
+          icon={<Target className="h-4 w-4" />}
+        />
+        <DashboardMetric
+          label="Conversion Rate"
+          value="—"
+          change="Account data"
+          icon={<BarChart3 className="h-4 w-4" />}
+        />
+      </div>
+
+      <div className="relative z-10 mt-3 grid grid-cols-2 gap-3">
+        <DashboardMetric
+          label="Leads"
+          value="—"
+          change="Tracked conversions"
+          icon={<Users className="h-4 w-4" />}
+        />
+        <DashboardMetric
+          label="Revenue"
+          value="—"
+          change="Where ecommerce tracking applies"
+          icon={<ShoppingCart className="h-4 w-4" />}
+        />
+      </div>
+
+      {!compact && (
+        <div className="relative z-10 mt-4 rounded-2xl border border-white/10 bg-white/[0.02] p-4">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-bold text-white">
+              Conversion Trend
+            </span>
+            <LineChart className="h-4 w-4 text-[#F8BC04]" />
+          </div>
+
+          <div className="mt-5 flex h-28 items-end gap-2">
+            {[28, 42, 34, 55, 48, 68, 60, 82, 74, 92, 80, 100].map(
+              (height, index) => (
+                <div
+                  key={index}
+                  className="flex-1 rounded-t-sm bg-[#F8BC04]/70 transition-all duration-300 hover:bg-[#F8BC04]"
+                  style={{ height: `${height}%` }}
+                />
+              )
+            )}
+          </div>
+
+          <div className="mt-3 flex justify-between text-[9px] uppercase tracking-widest text-white/25">
+            <span>Period Start</span>
+            <span>Period End</span>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function StrategyStep({
+  number,
+  title,
+  description,
+  icon,
+  index,
+}: {
+  number: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  index: number;
+}) {
+  return (
+    <div className="group relative">
+      <div className="flex items-center gap-3">
+        <div className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#F8BC04]/60 bg-black text-[#F8BC04] transition-colors group-hover:bg-[#F8BC04] group-hover:text-black">
+          {icon}
+        </div>
+
+        <span className="text-[10px] font-black tracking-[0.16em] text-[#F8BC04]">
+          {number}
+        </span>
+      </div>
+
+      <div className="mt-5">
+        <h3 className="font-bold text-white">{title}</h3>
+        <p className="mt-2 text-sm leading-relaxed text-white/55">
+          {description}
+        </p>
+      </div>
+
+      {index < 6 && (
+        <div className="absolute left-12 top-12 hidden h-px w-[calc(100%-48px)] bg-white/10 lg:block" />
+      )}
+    </div>
+  );
+}
+
+export default function PerformanceMarketingPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [performanceSlide, setPerformanceSlide] = useState(0);
+  const [activePrimaryChannel, setActivePrimaryChannel] = useState("google");
+  const [activeSecondaryChannel, setActiveSecondaryChannel] = useState("youtube");
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setPerformanceSlide(
+        (current) => (current + 1) % performanceSlides.length
+      );
+    }, 4500);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  return (
+    <main className="min-h-screen bg-black text-white [&_*]:box-border">
+      <style>{`
+        h1 {
+          font-size: 50px !important;
+        }
+
+        h2 {
+          font-size: 30px !important;
+        }
+
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-size: 20px !important;
+        }
+
+        p {
+          font-size: 20px !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+          font-family: Arial, Helvetica, sans-serif;
+          letter-spacing: normal !important;
+        }
+
+        h1 .highlight-font,
+        h2 .highlight-font,
+        h3 .highlight-font,
+        h4 .highlight-font,
+        h5 .highlight-font,
+        h6 .highlight-font {
+          font-family: Georgia, "Times New Roman", serif !important;
+          font-style: italic;
+          font-weight: 400;
+          letter-spacing: normal !important;
+        }
+
+        p {
+          text-align: justify !important;
+          text-align-last: left !important;
+        }
+
+        .pm-section {
+          padding-top: 90px;
+          padding-bottom: 90px;
+        }
+
+        .pm-hero-image {
+          animation: pmHeroFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes pmHeroFloat {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        .pm-slider-track {
+          animation: pmSlider 35s linear infinite;
+        }
+
+        @keyframes pmSlider {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        .pm-slider-wrapper:hover .pm-slider-track {
+          animation-play-state: paused;
+        }
+
+        .pm-step-grid {
+          display: grid;
+          grid-template-columns: repeat(7, minmax(0, 1fr));
+          gap: 28px;
+        }
+
+        .pm-step-line {
+          position: absolute;
+          left: 6%;
+          right: 6%;
+          top: 24px;
+          height: 1px;
+          background: rgba(255,255,255,0.14);
+        }
+
+        .pm-acquisition-timeline {
+          width: 100%;
+        }
+
+        .pm-acquisition-grid {
+          position: relative;
+          display: grid;
+          grid-template-columns: repeat(6, minmax(0, 1fr));
+          gap: 24px;
+        }
+
+        .pm-acquisition-line {
+          position: absolute;
+          left: 8.33%;
+          right: 8.33%;
+          top: 28px;
+          height: 1px;
+          background: linear-gradient(90deg, rgba(248,188,4,0.15), rgba(248,188,4,0.55), rgba(248,188,4,0.15));
+          transform-origin: left center;
+        }
+
+        .pm-acquisition-step {
+          min-width: 0;
+          text-align: center;
+        }
+
+        .pm-acquisition-icon {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          width: 56px;
+          height: 56px;
+          margin: 0 auto;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(248,188,4,0.65);
+          border-radius: 999px;
+          background: #050505;
+          color: #F8BC04;
+          box-shadow: 0 0 0 8px #000, 0 0 24px rgba(248,188,4,0.08);
+        }
+
+        .pm-before-after {
+          position: relative;
+          overflow: hidden;
+          border: 1px solid rgba(255,255,255,0.10);
+          border-radius: 24px;
+          background: #090909;
+        }
+
+        .pm-callout {
+          position: absolute;
+          z-index: 4;
+          border: 1px solid rgba(248,188,4,0.45);
+          border-radius: 999px;
+          background: rgba(0,0,0,0.82);
+          padding: 8px 12px;
+          font-size: 10px;
+          font-weight: 800;
+          color: #F8BC04;
+          backdrop-filter: blur(10px);
+        }
+
+        .pm-report-grid {
+          display: grid;
+          grid-template-columns: 1.2fr 0.8fr;
+          gap: 14px;
+        }
+
+        .pm-report-bar {
+          height: 10px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.08);
+          overflow: hidden;
+        }
+
+        .pm-report-bar > span {
+          display: block;
+          height: 100%;
+          border-radius: inherit;
+          background: #F8BC04;
+        }
+
+        .pm-retarget-path {
+          position: relative;
+        }
+
+        .pm-retarget-path::before {
+          content: "";
+          position: absolute;
+          left: 8%;
+          right: 8%;
+          top: 31px;
+          height: 1px;
+          background: rgba(255,255,255,0.12);
+        }
+
+        .pm-technology-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+        }
+
+        .pm-technology-item {
+          display: flex;
+          min-width: 0;
+          align-items: center;
+          gap: 20px;
+          color: #fff;
+        }
+
+        .pm-technology-image-wrap {
+          position: relative;
+          width: 74px;
+          height: 74px;
+          flex: 0 0 74px;
+        }
+
+        .pm-technology-image {
+          object-fit: contain;
+          object-position: center;
+          filter: brightness(0) invert(1);
+        }
+
+        .pm-technology-name {
+          white-space: nowrap;
+          font-family: Arial, Helvetica, sans-serif !important;
+          font-size: clamp(20px, 1.8vw, 32px);
+          line-height: 1;
+          font-weight: 600;
+          color: #fff;
+        }
+
+        @media (max-width: 1100px) {
+          .pm-step-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            row-gap: 50px;
+          }
+
+          .pm-step-line {
+            display: none;
+          }
+
+          .pm-report-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .pm-section {
+            padding-top: 60px;
+            padding-bottom: 60px;
+          }
+
+          h1 {
+            font-size: 50px !important;
+          }
+
+          h2 {
+            font-size: 30px !important;
+          }
+
+          h3,
+          h4,
+          h5,
+          h6 {
+            font-size: 20px !important;
+          }
+
+          p {
+            font-size: 20px !important;
+          }
+
+          .pm-hero-image {
+            animation: none;
+          }
+
+          .pm-step-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 30px 20px;
+          }
+
+          .pm-acquisition-grid {
+            grid-template-columns: 1fr;
+            gap: 34px;
+          }
+
+          .pm-acquisition-line {
+            top: 28px;
+            bottom: 28px;
+            left: 50%;
+            right: auto;
+            width: 1px;
+            height: auto;
+            background: linear-gradient(180deg, rgba(248,188,4,0.15), rgba(248,188,4,0.55), rgba(248,188,4,0.15));
+          }
+
+          .pm-retarget-path::before {
+            display: none;
+          }
+
+          .pm-technology-row {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px 18px;
+          }
+
+          .pm-technology-item {
+            gap: 12px;
+          }
+
+          .pm-technology-image-wrap {
+            width: 48px;
+            height: 48px;
+            flex-basis: 48px;
+          }
+
+          .pm-technology-name {
+            font-size: 17px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .pm-hero-image,
+          .pm-slider-track {
+            animation: none;
+          }
+        }
+      `}</style>
+
+      {/* 1. BREADCRUMB */}
+      <section className="relative bg-black px-4 py-5">
+        <nav
+          className="mx-auto flex max-w-[1550px] items-center justify-center gap-4 text-sm text-white"
+          aria-label="Breadcrumb"
+        >
+          <Link
+            href="/"
+            className="text-white transition-colors hover:text-[#F8BC04]"
+          >
+            Home
+          </Link>
+
+          <span className="text-lg text-[#e5a400]">→</span>
+
+          <span className="font-bold text-white">Performance Marketing</span>
+        </nav>
       </section>
 
-      {/* =========================================================
-          PERFORMANCE MARKETING RESULTS CTA
-      ========================================================= */}
+      {/* 2. HERO */}
+      <section className="pm-section relative overflow-hidden bg-black">
+        <div className="mx-auto grid max-w-[1550px] grid-cols-1 items-center gap-10 px-5 sm:px-8 lg:grid-cols-12 lg:gap-14">
+          <div className="relative z-20 lg:col-span-6">
+            <span className="text-xs font-black uppercase tracking-[0.25em] text-[#F8BC04] sm:text-sm">
+              [ PERFORMANCE MARKETING ]
+            </span>
 
-      <section className="relative overflow-hidden bg-white py-2 sm:py-4 lg:py-6">
-        {/* BACKGROUND GLOW */}
+            <h1 className="mt-5 font-bold leading-[0.96] tracking-[-1.5px]">
+              <span className="block text-white">Advertising Built</span>
+              <span className="highlight-font block text-[#F8BC04]">
+                Around Results
+              </span>
+            </h1>
 
-        <motion.div
-          animate={{
-            y: [-20, 20, -20],
-            x: [0, 20, 0],
-            scale: [1, 1.08, 1],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="pointer-events-none absolute -right-40 top-20 h-72 w-72 rounded-full bg-[#F8BC04]/10 blur-[100px] sm:-right-24 sm:h-96 sm:w-96 sm:blur-[120px]"
-        />
+            <p className="mt-6 max-w-[680px] leading-relaxed text-white/70">
+              Big Beans Digital plans and manages performance marketing
+              campaigns around measurable business goals. We connect audience
+              research, paid advertising, conversion tracking, landing pages
+              and continuous optimisation so your advertising budget is tied to
+              real actions.
+            </p>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-10">
-          <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
-            {/* =====================================================
-                LEFT CONTENT
-            ===================================================== */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: -80,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-              transition={{
-                duration: 0.9,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-            >
-              {/* BADGE */}
-
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.6,
-                }}
-                className="inline-flex max-w-full items-center gap-2 rounded-full border border-[#F8BC04]/30 bg-black px-4 py-2 text-xs font-semibold text-[#F8BC04] shadow-sm sm:gap-3 sm:px-5 sm:py-2.5 sm:text-sm"
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/connect"
+                className="inline-flex items-center justify-between gap-6 rounded-full bg-[#F8BC04] px-7 py-3.5 text-sm font-extrabold text-black transition-all duration-300 hover:scale-105 hover:bg-white"
               >
-                <span className="text-base">👉</span>
+                <span>Plan Your Campaign</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
 
-                <span>
-                  Growing Performance Marketing Agency in London
-                </span>
-              </motion.div>
-
-              {/* HEADING */}
-
-              <motion.h2
-                initial={{
-                  opacity: 0,
-                  y: 30,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.1,
-                }}
-                className="mt-6 max-w-[680px] text-4xl font-black leading-[1.05] tracking-tight text-[#171717] sm:mt-7 sm:text-5xl lg:text-5xl xl:text-[54px]"
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#F8BC04] hover:text-[#F8BC04]"
               >
-                <span className="block">Performance</span>
+                Explore Our Services
+              </Link>
+            </div>
 
-                <span className="block">Marketing Agency in India</span>
-
-                <span className="block text-[#F8BC04]">
-                  Real ROI, Zero Guesswork
-                </span>
-              </motion.h2>
-
-              {/* DESCRIPTION */}
-
-              <motion.p
-                initial={{
-                  opacity: 0,
-                  y: 25,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.2,
-                }}
-                className="mt-5 max-w-xl text-base leading-7 text-neutral-600 sm:mt-6 sm:text-lg sm:leading-8"
-              >
-                BIGBEANS DIGITAL is a performance marketing agency in India
-                that builds data-driven ad campaigns across Google, Meta,
-                LinkedIn, and YouTube — delivering measurable leads, sales,
-                and ROI for 1,500+ brands. We don't just run ads. We build
-                profit machines.
-              </motion.p>
-
-              {/* METRIC PILLS */}
-
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 25,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.3,
-                }}
-                className="-mx-4 mt-6 flex gap-2 overflow-x-auto px-4 pb-2 scrollbar-hide sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0"
-                style={{
-                  scrollbarWidth: "none",
-                  msOverflowStyle: "none",
-                }}
-              >
-                {[
-                  {
-                    value: "5×",
-                    text: "ROAS for E-commerce",
-                  },
-                  {
-                    value: "60%",
-                    text: "Higher Conversions",
-                  },
-                  {
-                    value: "35%",
-                    text: "Lower CPL",
-                  },
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{
-                      y: -4,
-                      scale: 1.03,
-                    }}
-                    transition={{
-                      duration: 0.25,
-                    }}
-                    className="min-w-max rounded-xl border border-emerald-200 bg-emerald-50/60 px-3 py-2.5 text-sm sm:px-4 sm:py-3"
-                  >
-                    <span className="font-black text-emerald-600">
-                      {item.value}
-                    </span>
-
-                    <span className="ml-2 text-xs text-[#171717]">
-                      {item.text}
-                    </span>
-                  </motion.div>
-                ))}
-              </motion.div>
-
-              {/* STATS */}
-
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 25,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.4,
-                }}
-                className="mt-6 grid max-w-lg grid-cols-3 gap-3 sm:gap-5"
-              >
-                <div>
-                  <div className="text-xl font-black text-[#F8BC04] sm:text-2xl">
-                    ₹1Cr+
-                  </div>
-
-                  <p className="mt-1 text-[10px] text-neutral-500 sm:text-xs">
-                    Ad Spend Managed
-                  </p>
+            <div className="mt-8 grid max-w-[650px] grid-cols-3 gap-3">
+              <div className="border-l border-[#F8BC04] pl-3">
+                <div className="text-lg font-bold text-white">DATA</div>
+                <div className="mt-1 text-xs text-white/50">
+                  Measured Decisions
                 </div>
+              </div>
 
-                <div>
-                  <div className="text-xl font-black text-[#F8BC04] sm:text-2xl">
-                    1500+
-                  </div>
-
-                  <p className="mt-1 text-[10px] text-neutral-500 sm:text-xs">
-                    Clients Served
-                  </p>
+              <div className="border-l border-[#F8BC04] pl-3">
+                <div className="text-lg font-bold text-white">PAID</div>
+                <div className="mt-1 text-xs text-white/50">
+                  Targeted Traffic
                 </div>
+              </div>
 
-                <div>
-                  <div className="text-xl font-black text-[#F8BC04] sm:text-2xl">
-                    93K+
-                  </div>
-
-                  <p className="mt-1 text-[10px] text-neutral-500 sm:text-xs">
-                    Clicks Delivered
-                  </p>
+              <div className="border-l border-[#F8BC04] pl-3">
+                <div className="text-lg font-bold text-white">CRO</div>
+                <div className="mt-1 text-xs text-white/50">
+                  Better Conversion
                 </div>
-              </motion.div>
+              </div>
+            </div>
+          </div>
 
-              {/* BUTTONS */}
+          <div className="relative min-h-[500px] lg:col-span-6">
+            <div className="pm-hero-image absolute inset-0 flex items-center justify-center">
+              <div className="relative h-[480px] w-full max-w-[720px]">
+                <Image
+                  src="/assets/performance-marketing/hero.webp"
+                  alt="Performance marketing campaign dashboard"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-contain"
+                />
+              </div>
+            </div>
 
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 30,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.5,
-                }}
-                className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
-              >
-                {/* GET FREE PERFORMANCE AUDIT */}
-
-                <motion.a
-                  href="#"
-                  whileHover={{
-                    scale: 1.04,
-                    y: -4,
-                    boxShadow:
-                      "0px 20px 45px rgba(248,188,4,0.30)",
-                  }}
-                  whileTap={{
-                    scale: 0.97,
-                  }}
-                  className="inline-flex w-full items-center justify-center rounded-xl bg-[#F8BC04] px-6 py-3.5 font-bold text-[#171717] transition-all sm:w-auto sm:px-7 sm:py-4"
-                >
-                  Get Free Performance Audit
-
-                  <span className="ml-2 text-lg">→</span>
-                </motion.a>
-
-                {/* SEE REAL RESULTS */}
-
-                <motion.a
-                  href="#recent-results"
-                  whileHover={{
-                    scale: 1.04,
-                    y: -4,
-                    backgroundColor: "#fffaf0",
-                  }}
-                  whileTap={{
-                    scale: 0.97,
-                  }}
-                  className="inline-flex w-full items-center justify-center rounded-xl border border-[#171717]/30 bg-white px-6 py-3.5 font-bold text-[#171717] transition-all sm:w-auto sm:px-7 sm:py-4"
-                >
-                  See Real Results
-                </motion.a>
-              </motion.div>
-            </motion.div>
-
-            {/* =====================================================
-                RIGHT VISUAL
-            ===================================================== */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 80,
-                scale: 0.92,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-                scale: 1,
-              }}
-              viewport={{
-                once: true,
-                amount: 0.2,
-              }}
-              transition={{
-                duration: 1,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="relative flex min-h-0 items-center justify-center lg:min-h-[560px]"
-            >
-              {/* RIGHT DASHBOARD CARD */}
-
-              <motion.div
-                animate={{
-                  y: [0, -8, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="relative w-full max-w-[660px] rounded-[28px] border border-slate-300 bg-[#F8FAFC] p-3 sm:rounded-[36px] sm:p-4 lg:rounded-[44px] lg:p-5"
-              >
-                {/* DASHBOARD HEADER */}
-
-                <div className="flex items-center gap-2 px-1 pb-3 sm:gap-3 sm:pb-4">
-                  <motion.span
-                    animate={{
-                      scale: [1, 1.25, 1],
-                      opacity: [1, 0.6, 1],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                    }}
-                    className="h-2 w-2 shrink-0 rounded-full bg-emerald-500"
-                  />
-
-                  <span className="text-xs font-bold text-[#171717] sm:text-sm">
-                    Results We Deliver
-                  </span>
-                </div>
-
-                {/* ROAS CARD */}
-
-                <motion.div
-                  whileHover={{
-                    scale: 1.015,
-                  }}
-                  className="relative overflow-hidden rounded-xl bg-gradient-to-br from-[#F8BC04] to-[#FFD83D] p-4 shadow-sm sm:rounded-2xl sm:p-6"
-                >
-                  <div className="relative z-10">
-                    <div className="flex items-start justify-between gap-3">
-                      <div>
-                        <motion.div
-                          initial={{
-                            opacity: 0,
-                            y: 10,
-                          }}
-                          whileInView={{
-                            opacity: 1,
-                            y: 0,
-                          }}
-                          viewport={{
-                            once: true,
-                          }}
-                          transition={{
-                            duration: 0.6,
-                          }}
-                          className="text-2xl font-black tracking-tight text-[#171717] sm:text-4xl"
-                        >
-                          5.2x ROAS
-                        </motion.div>
-
-                        <p className="mt-1 text-xs font-medium text-[#171717] sm:text-sm">
-                          Average Client Return
-                        </p>
-                      </div>
-
-                      <div className="rounded-full bg-white/70 px-2 py-1 text-[8px] font-bold text-[#171717] shadow-sm sm:px-3 sm:py-1.5 sm:text-[10px]">
-                        ↗ +32% this month
-                      </div>
-                    </div>
-
-                    {/* ANIMATED BAR CHART */}
-
-                    <div className="mt-6 flex h-[65px] items-end gap-1.5 sm:mt-10 sm:h-[90px] sm:gap-2">
-                      {[30, 48, 62, 57, 82, 70].map((height, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{
-                            height: 0,
-                            opacity: 0,
-                          }}
-                          whileInView={{
-                            height: `${height}%`,
-                            opacity: 1,
-                          }}
-                          viewport={{
-                            once: true,
-                          }}
-                          transition={{
-                            duration: 0.8,
-                            delay: 0.2 + index * 0.1,
-                            ease: [0.22, 1, 0.36, 1],
-                          }}
-                          animate={{
-                            scaleY: [1, 1.04, 1],
-                          }}
-                          className="flex-1 origin-bottom rounded-t-lg bg-white/75"
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* CHART GLOW */}
-
-                  <motion.div
-                    animate={{
-                      x: ["-100%", "150%"],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      repeatDelay: 3,
-                      ease: "easeInOut",
-                    }}
-                    className="pointer-events-none absolute inset-y-0 w-20 rotate-12 bg-white/20 blur-xl"
-                  />
-                </motion.div>
-
-                {/* PLATFORM CARDS */}
-
-                <div className="mt-3 grid grid-cols-2 gap-2.5 sm:mt-4 sm:gap-4">
-                  {/* GOOGLE ADS */}
-
-                  <motion.div
-                    whileHover={{
-                      y: -5,
-                      scale: 1.02,
-                    }}
-                    transition={{
-                      duration: 0.25,
-                    }}
-                    className="rounded-xl border border-[#F8BC04]/30 bg-[#FFF9E8] p-3 shadow-sm sm:rounded-2xl sm:p-4"
-                  >
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white text-base shadow-sm sm:h-9 sm:w-9 sm:rounded-xl sm:text-lg">
-                      🔺
-                    </div>
-
-                    <h4 className="mt-3 text-sm font-bold text-[#F8BC04] sm:mt-4 sm:text-base">
-                      Google Ads
-                    </h4>
-
-                    <p className="mt-1.5 text-[10px] text-[#171717] sm:mt-2 sm:text-xs">
-                      93K+ Clicks
-                    </p>
-                  </motion.div>
-
-                  {/* META ADS */}
-
-                  <motion.div
-                    whileHover={{
-                      y: -5,
-                      scale: 1.02,
-                    }}
-                    transition={{
-                      duration: 0.25,
-                    }}
-                    className="rounded-xl border border-blue-200 bg-blue-50 p-3 shadow-sm sm:rounded-2xl sm:p-4"
-                  >
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#1877F2] text-base font-black text-white shadow-sm sm:h-9 sm:w-9 sm:text-lg">
-                      f
-                    </div>
-
-                    <h4 className="mt-3 text-sm font-bold text-[#1877F2] sm:mt-4 sm:text-base">
-                      Meta Ads
-                    </h4>
-
-                    <p className="mt-1.5 text-[10px] text-[#171717] sm:mt-2 sm:text-xs">
-                      2.5M Reach
-                    </p>
-                  </motion.div>
-                </div>
-
-                {/* PERFORMANCE METRICS */}
-
-                <div className="mt-3 grid grid-cols-3 gap-2 sm:mt-4 sm:gap-3">
+            <div className="absolute bottom-5 left-5 right-5 z-20 lg:left-10 lg:right-10">
+              <div className="overflow-hidden rounded-[22px] border border-white/10 bg-black/85 p-4 backdrop-blur-md">
+                <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
                   {[
-                    {
-                      value: "35%",
-                      label: "Lower CPL",
-                    },
-                    {
-                      value: "60%",
-                      label: "Higher Conversion",
-                    },
-                    {
-                      value: "150+",
-                      label: "Brands Scaled",
-                    },
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{
-                        opacity: 0,
-                        y: 15,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 0.2 + index * 0.1,
-                      }}
-                      whileHover={{
-                        y: -4,
-                      }}
-                      className="rounded-lg border border-slate-200 bg-slate-50 px-2 py-3 text-center sm:rounded-xl sm:px-3 sm:py-4"
-                    >
-                      <div className="text-base font-black text-[#171717] sm:text-xl">
-                        {item.value}
+                    ["ROAS", "—"],
+                    ["CPA", "—"],
+                    ["CPL", "—"],
+                    ["CTR", "—"],
+                    ["LEADS", "—"],
+                    ["REVENUE", "—"],
+                  ].map(([label, value]) => (
+                    <div key={label}>
+                      <div className="text-[8px] font-bold tracking-widest text-white/35">
+                        {label}
                       </div>
-
-                      <p className="mt-1 text-[8px] text-slate-500 sm:mt-2 sm:text-[10px]">
-                        {item.label}
-                      </p>
-                    </motion.div>
+                      <div className="mt-1 text-sm font-bold text-white">
+                        {value}
+                      </div>
+                    </div>
                   ))}
                 </div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          OUR PROCESS
-      ========================================================= */}
-
-      <section className="relative overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          {/* HEADER */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="mb-8 text-center sm:mb-10"
-          >
-            <div className="mb-4 inline-flex items-center justify-center rounded-full bg-[#fff7dc] px-5 py-2 sm:px-6">
-              <span className="text-xs font-bold tracking-wide text-[#b98200]">
-                OUR PROCESS
-              </span>
-            </div>
-
-            <h2 className="text-3xl font-black leading-tight text-[#0b102b] sm:text-4xl md:text-5xl">
-              How We Deliver Results
-            </h2>
-
-            <p className="mx-auto mt-3 max-w-2xl text-sm text-[#52617d] sm:text-base md:text-lg">
-              A proven 4-step methodology that turns ad spend into predictable
-              revenue.
-            </p>
-          </motion.div>
-
-          {/* PROCESS */}
-
-          <div className="relative mx-auto max-w-6xl">
-            {/* DESKTOP CONNECTING LINE */}
-
-            <div className="absolute left-[8%] right-[8%] top-[46px] hidden h-[2px] bg-[#d8deea] md:block">
-              <motion.div
-                initial={{ width: "0%" }}
-                whileInView={{ width: "100%" }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 2.8,
-                  delay: 0.8,
-                  ease: "easeInOut",
-                }}
-                className="absolute left-0 top-0 h-full bg-[#F8BC04]"
-              />
-            </div>
-
-            {/* MOBILE HORIZONTAL PROCESS */}
-
-            <div
-              className="
-                -mx-4
-                flex
-                snap-x
-                snap-mandatory
-                gap-4
-                overflow-x-auto
-                px-4
-                pb-5
-                scrollbar-hide
-                sm:-mx-6
-                sm:gap-5
-                sm:px-6
-                md:mx-0
-                md:grid
-                md:grid-cols-4
-                md:gap-5
-                md:overflow-visible
-                md:px-0
-                md:pb-0
-              "
-              style={{
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-              }}
-            >
-              {/* STEP 1 */}
-
-              <motion.div
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: 0.2,
-                }}
-                className="min-w-[78vw] snap-center text-center sm:min-w-[60vw] md:min-w-0"
-              >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.3,
-                    type: "spring",
-                    stiffness: 180,
-                  }}
-                  className="relative mx-auto flex h-[62px] w-[62px] items-center justify-center rounded-full border-2 border-[#ffe8a0] bg-white sm:h-[70px] sm:w-[70px]"
-                >
-                  <div className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#F8BC04] shadow-[0_8px_20px_rgba(248,188,4,0.18)] sm:h-[56px] sm:w-[56px]">
-                    <span className="text-2xl font-black text-[#0b102b] sm:text-3xl">
-                      1
-                    </span>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.7, y: 15 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.7,
-                  }}
-                  className="mx-auto mt-4 flex h-[66px] w-[66px] items-center justify-center rounded-[18px] bg-[#fff9e9] sm:mt-5 sm:h-[72px] sm:w-[72px]"
-                >
-                  <svg
-                    width="42"
-                    height="42"
-                    viewBox="0 0 48 48"
-                    fill="none"
-                  >
-                    <circle
-                      cx="21"
-                      cy="21"
-                      r="14"
-                      stroke="#0b102b"
-                      strokeWidth="2.5"
-                    />
-
-                    <path
-                      d="M31 31L42 42"
-                      stroke="#0b102b"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                    />
-
-                    <rect
-                      x="14"
-                      y="27"
-                      width="4"
-                      height="5"
-                      rx="1"
-                      fill="#F8BC04"
-                    />
-
-                    <rect
-                      x="20"
-                      y="23"
-                      width="4"
-                      height="9"
-                      rx="1"
-                      fill="#F8BC04"
-                    />
-
-                    <rect
-                      x="26"
-                      y="19"
-                      width="4"
-                      height="13"
-                      rx="1"
-                      fill="#F8BC04"
-                    />
-                  </svg>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.9,
-                  }}
-                  className="mt-4"
-                >
-                  <h3 className="text-lg font-black text-[#0b102b] md:text-xl">
-                    Research & Strategy
-                  </h3>
-
-                  <p className="mx-auto mt-2 max-w-[250px] text-sm leading-6 text-[#52617d] md:text-base">
-                    Deep dive into your business, audience, and competitors to
-                    craft a winning strategy
-                  </p>
-                </motion.div>
-              </motion.div>
-
-              {/* STEP 2 */}
-
-              <motion.div
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: 1.1,
-                }}
-                className="min-w-[78vw] snap-center text-center sm:min-w-[60vw] md:min-w-0"
-              >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 1.2,
-                    type: "spring",
-                    stiffness: 180,
-                  }}
-                  className="relative mx-auto flex h-[62px] w-[62px] items-center justify-center rounded-full border-2 border-[#ffe8a0] bg-white sm:h-[70px] sm:w-[70px]"
-                >
-                  <div className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#F8BC04] shadow-[0_8px_20px_rgba(248,188,4,0.18)] sm:h-[56px] sm:w-[56px]">
-                    <span className="text-2xl font-black text-[#0b102b] sm:text-3xl">
-                      2
-                    </span>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.7, y: 15 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 1.6,
-                  }}
-                  className="mx-auto mt-4 flex h-[66px] w-[66px] items-center justify-center rounded-[18px] bg-[#fff9e9] sm:mt-5 sm:h-[72px] sm:w-[72px]"
-                >
-                  <svg
-                    width="42"
-                    height="42"
-                    viewBox="0 0 48 48"
-                    fill="none"
-                  >
-                    <circle
-                      cx="24"
-                      cy="24"
-                      r="15"
-                      stroke="#0b102b"
-                      strokeWidth="2.5"
-                    />
-
-                    <circle
-                      cx="24"
-                      cy="24"
-                      r="8"
-                      stroke="#F8BC04"
-                      strokeWidth="3"
-                    />
-
-                    <path
-                      d="M24 24L37 11"
-                      stroke="#0b102b"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                    />
-
-                    <path
-                      d="M35 11H40V16"
-                      stroke="#0b102b"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 1.8,
-                  }}
-                  className="mt-4"
-                >
-                  <h3 className="text-lg font-black text-[#0b102b] md:text-xl">
-                    Campaign Setup
-                  </h3>
-
-                  <p className="mx-auto mt-2 max-w-[250px] text-sm leading-6 text-[#52617d] md:text-base">
-                    Build campaigns with precise targeting, compelling
-                    creatives, and conversion tracking
-                  </p>
-                </motion.div>
-              </motion.div>
-
-              {/* STEP 3 */}
-
-              <motion.div
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: 2,
-                }}
-                className="min-w-[78vw] snap-center text-center sm:min-w-[60vw] md:min-w-0"
-              >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 2.1,
-                    type: "spring",
-                    stiffness: 180,
-                  }}
-                  className="relative mx-auto flex h-[62px] w-[62px] items-center justify-center rounded-full border-2 border-[#ffe8a0] bg-white sm:h-[70px] sm:w-[70px]"
-                >
-                  <div className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#F8BC04] shadow-[0_8px_20px_rgba(248,188,4,0.18)] sm:h-[56px] sm:w-[56px]">
-                    <span className="text-2xl font-black text-[#0b102b] sm:text-3xl">
-                      3
-                    </span>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.7, y: 15 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 2.5,
-                  }}
-                  className="mx-auto mt-4 flex h-[66px] w-[66px] items-center justify-center rounded-[18px] bg-[#fff9e9] sm:mt-5 sm:h-[72px] sm:w-[72px]"
-                >
-                  <svg
-                    width="42"
-                    height="42"
-                    viewBox="0 0 48 48"
-                    fill="none"
-                  >
-                    <path
-                      d="M11 27C15 19 22 14 34 13C35 24 30 32 21 37L17 31L11 27Z"
-                      stroke="#0b102b"
-                      strokeWidth="2.5"
-                      strokeLinejoin="round"
-                    />
-
-                    <circle
-                      cx="28"
-                      cy="21"
-                      r="3"
-                      stroke="#0b102b"
-                      strokeWidth="2"
-                    />
-
-                    <path
-                      d="M17 31L12 39"
-                      stroke="#F8BC04"
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                    />
-
-                    <path
-                      d="M21 36L17 42"
-                      stroke="#F8BC04"
-                      strokeWidth="4"
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 2.7,
-                  }}
-                  className="mt-4"
-                >
-                  <h3 className="text-lg font-black text-[#0b102b] md:text-xl">
-                    Launch & Optimize
-                  </h3>
-
-                  <p className="mx-auto mt-2 max-w-[250px] text-sm leading-6 text-[#52617d] md:text-base">
-                    Go live and continuously optimize based on real-time
-                    performance data
-                  </p>
-                </motion.div>
-              </motion.div>
-
-              {/* STEP 4 */}
-
-              <motion.div
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: 2.9,
-                }}
-                className="min-w-[78vw] snap-center text-center sm:min-w-[60vw] md:min-w-0"
-              >
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 3,
-                    type: "spring",
-                    stiffness: 180,
-                  }}
-                  className="relative mx-auto flex h-[62px] w-[62px] items-center justify-center rounded-full border-2 border-[#ffe8a0] bg-white sm:h-[70px] sm:w-[70px]"
-                >
-                  <div className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-[#F8BC04] shadow-[0_8px_20px_rgba(248,188,4,0.18)] sm:h-[56px] sm:w-[56px]">
-                    <span className="text-2xl font-black text-[#0b102b] sm:text-3xl">
-                      4
-                    </span>
-                  </div>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.7, y: 15 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 3.4,
-                  }}
-                  className="mx-auto mt-4 flex h-[66px] w-[66px] items-center justify-center rounded-[18px] bg-[#fff9e9] sm:mt-5 sm:h-[72px] sm:w-[72px]"
-                >
-                  <svg
-                    width="42"
-                    height="42"
-                    viewBox="0 0 48 48"
-                    fill="none"
-                  >
-                    <path
-                      d="M9 36L19 27L26 32L39 16"
-                      stroke="#F8BC04"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-
-                    <path
-                      d="M34 16H39V21"
-                      stroke="#F8BC04"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-
-                    <rect
-                      x="11"
-                      y="34"
-                      width="6"
-                      height="7"
-                      rx="1"
-                      stroke="#0b102b"
-                      strokeWidth="2"
-                    />
-
-                    <rect
-                      x="21"
-                      y="29"
-                      width="6"
-                      height="12"
-                      rx="1"
-                      stroke="#0b102b"
-                      strokeWidth="2"
-                    />
-
-                    <rect
-                      x="31"
-                      y="23"
-                      width="6"
-                      height="18"
-                      rx="1"
-                      stroke="#0b102b"
-                      strokeWidth="2"
-                    />
-                  </svg>
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 3.6,
-                  }}
-                  className="mt-4"
-                >
-                  <h3 className="text-lg font-black text-[#0b102b] md:text-xl">
-                    Scale & Report
-                  </h3>
-
-                  <p className="mx-auto mt-2 max-w-[250px] text-sm leading-6 text-[#52617d] md:text-base">
-                    Scale what works, pause what doesn’t, and deliver
-                    transparent weekly reports
-                  </p>
-                </motion.div>
-              </motion.div>
-            </div>
-
-            {/* MOBILE INDICATOR */}
-
-            <div className="mt-1 flex justify-center gap-1.5 md:hidden">
-              <span className="h-1.5 w-6 rounded-full bg-[#F8BC04]" />
-              <span className="h-1.5 w-1.5 rounded-full bg-gray-300" />
-              <span className="h-1.5 w-1.5 rounded-full bg-gray-300" />
-              <span className="h-1.5 w-1.5 rounded-full bg-gray-300" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          OUR RECENT WORK
-      ========================================================= */}
-
-      <section id="recent-results" className="py-8 sm:py-10 lg:py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="mx-auto mb-10 max-w-5xl text-center sm:mb-16 lg:mb-20">
-            <h2 className="text-4xl font-black leading-tight text-[#171717] sm:text-5xl">
-              Our Recent
-              <span className="text-[#F8BC04]"> Result Driven</span> Work
-            </h2>
-          </div>
-
-          <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-            {/* CONTENT SIDE */}
-
-            <div>
-              {/* TABS */}
-
-              <div
-                className="-mx-4 mb-7 flex overflow-x-auto border-b-2 border-[#F8BC04] px-4 scrollbar-hide sm:mx-0 sm:mb-10 sm:px-0"
-                style={{
-                  scrollbarWidth: "none",
-                  msOverflowStyle: "none",
-                }}
-              >
-                {Object.entries(workTabs).map(([key, tab]) => (
-                  <button
-                    key={key}
-                    onClick={() => setActiveWorkTab(key)}
-                    className={`min-w-max px-5 py-3 text-sm font-semibold transition-all duration-300 sm:px-8 sm:py-4 sm:text-base ${
-                      activeWorkTab === key
-                        ? "bg-[#F8BC04] text-[#171717]"
-                        : "text-[#171717] hover:bg-[#fff5cc]"
-                    }`}
-                  >
-                    {tab.title}
-                  </button>
-                ))}
               </div>
-
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeWorkTab}
-                  initial={{
-                    opacity: 0,
-                    y: 40,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    y: -20,
-                  }}
-                  transition={{
-                    duration: 0.4,
-                  }}
-                >
-                  <h4 className="mb-5 text-3xl font-black text-[#171717] sm:mb-6 sm:text-4xl">
-                    {
-                      workTabs[activeWorkTab as keyof typeof workTabs]
-                        .heading
-                    }
-                  </h4>
-
-                  <p className="text-base leading-relaxed text-gray-600 sm:text-lg">
-                    {
-                      workTabs[activeWorkTab as keyof typeof workTabs]
-                        .description
-                    }
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* IMAGE SIDE */}
-
-            <div className="relative">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeWorkTab}
-                  initial={{
-                    opacity: 0,
-                    x: 80,
-                    rotate: 5,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                    rotate: 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    x: -80,
-                    rotate: -5,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                  }}
-                  className="relative overflow-hidden rounded-[25px] shadow-2xl sm:rounded-[35px]"
-                >
-                  <Image
-                    src={
-                      workTabs[activeWorkTab as keyof typeof workTabs].image
-                    }
-                    alt=""
-                    width={800}
-                    height={600}
-                    className="h-auto w-full"
-                  />
-                </motion.div>
-              </AnimatePresence>
             </div>
           </div>
         </div>
       </section>
 
-      {/* =========================================================
-          PERFORMANCE MARKETING
-      ========================================================= */}
+      {/* 3. USPs / WHY CHOOSE US */}
+      <section className="pm-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                [ WHY CHOOSE US ]
+              </span>
 
-      <section className="relative overflow-hidden bg-white py-8 sm:py-10">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid items-center gap-8 lg:grid-cols-[42%_58%] lg:gap-8">
-            {/* LEFT CONTENT */}
-
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              className="pr-0 lg:pr-4"
-            >
-              <h2 className="text-3xl font-black leading-[1.08] tracking-tight text-[#171717] sm:text-[34px]">
+              <h2 className="mt-4 font-bold leading-[0.95]">
                 Performance Marketing
                 <br />
-                That{" "}
-                <span className="text-[#F8BC04]">Clicks Into</span>
-                <br />
-                Customers
+                <span className="highlight-font text-[#F8BC04]">
+                  Built Around Business Outcomes
+                </span>
               </h2>
 
-              <p className="mt-4 max-w-[500px] text-[15px] leading-6 text-[#52617d]">
-                Our performance marketing strategies are built to attract
-                high-intent customers, reduce wasted ad spend and generate
-                measurable business growth through Google Ads, Meta Ads and
-                conversion focused PPC campaigns.
+              <p className="mt-6 max-w-xl leading-relaxed text-white/60">
+                Performance marketing works best when targeting, creative,
+                traffic, conversion tracking and optimisation are treated as
+                one system. We use campaign data to decide what to test,
+                improve and scale.
               </p>
 
-              <motion.button
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.25 }}
-                whileHover={{
-                  scale: 1.04,
-                  y: -2,
-                }}
-                whileTap={{
-                  scale: 0.97,
-                }}
-                className="mt-5 rounded-full bg-[#F8BC04] px-6 py-3 text-sm font-bold text-[#171717] shadow-[0_8px_20px_rgba(248,188,4,0.18)] transition-all sm:px-7"
-              >
-                Get Free Strategy Call →
-              </motion.button>
-            </motion.div>
-
-            {/* RIGHT CONTENT */}
-
-            <div
-              className="
-                -mx-4
-                flex
-                snap-x
-                snap-mandatory
-                gap-4
-                overflow-x-auto
-                px-4
-                pb-5
-                scrollbar-hide
-                sm:-mx-6
-                sm:gap-5
-                sm:px-6
-                lg:mx-0
-                lg:grid
-                lg:gap-4
-                lg:overflow-visible
-                lg:px-0
-                lg:pb-0
-              "
-              style={{
-                scrollbarWidth: "none",
-                msOverflowStyle: "none",
-              }}
-            >
-              {/* CARD 01 */}
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.15,
-                  ease: "easeOut",
-                }}
-                whileHover={{
-                  y: -3,
-                }}
-                className="relative min-w-[86vw] snap-center sm:min-w-[70vw] lg:min-w-0"
-              >
-                {/* CHECK */}
-
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.45,
-                    delay: 0.35,
-                    type: "spring",
-                    stiffness: 180,
-                  }}
-                  className="absolute left-0 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-[15px] bg-[#F8BC04] shadow-[0_10px_20px_rgba(0,0,0,0.12)] sm:h-[62px] sm:w-[62px] sm:rounded-[18px]"
-                >
-                  <span className="text-[26px] font-light leading-none text-white sm:text-[32px]">
-                    ✓
-                  </span>
-                </motion.div>
-
-                {/* CARD */}
-
-                <div className="relative ml-8 min-h-[110px] w-[calc(100%-32px)] overflow-hidden rounded-[22px] bg-white px-5 py-5 pl-8 shadow-[0_12px_28px_rgba(0,0,0,0.12)] sm:ml-[46px] sm:min-h-[118px] sm:w-[calc(100%-46px)] sm:rounded-[25px] sm:px-7 sm:py-5 sm:pl-8">
-                  <span className="pointer-events-none absolute bottom-[-5px] right-4 text-[60px] font-black leading-none text-[#fff1c7] sm:right-5 sm:text-[78px]">
-                    01
-                  </span>
-
-                  <div className="relative z-10">
-                    <h3 className="text-xl font-black leading-tight text-[#171717] sm:text-[27px]">
-                      ROI Focused Campaign
-                    </h3>
-
-                    <p className="mt-1 max-w-[520px] text-[13px] leading-5 text-[#52617d] sm:text-[14px]">
-                      Every campaign is optimized around leads, sales and
-                      business growth instead of vanity metrics.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* CARD 02 */}
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.3,
-                  ease: "easeOut",
-                }}
-                whileHover={{
-                  y: -3,
-                }}
-                className="relative min-w-[86vw] snap-center sm:min-w-[70vw] lg:min-w-0"
-              >
-                {/* CHECK */}
-
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.45,
-                    delay: 0.5,
-                    type: "spring",
-                    stiffness: 180,
-                  }}
-                  className="absolute left-0 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-[15px] bg-[#F8BC04] shadow-[0_10px_20px_rgba(0,0,0,0.12)] sm:h-[62px] sm:w-[62px] sm:rounded-[18px]"
-                >
-                  <span className="text-[26px] font-light leading-none text-white sm:text-[32px]">
-                    ✓
-                  </span>
-                </motion.div>
-
-                {/* CARD */}
-
-                <div className="relative ml-8 min-h-[110px] w-[calc(100%-32px)] overflow-hidden rounded-[22px] bg-white px-5 py-5 pl-8 shadow-[0_12px_28px_rgba(0,0,0,0.12)] sm:ml-[46px] sm:min-h-[118px] sm:w-[calc(100%-46px)] sm:rounded-[25px] sm:px-7 sm:py-5 sm:pl-8">
-                  <span className="pointer-events-none absolute bottom-[-5px] right-4 text-[60px] font-black leading-none text-[#fff1c7] sm:right-5 sm:text-[78px]">
-                    02
-                  </span>
-
-                  <div className="relative z-10">
-                    <h3 className="max-w-[480px] text-xl font-black leading-[1.05] text-[#171717] sm:text-[27px]">
-                      Google & Meta Certified Experts
-                    </h3>
-
-                    <p className="mt-1 max-w-[520px] text-[13px] leading-5 text-[#52617d] sm:text-[14px]">
-                      Our specialists continuously optimize targeting, bidding
-                      and ad creatives for better results.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* CARD 03 */}
-
-              <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.45,
-                  ease: "easeOut",
-                }}
-                whileHover={{
-                  y: -3,
-                }}
-                className="relative min-w-[86vw] snap-center sm:min-w-[70vw] lg:min-w-0"
-              >
-                {/* CHECK */}
-
-                <motion.div
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.45,
-                    delay: 0.65,
-                    type: "spring",
-                    stiffness: 180,
-                  }}
-                  className="absolute left-0 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-[15px] bg-[#F8BC04] shadow-[0_10px_20px_rgba(0,0,0,0.12)] sm:h-[62px] sm:w-[62px] sm:rounded-[18px]"
-                >
-                  <span className="text-[26px] font-light leading-none text-white sm:text-[32px]">
-                    ✓
-                  </span>
-                </motion.div>
-
-                {/* CARD */}
-
-                <div className="relative ml-8 min-h-[110px] w-[calc(100%-32px)] overflow-hidden rounded-[22px] bg-white px-5 py-5 pl-8 shadow-[0_12px_28px_rgba(0,0,0,0.12)] sm:ml-[46px] sm:min-h-[118px] sm:w-[calc(100%-46px)] sm:rounded-[25px] sm:px-7 sm:py-5 sm:pl-8">
-                  <span className="pointer-events-none absolute bottom-[-5px] right-4 text-[60px] font-black leading-none text-[#fff1c7] sm:right-5 sm:text-[78px]">
-                    03
-                  </span>
-
-                  <div className="relative z-10">
-                    <h3 className="text-xl font-black leading-tight text-[#171717] sm:text-[27px]">
-                      Transparent Reporting
-                    </h3>
-
-                    <p className="mt-1 max-w-[520px] text-[13px] leading-5 text-[#52617d] sm:text-[14px]">
-                      Track every click, lead and conversion with detailed
-                      reporting and clear performance insights.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* MOBILE INDICATOR */}
-
-            <div className="mt-1 flex justify-center gap-1.5 lg:hidden">
-              <span className="h-1.5 w-6 rounded-full bg-[#F8BC04]" />
-              <span className="h-1.5 w-1.5 rounded-full bg-gray-300" />
-              <span className="h-1.5 w-1.5 rounded-full bg-gray-300" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          ADS SOLUTIONS
-      ========================================================= */}
-
-      <section className="py-8 sm:py-10 lg:py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="mx-auto mb-10 max-w-5xl text-center sm:mb-14 lg:mb-20">
-            <h2 className="text-4xl font-black leading-tight text-[#171717] sm:text-5xl">
-              Ads Solutions That
-              <span className="text-[#F8BC04]"> Drive Results</span>
-            </h2>
-
-            <p className="mt-5 text-base leading-relaxed text-gray-600 sm:mt-8 sm:text-lg">
-              From search advertising to display campaigns and video marketing,
-              we create high-performing PPC strategies that generate leads,
-              increase sales and grow your business.
-            </p>
-          </div>
-
-          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-            {/* IMAGE SIDE */}
-
-            <div className="relative">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{
-                    opacity: 0,
-                    x: -80,
-                    rotate: -5,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                    rotate: 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    x: 80,
-                    rotate: 5,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                  }}
-                  className="relative overflow-hidden rounded-[25px] sm:rounded-[35px]"
-                >
-                  <Image
-                    src={tabs[activeTab as keyof typeof tabs].image}
-                    alt=""
-                    width={800}
-                    height={600}
-                    className="h-auto w-full"
-                  />
-                </motion.div>
-              </AnimatePresence>
-            </div>
-
-            {/* CONTENT SIDE */}
-
-            <div>
-              {/* TABS */}
-
-              <div
-                className="-mx-4 mb-7 flex overflow-x-auto border-b-2 border-[#F8BC04] px-4 scrollbar-hide sm:mx-0 sm:mb-10 sm:px-0"
-                style={{
-                  scrollbarWidth: "none",
-                  msOverflowStyle: "none",
-                }}
-              >
-                {Object.entries(tabs).map(([key, tab]) => (
-                  <button
-                    key={key}
-                    onClick={() => setActiveTab(key)}
-                    className={`min-w-max px-5 py-3 text-sm font-semibold transition-all duration-300 sm:px-8 sm:py-4 sm:text-base ${
-                      activeTab === key
-                        ? "bg-[#F8BC04] text-[#171717]"
-                        : "text-[#171717] hover:bg-[#fff5cc]"
-                    }`}
+              <div className="mt-7 space-y-3">
+                {[
+                  "Data-driven campaign planning",
+                  "Precise audience and intent targeting",
+                  "Conversion-focused acquisition",
+                  "Continuous campaign optimisation",
+                  "Measurable reporting and clear accountability",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 border-b border-white/10 pb-3 text-sm text-white/70"
                   >
-                    {tab.title}
-                  </button>
+                    <CheckCircle2 className="h-4 w-4 shrink-0 text-[#F8BC04]" />
+                    {item}
+                  </div>
                 ))}
               </div>
+            </div>
 
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeTab}
-                  initial={{
-                    opacity: 0,
-                    y: 40,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  exit={{
-                    opacity: 0,
-                    y: -20,
-                  }}
-                  transition={{
-                    duration: 0.4,
-                  }}
-                >
-                  <h4 className="mb-5 text-3xl font-black text-[#171717] sm:mb-6 sm:text-4xl">
-                    {tabs[activeTab as keyof typeof tabs].heading}
-                  </h4>
-
-                  <p className="text-base leading-relaxed text-gray-600 sm:text-lg">
-                    {tabs[activeTab as keyof typeof tabs].description}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
+            <div className="lg:col-span-7">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[28px] border border-white/10 bg-[#080808] shadow-[0_30px_100px_rgba(0,0,0,0.45)]">
+                <Image
+                  src="/assets/performance-marketing/why-choose-us-dashboard.webp"
+                  alt="Performance marketing dashboard showing campaign performance metrics"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* =========================================================
-          WHY CHOOSE BIGBEANS DIGITAL
-      ========================================================= */}
-
-      <section className="overflow-hidden bg-white py-8 sm:py-10 lg:py-12">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          {/* HEADING */}
-
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="mb-10 text-center sm:mb-14 lg:mb-20"
-          >
-            <h2 className="mt-4 text-3xl font-black leading-tight text-[#171717] sm:text-4xl md:text-5xl">
-              Why Brands Choose
-              <span className="text-[#F8BC04]"> BIGBEANS DIGITAL</span>
-            </h2>
-
-            <p className="mx-auto mt-3 max-w-5xl text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
-              Performance marketing strategies designed to maximize ROI,
-              generate qualified leads and deliver measurable business growth.
-            </p>
-          </motion.div>
-
-          {/* MOBILE HORIZONTAL / DESKTOP GRID */}
-
-          <div
-            className="
-              -mx-4
-              flex
-              snap-x
-              snap-mandatory
-              gap-4
-              overflow-x-auto
-              px-4
-              pb-5
-              scrollbar-hide
-              sm:-mx-6
-              sm:gap-5
-              sm:px-6
-              lg:mx-0
-              lg:grid
-              lg:grid-cols-3
-              lg:gap-x-12
-              lg:gap-y-10
-              lg:overflow-visible
-              lg:px-0
-              lg:pb-0
-              xl:gap-x-16
-            "
-            style={{
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-            }}
-          >
-            {/* 01 */}
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ y: -8 }}
-              className="min-w-[84vw] snap-center rounded-[25px] border border-gray-100 bg-white p-5 shadow-[0_10px_35px_rgba(0,0,0,0.04)] sm:min-w-[65vw] sm:p-6 lg:min-w-0 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none"
-            >
-              <div className="flex gap-4 sm:gap-5">
-                <div className="text-6xl font-black leading-none text-[#F8BC04] sm:text-7xl">
-                  1
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-black text-[#171717] sm:text-3xl">
-                    ROI Focused
-                  </h3>
-
-                  <p className="mt-3 text-base leading-6 text-neutral-600 sm:text-lg">
-                    Every advertising campaign is built to maximize return on
-                    investment by focusing on qualified leads, sales and
-                    measurable business growth.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* 02 */}
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              whileHover={{ y: -8 }}
-              className="min-w-[84vw] snap-center rounded-[25px] border border-gray-100 bg-white p-5 shadow-[0_10px_35px_rgba(0,0,0,0.04)] sm:min-w-[65vw] sm:p-6 lg:min-w-0 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none"
-            >
-              <div className="flex gap-4 sm:gap-5">
-                <div className="text-6xl font-black leading-none text-[#F8BC04] sm:text-7xl">
-                  2
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-black text-[#171717] sm:text-3xl">
-                    ROI Focused
-                  </h3>
-
-                  <p className="mt-3 text-base leading-6 text-neutral-600 sm:text-lg">
-                    Every advertising campaign is built to maximize return on
-                    investment by focusing on qualified leads, sales and
-                    measurable business growth.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* 03 */}
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              whileHover={{ y: -8 }}
-              className="min-w-[84vw] snap-center rounded-[25px] border border-gray-100 bg-white p-5 shadow-[0_10px_35px_rgba(0,0,0,0.04)] sm:min-w-[65vw] sm:p-6 lg:min-w-0 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none"
-            >
-              <div className="flex gap-4 sm:gap-5">
-                <div className="text-6xl font-black leading-none text-[#F8BC04] sm:text-7xl">
-                  3
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-black text-[#171717] sm:text-3xl">
-                    ROI Focused
-                  </h3>
-
-                  <p className="mt-3 text-base leading-6 text-neutral-600 sm:text-lg">
-                    Every advertising campaign is built to maximize return on
-                    investment by focusing on qualified leads, sales and
-                    measurable business growth.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* 04 */}
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              whileHover={{ y: -8 }}
-              className="min-w-[84vw] snap-center rounded-[25px] border border-gray-100 bg-white p-5 shadow-[0_10px_35px_rgba(0,0,0,0.04)] sm:min-w-[65vw] sm:p-6 lg:min-w-0 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none"
-            >
-              <div className="flex gap-4 sm:gap-5">
-                <div className="text-6xl font-black leading-none text-[#F8BC04] sm:text-7xl">
-                  4
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-black text-[#171717] sm:text-3xl">
-                    ROI Focused
-                  </h3>
-
-                  <p className="mt-3 text-base leading-6 text-neutral-600 sm:text-lg">
-                    Every advertising campaign is built to maximize return on
-                    investment by focusing on qualified leads, sales and
-                    measurable business growth.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* 05 */}
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              whileHover={{ y: -8 }}
-              className="min-w-[84vw] snap-center rounded-[25px] border border-gray-100 bg-white p-5 shadow-[0_10px_35px_rgba(0,0,0,0.04)] sm:min-w-[65vw] sm:p-6 lg:min-w-0 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none"
-            >
-              <div className="flex gap-4 sm:gap-5">
-                <div className="text-6xl font-black leading-none text-[#F8BC04] sm:text-7xl">
-                  5
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-black text-[#171717] sm:text-3xl">
-                    ROI Focused
-                  </h3>
-
-                  <p className="mt-3 text-base leading-6 text-neutral-600 sm:text-lg">
-                    Every advertising campaign is built to maximize return on
-                    investment by focusing on qualified leads, sales and
-                    measurable business growth.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* 06 */}
-
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              whileHover={{ y: -8 }}
-              className="min-w-[84vw] snap-center rounded-[25px] border border-gray-100 bg-white p-5 shadow-[0_10px_35px_rgba(0,0,0,0.04)] sm:min-w-[65vw] sm:p-6 lg:min-w-0 lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0 lg:shadow-none"
-            >
-              <div className="flex gap-4 sm:gap-5">
-                <div className="text-6xl font-black leading-none text-[#F8BC04] sm:text-7xl">
-                  6
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-black text-[#171717] sm:text-3xl">
-                    ROI Focused
-                  </h3>
-
-                  <p className="mt-3 text-base leading-6 text-neutral-600 sm:text-lg">
-                    Every advertising campaign is built to maximize return on
-                    investment by focusing on qualified leads, sales and
-                    measurable business growth.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* MOBILE INDICATOR */}
-
-          <div className="mt-1 flex justify-center gap-1.5 lg:hidden">
-            <span className="h-1.5 w-6 rounded-full bg-[#F8BC04]" />
-            <span className="h-1.5 w-1.5 rounded-full bg-gray-300" />
-            <span className="h-1.5 w-1.5 rounded-full bg-gray-300" />
-            <span className="h-1.5 w-1.5 rounded-full bg-gray-300" />
-            <span className="h-1.5 w-1.5 rounded-full bg-gray-300" />
-            <span className="h-1.5 w-1.5 rounded-full bg-gray-300" />
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================================
-          FAQ SECTION
-      ========================================================= */}
-
-      <section className="relative overflow-hidden bg-[#ffffff] py-12 sm:py-16 lg:py-24">
-        <motion.div
-          animate={{
-            rotate: [0, 360],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 30,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute left-1/2 top-20 h-36 w-36 -translate-x-1/2 rounded-full bg-[#F8BC04]/10 blur-3xl sm:top-28 sm:h-48 sm:w-48"
-        />
-
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="mb-10 text-center sm:mb-16 lg:mb-20"
-          >
-            <h2 className="mx-auto mt-4 max-w-6xl text-3xl font-black leading-tight text-[#171717] sm:text-4xl md:text-6xl">
-              Everything You Need To Know About
-              <span className="text-[#F8BC04]">
-                {" "}
-                Google Ads & Meta Ads
+      {/* 4. TRUST / RESULTS */}
+      <section className="pm-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                [ TRUST / RESULTS ]
               </span>
-            </h2>
 
-            <p className="mx-auto mt-5 max-w-5xl text-base leading-7 text-neutral-600 sm:mt-8 sm:text-lg sm:leading-8">
-              Find answers to the most common questions about Google Ads, Meta
-              Ads, campaign management, lead generation, ROI, budgeting, and
-              digital advertising strategies.
+              <h2 className="mt-4 font-bold leading-tight">
+                Campaign Work That Can Be
+                <br />
+                <span className="highlight-font text-[#F8BC04]">
+                  Reviewed and Measured
+                </span>
+              </h2>
+            </div>
+
+            <p className="max-w-xl leading-relaxed text-white/55">
+              Explore campaign examples across lead generation, ecommerce,
+              B2B and acquisition. Verified campaign metrics can be added here
+              when the corresponding client data is approved for publication.
             </p>
-          </motion.div>
+          </div>
 
-          <div className="grid gap-4 sm:gap-5 lg:grid-cols-2 lg:gap-8">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.06,
-                }}
-                className="overflow-hidden rounded-[22px] border border-[#ececec] bg-white shadow-lg sm:rounded-[28px]"
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            {caseStudies.map((study) => (
+              <div
+                key={study.id}
+                className="group overflow-hidden rounded-[26px] border border-white/10 bg-[#090909] transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04]/40"
               >
-                <button
-                  onClick={() =>
-                    setOpenFaq(openFaq === index ? null : index)
-                  }
-                  className="flex w-full items-center justify-between gap-3 px-4 py-5 text-left sm:px-6 sm:py-6 lg:px-8 lg:py-7"
-                >
-                  <h3 className="pr-2 text-sm font-bold leading-6 text-[#171717] sm:pr-4 sm:text-base lg:pr-8 lg:text-lg">
-                    {faq.question}
-                  </h3>
+                <div className="relative h-[270px] overflow-hidden">
+                  <Image
+                    src={study.image}
+                    alt={study.alt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
 
-                  <motion.div
-                    animate={{
-                      rotate: openFaq === index ? 45 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-lg font-bold text-[#171717] sm:h-10 sm:w-10 sm:text-xl lg:h-12 lg:w-12"
-                  >
-                    +
-                  </motion.div>
-                </button>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
 
-                <motion.div
-                  initial={false}
-                  animate={{
-                    height: openFaq === index ? "auto" : 0,
-                    opacity: openFaq === index ? 1 : 0,
-                  }}
-                  transition={{
-                    duration: 0.35,
-                  }}
-                  className="overflow-hidden"
-                >
-                  <div className="border-t border-[#f3f3f3] px-4 pb-5 pt-4 sm:px-6 sm:pb-6 sm:pt-5 lg:px-8 lg:pb-8 lg:pt-6">
-                    <p className="text-sm leading-7 text-neutral-600 sm:text-base sm:leading-8">
-                      {faq.answer}
-                    </p>
+                  <div className="absolute bottom-5 left-5 right-5">
+                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#F8BC04]">
+                      CAMPAIGN CASE STUDY
+                    </div>
+                    <div className="mt-1 text-lg font-bold text-white">
+                      {study.client}
+                    </div>
                   </div>
-                </motion.div>
-              </motion.div>
+                </div>
+
+                <div className="p-6">
+                  <div className="text-xs font-bold uppercase tracking-widest text-white/35">
+                    OBJECTIVE
+                  </div>
+
+                  <div className="mt-2 text-base font-bold text-white">
+                    {study.objective}
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {study.services.map((service) => (
+                      <span
+                        key={service}
+                        className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[10px] font-semibold text-white/55"
+                      >
+                        {service}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
+                    <span className="text-xs text-white/35">
+                      Verified metrics: add when approved
+                    </span>
+                    <ArrowRight className="h-4 w-4 text-[#F8BC04]" />
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* =========================================================
-          PRESENCE SECTION
-      ========================================================= */}
+      {/* 5. PERFORMANCE MARKETING STRATEGY / HOW WE WORK */}
+      <section className="pm-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+              [ HOW WE WORK ]
+            </span>
 
-      <section className="bg-[#ffffff] py-8 sm:py-10">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-6">
-          <div className="grid items-center gap-8 rounded-[28px] border border-gray-200 bg-white p-5 sm:gap-10 sm:rounded-[40px] sm:p-8 lg:grid-cols-2 lg:gap-12 lg:p-16">
-            {/* LEFT */}
+            <h2 className="mt-4 font-bold leading-tight">
+              Performance Marketing Is a Process,
+              <br />
+              <span className="highlight-font text-[#F8BC04]">
+                Not Just Running Ads
+              </span>
+            </h2>
 
-            <div>
-              <p className="mb-5 text-sm font-semibold uppercase tracking-[4px] text-gray-500 sm:mb-6 sm:tracking-[6px]">
-                Global Presence
-              </p>
+            <p className="mt-4 leading-relaxed text-white/55">
+              Every campaign moves through research, planning, execution,
+              measurement and optimisation. The exact mix changes by business,
+              audience, channel and conversion objective.
+            </p>
+          </div>
 
-              <h2 className="text-4xl font-black leading-tight text-[#171717] sm:text-5xl lg:text-6xl">
-                Digital Excellence in{" "}
-                <span className="text-[#F8BC04]">12+</span>
-                <br />
-                Locations
-              </h2>
+          <div className="relative mt-14">
+            <div className="pm-step-line" />
 
-              <p className="mt-6 max-w-[650px] text-base leading-relaxed text-gray-600 sm:mt-8 sm:text-lg">
-                BIGBEANS DIGITAL serves businesses across India and
-                international markets. Our strategies are built for local
-                relevance and global scalability.
-              </p>
-
-              {/* LOCATIONS */}
-
-              <div className="mt-8 grid grid-cols-2 gap-5 sm:mt-12 sm:gap-10">
-                <div className="border-r border-black/30 pr-4 sm:pr-10">
-                  <h3 className="text-lg font-bold sm:text-xl">In India</h3>
-
-                  <div className="mb-5 mt-2 h-[2px] w-16 bg-[#F8BC04] sm:w-20" />
-
-                  <ul className="space-y-3 text-sm text-gray-700 sm:text-base">
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Kolkata
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Delhi
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Bangalore
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Noida
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Tripura
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Mumbai
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Pune
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-bold sm:text-xl">
-                    International Presence
-                  </h3>
-
-                  <div className="mb-5 mt-2 h-[2px] w-16 bg-[#F8BC04] sm:w-20" />
-
-                  <ul className="space-y-3 text-sm text-gray-700 sm:text-base">
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      London
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Singapore
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Canada
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Australia
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Nigeria
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* RIGHT */}
-
-            <div className="relative min-w-0">
-              <Image
-                src="/maps/world-map.png"
-                alt="World Map"
-                width={1200}
-                height={700}
-                className="h-auto w-full"
-              />
-
-              {/* INDIA CLUSTER */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                }}
-                className="absolute left-[67%] top-[42%] h-3 w-3 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04] sm:h-4 sm:w-4"
-              />
-
-              {/* LONDON */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.2,
-                  repeat: Infinity,
-                }}
-                className="absolute left-[44%] top-[27%] h-3 w-3 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04] sm:h-4 sm:w-4"
-              />
-
-              {/* CANADA */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.4,
-                  repeat: Infinity,
-                }}
-                className="absolute left-[18%] top-[28%] h-3 w-3 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04] sm:h-4 sm:w-4"
-              />
-
-              {/* NIGERIA */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.1,
-                  repeat: Infinity,
-                }}
-                className="absolute left-[47%] top-[50%] h-3 w-3 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04] sm:h-4 sm:w-4"
-              />
-
-              {/* SINGAPORE */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.3,
-                  repeat: Infinity,
-                }}
-                className="absolute left-[74%] top-[54%] h-3 w-3 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04] sm:h-4 sm:w-4"
-              />
-
-              {/* AUSTRALIA */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                }}
-                className="absolute left-[84%] top-[65%] h-3 w-3 rounded-full bg-[#F8BC04] shadow-[0_0_25px_#F8BC04] sm:h-4 sm:w-4"
-              />
+            <div className="pm-step-grid">
+              {strategySteps.map((step, index) => (
+                <StrategyStep key={step.number} {...step} index={index} />
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* =========================================================
-          CTA SECTION
-      ========================================================= */}
+      {/* 6. PAID ADVERTISING / CAMPAIGN MANAGEMENT */}
+      <section className="pm-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          {/* First row: Google / Meta / LinkedIn */}
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
+            <div className="lg:col-span-6">
+              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                [ PAID ADVERTISING ]
+              </span>
 
-      <section className="relative overflow-hidden bg-[#ffffff] py-12 sm:py-16 lg:py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[28px] bg-[#171717] px-5 py-10 sm:rounded-[40px] sm:px-8 sm:py-14 md:px-16 md:py-16">
-            {/* Glow */}
+              <h2 className="mt-4 font-bold leading-[0.95]">
+                Campaign Management
+                <br />
+                <span className="highlight-font text-[#F8BC04]">
+                  Across the Right Channels
+                </span>
+              </h2>
 
-            <div className="absolute right-0 top-0 h-60 w-60 rounded-full bg-[#F8BC04]/20 blur-[100px] sm:h-72 sm:w-72 sm:blur-[120px]" />
+              <p className="mt-6 max-w-2xl leading-relaxed text-white/60">
+                Choose the advertising channels that match the audience,
+                buying journey and business objective. Campaign setup,
+                targeting, creative, tracking and optimisation are managed as
+                connected parts of the acquisition process.
+              </p>
 
-            <div className="relative z-10 flex flex-col items-stretch justify-between gap-8 lg:flex-row lg:items-center lg:gap-10">
-              {/* Left */}
+              {(() => {
+                const primaryChannels = paidChannels.filter((channel) =>
+                  ["google", "meta", "linkedin"].includes(channel.id)
+                );
+                const activeChannel =
+                  primaryChannels.find(
+                    (channel) => channel.id === activePrimaryChannel
+                  ) ?? primaryChannels[0];
 
-              <div>
-                <h2 className="max-w-3xl text-3xl font-black leading-tight text-white sm:text-4xl md:text-5xl">
-                  Ready To Turn Clicks Into
-                  <span className="text-[#F8BC04]">
-                    {" "}
-                    Real Business Growth?
-                  </span>
-                </h2>
+                return (
+                  <div className="mt-9">
+                    <div className="flex overflow-x-auto border-b border-[#F8BC04]">
+                      {primaryChannels.map((channel) => (
+                        <button
+                          key={channel.id}
+                          type="button"
+                          onClick={() => setActivePrimaryChannel(channel.id)}
+                          className={`shrink-0 px-6 py-4 text-left text-base font-semibold transition-all sm:px-8 sm:text-lg ${
+                            activeChannel.id === channel.id
+                              ? "bg-[#F8BC04] text-black"
+                              : "text-white hover:text-[#F8BC04]"
+                          }`}
+                        >
+                          {channel.name}
+                        </button>
+                      ))}
+                    </div>
 
-                <p className="mt-5 max-w-2xl text-base leading-7 text-white/80 sm:mt-6 sm:text-lg sm:leading-8">
-                  Partner with BIGBEANS DIGITAL to launch data-driven Social
-                  Media Marketing campaigns that generate quality leads,
-                  increase conversions and accelerate your business growth.
-                </p>
-              </div>
+                    <div className="pt-9">
+                      <div className="text-[9px] font-black tracking-[0.2em] text-[#F8BC04]">
+                        {activeChannel.eyebrow}
+                      </div>
 
-              {/* Button */}
+                      <h3 className="mt-3 font-bold text-white">
+                        {activeChannel.name}
+                      </h3>
 
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  y: -5,
-                  backgroundColor: "#FFD54A",
-                }}
-                whileTap={{
-                  scale: 0.95,
-                }}
-                className="w-full shrink-0 whitespace-nowrap rounded-full bg-[#F8BC04] px-7 py-4 text-base font-bold text-[#171717] shadow-[0_20px_50px_rgba(248,188,4,0.35)] transition-all duration-300 sm:w-auto sm:px-10 sm:py-5 sm:text-lg"
-              >
-                Book Free Strategy Call
-              </motion.button>
+                      <p className="mt-5 max-w-2xl leading-relaxed text-white/60">
+                        {activeChannel.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+
+            <div className="lg:col-span-6">
+              {(() => {
+                const primaryChannels = paidChannels.filter((channel) =>
+                  ["google", "meta", "linkedin"].includes(channel.id)
+                );
+                const activeChannel =
+                  primaryChannels.find(
+                    (channel) => channel.id === activePrimaryChannel
+                  ) ?? primaryChannels[0];
+
+                return (
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px] bg-[#090909]">
+                    <Image
+                      key={activeChannel.id}
+                      src={activeChannel.image}
+                      alt={activeChannel.alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover transition-all duration-500"
+                    />
+                  </div>
+                );
+              })()}
             </div>
           </div>
-        </motion.div>
+
+          {/* Second row: YouTube / Display / Shopping */}
+          <div className="mt-28 grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-20">
+            <div className="order-2 lg:order-1 lg:col-span-6">
+              {(() => {
+                const secondaryChannels = paidChannels.filter((channel) =>
+                  ["youtube", "display", "shopping"].includes(channel.id)
+                );
+                const activeChannel =
+                  secondaryChannels.find(
+                    (channel) => channel.id === activeSecondaryChannel
+                  ) ?? secondaryChannels[0];
+
+                return (
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[4px] bg-[#090909]">
+                    <Image
+                      key={activeChannel.id}
+                      src={activeChannel.image}
+                      alt={activeChannel.alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover transition-all duration-500"
+                    />
+                  </div>
+                );
+              })()}
+            </div>
+
+            <div className="order-1 lg:order-2 lg:col-span-6">
+              {(() => {
+                const secondaryChannels = paidChannels.filter((channel) =>
+                  ["youtube", "display", "shopping"].includes(channel.id)
+                );
+                const activeChannel =
+                  secondaryChannels.find(
+                    (channel) => channel.id === activeSecondaryChannel
+                  ) ?? secondaryChannels[0];
+
+                return (
+                  <div>
+                    <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                      [ CAMPAIGN CHANNELS ]
+                    </span>
+
+                    <h2 className="mt-4 font-bold leading-[0.95]">
+                      Extend Your Paid Reach
+                      <br />
+                      <span className="highlight-font text-[#F8BC04]">
+                        Beyond Core Search & Social
+                      </span>
+                    </h2>
+
+                    <div className="mt-9 flex overflow-x-auto border-b border-[#F8BC04]">
+                      {secondaryChannels.map((channel) => (
+                        <button
+                          key={channel.id}
+                          type="button"
+                          onClick={() => setActiveSecondaryChannel(channel.id)}
+                          className={`shrink-0 px-4 py-4 text-left text-sm font-semibold transition-all sm:px-6 sm:text-base ${
+                            activeChannel.id === channel.id
+                              ? "bg-[#F8BC04] text-black"
+                              : "text-white hover:text-[#F8BC04]"
+                          }`}
+                        >
+                          {channel.name}
+                        </button>
+                      ))}
+                    </div>
+
+                    <div className="pt-9">
+                      <div className="text-[9px] font-black tracking-[0.2em] text-[#F8BC04]">
+                        {activeChannel.eyebrow}
+                      </div>
+
+                      <h3 className="mt-3 font-bold text-white">
+                        {activeChannel.name}
+                      </h3>
+
+                      <p className="mt-5 max-w-2xl leading-relaxed text-white/60">
+                        {activeChannel.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+          </div>
+        </div>
       </section>
+
+      {/* 7. LEAD GENERATION & CUSTOMER ACQUISITION */}
+      <section className="pm-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="mb-10 max-w-3xl">
+            <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+              [ LEAD GENERATION & CUSTOMER ACQUISITION ]
+            </span>
+
+            <h2 className="mt-4 font-bold leading-tight">
+              Turn Paid Traffic Into
+              <br />
+              <span className="highlight-font text-[#F8BC04]">
+                Potential Customers
+              </span>
+            </h2>
+
+            <p className="mt-5 leading-relaxed text-white/55">
+              Advertising only creates an opportunity. The acquisition system
+              needs to move that opportunity through a relevant landing page,
+              conversion action, qualification step and customer journey.
+            </p>
+          </div>
+
+          <div className="pm-acquisition-timeline relative mt-14">
+            <div className="pm-acquisition-line" aria-hidden="true" />
+
+            <div className="pm-acquisition-grid">
+              {acquisitionSteps.map((step, index) => (
+                <motion.div
+                  key={step.title}
+                  className="pm-acquisition-step relative z-10"
+                  initial={{ opacity: 0, y: 34, scale: 0.94 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, amount: 0.35 }}
+                  transition={{
+                    duration: 0.55,
+                    delay: index * 0.18,
+                    ease: [0.22, 1, 0.36, 1],
+                  }}
+                >
+                  <div className="pm-acquisition-icon">
+                    {step.icon}
+                  </div>
+
+                  <div className="mt-5 text-sm font-bold text-white sm:text-base">
+                    {step.title}
+                  </div>
+
+                  <p className="mt-2 text-xs leading-relaxed text-white/45 sm:text-sm">
+                    {step.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. CONVERSION RATE OPTIMISATION / LANDING PAGE OPTIMISATION */}
+      <section className="pm-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                [ CRO / LANDING PAGE OPTIMISATION ]
+              </span>
+
+              <h2 className="mt-4 font-bold leading-[0.95]">
+                More Clicks Do Not Help
+                <br />
+                <span className="highlight-font text-[#F8BC04]">
+                  If the Page Does Not Convert
+                </span>
+              </h2>
+
+              <p className="mt-6 leading-relaxed text-white/60">
+                We can review the experience after the ad click, including
+                messaging, page structure, CTA placement, forms, mobile
+                usability and conversion friction. The aim is to make the next
+                step clearer for the visitor.
+              </p>
+
+              <div className="mt-7 grid grid-cols-2 gap-3">
+                {[
+                  ["01", "Clearer CTA"],
+                  ["02", "Focused Messaging"],
+                  ["03", "Simpler Forms"],
+                  ["04", "Better Structure"],
+                  ["05", "Mobile UX"],
+                  ["06", "A/B Testing"],
+                ].map(([number, label]) => (
+                  <div
+                    key={number}
+                    className="flex items-center gap-3 border-t border-white/10 pt-3"
+                  >
+                    <span className="text-[10px] font-black text-[#F8BC04]">
+                      {number}
+                    </span>
+                    <span className="text-xs font-semibold text-white/65">
+                      {label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                <div className="pm-before-after">
+                  <div className="border-b border-white/10 px-5 py-4">
+                    <span className="text-[10px] font-black tracking-[0.18em] text-white/35">
+                      BEFORE
+                    </span>
+                  </div>
+
+                  <div className="relative h-[390px]">
+                    <Image
+                      src="/assets/performance-marketing/cro/before.webp"
+                      alt="Landing page before optimisation"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+
+                    <span className="pm-callout left-4 top-20">
+                      MESSAGE
+                    </span>
+                    <span className="pm-callout right-4 top-48">
+                      CTA
+                    </span>
+                    <span className="pm-callout left-8 bottom-16">
+                      FORM
+                    </span>
+                  </div>
+                </div>
+
+                <div className="pm-before-after">
+                  <div className="border-b border-white/10 px-5 py-4">
+                    <span className="text-[10px] font-black tracking-[0.18em] text-[#F8BC04]">
+                      AFTER
+                    </span>
+                  </div>
+
+                  <div className="relative h-[390px]">
+                    <Image
+                      src="/assets/performance-marketing/cro/after.webp"
+                      alt="Landing page after optimisation"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover"
+                    />
+
+                    <span className="pm-callout left-4 top-16">
+                      CLEAR CTA
+                    </span>
+                    <span className="pm-callout right-4 top-32">
+                      VALUE
+                    </span>
+                    <span className="pm-callout left-8 bottom-20">
+                      SIMPLE FORM
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.02] p-4 text-xs text-white/35">
+                Example UI representation. Replace with approved client
+                before/after screenshots or test data where available.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9. DATA, ANALYTICS & CAMPAIGN OPTIMISATION */}
+      <section className="pm-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-6">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[28px] border border-white/10 bg-[#080808] shadow-[0_30px_100px_rgba(0,0,0,0.45)]">
+                <Image
+                  src="/assets/performance-marketing/data-analytics.webp"
+                  alt="Performance marketing data analytics and campaign optimisation"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="lg:col-span-6">
+              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                [ DATA / ANALYTICS / OPTIMISATION ]
+              </span>
+
+              <h2 className="mt-4 font-bold leading-[0.95]">
+                Decisions Based on
+                <br />
+                <span className="highlight-font text-[#F8BC04]">
+                  Campaign Data
+                </span>
+              </h2>
+
+              <p className="mt-6 max-w-2xl leading-relaxed text-white/60">
+                Campaign optimisation depends on reliable tracking and useful
+                signals. We can analyse spend, traffic, keywords, audiences,
+                creative, conversions, acquisition costs and other relevant
+                data to identify what needs attention.
+              </p>
+
+              <div className="mt-8 grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2">
+                {[
+                  ["Conversion Tracking", Database],
+                  ["Audience Behaviour", Users],
+                  ["Keyword Performance", Search],
+                  ["Ad Performance", BarChart3],
+                  ["Attribution Signals", Layers3],
+                  ["Ongoing Optimisation", RefreshCw],
+                ].map(([label, Icon]) => {
+                  const IconComponent = Icon as typeof Database;
+                  return (
+                    <div
+                      key={label as string}
+                      className="flex items-center gap-3 text-sm text-white/65"
+                    >
+                      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md border border-[#F8BC04]/30 bg-[#F8BC04]/5">
+                        <IconComponent className="h-3.5 w-3.5 text-[#F8BC04]" />
+                      </span>
+                      <span>{label as string}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10. RETARGETING & CUSTOMER RE-ENGAGEMENT */}
+      <section className="pm-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="mb-12 max-w-3xl">
+            <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+              [ RETARGETING & RE-ENGAGEMENT ]
+            </span>
+
+            <h2 className="mt-4 font-bold leading-tight">
+              Bring Interested Visitors
+              <br />
+              <span className="highlight-font text-[#F8BC04]">
+                Back Into the Journey
+              </span>
+            </h2>
+
+            <p className="mt-5 leading-relaxed text-white/55">
+              Retargeting can reconnect with people who have already interacted
+              with the business. Depending on the campaign, that can include
+              website visitors, product viewers, previous leads or abandoned
+              purchase journeys.
+            </p>
+          </div>
+
+          <div className="pm-retarget-path">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+              {retargetingSteps.map((step, index) => (
+                <div key={step.title} className="relative z-10">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[#F8BC04]/50 bg-black text-[#F8BC04]">
+                    {step.icon}
+                  </div>
+
+                  <div className="mt-5 text-center">
+                    <h3 className="font-bold text-white">{step.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/50">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {index < retargetingSteps.length - 1 && (
+                    <ArrowRight className="absolute right-[-18px] top-6 hidden h-5 w-5 text-[#F8BC04]/50 lg:block" />
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 11. REPORTING / TRANSPARENCY */}
+      <section className="pm-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                [ REPORTING / TRANSPARENCY ]
+              </span>
+
+              <h2 className="mt-4 font-bold leading-[0.95]">
+                Know What Is Happening
+                <br />
+                <span className="highlight-font text-[#F8BC04]">
+                  With Your Ad Budget
+                </span>
+              </h2>
+
+              <p className="mt-6 leading-relaxed text-white/60">
+                Reporting should make campaign activity understandable. We can
+                structure reporting around spend, traffic, leads, conversions,
+                acquisition costs, channel performance and optimisation work,
+                using the actual account data available.
+              </p>
+
+              <div className="mt-7 grid grid-cols-2 gap-3">
+                {[
+                  "Ad Spend",
+                  "Leads",
+                  "Conversions",
+                  "CPA / CPL",
+                  "ROAS",
+                  "Optimisation Updates",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 text-xs font-semibold text-white/65"
+                  >
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:col-span-7">
+              <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[28px] border border-white/10 bg-[#090909] shadow-[0_30px_100px_rgba(0,0,0,0.4)]">
+                <Image
+                  src="/assets/performance-marketing/reporting-transparency.webp"
+                  alt="Performance marketing reporting and campaign transparency dashboard"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 58vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 12. FIVE-IMAGE CENTER SLIDER */}
+      <section className="pm-section relative overflow-hidden bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="mb-8 text-center">
+            <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+              [ CAMPAIGN VISUALS ]
+            </span>
+
+            <h2 className="mt-4 font-bold">
+              Performance Marketing in{" "}
+              <span className="highlight-font text-[#F8BC04]">
+                Practice
+              </span>
+            </h2>
+          </div>
+
+          <div className="pm-slider-wrapper relative overflow-hidden rounded-[28px] border border-white/10 bg-[#080808]">
+            <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#080808] to-transparent" />
+            <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#080808] to-transparent" />
+
+            <div className="pm-slider-track flex w-max gap-4 p-4">
+              {[...performanceSlides, ...performanceSlides].map(
+                (slide, index) => (
+                  <div
+                    key={`${slide.image}-${index}`}
+                    className="relative h-[300px] w-[430px] shrink-0 overflow-hidden rounded-[22px] border border-white/10 bg-[#111]"
+                  >
+                    <Image
+                      src={slide.image}
+                      alt={slide.alt}
+                      fill
+                      sizes="430px"
+                      className="object-cover"
+                    />
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+
+          <div className="mt-5 flex justify-center gap-2">
+            {performanceSlides.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                aria-label={`Show campaign image ${index + 1}`}
+                onClick={() => setPerformanceSlide(index)}
+                className={
+                  performanceSlide === index
+                    ? "h-2.5 w-7 rounded-full bg-[#F8BC04]"
+                    : "h-2.5 w-2.5 rounded-full bg-white/15 transition-colors hover:bg-white/30"
+                }
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 13. TECHNOLOGIES WE WORK WITH */}
+      <section className="pm-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="text-center">
+            <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+              [ TECHNOLOGIES WE WORK WITH ]
+            </span>
+
+            <h2 className="mt-4 font-bold">
+              Platforms, Analytics &{" "}
+              <span className="highlight-font text-[#F8BC04]">
+                Marketing Technology
+              </span>
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-white/50">
+              We use the advertising, analytics, tracking and commerce tools
+              that fit the campaign, website and measurement requirements.
+            </p>
+          </div>
+
+          <div className="mt-14 space-y-12">
+            {technologyRows.map((row, rowIndex) => (
+              <div key={rowIndex} className="pm-technology-row">
+                {row.map((technology) => (
+                  <div
+                    key={technology.name}
+                    className="pm-technology-item"
+                  >
+                    <div className="pm-technology-image-wrap">
+                      <Image
+                        src={technology.image}
+                        alt={technology.alt}
+                        fill
+                        sizes="74px"
+                        className="pm-technology-image"
+                      />
+                    </div>
+
+                    <span className="pm-technology-name">
+                      {technology.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 14. OUR RECENT WORK */}
+      <section className="pm-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                [ OUR RECENT WORK ]
+              </span>
+
+              <h2 className="mt-4 font-bold leading-tight">
+                Work Across
+                <br />
+                <span className="highlight-font text-[#F8BC04]">
+                  Digital Growth
+                </span>
+              </h2>
+            </div>
+
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-[#F8BC04]"
+            >
+              View All Work
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <OurWork />
+        </div>
+      </section>
+
+      
+            {/* =========================================================================
+    INDUSTRIES WE WORKED WITH SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5 sm:py-20">
+  <div className="mx-auto max-w-[1550px] px-4 sm:px-8 lg:px-12">
+    <div className="grid grid-cols-1 items-start gap-8 lg:gap-10 xl:grid-cols-12">
+
+      {/* =========================
+          LEFT COLUMN — INDUSTRIES
+      ========================== */}
+      <div className="flex flex-col justify-start xl:sticky xl:top-28 xl:col-span-3">
+        <h2 className="mt-4 text-2xl font-bold leading-[1.05] sm:mt-5 sm:text-4xl md:text-5xl">
+          <span className="block text-white">Industries</span>
+          <span className="highlight-font block text-[#F8BC04]">We</span>
+          <span className="highlight-font block text-[#F8BC04]">worked</span>
+          <span className="highlight-font block text-[#F8BC04]">with</span>
+        </h2>
+
+        <div className="mb-4 mt-4 h-1 w-14 rounded-full bg-[#F8BC04] sm:mb-5 sm:mt-6" />
+
+        <p className="!text-[18px] text-sm font-medium leading-snug text-white/70 sm:text-base">
+          Different industries.
+          <br />
+          Real impact.
+        </p>
+      </div>
+
+      {/* =========================
+          RIGHT COLUMN — INDUSTRY CARDS
+      ========================== */}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:col-span-9">
+        {industries.map((ind) => (
+          <div
+            key={ind.id}
+            className="group relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#0c0c0c] p-5 shadow-xl transition-all duration-300 hover:border-[#F8BC04]/50 sm:min-h-[340px] sm:rounded-3xl sm:p-6"
+          >
+            {/* Background Image & Gradient Overlay */}
+            <div className="absolute inset-0 z-0">
+              <Image
+                src={ind.image}
+                alt={ind.title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                className="object-cover object-center brightness-75 transition-transform duration-500 group-hover:scale-105"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/30" />
+            </div>
+
+            {/* Card Top Spacer */}
+            <div className="relative z-10" />
+
+            {/* Card Content */}
+            <div className="relative z-10 flex flex-col justify-end pt-24 sm:pt-28">
+              <h3 className="text-base font-extrabold leading-snug text-white transition-colors group-hover:text-[#F8BC04] sm:text-lg">
+                {ind.title}
+              </h3>
+
+              <p className="mt-2 text-xs leading-relaxed text-white/70 sm:text-[13px]">
+                {ind.description}
+              </p>
+
+              {/* Know More Button */}
+              <div className="mt-4 flex justify-end sm:mt-5">
+                <Link
+                  href={ind.href}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[#F8BC04] px-4 py-2 text-xs font-extrabold tracking-tight text-black shadow-[0_0_15px_rgba(248,188,4,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(248,188,4,0.5)] active:scale-95 sm:px-5 sm:text-sm"
+                >
+                  <span>Know More</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* ==================================================
+      CASE STUDIES SECTION
+  =================================================== */}
+  <div className="mx-auto max-w-[1600px] py-10">
+
+    {/* Section Heading */}
+    <div className="mx-auto mb-12 max-w-[1600px] px-4 text-center">
+      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        Case Studies
+      </h2>
+
+      <p className="mt-4 text-center text-base leading-6 text-white/100 sm:text-lg">
+        Explore how our digital marketing agency engineers data-driven
+        strategies that scale early-stage startups and established businesses.
+        From lowering customer acquisition costs to multiplying qualified
+        leads, see how our performance marketing agency delivers measurable
+        return on investment through real-world client success stories.
+      </p>
+    </div>
+
+    {/* =========================
+        FEATURE CASE STUDY CARDS
+    ========================== */}
+    <div className="grid grid-cols-1 gap-5 px-4 md:grid-cols-3">
+
+      {/* =========================
+          CASE STUDY 1 — ADORING INDIA
+      ========================== */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
+
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 1.webp"
+            alt="BigBeans Case Study 1"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Adoring India
+          </h3>
+
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            We partnered with Adoring India, an NGO dedicated to supporting
+            school students, to build digital visibility and expand their
+            community impact. By leveraging data-driven storytelling and
+            targeted outreach campaigns, our digital marketing agency helped
+            increase volunteer engagement, boost corporate sponsorship
+            inquiries, and scale their educational awareness initiatives
+            across major digital platforms.
+          </p>
+
+          <a
+            href="https://www.bigbeansdigital.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
+        </div>
+      </div>
+
+      {/* =========================
+          CASE STUDY 2 — GUPSHUP BHARAT
+      ========================== */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
+
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 2.webp"
+            alt="BigBeans Case Study 2"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Gupshup Bharat
+          </h3>
+
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            To establish Gupshup India as the premier news agency in Tripura,
+            we designed an agile content and distribution strategy focused on
+            instant reader retention and search visibility. Functioning as
+            their growth partner, our social media marketing agency optimized
+            news distribution pipelines, expanding their daily reader reach
+            and boosting cross-platform audience engagement across regional
+            markets.
+          </p>
+
+          <a
+            href="https://www.bigbeansdigital.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
+        </div>
+      </div>
+
+      {/* =========================
+          CASE STUDY 3 — ENTIMESSI
+      ========================== */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
+
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 3.webp"
+            alt="BigBeans Case Study 3"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Entimessi
+          </h3>
+
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            For Entimessi, a premium female lingerie brand, we built an
+            end-to-end sales engine focused on customer acquisition and brand
+            authority. By uniting high-converting visual ad creatives with
+            precise audience targeting, our performance marketing agency
+            lowered customer acquisition costs (CAC) and maximized return on
+            ad spend (ROAS) while scaling direct website sales.
+          </p>
+
+          <a
+            href="https://www.bigbeansdigital.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    BLOGS SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5">
+  <div className="max-w-[1600px] mx-auto px-4 sm:px-8">
+
+    <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
+      <div className="max-w-[1600px]">
+
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight mt-2">
+          Stay Ahead with{" "}
+          <span className="font-serif italic font-normal text-[#F8BC04]">
+            Our Insights
+          </span>
+        </h2>
+
+        <p className="mt-2.5 sm:mt-3 text-xs sm:text-base text-white/60 leading-relaxed">
+          Actionable playbooks covering high-converting organic reach, branding turnarounds, and performance marketing shifts.
+        </p>
+
+      </div>
+
+      <Link
+        href="/blog"
+        className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-bold text-white border border-white/20 px-5 py-3 rounded-full hover:border-[#F8BC04] hover:text-[#F8BC04] transition-colors self-start md:self-auto"
+      >
+        Browse All Articles
+        <ArrowRight className="w-3.5 h-3.5" />
+      </Link>
+
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+
+      {blogCards.map((blog) => (
+        <Link
+          key={blog.id}
+          href={blog.link}
+          className="group relative flex flex-col rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-[#F8BC04]/50 transition-all duration-300 hover:-translate-y-1.5 shadow-lg"
+        >
+
+          <div className="relative h-48 sm:h-52 w-full overflow-hidden">
+
+            <Image
+              src={blog.image}
+              alt={blog.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+
+            <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4">
+              <span className="px-2.5 py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-black/70 text-[#F8BC04] border border-[#F8BC04]/30 backdrop-blur-sm">
+                {blog.primaryCategory}
+              </span>
+            </div>
+
+            <span className="absolute bottom-3 right-3 sm:right-4 text-[10px] sm:text-[11px] font-medium text-white/70">
+              {blog.readTime}
+            </span>
+
+          </div>
+
+          <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between">
+
+            <div>
+
+              <span className="text-[10px] sm:text-[11px] text-white/40 block mb-1.5">
+                {blog.date}
+              </span>
+
+              <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#F8BC04] transition-colors line-clamp-2">
+                {blog.title}
+              </h3>
+
+              <p className="mt-2 text-xs text-white/60 line-clamp-3 leading-relaxed">
+                {blog.description}
+              </p>
+
+            </div>
+
+            <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#F8BC04]">
+              <span>Read Article</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </div>
+
+          </div>
+
+        </Link>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    GLOBAL PRESENCE SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5">
+  <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
+
+    <div className="rounded-2xl sm:rounded-[36px] border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent p-6 sm:p-14 overflow-hidden relative">
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+        <div className="lg:col-span-6">
+
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
+            Empowering Brands Across{" "}
+            <span className="font-serif italic font-normal text-[#F8BC04]">
+              12+ Global Hubs
+            </span>
+          </h2>
+
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base text-white/60 leading-relaxed">
+            Headquartered in India with strategic partner nodes across London, North America, Singapore, and Australia. We engineer hyper-localized growth campaigns tailored to diverse consumer behaviors.
+          </p>
+
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-white/10 pt-5 sm:pt-6">
+
+            <div>
+
+              <h4 className="text-xs sm:text-sm font-bold text-white mb-2 sm:mb-3 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#F8BC04]" />
+                India Operations
+              </h4>
+
+              <ul className="space-y-1 sm:space-y-1.5 text-xs text-white/60">
+                <li>Kolkata</li>
+                <li>Delhi NCR &amp; Noida</li>
+                <li>Bangalore</li>
+                <li>Mumbai &amp; Pune</li>
+                <li>Tripura</li>
+              </ul>
+
+            </div>
+
+            <div>
+
+              <h4 className="text-xs sm:text-sm font-bold text-white mb-2 sm:mb-3 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#F8BC04]" />
+                International Operations
+              </h4>
+
+              <ul className="space-y-1 sm:space-y-1.5 text-xs text-white/60">
+                <li>London, United Kingdom</li>
+                <li>Singapore</li>
+                <li>Toronto &amp; Vancouver, Canada</li>
+                <li>Sydney &amp; Melbourne, Australia</li>
+                <li>Lagos, Nigeria</li>
+              </ul>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div className="lg:col-span-6 relative flex items-center justify-center mt-2 lg:mt-0">
+
+          <div className="relative w-full aspect-[16/10] max-w-[620px]">
+
+            <Image
+              src="/maps/world-map.png"
+              alt="BigBeans Global Footprint Map"
+              fill
+              sizes="(max-width: 1024px) 100vw, 600px"
+              className="object-contain opacity-70"
+            />
+
+            {/* Map Node Dots */}
+            {[
+              { top: "42%", left: "67%" }, // India
+              { top: "27%", left: "44%" }, // UK
+              { top: "28%", left: "18%" }, // North America
+              { top: "54%", left: "74%" }, // Singapore
+              { top: "65%", left: "84%" }, // Australia
+            ].map((pos, idx) => (
+
+              <div
+                key={idx}
+                className="absolute -translate-x-1/2 -translate-y-1/2"
+                style={{ top: pos.top, left: pos.left }}
+              >
+
+                <span className="relative flex h-2.5 w-2.5 sm:h-3.5 sm:w-3.5">
+
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F8BC04] opacity-75" />
+
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 bg-[#F8BC04] shadow-[0_0_12px_#F8BC04]" />
+
+                </span>
+
+              </div>
+
+            ))}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    FAQ SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5">
+  <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-10">
+
+    <div className="text-center mb-8">
+
+      <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight mt-2">
+        Frequently Asked{" "}
+        <span className="font-serif italic font-normal text-[#F8BC04]">
+          Questions
+        </span>
+      </h2>
+
+    </div>
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-5">
+
+      {/* LEFT COLUMN */}
+      <div className="space-y-3 sm:space-y-4">
+
+        {[
+          {
+            q: "What social media marketing services do you offer?",
+            a: "Big Beans Digital provides full-lifecycle social media solutions for startups and enterprises across India, the US, and the UK. Our scope includes visual feed architecture, algorithm-specific short-form Reels & TikTok production, organic growth strategy, community management, and synchronized paid social campaigns.",
+          },
+          {
+            q: "How do I find the best social media marketing agency near me?",
+            a: "Beyond physical proximity, evaluate verified case studies, aesthetic consistency, conversion tracking transparency, and strategic depth. Big Beans Digital operates a distributed agile team delivering high-touch collaboration regardless of whether you are based in London, Kolkata, Delhi, or New York.",
+          },
+          {
+            q: "Why choose Big Beans Digital over traditional agencies?",
+            a: "Traditional agencies separate creative thinking from performance metrics. We merge branding, web engineering, and performance marketing into a single unit so every dollar spent directly advances brand equity and customer acquisition.",
+          },
+          {
+            q: "Do you engineer conversion-focused websites for startups?",
+            a: "Yes. We build responsive, fast headless websites using modern frameworks (Next.js, Tailwind CSS) optimized for sub-second load times, technical SEO compliance, and conversion funnels designed to turn traffic into pipeline.",
+          },
+          {
+            q: "How does performance marketing work with your team?",
+            a: "We deploy rigorous quantitative testing across Google Ads, Meta Ads, and PPC remarketing funnels. We focus on true business levers—CAC, ROAS, and customer lifetime value—rather than vanity impressions.",
+          },
+          {
+            q: "What does an engagement cost?",
+            a: "We offer tailored milestone or retainer engagements based on growth objectives, required content cadence, and ad spend scale. Schedule a consultation call to receive an honest, transparent roadmap.",
+          },
+        ].map((faq, idx) => {
+
+          const isOpen = openFaq === idx;
+
+          return (
+            <div
+              key={idx}
+              className="w-full rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden transition-colors hover:border-white/20"
+            >
+
+              <button
+                type="button"
+                onClick={() => setOpenFaq(isOpen ? null : idx)}
+                className="w-full min-h-[84px] flex items-center justify-between gap-4 px-5 py-5 sm:px-6 sm:py-6 text-left"
+              >
+
+                <span className="flex-1 whitespace-nowrap text-sm sm:text-base md:text-lg font-bold text-white">
+                  {faq.q}
+                </span>
+
+                <span
+                  className={`flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-xs sm:text-sm font-bold transition-transform duration-300 ${
+                    isOpen
+                      ? "bg-[#F8BC04] text-black rotate-45"
+                      : "bg-white/5 text-white/80"
+                  }`}
+                >
+                  +
+                </span>
+
+              </button>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+
+                    <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-xs sm:text-base text-white/70 leading-relaxed border-t border-white/5">
+                      {faq.a}
+                    </div>
+
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+            </div>
+          );
+        })}
+
+      </div>
+
+      {/* RIGHT COLUMN */}
+      <div className="space-y-3 sm:space-y-4">
+
+        {[
+          {
+            q: "What industries do you work with?",
+            a: "We work with businesses across sectors including real estate, healthcare, restaurants, ecommerce, education, professional services, home improvement, gyms, FMCG, and other growth-focused businesses.",
+          },
+          {
+            q: "Can you manage both organic social media and paid advertising?",
+            a: "Yes. Our team can manage organic social media strategy and content alongside paid campaigns on platforms such as Meta and Google. This allows creative, audience targeting, messaging, and performance data to work together.",
+          },
+          {
+            q: "How long does it take to see results from social media marketing?",
+            a: "The timeline depends on your industry, starting position, content quality, audience, and objectives. Organic growth generally requires consistent execution over time, while paid campaigns can generate measurable traffic and leads much sooner.",
+          },
+          {
+            q: "Do you provide content creation and graphic design?",
+            a: "Yes. Our social media services can include creative direction, graphic design, short-form video concepts, social media creatives, campaign content, and platform-specific content planning.",
+          },
+          {
+            q: "Do you provide SEO and website optimization?",
+            a: "Yes. We can integrate technical SEO, on-page optimization, content strategy, conversion-focused landing pages, and website improvements into a broader digital marketing strategy.",
+          },
+          {
+            q: "How can I get started with Big Beans Digital?",
+            a: "Start by sharing your business, current challenges, goals, target audience, and the services you are looking for. We can then discuss the right approach, scope, milestones, and next steps for your project.",
+          },
+        ].map((faq, idx) => {
+
+          const faqIndex = idx + 6;
+          const isOpen = openFaq === faqIndex;
+
+          return (
+            <div
+              key={faqIndex}
+              className="w-full rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden transition-colors hover:border-white/20"
+            >
+
+              <button
+                type="button"
+                onClick={() => setOpenFaq(isOpen ? null : faqIndex)}
+                className="w-full min-h-[84px] flex items-center justify-between gap-4 px-5 py-5 sm:px-6 sm:py-6 text-left"
+              >
+
+                <span className="flex-1 whitespace-nowrap text-sm sm:text-base md:text-lg font-bold text-white">
+                  {faq.q}
+                </span>
+
+                <span
+                  className={`flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-xs sm:text-sm font-bold transition-transform duration-300 ${
+                    isOpen
+                      ? "bg-[#F8BC04] text-black rotate-45"
+                      : "bg-white/5 text-white/80"
+                  }`}
+                >
+                  +
+                </span>
+
+              </button>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+
+                    <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-xs sm:text-base text-white/70 leading-relaxed border-t border-white/5">
+                      {faq.a}
+                    </div>
+
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+            </div>
+          );
+        })}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    FINAL CTA SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5 sm:py-5 overflow-hidden text-center">
+
+  <div className="max-w-4xl mx-auto px-4 relative z-10">
+
+    <h2 className="text-3xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.1] sm:leading-[1.05]">
+      Scale Your Brand
+      Today{" "}
+      <span
+        className="font-serif italic font-normal text-[#F8BC04]"
+        style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+      >
+        with Big Beans Digital
+      </span>
+    </h2>
+
+    <p className="mt-4 sm:mt-6 text-xs sm:text-base md:text-lg text-white/60 max-w-xl mx-auto leading-relaxed">
+      Ready to turn fragmented tactics into a predictable growth engine? Book your free strategy session with our digital marketing agency now.
+    </p>
+
+    {/* CTA BUTTONS */}
+    <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4">
+
+      <Link
+        href="/connect"
+        className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-[#F8BC04] text-black font-extrabold text-sm sm:text-base tracking-tight transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(248,188,4,0.5)]"
+      >
+        <span>Connect With Us</span>
+
+        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+      </Link>
+
+      <Link
+        href="https://wa.link/pxmrrm"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/20 text-white font-semibold text-sm sm:text-base hover:bg-white/5 hover:border-white/40 transition-colors"
+      >
+        Quick WhatsApp Chat
+
+        <ExternalLink className="w-4 h-4 text-white/60" />
+      </Link>
+
+    </div>
+
+    {/* ==================================================
+        SERVICE LINKS BELOW CTA BUTTONS
+    =================================================== */}
+    <div className="mt-7 flex flex-wrap items-center justify-center gap-5 text-xs text-white/40">
+
+      <Link
+        href="/branding"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Branding
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/seo"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        SEO
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/website-development"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Website Development
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/performance-marketing"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Performance Marketing
+      </Link>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
     </main>
   );
 }

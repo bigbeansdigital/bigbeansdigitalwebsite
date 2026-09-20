@@ -130,61 +130,61 @@ const brandingCards: BrandingCard[] = [
   },
 ];
 
-const industries: Industry[] = [
-  {
-    id: "real-estate",
-    title: "Real Estate & Interior Decorators",
-    description:
-      "Creating stunning digital experiences for spaces and lifestyles.",
-    image: "/industries/real-estate.webp",
-    alt: "Real Estate and Interior Decorators",
-    href: "/services",
-  },
-  {
-    id: "healthcare",
-    title: "Healthcare & Clinics",
-    description:
-      "Building trust and visibility for healthcare brands through strategic digital marketing.",
-    image: "/industries/healthcare.webp",
-    alt: "Healthcare and Clinics",
-    href: "/services",
-  },
-  {
-    id: "restaurants",
-    title: "Restaurants & Food Brands",
-    description:
-      "Turning food experiences into engaging digital stories that bring customers through the door.",
-    image: "/industries/restaurants.webp",
-    alt: "Restaurants and Food Brands",
-    href: "/services",
-  },
-  {
-    id: "ecommerce",
-    title: "Ecommerce Brands",
-    description:
-      "Helping ecommerce businesses grow through creative content, paid advertising and conversion strategy.",
-    image: "/industries/ecommerce.webp",
-    alt: "Ecommerce Brands",
-    href: "/services",
-  },
-  {
-    id: "travel-tourism",
-    title: "Travel and Tourism",
-    description:
-      "Inspiring journeys with creative storytelling and digital campaigns.",
-    image: "/industries/travel-tourism.webp",
-    alt: "Travel and Tourism",
-    href: "/services",
-  },
-  {
-    id: "home-improvement",
-    title: "Home Improvement",
-    description:
-      "Helping home improvement businesses turn their services into strong digital brands.",
-    image: "/industries/home-improvement.webp",
-    alt: "Home Improvement",
-    href: "/services",
-  },
+// Industries Data
+const industries = [
+ {
+  id: "real-estate",
+  title: "Real Estate & Interior Decorators",
+  description: "Creating stunning digital experiences for spaces and lifestyles.",
+  image: "/industries/Real Estate & Interior Decorators.webp",
+  alt: "Real Estate and Interior Decorators",
+  href: "/services",
+},
+
+{
+  id: "travel-tourism",
+  title: "Travel and Tourism",
+  description: "Inspiring journeys with creative storytelling and digital campaigns.",
+  image: "/industries/Travel and Tourism.webp",
+  alt: "Travel and Tourism",
+  href: "/services",
+},
+
+{
+  id: "fmcg-brands",
+  title: "FMCG Brands",
+  description: "Building brands that become household names.",
+  image: "/industries/FMCG Brands.webp",
+  alt: "FMCG Brands",
+  href: "/services",
+},
+
+{
+  id: "bakery-restaurants",
+  title: "Bakery and Restaurants",
+  description: "Serving creativity for brands that serve happiness.",
+  image: "/industries/Bakery and Restaurants.webp",
+  alt: "Bakery and Restaurant Brands",
+  href: "/services",
+},
+
+{
+  id: "ecommerce",
+  title: "Ecommerce",
+  description: "Driving growth for online stores with scroll-stopping content.",
+  image: "/industries/ecommerce.webp",
+  alt: "Ecommerce Brands and Online Stores",
+  href: "/services",
+},
+
+{
+  id: "it-consultancy",
+  title: "IT & Consultancy",
+  description: "Simplifying complex ideas with impactful digital solutions.",
+  image: "/industries/IT & Consultancy.webp",
+  alt: "IT and Consultancy Services",
+  href: "/services",
+},
 ];
 
 const leftFaqs: FAQ[] = [
@@ -308,7 +308,7 @@ export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <main className="min-h-screen bg-black pt-[100px] text-white [&_*]:box-border">
+    <main className="min-h-screen bg-black text-white [&_*]:box-border">
       <style>{`
         h1,
         h2,
@@ -1413,451 +1413,742 @@ export default function Home() {
         <OurWork />
       </div>
 
-      {/* ===========Industries Section=========== */}
-      <section className="relative z-10 py-5 sm:py-20">
-        <div className="mx-auto max-w-[1550px] px-4 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 items-start gap-8 lg:gap-10 xl:grid-cols-12">
-            <div className="flex flex-col justify-start xl:sticky xl:top-28 xl:col-span-3">
-              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04] sm:text-sm">
-                [ INDUSTRIES ]
-              </span>
+      {/* =========================================================================
+    INDUSTRIES WE WORKED WITH SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5 sm:py-20">
+  <div className="mx-auto max-w-[1550px] px-4 sm:px-8 lg:px-12">
+    <div className="grid grid-cols-1 items-start gap-8 lg:gap-10 xl:grid-cols-12">
 
-              <h2 className="mt-4 text-2xl font-bold leading-[1.05] sm:mt-5 sm:text-4xl md:text-5xl">
-                <span className="block text-white">Industries</span>
-                <span className="highlight-font block text-[#F8BC04]">We</span>
-                <span className="highlight-font block text-[#F8BC04]">worked</span>
-                <span className="highlight-font block text-[#F8BC04]">with</span>
-              </h2>
+      {/* =========================
+          LEFT COLUMN — INDUSTRIES
+      ========================== */}
+      <div className="flex flex-col justify-start xl:sticky xl:top-28 xl:col-span-3">
+        <h2 className="mt-4 text-2xl font-bold leading-[1.05] sm:mt-5 sm:text-4xl md:text-5xl">
+          <span className="block text-white">Industries</span>
+          <span className="highlight-font block text-[#F8BC04]">We</span>
+          <span className="highlight-font block text-[#F8BC04]">worked</span>
+          <span className="highlight-font block text-[#F8BC04]">with</span>
+        </h2>
 
-              <div className="mb-4 mt-4 h-1 w-14 rounded-full bg-[#F8BC04] sm:mb-5 sm:mt-6" />
+        <div className="mb-4 mt-4 h-1 w-14 rounded-full bg-[#F8BC04] sm:mb-5 sm:mt-6" />
 
-              <p className="text-sm font-medium leading-snug text-white/70 sm:text-base !text-[18px]">
-                Different industries.
-                <br />
-                Real impact.
-              </p>
+        <p className="!text-[18px] text-sm font-medium leading-snug text-white/70 sm:text-base">
+          Different industries.
+          <br />
+          Real impact.
+        </p>
+      </div>
+
+      {/* =========================
+          RIGHT COLUMN — INDUSTRY CARDS
+      ========================== */}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:col-span-9">
+        {industries.map((ind) => (
+          <div
+            key={ind.id}
+            className="group relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#0c0c0c] p-5 shadow-xl transition-all duration-300 hover:border-[#F8BC04]/50 sm:min-h-[340px] sm:rounded-3xl sm:p-6"
+          >
+            {/* Background Image & Gradient Overlay */}
+            <div className="absolute inset-0 z-0">
+              <Image
+                src={ind.image}
+                alt={ind.title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                className="object-cover object-center brightness-75 transition-transform duration-500 group-hover:scale-105"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/30" />
             </div>
 
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:col-span-9">
-              {industries.map((industry) => (
-                <div
-                  key={industry.id}
-                  className="group relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#0c0c0c] p-5 shadow-xl transition-all duration-300 hover:border-[#F8BC04]/50 sm:min-h-[340px] sm:rounded-3xl sm:p-6"
+            {/* Card Top Spacer */}
+            <div className="relative z-10" />
+
+            {/* Card Content */}
+            <div className="relative z-10 flex flex-col justify-end pt-24 sm:pt-28">
+              <h3 className="text-base font-extrabold leading-snug text-white transition-colors group-hover:text-[#F8BC04] sm:text-lg">
+                {ind.title}
+              </h3>
+
+              <p className="mt-2 text-xs leading-relaxed text-white/70 sm:text-[13px]">
+                {ind.description}
+              </p>
+
+              {/* Know More Button */}
+              <div className="mt-4 flex justify-end sm:mt-5">
+                <Link
+                  href={ind.href}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[#F8BC04] px-4 py-2 text-xs font-extrabold tracking-tight text-black shadow-[0_0_15px_rgba(248,188,4,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(248,188,4,0.5)] active:scale-95 sm:px-5 sm:text-sm"
                 >
-                  <div className="absolute inset-0 z-0">
-                    <Image
-                      src={industry.image}
-                      alt={industry.alt || industry.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
-                      className="object-cover object-center brightness-75 transition-transform duration-500 group-hover:scale-105"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/30" />
-                  </div>
-
-                  <div className="relative z-10" />
-
-                  <div className="relative z-10 flex flex-col justify-end pt-24 sm:pt-28">
-                    <h2 className="text-2xl font-bold leading-snug text-white transition-colors group-hover:text-[#F8BC04] sm:text-4xl md:text-5xl">
-                      {industry.title}
-                    </h2>
-
-                    <p className="mt-2 text-xs leading-relaxed text-white/70 !text-[18px]">
-                      {industry.description}
-                    </p>
-
-                    <div className="mt-4 flex justify-end sm:mt-5">
-                      <Link
-                        href={industry.href}
-                        className="inline-flex items-center gap-1.5 rounded-full bg-[#F8BC04] px-4 py-2 text-xs font-extrabold text-black shadow-[0_0_15px_rgba(248,188,4,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(248,188,4,0.5)] active:scale-95 sm:px-5 sm:text-sm"
-                      >
-                        <span>Know More</span>
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* ===========Case Studies Section=========== */}
-          <div className="mx-auto max-w-[1600px] px-0 py-10 sm:px-0 sm:py-10">
-            <div className="mx-auto mb-12 max-w-[1600px] text-center">
-              <h2 className="text-2xl font-bold text-white sm:text-4xl md:text-5xl">
-                Case Studies
-              </h2>
-
-              <p className="mt-4 text-base leading-6 text-white sm:text-lg !text-[18px]">
-                Explore how our digital marketing agency engineers data-driven
-                strategies that scale early-stage startups and established
-                businesses. From lowering customer acquisition costs to
-                multiplying qualified leads, see how our performance marketing
-                agency delivers measurable return on investment through
-                real-world client success stories.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-              <div className="overflow-hidden rounded-[4px] bg-[#101010]">
-                <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
-                  <img
-                    src="/casestudies/BigBeans Case Study 1.webp"
-                    alt="BigBeans Case Study 1"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-
-                <div className="px-7 py-6 text-center sm:px-8">
-                  <h2 className="text-2xl font-bold text-white sm:text-4xl md:text-5xl">
-                    Adoring India
-                  </h2>
-
-                  <p className="mt-5 text-base leading-6 !text-[18px]">
-                    We partnered with Adoring India, an NGO dedicated to
-                    supporting school students, to build digital visibility and
-                    expand their community impact. By leveraging data-driven
-                    storytelling and targeted outreach campaigns, our digital
-                    marketing agency helped increase volunteer engagement,
-                    boost corporate sponsorship inquiries, and scale their
-                    educational awareness initiatives across major digital
-                    platforms.
-                  </p>
-
-                  <a
-                    href="www.bigbeansdigital.com"
-                    className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
-                  >
-                    Know More
-                  </a>
-                </div>
-              </div>
-
-              <div className="overflow-hidden rounded-[4px] bg-[#101010]">
-                <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
-                  <img
-                    src="/casestudies/BigBeans Case Study 2.webp"
-                    alt="BigBeans Case Study 2"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-
-                <div className="px-7 py-6 text-center sm:px-8">
-                  <h2 className="text-2xl font-bold text-white sm:text-4xl md:text-5xl">
-                    Gupshup Bharat
-                  </h2>
-
-                  <p className="mt-5 text-base leading-6 !text-[18px]">
-                    To establish Gupshup India as the premier news agency in
-                    Tripura, we designed an agile content and distribution
-                    strategy focused on instant reader retention and search
-                    visibility. Functioning as their growth partner, our social
-                    media marketing agency optimized news distribution
-                    pipelines, expanding their daily reader reach and boosting
-                    cross-platform audience engagement across regional
-                    markets.
-                  </p>
-
-                  <a
-                    href="www.bigbeansdigial.com"
-                    className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
-                  >
-                    Know More
-                  </a>
-                </div>
-              </div>
-
-              <div className="overflow-hidden rounded-[4px] bg-[#101010]">
-                <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
-                  <img
-                    src="/casestudies/BigBeans Case Study 3.webp"
-                    alt="BigBeans Case Study 3"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-
-                <div className="px-7 py-6 text-center sm:px-8">
-                  <h2 className="text-2xl font-bold text-white sm:text-4xl md:text-5xl">
-                    Entimessi
-                  </h2>
-
-                  <p className="mt-5 text-base leading-6 !text-[18px]">
-                    For Entimessi, a premium female lingerie brand, we built an
-                    end-to-end sales engine focused on customer acquisition and
-                    brand authority. By uniting high-converting visual ad
-                    creatives with precise audience targeting, our performance
-                    marketing agency lowered customer acquisition costs (CAC)
-                    and maximized return on ad spend (ROAS) while scaling direct
-                    website sales.
-                  </p>
-
-                  <a
-                    href="www.bigbeansdigital.com"
-                    className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
-                  >
-                    Know More
-                  </a>
-                </div>
+                  <span>Know More</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
               </div>
             </div>
           </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* ==================================================
+      CASE STUDIES SECTION
+  =================================================== */}
+  <div className="mx-auto max-w-[1600px] py-10">
+
+    {/* Section Heading */}
+    <div className="mx-auto mb-12 max-w-[1600px] px-4 text-center">
+      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        Case Studies
+      </h2>
+
+      <p className="mt-4 text-center text-base leading-6 text-white/100 sm:text-lg">
+        Explore how our digital marketing agency engineers data-driven
+        strategies that scale early-stage startups and established businesses.
+        From lowering customer acquisition costs to multiplying qualified
+        leads, see how our performance marketing agency delivers measurable
+        return on investment through real-world client success stories.
+      </p>
+    </div>
+
+    {/* =========================
+        FEATURE CASE STUDY CARDS
+    ========================== */}
+    <div className="grid grid-cols-1 gap-5 px-4 md:grid-cols-3">
+
+      {/* =========================
+          CASE STUDY 1 — ADORING INDIA
+      ========================== */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
+
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 1.webp"
+            alt="BigBeans Case Study 1"
+            className="h-full w-full object-cover"
+          />
         </div>
-      </section>
 
-      {/* ===========Insights / Blog Section=========== */}
-      <section className="relative z-10 py-5">
-        <div className="mx-auto max-w-[1600px] px-4 sm:px-8">
-          <div className="mb-8 flex flex-col justify-between gap-5 md:flex-row md:items-end">
-            <div className="max-w-[1600px]">
-              <h2 className="mt-2 text-2xl font-bold sm:text-4xl md:text-5xl">
-                Stay Ahead with{" "}
-                <span className="highlight-font font-serif font-normal italic text-[#F8BC04]">
-                  Our Insights
-                </span>
-              </h2>
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Adoring India
+          </h3>
 
-              <p className="mt-2.5 text-xs leading-relaxed text-white/60 sm:mt-3 sm:text-base !text-[18px]">
-                Actionable playbooks covering high-converting organic reach,
-                branding turnarounds, and performance marketing shifts.
-              </p>
-            </div>
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            We partnered with Adoring India, an NGO dedicated to supporting
+            school students, to build digital visibility and expand their
+            community impact. By leveraging data-driven storytelling and
+            targeted outreach campaigns, our digital marketing agency helped
+            increase volunteer engagement, boost corporate sponsorship
+            inquiries, and scale their educational awareness initiatives
+            across major digital platforms.
+          </p>
 
-            <Link
-              href="/blog"
-              className="inline-flex items-center justify-center gap-2 self-start rounded-full border border-white/20 px-5 py-3 text-xs font-bold uppercase tracking-widest text-white transition-colors hover:border-[#F8BC04] hover:text-[#F8BC04] md:self-auto"
-            >
-              Browse All Articles
-              <ArrowRight className="h-3.5 w-3.5" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 sm:gap-8">
-            {blogCards.map((blog) => (
-              <Link
-                key={blog.id}
-                href={blog.link}
-                className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:border-[#F8BC04]/50 sm:rounded-3xl"
-              >
-                <div className="relative h-48 w-full overflow-hidden sm:h-52">
-                  <Image
-                    src={blog.image}
-                    alt={blog.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
-                  <div className="absolute left-3.5 top-3.5 sm:left-4 sm:top-4">
-                    <span className="rounded-full border border-[#F8BC04]/30 bg-black/70 px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-[#F8BC04] backdrop-blur-sm sm:text-[10px]">
-                      {blog.primaryCategory}
-                    </span>
-                  </div>
-
-                  <span className="absolute bottom-3 right-3 text-[10px] font-medium text-white/70 sm:right-4 sm:text-[11px]">
-                    {blog.readTime}
-                  </span>
-                </div>
-
-                <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
-                  <div>
-                    <span className="mb-1.5 block text-[10px] text-white/40 sm:text-[11px]">
-                      {blog.date}
-                    </span>
-
-                    <h2 className="line-clamp-2 text-2xl font-bold text-white transition-colors group-hover:text-[#F8BC04] sm:text-4xl md:text-5xl">
-                      {blog.title}
-                    </h2>
-
-                    <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-white/60 !text-[18px]">
-                      {blog.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-3.5 text-xs font-bold text-[#F8BC04]">
-                    <span>Read Article</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
+          <a
+            href="https://www.bigbeansdigital.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
         </div>
-      </section>
+      </div>
 
-      {/* ===========Global Presence Section=========== */}
-      <section className="relative z-10 py-5">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-8">
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent p-6 sm:rounded-[36px] sm:p-14">
-            <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
-              <div className="lg:col-span-6">
-                <h2 className="text-2xl font-bold leading-tight sm:text-4xl md:text-5xl">
-                  Empowering Brands Across{" "}
-                  <span className="highlight-font font-serif font-normal italic text-[#F8BC04]">
-                    12+ Global Hubs
-                  </span>
-                </h2>
+      {/* =========================
+          CASE STUDY 2 — GUPSHUP BHARAT
+      ========================== */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
 
-                <p className="mt-3 text-xs leading-relaxed text-white/60 sm:mt-4 sm:text-base !text-[18px]">
-                  Headquartered in India with strategic partner nodes across
-                  London, North America, Singapore, and Australia. We engineer
-                  hyper-localized growth campaigns tailored to diverse
-                  consumer behaviors.
-                </p>
-
-                <div className="mt-6 grid grid-cols-1 gap-6 border-t border-white/10 pt-5 sm:mt-8 sm:grid-cols-2 sm:pt-6">
-                  <div>
-                    <h2 className="mb-2 flex items-center gap-2 text-2xl font-bold text-white sm:mb-3 sm:text-4xl md:text-5xl">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#F8BC04]" />
-                      India Operations
-                    </h2>
-
-                    <ul className="space-y-1 text-xs text-white/60 sm:space-y-1.5">
-                      <li>Kolkata</li>
-                      <li>Delhi NCR &amp; Noida</li>
-                      <li>Bangalore</li>
-                      <li>Mumbai &amp; Pune</li>
-                      <li>Tripura</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h2 className="mb-2 flex items-center gap-2 text-2xl font-bold text-white sm:mb-3 sm:text-4xl md:text-5xl">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#F8BC04]" />
-                      International Operations
-                    </h2>
-
-                    <ul className="space-y-1 text-xs text-white/60 sm:space-y-1.5">
-                      <li>London, United Kingdom</li>
-                      <li>Singapore</li>
-                      <li>Toronto &amp; Vancouver, Canada</li>
-                      <li>Sydney &amp; Melbourne, Australia</li>
-                      <li>Lagos, Nigeria</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative mt-2 flex items-center justify-center lg:col-span-6 lg:mt-0">
-                <div className="relative aspect-[16/10] w-full max-w-[620px]">
-                  <Image
-                    src="/maps/world-map.webp"
-                    alt="BigBeans Global Footprint Map"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 600px"
-                    className="object-contain opacity-70"
-                  />
-
-                  {mapPositions.map((position, index) => (
-                    <div
-                      key={index}
-                      className="absolute -translate-x-1/2 -translate-y-1/2"
-                      style={{
-                        top: position.top,
-                        left: position.left,
-                      }}
-                    >
-                      <span className="relative flex h-2.5 w-2.5 sm:h-3.5 sm:w-3.5">
-                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#F8BC04] opacity-75" />
-                        <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#F8BC04] shadow-[0_0_12px_#F8BC04] sm:h-3.5 sm:w-3.5" />
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 2.webp"
+            alt="BigBeans Case Study 2"
+            className="h-full w-full object-cover"
+          />
         </div>
-      </section>
 
-      {/* ===========FAQ Section=========== */}
-      <section className="relative z-10 py-5">
-        <div className="mx-auto max-w-[1400px] px-4 sm:px-8 lg:px-10">
-          <div className="mb-8 text-center">
-            <h2 className="mt-2 text-2xl font-bold sm:text-4xl md:text-5xl">
-              Frequently Asked{" "}
-              <span className="highlight-font font-serif font-normal italic text-[#F8BC04]">
-                Questions
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Gupshup Bharat
+          </h3>
+
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            To establish Gupshup India as the premier news agency in Tripura,
+            we designed an agile content and distribution strategy focused on
+            instant reader retention and search visibility. Functioning as
+            their growth partner, our social media marketing agency optimized
+            news distribution pipelines, expanding their daily reader reach
+            and boosting cross-platform audience engagement across regional
+            markets.
+          </p>
+
+          <a
+            href="https://www.bigbeansdigital.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
+        </div>
+      </div>
+
+      {/* =========================
+          CASE STUDY 3 — ENTIMESSI
+      ========================== */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
+
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 3.webp"
+            alt="BigBeans Case Study 3"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Entimessi
+          </h3>
+
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            For Entimessi, a premium female lingerie brand, we built an
+            end-to-end sales engine focused on customer acquisition and brand
+            authority. By uniting high-converting visual ad creatives with
+            precise audience targeting, our performance marketing agency
+            lowered customer acquisition costs (CAC) and maximized return on
+            ad spend (ROAS) while scaling direct website sales.
+          </p>
+
+          <a
+            href="https://www.bigbeansdigital.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    BLOGS SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5">
+  <div className="max-w-[1600px] mx-auto px-4 sm:px-8">
+
+    <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
+      <div className="max-w-[1600px]">
+
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight mt-2">
+          Stay Ahead with{" "}
+          <span className="font-serif italic font-normal text-[#F8BC04]">
+            Our Insights
+          </span>
+        </h2>
+
+        <p className="mt-2.5 sm:mt-3 text-xs sm:text-base text-white/60 leading-relaxed">
+          Actionable playbooks covering high-converting organic reach, branding turnarounds, and performance marketing shifts.
+        </p>
+
+      </div>
+
+      <Link
+        href="/blog"
+        className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-bold text-white border border-white/20 px-5 py-3 rounded-full hover:border-[#F8BC04] hover:text-[#F8BC04] transition-colors self-start md:self-auto"
+      >
+        Browse All Articles
+        <ArrowRight className="w-3.5 h-3.5" />
+      </Link>
+
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+
+      {blogCards.map((blog) => (
+        <Link
+          key={blog.id}
+          href={blog.link}
+          className="group relative flex flex-col rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-[#F8BC04]/50 transition-all duration-300 hover:-translate-y-1.5 shadow-lg"
+        >
+
+          <div className="relative h-48 sm:h-52 w-full overflow-hidden">
+
+            <Image
+              src={blog.image}
+              alt={blog.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+
+            <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4">
+              <span className="px-2.5 py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-black/70 text-[#F8BC04] border border-[#F8BC04]/30 backdrop-blur-sm">
+                {blog.primaryCategory}
               </span>
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 gap-3 sm:gap-4 lg:grid-cols-2 lg:gap-5">
-            <div className="space-y-3 sm:space-y-4">
-              {leftFaqs.map((faq, index) => (
-                <FAQItem
-                  key={index}
-                  faq={faq}
-                  index={index}
-                  openFaq={openFaq}
-                  setOpenFaq={setOpenFaq}
-                />
-              ))}
             </div>
 
-            <div className="space-y-3 sm:space-y-4">
-              {rightFaqs.map((faq, index) => {
-                const faqIndex = index + 6;
+            <span className="absolute bottom-3 right-3 sm:right-4 text-[10px] sm:text-[11px] font-medium text-white/70">
+              {blog.readTime}
+            </span>
 
-                return (
-                  <FAQItem
-                    key={faqIndex}
-                    faq={faq}
-                    index={faqIndex}
-                    openFaq={openFaq}
-                    setOpenFaq={setOpenFaq}
-                  />
-                );
-              })}
-            </div>
           </div>
-        </div>
-      </section>
 
-      {/* ===========Final CTA Section=========== */}
-      <section className="relative z-10 overflow-hidden py-5 text-center sm:py-5">
-        <div className="relative z-10 mx-auto max-w-4xl px-4">
-          <h2 className="text-2xl font-bold leading-[1.1] sm:text-4xl sm:leading-[1.05] md:text-5xl">
-            Scale Your Brand Today{" "}
-            <span
-              className="highlight-font font-serif font-normal italic text-[#F8BC04]"
-              style={{
-                fontFamily: "Georgia, 'Times New Roman', serif",
-              }}
-            >
-              with Big Beans Digital
+          <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between">
+
+            <div>
+
+              <span className="text-[10px] sm:text-[11px] text-white/40 block mb-1.5">
+                {blog.date}
+              </span>
+
+              <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#F8BC04] transition-colors line-clamp-2">
+                {blog.title}
+              </h3>
+
+              <p className="mt-2 text-xs text-white/60 line-clamp-3 leading-relaxed">
+                {blog.description}
+              </p>
+
+            </div>
+
+            <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#F8BC04]">
+              <span>Read Article</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </div>
+
+          </div>
+
+        </Link>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    GLOBAL PRESENCE SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5">
+  <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
+
+    <div className="rounded-2xl sm:rounded-[36px] border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent p-6 sm:p-14 overflow-hidden relative">
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+        <div className="lg:col-span-6">
+
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
+            Empowering Brands Across{" "}
+            <span className="font-serif italic font-normal text-[#F8BC04]">
+              12+ Global Hubs
             </span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-xl text-xs leading-relaxed text-white/60 sm:mt-6 sm:text-base md:text-lg !text-[18px]">
-            Ready to turn fragmented tactics into a predictable growth engine?
-            Book your free strategy session with our digital marketing agency
-            now.
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base text-white/60 leading-relaxed">
+            Headquartered in India with strategic partner nodes across London, North America, Singapore, and Australia. We engineer hyper-localized growth campaigns tailored to diverse consumer behaviors.
           </p>
 
-          <div className="mt-8 flex flex-col items-stretch justify-center gap-3.5 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
-            <Link
-              href="/connect"
-              className="group relative inline-flex items-center justify-center gap-3 rounded-full bg-[#F8BC04] px-8 py-3.5 text-sm font-extrabold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(248,188,4,0.5)] sm:px-10 sm:py-4 sm:text-base"
-            >
-              <span>Connect With Us</span>
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-white/10 pt-5 sm:pt-6">
 
-            <Link
-              href="https://wa.link/pxmrrm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:border-white/40 hover:bg-white/5 sm:px-8 sm:py-4 sm:text-base"
-            >
-              Quick WhatsApp Chat
-              <ExternalLink className="h-4 w-4 text-white/60" />
-            </Link>
+            <div>
+
+              <h4 className="text-xs sm:text-sm font-bold text-white mb-2 sm:mb-3 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#F8BC04]" />
+                India Operations
+              </h4>
+
+              <ul className="space-y-1 sm:space-y-1.5 text-xs text-white/60">
+                <li>Kolkata</li>
+                <li>Delhi NCR &amp; Noida</li>
+                <li>Bangalore</li>
+                <li>Mumbai &amp; Pune</li>
+                <li>Tripura</li>
+              </ul>
+
+            </div>
+
+            <div>
+
+              <h4 className="text-xs sm:text-sm font-bold text-white mb-2 sm:mb-3 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#F8BC04]" />
+                International Operations
+              </h4>
+
+              <ul className="space-y-1 sm:space-y-1.5 text-xs text-white/60">
+                <li>London, United Kingdom</li>
+                <li>Singapore</li>
+                <li>Toronto &amp; Vancouver, Canada</li>
+                <li>Sydney &amp; Melbourne, Australia</li>
+                <li>Lagos, Nigeria</li>
+              </ul>
+
+            </div>
+
           </div>
         </div>
-      </section>
+
+        <div className="lg:col-span-6 relative flex items-center justify-center mt-2 lg:mt-0">
+
+          <div className="relative w-full aspect-[16/10] max-w-[620px]">
+
+            <Image
+              src="/maps/world-map.png"
+              alt="BigBeans Global Footprint Map"
+              fill
+              sizes="(max-width: 1024px) 100vw, 600px"
+              className="object-contain opacity-70"
+            />
+
+            {/* Map Node Dots */}
+            {[
+              { top: "42%", left: "67%" }, // India
+              { top: "27%", left: "44%" }, // UK
+              { top: "28%", left: "18%" }, // North America
+              { top: "54%", left: "74%" }, // Singapore
+              { top: "65%", left: "84%" }, // Australia
+            ].map((pos, idx) => (
+
+              <div
+                key={idx}
+                className="absolute -translate-x-1/2 -translate-y-1/2"
+                style={{ top: pos.top, left: pos.left }}
+              >
+
+                <span className="relative flex h-2.5 w-2.5 sm:h-3.5 sm:w-3.5">
+
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F8BC04] opacity-75" />
+
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 bg-[#F8BC04] shadow-[0_0_12px_#F8BC04]" />
+
+                </span>
+
+              </div>
+
+            ))}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    FAQ SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5">
+  <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-10">
+
+    <div className="text-center mb-8">
+
+      <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight mt-2">
+        Frequently Asked{" "}
+        <span className="font-serif italic font-normal text-[#F8BC04]">
+          Questions
+        </span>
+      </h2>
+
+    </div>
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-5">
+
+      {/* LEFT COLUMN */}
+      <div className="space-y-3 sm:space-y-4">
+
+        {[
+          {
+            q: "What social media marketing services do you offer?",
+            a: "Big Beans Digital provides full-lifecycle social media solutions for startups and enterprises across India, the US, and the UK. Our scope includes visual feed architecture, algorithm-specific short-form Reels & TikTok production, organic growth strategy, community management, and synchronized paid social campaigns.",
+          },
+          {
+            q: "How do I find the best social media marketing agency near me?",
+            a: "Beyond physical proximity, evaluate verified case studies, aesthetic consistency, conversion tracking transparency, and strategic depth. Big Beans Digital operates a distributed agile team delivering high-touch collaboration regardless of whether you are based in London, Kolkata, Delhi, or New York.",
+          },
+          {
+            q: "Why choose Big Beans Digital over traditional agencies?",
+            a: "Traditional agencies separate creative thinking from performance metrics. We merge branding, web engineering, and performance marketing into a single unit so every dollar spent directly advances brand equity and customer acquisition.",
+          },
+          {
+            q: "Do you engineer conversion-focused websites for startups?",
+            a: "Yes. We build responsive, fast headless websites using modern frameworks (Next.js, Tailwind CSS) optimized for sub-second load times, technical SEO compliance, and conversion funnels designed to turn traffic into pipeline.",
+          },
+          {
+            q: "How does performance marketing work with your team?",
+            a: "We deploy rigorous quantitative testing across Google Ads, Meta Ads, and PPC remarketing funnels. We focus on true business levers—CAC, ROAS, and customer lifetime value—rather than vanity impressions.",
+          },
+          {
+            q: "What does an engagement cost?",
+            a: "We offer tailored milestone or retainer engagements based on growth objectives, required content cadence, and ad spend scale. Schedule a consultation call to receive an honest, transparent roadmap.",
+          },
+        ].map((faq, idx) => {
+
+          const isOpen = openFaq === idx;
+
+          return (
+            <div
+              key={idx}
+              className="w-full rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden transition-colors hover:border-white/20"
+            >
+
+              <button
+                type="button"
+                onClick={() => setOpenFaq(isOpen ? null : idx)}
+                className="w-full min-h-[84px] flex items-center justify-between gap-4 px-5 py-5 sm:px-6 sm:py-6 text-left"
+              >
+
+                <span className="flex-1 whitespace-nowrap text-sm sm:text-base md:text-lg font-bold text-white">
+                  {faq.q}
+                </span>
+
+                <span
+                  className={`flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-xs sm:text-sm font-bold transition-transform duration-300 ${
+                    isOpen
+                      ? "bg-[#F8BC04] text-black rotate-45"
+                      : "bg-white/5 text-white/80"
+                  }`}
+                >
+                  +
+                </span>
+
+              </button>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+
+                    <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-xs sm:text-base text-white/70 leading-relaxed border-t border-white/5">
+                      {faq.a}
+                    </div>
+
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+            </div>
+          );
+        })}
+
+      </div>
+
+      {/* RIGHT COLUMN */}
+      <div className="space-y-3 sm:space-y-4">
+
+        {[
+          {
+            q: "What industries do you work with?",
+            a: "We work with businesses across sectors including real estate, healthcare, restaurants, ecommerce, education, professional services, home improvement, gyms, FMCG, and other growth-focused businesses.",
+          },
+          {
+            q: "Can you manage both organic social media and paid advertising?",
+            a: "Yes. Our team can manage organic social media strategy and content alongside paid campaigns on platforms such as Meta and Google. This allows creative, audience targeting, messaging, and performance data to work together.",
+          },
+          {
+            q: "How long does it take to see results from social media marketing?",
+            a: "The timeline depends on your industry, starting position, content quality, audience, and objectives. Organic growth generally requires consistent execution over time, while paid campaigns can generate measurable traffic and leads much sooner.",
+          },
+          {
+            q: "Do you provide content creation and graphic design?",
+            a: "Yes. Our social media services can include creative direction, graphic design, short-form video concepts, social media creatives, campaign content, and platform-specific content planning.",
+          },
+          {
+            q: "Do you provide SEO and website optimization?",
+            a: "Yes. We can integrate technical SEO, on-page optimization, content strategy, conversion-focused landing pages, and website improvements into a broader digital marketing strategy.",
+          },
+          {
+            q: "How can I get started with Big Beans Digital?",
+            a: "Start by sharing your business, current challenges, goals, target audience, and the services you are looking for. We can then discuss the right approach, scope, milestones, and next steps for your project.",
+          },
+        ].map((faq, idx) => {
+
+          const faqIndex = idx + 6;
+          const isOpen = openFaq === faqIndex;
+
+          return (
+            <div
+              key={faqIndex}
+              className="w-full rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden transition-colors hover:border-white/20"
+            >
+
+              <button
+                type="button"
+                onClick={() => setOpenFaq(isOpen ? null : faqIndex)}
+                className="w-full min-h-[84px] flex items-center justify-between gap-4 px-5 py-5 sm:px-6 sm:py-6 text-left"
+              >
+
+                <span className="flex-1 whitespace-nowrap text-sm sm:text-base md:text-lg font-bold text-white">
+                  {faq.q}
+                </span>
+
+                <span
+                  className={`flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-xs sm:text-sm font-bold transition-transform duration-300 ${
+                    isOpen
+                      ? "bg-[#F8BC04] text-black rotate-45"
+                      : "bg-white/5 text-white/80"
+                  }`}
+                >
+                  +
+                </span>
+
+              </button>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+
+                    <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-xs sm:text-base text-white/70 leading-relaxed border-t border-white/5">
+                      {faq.a}
+                    </div>
+
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+            </div>
+          );
+        })}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    FINAL CTA SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5 sm:py-5 overflow-hidden text-center">
+
+  <div className="max-w-4xl mx-auto px-4 relative z-10">
+
+    <h2 className="text-3xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.1] sm:leading-[1.05]">
+      Scale Your Brand
+      Today{" "}
+      <span
+        className="font-serif italic font-normal text-[#F8BC04]"
+        style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+      >
+        with Big Beans Digital
+      </span>
+    </h2>
+
+    <p className="mt-4 sm:mt-6 text-xs sm:text-base md:text-lg text-white/60 max-w-xl mx-auto leading-relaxed">
+      Ready to turn fragmented tactics into a predictable growth engine? Book your free strategy session with our digital marketing agency now.
+    </p>
+
+    {/* CTA BUTTONS */}
+    <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4">
+
+      <Link
+        href="/connect"
+        className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-[#F8BC04] text-black font-extrabold text-sm sm:text-base tracking-tight transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(248,188,4,0.5)]"
+      >
+        <span>Connect With Us</span>
+
+        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+      </Link>
+
+      <Link
+        href="https://wa.link/pxmrrm"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/20 text-white font-semibold text-sm sm:text-base hover:bg-white/5 hover:border-white/40 transition-colors"
+      >
+        Quick WhatsApp Chat
+
+        <ExternalLink className="w-4 h-4 text-white/60" />
+      </Link>
+
+    </div>
+
+    {/* ==================================================
+        SERVICE LINKS BELOW CTA BUTTONS
+    =================================================== */}
+    <div className="mt-7 flex flex-wrap items-center justify-center gap-5 text-xs text-white/40">
+
+      <Link
+        href="/branding"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Branding
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/seo"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        SEO
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/website-development"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Website Development
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/performance-marketing"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Performance Marketing
+      </Link>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </main>
   );
 }

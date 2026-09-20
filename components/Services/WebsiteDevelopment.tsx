@@ -1,2247 +1,3203 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+import {
+  ArrowRight,
+  ExternalLink,
+  Code2,
+  Layers3,
+  Smartphone,
+  Box,
+  Gauge,
+  ShieldCheck,
+  Database,
+  Search,
+  Monitor,
+} from "lucide-react";
 
-export default function WebsiteDevelopment() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+const OurWork = dynamic(() => import("@/components/Recentwork"), {
+  ssr: false,
+  loading: () => (
+    <div className="min-h-[300px] w-full animate-pulse rounded-2xl bg-white/[0.02]" />
+  ),
+});
+
+interface FAQ {
+  q: string;
+  a: string;
+}
+
+interface BlogCard {
+  id: number;
+  image: string;
+  date: string;
+  primaryCategory: string;
+  title: string;
+  description: string;
+  link: string;
+  readTime: string;
+}
+
+interface Industry {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  href: string;
+}
+
+interface USPCard {
+  number: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  href: string;
+}
+
+interface Technology {
+  id: string;
+  name: string;
+  category: string;
+  description: string;
+  icon: string;
+}
+
+interface DevelopmentType {
+  id: string;
+  label: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  points: string[];
+  cta: string;
+  href: string;
+}
+
+interface UseCase {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  alt: string;
+  href: string;
+}
+
+interface MapPosition {
+  top: string;
+  left: string;
+}
+
+const blogCards: BlogCard[] = [
+  {
+    id: 1,
+    image: "/assets/blog/singleblogs/website-development-guide.webp",
+    date: "August 20, 2026",
+    primaryCategory: "Website Development",
+    title: "What Makes a Business Website Actually Work?",
+    description:
+      "A practical look at structure, UX, performance, content and conversion elements that make a business website useful.",
+    link: "/blog/what-makes-a-business-website-work",
+    readTime: "6 min read",
+  },
+  {
+    id: 2,
+    image: "/assets/blog/singleblogs/website-speed-optimization.webp",
+    date: "August 22, 2026",
+    primaryCategory: "Web Performance",
+    title: "Why Website Speed Matters for Business Websites",
+    description:
+      "Understand how page speed, image optimisation, technical architecture and responsive development affect the website experience.",
+    link: "/blog/website-speed-optimization",
+    readTime: "5 min read",
+  },
+  {
+    id: 3,
+    image: "/assets/blog/singleblogs/3d-web-design.webp",
+    date: "August 25, 2026",
+    primaryCategory: "3D Web Design",
+    title: "How 3D Websites Can Create Better Product Experiences",
+    description:
+      "Explore practical applications of 3D models, interactive product views and WebGL experiences on modern websites.",
+    link: "/blog/3d-website-design",
+    readTime: "7 min read",
+  },
+];
+
+// Industries Data
+const industries = [
+ {
+  id: "real-estate",
+  title: "Real Estate & Interior Decorators",
+  description: "Creating stunning digital experiences for spaces and lifestyles.",
+  image: "/industries/Real Estate & Interior Decorators.webp",
+  alt: "Real Estate and Interior Decorators",
+  href: "/services",
+},
+
+{
+  id: "travel-tourism",
+  title: "Travel and Tourism",
+  description: "Inspiring journeys with creative storytelling and digital campaigns.",
+  image: "/industries/Travel and Tourism.webp",
+  alt: "Travel and Tourism",
+  href: "/services",
+},
+
+{
+  id: "fmcg-brands",
+  title: "FMCG Brands",
+  description: "Building brands that become household names.",
+  image: "/industries/FMCG Brands.webp",
+  alt: "FMCG Brands",
+  href: "/services",
+},
+
+{
+  id: "bakery-restaurants",
+  title: "Bakery and Restaurants",
+  description: "Serving creativity for brands that serve happiness.",
+  image: "/industries/Bakery and Restaurants.webp",
+  alt: "Bakery and Restaurant Brands",
+  href: "/services",
+},
+
+{
+  id: "ecommerce",
+  title: "Ecommerce",
+  description: "Driving growth for online stores with scroll-stopping content.",
+  image: "/industries/ecommerce.webp",
+  alt: "Ecommerce Brands and Online Stores",
+  href: "/services",
+},
+
+{
+  id: "it-consultancy",
+  title: "IT & Consultancy",
+  description: "Simplifying complex ideas with impactful digital solutions.",
+  image: "/industries/IT & Consultancy.webp",
+  alt: "IT and Consultancy Services",
+  href: "/services",
+},
+];
+
+const uspCards: USPCard[] = [
+  {
+    number: "01",
+    title: "Custom Website Development",
+    description:
+      "Websites planned around your business, audience, content, functionality and commercial requirements.",
+    image: "/assets/website-development/usps/custom-development.webp",
+    alt: "Custom website development",
+    href: "/connect",
+  },
+  {
+    number: "02",
+    title: "2D & 3D Experiences",
+    description:
+      "From clean 2D interfaces to interactive 3D environments, we select the visual approach that fits the project.",
+    image: "/assets/website-development/usps/2d-3d-experiences.webp",
+    alt: "2D and 3D website experiences",
+    href: "/connect",
+  },
+  {
+    number: "03",
+    title: "Responsive by Design",
+    description:
+      "Layouts, navigation, interactions and content are developed for desktop, tablet and mobile screen sizes.",
+    image: "/assets/website-development/usps/responsive-design.webp",
+    alt: "Responsive website design",
+    href: "/connect",
+  },
+  {
+    number: "04",
+    title: "Built Around Users",
+    description:
+      "We focus on navigation, readability, interaction and clear user journeys so visitors can take the intended next step.",
+    image: "/assets/website-development/usps/user-experience.webp",
+    alt: "User focused website development",
+    href: "/connect",
+  },
+  {
+    number: "05",
+    title: "Scalable Technology",
+    description:
+      "The technical structure can support future pages, integrations, content, ecommerce functionality and changing requirements.",
+    image: "/assets/website-development/usps/scalable-technology.webp",
+    alt: "Scalable website technology",
+    href: "/connect",
+  },
+];
+
+const developmentTypes: DevelopmentType[] = [
+  {
+    id: "2d",
+    label: "2D Website Development",
+    eyebrow: "2D WEBSITE DESIGN & DEVELOPMENT",
+    title: "Clean Interfaces Built Around the User",
+    description:
+      "2D websites use layout, typography, photography, illustrations, graphics, motion and interaction to create a clear digital experience. We combine visual design with practical navigation so the website remains easy to understand across devices.",
+    image: "/assets/website-development/2d-website.webp",
+    imageAlt: "Modern 2D website design and development",
+    points: [
+      "UI / UX Design",
+      "Responsive Layouts",
+      "Typography Systems",
+      "Illustrations & Graphics",
+      "Micro Interactions",
+      "Motion & Animations",
+    ],
+    cta: "Build a 2D Website",
+    href: "/connect",
+  },
+  {
+    id: "3d",
+    label: "3D Website Development",
+    eyebrow: "3D WEBSITE DESIGN & DEVELOPMENT",
+    title: "Interactive Digital Experiences With 3D",
+    description:
+      "3D can be used when a product or brand benefits from depth, movement and interaction. We can integrate 3D models, product visualisation, WebGL experiences, animations and interactive environments while keeping performance and usability in consideration.",
+    image: "/assets/website-development/3d-website.webp",
+    imageAlt: "Interactive 3D website experience",
+    points: [
+      "3D Product Models",
+      "WebGL Experiences",
+      "Interactive Visuals",
+      "3D Animations",
+      "Product Visualisation",
+      "Real-Time Interactions",
+    ],
+    cta: "Explore 3D Development",
+    href: "/connect",
+  },
+];
+
+const useCases: UseCase[] = [
+  {
+    id: "ecommerce",
+    title: "Ecommerce Experiences",
+    description:
+      "Product-led websites with category navigation, product discovery, shopping functionality, payments and conversion-focused journeys.",
+    image: "/assets/website-development/use-cases/ecommerce.webp",
+    alt: "Ecommerce website experience",
+    href: "/connect",
+  },
+  {
+    id: "real-estate",
+    title: "Real Estate Websites",
+    description:
+      "Property and development websites using galleries, floor plans, location information, project details and enquiry journeys.",
+    image: "/assets/website-development/use-cases/real-estate.webp",
+    alt: "Real estate website",
+    href: "/connect",
+  },
+  {
+    id: "architecture",
+    title: "Architecture & Interior",
+    description:
+      "Visual-first websites that give projects, spaces, materials and design work enough room while keeping navigation simple.",
+    image: "/assets/website-development/use-cases/architecture.webp",
+    alt: "Architecture website",
+    href: "/connect",
+  },
+  {
+    id: "manufacturing",
+    title: "Manufacturing",
+    description:
+      "Technical websites that organise products, specifications, industries served, capabilities, resources and enquiries.",
+    image: "/assets/website-development/use-cases/manufacturing.webp",
+    alt: "Manufacturing website",
+    href: "/connect",
+  },
+  {
+    id: "automotive",
+    title: "Automotive Experiences",
+    description:
+      "Product-focused digital experiences combining vehicle visuals, specifications, interactive elements and product discovery.",
+    image: "/assets/website-development/use-cases/automotive.webp",
+    alt: "Automotive website",
+    href: "/connect",
+  },
+  {
+    id: "product-launch",
+    title: "Product Launches",
+    description:
+      "Campaign and launch websites designed around a product story, visual impact, information hierarchy and a clear call to action.",
+    image: "/assets/website-development/use-cases/product-launch.webp",
+    alt: "Product launch website",
+    href: "/connect",
+  },
+];
+
+const technologyRows = [
+  [
+    { name: "HTML", image: "/assets/technologies/html.svg", alt: "HTML" },
+    { name: "CSS", image: "/assets/technologies/css.svg", alt: "CSS" },
+    {
+      name: "JS",
+      image: "/assets/technologies/javascript.svg",
+      alt: "JavaScript",
+    },
+    {
+      name: "Flutter",
+      image: "/assets/technologies/flutter.svg",
+      alt: "Flutter",
+    },
+  ],
+  [
+    { name: "SQL", image: "/assets/technologies/sql.svg", alt: "SQL" },
+    {
+      name: "Node js",
+      image: "/assets/technologies/nodejs.svg",
+      alt: "Node.js",
+    },
+    {
+      name: "Next js",
+      image: "/assets/technologies/nextjs.svg",
+      alt: "Next.js",
+    },
+    { name: "PHP", image: "/assets/technologies/php.svg", alt: "PHP" },
+    {
+      name: "Mongodb",
+      image: "/assets/technologies/mongodb.svg",
+      alt: "MongoDB",
+    },
+  ],
+  [
+    { name: "React", image: "/assets/technologies/react.svg", alt: "React" },
+    { name: "Sass", image: "/assets/technologies/sass.svg", alt: "Sass" },
+    {
+      name: "Laravel",
+      image: "/assets/technologies/laravel.svg",
+      alt: "Laravel",
+    },
+  ],
+];
+
+const leftFaqs: FAQ[] = [
+  {
+    q: "What website development services do you offer?",
+    a: "Our website development services can cover website strategy, UI/UX design, responsive frontend development, CMS development, ecommerce development, interactive experiences, 2D design, 3D website experiences, integrations, performance optimisation and SEO-ready technical development.",
+  },
+  {
+    q: "Do you build custom websites?",
+    a: "Yes. We can develop custom websites around the business requirements, content structure, user journeys, visual direction and technical functionality required for the project.",
+  },
+  {
+    q: "Do you create both 2D and 3D websites?",
+    a: "Yes. We work with conventional 2D website experiences as well as projects where 3D models, interactive visuals, WebGL or product visualisation can add practical value.",
+  },
+  {
+    q: "Can you make websites responsive?",
+    a: "Yes. Responsive development is considered across desktop, tablet and mobile layouts so that navigation, content and interactive elements remain usable across screen sizes.",
+  },
+  {
+    q: "Can you develop ecommerce websites?",
+    a: "Yes. Ecommerce projects can include product catalogues, category structures, product pages, shopping functionality, payment integrations and conversion-focused user journeys.",
+  },
+  {
+    q: "Can you integrate a CMS?",
+    a: "Yes. Depending on the project, we can work with CMS platforms such as WordPress or other content management systems so the required website content can be maintained after launch.",
+  },
+];
+
+const rightFaqs: FAQ[] = [
+  {
+    q: "Can you develop websites for startups?",
+    a: "Yes. We can structure websites for startups around their current product, audience, positioning and business stage while keeping the architecture suitable for future growth.",
+  },
+  {
+    q: "What is a 3D website?",
+    a: "A 3D website uses browser-based 3D graphics or models to create interactive visual experiences. Examples include product rotation, 3D product visualisation, interactive environments and animated 3D scenes.",
+  },
+  {
+    q: "Will 3D make my website slow?",
+    a: "It can if it is implemented without attention to asset size, rendering, loading and device performance. We therefore consider performance when deciding where and how 3D should be used.",
+  },
+  {
+    q: "Can you optimise website speed?",
+    a: "Yes. Development can include image optimisation, code optimisation, asset handling, responsive image delivery, efficient loading strategies and other technical improvements relevant to the website.",
+  },
+  {
+    q: "Will the website be SEO-ready?",
+    a: "The development structure can be built with SEO requirements in mind, including semantic HTML, responsive behaviour, metadata support, page structure, performance and crawl-friendly implementation.",
+  },
+  {
+    q: "How do I get started with website development?",
+    a: "Share your business, website requirements, target audience, existing website if applicable, preferred functionality and goals with us. We can then define the right design and development approach for the project.",
+  },
+];
+
+const mapPositions: MapPosition[] = [
+  { top: "42%", left: "67%" },
+  { top: "27%", left: "44%" },
+  { top: "28%", left: "18%" },
+  { top: "54%", left: "74%" },
+  { top: "65%", left: "84%" },
+];
+
+const performanceSlides = [
+  {
+    image: "/assets/website-development/performance-technology-1.webp",
+    alt: "Website performance and responsive development",
+  },
+  {
+    image: "/assets/website-development/performance-technology-2.webp",
+    alt: "Website technology and technical architecture",
+  },
+  {
+    image: "/assets/website-development/performance-technology-3.webp",
+    alt: "Website security and integrations",
+  },
+  {
+    image: "/assets/website-development/performance-technology-4.webp",
+    alt: "SEO-ready website development",
+  },
+  {
+    image: "/assets/website-development/performance-technology-5.webp",
+    alt: "Scalable website development technology",
+  },
+];
+
+function FAQItem({
+  faq,
+  index,
+  openFaq,
+  setOpenFaq,
+}: {
+  faq: FAQ;
+  index: number;
+  openFaq: number | null;
+  setOpenFaq: (value: number | null) => void;
+}) {
+  const isOpen = openFaq === index;
+
+  // IMPORTANT:
+  // This uses a normal conditional expression instead of a template
+  // literal inside className. This avoids the parser error shown in
+  // the Next.js build screen.
+  const faqButtonClassName = isOpen
+    ? "flex min-h-[84px] w-full items-center justify-between gap-4 px-5 py-5 text-left sm:px-6 sm:py-6"
+    : "flex min-h-[84px] w-full items-center justify-between gap-4 px-5 py-5 text-left sm:px-6 sm:py-6";
+
+  const faqIconClassName = isOpen
+    ? "flex h-7 w-7 shrink-0 rotate-45 items-center justify-center rounded-full border border-white/10 bg-[#F8BC04] text-xs font-bold text-black transition-transform duration-300 sm:h-8 sm:w-8 sm:text-sm"
+    : "flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 text-xs font-bold text-white/80 transition-transform duration-300 sm:h-8 sm:w-8 sm:text-sm";
 
   return (
-    <main className="w-full min-w-0 overflow-hidden bg-white">
-      {/* Breadcrumb */}
-      <section className="w-full bg-white py-5 sm:py-7 lg:py-10">
-        <div className="mx-auto flex w-full max-w-7xl justify-center px-3 sm:px-6">
-          <div className="inline-flex max-w-full items-center gap-2 rounded-full bg-white px-4 py-3 text-sm shadow-[0_8px_24px_rgba(0,0,0,0.08)] sm:gap-3 sm:px-8 sm:py-4 sm:text-base">
-            <Link
-              href="/"
-              className="text-gray-700 transition-colors duration-300 hover:text-[#F8BC04]"
-            >
-              Home
-            </Link>
+    <div className="w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] transition-colors hover:border-white/20 sm:rounded-2xl">
+      <button
+        type="button"
+        onClick={() => setOpenFaq(isOpen ? null : index)}
+        className={faqButtonClassName}
+        aria-expanded={isOpen}
+      >
+        <span className="flex-1 font-bold text-white">
+          {faq.q}
+        </span>
 
-            <span className="text-lg text-[#F8BC04]">→</span>
+        <span className={faqIconClassName}>
+          +
+        </span>
+      </button>
 
-            <span className="truncate font-semibold text-black">
-              Website Development
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================
-          WEBSITE DEVELOPMENT HERO
-      ========================= */}
-
-      <section className="relative w-full bg-white">
-        <div
-          className="
-            mx-auto
-            w-full
-            max-w-[1600px]
-            px-5
-            sm:px-8
-            md:px-10
-            lg:px-12
-            xl:px-16
-            2xl:px-20
-            py-1
-          "
-        >
-          <div
-            className="
-              grid
-              grid-cols-1
-              items-start
-              gap-8
-              sm:gap-12
-              lg:grid-cols-[minmax(0,1.15fr)_minmax(360px,0.85fr)]
-              lg:gap-12
-              xl:grid-cols-[minmax(0,1.2fr)_minmax(420px,0.8fr)]
-              xl:gap-16
-              2xl:gap-20
-            "
-          >
-            {/* =========================
-                LEFT CONTENT
-            ========================= */}
-
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 0.8,
-                ease: "easeOut",
-              }}
-              className="min-w-0 w-full"
-            >
-              {/* BADGE */}
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.1,
-                }}
-                className="
-                  inline-flex
-                  max-w-full
-                  items-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-[#F8BC04]/40
-                  bg-[#fec401]/100
-                  px-4
-                  py-2
-                  text-xs
-                  font-semibold
-                  text-[#000000]
-                  sm:text-sm
-                "
-              >
-                <span className="text-base">✦</span>
-
-                <span className="truncate">
-                  Professional Website Development Company
-                </span>
-              </motion.div>
-
-              {/* HEADING */}
-
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.2,
-                  ease: "easeOut",
-                }}
-                className="
-                  mt-6
-                  max-w-[900px]
-                  text-[34px]
-                  leading-[1.06]
-                  font-black
-                  tracking-[-1.2px]
-                  text-[#171717]
-                  sm:text-[46px]
-                  md:text-[54px]
-                  lg:text-[60px]
-                  xl:text-[70px]
-                  2xl:text-[50px]
-                "
-              >
-                Website Development Services{" "}
-                <span className="text-[#F8BC04]">
-                  for Startups Growth
-                </span>
-              </motion.h1>
-
-              {/* DESCRIPTION */}
-
-              <motion.p
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.35,
-                  ease: "easeOut",
-                }}
-                className="
-                  mt-7
-                  max-w-[820px]
-                  text-[16px]
-                  leading-7
-                  text-gray-600
-                  sm:text-[17px]
-                  sm:leading-8
-                  md:text-[18px]
-                  md:leading-8
-                  lg:text-[18px]
-                  xl:text-[19px]
-                  2xl:text-[20px]
-                "
-              >
-                Website Development Services help businesses build a strong
-                online presence with fast, SEO-friendly, mobile-responsive,
-                and conversion-focused websites. At BIGBEANS DIGITAL, we
-                develop custom business websites and eCommerce stores that
-                improve search visibility, generate qualified leads, and drive
-                sustainable business growth across India.
-              </motion.p>
-
-              {/* BUTTONS */}
-
-              <motion.div
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.7,
-                  delay: 0.5,
-                }}
-                className="
-                  mt-7
-                  grid
-                  w-full
-                  grid-cols-1
-                  gap-3
-                  sm:mt-8
-                  sm:flex
-                  sm:w-auto
-                  sm:grid-cols-none
-                  sm:flex-row
-                  sm:gap-4
-                "
-              >
-                <motion.button
-                  whileHover={{
-                    scale: 1.04,
-                    y: -3,
-                  }}
-                  whileTap={{
-                    scale: 0.97,
-                  }}
-                  className="
-                    flex
-                    h-[56px]
-                    w-full
-                    items-center
-                    justify-center
-                    whitespace-nowrap
-                    rounded-xl
-                    border
-                    border-gray-300
-                    bg-white
-                    px-5
-                    text-sm
-                    font-bold
-                    text-[#171717]
-                    shadow-sm
-                    transition-all
-                    duration-300
-                    hover:border-[#F8BC04]
-                    hover:shadow-lg
-                    sm:h-[62px]
-                    sm:w-auto
-                    sm:px-8
-                    sm:text-base
-                  "
-                >
-                  View Portfolio
-                </motion.button>
-
-                {/* WHATSAPP BUTTON */}
-
-                <motion.button
-                  whileHover={{
-                    scale: 1.02,
-                    y: -2,
-                  }}
-                  whileTap={{
-                    scale: 0.98,
-                  }}
-                  className="
-                    relative
-                    z-10
-                    flex
-                    h-[56px]
-                    w-full
-                    items-center
-                    justify-center
-                    gap-2
-                    rounded-xl
-                    bg-[#F8BC04]
-                    px-4
-                    py-3
-                    text-[13px]
-                    font-bold
-                    text-[#171717]
-                    shadow-[0_15px_35px_rgba(248,188,4,0.20)]
-                    transition-all
-                    duration-300
-                    hover:shadow-[0_20px_40px_rgba(248,188,4,0.30)]
-                    sm:h-[62px]
-                    sm:px-5
-                    sm:text-base
-                  "
-                >
-                  <span className="shrink-0 text-xl">
-                    <svg
-                      width="30"
-                      height="30"
-                      viewBox="0 0 512 512"
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                    >
-                      <path
-                        fill="#fff"
-                        d="M256 18C124.5 18 18 124.5 18 256c0 44 12 85 33 120L18 494l119-32c34 20 75 32 119 32 131.5 0 238-106.5 238-238S387.5 18 256 18z"
-                      />
-                      <circle cx="256" cy="256" r="190" fill="#25D366" />
-                      <path
-                        fill="#fff"
-                        d="M188 154c-9 0-17 5-22 14-9 15-17 34-16 50 2 24 19 53 43 78 27 29 56 51 85 64 21 9 41 13 57 6 12-5 22-16 27-30l6-20c2-7-1-13-7-16l-39-19c-7-3-14-1-19 5l-15 18c-3 4-8 5-13 3-19-8-38-21-54-37-14-14-25-30-32-47-2-5-1-9 3-13l15-17c4-5 5-12 2-18l-10-16c-2-3-6-5-11-5z"
-                      />
-                    </svg>
-                  </span>
-
-                  <span className="text-center leading-tight">
-                    Get Consultation for Your Website Development →
-                  </span>
-                </motion.button>
-              </motion.div>
-            </motion.div>
-
-            {/* =========================
-                RIGHT BUSINESS CARD
-            ========================= */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 50,
-                scale: 0.96,
-              }}
-              animate={{
-                opacity: 1,
-                x: 0,
-                scale: 1,
-              }}
-              transition={{
-                duration: 0.9,
-                delay: 0.15,
-                ease: "easeOut",
-              }}
-              className="min-w-0 w-full lg:justify-self-end"
-            >
-              <motion.div
-                whileHover={{
-                  y: -6,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 180,
-                  damping: 18,
-                }}
-                className="
-                  relative
-                  w-full
-                  overflow-hidden
-                  rounded-[22px]
-                  border
-                  border-gray-200
-                  bg-white
-                  px-4
-                  pt-5
-                  pb-3
-                  sm:rounded-[24px]
-                  sm:px-6
-                  sm:pt-6
-                  sm:pb-2
-                  lg:px-6
-                  lg:pt-6
-                  lg:pb-2
-                  xl:px-7
-                  xl:pt-7
-                  xl:pb-2
-                "
-              >
-                {/* CARD GLOW */}
-
-                <div
-                  className="
-                    pointer-events-none
-                    absolute
-                    -right-24
-                    -top-24
-                    h-48
-                    w-48
-                    rounded-full
-                    bg-[#F8BC04]/100
-                    blur-3xl
-                  "
-                />
-
-                {/* CARD TITLE */}
-
-                <div className="relative z-10">
-                  <h2
-                    className="
-                      text-[22px]
-                      leading-tight
-                      font-black
-                      text-[#171717]
-                      sm:text-[27px]
-                      xl:text-[30px]
-                    "
-                  >
-                    Why 50+ Businesses
-                    <br />
-                    Choosed Us
-                  </h2>
-                </div>
-
-                {/* STATS */}
-
-                <div
-                  className="
-                    relative
-                    z-10
-                    mt-6
-                    grid
-                    grid-cols-2
-                    gap-2
-                    sm:grid-cols-4
-                  "
-                >
-                  {[
-                    {
-                      number: "200+",
-                      label: "Websites Launched",
-                    },
-                    {
-                      number: "4.9 ★",
-                      label: "Client Rating",
-                    },
-                    {
-                      number: "3.5x",
-                      label: "Avg Lead Growth",
-                    },
-                    {
-                      number: "10+",
-                      label: "Years Experience",
-                    },
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{
-                        opacity: 0,
-                        scale: 0.85,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        scale: 1,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 0.5 + index * 0.12,
-                      }}
-                      whileHover={{
-                        y: -4,
-                        scale: 1.02,
-                      }}
-                      className="
-                        rounded-xl
-                        border
-                        border-gray-200
-                        bg-white
-                        px-2
-                        py-3
-                        text-center
-                        shadow-sm
-                        transition-shadow
-                        duration-300
-                        hover:shadow-md
-                      "
-                    >
-                      <div
-                        className="
-                          text-[18px]
-                          leading-none
-                          font-black
-                          text-[#F8BC04]
-                          sm:text-[20px]
-                          xl:text-[30px]
-                        "
-                      >
-                        {item.number}
-                      </div>
-
-                      <p
-                        className="
-                          mt-3
-                          text-xs
-                          font-medium
-                          text-[#171717]
-                          sm:text-sm
-                        "
-                      >
-                        {item.label}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* FEATURES */}
-
-                <div
-                  className="
-                    relative
-                    z-10
-                    mt-6
-                    space-y-3
-                  "
-                >
-                  {[
-                    "Fast, Responsive, and Mobile-Friendly",
-                    "Conversion-optimized design",
-                    "Dedicated in-house team",
-                    "Transparent pricing, no hidden cost",
-                    "Post-launch support included",
-                  ].map((item, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{
-                        opacity: 0,
-                        x: 20,
-                      }}
-                      animate={{
-                        opacity: 1,
-                        x: 0,
-                      }}
-                      transition={{
-                        duration: 0.45,
-                        delay: 1 + index * 0.1,
-                      }}
-                      className="
-                        flex
-                        items-center
-                        gap-3
-                        text-sm
-                        text-[#171717]
-                      "
-                    >
-                      <span
-                        className="
-                          flex
-                          h-6
-                          w-6
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-full
-                          bg-green-100
-                          text-sm
-                          font-bold
-                          text-green-600
-                        "
-                      >
-                        ✓
-                      </span>
-
-                      <span>{item}</span>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* FOOTER INFO */}
-
-                <div
-                  className="
-                    relative
-                    z-10
-                    mt-6
-                    flex
-                    flex-wrap
-                    items-center
-                    justify-center
-                    gap-x-4
-                    gap-y-2
-                    border-t
-                    border-gray-200
-                    pt-5
-                    text-[11px]
-                    text-gray-500
-                    sm:text-xs
-                  "
-                ></div>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================
-          END WEBSITE DEVELOPMENT HERO
-      ========================= */}
-
-      {/* =========================
-          ABOUT OUR WEB DEVELOPMENT
-      ========================= */}
-
-      <section className="relative w-full overflow-hidden bg-white py-10 sm:py-12 lg:py-16">
-        {/* Background Animation */}
-
-        <motion.div
-          animate={{
-            rotate: [0, 360],
-          }}
-          transition={{
-            duration: 35,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="
-            pointer-events-none
-            absolute
-            -right-72
-            -bottom-72
-            h-[700px]
-            w-[700px]
-            rounded-full
-            border
-            border-[#F8BC04]/10
-          "
-        />
-
-        <div
-          className="
-            relative
-            z-10
-            mx-auto
-            grid
-            w-full
-            max-w-[1600px]
-            items-stretch
-            gap-8
-            px-5
-            sm:gap-10
-            sm:px-8
-            md:grid-cols-2
-            lg:grid-cols-[1.05fr_0.95fr]
-            lg:gap-12
-            xl:px-12
-            2xl:grid-cols-[1.1fr_0.9fr]
-            2xl:gap-16
-          "
-        >
-          {/* =========================
-                LEFT SIDE
-          ========================= */}
-
+      <AnimatePresence initial={false}>
+        {isOpen && (
           <motion.div
-            initial={{
-              opacity: 0,
-              x: -80,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.2,
-            }}
-            transition={{
-              duration: 0.9,
-              ease: "easeOut",
-            }}
-            className="flex min-w-0 flex-col justify-between"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
           >
-            {/* IMAGE */}
-
-            <motion.div
-              whileHover={{
-                rotateY: 5,
-                rotateX: 3,
-                scale: 1.015,
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 180,
-                damping: 18,
-              }}
-              className="
-                relative
-                z-20
-                w-full
-                overflow-hidden
-                rounded-[28px]
-                sm:rounded-[36px]
-                lg:rounded-[40px]
-              "
-            >
-              <Image
-                src="/assets/websitedevelopment/website1.png"
-                alt="Website Development Team"
-                width={720}
-                height={560}
-                className="
-                  block
-                  h-auto
-                  w-full
-                  object-cover
-                  transition
-                  duration-700
-                  hover:scale-105
-                "
-              />
-            </motion.div>
-          </motion.div>
-
-          {/* =========================
-                RIGHT SIDE
-          ========================= */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: 80,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.2,
-            }}
-            transition={{
-              duration: 0.9,
-              ease: "easeOut",
-            }}
-            className="flex min-w-0 flex-col"
-          >
-            {/* HEADING */}
-
-            <h2
-              className="
-                text-[30px]
-                font-black
-                leading-[1.08]
-                text-[#171717]
-                sm:text-[36px]
-                lg:text-[38px]
-                xl:text-[42px]
-              "
-            >
-              Building High-Impact
-              <br />
-              Websites That Inspire
-              <span className="text-[#F8BC04]">
-                {" "}Trust & Growth
-              </span>
-            </h2>
-
-            {/* DESCRIPTION */}
-
-            <p
-              className="
-                mt-5
-                text-base
-                leading-7
-                text-gray-600
-                sm:mt-7
-                sm:text-lg
-                sm:leading-8
-                lg:mt-8
-                lg:leading-7
-              "
-            >
-              Our team combines creative thinking, strategic planning, and
-              modern web technologies to create premium websites that are
-              visually engaging, lightning-fast, and optimized for long-term
-              business success. Every project is built to strengthen your
-              digital presence while delivering measurable results.
-            </p>
-
-            {/* =========================
-              FEATURE CARDS
-            ========================= */}
-
-            <div
-              className="
-                mt-5
-                grid
-                gap-4
-                sm:mt-6
-                sm:gap-4
-                lg:mt-5
-              "
-            >
-              {[
-                {
-                  title: "Business-Focused Strategy",
-                  text: "Every website starts with understanding your audience, goals, and market to create meaningful digital experiences.",
-                },
-                {
-                  title: "Premium User Experience",
-                  text: "Clean layouts, intuitive navigation, and responsive interfaces ensure visitors enjoy every interaction.",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{
-                    opacity: 0,
-                    x: 40,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  viewport={{
-                    once: true,
-                  }}
-                  transition={{
-                    delay: index * 0.15,
-                    duration: 0.7,
-                    ease: "easeOut",
-                  }}
-                  whileHover={{
-                    x: 6,
-                    scale: 1.01,
-                  }}
-                  className="
-                    group
-                    flex
-                    items-center
-                    gap-4
-                    rounded-[20px]
-                    border
-                    border-gray-100
-                    bg-[#fafafa]
-                    px-4
-                    py-3
-                    transition-all
-                    duration-500
-                    hover:border-[#F8BC04]/40
-                    hover:bg-white
-                    hover:shadow-xl
-                    sm:gap-4
-                    sm:rounded-[22px]
-                    sm:px-4
-                    sm:py-3
-                  "
-                >
-                  {/* CHECK ICON */}
-
-                  <motion.div
-                    whileHover={{
-                      rotate: 360,
-                      scale: 1.15,
-                    }}
-                    transition={{
-                      duration: 0.6,
-                    }}
-                    className="
-                      flex
-                      h-10
-                      w-10
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded-xl
-                      bg-[#F8BC04]
-                      text-lg
-                      font-bold
-                      text-white
-                      sm:h-11
-                      sm:w-11
-                    "
-                  >
-                    ✓
-                  </motion.div>
-
-                  {/* CARD CONTENT */}
-
-                  <div className="min-w-0">
-                    <h3
-                      className="
-                        text-base
-                        font-bold
-                        leading-tight
-                        text-[#171717]
-                        sm:text-lg
-                      "
-                    >
-                      {item.title}
-                    </h3>
-
-                    <p
-                      className="
-                        mt-1
-                        text-sm
-                        leading-5
-                        text-gray-600
-                        sm:text-sm
-                        sm:leading-6
-                      "
-                    >
-                      {item.text}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-
-              {/* BUTTON */}
-
-              <div className="mt-1 flex left-end sm:mt-1 lg:mt-1">
-                <motion.a
-                  href="https://api.whatsapp.com/send?phone=916289102537"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{
-                    scale: 1.05,
-                    y: -4,
-                  }}
-                  whileTap={{
-                    scale: 0.95,
-                  }}
-                  className="inline-flex w-full items-center justify-center rounded-full border border-[#171717] bg-[#171717] px-7 py-3.5 font-semibold text-[#F8BC04] transition-all duration-300 hover:bg-[#F8BC04] hover:text-[#171717] sm:w-auto sm:px-9 sm:py-4"
-                >
-                  Let's Build Together
-                </motion.a>
-              </div>
+            <div className="border-t border-white/5 px-5 pb-5 pt-1 text-white/70 sm:px-6 sm:pb-6">
+              {faq.a}
             </div>
           </motion.div>
-        </div>
-      </section>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
-      {/* =========================
-          END ABOUT OUR WEB DEVELOPMENT
-      ========================= */}
-
-      {/* =========================
-          TECHNOLOGIES WE MASTER
-      ========================= */}
-
-      <section className="relative w-full overflow-hidden bg-white py-6 sm:py-8 lg:py-10">
-        {/* Background Glow */}
-
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.15, 0.3, 0.15],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-          className="
-            pointer-events-none
-            absolute
-            left-1/2
-            top-20
-            h-[350px]
-            w-[350px]
-            -translate-x-1/2
-            rounded-full
-            bg-[#F8BC04]/15
-            blur-[120px]
-            sm:h-[450px]
-            sm:w-[450px]
-          "
+function WebsiteUSPCard({ card }: { card: USPCard }) {
+  return (
+    <Link
+      href={card.href}
+      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0b0b0b] transition-all duration-300 hover:-translate-y-2 hover:border-[#F8BC04]/60"
+    >
+      <div className="relative h-[230px] overflow-hidden">
+        <Image
+          src={card.image}
+          alt={card.alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        {/* FULL WIDTH CONTAINER */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
-        <div className="relative z-10 w-full">
-          {/* HEADING */}
+        <span className="absolute left-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-[#F8BC04]/50 bg-black/70 text-sm font-bold text-[#F8BC04]">
+          {card.number}
+        </span>
+      </div>
 
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 50,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-              amount: 0.2,
-            }}
-            transition={{
-              duration: 0.8,
-              ease: "easeOut",
-            }}
-            className="
-              mx-auto
-              w-full
-              max-w-5xl
-              px-5
-              text-center
-              sm:px-8
-              lg:px-10
-            "
+      <div className="p-6">
+        <h3 className="font-bold leading-tight text-white">
+          {card.title}
+        </h3>
+
+        <p className="mt-3 leading-relaxed text-white/65">
+          {card.description}
+        </p>
+
+        <div className="mt-6 flex items-center gap-2 font-bold text-[#F8BC04]">
+          <span>Explore Service</span>
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+export default function WebsiteDevelopmentPage() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [activeDevelopmentType, setActiveDevelopmentType] = useState("2d");
+  const [performanceSlide, setPerformanceSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setPerformanceSlide((current) => (current + 1) % performanceSlides.length);
+    }, 4500);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const activeDevelopmentData =
+    developmentTypes.find((item) => item.id === activeDevelopmentType) ||
+    developmentTypes[0];
+
+  return (
+    <main className="min-h-screen bg-black text-white [&_*]:box-border">
+      <style>{`
+        h1 {
+          font-size: 50px !important;
+        }
+
+        h2 {
+          font-size: 30px !important;
+        }
+
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-size: 20px !important;
+        }
+
+        p {
+          font-size: 20px !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p {
+          font-family: Arial, Helvetica, sans-serif;
+          letter-spacing: normal !important;
+        }
+
+        h1 .highlight-font,
+        h2 .highlight-font,
+        h3 .highlight-font,
+        h4 .highlight-font,
+        h5 .highlight-font,
+        h6 .highlight-font {
+          font-family: Georgia, "Times New Roman", serif !important;
+          font-style: italic;
+          font-weight: 400;
+          letter-spacing: normal !important;
+        }
+
+        p {
+          text-align: justify !important;
+          text-align-last: left !important;
+        }
+
+        .webdev-section {
+          padding-top: 90px;
+          padding-bottom: 90px;
+        }
+
+        .webdev-hero-image {
+          animation: webdevHeroFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes webdevHeroFloat {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        .hero-code-line {
+          animation: codePulse 3s ease-in-out infinite;
+        }
+
+        @keyframes codePulse {
+          0%, 100% { opacity: 0.45; }
+          50% { opacity: 1; }
+        }
+
+        .value-image-frame {
+          position: relative;
+          overflow: hidden;
+          border-radius: 28px;
+          border: 1px solid rgba(255,255,255,0.10);
+        }
+
+        .value-image-frame::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(
+            135deg,
+            transparent 30%,
+            rgba(248,188,4,0.08) 50%,
+            transparent 70%
+          );
+          pointer-events: none;
+        }
+
+        .development-tabs-section {
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .development-tabs-inner {
+          width: 100%;
+          max-width: 1800px;
+          margin: 0 auto;
+        }
+
+        .development-top-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+          column-gap: 70px;
+          align-items: start;
+        }
+
+        .development-heading {
+          margin: 0;
+          font-size: 30px !important;
+          line-height: 0.94;
+          font-weight: 700;
+          letter-spacing: -1.5px !important;
+        }
+
+        .development-heading-highlight {
+          display: block;
+          margin-top: 2px;
+          color: #f8bc04;
+          font-family: Georgia, "Times New Roman", serif !important;
+          font-style: italic;
+          font-weight: 400;
+          font-size: 30px !important;
+          letter-spacing: -1.5px !important;
+        }
+
+        .development-intro {
+          max-width: 670px;
+          padding-left: 34px;
+          border-left: 1px solid rgba(255,255,255,0.20);
+          font-size: 20px !important;
+          line-height: 1.48;
+          color: rgba(255,255,255,0.68);
+        }
+
+        .development-tabs-wrapper {
+          width: 100%;
+          margin-top: 36px;
+        }
+
+        .development-tabs {
+          display: flex;
+          width: 100%;
+          max-width: 825px;
+          height: 54px;
+        }
+
+        .development-tab {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          flex: 1;
+          min-width: 0;
+          height: 54px;
+          padding: 0 24px;
+          border: none;
+          border-radius: 0;
+          background: transparent;
+          color: #ffffff;
+          font-family: Arial, Helvetica, sans-serif !important;
+          font-size: 17px;
+          line-height: 1;
+          font-weight: 600;
+          cursor: pointer;
+          transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .development-tab:hover {
+          color: #f8bc04;
+        }
+
+        .development-tab.active {
+          background: #f8bc04;
+          color: #000000;
+        }
+
+        .development-tab.active:hover {
+          color: #000000;
+        }
+
+        .development-tabs-line {
+          width: 100%;
+          max-width: 825px;
+          height: 2px;
+          background: #f8bc04;
+        }
+
+        .development-content-grid {
+          display: grid;
+          grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+          column-gap: 70px;
+          align-items: center;
+          margin-top: 55px;
+        }
+
+        .development-content-left {
+          align-self: center;
+          padding-bottom: 25px;
+        }
+
+        .development-eyebrow {
+          margin-bottom: 20px;
+          font-family: Arial, Helvetica, sans-serif !important;
+          font-size: 11px;
+          line-height: 1;
+          font-weight: 900;
+          letter-spacing: 2px !important;
+          color: #f8bc04;
+        }
+
+        .development-content-title {
+          max-width: 760px;
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif !important;
+          font-size: 20px !important;
+          line-height: 1.1;
+          font-weight: 700;
+          letter-spacing: -0.4px !important;
+          color: #ffffff;
+        }
+
+        .development-content-description {
+          max-width: 790px;
+          margin-top: 20px;
+          font-family: Arial, Helvetica, sans-serif !important;
+          font-size: 20px !important;
+          line-height: 1.45;
+          font-weight: 400;
+          color: rgba(255,255,255,0.78);
+        }
+
+        .development-points {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          max-width: 790px;
+          margin-top: 28px;
+          gap: 0 22px;
+        }
+
+        .development-point {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          min-height: 48px;
+          border-top: 1px solid rgba(255,255,255,0.16);
+          font-size: 13px;
+          font-weight: 600;
+          color: rgba(255,255,255,0.78);
+        }
+
+        .development-point-number {
+          color: #f8bc04;
+          font-size: 10px;
+          font-weight: 900;
+          flex-shrink: 0;
+        }
+
+        .development-buttons {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-top: 26px;
+        }
+
+        .development-primary-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 13px;
+          min-height: 42px;
+          padding: 0 21px;
+          border-radius: 999px;
+          background: #f8bc04;
+          color: #000000;
+          font-family: Arial, Helvetica, sans-serif !important;
+          font-size: 12px;
+          line-height: 1;
+          font-weight: 700;
+          transition: background-color 0.25s ease, transform 0.25s ease;
+        }
+
+        .development-primary-button:hover {
+          background: #ffffff;
+          transform: translateY(-2px);
+        }
+
+        .development-secondary-button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 42px;
+          padding: 0 21px;
+          border: 1px solid rgba(255,255,255,0.20);
+          border-radius: 999px;
+          background: transparent;
+          color: #ffffff;
+          font-family: Arial, Helvetica, sans-serif !important;
+          font-size: 12px;
+          line-height: 1;
+          font-weight: 600;
+          transition: border-color 0.25s ease, color 0.25s ease;
+        }
+
+        .development-secondary-button:hover {
+          border-color: #f8bc04;
+          color: #f8bc04;
+        }
+
+        .development-image-column {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 480px;
+        }
+
+        .development-single-image {
+          position: relative;
+          width: min(100%, 720px);
+          height: 560px;
+          margin-left: auto;
+          overflow: hidden;
+          border-radius: 28px;
+        }
+
+        .development-single-image img {
+          object-fit: contain !important;
+          object-position: center center !important;
+        }
+
+        .technology-card {
+          position: relative;
+          overflow: hidden;
+          min-height: 235px;
+          border: 1px solid rgba(255,255,255,0.10);
+          border-radius: 22px;
+          background: #0b0b0b;
+          transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .technology-card:hover {
+          transform: translateY(-6px);
+          border-color: rgba(248,188,4,0.55);
+          background: #101010;
+        }
+
+        .technology-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 52px;
+          width: 52px;
+          border-radius: 14px;
+          border: 1px solid rgba(248,188,4,0.35);
+          background: rgba(248,188,4,0.08);
+          color: #f8bc04;
+          font-size: 12px;
+          font-weight: 900;
+        }
+
+        .use-case-card {
+          position: relative;
+          min-height: 330px;
+          overflow: hidden;
+          border-radius: 24px;
+          border: 1px solid rgba(255,255,255,0.10);
+          background: #0b0b0b;
+        }
+
+        .use-case-card img {
+          transition: transform 0.5s ease;
+        }
+
+        .use-case-card:hover img {
+          transform: scale(1.06);
+        }
+
+        .website-trust-carousel-track {
+          animation: websiteTrustCarousel 35s linear infinite;
+        }
+
+        @keyframes websiteTrustCarousel {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        .website-trust-carousel-wrapper:hover .website-trust-carousel-track {
+          animation-play-state: paused;
+        }
+
+        .code-window {
+          position: relative;
+          overflow: hidden;
+          border-radius: 22px;
+          border: 1px solid rgba(255,255,255,0.12);
+          background: #080808;
+          box-shadow: 0 30px 100px rgba(0,0,0,0.45);
+        }
+
+        .code-window-header {
+          display: flex;
+          align-items: center;
+          gap: 7px;
+          height: 42px;
+          padding: 0 16px;
+          border-bottom: 1px solid rgba(255,255,255,0.08);
+          background: rgba(255,255,255,0.02);
+        }
+
+        .code-window-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 999px;
+          background: rgba(255,255,255,0.20);
+        }
+
+        .code-line {
+          display: block;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          color: rgba(255,255,255,0.65);
+        }
+
+        .usp-horizontal-list {
+          position: relative;
+          display: grid;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          width: 100%;
+          padding-top: 23px;
+        }
+
+        .usp-horizontal-list::before {
+          content: "";
+          position: absolute;
+          top: 23px;
+          left: 5%;
+          right: 5%;
+          height: 1px;
+          background: rgba(255, 255, 255, 0.16);
+        }
+
+        .usp-horizontal-item {
+          position: relative;
+          min-width: 0;
+          padding: 0 16px;
+        }
+
+        .usp-horizontal-marker {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          justify-content: center;
+        }
+
+        .usp-horizontal-marker span {
+          display: flex;
+          width: 46px;
+          height: 46px;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(248, 188, 4, 0.70);
+          border-radius: 999px;
+          background: #000000;
+          color: #F8BC04;
+          font-size: 12px;
+          font-weight: 900;
+          letter-spacing: 0.04em;
+        }
+
+        .usp-horizontal-content {
+          padding-top: 25px;
+        }
+
+        .usp-horizontal-content h3 {
+          margin: 0;
+          color: #ffffff;
+          font-size: 19px;
+          line-height: 1.2;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+        }
+
+        .usp-horizontal-content p {
+          margin: 10px 0 0;
+          color: rgba(255, 255, 255, 0.58);
+          font-size: 14px;
+          line-height: 1.65;
+        }
+
+        .webdev-technologies-section {
+          padding-top: 120px;
+          padding-bottom: 120px;
+        }
+
+        .technology-logo-showcase {
+          width: 100%;
+        }
+
+        .technology-logo-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+        }
+
+        .technology-logo-row + .technology-logo-row {
+          margin-top: 82px;
+        }
+
+        .technology-logo-row-four {
+          padding: 0 7%;
+        }
+
+        .technology-logo-row-five {
+          padding: 0 1%;
+        }
+
+        .technology-logo-row-three {
+          justify-content: center;
+          gap: clamp(90px, 12vw, 210px);
+          padding: 0 15%;
+        }
+
+        .technology-logo-item {
+          display: flex;
+          min-width: 0;
+          align-items: center;
+          gap: 24px;
+          color: #ffffff;
+        }
+
+        .technology-logo-image-wrap {
+          position: relative;
+          width: 86px;
+          height: 86px;
+          flex: 0 0 86px;
+        }
+
+        .technology-logo-image {
+          object-fit: contain;
+          object-position: center;
+          filter: brightness(0) invert(1);
+        }
+
+        .technology-logo-name {
+          white-space: nowrap;
+          font-family: Arial, Helvetica, sans-serif !important;
+          font-size: clamp(24px, 2vw, 38px);
+          line-height: 1;
+          font-weight: 600;
+          letter-spacing: -0.7px;
+          color: #ffffff;
+        }
+
+        .performance-slider {
+          isolation: isolate;
+        }
+
+        .performance-pointers {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-rows: repeat(3, auto);
+          grid-auto-flow: column;
+          column-gap: 30px;
+          row-gap: 0;
+          width: 100%;
+        }
+
+        .performance-pointer {
+          min-width: 0;
+          min-height: 70px;
+          padding-top: 14px;
+        }
+
+        .performance-pointer:first-child,
+        .performance-pointer:nth-child(4) {
+          padding-top: 0;
+        }
+
+        @media (max-width: 1100px) {
+          .usp-horizontal-list {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            row-gap: 55px;
+          }
+
+          .usp-horizontal-list::before {
+            display: none;
+          }
+
+          .usp-horizontal-item {
+            padding: 0 12px;
+          }
+
+
+          .usp-pointer-list {
+          position: relative;
+          width: 100%;
+        }
+
+        .usp-pointer-list::before {
+          content: "";
+          position: absolute;
+          top: 30px;
+          bottom: 30px;
+          left: 22px;
+          width: 1px;
+          background: rgba(255, 255, 255, 0.14);
+        }
+
+        .usp-pointer-item {
+          position: relative;
+          display: grid;
+          grid-template-columns: 46px minmax(0, 1fr);
+          column-gap: 26px;
+          align-items: start;
+          min-height: 116px;
+          padding: 0 0 34px;
+        }
+
+        .usp-pointer-item + .usp-pointer-item {
+          padding-top: 34px;
+          border-top: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        .usp-pointer-number {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          width: 46px;
+          height: 46px;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(248, 188, 4, 0.65);
+          border-radius: 999px;
+          background: #000000;
+          color: #F8BC04;
+          font-size: 12px;
+          font-weight: 900;
+          letter-spacing: 0.04em;
+        }
+
+        .usp-pointer-content {
+          padding-top: 2px;
+        }
+
+        .usp-pointer-content h3 {
+          margin: 0;
+          color: #ffffff;
+          font-size: clamp(20px, 1.7vw, 28px);
+          line-height: 1.15;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+        }
+
+        .usp-pointer-content p {
+          max-width: 760px;
+          margin: 10px 0 0;
+          color: rgba(255, 255, 255, 0.58);
+          font-size: 16px;
+          line-height: 1.7;
+        }
+
+        .webdev-technologies-section {
+            padding-top: 90px;
+            padding-bottom: 90px;
+          }
+
+          .technology-logo-row-four,
+          .technology-logo-row-five {
+            padding-left: 0;
+            padding-right: 0;
+          }
+
+          .technology-logo-row-three {
+            padding-left: 0;
+            padding-right: 0;
+            gap: 70px;
+          }
+
+          .technology-logo-image-wrap {
+            width: 68px;
+            height: 68px;
+            flex-basis: 68px;
+          }
+
+          .technology-logo-item {
+            gap: 16px;
+          }
+
+          .technology-logo-name {
+            font-size: clamp(20px, 2.5vw, 30px);
+          }
+
+
+          .performance-pointers {
+            column-gap: 24px;
+          }
+        }
+
+        @media (max-width: 1100px) {
+          .development-top-grid {
+            grid-template-columns: 1fr;
+            row-gap: 28px;
+          }
+
+          .development-intro {
+            max-width: 750px;
+            padding-left: 24px;
+          }
+
+          .development-content-grid {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 35px;
+          }
+
+          .development-single-image {
+            height: 460px;
+          }
+        }
+
+        @media (max-width: 767px) {
+          .usp-horizontal-list {
+            grid-template-columns: 1fr;
+            gap: 34px;
+            padding-top: 0;
+          }
+
+          .usp-horizontal-list::before {
+            display: none;
+          }
+
+          .usp-horizontal-item {
+            display: grid;
+            grid-template-columns: 40px minmax(0, 1fr);
+            column-gap: 16px;
+            padding: 0;
+          }
+
+          .usp-horizontal-marker {
+            justify-content: flex-start;
+          }
+
+          .usp-horizontal-marker span {
+            width: 40px;
+            height: 40px;
+            font-size: 10px;
+          }
+
+          .usp-horizontal-content {
+            padding-top: 1px;
+          }
+
+          .usp-horizontal-content h3 {
+            font-size: 19px;
+          }
+
+          .usp-horizontal-content p {
+            font-size: 14px;
+            line-height: 1.65;
+          }
+
+
+          .usp-pointer-list::before {
+            left: 19px;
+            top: 25px;
+            bottom: 25px;
+          }
+
+          .usp-pointer-item {
+            grid-template-columns: 40px minmax(0, 1fr);
+            column-gap: 18px;
+            min-height: 0;
+            padding-bottom: 28px;
+          }
+
+          .usp-pointer-item + .usp-pointer-item {
+            padding-top: 28px;
+          }
+
+          .usp-pointer-number {
+            width: 40px;
+            height: 40px;
+            font-size: 10px;
+          }
+
+          .usp-pointer-content h3 {
+            font-size: 19px;
+          }
+
+          .usp-pointer-content p {
+            font-size: 14px;
+            line-height: 1.65;
+          }
+
+
+          .usp-pointer-list {
+          position: relative;
+          width: 100%;
+        }
+
+        .usp-pointer-list::before {
+          content: "";
+          position: absolute;
+          top: 30px;
+          bottom: 30px;
+          left: 22px;
+          width: 1px;
+          background: rgba(255, 255, 255, 0.14);
+        }
+
+        .usp-pointer-item {
+          position: relative;
+          display: grid;
+          grid-template-columns: 46px minmax(0, 1fr);
+          column-gap: 26px;
+          align-items: start;
+          min-height: 116px;
+          padding: 0 0 34px;
+        }
+
+        .usp-pointer-item + .usp-pointer-item {
+          padding-top: 34px;
+          border-top: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        .usp-pointer-number {
+          position: relative;
+          z-index: 2;
+          display: flex;
+          width: 46px;
+          height: 46px;
+          align-items: center;
+          justify-content: center;
+          border: 1px solid rgba(248, 188, 4, 0.65);
+          border-radius: 999px;
+          background: #000000;
+          color: #F8BC04;
+          font-size: 12px;
+          font-weight: 900;
+          letter-spacing: 0.04em;
+        }
+
+        .usp-pointer-content {
+          padding-top: 2px;
+        }
+
+        .usp-pointer-content h3 {
+          margin: 0;
+          color: #ffffff;
+          font-size: clamp(20px, 1.7vw, 28px);
+          line-height: 1.15;
+          font-weight: 700;
+          letter-spacing: -0.02em;
+        }
+
+        .usp-pointer-content p {
+          max-width: 760px;
+          margin: 10px 0 0;
+          color: rgba(255, 255, 255, 0.58);
+          font-size: 16px;
+          line-height: 1.7;
+        }
+
+        .webdev-technologies-section {
+            padding-top: 65px;
+            padding-bottom: 65px;
+          }
+
+          .technology-logo-showcase {
+            margin-top: 50px;
+          }
+
+          .technology-logo-row,
+          .technology-logo-row-four,
+          .technology-logo-row-five,
+          .technology-logo-row-three {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 32px 20px;
+            padding: 0;
+          }
+
+          .technology-logo-row + .technology-logo-row {
+            margin-top: 34px;
+          }
+
+          .technology-logo-item {
+            gap: 12px;
+          }
+
+          .technology-logo-image-wrap {
+            width: 48px;
+            height: 48px;
+            flex-basis: 48px;
+          }
+
+          .technology-logo-name {
+            font-size: 18px;
+          }
+
+
+          .performance-pointers {
+            grid-template-columns: 1fr;
+            grid-template-rows: none;
+            grid-auto-flow: row;
+            column-gap: 0;
+          }
+
+          .performance-pointer:first-child,
+          .performance-pointer:nth-child(4) {
+            padding-top: 14px;
+          }
+
+          .performance-pointer:first-child {
+            padding-top: 0;
+          }
+
+          .webdev-section {
+            padding-top: 60px;
+            padding-bottom: 60px;
+          }
+
+          h1 {
+            font-size: 50px !important;
+          }
+
+          h2 {
+            font-size: 30px !important;
+          }
+
+          h3,
+          h4,
+          h5,
+          h6 {
+            font-size: 20px !important;
+          }
+
+          p {
+            font-size: 20px !important;
+          }
+
+          .webdev-hero-image {
+            animation: none;
+          }
+
+          .development-tabs-inner {
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+
+          .development-heading {
+            font-size: 30px !important;
+            line-height: 0.94;
+            letter-spacing: -1px !important;
+          }
+
+          .development-heading-highlight {
+            font-size: 30px !important;
+            letter-spacing: -1px !important;
+          }
+
+          .development-intro {
+            padding-left: 18px;
+            font-size: 20px !important;
+            line-height: 1.45;
+          }
+
+          .development-tabs-wrapper {
+            margin-top: 27px;
+          }
+
+          .development-tabs {
+            height: 52px;
+            max-width: none;
+          }
+
+          .development-tab {
+            height: 52px;
+            justify-content: center;
+            padding: 0 8px;
+            font-size: 13px;
+          }
+
+          .development-tabs-line {
+            max-width: none;
+          }
+
+          .development-content-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 38px;
+          }
+
+          .development-content-left {
+            padding-bottom: 0;
+          }
+
+          .development-content-title {
+            font-size: 20px !important;
+            line-height: 1.1;
+            letter-spacing: -0.2px !important;
+          }
+
+          .development-content-description {
+            margin-top: 17px;
+            font-size: 20px !important;
+            line-height: 1.48;
+          }
+
+          .development-points {
+            grid-template-columns: 1fr;
+            margin-top: 23px;
+          }
+
+          .development-point {
+            min-height: 44px;
+          }
+
+          .development-buttons {
+            flex-direction: column;
+            align-items: stretch;
+            margin-top: 23px;
+          }
+
+          .development-primary-button,
+          .development-secondary-button {
+            width: 100%;
+          }
+
+          .development-image-column {
+            min-height: 370px;
+            margin-top: 8px;
+          }
+
+          .development-single-image {
+            width: 100%;
+            height: 390px;
+            margin: 0 auto;
+          }
+
+          .technology-card {
+            min-height: 210px;
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .webdev-hero-image,
+          .website-trust-carousel-track,
+          .hero-code-line {
+            animation: none;
+          }
+        }
+      `}</style>
+
+      {/* 1. BREADCRUMB */}
+      <section className="relative bg-black px-4 py-5">
+        <nav
+          className="mx-auto flex max-w-[1550px] items-center justify-center gap-4 text-sm text-white"
+          aria-label="Breadcrumb"
+        >
+          <Link
+            href="/"
+            className="text-white transition-colors hover:text-[#F8BC04]"
           >
-            <h2
-              className="
-                text-[34px]
-                font-black
-                leading-[1.05]
-                tracking-tight
-                text-[#171717]
-                sm:text-[44px]
-                md:text-[52px]
-                lg:text-[58px]
-              "
-            >
-              Technologies We{" "}
-              <span className="text-[#F8BC04]">
-                Work With
-              </span>
-            </h2>
+            Home
+          </Link>
 
-            <p
-              className="
-                mx-auto
-                mt-5
-                max-w-4xl
-                text-base
-                leading-7
-                text-gray-600
-                sm:mt-6
-                sm:text-lg
-                sm:leading-8
-                lg:mt-7
-                lg:text-lg
-                lg:leading-9
-              "
-            >
-              We leverage modern frameworks, programming languages, databases,
-              and development tools to create fast, scalable, secure, and
-              future-ready websites that deliver exceptional user experiences
-              across every platform and device.
-            </p>
-          </motion.div>
+          <span className="text-lg text-[#e5a400]">→</span>
 
-          {/* TECHNOLOGIES */}
-
-          <div className="mt-7 w-full sm:mt-9 lg:mt-10">
-            {[
-              [
-                { name: "HTML5", icon: "🌐" },
-                { name: "CSS3", icon: "🎨" },
-                { name: "JavaScript", icon: "🟨" },
-                { name: "TypeScript", icon: "🔷" },
-                { name: "React", icon: "⚛️" },
-                { name: "Next.js", icon: "▲" },
-                { name: "Tailwind CSS", icon: "💨" },
-              ],
-              [
-                { name: "Node.js", icon: "🟢" },
-                { name: "Express.js", icon: "🚀" },
-                { name: "PHP", icon: "🐘" },
-                { name: "Laravel", icon: "❤️" },
-                { name: "Flutter", icon: "🦋" },
-                { name: "MongoDB", icon: "🍃" },
-                { name: "MySQL", icon: "🗄️" },
-              ],
-            ].map((row, rowIndex) => (
-              <motion.div
-                key={rowIndex}
-                initial={{
-                  opacity: 0,
-                  y: 50,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.15,
-                }}
-                transition={{
-                  delay: rowIndex * 0.15,
-                  duration: 0.8,
-                  ease: "easeOut",
-                }}
-                className="
-                  relative
-                  w-full
-                  overflow-hidden
-                  py-2
-                  sm:py-2.5
-                "
-              >
-                <motion.div
-                  animate={{
-                    x:
-                      rowIndex === 0
-                        ? ["0%", "-18%", "0%"]
-                        : ["-18%", "0%", "-18%"],
-                  }}
-                  transition={{
-                    duration: 22,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="
-                    flex
-                    w-max
-                    gap-4
-                    px-4
-                    sm:gap-5
-                    sm:px-6
-                    lg:gap-6
-                    lg:px-8
-                  "
-                >
-                  {[...row, ...row].map((tech, index) => (
-                    <motion.div
-                      key={`${tech.name}-${index}`}
-                      whileHover={{
-                        y: -10,
-                        rotateY: 8,
-                        scale: 1.04,
-                      }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 180,
-                        damping: 16,
-                      }}
-                      className="
-                        group
-                        flex
-                        h-[92px]
-                        w-[clamp(210px,72vw,340px)]
-                        shrink-0
-                        items-center
-                        gap-3
-                        rounded-[20px]
-                        border
-                        border-gray-100
-                        bg-white
-                        px-4
-                        py-3
-                        transition-all
-                        duration-500
-                        hover:border-[#F8BC04]/40
-                        hover:shadow-[0_25px_60px_rgba(248,188,4,.16)]
-                        sm:h-[115px]
-                        sm:w-[clamp(230px,24vw,340px)]
-                        sm:gap-5
-                        sm:rounded-[24px]
-                        sm:px-6
-                      "
-                    >
-                      {/* ICON */}
-
-                      <motion.div
-                        whileHover={{
-                          rotate: 360,
-                          scale: 1.15,
-                        }}
-                        transition={{
-                          duration: 0.6,
-                        }}
-                        className="
-                          flex
-                          h-12
-                          w-12
-                          shrink-0
-                          items-center
-                          justify-center
-                          rounded-2xl
-                          bg-[#F8BC04]/10
-                          text-xl
-                          sm:h-16
-                          sm:w-16
-                          sm:text-3xl
-                        "
-                      >
-                        {tech.icon}
-                      </motion.div>
-
-                      {/* TEXT */}
-
-                      <div className="min-w-0">
-                        <h3
-                          className="
-                            truncate
-                            text-sm
-                            font-bold
-                            text-[#171717]
-                            sm:text-lg
-                          "
-                        >
-                          {tech.name}
-                        </h3>
-
-                        <p
-                          className="
-                            mt-1
-                            whitespace-nowrap
-                            text-[11px]
-                            text-gray-500
-                            sm:text-sm
-                          "
-                        >
-                          Modern Development
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+          <span className="font-bold text-white">
+            Website Development
+          </span>
+        </nav>
       </section>
 
-      {/* =========================
-          INDUSTRIES WE SERVE
-      ========================= */}
+      {/* 2. HERO */}
+      <section className="webdev-section relative overflow-hidden bg-black">
+        <div className="mx-auto grid max-w-[1550px] grid-cols-1 items-center gap-10 px-5 sm:px-8 lg:grid-cols-12 lg:gap-14">
+          <div className="relative z-20 lg:col-span-6">
+            <span className="text-xs font-black uppercase tracking-[0.25em] text-[#F8BC04] sm:text-sm">
+              [ WEBSITE DEVELOPMENT ]
+            </span>
 
-      {/* =========================
-          VERTICAL IMAGE SLIDER
-      ========================= */}
-
-      <section className="relative w-full bg-white py-7 sm:py-10 lg:py-12">
-        <div className="mx-auto w-full max-w-[995px] px-3 sm:px-6">
-          <div className="relative aspect-[995/552] w-full overflow-hidden rounded-[20px] bg-black sm:rounded-[28px]">
-            {[
-              "/assets/websitedevelopment/slider/1.png",
-              "/assets/websitedevelopment/slider/2.png",
-              "/assets/websitedevelopment/slider/3.png",
-              "/assets/websitedevelopment/slider/4.png",
-              "/assets/websitedevelopment/slider/5.png",
-              "/assets/websitedevelopment/slider/6.png",
-              "/assets/websitedevelopment/slider/7.png",
-              "/assets/websitedevelopment/slider/8.png",
-              "/assets/websitedevelopment/slider/9.png",
-              "/assets/websitedevelopment/slider/10.png",
-              "/assets/websitedevelopment/slider/11.png",
-              "/assets/websitedevelopment/slider/12.png",
-            ].map((image, index) => (
-              <motion.img
-                key={image}
-                src={image}
-                alt={`Website Development Project ${index + 1}`}
-                className="absolute inset-0 h-full w-full object-cover"
-                initial={{
-                  y: index === 0 ? "0%" : "100%",
-                }}
-                animate={{
-                  y: [
-                    "100%",
-                    "100%",
-                    "0%",
-                    "0%",
-                    "-100%",
-                  ],
-                }}
-                transition={{
-                  duration: 24,
-                  delay: index * 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  times: [
-                    0,
-                    0.075,
-                    0.125,
-                    0.20,
-                    0.25,
-                  ],
-                }}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-white py-8 sm:py-10 lg:py-10">
-        {/* Background Glow */}
-
-        <motion.div
-          animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.08, 0.18, 0.08],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-          }}
-          className="absolute left-0 top-10 h-[260px] w-[260px] rounded-full bg-[#F8BC04]/20 blur-[150px] sm:h-[450px] sm:w-[450px]"
-        />
-
-        <motion.div
-          animate={{
-            scale: [1.1, 1, 1.1],
-            opacity: [0.08, 0.18, 0.08],
-          }}
-          transition={{
-            duration: 9,
-            repeat: Infinity,
-          }}
-          className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-[#F8BC04]/20 blur-[160px] sm:h-[520px] sm:w-[520px]"
-        />
-
-        <div className="relative mx-auto w-full max-w-[1500px] px-4 sm:px-6">
-          {/* Heading */}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 60,
-            }}
-            whileInView={{
-              opacity: 1,
-              y: 0,
-            }}
-            viewport={{
-              once: true,
-            }}
-            transition={{
-              duration: 0.8,
-            }}
-            className="mx-auto max-w-5xl text-center"
-          >
-            <h2 className="mt-1 text-[30px] font-black leading-[1.08] text-[#171717] sm:text-[38px] md:text-[50px]">
-              Different Sectors We Served for
-              <span className="text-[#F8BC04]">
-                {" "}Websites Designing & Development
+            <h1 className="mt-5 font-bold leading-[0.96] tracking-[-1.5px]">
+              <span className="block text-white">
+                Websites Built
               </span>
-              <br />
-            </h2>
 
-            <p className="mx-auto mt-4 max-w-4xl px-1 text-base leading-7 text-gray-900 sm:text-lg sm:leading-9">
-              Premium website solutions crafted specifically for every industry with
-              performance, conversion and exceptional user experience
+              <span className="highlight-font block text-[#F8BC04]">
+                For Real Business
+              </span>
+            </h1>
+
+            <p className="mt-6 max-w-[680px] leading-relaxed text-white/70">
+              Big Beans Digital creates websites that bring together design,
+              technology, usability and business objectives. From responsive
+              2D websites to interactive 3D experiences, we build digital
+              products around what your business and users actually need.
             </p>
-          </motion.div>
 
-          {/* 6 × 2 Grid */}
-
-          <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 md:grid-cols-3 lg:mt-20 lg:grid-cols-4 lg:gap-6">
-            {[
-              {
-                title: "Ecommerce",
-                desc: "Beautiful shopping experiences that increase trust, engagement and online sales.",
-                image: "/assets/websitedevelopment/Sectors/ecommerce.png",
-              },
-              {
-                title: "Education",
-                desc: "Interactive websites that make learning engaging for students and institutions.",
-                image: "/assets/websitedevelopment/Sectors/education.png",
-              },
-              {
-                title: "Real Estate",
-                desc: "Premium property websites that generate enquiries and showcase listings beautifully.",
-                image: "/assets/websitedevelopment/Sectors/realestate.png",
-              },
-              {
-                title: "Tech",
-                desc: "Modern dashboards and business platforms for data-driven organizations.",
-                image: "/assets/websitedevelopment/Sectors/data.png",
-              },
-              {
-                title: "Transportation",
-                desc: "Responsive websites for logistics, transport and mobility businesses.",
-                image: "/assets/websitedevelopment/Sectors/transport.png",
-              },
-              {
-                title: "FMCG",
-                desc: "Fast-moving consumer brand websites designed for maximum engagement.",
-                image: "/assets/websitedevelopment/Sectors/fmcg.png",
-              },
-              {
-                title: "Travel And Torisum",
-                desc: "Professional healthcare websites that build credibility and patient trust.",
-                image: "/assets/websitedevelopment/Sectors/TravelAndTorisum.png",
-              },
-              {
-                title: "Hospitality",
-                desc: "Luxury hotel and hospitality websites designed to increase bookings.",
-                image: "/assets/websitedevelopment/Sectors/hospitality.png",
-              },
-            ].map((industry, index) => (
-              <motion.div
-                key={industry.title}
-                initial={{
-                  opacity: 0,
-                  y: 50,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.05,
-                }}
-                whileHover={{
-                  y: -10,
-                  scale: 1.03,
-                }}
-                className="group rounded-[20px] bg-[#F8BC04] p-3.5 shadow-[0_15px_45px_rgba(0,0,0,.08)] transition-all duration-500 hover:bg-white sm:rounded-[22px] sm:p-4"
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/connect"
+                className="inline-flex items-center justify-between gap-6 rounded-full bg-[#F8BC04] px-7 py-3.5 text-sm font-extrabold text-black transition-all duration-300 hover:scale-105 hover:bg-white"
               >
-                <div className="flex h-full flex-col">
-                  <h3 className="text-[20px] font-black leading-tight text-[#171717] sm:text-[22px]">
-                    {industry.title}
-                  </h3>
+                <span>Start Your Website Project</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
 
-                  <p className="mt-2.5 text-[13px] leading-5 text-[#171717] sm:mt-3 sm:text-[14px] sm:leading-6">
-                    {industry.desc}
-                  </p>
+              <Link
+                href="/services"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:border-[#F8BC04] hover:text-[#F8BC04]"
+              >
+                Explore Our Services
+              </Link>
+            </div>
 
-                  <div className="mt-4 overflow-hidden rounded-[14px] sm:mt-5 sm:rounded-[16px]">
-                    <Image
-                      src={industry.image}
-                      alt={industry.title}
-                      width={400}
-                      height={260}
-                      className="h-[170px] w-full object-cover transition duration-700 group-hover:scale-110 sm:h-[150px]"
-                    />
-                  </div>
+            <div className="mt-8 grid max-w-[650px] grid-cols-3 gap-3">
+              <div className="border-l border-[#F8BC04] pl-3">
+                <div className="text-lg font-bold text-white">2D</div>
+                <div className="mt-1 text-xs text-white/50">
+                  Modern Interfaces
                 </div>
-              </motion.div>
-            ))}
+              </div>
+
+              <div className="border-l border-[#F8BC04] pl-3">
+                <div className="text-lg font-bold text-white">3D</div>
+                <div className="mt-1 text-xs text-white/50">
+                  Interactive Experiences
+                </div>
+              </div>
+
+              <div className="border-l border-[#F8BC04] pl-3">
+                <div className="text-lg font-bold text-white">UX</div>
+                <div className="mt-1 text-xs text-white/50">
+                  User Focused
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative min-h-[500px] lg:col-span-6">
+            <div className="webdev-hero-image absolute inset-0 flex items-center justify-center">
+              <div className="relative h-[460px] w-full max-w-[700px]">
+                <Image
+                  src="/assets/website-development/hero.webp"
+                  alt="Website development and digital experience"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-contain"
+                />
+              </div>
+            </div>
+
+            <div className="absolute bottom-5 left-5 right-5 z-20 lg:left-10 lg:right-10">
+              <div className="code-window">
+                <div className="code-window-header">
+                  <span className="code-window-dot" />
+                  <span className="code-window-dot" />
+                  <span className="code-window-dot" />
+                </div>
+
+                <div className="grid grid-cols-1 gap-1 px-5 py-4 font-mono text-[10px] sm:text-xs">
+                  <span className="code-line text-[#F8BC04]">
+                    &lt;Website experience /&gt;
+                  </span>
+                  <span className="code-line">
+                    responsive: true
+                  </span>
+                  <span className="code-line hero-code-line">
+                    interactive: true
+                  </span>
+                  <span className="code-line">
+                    scalable: true
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* =========================
-          END INDUSTRIES WE SERVE
-      ========================= */}
+      {/* 3. USPs / WHY CHOOSE US */}
+      <section className="webdev-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-4">
+              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                [ WHY CHOOSE US ]
+              </span>
 
-      {/* =========================
-          WEBSITE DESIGN PROCESS
-      ========================= */}
-
-      <section className="relative overflow-hidden bg-white py-8 sm:py-10 lg:py-10">
-        {/* Background Glow */}
-
-        <motion.div
-          animate={{
-            scale: [1, 1.15, 1],
-            opacity: [0.08, 0.18, 0.08],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-          }}
-          className="absolute -left-20 top-10 h-[420px] w-[420px] rounded-full bg-[#F8BC04]/15 blur-[140px]"
-        />
-
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6">
-          <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-12">
-            {/* ================= LEFT CONTENT ================= */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: -60,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: 0.8,
-              }}
-            >
-              <h2 className="mt-1 text-[30px] font-black leading-[1.08] text-[#171717] sm:text-[36px] md:text-[45px]">
-                Best Website Design &
+              <h2 className="mt-4 font-bold leading-[0.95]">
+                Website Development
                 <br />
-                Development Company
-                <br />
-                <span className="text-[#F8BC04]">
-                  {" "}For Startups
+                <span className="highlight-font text-[#F8BC04]">
+                  Built Around Your Business
                 </span>
               </h2>
 
-              <p className="mt-5 text-base leading-7 text-gray-600 text-justify sm:mt-8 sm:text-lg">
-                We design premium websites that combine creativity, strategy,
-                performance and user experience. Every project is built to
-                strengthen your brand, increase engagement, improve credibility
-                and generate measurable business growth.
+              <p className="mt-6 max-w-md leading-relaxed text-white/60">
+                We build websites around the way a business needs to present
+                itself, communicate with customers and support its next stage
+                of growth.
               </p>
+            </div>
 
-              <div className="mt-8 space-y-7 sm:mt-10 sm:space-y-8">
-                <div>
-                  <h3 className="text-xl font-bold leading-tight text-[#171717] sm:text-2xl">
-                    Custom Websites That Work For Your Brand
-                  </h3>
+            <div className="lg:col-span-8">
+              <div className="usp-horizontal-list">
+                {[
+                  {
+                    number: "01",
+                    title: "Custom Website Development",
+                    description:
+                      "Websites planned around your business, audience, content, functionality and commercial requirements.",
+                  },
+                  {
+                    number: "02",
+                    title: "2D & 3D Experiences",
+                    description:
+                      "From clean 2D interfaces to interactive 3D environments, we select the visual approach that fits the project.",
+                  },
+                  {
+                    number: "03",
+                    title: "Responsive by Design",
+                    description:
+                      "Layouts, navigation, interactions and content are developed for desktop, tablet and mobile screen sizes.",
+                  },
+                  {
+                    number: "04",
+                    title: "Built Around Users",
+                    description:
+                      "We focus on navigation, readability, interaction and clear user journeys so visitors can take the intended next step.",
+                  },
+                  {
+                    number: "05",
+                    title: "Scalable Technology",
+                    description:
+                      "The technical structure can support future pages, integrations, content, ecommerce functionality and changing requirements.",
+                  },
+                ].map((item) => (
+                  <div key={item.number} className="usp-horizontal-item">
+                    <div className="usp-horizontal-marker">
+                      <span>{item.number}</span>
+                    </div>
 
-                  <p className="mt-3 text-sm leading-7 text-gray-600 text-justify sm:text-base sm:leading-8">
-                    Every business is unique, so every website we build is completely
-                    custom. We focus on user experience, responsiveness, SEO,
-                    performance and conversion to ensure your website delivers
-                    measurable business results.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold leading-tight text-[#171717] sm:text-2xl">
-                    Smart Design & Seamless Functionality
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-7 text-gray-600 text-justify sm:text-base sm:leading-8">
-                    Our websites combine premium UI design with modern development
-                    technologies to deliver fast loading speeds, intuitive navigation,
-                    mobile responsiveness and an exceptional experience across every
-                    device.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold leading-tight text-[#171717] sm:text-2xl">
-                    Strategic Focus On Business Growth
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-7 text-gray-600 text-justify sm:text-base sm:leading-8">
-                    Every layout, section and interaction is carefully designed to
-                    increase engagement, build trust and convert visitors into
-                    customers while supporting your long-term business growth.
-                  </p>
-                </div>
+                    <div className="usp-horizontal-content">
+                      <h3>{item.title}</h3>
+                      <p>{item.description}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </motion.div>
-
-            {/* ================= RIGHT CONTENT ================= */}
-
-            <motion.div
-              initial={{
-                opacity: 0,
-                x: 60,
-              }}
-              whileInView={{
-                opacity: 1,
-                x: 0,
-              }}
-              viewport={{
-                once: true,
-              }}
-              transition={{
-                duration: 0.9,
-              }}
-              className="space-y-3 sm:space-y-4"
-            >
-              {/* IMAGE 1 */}
-
-              <motion.div
-                whileHover={{
-                  y: -8,
-                  scale: 1.01,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 180,
-                }}
-                className="overflow-hidden rounded-[22px] border border-gray-200 bg-white sm:rounded-[26px]"
-              >
-                <Image
-                  src="/assets/websitedevelopment/website2.png"
-                  alt="Website Design Showcase"
-                  width={1200}
-                  height={700}
-                  className="h-[190px] w-full object-cover transition duration-700 hover:scale-105 sm:h-[220px] lg:h-[260px]"
-                />
-              </motion.div>
-
-              {/* IMAGE 2 */}
-
-              <motion.div
-                whileHover={{
-                  y: -8,
-                  scale: 1.01,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 180,
-                }}
-                className="overflow-hidden rounded-[22px] border border-gray-200 bg-white sm:rounded-[26px]"
-              >
-                <Image
-                  src="/assets/websitedevelopment/website3.png"
-                  alt="Website Design Showcase"
-                  width={1200}
-                  height={700}
-                  className="h-[190px] w-full object-cover transition duration-700 hover:scale-105 sm:h-[220px] lg:h-[260px]"
-                />
-              </motion.div>
-
-              <motion.div
-                whileHover={{
-                  y: -8,
-                  scale: 1.01,
-                }}
-                transition={{
-                  type: "spring",
-                  stiffness: 180,
-                }}
-                className="overflow-hidden rounded-[22px] border border-gray-200 bg-white sm:rounded-[26px]"
-              >
-                <Image
-                  src="/assets/websitedevelopment/website4.png"
-                  alt="Website Design Showcase"
-                  width={1200}
-                  height={700}
-                  className="h-[190px] w-full object-cover transition duration-700 hover:scale-105 sm:h-[220px] lg:h-[260px]"
-                />
-              </motion.div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* =========================
-          END WEBSITE DESIGN PROCESS
-      ========================= */}
+      {/* 4. TRUST / PORTFOLIO / CREDIBILITY */}
+      <section className="webdev-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="overflow-hidden rounded-[28px] border border-white/10 bg-[#090909]">
+            <div className="grid grid-cols-1 lg:grid-cols-12">
+              <div className="relative min-h-[470px] lg:col-span-5">
+                <Image
+                  src="/assets/website-development/trust-portfolio.webp"
+                  alt="Big Beans Digital website development portfolio"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-cover"
+                />
 
-      {/* FAQ SECTION */}
+                <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-[#090909]" />
 
-      <section className="bg-white py-7 sm:py-10">
-        <div className="mx-auto w-full max-w-[1400px] px-4 sm:px-6">
-          {/* HEADER */}
+                <div className="absolute bottom-6 left-6">
+                  <div className="rounded-2xl border border-white/10 bg-black/75 px-5 py-4 backdrop-blur-md">
+                    <div className="text-xs font-bold uppercase tracking-widest text-[#F8BC04]">
+                      WEB DEVELOPMENT
+                    </div>
 
-          <div className="relative mb-10 text-center sm:mb-16">
-            <div
-              className="
-                absolute
-                left-1/2
-                top-0
-                h-24
-                w-24
-                -translate-x-1/2
-                rounded-full
-                bg-[#F8BC04]/35
-              "
-            />
+                    <div className="mt-1 font-bold text-white">
+                      Design + Technology + Experience
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-            <p
-              className="
-                relative
-                uppercase
-                tracking-[3px]
-                text-xs
-                font-semibold
-                text-gray-500
-                sm:tracking-[6px]
-                sm:text-sm
-              "
-            >
-              WEBSITE DEVELOPMENT FAQS
-            </p>
+              <div className="flex flex-col justify-center p-7 sm:p-12 lg:col-span-7">
+                <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                  [ TRUST / PORTFOLIO / CREDIBILITY ]
+                </span>
 
-            <h2
-              className="
-                relative
-                mt-4
-                text-[34px]
-                leading-tight
-                font-black
-                text-[#171717]
-                sm:text-5xl
-                md:text-6xl
-              "
-            >
-              Frequently Asked{" "}
-              <span className="text-[#F8BC04]">
-                Questions
+                <h2 className="mt-5 font-bold leading-tight">
+                  Digital Experiences
+                  <br />
+                  <span className="highlight-font text-[#F8BC04]">
+                    Built for Different Businesses
+                  </span>
+                </h2>
+
+                <p className="mt-5 max-w-[800px] leading-relaxed text-white/65">
+                  Website requirements change from one business to another.
+                  An ecommerce brand needs product discovery and transactions.
+                  An architecture studio may need a visual portfolio. A
+                  manufacturer may need to explain complex products and
+                  capabilities.
+                </p>
+
+                <p className="mt-5 max-w-[800px] leading-relaxed text-white/65">
+                  Our development approach allows the design, content,
+                  functionality and technology to be planned around the
+                  project's actual requirements.
+                </p>
+
+                <div className="website-trust-carousel-wrapper relative mt-8 w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40">
+                  <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-16 bg-gradient-to-r from-[#090909] to-transparent" />
+                  <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-16 bg-gradient-to-l from-[#090909] to-transparent" />
+
+                  <div className="website-trust-carousel-track flex w-max gap-3 p-3">
+                    {[1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6].map(
+                      (number, index) => (
+                        <div
+                          key={String(number) + "-" + String(index)}
+                          className="relative h-[110px] w-[160px] shrink-0 overflow-hidden rounded-xl border border-white/10 bg-[#111111] sm:h-[125px] sm:w-[180px]"
+                        >
+                          <Image
+                            src={
+                              "/assets/website-development/portfolio/" +
+                              String(number) +
+                              ".webp"
+                            }
+                            alt={
+                              "Website development project " +
+                              String(number)
+                            }
+                            fill
+                            sizes="180px"
+                            className="object-cover"
+                          />
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link
+                    href="/connect"
+                    className="inline-flex items-center gap-2 rounded-full bg-[#F8BC04] px-6 py-3 font-bold text-black transition-all hover:bg-white"
+                  >
+                    Discuss Your Website
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-bold text-white hover:border-[#F8BC04] hover:text-[#F8BC04]"
+                  >
+                    View Services
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. VALUE PROPOSITION */}
+      <section className="webdev-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-6">
+              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                [ OUR APPROACH ]
               </span>
-            </h2>
+
+              <h2 className="mt-5 font-bold leading-[0.95]">
+                A Website Should
+                <br />
+                <span className="highlight-font text-[#F8BC04]">
+                  Do More Than Look Good
+                </span>
+              </h2>
+
+              <p className="mt-6 leading-relaxed text-white/70">
+                A strong website needs a clear structure, useful content,
+                intuitive navigation and functionality that supports what the
+                business wants visitors to do.
+              </p>
+
+              <p className="mt-5 leading-relaxed text-white/70">
+                Visual design creates the first impression. Interaction helps
+                people explore. Technology makes the experience work. The
+                final website needs these parts to operate together.
+              </p>
+
+              <p className="mt-5 leading-relaxed text-white/55">
+                Where appropriate, 2D motion, interactive elements and 3D
+                experiences can add another layer to the website without
+                becoming a distraction from the core user journey.
+              </p>
+
+              <div className="mt-7">
+                <Link
+                  href="/connect"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#F8BC04] px-7 py-3.5 font-bold text-black transition-all hover:bg-white"
+                >
+                  Plan Your Website
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
+
+            <div className="value-image-frame relative min-h-[540px] lg:col-span-6">
+              <Image
+                src="/assets/website-development/value-proposition.webp"
+                alt="Website design development and user experience"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/15 to-transparent" />
+
+              <div className="absolute bottom-6 left-6 right-6">
+                <div className="rounded-2xl border border-white/10 bg-black/75 p-5 backdrop-blur-md">
+                  <div className="text-xs font-bold uppercase tracking-widest text-[#F8BC04]">
+                    THE WEBSITE SYSTEM
+                  </div>
+
+                  <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                    {["Design", "UX", "Code", "Growth"].map(
+                      (item, index) => (
+                        <div
+                          key={item}
+                          className="border-t border-white/10 pt-3"
+                        >
+                          <div className="text-xs text-white/40">
+                            {"0" + String(index + 1)}
+                          </div>
+
+                          <div className="mt-1 text-sm font-bold text-white">
+                            {item}
+                          </div>
+                        </div>
+                      )
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. 2D / 3D DEVELOPMENT */}
+      <section className="development-tabs-section webdev-section relative bg-black">
+        <div className="development-tabs-inner px-5 sm:px-8 lg:px-[55px]">
+          <div className="development-top-grid">
+            <div>
+              <span className="block text-[11px] font-black uppercase tracking-[2.5px] text-[#F8BC04]">
+                [ 2D & 3D WEBSITE DEVELOPMENT ]
+              </span>
+
+              <h2 className="development-heading mt-5">
+                Build the Right
+                <span className="development-heading-highlight">
+                  Digital Experience.
+                </span>
+              </h2>
+            </div>
+
+            <div className="development-intro">
+              Some websites need a simple and highly usable interface. Others
+              benefit from interactive visuals, 3D models or immersive product
+              experiences. We select the right approach based on the purpose of
+              the website.
+            </div>
           </div>
 
-          {/* FAQ GRID */}
+          <div className="development-tabs-wrapper">
+            <div
+              className="development-tabs"
+              role="tablist"
+              aria-label="Website development types"
+            >
+              {developmentTypes.map((item) => {
+                const isActive = activeDevelopmentType === item.id;
 
-          <div className="grid gap-4 sm:gap-5 lg:grid-cols-2">
-            {[
-              {
-                q: "Why does my business need a professional website?",
-                a: "A professional website is your business's digital storefront. It helps build trust, improve credibility, generate qualified leads, and convert visitors into customers. As the Best Website Development Company for Startups, BIGBEANS DIGITAL creates modern, fast, and SEO-friendly websites that support long-term business growth.",
-              },
-              {
-                q: "What website development services does BIGBEANS DIGITAL offer?",
-                a: "Our Website Development Services include business website development, startup websites, corporate websites, ecommerce website development, landing pages, custom web applications, portfolio websites, responsive website design, website redesign, and SEO-friendly website development tailored to your business goals.",
-              },
-              {
-                q: "Why should I choose BIGBEANS DIGITAL for website development?",
-                a: "BIGBEANS DIGITAL is a Best Website Development Company for Startups that builds websites focused on performance, user experience, SEO, and conversions. Every website is custom-designed to help businesses attract more visitors, generate leads, and grow online.",
-              },
-              {
-                q: "Will my website be mobile-friendly and responsive?",
-                a: "Yes. Every website we build is fully responsive and optimized for desktops, tablets, and smartphones. Our responsive website development ensures your business delivers a seamless user experience across all devices.",
-              },
-              {
-                q: "Will my website be SEO-friendly?",
-                a: "Absolutely. Every project includes SEO-friendly website development with clean code, fast loading speed, mobile responsiveness, optimized page structure, technical SEO best practices, and performance optimization to improve your search engine visibility.",
-              },
-              {
-                q: "Can you redesign my existing website?",
-                a: "Yes. We provide professional website redesign services for businesses looking to modernize their website, improve user experience, increase loading speed, enhance SEO performance, and generate more leads.",
-              },
-              {
-                q: "How long does it take to develop a website?",
-                a: "The timeline depends on your project requirements. Most business and startup websites are completed within 2–6 weeks, while larger custom website development projects may require additional time based on functionality and content.",
-              },
-              {
-                q: "Can you build websites for startups and small businesses?",
-                a: "Yes. We specialize in website development for startups, entrepreneurs, SMEs, ecommerce brands, healthcare businesses, real estate companies, gyms, educational institutes, restaurants, and service-based businesses looking to establish a strong online presence.",
-              },
-              {
-                q: "Do you provide website maintenance and support after launch?",
-                a: "Yes. We offer ongoing website maintenance, security updates, performance optimization, bug fixes, content updates, and technical support to keep your website secure, fast, and running smoothly after launch.",
-              },
-              {
-                q: "Can my website grow as my business grows?",
-                a: "Absolutely. We build scalable websites that can easily accommodate new pages, products, services, integrations, and features as your business expands. Our custom website development solutions are designed to support your long-term digital growth and evolving business needs.",
-              },
-            ].map((faq, index) => (
-              <motion.div
-                key={index}
-                layout
-                className="
-                  overflow-hidden
-                  rounded-[18px]
-                  border
-                  border-gray-300
-                  bg-white
-                  sm:rounded-[20px]
-                "
+                const tabClassName = isActive
+                  ? "development-tab active"
+                  : "development-tab";
+
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    onClick={() => setActiveDevelopmentType(item.id)}
+                    className={tabClassName}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="development-tabs-line" />
+          </div>
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeDevelopmentData.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
+              className="development-content-grid"
+            >
+              <div className="development-content-left">
+                <div className="development-eyebrow">
+                  {activeDevelopmentData.eyebrow}
+                </div>
+
+                <h3 className="development-content-title">
+                  {activeDevelopmentData.title}
+                </h3>
+
+                <p className="development-content-description">
+                  {activeDevelopmentData.description}
+                </p>
+
+                <div className="development-points">
+                  {activeDevelopmentData.points.map((point, index) => (
+                    <div
+                      key={point}
+                      className="development-point"
+                    >
+                      <span className="development-point-number">
+                        {"0" + String(index + 1)}
+                      </span>
+
+                      <span>{point}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="development-buttons">
+                  <Link
+                    href={activeDevelopmentData.href}
+                    className="development-primary-button"
+                  >
+                    {activeDevelopmentData.cta}
+                    <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+
+                  <Link
+                    href="/connect"
+                    className="development-secondary-button"
+                  >
+                    Talk About Your Project
+                  </Link>
+                </div>
+              </div>
+
+              <div className="development-image-column">
+                <div className="development-single-image">
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={activeDevelopmentData.image}
+                      initial={{ opacity: 0, scale: 0.98 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.01 }}
+                      transition={{ duration: 0.35, ease: "easeOut" }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={activeDevelopmentData.image}
+                        alt={activeDevelopmentData.imageAlt}
+                        fill
+                        sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 720px"
+                        className="object-contain object-center"
+                      />
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          <div className="mt-2 border-t border-white/10 pt-4">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p className="!text-left text-white/35">
+                Use 2D when clarity and usability lead the experience. Use 3D
+                when interaction and visualisation add a practical reason to
+                the website.
+              </p>
+
+              <Link
+                href="/connect"
+                className="inline-flex shrink-0 items-center gap-2 font-bold text-[#F8BC04] hover:text-white"
               >
-                <button
-                  onClick={() =>
-                    setOpenFaq(openFaq === index ? null : index)
-                  }
-                  className="
-                    flex
-                    w-full
-                    items-center
-                    justify-between
-                    gap-3
-                    p-4
-                    text-left
-                    sm:p-6
-                  "
+                Discuss Your Requirements
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. PERFORMANCE / FUNCTIONALITY / TECHNOLOGY */}
+      <section className="webdev-section relative overflow-hidden bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="performance-slider relative min-h-[540px] overflow-hidden rounded-[28px] border border-white/10 lg:col-span-6">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={performanceSlides[performanceSlide].image}
+                  initial={{ opacity: 0, scale: 1.03 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.99 }}
+                  transition={{ duration: 0.65, ease: "easeInOut" }}
+                  className="absolute inset-0"
                 >
-                  <span
-                    className="
-                      min-w-0
-                      pr-2
-                      text-sm
-                      font-semibold
-                      leading-6
-                      text-[#171717]
-                      sm:pr-4
-                      sm:text-base
-                    "
-                  >
-                    {faq.q}
-                  </span>
+                  <Image
+                    src={performanceSlides[performanceSlide].image}
+                    alt={performanceSlides[performanceSlide].alt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                </motion.div>
+              </AnimatePresence>
 
-                  <span
-                    className="
-                      flex
-                      h-9
-                      w-9
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded-full
-                      bg-[#171717]
-                      text-lg
-                      text-white
-                      sm:h-10
-                      sm:w-10
-                      sm:text-xl
-                    "
-                  >
-                    {openFaq === index ? "−" : "+"}
-                  </span>
-                </button>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/10" />
 
-                {openFaq === index && (
+              <div className="absolute left-6 right-6 top-6 z-20">
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                  {[
+                    { icon: Gauge, label: "Speed" },
+                    { icon: Smartphone, label: "Responsive" },
+                    { icon: ShieldCheck, label: "Security" },
+                    { icon: Search, label: "SEO Ready" },
+                    { icon: Database, label: "Integrations" },
+                    { icon: Layers3, label: "Scalable" },
+                  ].map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <div
+                        key={item.label}
+                        className="rounded-xl border border-white/10 bg-black/70 p-4 backdrop-blur-md"
+                      >
+                        <Icon className="h-5 w-5 text-[#F8BC04]" />
+
+                        <div className="mt-2 text-xs font-bold text-white">
+                          {item.label}
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              <div className="absolute bottom-6 left-6 right-6 z-20">
+                <div className="rounded-2xl border border-white/10 bg-black/75 p-5 backdrop-blur-md">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <div className="text-xs font-bold uppercase tracking-widest text-[#F8BC04]">
+                        PERFORMANCE
+                      </div>
+
+                      <div className="mt-2 text-lg font-bold text-white">
+                        Built to work as well as it looks.
+                      </div>
+                    </div>
+
+                    <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
+                      {performanceSlides.map((slide, index) => (
+                        <button
+                          key={slide.image}
+                          type="button"
+                          aria-label={"Show performance slide " + String(index + 1)}
+                          aria-current={performanceSlide === index}
+                          onClick={() => setPerformanceSlide(index)}
+                          className={
+                            performanceSlide === index
+                              ? "h-2.5 w-7 rounded-full bg-[#F8BC04] transition-all"
+                              : "h-2.5 w-2.5 rounded-full bg-white/30 transition-all hover:bg-white/60"
+                          }
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-4 flex items-center gap-2 sm:hidden">
+                    {performanceSlides.map((slide, index) => (
+                      <button
+                        key={slide.image}
+                        type="button"
+                        aria-label={"Show performance slide " + String(index + 1)}
+                        aria-current={performanceSlide === index}
+                        onClick={() => setPerformanceSlide(index)}
+                        className={
+                          performanceSlide === index
+                            ? "h-2 w-7 rounded-full bg-[#F8BC04] transition-all"
+                            : "h-2 w-2 rounded-full bg-white/30 transition-all"
+                        }
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6">
+              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                [ PERFORMANCE / FUNCTIONALITY / TECHNOLOGY ]
+              </span>
+
+              <h2 className="mt-5 font-bold leading-[0.95]">
+                Good Design Needs
+                <br />
+                <span className="highlight-font text-[#F8BC04]">
+                  Good Technology
+                </span>
+              </h2>
+
+              <p className="mt-6 leading-relaxed text-white/70">
+                A website can look impressive and still provide a poor user
+                experience if it loads slowly, breaks on mobile, has confusing
+                navigation or makes important information difficult to reach.
+              </p>
+
+              <p className="mt-5 leading-relaxed text-white/70">
+                Our development work considers performance, browser
+                compatibility, responsive behaviour, technical architecture,
+                animations, integrations and the functionality the business
+                needs.
+              </p>
+
+              <div className="performance-pointers mt-8">
+                {[
+                  {
+                    title: "Website Speed",
+                    description:
+                      "Efficient assets and loading strategies.",
+                  },
+                  {
+                    title: "Responsive Development",
+                    description:
+                      "Layouts built for different screen sizes.",
+                  },
+                  {
+                    title: "Technical Architecture",
+                    description:
+                      "A structure planned around the project.",
+                  },
+                  {
+                    title: "Security",
+                    description:
+                      "Technical safeguards appropriate to the website.",
+                  },
+                  {
+                    title: "SEO-Ready Development",
+                    description:
+                      "Technical foundations that support search visibility.",
+                  },
+                  {
+                    title: "Integrations",
+                    description:
+                      "APIs, CMS, ecommerce and third-party systems.",
+                  },
+                ].map((item) => (
+                  <div
+                    key={item.title}
+                    className="performance-pointer group flex items-start gap-3 border-b border-white/10 pb-4 transition-colors"
+                  >
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-[12px] font-black leading-none text-black">
+                      ✓
+                    </span>
+
+                    <div className="min-w-0">
+                      <h3 className="font-bold leading-tight text-white transition-colors group-hover:text-[#F8BC04]">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-1 !text-[14px] leading-relaxed text-white/50">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. TECHNOLOGIES */}
+      <section className="webdev-technologies-section relative bg-black">
+        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12">
+            <div className="lg:col-span-4">
+              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
+                [ TECHNOLOGIES ]
+              </span>
+
+              <h2 className="mt-4 font-bold leading-[0.95]">
+                Technologies
+                <br />
+                <span className="highlight-font text-[#F8BC04]">
+                  We Work With
+                </span>
+              </h2>
+            </div>
+
+            <div className="border-l border-white/20 pl-6 lg:col-span-8 lg:pl-12">
+              <p className="leading-relaxed text-white/70">
+                The technology stack depends on the website. We choose tools
+                according to the required experience, functionality, content
+                management, ecommerce needs, performance requirements and
+                future scalability.
+              </p>
+            </div>
+          </div>
+
+          <div className="technology-logo-showcase mt-16 sm:mt-20 lg:mt-24">
+            {technologyRows.map((row, rowIndex) => (
+              <div
+                key={String(rowIndex)}
+                className={
+                  row.length === 4
+                    ? "technology-logo-row technology-logo-row-four"
+                    : row.length === 5
+                      ? "technology-logo-row technology-logo-row-five"
+                      : "technology-logo-row technology-logo-row-three"
+                }
+              >
+                {row.map((technology) => (
+                  <div
+                    key={technology.name}
+                    className="technology-logo-item"
+                  >
+                    <div className="technology-logo-image-wrap">
+                      <Image
+                        src={technology.image}
+                        alt={technology.alt}
+                        fill
+                        sizes="100px"
+                        className="technology-logo-image"
+                      />
+                    </div>
+
+                    <span className="technology-logo-name">
+                      {technology.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 10. OUR RECENT WORK */}
+      <section className="relative z-10 py-20">
+        <OurWork />
+      </section>
+
+      {/* =========================================================================
+    INDUSTRIES WE WORKED WITH SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5 sm:py-20">
+  <div className="mx-auto max-w-[1550px] px-4 sm:px-8 lg:px-12">
+    <div className="grid grid-cols-1 items-start gap-8 lg:gap-10 xl:grid-cols-12">
+
+      {/* =========================
+          LEFT COLUMN — INDUSTRIES
+      ========================== */}
+      <div className="flex flex-col justify-start xl:sticky xl:top-28 xl:col-span-3">
+        <h2 className="mt-4 text-2xl font-bold leading-[1.05] sm:mt-5 sm:text-4xl md:text-5xl">
+          <span className="block text-white">Industries</span>
+          <span className="highlight-font block text-[#F8BC04]">We</span>
+          <span className="highlight-font block text-[#F8BC04]">worked</span>
+          <span className="highlight-font block text-[#F8BC04]">with</span>
+        </h2>
+
+        <div className="mb-4 mt-4 h-1 w-14 rounded-full bg-[#F8BC04] sm:mb-5 sm:mt-6" />
+
+        <p className="!text-[18px] text-sm font-medium leading-snug text-white/70 sm:text-base">
+          Different industries.
+          <br />
+          Real impact.
+        </p>
+      </div>
+
+      {/* =========================
+          RIGHT COLUMN — INDUSTRY CARDS
+      ========================== */}
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:col-span-9">
+        {industries.map((ind) => (
+          <div
+            key={ind.id}
+            className="group relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-[#0c0c0c] p-5 shadow-xl transition-all duration-300 hover:border-[#F8BC04]/50 sm:min-h-[340px] sm:rounded-3xl sm:p-6"
+          >
+            {/* Background Image & Gradient Overlay */}
+            <div className="absolute inset-0 z-0">
+              <Image
+                src={ind.image}
+                alt={ind.title}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 30vw"
+                className="object-cover object-center brightness-75 transition-transform duration-500 group-hover:scale-105"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/30" />
+            </div>
+
+            {/* Card Top Spacer */}
+            <div className="relative z-10" />
+
+            {/* Card Content */}
+            <div className="relative z-10 flex flex-col justify-end pt-24 sm:pt-28">
+              <h3 className="text-base font-extrabold leading-snug text-white transition-colors group-hover:text-[#F8BC04] sm:text-lg">
+                {ind.title}
+              </h3>
+
+              <p className="mt-2 text-xs leading-relaxed text-white/70 sm:text-[13px]">
+                {ind.description}
+              </p>
+
+              {/* Know More Button */}
+              <div className="mt-4 flex justify-end sm:mt-5">
+                <Link
+                  href={ind.href}
+                  className="inline-flex items-center gap-1.5 rounded-full bg-[#F8BC04] px-4 py-2 text-xs font-extrabold tracking-tight text-black shadow-[0_0_15px_rgba(248,188,4,0.3)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(248,188,4,0.5)] active:scale-95 sm:px-5 sm:text-sm"
+                >
+                  <span>Know More</span>
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* ==================================================
+      CASE STUDIES SECTION
+  =================================================== */}
+  <div className="mx-auto max-w-[1600px] py-10">
+
+    {/* Section Heading */}
+    <div className="mx-auto mb-12 max-w-[1600px] px-4 text-center">
+      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+        Case Studies
+      </h2>
+
+      <p className="mt-4 text-center text-base leading-6 text-white/100 sm:text-lg">
+        Explore how our digital marketing agency engineers data-driven
+        strategies that scale early-stage startups and established businesses.
+        From lowering customer acquisition costs to multiplying qualified
+        leads, see how our performance marketing agency delivers measurable
+        return on investment through real-world client success stories.
+      </p>
+    </div>
+
+    {/* =========================
+        FEATURE CASE STUDY CARDS
+    ========================== */}
+    <div className="grid grid-cols-1 gap-5 px-4 md:grid-cols-3">
+
+      {/* =========================
+          CASE STUDY 1 — ADORING INDIA
+      ========================== */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
+
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 1.webp"
+            alt="BigBeans Case Study 1"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Adoring India
+          </h3>
+
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            We partnered with Adoring India, an NGO dedicated to supporting
+            school students, to build digital visibility and expand their
+            community impact. By leveraging data-driven storytelling and
+            targeted outreach campaigns, our digital marketing agency helped
+            increase volunteer engagement, boost corporate sponsorship
+            inquiries, and scale their educational awareness initiatives
+            across major digital platforms.
+          </p>
+
+          <a
+            href="https://www.bigbeansdigital.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
+        </div>
+      </div>
+
+      {/* =========================
+          CASE STUDY 2 — GUPSHUP BHARAT
+      ========================== */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
+
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 2.webp"
+            alt="BigBeans Case Study 2"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Gupshup Bharat
+          </h3>
+
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            To establish Gupshup India as the premier news agency in Tripura,
+            we designed an agile content and distribution strategy focused on
+            instant reader retention and search visibility. Functioning as
+            their growth partner, our social media marketing agency optimized
+            news distribution pipelines, expanding their daily reader reach
+            and boosting cross-platform audience engagement across regional
+            markets.
+          </p>
+
+          <a
+            href="https://www.bigbeansdigital.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
+        </div>
+      </div>
+
+      {/* =========================
+          CASE STUDY 3 — ENTIMESSI
+      ========================== */}
+      <div className="overflow-hidden rounded-[4px] bg-[#101010]">
+
+        {/* Image */}
+        <div className="aspect-[1.62/1] w-full bg-[#c5cdd4]">
+          <img
+            src="/casestudies/BigBeans Case Study 3.webp"
+            alt="BigBeans Case Study 3"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-7 py-6 text-center sm:px-8">
+          <h3 className="text-2xl font-semibold text-white">
+            Entimessi
+          </h3>
+
+          <p className="mt-5 text-base leading-6 text-[#c5cdd4]">
+            For Entimessi, a premium female lingerie brand, we built an
+            end-to-end sales engine focused on customer acquisition and brand
+            authority. By uniting high-converting visual ad creatives with
+            precise audience targeting, our performance marketing agency
+            lowered customer acquisition costs (CAC) and maximized return on
+            ad spend (ROAS) while scaling direct website sales.
+          </p>
+
+          <a
+            href="https://www.bigbeansdigital.com"
+            className="mt-6 inline-flex min-w-[120px] items-center justify-center rounded-[3px] bg-[#F8BC04] px-6 py-3 text-sm font-medium text-black transition-all duration-300 hover:bg-white"
+          >
+            Know More
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    BLOGS SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5">
+  <div className="max-w-[1600px] mx-auto px-4 sm:px-8">
+
+    <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-8">
+      <div className="max-w-[1600px]">
+
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight mt-2">
+          Stay Ahead with{" "}
+          <span className="font-serif italic font-normal text-[#F8BC04]">
+            Our Insights
+          </span>
+        </h2>
+
+        <p className="mt-2.5 sm:mt-3 text-xs sm:text-base text-white/60 leading-relaxed">
+          Actionable playbooks covering high-converting organic reach, branding turnarounds, and performance marketing shifts.
+        </p>
+
+      </div>
+
+      <Link
+        href="/blog"
+        className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-widest font-bold text-white border border-white/20 px-5 py-3 rounded-full hover:border-[#F8BC04] hover:text-[#F8BC04] transition-colors self-start md:self-auto"
+      >
+        Browse All Articles
+        <ArrowRight className="w-3.5 h-3.5" />
+      </Link>
+
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+
+      {blogCards.map((blog) => (
+        <Link
+          key={blog.id}
+          href={blog.link}
+          className="group relative flex flex-col rounded-2xl sm:rounded-3xl border border-white/10 bg-white/[0.02] overflow-hidden hover:border-[#F8BC04]/50 transition-all duration-300 hover:-translate-y-1.5 shadow-lg"
+        >
+
+          <div className="relative h-48 sm:h-52 w-full overflow-hidden">
+
+            <Image
+              src={blog.image}
+              alt={blog.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+
+            <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4">
+              <span className="px-2.5 py-1 rounded-full text-[9px] sm:text-[10px] font-bold uppercase tracking-wider bg-black/70 text-[#F8BC04] border border-[#F8BC04]/30 backdrop-blur-sm">
+                {blog.primaryCategory}
+              </span>
+            </div>
+
+            <span className="absolute bottom-3 right-3 sm:right-4 text-[10px] sm:text-[11px] font-medium text-white/70">
+              {blog.readTime}
+            </span>
+
+          </div>
+
+          <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between">
+
+            <div>
+
+              <span className="text-[10px] sm:text-[11px] text-white/40 block mb-1.5">
+                {blog.date}
+              </span>
+
+              <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-[#F8BC04] transition-colors line-clamp-2">
+                {blog.title}
+              </h3>
+
+              <p className="mt-2 text-xs text-white/60 line-clamp-3 leading-relaxed">
+                {blog.description}
+              </p>
+
+            </div>
+
+            <div className="mt-5 pt-3.5 border-t border-white/10 flex items-center justify-between text-xs font-bold text-[#F8BC04]">
+              <span>Read Article</span>
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </div>
+
+          </div>
+
+        </Link>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    GLOBAL PRESENCE SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5">
+  <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
+
+    <div className="rounded-2xl sm:rounded-[36px] border border-white/10 bg-gradient-to-b from-white/[0.03] to-transparent p-6 sm:p-14 overflow-hidden relative">
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+        <div className="lg:col-span-6">
+
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
+            Empowering Brands Across{" "}
+            <span className="font-serif italic font-normal text-[#F8BC04]">
+              12+ Global Hubs
+            </span>
+          </h2>
+
+          <p className="mt-3 sm:mt-4 text-xs sm:text-base text-white/60 leading-relaxed">
+            Headquartered in India with strategic partner nodes across London, North America, Singapore, and Australia. We engineer hyper-localized growth campaigns tailored to diverse consumer behaviors.
+          </p>
+
+          <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6 border-t border-white/10 pt-5 sm:pt-6">
+
+            <div>
+
+              <h4 className="text-xs sm:text-sm font-bold text-white mb-2 sm:mb-3 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#F8BC04]" />
+                India Operations
+              </h4>
+
+              <ul className="space-y-1 sm:space-y-1.5 text-xs text-white/60">
+                <li>Kolkata</li>
+                <li>Delhi NCR &amp; Noida</li>
+                <li>Bangalore</li>
+                <li>Mumbai &amp; Pune</li>
+                <li>Tripura</li>
+              </ul>
+
+            </div>
+
+            <div>
+
+              <h4 className="text-xs sm:text-sm font-bold text-white mb-2 sm:mb-3 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#F8BC04]" />
+                International Operations
+              </h4>
+
+              <ul className="space-y-1 sm:space-y-1.5 text-xs text-white/60">
+                <li>London, United Kingdom</li>
+                <li>Singapore</li>
+                <li>Toronto &amp; Vancouver, Canada</li>
+                <li>Sydney &amp; Melbourne, Australia</li>
+                <li>Lagos, Nigeria</li>
+              </ul>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div className="lg:col-span-6 relative flex items-center justify-center mt-2 lg:mt-0">
+
+          <div className="relative w-full aspect-[16/10] max-w-[620px]">
+
+            <Image
+              src="/maps/world-map.png"
+              alt="BigBeans Global Footprint Map"
+              fill
+              sizes="(max-width: 1024px) 100vw, 600px"
+              className="object-contain opacity-70"
+            />
+
+            {/* Map Node Dots */}
+            {[
+              { top: "42%", left: "67%" }, // India
+              { top: "27%", left: "44%" }, // UK
+              { top: "28%", left: "18%" }, // North America
+              { top: "54%", left: "74%" }, // Singapore
+              { top: "65%", left: "84%" }, // Australia
+            ].map((pos, idx) => (
+
+              <div
+                key={idx}
+                className="absolute -translate-x-1/2 -translate-y-1/2"
+                style={{ top: pos.top, left: pos.left }}
+              >
+
+                <span className="relative flex h-2.5 w-2.5 sm:h-3.5 sm:w-3.5">
+
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F8BC04] opacity-75" />
+
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3.5 sm:w-3.5 bg-[#F8BC04] shadow-[0_0_12px_#F8BC04]" />
+
+                </span>
+
+              </div>
+
+            ))}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    FAQ SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5">
+  <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-10">
+
+    <div className="text-center mb-8">
+
+      <h2 className="text-2xl sm:text-4xl md:text-5xl font-black tracking-tight mt-2">
+        Frequently Asked{" "}
+        <span className="font-serif italic font-normal text-[#F8BC04]">
+          Questions
+        </span>
+      </h2>
+
+    </div>
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 sm:gap-4 lg:gap-5">
+
+      {/* LEFT COLUMN */}
+      <div className="space-y-3 sm:space-y-4">
+
+        {[
+          {
+            q: "What social media marketing services do you offer?",
+            a: "Big Beans Digital provides full-lifecycle social media solutions for startups and enterprises across India, the US, and the UK. Our scope includes visual feed architecture, algorithm-specific short-form Reels & TikTok production, organic growth strategy, community management, and synchronized paid social campaigns.",
+          },
+          {
+            q: "How do I find the best social media marketing agency near me?",
+            a: "Beyond physical proximity, evaluate verified case studies, aesthetic consistency, conversion tracking transparency, and strategic depth. Big Beans Digital operates a distributed agile team delivering high-touch collaboration regardless of whether you are based in London, Kolkata, Delhi, or New York.",
+          },
+          {
+            q: "Why choose Big Beans Digital over traditional agencies?",
+            a: "Traditional agencies separate creative thinking from performance metrics. We merge branding, web engineering, and performance marketing into a single unit so every dollar spent directly advances brand equity and customer acquisition.",
+          },
+          {
+            q: "Do you engineer conversion-focused websites for startups?",
+            a: "Yes. We build responsive, fast headless websites using modern frameworks (Next.js, Tailwind CSS) optimized for sub-second load times, technical SEO compliance, and conversion funnels designed to turn traffic into pipeline.",
+          },
+          {
+            q: "How does performance marketing work with your team?",
+            a: "We deploy rigorous quantitative testing across Google Ads, Meta Ads, and PPC remarketing funnels. We focus on true business levers—CAC, ROAS, and customer lifetime value—rather than vanity impressions.",
+          },
+          {
+            q: "What does an engagement cost?",
+            a: "We offer tailored milestone or retainer engagements based on growth objectives, required content cadence, and ad spend scale. Schedule a consultation call to receive an honest, transparent roadmap.",
+          },
+        ].map((faq, idx) => {
+
+          const isOpen = openFaq === idx;
+
+          return (
+            <div
+              key={idx}
+              className="w-full rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden transition-colors hover:border-white/20"
+            >
+
+              <button
+                type="button"
+                onClick={() => setOpenFaq(isOpen ? null : idx)}
+                className="w-full min-h-[84px] flex items-center justify-between gap-4 px-5 py-5 sm:px-6 sm:py-6 text-left"
+              >
+
+                <span className="flex-1 whitespace-nowrap text-sm sm:text-base md:text-lg font-bold text-white">
+                  {faq.q}
+                </span>
+
+                <span
+                  className={`flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-xs sm:text-sm font-bold transition-transform duration-300 ${
+                    isOpen
+                      ? "bg-[#F8BC04] text-black rotate-45"
+                      : "bg-white/5 text-white/80"
+                  }`}
+                >
+                  +
+                </span>
+
+              </button>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    className="px-4 pb-5 sm:px-6 sm:pb-6"
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
                   >
-                    <p className="text-sm leading-7 text-gray-600 sm:text-base sm:leading-relaxed">
+
+                    <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-xs sm:text-base text-white/70 leading-relaxed border-t border-white/5">
                       {faq.a}
-                    </p>
+                    </div>
+
                   </motion.div>
                 )}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+              </AnimatePresence>
 
-      {/* PRESENCE SECTION */}
-
-      <section className="bg-[#ffffff] py-7 sm:py-10">
-        <div
-          className="
-            mx-auto
-            w-full
-            max-w-[1400px]
-            px-4
-            sm:px-6
-          "
-        >
-          <div
-            className="
-              grid
-              grid-cols-1
-              gap-8
-              rounded-[28px]
-              border
-              border-gray-200
-              bg-white
-              p-5
-              sm:rounded-[36px]
-              sm:p-8
-              lg:grid-cols-2
-              lg:gap-12
-              lg:rounded-[40px]
-              lg:p-16
-            "
-          >
-            {/* LEFT */}
-
-            <div>
-              <p
-                className="
-                  mb-5
-                  uppercase
-                  tracking-[4px]
-                  text-xs
-                  font-semibold
-                  text-gray-500
-                  sm:mb-6
-                  sm:tracking-[6px]
-                  sm:text-sm
-                "
-              >
-                Global Presence
-              </p>
-
-              <h2
-                className="
-                  text-[38px]
-                  font-black
-                  leading-tight
-                  text-[#171717]
-                  sm:text-5xl
-                  lg:text-6xl
-                "
-              >
-                Digital Excellence in{" "}
-                <span className="text-[#F8BC04]">
-                  12+
-                </span>
-                <br />
-                Locations
-              </h2>
-
-              <p
-                className="
-                  mt-6
-                  max-w-[650px]
-                  text-base
-                  leading-relaxed
-                  text-gray-600
-                  sm:mt-8
-                  sm:text-lg
-                "
-              >
-                BIGBEANS DIGITAL serves businesses across India and international markets.
-                Our strategies are built for local relevance and global scalability.
-              </p>
-
-              {/* LOCATIONS */}
-
-              <div className="mt-8 grid grid-cols-2 gap-5 sm:mt-12 sm:gap-10">
-                <div className="border-r border-black/20 pr-4 sm:pr-10">
-                  <h3 className="text-lg font-bold sm:text-xl">
-                    In India
-                  </h3>
-
-                  <div className="mb-4 mt-2 h-[2px] w-14 bg-[#F8BC04] sm:mb-5 sm:w-20"></div>
-
-                  <ul className="space-y-2.5 text-sm text-gray-700 sm:space-y-3 sm:text-base">
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Kolkata
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Delhi
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Bangalore
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Noida
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Tripura
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Mumbai
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Pune
-                    </li>
-                  </ul>
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-bold sm:text-xl">
-                    International Presence
-                  </h3>
-
-                  <div className="mb-4 mt-2 h-[2px] w-14 bg-[#F8BC04] sm:mb-5 sm:w-20"></div>
-
-                  <ul className="space-y-2.5 text-sm text-gray-700 sm:space-y-3 sm:text-base">
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      London
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Singapore
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Canada
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Australia
-                    </li>
-
-                    <li className="flex items-center gap-2">
-                      <span className="text-[#F8BC04]">●</span>
-                      Nigeria
-                    </li>
-                  </ul>
-                </div>
-              </div>
             </div>
+          );
+        })}
 
-            {/* RIGHT */}
+      </div>
 
-            <div className="relative flex items-center justify-center">
-              <Image
-                src="/maps/world-map.png"
-                alt="World Map"
-                width={1200}
-                height={700}
-                className="mx-auto h-auto w-full max-w-[620px]"
-              />
+      {/* RIGHT COLUMN */}
+      <div className="space-y-3 sm:space-y-4">
 
-              {/* INDIA CLUSTER */}
+        {[
+          {
+            q: "What industries do you work with?",
+            a: "We work with businesses across sectors including real estate, healthcare, restaurants, ecommerce, education, professional services, home improvement, gyms, FMCG, and other growth-focused businesses.",
+          },
+          {
+            q: "Can you manage both organic social media and paid advertising?",
+            a: "Yes. Our team can manage organic social media strategy and content alongside paid campaigns on platforms such as Meta and Google. This allows creative, audience targeting, messaging, and performance data to work together.",
+          },
+          {
+            q: "How long does it take to see results from social media marketing?",
+            a: "The timeline depends on your industry, starting position, content quality, audience, and objectives. Organic growth generally requires consistent execution over time, while paid campaigns can generate measurable traffic and leads much sooner.",
+          },
+          {
+            q: "Do you provide content creation and graphic design?",
+            a: "Yes. Our social media services can include creative direction, graphic design, short-form video concepts, social media creatives, campaign content, and platform-specific content planning.",
+          },
+          {
+            q: "Do you provide SEO and website optimization?",
+            a: "Yes. We can integrate technical SEO, on-page optimization, content strategy, conversion-focused landing pages, and website improvements into a broader digital marketing strategy.",
+          },
+          {
+            q: "How can I get started with Big Beans Digital?",
+            a: "Start by sharing your business, current challenges, goals, target audience, and the services you are looking for. We can then discuss the right approach, scope, milestones, and next steps for your project.",
+          },
+        ].map((faq, idx) => {
 
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-3
-                  w-3
-                  rounded-full
-                  bg-[#F8BC04]
-                  shadow-[0_0_25px_#F8BC04]
-                  sm:h-4
-                  sm:w-4
-                  top-[42%]
-                  left-[67%]
-                "
-              />
+          const faqIndex = idx + 6;
+          const isOpen = openFaq === faqIndex;
 
-              {/* LONDON */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.2,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-3
-                  w-3
-                  rounded-full
-                  bg-[#F8BC04]
-                  shadow-[0_0_25px_#F8BC04]
-                  sm:h-4
-                  sm:w-4
-                  top-[27%]
-                  left-[44%]
-                "
-              />
-
-              {/* CANADA */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.4,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-3
-                  w-3
-                  rounded-full
-                  bg-[#F8BC04]
-                  shadow-[0_0_25px_#F8BC04]
-                  sm:h-4
-                  sm:w-4
-                  top-[28%]
-                  left-[18%]
-                "
-              />
-
-              {/* NIGERIA */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.1,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-3
-                  w-3
-                  rounded-full
-                  bg-[#F8BC04]
-                  shadow-[0_0_25px_#F8BC04]
-                  sm:h-4
-                  sm:w-4
-                  top-[50%]
-                  left-[47%]
-                "
-              />
-
-              {/* SINGAPORE */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.3,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-3
-                  w-3
-                  rounded-full
-                  bg-[#F8BC04]
-                  shadow-[0_0_25px_#F8BC04]
-                  sm:h-4
-                  sm:w-4
-                  top-[54%]
-                  left-[74%]
-                "
-              />
-
-              {/* AUSTRALIA */}
-
-              <motion.div
-                animate={{
-                  scale: [1, 1.4, 1],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                }}
-                className="
-                  absolute
-                  h-3
-                  w-3
-                  rounded-full
-                  bg-[#F8BC04]
-                  shadow-[0_0_25px_#F8BC04]
-                  sm:h-4
-                  sm:w-4
-                  top-[65%]
-                  left-[84%]
-                "
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================
-              CTA SECTION
-      ========================= */}
-
-      <section className="relative overflow-hidden bg-[#ffffff] py-10 sm:py-16 lg:py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <div
-            className="
-              relative
-              mx-auto
-              w-[calc(100%-2rem)]
-              max-w-7xl
-              overflow-hidden
-              rounded-[28px]
-              bg-[#171717]
-              px-5
-              py-10
-              sm:rounded-[36px]
-              sm:px-8
-              sm:py-14
-              md:px-16
-              md:py-16
-            "
-          >
-            {/* Glow */}
-
+          return (
             <div
-              className="
-                absolute
-                right-0
-                top-0
-                h-72
-                w-72
-                rounded-full
-                bg-[#F8BC04]/20
-                blur-[120px]
-              "
-            />
-
-            <div
-              className="
-                relative
-                z-10
-                flex
-                flex-col
-                items-center
-                justify-between
-                gap-7
-                text-center
-                sm:gap-10
-                lg:flex-row
-                lg:text-left
-              "
+              key={faqIndex}
+              className="w-full rounded-xl sm:rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden transition-colors hover:border-white/20"
             >
-              {/* Left */}
 
-              <div className="min-w-0">
-                <h2
-                  className="
-                    max-w-3xl
-                    text-[30px]
-                    leading-[1.08]
-                    font-black
-                    text-white
-                    sm:text-4xl
-                    md:text-5xl
-                  "
-                >
-                  Ready To Turn Clicks Into
-                  <span className="text-[#F8BC04]">
-                    {" "}Real Business Growth?
-                  </span>
-                </h2>
-
-                <p
-                  className="
-                    mt-5
-                    max-w-2xl
-                    text-base
-                    leading-7
-                    text-white/80
-                    sm:mt-6
-                    sm:text-lg
-                    sm:leading-8
-                  "
-                >
-                  Partner with BIGBEANS DIGITAL to launch
-                  data-driven Social Media Marketing campaigns that
-                  generate quality leads, increase conversions
-                  and accelerate your business growth.
-                </p>
-              </div>
-
-              {/* Button */}
-
-              <motion.button
-                whileHover={{
-                  scale: 1.05,
-                  y: -5,
-                  backgroundColor: "#FFD54A",
-                }}
-                whileTap={{
-                  scale: 0.95,
-                }}
-                className="
-                  w-full
-                  rounded-full
-                  bg-[#F8BC04]
-                  px-6
-                  py-4
-                  text-base
-                  font-bold
-                  text-[#171717]
-                  shadow-[0_20px_50px_rgba(248,188,4,0.35)]
-                  transition-all
-                  duration-300
-                  sm:w-auto
-                  sm:whitespace-nowrap
-                  sm:px-10
-                  sm:py-5
-                  sm:text-lg
-                "
+              <button
+                type="button"
+                onClick={() => setOpenFaq(isOpen ? null : faqIndex)}
+                className="w-full min-h-[84px] flex items-center justify-between gap-4 px-5 py-5 sm:px-6 sm:py-6 text-left"
               >
-                Book Free Strategy Call
-              </motion.button>
-            </div>
-          </div>
-        </motion.div>
-      </section>
 
-      {/* =========================
-            END CTA SECTION
-      ========================= */}
+                <span className="flex-1 whitespace-nowrap text-sm sm:text-base md:text-lg font-bold text-white">
+                  {faq.q}
+                </span>
+
+                <span
+                  className={`flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full border border-white/10 text-xs sm:text-sm font-bold transition-transform duration-300 ${
+                    isOpen
+                      ? "bg-[#F8BC04] text-black rotate-45"
+                      : "bg-white/5 text-white/80"
+                  }`}
+                >
+                  +
+                </span>
+
+              </button>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="overflow-hidden"
+                  >
+
+                    <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-1 text-xs sm:text-base text-white/70 leading-relaxed border-t border-white/5">
+                      {faq.a}
+                    </div>
+
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+            </div>
+          );
+        })}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{/* =========================================================================
+    FINAL CTA SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5 sm:py-5 overflow-hidden text-center">
+
+  <div className="max-w-4xl mx-auto px-4 relative z-10">
+
+    <h2 className="text-3xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.1] sm:leading-[1.05]">
+      Scale Your Brand
+      Today{" "}
+      <span
+        className="font-serif italic font-normal text-[#F8BC04]"
+        style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+      >
+        with Big Beans Digital
+      </span>
+    </h2>
+
+    <p className="mt-4 sm:mt-6 text-xs sm:text-base md:text-lg text-white/60 max-w-xl mx-auto leading-relaxed">
+      Ready to turn fragmented tactics into a predictable growth engine? Book your free strategy session with our digital marketing agency now.
+    </p>
+
+    {/* CTA BUTTONS */}
+    <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4">
+
+      <Link
+        href="/connect"
+        className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-[#F8BC04] text-black font-extrabold text-sm sm:text-base tracking-tight transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(248,188,4,0.5)]"
+      >
+        <span>Connect With Us</span>
+
+        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+      </Link>
+
+      <Link
+        href="https://wa.link/pxmrrm"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/20 text-white font-semibold text-sm sm:text-base hover:bg-white/5 hover:border-white/40 transition-colors"
+      >
+        Quick WhatsApp Chat
+
+        <ExternalLink className="w-4 h-4 text-white/60" />
+      </Link>
+
+    </div>
+
+    {/* ==================================================
+        SERVICE LINKS BELOW CTA BUTTONS
+    =================================================== */}
+    <div className="mt-7 flex flex-wrap items-center justify-center gap-5 text-xs text-white/40">
+
+      <Link
+        href="/branding"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Branding
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/seo"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        SEO
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/website-development"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Website Development
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/performance-marketing"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Performance Marketing
+      </Link>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </main>
   );
 }

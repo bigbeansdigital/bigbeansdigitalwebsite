@@ -108,25 +108,25 @@ export default function Academy() {
       title: "Live Client Projects",
       description:
         "Work on real business projects that build confidence, practical skills, and an impressive professional portfolio.",
-      color: "from-[#FFF3D9] to-[#FFE3A2]",
+      color: "from-[#211A08] to-[#30240A]",
     },
     {
       title: "AI-Powered Learning",
       description:
         "Learn modern AI tools, automation, prompt engineering, and productivity workflows used across industries.",
-      color: "from-[#DFF5FF] to-[#BEE9FF]",
+      color: "from-[#081B24] to-[#0A2B3A]",
     },
     {
       title: "Expert Mentorship",
       description:
         "Learn directly from experienced professionals through practical sessions, personalized guidance, and constructive feedback.",
-      color: "from-[#F7E5FF] to-[#EBC9FF]",
+      color: "from-[#1E1026] to-[#2C1738]",
     },
     {
       title: "Career Growth Support",
       description:
         "Strengthen your portfolio, improve interview skills, and gain industry-ready experience that helps you confidently pursue your career goals.",
-      color: "from-[#E5EAFF] to-[#D4DBFF]",
+      color: "from-[#10172E] to-[#17234A]",
     },
   ];
 
@@ -174,16 +174,16 @@ export default function Academy() {
   ];
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#FFFFFF] text-[#171717]">
+    <main className="min-h-screen overflow-hidden bg-black text-white">
       {/* =========================================================
           ACADEMY HERO
       ========================================================= */}
-      <section className="relative overflow-hidden bg-white pb-14 pt-7 sm:pb-16 sm:pt-9 lg:pb-20 lg:pt-12">
+      <section className="relative overflow-hidden bg-black pb-14 pt-7 sm:pb-16 sm:pt-9 lg:pb-20 lg:pt-12">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.045]"
           style={{
             backgroundImage:
-              "radial-gradient(#171717 1px, transparent 1px)",
+              "radial-gradient(#FFFFFF 1px, transparent 1px)",
             backgroundSize: "26px 26px",
           }}
         />
@@ -216,12 +216,12 @@ export default function Academy() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.15 }}
-                className="inline-flex rounded-full bg-[#F8BC04] px-4 py-2 text-[11px] font-black uppercase tracking-[0.08em] text-[#171717] shadow-lg sm:px-6 sm:py-2 sm:text-sm"
+                className="inline-flex rounded-full bg-[#F8BC04] px-4 py-2 text-[11px] font-black uppercase tracking-[0.08em] text-white shadow-lg sm:px-6 sm:py-2 sm:text-sm"
               >
                 Big Beans Digital Academy
               </motion.span>
 
-              <h1 className="mt-5 text-[38px] font-black leading-[1.04] tracking-[-0.035em] text-[#171717] sm:mt-7 sm:text-[50px] md:text-[60px] lg:text-[64px] xl:text-[68px]">
+              <h1 className="mt-5 text-[38px] font-black leading-[1.04] tracking-[-0.035em] text-white sm:mt-7 sm:text-[50px] md:text-[60px] lg:text-[64px] xl:text-[68px]">
                 Learn
                 <span className="text-[#F8BC04]">
                   {" "}
@@ -230,7 +230,7 @@ export default function Academy() {
                 That Build Successful Careers!
               </h1>
 
-              <h3 className="mt-4 text-lg font-bold text-[#171717] sm:mt-5 sm:text-2xl">
+              <h3 className="mt-4 text-lg font-bold text-white sm:mt-5 sm:text-2xl">
                 Learn. Practice. Get Hired.
               </h3>
 
@@ -243,7 +243,7 @@ export default function Academy() {
                   }}
                   whileTap={{ scale: 0.96 }}
                   href="/courses"
-                  className="rounded-full bg-[#171717] px-6 py-3 text-sm font-semibold text-white shadow-xl transition-colors duration-300 hover:bg-[#F8BC04] hover:text-[#171717] sm:px-9 sm:py-3.5 sm:text-base"
+                  className="rounded-full bg-[#F8BC04] px-6 py-3 text-sm font-semibold text-[#171717] shadow-xl transition-colors duration-300 hover:bg-white hover:text-[#171717] sm:px-9 sm:py-3.5 sm:text-base"
                 >
                   Explore Courses →
                 </motion.a>
@@ -291,17 +291,17 @@ export default function Academy() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute -bottom-5 left-2 z-30 rounded-2xl bg-white px-3.5 py-3 shadow-[0_20px_50px_rgba(0,0,0,.15)] sm:-bottom-6 sm:-left-5 sm:rounded-3xl sm:px-5 sm:py-4 lg:-left-8 lg:px-6 lg:py-5"
+                className="absolute -bottom-5 left-2 z-30 rounded-2xl bg-black px-3.5 py-3 shadow-[0_20px_50px_rgba(0,0,0,.15)] sm:-bottom-6 sm:-left-5 sm:rounded-3xl sm:px-5 sm:py-4 lg:-left-8 lg:px-6 lg:py-5"
               >
                 <div className="text-base tracking-[1px] text-[#F8BC04] sm:text-xl">
                   ★★★★★
                 </div>
 
-                <h3 className="mt-1 text-sm font-black text-[#171717] sm:mt-2 sm:text-xl">
+                <h3 className="mt-1 text-sm font-black text-white sm:mt-2 sm:text-xl">
                   4.9/5 Rating
                 </h3>
 
-                <p className="mt-0.5 text-[10px] text-gray-500 sm:mt-1 sm:text-sm">
+                <p className="mt-0.5 text-[10px] text-gray-400 sm:mt-1 sm:text-sm">
                   Rated by Our Learners
                 </p>
               </motion.div>
@@ -317,7 +317,7 @@ export default function Academy() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute -bottom-5 right-2 z-30 rounded-2xl bg-[#171717] px-3.5 py-3 text-white shadow-[0_25px_60px_rgba(0,0,0,.2)] sm:-bottom-6 sm:-right-5 sm:rounded-3xl sm:px-5 sm:py-4 lg:-right-8 lg:px-6 lg:py-5"
+                className="absolute -bottom-5 right-2 z-30 rounded-2xl bg-[#0B0B0B] px-3.5 py-3 text-white shadow-[0_25px_60px_rgba(0,0,0,.35)] sm:-bottom-6 sm:-right-5 sm:rounded-3xl sm:px-5 sm:py-4 lg:-right-8 lg:px-6 lg:py-5"
               >
                 <p className="text-[8px] uppercase tracking-[0.18em] text-[#F8BC04] sm:text-xs sm:tracking-[0.3em]">
                   Industry Ready
@@ -339,11 +339,11 @@ export default function Academy() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute -top-4 right-1 z-30 hidden rounded-full bg-white px-5 py-3 shadow-2xl sm:flex lg:-right-10 lg:-top-7"
+                className="absolute -top-4 right-1 z-30 hidden rounded-full bg-black px-5 py-3 shadow-2xl sm:flex lg:-right-10 lg:-top-7"
               >
                 <div className="flex items-center gap-2.5">
                   <div className="h-3 w-3 rounded-full bg-green-500" />
-                  <span className="text-sm font-semibold text-[#171717]">
+                  <span className="text-sm font-semibold text-white">
                     Join Workshop Now
                   </span>
                 </div>
@@ -361,16 +361,16 @@ export default function Academy() {
             transition={{ duration: 0.7 }}
             className="mx-auto mt-14 max-w-6xl sm:mt-16 lg:mt-20"
           >
-            <p className="text-[14px] leading-6 text-gray-600 sm:text-[16px] sm:leading-7 lg:text-justify">
+            <p className="text-[14px] leading-6 text-gray-400 sm:text-[16px] sm:leading-7 lg:text-justify">
               <span className="font-semibold text-[#F8BC04]">
                 BIGBEANS DIGITAL Academy
               </span>{" "}
               a platform for students & professionals develop in-demand{" "}
-              <span className="font-semibold text-[#171717]">
+              <span className="font-semibold text-white">
                 Tech & Digital skills
               </span>{" "}
               through practical workshops and industry-focused training.{" "}
-              <span className="font-semibold text-[#171717]">
+              <span className="font-semibold text-white">
                 Explore our Social Media Marketing Courses, AI Workshops,
                 Graphic Design Classes, Branding Programs, Social Media
                 Marketing Courses,
@@ -380,7 +380,7 @@ export default function Academy() {
               <br />
               <br />
               Whether you want to learn{" "}
-              <span className="font-semibold text-[#171717]">
+              <span className="font-semibold text-white">
                 Best Social Media Marketing Course, Best AI Course, Best
                 Graphic Design Course,
               </span>{" "}
@@ -388,7 +388,7 @@ export default function Academy() {
               DIGITAL Academy provides practical, job-ready classes that helps
               you build a professional portfolio, earn valuable
               certifications, and{" "}
-              <span className="font-semibold text-[#171717]">
+              <span className="font-semibold text-white">
                 stay ahead in today's fast-changing IT world.
               </span>
             </p>
@@ -402,7 +402,7 @@ export default function Academy() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ delay: 0.15, duration: 0.75 }}
-            className="mt-8 overflow-hidden rounded-[24px] border border-gray-100 bg-white shadow-[0_20px_60px_rgba(0,0,0,.07)] sm:mt-10 sm:rounded-[30px] lg:rounded-[34px]"
+            className="mt-8 overflow-hidden rounded-[24px] border border-white/10 bg-black shadow-[0_20px_60px_rgba(0,0,0,.07)] sm:mt-10 sm:rounded-[30px] lg:rounded-[34px]"
           >
             <div className="grid grid-cols-4">
               {stats.map((item, index) => (
@@ -428,7 +428,7 @@ export default function Academy() {
                     {item.value}
                   </h3>
 
-                  <p className="mt-2 max-w-[90px] text-[8px] font-bold leading-tight text-[#171717] sm:mt-3 sm:max-w-none sm:text-xs lg:text-lg">
+                  <p className="mt-2 max-w-[90px] text-[8px] font-bold leading-tight text-white sm:mt-3 sm:max-w-none sm:text-xs lg:text-lg">
                     {item.label}
                   </p>
                 </motion.div>
@@ -441,12 +441,12 @@ export default function Academy() {
       {/* =========================================================
           FREE MASTERCLASS
       ========================================================= */}
-      <section className="relative overflow-hidden bg-white py-14 sm:py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-black py-14 sm:py-16 lg:py-20">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.035]"
           style={{
             backgroundImage:
-              "radial-gradient(#171717 1px, transparent 1px)",
+              "radial-gradient(#FFFFFF 1px, transparent 1px)",
             backgroundSize: "26px 26px",
           }}
         />
@@ -472,11 +472,11 @@ export default function Academy() {
             transition={{ duration: 0.75 }}
             className="mx-auto max-w-5xl text-center"
           >
-            <span className="inline-flex rounded-full bg-[#F8BC04] px-4 py-2 text-[10px] font-black uppercase tracking-[0.08em] text-[#171717] shadow-md sm:px-6 sm:py-3 sm:text-sm">
+            <span className="inline-flex rounded-full bg-[#F8BC04] px-4 py-2 text-[10px] font-black uppercase tracking-[0.08em] text-white shadow-md sm:px-6 sm:py-3 sm:text-sm">
               Free Live AI & Social Media Marketing Masterclass
             </span>
 
-            <h3 className="mt-6 text-[34px] font-black leading-[1.04] tracking-[-0.03em] text-[#171717] sm:mt-8 sm:text-[42px] md:text-[52px]">
+            <h3 className="mt-6 text-[34px] font-black leading-[1.04] tracking-[-0.03em] text-white sm:mt-8 sm:text-[42px] md:text-[52px]">
               What You'll Learn
               <span className="text-[#F8BC04]">
                 {" "}
@@ -484,7 +484,7 @@ export default function Academy() {
               </span>
             </h3>
 
-            <p className="mx-auto mt-5 max-w-4xl text-sm leading-6 text-gray-600 sm:mt-7 sm:text-lg sm:leading-8 lg:leading-9">
+            <p className="mx-auto mt-5 max-w-4xl text-sm leading-6 text-gray-400 sm:mt-7 sm:text-lg sm:leading-8 lg:leading-9">
               Get a practical introduction to today's most in-demand digital
               skills through live sessions, real-world examples, and expert
               guidance. Whether you're searching for the Best Social Media
@@ -551,12 +551,12 @@ export default function Academy() {
                         scale: 1.12,
                       }}
                       transition={{ duration: 0.45 }}
-                      className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-sm font-black text-[#171717] shadow-sm sm:h-10 sm:w-10 sm:text-lg"
+                      className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-sm font-black text-white shadow-sm sm:h-10 sm:w-10 sm:text-lg"
                     >
                       ✓
                     </motion.div>
 
-                    <p className="text-sm leading-6 text-gray-700 sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
+                    <p className="text-sm leading-6 text-gray-300 sm:text-base sm:leading-7 lg:text-lg lg:leading-8">
                       {item}
                     </p>
                   </motion.div>
@@ -577,7 +577,7 @@ export default function Academy() {
                   }}
                   whileTap={{ scale: 0.96 }}
                   href="/connect"
-                  className="rounded-full bg-[#171717] px-6 py-3.5 text-sm font-semibold text-white shadow-xl transition-colors hover:bg-[#F8BC04] hover:text-[#171717] sm:px-9 sm:py-4 sm:text-base"
+                  className="rounded-full bg-[#F8BC04] px-6 py-3.5 text-sm font-semibold text-[#171717] shadow-xl transition-colors hover:bg-white hover:text-[#171717] sm:px-9 sm:py-4 sm:text-base"
                 >
                   Explore Courses →
                 </motion.a>
@@ -592,7 +592,7 @@ export default function Academy() {
                   className="flex items-center rounded-full border border-[#F8BC04]/30 bg-[#F8BC04]/10 px-4 py-3 text-xs sm:px-6 sm:py-3.5 sm:text-sm"
                 >
                   <div className="mr-2.5 h-2.5 w-2.5 rounded-full bg-green-500 sm:mr-3 sm:h-3 sm:w-3" />
-                  <span className="font-semibold text-[#171717]">
+                  <span className="font-semibold text-white">
                     Limited Seats Available
                   </span>
                 </motion.div>
@@ -605,7 +605,7 @@ export default function Academy() {
       {/* =========================================================
           OUR COURSES
       ========================================================= */}
-      <section className="relative overflow-hidden bg-white pb-14 pt-10 sm:pb-16 sm:pt-12 lg:pb-20 lg:pt-14">
+      <section className="relative overflow-hidden bg-black pb-14 pt-10 sm:pb-16 sm:pt-12 lg:pb-20 lg:pt-14">
         <motion.div
           animate={{
             scale: [1, 1.15, 1],
@@ -631,7 +631,7 @@ export default function Academy() {
               Professional Courses
             </span>
 
-            <h2 className="mt-5 text-[34px] font-black leading-[1.04] tracking-[-0.03em] text-[#171717] sm:mt-7 sm:text-[45px] md:text-[55px] lg:text-[62px]">
+            <h2 className="mt-5 text-[34px] font-black leading-[1.04] tracking-[-0.03em] text-white sm:mt-7 sm:text-[45px] md:text-[55px] lg:text-[62px]">
               Choose The Perfect
               <span className="text-[#F8BC04]"> Course</span>
               <br className="hidden sm:block" />
@@ -639,7 +639,7 @@ export default function Academy() {
               For Your Career
             </h2>
 
-            <p className="mx-auto mt-5 max-w-4xl text-sm leading-6 text-gray-600 sm:mt-7 sm:text-lg sm:leading-8 lg:leading-9">
+            <p className="mx-auto mt-5 max-w-4xl text-sm leading-6 text-gray-400 sm:mt-7 sm:text-lg sm:leading-8 lg:leading-9">
               Whether you're starting from scratch or upgrading your existing
               skills, our industry-focused programs combine practical
               learning, AI-powered tools, live projects, and expert mentorship
@@ -654,7 +654,7 @@ export default function Academy() {
       {/* =========================================================
           LIVE CLASS + CERTIFICATE
       ========================================================= */}
-      <section className="bg-white pb-14 sm:pb-16 lg:pb-20">
+      <section className="bg-black pb-14 sm:pb-16 lg:pb-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-2 lg:gap-10">
             {/* LIVE CLASS */}
@@ -664,7 +664,7 @@ export default function Academy() {
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.7 }}
               whileHover={{ y: -7 }}
-              className="group overflow-hidden rounded-[24px] border border-black/5 bg-[#FAFAFA] shadow-[0_15px_45px_rgba(0,0,0,.06)] transition-shadow duration-500 hover:shadow-[0_25px_65px_rgba(0,0,0,.1)] sm:rounded-[30px]"
+              className="group overflow-hidden rounded-[24px] border border-white/10 bg-[#0A0A0A] shadow-[0_15px_45px_rgba(0,0,0,.06)] transition-shadow duration-500 hover:shadow-[0_25px_65px_rgba(0,0,0,.1)] sm:rounded-[30px]"
             >
               <div className="relative aspect-[15/9] overflow-hidden">
                 <Image
@@ -677,11 +677,11 @@ export default function Academy() {
               </div>
 
               <div className="p-5 sm:p-7 lg:p-8">
-                <h3 className="text-xl font-black text-[#171717] sm:text-2xl">
+                <h3 className="text-xl font-black text-white sm:text-2xl">
                   Interactive Live Classes
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-gray-600 sm:mt-4 sm:text-base sm:leading-8">
+                <p className="mt-3 text-sm leading-6 text-gray-400 sm:mt-4 sm:text-base sm:leading-8">
                   Learn through live sessions, practical demonstrations, doubt
                   clearing, assignments and real-world case studies.
                 </p>
@@ -695,7 +695,7 @@ export default function Academy() {
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.7, delay: 0.1 }}
               whileHover={{ y: -7 }}
-              className="group overflow-hidden rounded-[24px] border border-black/5 bg-[#FAFAFA] shadow-[0_15px_45px_rgba(0,0,0,.06)] transition-shadow duration-500 hover:shadow-[0_25px_65px_rgba(0,0,0,.1)] sm:rounded-[30px]"
+              className="group overflow-hidden rounded-[24px] border border-white/10 bg-[#0A0A0A] shadow-[0_15px_45px_rgba(0,0,0,.06)] transition-shadow duration-500 hover:shadow-[0_25px_65px_rgba(0,0,0,.1)] sm:rounded-[30px]"
             >
               <div className="relative aspect-[15/9] overflow-hidden">
                 <Image
@@ -708,11 +708,11 @@ export default function Academy() {
               </div>
 
               <div className="p-5 sm:p-7 lg:p-8">
-                <h3 className="text-xl font-black text-[#171717] sm:text-2xl">
+                <h3 className="text-xl font-black text-white sm:text-2xl">
                   Course Certificate
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-gray-600 sm:mt-4 sm:text-base sm:leading-8">
+                <p className="mt-3 text-sm leading-6 text-gray-400 sm:mt-4 sm:text-base sm:leading-8">
                   Showcase your newly acquired skills with a professional
                   certificate from BIGBEANS DIGITAL.
                 </p>
@@ -725,12 +725,12 @@ export default function Academy() {
       {/* =========================================================
           WHY CHOOSE OUR ACADEMY
       ========================================================= */}
-      <section className="relative overflow-hidden bg-white py-14 sm:py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-black py-14 sm:py-16 lg:py-20">
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.045]"
           style={{
             backgroundImage:
-              "radial-gradient(#171717 1px, transparent 1px)",
+              "radial-gradient(#FFFFFF 1px, transparent 1px)",
             backgroundSize: "26px 26px",
           }}
         />
@@ -760,14 +760,14 @@ export default function Academy() {
               Learn Beyond The Classroom
             </span>
 
-            <h2 className="mt-5 text-[34px] font-black leading-[1.04] tracking-[-0.03em] text-[#171717] sm:mt-7 sm:text-[46px] md:text-[55px] lg:text-[60px]">
+            <h2 className="mt-5 text-[34px] font-black leading-[1.04] tracking-[-0.03em] text-white sm:mt-7 sm:text-[46px] md:text-[55px] lg:text-[60px]">
               Why Students Choose
               <span className="block text-[#F8BC04]">
                 BIGBEANS DIGITAL Academy
               </span>
             </h2>
 
-            <p className="mx-auto mt-5 max-w-4xl text-sm leading-6 text-gray-600 sm:mt-7 sm:text-lg sm:leading-8 lg:leading-9">
+            <p className="mx-auto mt-5 max-w-4xl text-sm leading-6 text-gray-400 sm:mt-7 sm:text-lg sm:leading-8 lg:leading-9">
               We don't just teach digital skills—we prepare you for the real
               world. Our programs combine practical learning, AI-powered
               workflows, live projects, expert mentorship, and portfolio
@@ -812,16 +812,16 @@ export default function Academy() {
                     scale: 1.12,
                   }}
                   transition={{ duration: 0.6 }}
-                  className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-lg sm:h-16 sm:w-16"
+                  className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-black shadow-lg sm:h-16 sm:w-16"
                 >
                   <div className="h-5 w-5 rounded-full bg-[#F8BC04] sm:h-6 sm:w-6" />
                 </motion.div>
 
-                <h3 className="relative mt-6 text-[23px] font-black leading-tight text-[#171717] sm:mt-7 sm:text-[27px]">
+                <h3 className="relative mt-6 text-[23px] font-black leading-tight text-white sm:mt-7 sm:text-[27px]">
                   {item.title}
                 </h3>
 
-                <p className="relative mt-3 text-[14px] leading-6 text-[#171717]/70 sm:mt-5 sm:text-[16px] sm:leading-7">
+                <p className="relative mt-3 text-[14px] leading-6 text-white/70 sm:mt-5 sm:text-[16px] sm:leading-7">
                   {item.description}
                 </p>
 
@@ -839,7 +839,7 @@ export default function Academy() {
       {/* =========================================================
           FAQ
       ========================================================= */}
-      <section className="bg-white py-12 sm:py-16 lg:py-20">
+      <section className="bg-black py-12 sm:py-16 lg:py-20">
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -850,11 +850,11 @@ export default function Academy() {
           >
             <div className="absolute left-1/2 top-0 h-16 w-16 -translate-x-1/2 rounded-full bg-[#F8BC04]/30 blur-[1px] sm:h-24 sm:w-24" />
 
-            <p className="relative text-[9px] font-semibold uppercase tracking-[3px] text-gray-500 sm:text-sm sm:tracking-[6px]">
+            <p className="relative text-[9px] font-semibold uppercase tracking-[3px] text-gray-400 sm:text-sm sm:tracking-[6px]">
               BIGBEANS ACADEMY FAQS
             </p>
 
-            <h2 className="relative mt-3 text-[34px] font-black leading-tight text-[#171717] sm:mt-4 sm:text-5xl md:text-6xl">
+            <h2 className="relative mt-3 text-[34px] font-black leading-tight text-white sm:mt-4 sm:text-5xl md:text-6xl">
               Frequently Asked{" "}
               <span className="text-[#F8BC04]">Questions</span>
             </h2>
@@ -869,7 +869,7 @@ export default function Academy() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.1 }}
                 transition={{ delay: Math.min(index * 0.04, 0.3) }}
-                className="overflow-hidden rounded-[17px] border border-gray-200 bg-white shadow-[0_8px_25px_rgba(0,0,0,.025)] transition-shadow duration-300 hover:shadow-[0_15px_35px_rgba(0,0,0,.06)] sm:rounded-[20px]"
+                className="overflow-hidden rounded-[17px] border border-white/10 bg-black shadow-[0_8px_25px_rgba(0,0,0,.025)] transition-shadow duration-300 hover:shadow-[0_15px_35px_rgba(0,0,0,.06)] sm:rounded-[20px]"
               >
                 <button
                   onClick={() =>
@@ -877,7 +877,7 @@ export default function Academy() {
                   }
                   className="flex min-h-[68px] w-full items-center justify-between gap-3 p-4 text-left sm:min-h-[76px] sm:p-5 lg:p-6"
                 >
-                  <span className="pr-2 text-sm font-semibold leading-5 text-[#171717] sm:text-base">
+                  <span className="pr-2 text-sm font-semibold leading-5 text-white sm:text-base">
                     {faq.q}
                   </span>
 
@@ -886,7 +886,7 @@ export default function Academy() {
                       rotate: openFaq === index ? 45 : 0,
                     }}
                     transition={{ duration: 0.25 }}
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#171717] text-lg text-white sm:h-10 sm:w-10 sm:text-xl"
+                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#F8BC04] text-lg text-[#171717] sm:h-10 sm:w-10 sm:text-xl"
                   >
                     +
                   </motion.span>
@@ -900,8 +900,8 @@ export default function Academy() {
                     transition={{ duration: 0.3 }}
                     className="px-4 pb-5 sm:px-5 sm:pb-6 lg:px-6"
                   >
-                    <div className="mb-4 h-px bg-gray-100" />
-                    <p className="text-sm leading-6 text-gray-600 sm:text-[15px] sm:leading-7">
+                    <div className="mb-4 h-px bg-white/10" />
+                    <p className="text-sm leading-6 text-gray-400 sm:text-[15px] sm:leading-7">
                       {faq.a}
                     </p>
                   </motion.div>
@@ -915,43 +915,43 @@ export default function Academy() {
       {/* =========================================================
           GLOBAL PRESENCE
       ========================================================= */}
-      <section className="bg-white pb-12 sm:pb-16 lg:pb-20">
+      <section className="bg-black pb-12 sm:pb-16 lg:pb-20">
         <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 35 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.75 }}
-            className="grid items-center gap-8 rounded-[25px] border border-gray-200 bg-white p-5 shadow-[0_15px_50px_rgba(0,0,0,.04)] sm:rounded-[32px] sm:p-8 md:p-10 lg:grid-cols-2 lg:gap-12 lg:rounded-[40px] lg:p-14 xl:p-16"
+            className="grid items-center gap-8 rounded-[25px] border border-white/10 bg-black p-5 shadow-[0_15px_50px_rgba(0,0,0,.04)] sm:rounded-[32px] sm:p-8 md:p-10 lg:grid-cols-2 lg:gap-12 lg:rounded-[40px] lg:p-14 xl:p-16"
           >
             {/* LEFT */}
             <div>
-              <p className="mb-4 text-[9px] font-semibold uppercase tracking-[3px] text-gray-500 sm:mb-6 sm:text-sm sm:tracking-[6px]">
+              <p className="mb-4 text-[9px] font-semibold uppercase tracking-[3px] text-gray-400 sm:mb-6 sm:text-sm sm:tracking-[6px]">
                 Global Presence
               </p>
 
-              <h2 className="text-[36px] font-black leading-[1.05] tracking-[-0.03em] text-[#171717] sm:text-5xl lg:text-6xl">
+              <h2 className="text-[36px] font-black leading-[1.05] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
                 Digital Excellence in{" "}
                 <span className="text-[#F8BC04]">12+</span>
                 <br />
                 Locations
               </h2>
 
-              <p className="mt-5 max-w-[650px] text-sm leading-6 text-gray-600 sm:mt-7 sm:text-lg sm:leading-8">
+              <p className="mt-5 max-w-[650px] text-sm leading-6 text-gray-400 sm:mt-7 sm:text-lg sm:leading-8">
                 BIGBEANS DIGITAL serves businesses across India and
                 international markets. Our strategies are built for local
                 relevance and global scalability.
               </p>
 
               <div className="mt-8 grid grid-cols-2 gap-5 sm:mt-10 sm:gap-8 lg:mt-12 lg:gap-10">
-                <div className="border-r border-black/10 pr-4 sm:pr-8 lg:pr-10">
+                <div className="border-r border-white/10 pr-4 sm:pr-8 lg:pr-10">
                   <h3 className="text-base font-bold sm:text-xl">
                     In India
                   </h3>
 
                   <div className="mb-4 mt-2 h-[2px] w-14 bg-[#F8BC04] sm:mb-5 sm:w-20" />
 
-                  <ul className="space-y-2 text-xs text-gray-700 sm:space-y-3 sm:text-sm lg:text-base">
+                  <ul className="space-y-2 text-xs text-gray-300 sm:space-y-3 sm:text-sm lg:text-base">
                     {[
                       "Kolkata",
                       "Delhi",
@@ -979,7 +979,7 @@ export default function Academy() {
 
                   <div className="mb-4 mt-2 h-[2px] w-14 bg-[#F8BC04] sm:mb-5 sm:w-20" />
 
-                  <ul className="space-y-2 text-xs text-gray-700 sm:space-y-3 sm:text-sm lg:text-base">
+                  <ul className="space-y-2 text-xs text-gray-300 sm:space-y-3 sm:text-sm lg:text-base">
                     {[
                       "London",
                       "Singapore",
@@ -1077,7 +1077,7 @@ export default function Academy() {
       {/* =========================================================
           CTA
       ========================================================= */}
-      <section className="relative overflow-hidden bg-white py-10 sm:py-14 lg:py-16">
+      <section className="relative overflow-hidden bg-black py-10 sm:py-14 lg:py-16">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -1085,7 +1085,7 @@ export default function Academy() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
         >
-          <div className="relative overflow-hidden rounded-[26px] bg-[#171717] px-5 py-9 shadow-[0_25px_70px_rgba(0,0,0,.15)] sm:rounded-[34px] sm:px-8 sm:py-12 md:px-12 lg:rounded-[40px] lg:px-16 lg:py-14">
+          <div className="relative overflow-hidden rounded-[26px] bg-[#0B0B0B] px-5 py-9 shadow-[0_25px_70px_rgba(0,0,0,.15)] sm:rounded-[34px] sm:px-8 sm:py-12 md:px-12 lg:rounded-[40px] lg:px-16 lg:py-14">
             {/* Glow */}
             <motion.div
               animate={{
@@ -1124,7 +1124,7 @@ export default function Academy() {
                   backgroundColor: "#FFD54A",
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full rounded-full bg-[#F8BC04] px-7 py-4 text-sm font-bold text-[#171717] shadow-[0_20px_50px_rgba(248,188,4,0.3)] transition-all duration-300 sm:w-auto sm:px-9 sm:py-4 sm:text-base lg:shrink-0"
+                className="w-full rounded-full bg-[#F8BC04] px-7 py-4 text-sm font-bold text-white shadow-[0_20px_50px_rgba(248,188,4,0.3)] transition-all duration-300 sm:w-auto sm:px-9 sm:py-4 sm:text-base lg:shrink-0"
               >
                 Book Free Strategy Call
               </motion.button>
