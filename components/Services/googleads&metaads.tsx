@@ -173,21 +173,21 @@ const paidChannels: PaidChannel[] = [
   },
   {
     id: "display",
-    name: "Display Ads",
-    eyebrow: "REACH / REMARKETING",
+    name: "ChatGpt Ads",
+    eyebrow: "AI Marketing",
     description:
-      "Display campaigns for audience reach, remarketing and repeated exposure across relevant websites and digital properties.",
-    image: "/assets/performance-marketing/platforms/display-ads.webp",
+      "ChatGpt Ads campaigns for audience reach, remarketing and repeated exposure across relevant websites and digital properties.",
+    image: "/assets/performance-marketing/platforms/chatGpt-ads.webp",
     alt: "Display advertising campaign management",
     icon: <Layers3 className="h-6 w-6" />,
   },
   {
     id: "shopping",
-    name: "Shopping Ads",
+    name: "ECOMMERCE Ads",
     eyebrow: "ECOMMERCE / PRODUCT",
     description:
       "Product-led campaigns that connect catalogues, product feeds, search intent and ecommerce conversion journeys.",
-    image: "/assets/performance-marketing/platforms/shopping-ads.webp",
+    image: "/assets/performance-marketing/platforms/ecommerce-ads.webp",
     alt: "Shopping advertising campaign management",
     icon: <ShoppingCart className="h-6 w-6" />,
   },
@@ -1277,90 +1277,7 @@ export default function PerformanceMarketingPage() {
         </div>
       </section>
 
-      {/* 4. TRUST / RESULTS */}
-      <section className="pm-section relative bg-black">
-        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
-          <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
-                [ TRUST / RESULTS ]
-              </span>
-
-              <h2 className="mt-4 font-bold leading-tight">
-                Campaign Work That Can Be
-                <br />
-                <span className="highlight-font text-[#F8BC04]">
-                  Reviewed and Measured
-                </span>
-              </h2>
-            </div>
-
-            <p className="max-w-xl leading-relaxed text-white/55">
-              Explore campaign examples across lead generation, ecommerce,
-              B2B and acquisition. Verified campaign metrics can be added here
-              when the corresponding client data is approved for publication.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-            {caseStudies.map((study) => (
-              <div
-                key={study.id}
-                className="group overflow-hidden rounded-[26px] border border-white/10 bg-[#090909] transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04]/40"
-              >
-                <div className="relative h-[270px] overflow-hidden">
-                  <Image
-                    src={study.image}
-                    alt={study.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
-
-                  <div className="absolute bottom-5 left-5 right-5">
-                    <div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#F8BC04]">
-                      CAMPAIGN CASE STUDY
-                    </div>
-                    <div className="mt-1 text-lg font-bold text-white">
-                      {study.client}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-6">
-                  <div className="text-xs font-bold uppercase tracking-widest text-white/35">
-                    OBJECTIVE
-                  </div>
-
-                  <div className="mt-2 text-base font-bold text-white">
-                    {study.objective}
-                  </div>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {study.services.map((service) => (
-                      <span
-                        key={service}
-                        className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 text-[10px] font-semibold text-white/55"
-                      >
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-4">
-                    <span className="text-xs text-white/35">
-                      Verified metrics: add when approved
-                    </span>
-                    <ArrowRight className="h-4 w-4 text-[#F8BC04]" />
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* 5. PERFORMANCE MARKETING STRATEGY / HOW WE WORK */}
       <section className="pm-section relative bg-black">
@@ -1641,121 +1558,7 @@ export default function PerformanceMarketingPage() {
         </div>
       </section>
 
-      {/* 8. CONVERSION RATE OPTIMISATION / LANDING PAGE OPTIMISATION */}
-      <section className="pm-section relative bg-black">
-        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
-          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
-                [ CRO / LANDING PAGE OPTIMISATION ]
-              </span>
-
-              <h2 className="mt-4 font-bold leading-[0.95]">
-                More Clicks Do Not Help
-                <br />
-                <span className="highlight-font text-[#F8BC04]">
-                  If the Page Does Not Convert
-                </span>
-              </h2>
-
-              <p className="mt-6 leading-relaxed text-white/60">
-                We can review the experience after the ad click, including
-                messaging, page structure, CTA placement, forms, mobile
-                usability and conversion friction. The aim is to make the next
-                step clearer for the visitor.
-              </p>
-
-              <div className="mt-7 grid grid-cols-2 gap-3">
-                {[
-                  ["01", "Clearer CTA"],
-                  ["02", "Focused Messaging"],
-                  ["03", "Simpler Forms"],
-                  ["04", "Better Structure"],
-                  ["05", "Mobile UX"],
-                  ["06", "A/B Testing"],
-                ].map(([number, label]) => (
-                  <div
-                    key={number}
-                    className="flex items-center gap-3 border-t border-white/10 pt-3"
-                  >
-                    <span className="text-[10px] font-black text-[#F8BC04]">
-                      {number}
-                    </span>
-                    <span className="text-xs font-semibold text-white/65">
-                      {label}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="lg:col-span-7">
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                <div className="pm-before-after">
-                  <div className="border-b border-white/10 px-5 py-4">
-                    <span className="text-[10px] font-black tracking-[0.18em] text-white/35">
-                      BEFORE
-                    </span>
-                  </div>
-
-                  <div className="relative h-[390px]">
-                    <Image
-                      src="/assets/performance-marketing/cro/before.webp"
-                      alt="Landing page before optimisation"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
-                    />
-
-                    <span className="pm-callout left-4 top-20">
-                      MESSAGE
-                    </span>
-                    <span className="pm-callout right-4 top-48">
-                      CTA
-                    </span>
-                    <span className="pm-callout left-8 bottom-16">
-                      FORM
-                    </span>
-                  </div>
-                </div>
-
-                <div className="pm-before-after">
-                  <div className="border-b border-white/10 px-5 py-4">
-                    <span className="text-[10px] font-black tracking-[0.18em] text-[#F8BC04]">
-                      AFTER
-                    </span>
-                  </div>
-
-                  <div className="relative h-[390px]">
-                    <Image
-                      src="/assets/performance-marketing/cro/after.webp"
-                      alt="Landing page after optimisation"
-                      fill
-                      sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover"
-                    />
-
-                    <span className="pm-callout left-4 top-16">
-                      CLEAR CTA
-                    </span>
-                    <span className="pm-callout right-4 top-32">
-                      VALUE
-                    </span>
-                    <span className="pm-callout left-8 bottom-20">
-                      SIMPLE FORM
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-4 rounded-2xl border border-white/10 bg-white/[0.02] p-4 text-xs text-white/35">
-                Example UI representation. Replace with approved client
-                before/after screenshots or test data where available.
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* 9. DATA, ANALYTICS & CAMPAIGN OPTIMISATION */}
       <section className="pm-section relative bg-black">
@@ -1774,17 +1577,16 @@ export default function PerformanceMarketingPage() {
             </div>
 
             <div className="lg:col-span-6">
-              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
-                [ DATA / ANALYTICS / OPTIMISATION ]
-              </span>
+              
 
               <h2 className="mt-4 font-bold leading-[0.95]">
-                Decisions Based on
+                Website Landing Page
                 <br />
                 <span className="highlight-font text-[#F8BC04]">
-                  Campaign Data
+                   Before Optimisation
                 </span>
               </h2>
+              
 
               <p className="mt-6 max-w-2xl leading-relaxed text-white/60">
                 Campaign optimisation depends on reliable tracking and useful
@@ -1821,69 +1623,18 @@ export default function PerformanceMarketingPage() {
         </div>
       </section>
 
-      {/* 10. RETARGETING & CUSTOMER RE-ENGAGEMENT */}
-      <section className="pm-section relative bg-black">
-        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
-          <div className="mb-12 max-w-3xl">
-            <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
-              [ RETARGETING & RE-ENGAGEMENT ]
-            </span>
-
-            <h2 className="mt-4 font-bold leading-tight">
-              Bring Interested Visitors
-              <br />
-              <span className="highlight-font text-[#F8BC04]">
-                Back Into the Journey
-              </span>
-            </h2>
-
-            <p className="mt-5 leading-relaxed text-white/55">
-              Retargeting can reconnect with people who have already interacted
-              with the business. Depending on the campaign, that can include
-              website visitors, product viewers, previous leads or abandoned
-              purchase journeys.
-            </p>
-          </div>
-
-          <div className="pm-retarget-path">
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
-              {retargetingSteps.map((step, index) => (
-                <div key={step.title} className="relative z-10">
-                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[#F8BC04]/50 bg-black text-[#F8BC04]">
-                    {step.icon}
-                  </div>
-
-                  <div className="mt-5 text-center">
-                    <h3 className="font-bold text-white">{step.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-white/50">
-                      {step.description}
-                    </p>
-                  </div>
-
-                  {index < retargetingSteps.length - 1 && (
-                    <ArrowRight className="absolute right-[-18px] top-6 hidden h-5 w-5 text-[#F8BC04]/50 lg:block" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       {/* 11. REPORTING / TRANSPARENCY */}
       <section className="pm-section relative bg-black">
         <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-5">
-              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
-                [ REPORTING / TRANSPARENCY ]
-              </span>
-
-              <h2 className="mt-4 font-bold leading-[0.95]">
-                Know What Is Happening
+            <h2 className="mt-4 font-bold leading-[0.95]">
+                Website Landing Page
                 <br />
                 <span className="highlight-font text-[#F8BC04]">
-                  With Your Ad Budget
+                  After Optimisation
                 </span>
               </h2>
 
@@ -1928,144 +1679,56 @@ export default function PerformanceMarketingPage() {
         </div>
       </section>
 
-      {/* 12. FIVE-IMAGE CENTER SLIDER */}
-      <section className="pm-section relative overflow-hidden bg-black">
-        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
-          <div className="mb-8 text-center">
-            <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
-              [ CAMPAIGN VISUALS ]
-            </span>
-
-            <h2 className="mt-4 font-bold">
-              Performance Marketing in{" "}
-              <span className="highlight-font text-[#F8BC04]">
-                Practice
-              </span>
-            </h2>
-          </div>
-
-          <div className="pm-slider-wrapper relative overflow-hidden rounded-[28px] border border-white/10 bg-[#080808]">
-            <div className="pointer-events-none absolute left-0 top-0 z-20 h-full w-24 bg-gradient-to-r from-[#080808] to-transparent" />
-            <div className="pointer-events-none absolute right-0 top-0 z-20 h-full w-24 bg-gradient-to-l from-[#080808] to-transparent" />
-
-            <div className="pm-slider-track flex w-max gap-4 p-4">
-              {[...performanceSlides, ...performanceSlides].map(
-                (slide, index) => (
-                  <div
-                    key={`${slide.image}-${index}`}
-                    className="relative h-[300px] w-[430px] shrink-0 overflow-hidden rounded-[22px] border border-white/10 bg-[#111]"
-                  >
-                    <Image
-                      src={slide.image}
-                      alt={slide.alt}
-                      fill
-                      sizes="430px"
-                      className="object-cover"
-                    />
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-
-          <div className="mt-5 flex justify-center gap-2">
-            {performanceSlides.map((_, index) => (
-              <button
-                key={index}
-                type="button"
-                aria-label={`Show campaign image ${index + 1}`}
-                onClick={() => setPerformanceSlide(index)}
-                className={
-                  performanceSlide === index
-                    ? "h-2.5 w-7 rounded-full bg-[#F8BC04]"
-                    : "h-2.5 w-2.5 rounded-full bg-white/15 transition-colors hover:bg-white/30"
-                }
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 13. TECHNOLOGIES WE WORK WITH */}
+      {/* 10. RETARGETING & CUSTOMER RE-ENGAGEMENT */}
       <section className="pm-section relative bg-black">
         <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
-          <div className="text-center">
-            <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
-              [ TECHNOLOGIES WE WORK WITH ]
-            </span>
+          <div className="mb-12 max-w-3xl">
+            
 
-            <h2 className="mt-4 font-bold">
-              Platforms, Analytics &{" "}
+            <h2 className="mt-4 font-bold leading-tight">
+              Bring Interested Visitors
+              <br />
               <span className="highlight-font text-[#F8BC04]">
-                Marketing Technology
+                Back Into the Journey
               </span>
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl leading-relaxed text-white/50">
-              We use the advertising, analytics, tracking and commerce tools
-              that fit the campaign, website and measurement requirements.
+            <p className="mt-5 leading-relaxed text-white/55">
+              Retargeting can reconnect with people who have already interacted
+              with the business. Depending on the campaign, that can include
+              website visitors, product viewers, previous leads or abandoned
+              purchase journeys.
             </p>
           </div>
 
-          <div className="mt-14 space-y-12">
-            {technologyRows.map((row, rowIndex) => (
-              <div key={rowIndex} className="pm-technology-row">
-                {row.map((technology) => (
-                  <div
-                    key={technology.name}
-                    className="pm-technology-item"
-                  >
-                    <div className="pm-technology-image-wrap">
-                      <Image
-                        src={technology.image}
-                        alt={technology.alt}
-                        fill
-                        sizes="74px"
-                        className="pm-technology-image"
-                      />
-                    </div>
-
-                    <span className="pm-technology-name">
-                      {technology.name}
-                    </span>
+          <div className="pm-retarget-path">
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
+              {retargetingSteps.map((step, index) => (
+                <div key={step.title} className="relative z-10">
+                  <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-[#F8BC04]/50 bg-black text-[#F8BC04]">
+                    {step.icon}
                   </div>
-                ))}
-              </div>
-            ))}
+
+                  <div className="mt-5 text-center">
+                    <h3 className="font-bold text-white">{step.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-white/50">
+                      {step.description}
+                    </p>
+                  </div>
+
+                  {index < retargetingSteps.length - 1 && (
+                    <ArrowRight className="absolute right-[-18px] top-6 hidden h-5 w-5 text-[#F8BC04]/50 lg:block" />
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+      
 
       {/* 14. OUR RECENT WORK */}
-      <section className="pm-section relative bg-black">
-        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
-          <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
-                [ OUR RECENT WORK ]
-              </span>
-
-              <h2 className="mt-4 font-bold leading-tight">
-                Work Across
-                <br />
-                <span className="highlight-font text-[#F8BC04]">
-                  Digital Growth
-                </span>
-              </h2>
-            </div>
-
-            <Link
-              href="/work"
-              className="inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-[#F8BC04]"
-            >
-              View All Work
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-
-          <OurWork />
-        </div>
-      </section>
+      <OurWork />
 
       
             {/* =========================================================================

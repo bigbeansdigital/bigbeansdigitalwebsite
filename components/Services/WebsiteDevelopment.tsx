@@ -358,11 +358,7 @@ const technologyRows = [
       image: "/assets/technologies/nodejs.svg",
       alt: "Node.js",
     },
-    {
-      name: "Next js",
-      image: "/assets/technologies/nextjs.svg",
-      alt: "Next.js",
-    },
+    
     { name: "PHP", image: "/assets/technologies/php.svg", alt: "PHP" },
     {
       name: "Mongodb",
@@ -372,12 +368,6 @@ const technologyRows = [
   ],
   [
     { name: "React", image: "/assets/technologies/react.svg", alt: "React" },
-    { name: "Sass", image: "/assets/technologies/sass.svg", alt: "Sass" },
-    {
-      name: "Laravel",
-      image: "/assets/technologies/laravel.svg",
-      alt: "Laravel",
-    },
   ],
 ];
 
@@ -445,26 +435,253 @@ const mapPositions: MapPosition[] = [
 
 const performanceSlides = [
   {
-    image: "/assets/website-development/performance-technology-1.webp",
+    image: "/assets/website-development/performance-technology/1.webp",
     alt: "Website performance and responsive development",
   },
   {
-    image: "/assets/website-development/performance-technology-2.webp",
+    image: "/assets/website-development/performance-technology/2.webp",
     alt: "Website technology and technical architecture",
   },
   {
-    image: "/assets/website-development/performance-technology-3.webp",
+    image: "/assets/website-development/performance-technology/3.webp",
     alt: "Website security and integrations",
   },
   {
-    image: "/assets/website-development/performance-technology-4.webp",
+    image: "/assets/website-development/performance-technology/4.webp",
     alt: "SEO-ready website development",
   },
   {
-    image: "/assets/website-development/performance-technology-5.webp",
+    image: "/assets/website-development/performance-technology/5.webp",
     alt: "Scalable website development technology",
   },
 ];
+
+function TechnologyIcon({ name }: { name: string }) {
+  const commonProps = {
+    viewBox: "0 0 64 64",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg",
+    "aria-hidden": true,
+    className: "h-full w-full",
+  };
+
+  switch (name) {
+    case "HTML":
+      return (
+        <svg {...commonProps}>
+          <path
+            d="M9 5h46l-4.2 46L32 58 13.2 51 9 5Z"
+            fill="currentColor"
+            opacity="0.12"
+          />
+          <path
+            d="M9 5h46l-4.2 46L32 58 13.2 51 9 5Z"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinejoin="round"
+          />
+          <path d="M18 16h28l-1 6H25l.7 6h19.5l-1.7 15L32 46l-10.5-3-1.1-9h6.8l.5 4.2 4.3 1.2 4.3-1.2.6-5H20.3L18 16Z" fill="currentColor" />
+          <text
+            x="32"
+            y="26"
+            textAnchor="middle"
+            fill="black"
+            fontSize="8"
+            fontWeight="900"
+            fontFamily="Arial, Helvetica, sans-serif"
+          >
+            5
+          </text>
+        </svg>
+      );
+
+    case "CSS":
+      return (
+        <svg {...commonProps}>
+          <path
+            d="M12 7h40l-3.6 43L32 57 15.6 50 12 7Z"
+            fill="currentColor"
+            opacity="0.12"
+          />
+          <path
+            d="M12 7h40l-3.6 43L32 57 15.6 50 12 7Z"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinejoin="round"
+          />
+          <text
+            x="32"
+            y="31"
+            textAnchor="middle"
+            fill="currentColor"
+            fontSize="12"
+            fontWeight="900"
+            fontFamily="Arial, Helvetica, sans-serif"
+          >
+            CSS
+          </text>
+          <path
+            d="M21 36h22M23 41h18"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+          />
+        </svg>
+      );
+
+    case "JS":
+      return (
+        <svg {...commonProps}>
+          <rect x="7" y="7" width="50" height="50" rx="7" fill="currentColor" />
+          <path
+            d="M28 23v20.5c0 5-2.5 7.5-7 7.5-3.1 0-5.5-1.2-7-3.6l4.6-2.8c.7 1.2 1.4 1.8 2.6 1.8 1.2 0 1.9-.8 1.9-2.8V23H28Zm11.2-.4c4.1 0 6.8 1.5 8.7 4.3l-4.3 2.8c-1.1-1.6-2.3-2.3-4-2.3-1.3 0-2.1.6-2.1 1.5 0 1.1 1.2 1.6 3.7 2.7 4.2 1.8 6.2 3.7 6.2 7.1 0 4.8-3.7 7.9-9.3 7.9-4.6 0-7.8-2-9.6-5.3l4.3-2.7c1.2 1.9 2.8 3 5 3 1.8 0 2.8-.8 2.8-2 0-1.1-.8-1.7-3.6-2.9-4-1.7-6.2-3.4-6.2-6.9 0-4.2 3.4-7.2 8.4-7.2Z"
+            fill="black"
+          />
+        </svg>
+      );
+
+    case "Flutter":
+      return (
+        <svg {...commonProps}>
+          <path
+            d="M10 33 37 6h17L27 33h27L43 44H27l-8.5-8.5L10 44V33Z"
+            fill="currentColor"
+          />
+          <path
+            d="m27 38 8.5 8.5L27 55h-17l17-17Z"
+            fill="currentColor"
+            opacity="0.55"
+          />
+        </svg>
+      );
+
+    case "SQL":
+      return (
+        <svg {...commonProps}>
+          <ellipse cx="32" cy="13" rx="20" ry="8" fill="currentColor" opacity="0.2" />
+          <path
+            d="M12 13v28c0 4.4 9 8 20 8s20-3.6 20-8V13"
+            stroke="currentColor"
+            strokeWidth="3"
+          />
+          <ellipse cx="32" cy="13" rx="20" ry="8" stroke="currentColor" strokeWidth="3" />
+          <path d="M12 27c0 4.4 9 8 20 8s20-3.6 20-8" stroke="currentColor" strokeWidth="3" />
+          <text
+            x="32"
+            y="44"
+            textAnchor="middle"
+            fill="currentColor"
+            fontSize="11"
+            fontWeight="800"
+            fontFamily="Arial, Helvetica, sans-serif"
+          >
+            SQL
+          </text>
+        </svg>
+      );
+
+    case "Node js":
+      return (
+        <svg {...commonProps}>
+          <path
+            d="m32 5 22 12.7v25.6L32 56 10 43.3V17.7L32 5Z"
+            stroke="currentColor"
+            strokeWidth="3"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M21 42V22l22 20V22"
+            stroke="currentColor"
+            strokeWidth="3.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <text
+            x="32"
+            y="39"
+            textAnchor="middle"
+            fill="currentColor"
+            fontSize="8"
+            fontWeight="900"
+            fontFamily="Arial, Helvetica, sans-serif"
+          >
+            JS
+          </text>
+        </svg>
+      );
+
+    case "React":
+      return (
+        <svg {...commonProps}>
+          <ellipse cx="32" cy="32" rx="25" ry="10" stroke="currentColor" strokeWidth="3" />
+          <ellipse
+            cx="32"
+            cy="32"
+            rx="25"
+            ry="10"
+            transform="rotate(60 32 32)"
+            stroke="currentColor"
+            strokeWidth="3"
+          />
+          <ellipse
+            cx="32"
+            cy="32"
+            rx="25"
+            ry="10"
+            transform="rotate(120 32 32)"
+            stroke="currentColor"
+            strokeWidth="3"
+          />
+          <circle cx="32" cy="32" r="5" fill="currentColor" />
+        </svg>
+      );
+
+    case "PHP":
+      return (
+        <svg {...commonProps}>
+          <ellipse cx="32" cy="32" rx="25" ry="15" stroke="currentColor" strokeWidth="3" />
+          <text
+            x="32"
+            y="37"
+            textAnchor="middle"
+            fill="currentColor"
+            fontSize="16"
+            fontWeight="800"
+            fontFamily="Arial, Helvetica, sans-serif"
+          >
+            PHP
+          </text>
+        </svg>
+      );
+
+    case "Mongodb":
+      return (
+        <svg {...commonProps}>
+          <path
+            d="M33 5c1.5 8.7 9.5 12.5 9.5 23.5 0 10.3-5.1 17.6-10.5 22.5C26.7 46.1 22 39.1 22 30.1 22 19.2 29.4 14.2 33 5Z"
+            fill="currentColor"
+          />
+          <path
+            d="M32 12v39"
+            stroke="black"
+            strokeWidth="2"
+            strokeLinecap="round"
+            opacity="0.65"
+          />
+        </svg>
+      );
+
+    
+
+    default:
+      return (
+        <svg {...commonProps}>
+          <circle cx="32" cy="32" r="23" stroke="currentColor" strokeWidth="3" />
+          <path d="M22 32h20M32 22v20" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+        </svg>
+      );
+  }
+}
 
 function FAQItem({
   faq,
@@ -1754,17 +1971,12 @@ export default function WebsiteDevelopmentPage() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-1 px-5 py-4 font-mono text-[10px] sm:text-xs">
-                  <span className="code-line text-[#F8BC04]">
-                    &lt;Website experience /&gt;
-                  </span>
+                  
                   <span className="code-line">
-                    responsive: true
+                    3D immersive: true
                   </span>
                   <span className="code-line hero-code-line">
                     interactive: true
-                  </span>
-                  <span className="code-line">
-                    scalable: true
                   </span>
                 </div>
               </div>
@@ -1850,7 +2062,7 @@ export default function WebsiteDevelopmentPage() {
 
       {/* 4. TRUST / PORTFOLIO / CREDIBILITY */}
       <section className="webdev-section relative bg-black">
-        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
+        <div className="mx-auto max-w-[1950px] px-5 sm:px-8">
           <div className="overflow-hidden rounded-[28px] border border-white/10 bg-[#090909]">
             <div className="grid grid-cols-1 lg:grid-cols-12">
               <div className="relative min-h-[470px] lg:col-span-5">
@@ -1858,29 +2070,17 @@ export default function WebsiteDevelopmentPage() {
                   src="/assets/website-development/trust-portfolio.webp"
                   alt="Big Beans Digital website development portfolio"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  sizes="(max-width: 500px) 500vw, 42vw"
                   className="object-cover"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-[#090909]" />
 
-                <div className="absolute bottom-6 left-6">
-                  <div className="rounded-2xl border border-white/10 bg-black/75 px-5 py-4 backdrop-blur-md">
-                    <div className="text-xs font-bold uppercase tracking-widest text-[#F8BC04]">
-                      WEB DEVELOPMENT
-                    </div>
-
-                    <div className="mt-1 font-bold text-white">
-                      Design + Technology + Experience
-                    </div>
-                  </div>
-                </div>
+                
               </div>
 
               <div className="flex flex-col justify-center p-7 sm:p-12 lg:col-span-7">
-                <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
-                  [ TRUST / PORTFOLIO / CREDIBILITY ]
-                </span>
+                
 
                 <h2 className="mt-5 font-bold leading-tight">
                   Digital Experiences
@@ -1940,16 +2140,11 @@ export default function WebsiteDevelopmentPage() {
                     href="/connect"
                     className="inline-flex items-center gap-2 rounded-full bg-[#F8BC04] px-6 py-3 font-bold text-black transition-all hover:bg-white"
                   >
-                    Discuss Your Website
+                    Discuss Your Website Requirement
                     <ArrowRight className="h-4 w-4" />
                   </Link>
 
-                  <Link
-                    href="/services"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-bold text-white hover:border-[#F8BC04] hover:text-[#F8BC04]"
-                  >
-                    View Services
-                  </Link>
+                  
                 </div>
               </div>
             </div>
@@ -2050,9 +2245,7 @@ export default function WebsiteDevelopmentPage() {
         <div className="development-tabs-inner px-5 sm:px-8 lg:px-[55px]">
           <div className="development-top-grid">
             <div>
-              <span className="block text-[11px] font-black uppercase tracking-[2.5px] text-[#F8BC04]">
-                [ 2D & 3D WEBSITE DEVELOPMENT ]
-              </span>
+              
 
               <h2 className="development-heading mt-5">
                 Build the Right
@@ -2227,89 +2420,11 @@ export default function WebsiteDevelopmentPage() {
 
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/10" />
 
-              <div className="absolute left-6 right-6 top-6 z-20">
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                  {[
-                    { icon: Gauge, label: "Speed" },
-                    { icon: Smartphone, label: "Responsive" },
-                    { icon: ShieldCheck, label: "Security" },
-                    { icon: Search, label: "SEO Ready" },
-                    { icon: Database, label: "Integrations" },
-                    { icon: Layers3, label: "Scalable" },
-                  ].map((item) => {
-                    const Icon = item.icon;
-
-                    return (
-                      <div
-                        key={item.label}
-                        className="rounded-xl border border-white/10 bg-black/70 p-4 backdrop-blur-md"
-                      >
-                        <Icon className="h-5 w-5 text-[#F8BC04]" />
-
-                        <div className="mt-2 text-xs font-bold text-white">
-                          {item.label}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-
-              <div className="absolute bottom-6 left-6 right-6 z-20">
-                <div className="rounded-2xl border border-white/10 bg-black/75 p-5 backdrop-blur-md">
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <div className="text-xs font-bold uppercase tracking-widest text-[#F8BC04]">
-                        PERFORMANCE
-                      </div>
-
-                      <div className="mt-2 text-lg font-bold text-white">
-                        Built to work as well as it looks.
-                      </div>
-                    </div>
-
-                    <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
-                      {performanceSlides.map((slide, index) => (
-                        <button
-                          key={slide.image}
-                          type="button"
-                          aria-label={"Show performance slide " + String(index + 1)}
-                          aria-current={performanceSlide === index}
-                          onClick={() => setPerformanceSlide(index)}
-                          className={
-                            performanceSlide === index
-                              ? "h-2.5 w-7 rounded-full bg-[#F8BC04] transition-all"
-                              : "h-2.5 w-2.5 rounded-full bg-white/30 transition-all hover:bg-white/60"
-                          }
-                        />
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="mt-4 flex items-center gap-2 sm:hidden">
-                    {performanceSlides.map((slide, index) => (
-                      <button
-                        key={slide.image}
-                        type="button"
-                        aria-label={"Show performance slide " + String(index + 1)}
-                        aria-current={performanceSlide === index}
-                        onClick={() => setPerformanceSlide(index)}
-                        className={
-                          performanceSlide === index
-                            ? "h-2 w-7 rounded-full bg-[#F8BC04] transition-all"
-                            : "h-2 w-2 rounded-full bg-white/30 transition-all"
-                        }
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
+              
             </div>
 
             <div className="lg:col-span-6">
-              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">
-                [ PERFORMANCE / FUNCTIONALITY / TECHNOLOGY ]
-              </span>
+              
 
               <h2 className="mt-5 font-bold leading-[0.95]">
                 Good Design Needs
@@ -2436,13 +2551,7 @@ export default function WebsiteDevelopmentPage() {
                     className="technology-logo-item"
                   >
                     <div className="technology-logo-image-wrap">
-                      <Image
-                        src={technology.image}
-                        alt={technology.alt}
-                        fill
-                        sizes="100px"
-                        className="technology-logo-image"
-                      />
+                      <TechnologyIcon name={technology.name} />
                     </div>
 
                     <span className="technology-logo-name">

@@ -265,10 +265,10 @@ const founder = {
   role: "Founder & Business Leadership",
   description:
     "Building BIGBEANS DIGITAL with a focus on creative thinking, digital innovation, meaningful client relationships and long-term business growth.",
-  image: "/assets/about/leadership/founder.webp",
+  image: "/assets/about/company/founder.webp",
 
   // Replace this with the actual Founder LinkedIn URL.
-  linkedin: "https://www.linkedin.com/",
+  linkedin: "https://www.linkedin.com/in/tamojyoti-b-a5361b24a/",
 };
 
 /* =========================================================
@@ -277,78 +277,44 @@ const founder = {
 
 const creativeTeam: TeamMember[] = [
   {
-    name: "Creative Bean 01",
-    image: "/assets/about/teams/creative-01.webp",
+    name: "Simran Mehta",
+    image: "/assets/about/teams/1.webp",
   },
   {
-    name: "Creative Bean 02",
-    image: "/assets/about/teams/creative-02.webp",
+    name: "Barsha Bauri",
+    image: "/assets/about/teams/2.webp",
   },
   {
-    name: "Creative Bean 03",
-    image: "/assets/about/teams/creative-03.webp",
+    name: "Ishita Kaur",
+    image: "/assets/about/teams/3.webp",
   },
   {
-    name: "Creative Bean 04",
-    image: "/assets/about/teams/creative-04.webp",
+    name: "Sakshi Verma",
+    image: "/assets/about/teams/4.webp",
   },
   {
-    name: "Creative Bean 05",
-    image: "/assets/about/teams/creative-05.webp",
-  },
-];
-
-/* =========================================================
-   TEAM 02 — DEVELOPMENT
-========================================================= */
-
-const developmentTeam: TeamMember[] = [
-  {
-    name: "Tech Bean 01",
-    image: "/assets/about/teams/development-01.webp",
+    name: "Neha Gupta",
+    image: "/assets/about/teams/5.webp",
   },
   {
-    name: "Tech Bean 02",
-    image: "/assets/about/teams/development-02.webp",
+    name: "Riya Singh",
+    image: "/assets/about/teams/6.webp",
   },
   {
-    name: "Tech Bean 03",
-    image: "/assets/about/teams/development-03.webp",
+    name: "Aditi Sharma",
+    image: "/assets/about/teams/7.webp",
   },
-  {
-    name: "Tech Bean 04",
-    image: "/assets/about/teams/development-04.webp",
+   {
+    name: "Sneha Chatterjee",
+    image: "/assets/about/teams/8.webp",
   },
-  {
-    name: "Tech Bean 05",
-    image: "/assets/about/teams/development-05.webp",
+   {
+    name: "Priyanka Mondal",
+    image: "/assets/about/teams/9.webp",
   },
-];
-
-/* =========================================================
-   TEAM 03 — MARKETING
-========================================================= */
-
-const marketingTeam: TeamMember[] = [
-  {
-    name: "Marketing Bean 01",
-    image: "/assets/about/teams/marketing-01.webp",
-  },
-  {
-    name: "Marketing Bean 02",
-    image: "/assets/about/teams/marketing-02.webp",
-  },
-  {
-    name: "Marketing Bean 03",
-    image: "/assets/about/teams/marketing-03.webp",
-  },
-  {
-    name: "Marketing Bean 04",
-    image: "/assets/about/teams/marketing-04.webp",
-  },
-  {
-    name: "Marketing Bean 05",
-    image: "/assets/about/teams/marketing-05.webp",
+   {
+    name: "Amrutha Jadi",
+    image: "/assets/about/teams/10.webp",
   },
 ];
 
@@ -364,9 +330,6 @@ const galleryImages = [
   "/assets/about/gallery/gallery-05.webp",
   "/assets/about/gallery/gallery-06.webp",
   "/assets/about/gallery/gallery-07.webp",
-  "/assets/about/gallery/gallery-08.webp",
-  "/assets/about/gallery/gallery-09.webp",
-  "/assets/about/gallery/gallery-10.webp",
 ];
 
 /* =========================================================
@@ -745,10 +708,6 @@ function TeamMarquee({
   title: string;
   eyebrow: string;
 }) {
-  /*
-   * Duplicate the cards so the animation can continuously
-   * move from LEFT -> RIGHT without an empty space.
-   */
 
   const marqueeMembers = [...members, ...members, ...members];
 
@@ -774,7 +733,7 @@ function TeamMarquee({
             x: ["-33.333%", "0%"],
           }}
           transition={{
-            duration: 22,
+            duration: 40,
             ease: "linear",
             repeat: Infinity,
             repeatType: "loop",
@@ -783,7 +742,7 @@ function TeamMarquee({
           {marqueeMembers.map((member, index) => (
             <div
               key={`${member.name}-${index}`}
-              className="group w-[145px] shrink-0 overflow-hidden border border-white/15 bg-black sm:w-[165px] md:w-[180px]"
+              className="group w-[145px] shrink-0 overflow-hidden border border-white/15 bg-black sm:w-[165px] md:w-[480px]"
             >
               <div className="relative aspect-[4/4.5] overflow-hidden">
                 <Image
@@ -1092,14 +1051,6 @@ export default function AboutPage() {
                   height={850}
                   className="h-auto w-full object-cover transition duration-700 hover:scale-[1.03]"
                 />
-
-                <div className="absolute bottom-0 left-0 bg-[#F8BC04] px-5 py-4 text-black">
-                  <p className="text-2xl font-black">BIGBEANS</p>
-
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em]">
-                    Digital
-                  </p>
-                </div>
               </div>
             </motion.div>
 
@@ -1382,46 +1333,23 @@ export default function AboutPage() {
       </Section>
 
       {/* =====================================================
-          07 — CREATIVE TEAM
+          07 — OUR TEAM
       ===================================================== */}
 
       <Section>
         <div className="mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
           <TeamMarquee
             members={creativeTeam}
-            eyebrow="Team 01"
-            title="Our Creative & Design Team"
+            title={
+  <>
+    Our <span className="text-[#F8BC04]">BEANS</span> Who Works to Make Brand{" "}
+    <span className="text-[#F8BC04]">BIG</span>
+  </>
+}
           />
         </div>
       </Section>
 
-      {/* =====================================================
-          08 — DEVELOPMENT TEAM
-      ===================================================== */}
-
-      <Section>
-        <div className="mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
-          <TeamMarquee
-            members={developmentTeam}
-            eyebrow="Team 02"
-            title="Our Development & Technology Team"
-          />
-        </div>
-      </Section>
-
-      {/* =====================================================
-          09 — MARKETING TEAM
-      ===================================================== */}
-
-      <Section>
-        <div className="mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
-          <TeamMarquee
-            members={marketingTeam}
-            eyebrow="Team 03"
-            title="Our Marketing & Strategy Team"
-          />
-        </div>
-      </Section>
 
       {/* =====================================================
           10 — 10 IMAGE SLIDER
@@ -1430,15 +1358,16 @@ export default function AboutPage() {
       <Section>
         <div className="mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
           <SectionHeading
-            eyebrow="Inside BIGBEANS"
+            eyebrow="Our Culture"
             title={
               <>
-                A glimpse of{" "}
+                How we work when{" "}
                 <span className="font-serif font-normal italic text-[#F8BC04]">
-                  our world.
+                  nobody is watching.
                 </span>
               </>
             }
+            description="Our working environment is built around collaboration, communication, learning and getting projects delivered properly."
           />
 
           <motion.div
@@ -1517,106 +1446,7 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      {/* =====================================================
-          12 — CULTURE
-      ===================================================== */}
-
-      <Section>
-        <div className="mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
-          <SectionHeading
-            eyebrow="Our Culture"
-            title={
-              <>
-                How we work when{" "}
-                <span className="font-serif font-normal italic text-[#F8BC04]">
-                  nobody is watching.
-                </span>
-              </>
-            }
-            description="Our working environment is built around collaboration, communication, learning and getting projects delivered properly."
-          />
-
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {cultureImages.map((item, index) => (
-              <motion.div
-                key={item.title}
-                variants={fadeUp}
-                className={`group overflow-hidden border border-white/15 ${
-                  index === 0 ? "lg:col-span-2" : ""
-                }`}
-              >
-                <div
-                  className={`relative ${
-                    index === 0 ? "aspect-[16/8]" : "aspect-[4/3]"
-                  } overflow-hidden`}
-                >
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover transition duration-700 group-hover:scale-105"
-                    sizes={
-                      index === 0
-                        ? "(max-width: 1024px) 100vw, 66vw"
-                        : "(max-width: 640px) 100vw, 33vw"
-                    }
-                  />
-
-                  <div className="absolute bottom-0 left-0 right-0 bg-black p-5">
-                    <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#F8BC04]">
-                      {String(index + 1).padStart(2, "0")}
-                    </p>
-
-                    <h3 className="mt-1 text-lg font-black text-white">
-                      {item.title}
-                    </h3>
-
-                    <p className="mt-2 max-w-xl text-xs leading-6 text-white/55">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </Section>
-
-      {/* =====================================================
-          13 — ACHIEVEMENTS
-      ===================================================== */}
-
-      <Section>
-        <div className="mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
-          <SectionHeading
-            eyebrow="Team Achievements & Milestones"
-            title={
-              <>
-                Progress is a collection of{" "}
-                <span className="font-serif font-normal italic text-[#F8BC04]">
-                  small wins.
-                </span>
-              </>
-            }
-          />
-
-          <motion.div
-            initial={{ opacity: 0, y: 35 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7 }}
-            className="mt-12"
-          >
-            <AchievementSlider />
-          </motion.div>
-        </div>
-      </Section>
+      
 
       {/* =====================================================
           14 — OUR RECENT WORK

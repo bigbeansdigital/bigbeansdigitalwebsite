@@ -9,12 +9,7 @@ import { motion } from "framer-motion";
    TYPES
 ========================================================= */
 
-type Category =
-  | "Branding"
-  | "Social Media"
-  | "Website Dev"
-  | "Performance Marketing"
-  | "Digital Marketing";
+type Category = "Our Recent Work";
 
 type WorkItem = {
   category: Category;
@@ -22,77 +17,39 @@ type WorkItem = {
 };
 
 /* =========================================================
-   CATEGORIES
+   CATEGORY
 ========================================================= */
 
-const categories: Category[] = [
-  "Branding",
-  "Social Media",
-  "Website Dev",
-  "Performance Marketing",
-  "Digital Marketing",
-];
+const category: Category = "Our Recent Work";
 
 /* =========================================================
    WORK IMAGES
 ========================================================= */
 
-const workItems: WorkItem[] = [
-  ...Array.from({ length: 4 }, (_, i) => ({
-    category: "Branding" as const,
-    image: `/home/Our-Carousal/Branding/${i + 1}.webp`,
-  })),
-
-  ...Array.from({ length: 4 }, (_, i) => ({
-    category: "Social Media" as const,
-    image: `/home/Our-Carousal/Social Media/${i + 1}.webp`,
-  })),
-
-  ...Array.from({ length: 4 }, (_, i) => ({
-    category: "Website Dev" as const,
-    image: `/home/Our-Carousal/Website Dev/${i + 1}.webp`,
-  })),
-
-  ...Array.from({ length: 4 }, (_, i) => ({
-    category: "Performance Marketing" as const,
-    image: `/home/Our-Carousal/Performance Marketing/${i + 1}.webp`,
-  })),
-
-  ...Array.from({ length: 4 }, (_, i) => ({
-    category: "Digital Marketing" as const,
-    image: `/home/Our-Carousal/Digital Marketing/${i + 1}.webp`,
-  })),
-];
+const workItems: WorkItem[] = Array.from(
+  { length: 12 },
+  (_, i) => ({
+    category,
+    image: `/ourwork/${i + 1}.webp`,
+  })
+);
 
 /* =========================================================
    COMPONENT
 ========================================================= */
 
 export default function Recentwork() {
-  const [activeCategory, setActiveCategory] =
-    useState<Category>("Branding");
-
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const [isPaused, setIsPaused] = useState(false);
 
   /* =======================================================
-     FILTER CURRENT CATEGORY
+     ALL WORK ITEMS
   ======================================================= */
 
   const filteredItems = useMemo(() => {
-    return workItems.filter(
-      (item) => item.category === activeCategory
-    );
-  }, [activeCategory]);
-
-  /* =======================================================
-     RESET WHEN CATEGORY CHANGES
-  ======================================================= */
-
-  useEffect(() => {
-    setCurrentIndex(0);
-  }, [activeCategory]);
+    return workItems;
+  }, []);
 
   /* =======================================================
      AUTO SLIDE
@@ -244,7 +201,6 @@ export default function Recentwork() {
           lg:px-10
         "
       >
-
         {/* ===================================================
             HEADING + PARAGRAPH + CTA
         =================================================== */}
@@ -551,7 +507,6 @@ export default function Recentwork() {
           </section>
 
         </div>
-
       </div>
 
       {/* =====================================================
@@ -579,7 +534,9 @@ export default function Recentwork() {
         onTouchEnd={() => setIsPaused(false)}
       >
 
-        {/* LEFT ARROW */}
+        {/* =================================================
+            LEFT ARROW
+        ================================================= */}
 
         <button
           type="button"
@@ -614,7 +571,9 @@ export default function Recentwork() {
           ←
         </button>
 
-        {/* RIGHT ARROW */}
+        {/* =================================================
+            RIGHT ARROW
+        ================================================= */}
 
         <button
           type="button"
@@ -701,7 +660,7 @@ export default function Recentwork() {
               >
                 <Image
                   src={item.image}
-                  alt={`${activeCategory} project ${
+                  alt={`Our Recent Work project ${
                     index + 1
                   }`}
                   fill

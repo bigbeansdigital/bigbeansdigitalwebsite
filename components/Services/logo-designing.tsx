@@ -128,7 +128,6 @@ const logoProjects: LogoProject[] = [
     id: 1,
     name: "Aster House",
     industry: "Real Estate",
-    style: "Combination Mark",
     image: "/assets/logo-design/portfolio/logo-01.webp",
     alt: "Aster House real estate logo design",
   },
@@ -136,7 +135,6 @@ const logoProjects: LogoProject[] = [
     id: 2,
     name: "Northline",
     industry: "Technology",
-    style: "Wordmark",
     image: "/assets/logo-design/portfolio/logo-02.webp",
     alt: "Northline technology wordmark logo design",
   },
@@ -144,7 +142,6 @@ const logoProjects: LogoProject[] = [
     id: 3,
     name: "Mora",
     industry: "Beauty & Wellness",
-    style: "Monogram",
     image: "/assets/logo-design/portfolio/logo-03.webp",
     alt: "Mora beauty monogram logo design",
   },
@@ -152,7 +149,6 @@ const logoProjects: LogoProject[] = [
     id: 4,
     name: "Forge & Field",
     industry: "Manufacturing",
-    style: "Emblem",
     image: "/assets/logo-design/portfolio/logo-04.webp",
     alt: "Forge and Field manufacturing emblem logo",
   },
@@ -160,7 +156,6 @@ const logoProjects: LogoProject[] = [
     id: 5,
     name: "Luma Table",
     industry: "Food & Hospitality",
-    style: "Symbol Mark",
     image: "/assets/logo-design/portfolio/logo-05.webp",
     alt: "Luma Table hospitality symbol logo",
   },
@@ -168,7 +163,6 @@ const logoProjects: LogoProject[] = [
     id: 6,
     name: "Kite Studio",
     industry: "Creative Services",
-    style: "Lettermark",
     image: "/assets/logo-design/portfolio/logo-06.webp",
     alt: "Kite Studio creative services lettermark logo",
   },
@@ -176,7 +170,6 @@ const logoProjects: LogoProject[] = [
     id: 7,
     name: "Velo Works",
     industry: "Automotive",
-    style: "Wordmark",
     image: "/assets/logo-design/portfolio/logo-07.webp",
     alt: "Velo Works automotive wordmark logo",
   },
@@ -184,7 +177,6 @@ const logoProjects: LogoProject[] = [
     id: 8,
     name: "Little Orbit",
     industry: "Education",
-    style: "Mascot",
     image: "/assets/logo-design/portfolio/logo-08.webp",
     alt: "Little Orbit education mascot logo",
   },
@@ -208,36 +200,12 @@ const logoStyles: LogoStyle[] = [
     icon: <PenTool className="h-5 w-5" />,
   },
   {
-    id: "monogram",
-    name: "Monogram",
-    description: "Letters are combined into a distinctive mark with a more crafted and recognisable form.",
-    image: "/assets/logo-design/styles/monogram.webp",
-    alt: "Monogram logo design example",
-    icon: <Shapes className="h-5 w-5" />,
-  },
-  {
-    id: "symbol",
-    name: "Symbol Mark",
-    description: "A standalone graphic represents the brand and can work independently from the name.",
-    image: "/assets/logo-design/styles/symbol-mark.webp",
-    alt: "Symbol mark logo design example",
-    icon: <Sparkles className="h-5 w-5" />,
-  },
-  {
     id: "combination",
     name: "Combination Mark",
     description: "A symbol and wordmark are designed to work together as one flexible identity system.",
     image: "/assets/logo-design/styles/combination-mark.webp",
     alt: "Combination mark logo design example",
     icon: <Layers3 className="h-5 w-5" />,
-  },
-  {
-    id: "emblem",
-    name: "Emblem",
-    description: "Typography and graphic elements are contained within a unified badge or seal-like form.",
-    image: "/assets/logo-design/styles/emblem.webp",
-    alt: "Emblem logo design example",
-    icon: <BadgeCheck className="h-5 w-5" />,
   },
   {
     id: "mascot",
@@ -1103,94 +1071,104 @@ function LogoDesignPage() {
         </div>
       </section>
 
-      {/* 9. LOGO + BRAND APPLICATIONS */}
-      <section className="logo-section relative bg-black">
-        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
-            <div className="lg:col-span-5">
-              <span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">[ LOGO + BRAND APPLICATIONS ]</span>
-              <h2 className="mt-4 font-bold leading-[0.95]">A Logo Has to Work<br /><span className="highlight-font text-[#F8BC04]">Beyond the Logo File</span></h2>
-              <p className="mt-6 leading-relaxed text-white/60">A useful identity needs to survive real applications. Explore how the same visual system can move across packaging, websites, social media, stationery, signage and merchandise.</p>
-              <div className="mt-8 space-y-2">
-                {applications.map((application, index) => (
-                  <button key={application.id} type="button" onClick={() => setApplicationIndex(index)} className={`flex w-full items-center gap-4 rounded-2xl border px-4 py-3 text-left transition-all ${applicationIndex === index ? "border-[#F8BC04]/60 bg-[#F8BC04]/10" : "border-white/10 bg-white/[0.02] hover:border-white/20"}`}>
-                    <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${applicationIndex === index ? "bg-[#F8BC04] text-black" : "border border-white/10 text-[#F8BC04]"}`}>{application.icon}</span>
-                    <span className="flex-1"><span className="block text-sm font-bold text-white">{application.title}</span><span className="mt-0.5 block text-xs text-white/40">{application.description}</span></span>
-                    <ArrowRight className={`h-4 w-4 ${applicationIndex === index ? "text-[#F8BC04]" : "text-white/20"}`} />
-                  </button>
-                ))}
-              </div>
-            </div>
-            <div className="lg:col-span-7">
-              <AnimatePresence mode="wait">
-                <motion.div key={activeApplication.id} initial={{ opacity: 0, scale: .98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: .98 }} transition={{ duration: .35 }} className="logo-application-stage">
-                  <Image src={activeApplication.image} alt={activeApplication.alt} fill sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover" />
-                  <div className="absolute inset-x-5 bottom-5 z-10 rounded-2xl border border-white/10 bg-black/75 p-5 backdrop-blur-md sm:inset-x-7 sm:bottom-7"><div className="text-[10px] font-black uppercase tracking-[0.2em] text-[#F8BC04]">BRAND APPLICATION</div><div className="mt-1 text-lg font-bold text-white">{activeApplication.title}</div></div>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* =========================================================================
+    FINAL CTA SECTION
+    ========================================================================= */}
+<section className="relative z-10 py-5 sm:py-5 overflow-hidden text-center">
 
-      {/* 10. LOGO VARIATIONS / ASSETS */}
-      <section className="logo-section relative bg-black">
-        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
-          <div className="mb-10 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <div><span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">[ LOGO VARIATIONS / BRAND ASSETS ]</span><h2 className="mt-4 font-bold leading-tight">A Usable Logo System,<br /><span className="highlight-font text-[#F8BC04]">Not Just One JPG</span></h2></div>
-            <p className="max-w-xl leading-relaxed text-white/50">Final delivery can include multiple approved versions so the identity can adapt to different backgrounds, sizes, layouts and production needs.</p>
-          </div>
-          <div className="logo-asset-board">
-            {assetItems.map((asset) => (
-              <div key={asset.title} className="logo-asset-card group">
-                <div className="relative h-[190px] bg-white"><Image src={asset.image} alt={asset.alt} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-contain p-8 transition-transform duration-500 group-hover:scale-105" /></div>
-                <div className="p-5"><h3 className="font-bold text-white">{asset.title}</h3><p className="mt-2 text-xs leading-relaxed text-white/45">{asset.description}</p></div>
-              </div>
-            ))}
-          </div>
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-white/10 bg-white/[0.02] p-5 text-xs font-bold text-white/55">
-            <span className="mr-2 text-[#F8BC04]">FILE FORMATS</span><span>AI</span><span>|</span><span>EPS</span><span>|</span><span>SVG</span><span>|</span><span>PDF</span><span>|</span><span>PNG</span><span>|</span><span>JPG</span>
-          </div>
-        </div>
-      </section>
+  <div className="max-w-4xl mx-auto px-4 relative z-10">
 
-      {/* 11. PACKAGES */}
-      <section className="logo-section relative bg-black">
-        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
-          <div className="mx-auto max-w-3xl text-center"><span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">[ LOGO DESIGN PACKAGES / WHAT YOU GET ]</span><h2 className="mt-4 font-bold">Choose the Scope That Fits<br /><span className="highlight-font text-[#F8BC04]">Your Brand Requirement</span></h2><p className="mt-4 leading-relaxed text-white/50">We can structure the project around the level of identity development your business actually needs. Pricing can be discussed separately based on scope.</p></div>
-          <div className="mt-12 grid grid-cols-1 gap-5 lg:grid-cols-3">
-            {[
-              { title: "Logo Design", eyebrow: "CORE IDENTITY", description: "Custom logo concept + revisions + final logo files.", icon: <PenTool className="h-6 w-6" />, items: ["Custom logo direction", "Concept development", "Defined revision rounds", "Primary and alternate files", "Print and digital formats"] },
-              { title: "Logo + Brand Identity", eyebrow: "EXTENDED SYSTEM", description: "Logo + colour palette + typography + basic brand guidelines.", icon: <Palette className="h-6 w-6" />, items: ["Everything in Logo Design", "Brand colour palette", "Typography selection", "Basic usage guidance", "Selected brand applications"] },
-              { title: "Complete Brand Identity", eyebrow: "FULL IDENTITY", description: "Logo + visual identity system + brand guidelines + applications.", icon: <Boxes className="h-6 w-6" />, items: ["Full logo system", "Visual identity direction", "Brand guidelines", "Application concepts", "Expanded brand asset delivery"] },
-            ].map((pack) => (
-              <div key={pack.title} className="group rounded-[26px] border border-white/10 bg-[#090909] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#F8BC04]/50">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[#F8BC04]/30 bg-[#F8BC04]/5 text-[#F8BC04]">{pack.icon}</div>
-                <div className="mt-6 text-[9px] font-black tracking-[0.2em] text-[#F8BC04]">{pack.eyebrow}</div><h3 className="mt-2 font-bold text-white">{pack.title}</h3><p className="mt-3 leading-relaxed text-white/50">{pack.description}</p>
-                <div className="mt-6 space-y-3 border-t border-white/10 pt-5">{pack.items.map((item) => <div key={item} className="flex items-center gap-3 text-sm text-white/60"><CheckCircle2 className="h-4 w-4 shrink-0 text-[#F8BC04]" />{item}</div>)}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    <h2 className="text-3xl sm:text-5xl md:text-7xl font-black tracking-tight leading-[1.1] sm:leading-[1.05]">
+      Scale Your Brand
+      Today{" "}
+      <span
+        className="font-serif italic font-normal text-[#F8BC04]"
+        style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
+      >
+        with Big Beans Digital
+      </span>
+    </h2>
 
-      {/* 12. TECHNOLOGIES */}
-      <section className="logo-section relative bg-black">
-        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
-          <div className="text-center"><span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">[ TECHNOLOGIES WE WORK WITH ]</span><h2 className="mt-4 font-bold">Design Tools, Vector Workflows & <span className="highlight-font text-[#F8BC04]">Brand Production</span></h2><p className="mx-auto mt-4 max-w-2xl leading-relaxed text-white/50">We use professional design and production tools to build, refine and prepare identity assets for different applications.</p></div>
-          <div className="mt-14 space-y-12">
-            {technologyRows.map((row, rowIndex) => <div key={rowIndex} className="logo-tech-row">{row.map((technology) => <div key={technology.name} className="logo-tech-item"><div className="logo-tech-image-wrap"><Image src={technology.image} alt={technology.alt} fill sizes="74px" className="logo-tech-image" /></div><span className="logo-tech-name">{technology.name}</span></div>)}</div>)}
-          </div>
-        </div>
-      </section>
+    <p className="mt-4 sm:mt-6 text-xs sm:text-base md:text-lg text-white/60 max-w-xl mx-auto leading-relaxed">
+      Ready to turn fragmented tactics into a predictable growth engine? Book your free strategy session with our digital marketing agency now.
+    </p>
 
-      {/* 13. OUR RECENT WORK */}
-      <section className="logo-section relative bg-black">
-        <div className="mx-auto max-w-[1550px] px-5 sm:px-8">
-          <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between"><div><span className="text-xs font-black tracking-[0.25em] text-[#F8BC04]">[ OUR RECENT WORK ]</span><h2 className="mt-4 font-bold leading-tight">Work Across<br /><span className="highlight-font text-[#F8BC04]">Digital Growth</span></h2></div><Link href="/work" className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-[#F8BC04]">View All Work <ArrowRight className="h-4 w-4" /></Link></div>
-          <OurWork />
-        </div>
-      </section>
+    {/* CTA BUTTONS */}
+    <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4">
+
+      <Link
+        href="/connect"
+        className="group relative inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-[#F8BC04] text-black font-extrabold text-sm sm:text-base tracking-tight transition-all duration-300 hover:scale-105 hover:shadow-[0_0_35px_rgba(248,188,4,0.5)]"
+      >
+        <span>Connect With Us</span>
+
+        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+      </Link>
+
+      <Link
+        href="https://wa.link/pxmrrm"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full border border-white/20 text-white font-semibold text-sm sm:text-base hover:bg-white/5 hover:border-white/40 transition-colors"
+      >
+        Quick WhatsApp Chat
+
+        <ExternalLink className="w-4 h-4 text-white/60" />
+      </Link>
+
+    </div>
+
+    {/* ==================================================
+        SERVICE LINKS BELOW CTA BUTTONS
+    =================================================== */}
+    <div className="mt-7 flex flex-wrap items-center justify-center gap-5 text-xs text-white/40">
+
+      <Link
+        href="/branding"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Branding
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/seo"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        SEO
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/website-development"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Website Development
+      </Link>
+
+      <span>
+        •
+      </span>
+
+      <Link
+        href="/performance-marketing"
+        className="transition-colors hover:text-[#F8BC04]"
+      >
+        Performance Marketing
+      </Link>
+
+    </div>
+
+  </div>
+</section>
+
+      
 
       {/* =========================================================================
     INDUSTRIES WE WORKED WITH SECTION
