@@ -1337,18 +1337,13 @@ export default function AboutPage() {
       ===================================================== */}
 
       <Section>
-        <div className="mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
-          <TeamMarquee
-            members={creativeTeam}
-            title={
-  <>
-    Our <span className="text-[#F8BC04]">BEANS</span> Who Works to Make Brand{" "}
-    <span className="text-[#F8BC04]">BIG</span>
-  </>
-}
-          />
-        </div>
-      </Section>
+  <div className="mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
+    <TeamMarquee
+      members={creativeTeam}
+      title="Our BEANS Who Work to Make Brand BIG"
+    />
+  </div>
+</Section>
 
 
       {/* =====================================================
