@@ -1340,6 +1340,7 @@ export default function AboutPage() {
   <div className="mx-auto max-w-[1450px] px-5 sm:px-8 lg:px-12">
     <TeamMarquee
       members={creativeTeam}
+      eyebrow="MEET OUR TEAM"
       title="Our BEANS Who Work to Make Brand BIG"
     />
   </div>
