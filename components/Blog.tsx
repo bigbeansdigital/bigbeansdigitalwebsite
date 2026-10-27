@@ -44,6 +44,22 @@ export default function SocialMediaMarketing() {
   ];
 
   const blogs = [
+
+    {
+      id: 12,
+      image:
+        "/assets/blog/singleblogs/100-Fashion-Brand-Name-Ideas.webp",
+      date: "October 17 2026",
+      primaryCategory: "Branding",
+      secondaryCategory: "Start-Ups",
+      title:
+        "100 Fashion Brand Name Ideas That Actually Sell",
+      description:
+        "Get inspired by 100 Fashion Brand Name Ideas proven to sell, plus expert advice to pick a unique, future-ready brand name.",
+      link: "/blog/100-fashion-brand-name-ideas",
+    },
+
+
     {
       id: 11,
       image:
